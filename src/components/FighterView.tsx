@@ -5,7 +5,7 @@ import { sourceById } from '../data/sources'
 import { formatFrames } from '../lib/frame'
 import { hrefFor } from '../router'
 import { ComboExplorer } from './ComboExplorer'
-import { FighterGlyph } from './FighterGlyph'
+import { FighterPicture } from './FighterPicture'
 import { FighterUtility } from './FighterUtility'
 import { FrameDataPanel } from './FrameDataPanel'
 import { MatchupLab } from './MatchupLab'
@@ -62,7 +62,7 @@ export function FighterView({ slug }: { slug: string }) {
 }
 
 function FighterHeader({ name, series, archetype, memoryAid }: { name: string; series: string; archetype: string; memoryAid: string }) {
-  return <section className="fighter-hero"><div className="fighter-hero__mark"><FighterGlyph name={name} /></div><div className="fighter-hero__content"><div className="fighter-hero__meta"><span>{series}</span><span>•</span><span>{archetype}</span></div><h1>{name}</h1><div className="memory-aid"><span>Memory aid</span><p>{memoryAid}</p></div></div></section>
+  return <section className="fighter-hero"><div className="fighter-hero__picture"><FighterPicture name={name} series={series} /></div><div className="fighter-hero__content"><div className="fighter-hero__meta"><span>{series}</span><span>•</span><span>{archetype}</span></div><h1>{name}</h1><div className="memory-aid"><span>Memory aid</span><p>{memoryAid}</p></div></div></section>
 }
 
 function FighterPager({ previous, next }: { previous: (typeof roster)[number] | undefined; next: (typeof roster)[number] | undefined }) {
