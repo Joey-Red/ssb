@@ -82,10 +82,13 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const phase = currentFrame?.phase ?? fallbackPhase(frame, activeStart, activeEnd)
   const regions = currentFrame?.regions ?? []
   const hasHostedStill = Boolean(currentFrame?.imageSrc)
-  const hasSpriteFrame = Boolean(media?.spriteSheet && frame <= media.spriteSheet.frameCount)
+  const sourceCoverage = media?.spriteSheet?.frameCount ?? 0
+  const hasSpriteFrame = Boolean(media?.spriteSheet && frame <= sourceCoverage)
   const hasExactVisual = hasHostedStill || hasSpriteFrame
-  const hasAnyExactMedia = Boolean(media?.spriteSheet || media?.frames.some((item) => item.imageSrc))
-  const hasOverlayData = Boolean(media?.frames.some((item) => (item.regions?.length ?? 0) > 0 && (item.imageSrc || media.spriteSheet)))
+  const hasOverlayData = Boolean(media?.frames.some((item) => {
+    const exactImageAvailable = Boolean(item.imageSrc || (media.spriteSheet && item.frame <= media.spriteSheet.frameCount))
+    return (item.regions?.length ?? 0) > 0 && exactImageAvailable
+  }))
   const fighterRender = officialFighterRenderUrl(fighterId)
   const canLoopActive = activeStart !== null && activeEnd !== null
 
@@ -129,13 +132,13 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   }
 
   const stageStyle = media?.spriteSheet ? { aspectRatio: `${media.spriteSheet.frameWidth} / ${media.spriteSheet.frameHeight}` } : undefined
-  const showAnimatedPreview = Boolean(!hasAnyExactMedia && media?.animatedPreviewUrl && !previewFailed)
-  const sourceFrameMissing = Boolean(media?.spriteSheet && frame > media.spriteSheet.frameCount)
+  const showAnimatedPreview = Boolean(media?.animatedPreviewUrl && !previewFailed && !media?.spriteSheet)
+  const coverageLabel = media?.spriteSheet ? `${sourceCoverage}/${total}f` : null
 
   return (
     <section className="visual-media-card" aria-label={`${fighterName} ${move.name} visual frame player`}>
       <header className="visual-media-card__head">
-        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek one documented game frame at a time. Exact source imagery is shown only for frame indices the staged source actually contains.</p></div>
+        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek one documented game frame at a time. Exact source imagery is shown only where that frame exists in the staged source.</p></div>
         {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Source notes ↗</a> : <span className="visual-media-card__source">Timing only</span>}
       </header>
       <div className="visual-player" tabIndex={0} onKeyDown={onKeyDown}>
@@ -156,7 +159,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
             ) : (
               <>
                 <img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true }} />
-                <div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{sourceFrameMissing ? 'Source visual unavailable for this frame' : move.name}</small></div>
+                <div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{media?.spriteSheet ? 'Source visual unavailable for this frame' : move.name}</small></div>
               </>
             )}
             <span className="visual-player__phase">{phase}</span>
@@ -164,7 +167,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           </div>
           <aside className="visual-player__timing" aria-label="Current move timing">
             <h5>Frame index</h5>
-            <dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{media?.spriteSheet && <><dt>Visual coverage</dt><dd>{media.spriteSheet.frameCount}/{total}f</dd></>}</dl>
+            <dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{coverageLabel && <><dt>Visual coverage</dt><dd>{coverageLabel}</dd></>}</dl>
             {currentFrame?.caption && <p className="visual-player__note">{currentFrame.caption}</p>}
           </aside>
         </div>
@@ -183,7 +186,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           <label className="visual-player__loop-toggle"><input type="checkbox" checked={loopActive} disabled={!canLoopActive} onChange={(event) => { setLoopActive(event.target.checked); if (event.target.checked && activeStart !== null) setFrame(activeStart) }} /> Loop active span</label>
           {hasOverlayData ? <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label> : <span className="visual-player__overlay-status">Overlay metadata not staged</span>}
         </div>
-        <p className="visual-player__note">{hasExactVisual ? 'This slider position selects the corresponding local source frame. Playback, slow motion, and active-span looping stay synchronized to the documented frame index.' : sourceFrameMissing ? 'The source animation does not contain a distinct image block for this documented recovery frame, so no visual is fabricated.' : showAnimatedPreview ? 'The local GIF is a fallback preview only; the timing controls are independent until an exact local frame sheet is staged.' : 'A local fighter render is shown while the controls index documented timing. No third-party asset request is made.'}</p>
+        <p className="visual-player__note">{media?.spriteSheet ? `Local exact-source coverage: ${sourceCoverage}/${total} documented frames. Playback and seeking never fabricate a missing source image.` : showAnimatedPreview ? 'The local GIF is a fallback preview only; the timing controls are independent until an exact local frame sheet is staged.' : 'A local fighter render is shown while the controls index documented timing. No third-party asset request is made.'}</p>
       </div>
     </section>
   )
