@@ -5,10 +5,11 @@ on:
   pull_request:
     types: [opened, reopened]
     paths:
+      - 'scripts/discover-ufd-visuals.py'
       - 'scripts/vendor-static-assets.py'
-      - 'scripts/probe-ufd-visuals.py'
       - 'scripts/requirements-media.txt'
-      - 'src/data/visualMediaSources.json'
+      - 'src/data/ufd-manifest.json'
+      - 'src/data/frameData.generated.json'
       - '.github/workflows/vendor-static-assets.yml'
 
 permissions:
@@ -18,6 +19,7 @@ jobs:
   vendor:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
+    timeout-minutes: 60
     steps:
       - name: Checkout writable branch
         uses: actions/checkout@v7
@@ -32,5 +34,20 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Probe UFD visual discovery
-        run: python scripts/probe-ufd-visuals.py
+      - name: Discover full-roster UFD visuals
+        run: python scripts/discover-ufd-visuals.py
+      - name: Commit discovered source manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/visualMediaSources.json
+          if git diff --cached --quiet; then
+            echo 'Visual source manifest is already current.'
+            exit 0
+          fi
+          git commit -m 'chore: discover full-roster move visuals'
+          git pull --rebase origin "$branch"
+          git push origin HEAD:"$branch"
