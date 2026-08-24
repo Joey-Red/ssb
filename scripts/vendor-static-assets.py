@@ -52,7 +52,7 @@ CODE_CANDIDATES: dict[str, list[str]] = {
     "isabelle": ["isabelle", "shizue"],
     "hero": ["hero", "dq_hero"],
     "pyra": ["pyra", "homura"],
-    "mythra": ["mythra", "hikari", "pyra"],
+    "mythra": ["mythra", "hikari", "pyra", "homura"],
 }
 
 
