@@ -7,6 +7,7 @@ import './styles.css'
 import './accessibility.css'
 import './themes.css'
 import './festival-layout.css'
+import './visual-overrides.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
