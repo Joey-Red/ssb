@@ -14,10 +14,16 @@ function validateVisualMedia(): string[] {
     keys.add(key)
     if (!media.sourceUrl.startsWith('https://')) errors.push(`${media.id}: source must be https`)
     if (media.animatedPreviewUrl && !media.animatedPreviewUrl.startsWith('https://')) errors.push(`${media.id}: preview must be https`)
+    if (media.spriteSheet) {
+      if (/^https?:\/\//.test(media.spriteSheet.src)) errors.push(`${media.id}: exact frame sheet must be a local static asset`)
+      if (media.spriteSheet.frameWidth < 1 || media.spriteSheet.frameHeight < 1) errors.push(`${media.id}: invalid frame-sheet dimensions`)
+      if (media.spriteSheet.columns < 1) errors.push(`${media.id}: frame-sheet columns must be positive`)
+    }
     if (media.frames.length !== media.totalFrames) errors.push(`${media.id}: expected ${media.totalFrames} frame rows, found ${media.frames.length}`)
     media.frames.forEach((frame, index) => {
       if (frame.frame !== index + 1) errors.push(`${media.id}: frame numbering is not contiguous at ${index + 1}`)
-      if ((frame.regions?.length ?? 0) > 0 && !frame.imageSrc) errors.push(`${media.id}: frame ${frame.frame} has overlay geometry without an exact still image`)
+      const hasExactFrameImage = Boolean(frame.imageSrc || media.spriteSheet)
+      if ((frame.regions?.length ?? 0) > 0 && !hasExactFrameImage) errors.push(`${media.id}: frame ${frame.frame} has overlay geometry without an exact frame image`)
       for (const region of frame.regions ?? []) {
         if (region.x < 0 || region.x > 100 || region.y < 0 || region.y > 100) errors.push(`${media.id}: ${region.id} is outside the image`)
         if (region.radius <= 0 || region.radius > 50) errors.push(`${media.id}: ${region.id} has invalid radius`)
