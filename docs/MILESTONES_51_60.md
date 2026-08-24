@@ -11,23 +11,23 @@ Download/optimize local renders and centered roster thumbnails for all 89 fighte
 ## M53 — Local hitbox-preview repair
 Download every currently registered hitbox animation, serve it locally, remove hotlink/referrer failure from the player, and preserve the source URL only as an explicit user-opened reference link.
 
-## M54 — Exact frame-sheet population
-Convert every registered local animation into a fixed-grid sprite sheet whose frame count is validated against move timing. The slider must select the corresponding staged image rather than an independently playing GIF.
+## M54 — Exact source-frame sheet population
+Convert every registered local animation into a fixed-grid sprite sheet and audit its visual coverage against documented move length. Each distinct staged source image is seekable by frame index; if the source omits a distinct image for a documented recovery frame, the player reports that gap instead of duplicating or inventing an image.
 
 ## M55 — Advanced frame playback controls
 Add direct frame entry, 0.25×/0.5×/1× playback, first/last-active jumps, active-span looping, keyboard stepping, and touch-safe controls while preserving native 60 FPS frame terminology.
 
 ## M56 — Pyra exact visual study
-All five Pyra aerials must have local preview media and exact seekable frame sheets, with their active timing cross-checked against the committed frame snapshot.
+All five Pyra aerials must have local preview media and frame-addressable source sheets, with visual coverage and active timing cross-checked against the committed frame snapshot.
 
 ## M57 — Mythra exact visual study
-All five Mythra aerials must have the same local/exact treatment and timing consistency checks.
+All five Mythra aerials must have the same local/frame-addressable treatment and timing consistency checks.
 
 ## M58 — Mario and Kazuya exact visual study
-Convert the currently registered Mario and Kazuya aerial references to local exact sheets, including the Kazuya Up Air QA case and complex Kazuya Down Air timing.
+Convert the currently registered Mario and Kazuya aerial references to local frame-addressable sheets, including the Kazuya Up Air QA case and complex Kazuya Down Air timing.
 
 ## M59 — Offline/media integrity audit
 Tests must verify all 89 fighter images and all registered move previews/sheets exist in the repository, runtime source cannot auto-request third-party assets, frame data remains same-origin, and the service worker can cache local images/JSON.
 
 ## M60 — Arena rename, release QA, merge and Pages deployment
-Rename the alternate dark theme to **Arena** everywhere, remove the previous theme name from maintained text/code, run the exact-head lint/test/strict-TypeScript/production gate, verify responsive Festival/Arena layouts, merge to `main`, deploy Pages, and clean the branch.
+Rename the alternate dark theme to **Arena** everywhere, remove the retired theme name from maintained text/code, run the exact-head lint/test/strict-TypeScript/production gate, verify responsive Festival/Arena layouts, merge to `main`, deploy Pages, and clean the branch.
