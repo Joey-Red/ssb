@@ -1,6 +1,7 @@
-import type { FighterGuide, FighterManifestEntry, SourceRef } from '../types'
+import type { FighterGuide, FighterManifestEntry, FrameDataSnapshot, MoveCategory, SourceRef } from '../types'
 
 const expectedPercentages = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200] as const
+const frameCategories = new Set<MoveCategory>(['ground', 'aerial', 'special', 'grab', 'defense', 'misc'])
 
 export function validateRoster(roster: readonly FighterManifestEntry[]): string[] {
   const errors: string[] = []
@@ -76,6 +77,42 @@ export function validateGuides(guides: readonly FighterGuide[], roster: readonly
   }
 
   for (const fighter of roster) if (!guideIds.has(fighter.id)) errors.push(`Roster fighter is missing a guide: ${fighter.id}`)
+  return errors
+}
+
+export function validateFrameData(snapshot: FrameDataSnapshot, roster: readonly FighterManifestEntry[]): string[] {
+  const errors: string[] = []
+  const rosterIds = new Set(roster.map((fighter) => fighter.id))
+  const frameIds = new Set(Object.keys(snapshot.fighters))
+
+  if (snapshot.version !== 1) errors.push(`Unsupported frame-data snapshot version: ${snapshot.version}`)
+  if (snapshot.source.id !== 'ultimate-frame-data') errors.push(`Unexpected frame-data source id: ${snapshot.source.id}`)
+  if (!snapshot.source.baseUrl.startsWith('https://')) errors.push('Frame-data base URL must use HTTPS')
+  if (Number.isNaN(Date.parse(snapshot.generatedAt))) errors.push('Frame-data generatedAt is not a valid timestamp')
+  if (frameIds.size !== rosterIds.size) errors.push(`Expected frame data for ${rosterIds.size} fighters, found ${frameIds.size}`)
+
+  for (const fighterId of rosterIds) if (!frameIds.has(fighterId)) errors.push(`Missing frame data: ${fighterId}`)
+  for (const fighterId of frameIds) if (!rosterIds.has(fighterId)) errors.push(`Unknown frame-data fighter: ${fighterId}`)
+
+  for (const [fighterId, data] of Object.entries(snapshot.fighters)) {
+    if (data.fighterId !== fighterId) errors.push(`${fighterId} frame-data key/id mismatch`)
+    if (!data.name.trim()) errors.push(`${fighterId} frame data is missing a display name`)
+    if (!data.sourceUrl.startsWith('https://ultimateframedata.com/')) errors.push(`${fighterId} frame-data source URL must point to Ultimate Frame Data`)
+    if (data.moves.length < 12) errors.push(`${fighterId} has too few frame-data rows: ${data.moves.length}`)
+
+    const moveIds = new Set<string>()
+    for (const move of data.moves) {
+      if (moveIds.has(move.id)) errors.push(`${fighterId} has duplicate frame move id: ${move.id}`)
+      moveIds.add(move.id)
+      if (!move.name.trim()) errors.push(`${fighterId}/${move.id} is missing a move name`)
+      if (!frameCategories.has(move.category)) errors.push(`${fighterId}/${move.id} has invalid category ${move.category}`)
+      if (move.startupFrame !== null && (!Number.isInteger(move.startupFrame) || move.startupFrame <= 0)) errors.push(`${fighterId}/${move.id} has invalid parsed startup frame`)
+      if (move.startup && move.startupFrame !== null) {
+        const rawFirst = Number(move.startup.match(/\d+/)?.[0])
+        if (Number.isFinite(rawFirst) && rawFirst !== move.startupFrame) errors.push(`${fighterId}/${move.id} startupFrame does not match raw startup notation`)
+      }
+    }
+  }
   return errors
 }
 

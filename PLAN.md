@@ -1,7 +1,7 @@
 # SSBU Training Guide — Project Plan
 
 ## Product goal
-Build a polished, mobile-first Super Smash Bros. Ultimate training companion that is a frontend-only SPA deployable to GitHub Pages. Every fighter ultimately gets a 1–2 line memory aid, concise quick guide, character-specific 0–200% practice routine, true/conditional combo information, kill confirms, and later complete frame-data and visual move reference.
+Build a polished, mobile-first Super Smash Bros. Ultimate training companion that is a frontend-only SPA deployable to GitHub Pages. Every fighter gets a 1–2 line memory aid, concise quick guide, character-specific 0–200% practice routine, conservative combo/confirm information, full move timing reference, and training tools that remain useful without an account or server.
 
 ## Non-negotiables
 - Frontend only: no server, database, login, telemetry, or required runtime API.
@@ -14,7 +14,7 @@ Build a polished, mobile-first Super Smash Bros. Ultimate training companion tha
 - Accessible keyboard navigation, visible focus, semantic markup, reduced-motion support, forced-colors support, and practical touch targets.
 
 ## Architecture
-React + TypeScript + Vite, strict TypeScript, project-owned CSS, hash routing for Pages reliability, static TypeScript data modules, Vitest validation, local-only browser persistence, lazy-loaded heavy views, progressive offline caching, and GitHub Actions deployment.
+React + TypeScript + Vite, strict TypeScript, project-owned CSS, hash routing for Pages reliability, static TypeScript/JSON data, Vitest validation, local-only browser persistence, lazy-loaded heavy views, progressive offline caching, and GitHub Actions deployment.
 
 ```text
 src/
@@ -23,6 +23,7 @@ src/
   lib/
   router.ts
   types.ts
+scripts/
 public/
   sw.js
 ```
@@ -33,7 +34,7 @@ public/
 Every source-backed route stores a percentage window, classification, confidence, conditions where needed, execution note, and source IDs. `review` content remains visibly distinct from source-backed material.
 
 ### Frame model
-SSBU runs at 60 FPS. Frame data is stored/displayed as frames: startup, active frames, recovery/FAF, landing lag, autocancel windows, shield advantage, OOS timing, and related move data as later milestones expand. Frame timing is never converted into the old tick system.
+SSBU runs at 60 FPS. Frame data is stored/displayed as frames: startup, active frames, total frames, FAF when independently available, landing lag, autocancel windows, shield advantage, OOS timing, and related move data. **Total Frames and FAF are separate fields and are never substituted for each other.** Frame timing is never converted into the old tick system.
 
 ## Roster rules
 The canonical manifest contains 89 independent fighter pages. Squirtle/Ivysaur/Charizard are independent pages; Pyra/Mythra are independent pages with Aegis relation metadata; Echo relationships are explicit; costume-only variants are not duplicated.
@@ -46,6 +47,7 @@ The canonical manifest contains 89 independent fighter pages. Squirtle/Ivysaur/C
 5. Uncertain execution stays `review` rather than silently becoming verified.
 6. Initial training percentage examples use Mario as a baseline dummy unless a route says otherwise.
 7. Media licensing/redistribution is a separate decision from factual frame data; do not bulk-copy Nintendo/third-party media.
+8. Unknown factual fields remain unknown instead of being inferred from adjacent values.
 
 # Milestones
 
@@ -91,20 +93,31 @@ Search includes guide metadata; series/archetype/favorites filters, recent fight
 ### M18 — Practice session mode ✅
 Dedicated practice routes include fighter switching, step navigation, rep counts, completion tracking, keyboard controls, and local persistence.
 ### M19 — Mobile/accessibility hardening ✅
-Coarse-pointer touch targets, four-item mobile navigation, visible focus, forced-colors handling, reduced motion, screen-reader status text, and responsive large-screen behavior are covered.
+Adaptive mobile navigation, coarse-pointer touch targets, visible focus, forced-colors handling, reduced motion, screen-reader status text, and responsive large-screen behavior are covered.
 ### M20 — Performance/offline resilience ✅
-Fighter/practice views are lazy-loaded and the production build registers a scoped service worker that caches the app shell and fetched static assets for repeat/offline use without making offline support a runtime requirement.
+Heavy routes are lazy-loaded and the production build registers a scoped service worker that caches the app shell and fetched static assets for repeat/offline use without making offline support a runtime requirement.
 
-## Next — Frame-data expansion
-### M21 — Full frame-data schema
-### M22 — Frame-data UI
-### M23 — Full-roster frame-data population
-### M24 — Media rights/source pipeline
-### M25 — Hitbox/frame viewer foundation
-### M26 — Approved fighter imagery/animations
-### M27 — Matchup/DI training notes
-### M28 — Discovery tools and OOS/move comparisons
-### M29 — Release-quality audit
+## Phase 4 — Frame data, visual tools, and personalized training
+### M21 — Full frame-data schema ✅
+Typed move/stat snapshot contracts preserve raw range/multihit notation and keep Total Frames distinct from FAF.
+### M22 — Frame-data UI ✅
+Every fighter can surface searchable/category-filtered move timing, OOS startup references, source links, and expandable details.
+### M23 — Full-roster frame-data population ✅
+A committed 89-fighter static snapshot is generated from normalized UFD-derived factual rows, validated for full roster/minimum coverage, and linked back to UFD as canonical reference. GitHub maintenance uses a documented transport mirror because UFD rejects hosted runners.
+### M24 — Media rights/source pipeline ✅
+Media assets carry project-owned/explicit-license/source-link-only status; tests reject unsafe bundled third-party assets and policy/provenance docs define the boundary.
+### M25 — Hitbox/frame viewer foundation ✅
+Move details include a frame timeline and interactive frame scrubber. The hitbox layer is reserved but intentionally does not invent collision geometry when approved coordinates are unavailable.
+### M26 — Approved fighter visual layer ✅
+Project-owned procedural fighter identity graphics give fighter pages visual identity without bundling unlicensed Nintendo renders or third-party animations.
+### M27 — Matchup/DI training notes ✅
+The matchup lab turns documented archetypes and existing DI-sensitive routes into practice focuses while explicitly avoiding fabricated universal matchup charts or DI answers.
+### M28 — Discovery tools and OOS/move comparisons ✅
+A dedicated Tools workspace supports side-by-side move metrics, cross-roster fast-move discovery, and OOS startup references with punish-context warnings.
+### M29 — Release-quality audit ✅
+CI validates roster/guide/frame/media/router invariants, runs lint and strict TypeScript, executes the full Vitest suite, and produces a successful Vite production build from `npm ci`.
+### M30 — Local custom drill queue ✅
+Users can build fighter-specific drills with percent, action route, notes, target reps, progress, reset/delete/clear-completed controls, and links back into practice/guides. State stays browser-local with no account, sync, or telemetry.
 
 ## Quality gate
 ```text
@@ -112,7 +125,9 @@ npm run lint
 npm test
 npm run build
 ```
-Static validation rejects malformed/duplicate roster routes, missing full-roster guides, invalid 0–200 routine structure, bad percentage windows, missing sources, invalid startup-frame fields, and unsupported `true` classifications in generated practice data.
+`npm run check` runs the complete gate. Static validation rejects malformed/duplicate roster routes, missing full-roster guides, invalid 0–200 routine structure, bad percentage windows, missing sources, invalid startup-frame fields, unsupported `true` classifications, unsafe media entries, and incomplete frame-data snapshots.
 
 ## Deployment
 `main → GitHub Actions → Vite dist → GitHub Pages → phone/tablet/desktop browser`.
+
+The M21–M30 development batch intentionally remains on its feature branch until the dedicated merge/deployment cleanup pass.

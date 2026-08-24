@@ -69,3 +69,77 @@ export interface FighterGuide {
   keyFrames: readonly KeyFrame[]
   sourceIds: readonly string[]
 }
+
+export type MoveCategory = 'ground' | 'aerial' | 'special' | 'grab' | 'defense' | 'misc'
+
+/**
+ * Raw UFD notation is intentionally preserved for factual fields that can
+ * contain ranges, multi-hits, or early/late values. Total frames and FAF are
+ * separate fields: one is never silently substituted for the other.
+ */
+export interface FrameMove {
+  id: string
+  name: string
+  category: MoveCategory
+  startup: string | null
+  startupFrame: number | null
+  active: string | null
+  totalFrames: string | null
+  faf: string | null
+  landingLag: string | null
+  autocancel: string | null
+  damage: string | null
+  onShield: string | null
+  shieldLag: string | null
+  shieldStun: string | null
+  hitboxType: string | null
+  endLag: string | null
+  notes: string | null
+}
+
+export interface FighterFrameStats {
+  weight: string | null
+  gravity: string | null
+  walkSpeed: string | null
+  runSpeed: string | null
+  initialDash: string | null
+  airSpeed: string | null
+  airAcceleration: string | null
+  fallSpeed: string | null
+  fastFallSpeed: string | null
+}
+
+export interface FighterFrameData {
+  fighterId: string
+  name: string
+  sourceUrl: string
+  stats: FighterFrameStats
+  moves: readonly FrameMove[]
+}
+
+export interface FrameDataSnapshot {
+  version: 1
+  generatedAt: string
+  source: {
+    id: 'ultimate-frame-data'
+    label: string
+    baseUrl: string
+    /** Maintenance transport only; the canonical values are attributed to UFD. */
+    transportMirror?: string
+  }
+  fighters: Readonly<Record<string, FighterFrameData>>
+}
+
+export type MediaLicenseStatus = 'project-owned' | 'explicitly-licensed' | 'source-link-only'
+
+export interface MediaAsset {
+  id: string
+  fighterId?: string
+  label: string
+  kind: 'diagram' | 'icon' | 'image' | 'animation' | 'external-reference'
+  status: MediaLicenseStatus
+  src?: string
+  sourceUrl?: string
+  attribution?: string
+  license?: string
+}
