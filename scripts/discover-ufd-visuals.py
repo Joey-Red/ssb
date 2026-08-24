@@ -47,12 +47,18 @@ def extension(url: str) -> str:
 
 def active_span(active: str | None, startup: int | None, total: str | None) -> tuple[int, int] | None:
     if active:
+        # Raw UFD notation can include parenthetical duration ranges or rehit
+        # counts after the first active frame, e.g. 5/7/.../23(1-2). The first
+        # numerical token is the authoritative first active frame; later
+        # numbers can extend the displayed active/impact study span, but they
+        # must never move its start backwards.
         cleaned = re.sub(r"\b\d+\s*x\b", "", active, flags=re.IGNORECASE)
         values = [int(value) for value in re.findall(r"\d+", cleaned)]
         if values:
-            lo, hi = min(values), max(values)
-            if lo > 0 and hi >= lo:
-                return lo, hi
+            start = values[0]
+            end = max(values)
+            if start > 0 and end >= start:
+                return start, end
     # Throws/pummels and some specials expose a visual but no conventional
     # active-window field. Keep a short impact study window around startup.
     if startup and startup > 0:
@@ -161,7 +167,7 @@ def discover_fighter(entry: dict[str, str], fighter_data: dict[str, Any]) -> tup
             "moveId": move["id"],
             "label": f"{fighter_data['name']} {move['name']}",
             "sourceUrl": page_url,
-            "totalFrames": int(re.search(r"\d+", move["totalFrames"] or "") .group()) if re.search(r"\d+", move["totalFrames"] or "") else None,
+            "totalFrames": int(re.search(r"\d+", move["totalFrames"] or "").group()) if re.search(r"\d+", move["totalFrames"] or "") else None,
             "startupFrame": move.get("startupFrame"),
             "active": move.get("active"),
             "activeSpan": list(active_span(move.get("active"), move.get("startupFrame"), move.get("totalFrames")) or []),
