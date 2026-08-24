@@ -25,11 +25,13 @@ function validateVisualMedia(): string[] {
       if (/^https?:\/\//.test(media.spriteSheet.src)) errors.push(`${media.id}: exact frame sheet must be local`)
       if (media.spriteSheet.frameWidth < 1 || media.spriteSheet.frameHeight < 1) errors.push(`${media.id}: invalid frame-sheet dimensions`)
       if (media.spriteSheet.columns < 1) errors.push(`${media.id}: frame-sheet columns must be positive`)
+      if (media.spriteSheet.frameCount < 1) errors.push(`${media.id}: frame-sheet coverage must be positive`)
+      if (media.spriteSheet.frameCount > media.totalFrames) errors.push(`${media.id}: source-frame coverage exceeds documented move length`)
     }
     if (media.frames.length !== media.totalFrames) errors.push(`${media.id}: expected ${media.totalFrames} frame rows, found ${media.frames.length}`)
     media.frames.forEach((frame, index) => {
       if (frame.frame !== index + 1) errors.push(`${media.id}: frame numbering is not contiguous at ${index + 1}`)
-      const hasExactFrameImage = Boolean(frame.imageSrc || media.spriteSheet)
+      const hasExactFrameImage = Boolean(frame.imageSrc || (media.spriteSheet && frame.frame <= media.spriteSheet.frameCount))
       if ((frame.regions?.length ?? 0) > 0 && !hasExactFrameImage) errors.push(`${media.id}: frame ${frame.frame} has overlay geometry without an exact frame image`)
       for (const region of frame.regions ?? []) {
         if (region.x < 0 || region.x > 100 || region.y < 0 || region.y > 100) errors.push(`${media.id}: ${region.id} is outside the image`)
@@ -43,23 +45,24 @@ function validateVisualMedia(): string[] {
 describe('visual frame media', () => {
   it('keeps frame sequences contiguous, local and overlay-safe', () => expect(validateVisualMedia()).toEqual([]))
 
-  it('ships exact local preview and sprite assets for every registered move', () => {
+  it('ships local preview and exact-source sprite assets for every registered move', () => {
     expect(visualMoveMedia).toHaveLength(19)
     for (const media of visualMoveMedia) {
       expect(media.animatedPreviewUrl, media.id).toBeTruthy()
       expect(media.spriteSheet, media.id).toBeTruthy()
       expect(existsSync(publicFile(media.animatedPreviewUrl!)), `${media.id} preview`).toBe(true)
       expect(existsSync(publicFile(media.spriteSheet!.src)), `${media.id} sheet`).toBe(true)
+      expect(media.spriteSheet!.frameCount, `${media.id} source coverage`).toBeLessThanOrEqual(media.totalFrames)
     }
   })
 
-  it('covers all five Pyra and Mythra aerials with exact seekable sheets', () => {
+  it('covers all five Pyra and Mythra aerials with frame-addressable local sheets', () => {
     const aerials = ['neutral-air', 'forward-air', 'back-air', 'up-air', 'down-air']
     for (const fighterId of ['pyra', 'mythra']) {
       const fighterMedia = visualMoveMedia.filter((media) => media.fighterId === fighterId)
       const covered = new Set(fighterMedia.map((media) => media.moveId))
       expect(aerials.every((moveId) => covered.has(moveId)), fighterId).toBe(true)
-      expect(fighterMedia.every((media) => Boolean(media.spriteSheet)), `${fighterId} exact sheets`).toBe(true)
+      expect(fighterMedia.every((media) => Boolean(media.spriteSheet?.frameCount)), `${fighterId} exact-source sheets`).toBe(true)
     }
   })
 })
