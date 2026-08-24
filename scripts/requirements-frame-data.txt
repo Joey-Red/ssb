@@ -1,3 +1,2 @@
-# Maintenance-only dependencies for the static UFD snapshot refresh.
-beautifulsoup4==4.13.5
+# Maintenance-only dependency for the static frame-data snapshot refresh.
 requests==2.32.5
