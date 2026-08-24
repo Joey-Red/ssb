@@ -6,8 +6,6 @@ on:
     types: [opened, reopened]
     paths:
       - 'scripts/vendor-static-assets.py'
-      - 'scripts/rename-arena-theme.py'
-      - 'scripts/update-plan-m51.py'
       - 'scripts/requirements-media.txt'
       - 'src/data/visualMediaSources.json'
       - '.github/workflows/vendor-static-assets.yml'
@@ -33,24 +31,20 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Finalize roadmap and Arena wording
-        run: |
-          python scripts/update-plan-m51.py
-          python scripts/rename-arena-theme.py
       - name: Vendor all runtime visual assets
         run: python scripts/vendor-static-assets.py
-      - name: Commit maintained and vendored assets
+      - name: Commit vendored assets
         shell: bash
         run: |
           set -euo pipefail
           branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add public/media src/data/visualMediaAssets.generated.json
           if git diff --cached --quiet; then
-            echo 'Maintained assets, roadmap and theme wording are already current.'
+            echo 'Vendored visual assets are already current.'
             exit 0
           fi
-          git commit -m 'chore: vendor local visuals and finalize Arena rename'
+          git commit -m 'chore: refresh local visual assets'
           git pull --rebase origin "$branch"
           git push origin HEAD:"$branch"
