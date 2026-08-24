@@ -7,8 +7,8 @@ A mobile-first, frontend-only Super Smash Bros. Ultimate training companion for 
 ## Visual identity
 
 - **Festival is the first-run default:** brighter game-like surfaces, bold outlines, playful red/blue/yellow/green accents, much larger branding, and stronger fighter/page hierarchy.
-- **Titan remains built in:** the original matte dark interface is available from the top-bar theme toggle.
-- Theme preference is browser-local and is applied before first paint so returning Titan users do not see a Festival flash.
+- **Arena remains built in:** the original matte dark interface is available from the top-bar theme toggle.
+- Theme preference is browser-local and is applied before first paint so returning Arena users do not see a Festival flash.
 - Festival layouts have dedicated phone, tablet/desktop, 2K, and ultrawide treatments instead of simply scaling one fixed desktop design.
 - Fighter cards and fighter heroes include responsive project-owned visual identity art with fallback-safe sizing.
 

@@ -1,12 +1,12 @@
 # Milestones 41–50 — Festival completion and frame-study hardening
 
-This batch follows the Festival release and the first live visual QA pass. Festival remains the default theme; Titan remains an intentionally separate alternate rather than being rewritten.
+This batch follows the Festival release and the first live visual QA pass. Festival remains the default theme; Arena remains an intentionally separate alternate rather than being rewritten.
 
 ## M40 cleanup — Close the Festival release
 Mark the already merged/released Festival batch complete after live QA confirmed the theme, character imagery, frame workspace, tools, drills, and practice routes render without build errors.
 
 ## M41 — Festival dark-surface eradication
-Audit component CSS for literal Titan-dark backgrounds and normalize every Festival surface through Festival-only overrides. Cover roster controls, combo cards, training ladder, practice, drills, matchup/DI, frame data, and Tools without changing Titan.
+Audit component CSS for literal Arena-dark backgrounds and normalize every Festival surface through Festival-only overrides. Cover roster controls, combo cards, training ladder, practice, drills, matchup/DI, frame data, and Tools without changing Arena.
 
 ## M42 — Tools presentation cleanup
 Use canonical roster display names instead of transport/internal IDs, improve Festival card/control styling, preserve responsive grids, and keep OOS explanations readable at phone through ultrawide sizes.
@@ -33,4 +33,4 @@ Remove the full roster JSON snapshot from the JavaScript bundle. Prepare it as a
 Run another conservative data audit focused on Aegis and other high-use training material: true labels, percentage windows, DI/character conditions, OOS wording, source references, and frame/media timing consistency.
 
 ## M50 — Full release and responsive QA
-Run lint, all tests, strict TypeScript, production build, bundle review, and route-level responsive/accessibility checks for Festival and Titan from 320px through desktop/2K/ultrawide. Merge only after the exact branch head is green, deploy Pages, and verify the live release.
+Run lint, all tests, strict TypeScript, production build, bundle review, and route-level responsive/accessibility checks for Festival and Arena from 320px through desktop/2K/ultrawide. Merge only after the exact branch head is green, deploy Pages, and verify the live release.

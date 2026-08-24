@@ -21,7 +21,7 @@ function textFiles(directory: string): string[] {
 
 describe('theme branding', () => {
   it('uses Arena as the alternate theme name everywhere in maintained text', () => {
-    const violations = textFiles(process.cwd()).filter((path) => /titan/i.test(readFileSync(path, 'utf8')))
+    const violations = textFiles(process.cwd()).filter((path) => /arena/i.test(readFileSync(path, 'utf8')))
     expect(violations).toEqual([])
   })
 })
