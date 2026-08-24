@@ -5,6 +5,11 @@ Network access is maintenance/build-time only. The deployed SPA references only 
 under its own Vite BASE_URL. Fighter art is sourced from the official Smash site;
 registered hitbox animations are sourced from Ultimate Frame Data and converted into
 seekable local sprite sheets.
+
+Important: UFD GIF playback duration is presentation slow-motion, not SSBU's 60 FPS
+clock. Each distinct GIF image block is therefore treated as one sequential source
+visual. If UFD provides fewer visual images than documented move frames, coverage is
+recorded honestly and the missing frames remain visually unavailable in the player.
 """
 
 from __future__ import annotations
@@ -29,7 +34,6 @@ FIGHTER_RENDER_DIR = PUBLIC / "media/fighters/renders"
 FIGHTER_THUMB_DIR = PUBLIC / "media/fighters/thumbs"
 HITBOX_DIR = PUBLIC / "media/hitboxes"
 SHEET_DIR = PUBLIC / "media/frame-sheets"
-GAME_FRAME_MS = 1000 / 60
 
 SESSION = requests.Session()
 SESSION.headers.update({
@@ -122,49 +126,20 @@ def vendor_fighter(fighter_id: str) -> dict[str, str]:
     codes = candidates(fighter_id)
     render_urls = [f"https://www.smashbros.com/assets_v2/img/fighter/{code}/main.png" for code in codes]
     thumb_urls = [f"https://www.smashbros.com/assets_v2/img/fighter/thumb_v/{code}.png" for code in codes]
-
     thumb_data, thumb_source = first_available(thumb_urls, referer="https://www.smashbros.com/")
     try:
         render_data, render_source = first_available(render_urls, referer="https://www.smashbros.com/")
     except Exception:
         render_data, render_source = thumb_data, thumb_source
-
     save_render(open_rgba(render_data), FIGHTER_RENDER_DIR / f"{fighter_id}.webp")
     save_thumbnail(open_rgba(thumb_data), FIGHTER_THUMB_DIR / f"{fighter_id}.webp")
     return {"renderSource": render_source, "thumbSource": thumb_source}
 
 
-def exact_game_frames(data: bytes, expected: int, key: str) -> list[Image.Image]:
-    """Return one image per 60 FPS game frame without inventing missing frames.
-
-    GIF encoders can collapse repeated visual frames into one image block with a longer
-    duration. We expand only when the encoded durations reconstruct the documented
-    game-frame count exactly; otherwise the source is rejected for exact-frame use.
-    """
+def source_visual_frames(data: bytes) -> list[Image.Image]:
+    """Return the distinct sequential image blocks provided by the source GIF."""
     with Image.open(io.BytesIO(data)) as source:
-        raw: list[Image.Image] = []
-        expanded: list[Image.Image] = []
-        durations: list[int] = []
-        default_duration = int(source.info.get("duration", round(GAME_FRAME_MS)))
-        for frame in ImageSequence.Iterator(source):
-            image = frame.convert("RGBA").copy()
-            duration = int(frame.info.get("duration", default_duration) or default_duration)
-            raw.append(image)
-            durations.append(duration)
-            repeats = max(1, round(duration / GAME_FRAME_MS))
-            expanded.extend(image.copy() for _ in range(repeats))
-
-    if len(raw) == expected:
-        return raw
-    if len(expanded) == expected:
-        print(f"visual: {key} expanded {len(raw)} GIF blocks to {len(expanded)} game frames from encoded durations")
-        return expanded
-
-    total_ms = sum(durations)
-    raise RuntimeError(
-        f"{key}: expected {expected} game frames; GIF has {len(raw)} image blocks, "
-        f"duration expansion gives {len(expanded)} frames ({total_ms}ms total; durations={sorted(set(durations))})"
-    )
+        return [frame.convert("RGBA").copy() for frame in ImageSequence.Iterator(source)]
 
 
 def make_sheet(frames: list[Image.Image], output: Path, columns: int = 8, max_edge: int = 480) -> dict[str, int | str]:
@@ -184,34 +159,46 @@ def make_sheet(frames: list[Image.Image], output: Path, columns: int = 8, max_ed
         sheet.alpha_composite(frame, ((index % columns) * frame_width, (index // columns) * frame_height))
     output.parent.mkdir(parents=True, exist_ok=True)
     sheet.save(output, "WEBP", lossless=True, method=6)
-    return {"frameWidth": frame_width, "frameHeight": frame_height, "columns": columns}
+    return {
+        "frameWidth": frame_width,
+        "frameHeight": frame_height,
+        "columns": columns,
+        "frameCount": len(frames),
+    }
 
 
 def vendor_visuals() -> dict[str, object]:
     source_manifest = json.loads(MEDIA_SOURCES.read_text(encoding="utf-8"))
     generated: dict[str, object] = {}
+    failures: list[str] = []
     for move in source_manifest["moves"]:
         fighter_id = move["fighterId"]
         move_id = move["moveId"]
         key = f"{fighter_id}:{move_id}"
-        data = fetch_bytes(move["downloadUrl"], referer=move["sourceUrl"])
-        gif_path = HITBOX_DIR / fighter_id / f"{move_id}.gif"
-        gif_path.parent.mkdir(parents=True, exist_ok=True)
-        gif_path.write_bytes(data)
-
-        expected = int(move["totalFrames"])
-        frames = exact_game_frames(data, expected, key)
-        sheet_path = SHEET_DIR / fighter_id / f"{move_id}.webp"
-        sheet = make_sheet(frames, sheet_path)
-        generated[key] = {
-            "previewSrc": f"media/hitboxes/{fighter_id}/{move_id}.gif",
-            "spriteSheet": {
-                "src": f"media/frame-sheets/{fighter_id}/{move_id}.webp",
-                **sheet,
-            },
-            "sha256": hashlib.sha256(data).hexdigest(),
-        }
-        print(f"visual: {key} -> {expected} exact frames")
+        try:
+            data = fetch_bytes(move["downloadUrl"], referer=move["sourceUrl"])
+            gif_path = HITBOX_DIR / fighter_id / f"{move_id}.gif"
+            gif_path.parent.mkdir(parents=True, exist_ok=True)
+            gif_path.write_bytes(data)
+            expected = int(move["totalFrames"])
+            frames = source_visual_frames(data)
+            if len(frames) > expected:
+                raise RuntimeError(f"source has {len(frames)} image blocks for {expected} documented move frames")
+            sheet_path = SHEET_DIR / fighter_id / f"{move_id}.webp"
+            sheet = make_sheet(frames, sheet_path)
+            generated[key] = {
+                "previewSrc": f"media/hitboxes/{fighter_id}/{move_id}.gif",
+                "spriteSheet": {
+                    "src": f"media/frame-sheets/{fighter_id}/{move_id}.webp",
+                    **sheet,
+                },
+                "sha256": hashlib.sha256(data).hexdigest(),
+            }
+            print(f"visual: {key} -> {len(frames)}/{expected} source frames")
+        except Exception as exc:  # noqa: BLE001 - report all move failures together
+            failures.append(f"{key}: {exc}")
+    if failures:
+        raise RuntimeError("visual asset failures:\n" + "\n".join(failures))
     return generated
 
 
@@ -219,7 +206,6 @@ def main() -> int:
     for directory in (FIGHTER_RENDER_DIR, FIGHTER_THUMB_DIR, HITBOX_DIR, SHEET_DIR):
         directory.mkdir(parents=True, exist_ok=True)
 
-    # Validate exact move media first so timing/source issues fail quickly during maintenance.
     move_assets = vendor_visuals()
 
     fighter_sources: dict[str, dict[str, str]] = {}
@@ -230,7 +216,6 @@ def main() -> int:
             print(f"fighter: {fighter_id}")
         except Exception as exc:  # noqa: BLE001 - report every failed roster asset together
             failures.append(f"{fighter_id}: {exc}")
-
     if failures:
         raise SystemExit("fighter asset failures:\n" + "\n".join(failures))
 
@@ -247,7 +232,7 @@ def main() -> int:
         "visualMoveCount": len(move_assets),
     }, indent=2) + "\n", encoding="utf-8")
 
-    print(f"vendored {len(fighter_sources)} fighter visuals and {len(move_assets)} exact move sheets")
+    print(f"vendored {len(fighter_sources)} fighter visuals and {len(move_assets)} move sheets")
     return 0
 
 
