@@ -33,6 +33,10 @@ export function PracticeView({ slug }: { slug: string }) {
   useEffect(() => {
     if (!fighterId || currentPercent === undefined || steps.length === 0) return
 
+    const activeFighterId = fighterId
+    const activePercent = currentPercent
+    const stepCount = steps.length
+
     function onKeyDown(event: globalThis.KeyboardEvent) {
       const target = event.target as HTMLElement | null
       if (target?.closest('input, select, textarea, button, a')) return
@@ -40,17 +44,17 @@ export function PracticeView({ slug }: { slug: string }) {
       if (event.key === 'ArrowLeft') {
         event.preventDefault()
         const next = Math.max(0, stepIndex - 1)
-        setPracticeStep(fighterId, next)
+        setPracticeStep(activeFighterId, next)
       } else if (event.key === 'ArrowRight') {
         event.preventDefault()
-        const next = Math.min(steps.length - 1, stepIndex + 1)
-        setPracticeStep(fighterId, next)
+        const next = Math.min(stepCount - 1, stepIndex + 1)
+        setPracticeStep(activeFighterId, next)
       } else if (event.key.toLowerCase() === 'r') {
         event.preventDefault()
-        incrementPracticeRep(fighterId, currentPercent)
+        incrementPracticeRep(activeFighterId, activePercent)
       } else if (event.key.toLowerCase() === 'c') {
         event.preventDefault()
-        togglePracticeComplete(fighterId, currentPercent)
+        togglePracticeComplete(activeFighterId, activePercent)
       }
     }
 
@@ -73,12 +77,13 @@ export function PracticeView({ slug }: { slug: string }) {
     return <section className="panel empty-state"><h1>No practice steps</h1><p>This guide needs a training routine.</p></section>
   }
 
+  const activeFighterId = fighter.id
   const repetitions = saved?.repetitions[String(currentStep.percent)] ?? 0
   const completed = saved?.completed.includes(currentStep.percent) ?? false
 
   function move(delta: number) {
     const next = Math.max(0, Math.min(steps.length - 1, stepIndex + delta))
-    setPracticeStep(fighter.id, next)
+    setPracticeStep(activeFighterId, next)
   }
 
   function selectFighter(nextSlug: string) {
@@ -121,7 +126,7 @@ export function PracticeView({ slug }: { slug: string }) {
                 type="button"
                 className={`practice-percent${index === stepIndex ? ' is-active' : ''}${isComplete ? ' is-complete' : ''}`}
                 key={step.percent}
-                onClick={() => setPracticeStep(fighter.id, index)}
+                onClick={() => setPracticeStep(activeFighterId, index)}
                 aria-current={index === stepIndex ? 'step' : undefined}
               >
                 <span>{step.percent}%</span>
@@ -142,10 +147,10 @@ export function PracticeView({ slug }: { slug: string }) {
 
         <div className="practice-actions">
           <button type="button" onClick={() => move(-1)} disabled={stepIndex === 0}>← Previous</button>
-          <button type="button" className="practice-rep" onClick={() => incrementPracticeRep(fighter.id, currentStep.percent)}>
+          <button type="button" className="practice-rep" onClick={() => incrementPracticeRep(activeFighterId, currentStep.percent)}>
             <strong>{repetitions}</strong><span>Add rep <kbd>R</kbd></span>
           </button>
-          <button type="button" className={completed ? 'is-complete' : ''} onClick={() => togglePracticeComplete(fighter.id, currentStep.percent)}>
+          <button type="button" className={completed ? 'is-complete' : ''} onClick={() => togglePracticeComplete(activeFighterId, currentStep.percent)}>
             {completed ? '✓ Completed' : 'Mark complete'} <kbd>C</kbd>
           </button>
           <button type="button" onClick={() => move(1)} disabled={stepIndex === steps.length - 1}>Next →</button>
@@ -153,7 +158,7 @@ export function PracticeView({ slug }: { slug: string }) {
 
         <div className="practice-footer">
           <p><kbd>←</kbd>/<kbd>→</kbd> change step · <kbd>R</kbd> add rep · <kbd>C</kbd> toggle complete</p>
-          <button type="button" onClick={() => resetPractice(fighter.id)}>Reset {fighter.name} practice</button>
+          <button type="button" onClick={() => resetPractice(activeFighterId)}>Reset {fighter.name} practice</button>
         </div>
       </section>
     </div>
