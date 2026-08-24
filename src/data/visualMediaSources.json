@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "moves": [
+    {"fighterId":"mario","moveId":"neutral-air","label":"Mario Neutral Air","sourceUrl":"https://ultimateframedata.com/mario","downloadUrl":"https://ultimateframedata.com/hitboxes/mario/MarioNAir.gif","totalFrames":45,"activeRanges":[[3,27]]},
+    {"fighterId":"mario","moveId":"forward-air","label":"Mario Forward Air","sourceUrl":"https://ultimateframedata.com/mario","downloadUrl":"https://ultimateframedata.com/hitboxes/mario/MarioFAir.gif","totalFrames":59,"activeRanges":[[16,21]]},
+    {"fighterId":"mario","moveId":"back-air","label":"Mario Back Air","sourceUrl":"https://ultimateframedata.com/mario","downloadUrl":"https://ultimateframedata.com/hitboxes/mario/MarioBAir.gif","totalFrames":33,"activeRanges":[[6,10]]},
+    {"fighterId":"mario","moveId":"up-air","label":"Mario Up Air","sourceUrl":"https://ultimateframedata.com/mario","downloadUrl":"https://ultimateframedata.com/hitboxes/mario/MarioUAir.gif","totalFrames":30,"activeRanges":[[4,7]]},
+
+    {"fighterId":"pyra","moveId":"neutral-air","label":"Pyra Neutral Air","sourceUrl":"https://ultimateframedata.com/pyra","downloadUrl":"https://ultimateframedata.com/hitboxes/Pyra/PyraNAir.gif","totalFrames":56,"activeRanges":[[11,22]]},
+    {"fighterId":"pyra","moveId":"forward-air","label":"Pyra Forward Air","sourceUrl":"https://ultimateframedata.com/pyra","downloadUrl":"https://ultimateframedata.com/hitboxes/Pyra/PyraFAir.gif","totalFrames":48,"activeRanges":[[11,14]]},
+    {"fighterId":"pyra","moveId":"back-air","label":"Pyra Back Air","sourceUrl":"https://ultimateframedata.com/pyra","downloadUrl":"https://ultimateframedata.com/hitboxes/Pyra/PyraBAir.gif","totalFrames":49,"activeRanges":[[16,18]]},
+    {"fighterId":"pyra","moveId":"up-air","label":"Pyra Up Air","sourceUrl":"https://ultimateframedata.com/pyra","downloadUrl":"https://ultimateframedata.com/hitboxes/Pyra/PyraUAir.gif","totalFrames":57,"activeRanges":[[13,17]]},
+    {"fighterId":"pyra","moveId":"down-air","label":"Pyra Down Air","sourceUrl":"https://ultimateframedata.com/pyra","downloadUrl":"https://ultimateframedata.com/hitboxes/Pyra/PyraDAir.gif","totalFrames":65,"activeRanges":[[17,20]]},
+
+    {"fighterId":"mythra","moveId":"neutral-air","label":"Mythra Neutral Air","sourceUrl":"https://ultimateframedata.com/mythra","downloadUrl":"https://ultimateframedata.com/hitboxes/Mythra/MythraNAir.gif","totalFrames":50,"activeRanges":[[8,19]]},
+    {"fighterId":"mythra","moveId":"forward-air","label":"Mythra Forward Air","sourceUrl":"https://ultimateframedata.com/mythra","downloadUrl":"https://ultimateframedata.com/hitboxes/Mythra/MythraFAir.gif","totalFrames":37,"activeRanges":[[8,11]]},
+    {"fighterId":"mythra","moveId":"back-air","label":"Mythra Back Air","sourceUrl":"https://ultimateframedata.com/mythra","downloadUrl":"https://ultimateframedata.com/hitboxes/Mythra/MythraBAir.gif","totalFrames":33,"activeRanges":[[10,12]]},
+    {"fighterId":"mythra","moveId":"up-air","label":"Mythra Up Air","sourceUrl":"https://ultimateframedata.com/mythra","downloadUrl":"https://ultimateframedata.com/hitboxes/Mythra/MythraUAir.gif","totalFrames":30,"activeRanges":[[9,13]]},
+    {"fighterId":"mythra","moveId":"down-air","label":"Mythra Down Air","sourceUrl":"https://ultimateframedata.com/mythra","downloadUrl":"https://ultimateframedata.com/hitboxes/Mythra/MythraDAir.gif","totalFrames":40,"activeRanges":[[13,16]]},
+
+    {"fighterId":"kazuya","moveId":"neutral-air","label":"Kazuya Neutral Air","sourceUrl":"https://ultimateframedata.com/kazuya","downloadUrl":"https://ultimateframedata.com/hitboxes/kazuya/Shoto4NAir.gif","totalFrames":28,"activeRanges":[[8,16]]},
+    {"fighterId":"kazuya","moveId":"forward-air","label":"Kazuya Forward Air","sourceUrl":"https://ultimateframedata.com/kazuya","downloadUrl":"https://ultimateframedata.com/hitboxes/kazuya/Shoto4FAir.gif","totalFrames":30,"activeRanges":[[8,14]]},
+    {"fighterId":"kazuya","moveId":"back-air","label":"Kazuya Back Air","sourceUrl":"https://ultimateframedata.com/kazuya","downloadUrl":"https://ultimateframedata.com/hitboxes/kazuya/Shoto4BAir.gif","totalFrames":45,"activeRanges":[[11,18]]},
+    {"fighterId":"kazuya","moveId":"up-air","label":"Kazuya Up Air","sourceUrl":"https://ultimateframedata.com/kazuya","downloadUrl":"https://ultimateframedata.com/hitboxes/kazuya/Shoto4UAir.gif","totalFrames":33,"activeRanges":[[4,9]]},
+    {"fighterId":"kazuya","moveId":"down-air","label":"Kazuya Down Air","sourceUrl":"https://ultimateframedata.com/kazuya","downloadUrl":"https://ultimateframedata.com/hitboxes/kazuya/Shoto4DAir.gif","totalFrames":57,"activeRanges":[[17,39]]}
+  ]
+}
