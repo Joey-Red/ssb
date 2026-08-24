@@ -1,27 +1,6 @@
 import type { ReactNode } from 'react'
+import { guides } from '../data/guides'
 import { fighterBySlug, roster } from '../data/roster'
 import { hrefFor, type AppRoute } from '../router'
 
-interface AppShellProps { route: AppRoute; children: ReactNode }
-
-export function AppShell({ route, children }: AppShellProps) {
-  const fighterName = route.page === 'fighter' ? fighterBySlug.get(route.slug)?.name : undefined
-  const title = route.page === 'roster' ? 'Roster' : route.page === 'fighter' ? fighterName ?? 'Fighter' : route.page === 'about' ? 'About' : 'Not found'
-  return (
-    <div className="app-shell">
-      <a className="skip-link" href="#main-content">Skip to content</a>
-      <aside className="sidebar">
-        <a className="brand" href={hrefFor('/')}><span className="brand-mark" aria-hidden="true">S</span><span><strong>SSBU</strong><small>TRAINING GUIDE</small></span></a>
-        <p className="nav-label">Workspace</p>
-        <nav className="side-nav" aria-label="Primary">
-          <a className={route.page === 'roster' ? 'is-active' : ''} href={hrefFor('/')}><span aria-hidden="true">▦</span><strong>Roster</strong><em>{roster.length}</em></a>
-          <a className={route.page === 'fighter' ? 'is-active' : ''} href={hrefFor('/fighter/mario')}><span aria-hidden="true">◎</span><strong>Guides</strong><em>4</em></a>
-          <a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>How to read it</strong></a>
-        </nav>
-        <div className="sidebar-footer"><span className="health-dot" aria-hidden="true"/><strong>Static & source-aware</strong><p>No server, login, telemetry, or runtime data dependency.</p></div>
-      </aside>
-      <div className="app-column"><header className="topbar"><div><h2>{title}</h2><p>{route.page === 'roster' ? 'Search, choose, practice' : route.page === 'fighter' ? 'Guide, routine, combos' : 'Frame-literate training notes'}</p></div><div className="topbar-status"><span className="health-dot" aria-hidden="true"/><strong>Ready</strong><span>4/{roster.length} references</span></div></header><main id="main-content" className="content">{children}</main></div>
-      <nav className="mobile-nav" aria-label="Mobile primary"><a className={route.page === 'roster' ? 'is-active' : ''} href={hrefFor('/')}><span aria-hidden="true">▦</span><strong>Roster</strong></a><a className={route.page === 'fighter' ? 'is-active' : ''} href={hrefFor('/fighter/mario')}><span aria-hidden="true">◎</span><strong>Guides</strong></a><a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>About</strong></a></nav>
-    </div>
-  )
-}
+export function AppShell({route,children}:{route:AppRoute;children:ReactNode}){const name=route.page==='fighter'?fighterBySlug.get(route.slug)?.name:undefined;const title=route.page==='roster'?'Roster':route.page==='fighter'?name??'Fighter':route.page==='about'?'About':'Not found';return <div className="app-shell"><a className="skip-link" href="#main-content">Skip to content</a><aside className="sidebar"><a className="brand" href={hrefFor('/')}><span className="brand-mark" aria-hidden="true">S</span><span><strong>SSBU</strong><small>TRAINING GUIDE</small></span></a><p className="nav-label">Workspace</p><nav className="side-nav" aria-label="Primary"><a className={route.page==='roster'?'is-active':''} href={hrefFor('/')}><span aria-hidden="true">▦</span><strong>Roster</strong><em>{roster.length}</em></a><a className={route.page==='fighter'?'is-active':''} href={hrefFor('/fighter/mario')}><span aria-hidden="true">◎</span><strong>Reference guides</strong><em>{guides.length}</em></a><a className={route.page==='about'?'is-active':''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>How to read it</strong></a></nav><div className="sidebar-footer"><span className="health-dot" aria-hidden="true"/><strong>Static & source-aware</strong><p>No server, login, telemetry, or runtime data dependency.</p></div></aside><div className="app-column"><header className="topbar"><div><h2>{title}</h2><p>{route.page==='roster'?'Search, choose, practice':route.page==='fighter'?'Guide, routine, combos':'Frame-literate training notes'}</p></div><div className="topbar-status"><span className="health-dot" aria-hidden="true"/><strong>Ready</strong><span>{guides.length}/{roster.length} guides</span></div></header><main id="main-content" className="content">{children}</main></div><nav className="mobile-nav" aria-label="Mobile primary"><a className={route.page==='roster'?'is-active':''} href={hrefFor('/')}><span aria-hidden="true">▦</span><strong>Roster</strong></a><a className={route.page==='fighter'?'is-active':''} href={hrefFor('/fighter/mario')}><span aria-hidden="true">◎</span><strong>Guides</strong></a><a className={route.page==='about'?'is-active':''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>About</strong></a></nav></div>}
