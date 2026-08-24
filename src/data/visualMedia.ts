@@ -45,8 +45,8 @@ export const visualMoveMedia = sourceManifest.moves.map((source): VisualMoveMedi
     moveId: source.moveId,
     label: source.label,
     sourceUrl: source.sourceUrl,
-    animatedPreviewUrl: staged?.previewSrc,
-    spriteSheet: staged?.spriteSheet,
+    ...(staged?.previewSrc ? { animatedPreviewUrl: staged.previewSrc } : {}),
+    ...(staged?.spriteSheet ? { spriteSheet: staged.spriteSheet } : {}),
     totalFrames: source.totalFrames,
     frames: makeFrames(source.totalFrames, activeRanges),
   }
