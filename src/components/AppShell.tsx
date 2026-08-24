@@ -14,11 +14,13 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
       ? fighterName ?? 'Fighter'
       : route.page === 'practice'
         ? `${fighterName ?? 'Fighter'} Practice`
-        : route.page === 'tools'
-          ? 'Frame Tools'
-          : route.page === 'about'
-            ? 'About'
-            : 'Not found'
+        : route.page === 'drills'
+          ? 'Custom Drills'
+          : route.page === 'tools'
+            ? 'Frame Tools'
+            : route.page === 'about'
+              ? 'About'
+              : 'Not found'
 
   const subtitle = route.page === 'roster'
     ? 'Search, choose, practice'
@@ -26,9 +28,11 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
       ? 'Guide, routine, combos, frame data'
       : route.page === 'practice'
         ? 'Focused reps and progression'
-        : route.page === 'tools'
-          ? 'Compare moves and OOS startup'
-          : 'Frame-literate training notes'
+        : route.page === 'drills'
+          ? 'Build and track your rep queue'
+          : route.page === 'tools'
+            ? 'Compare moves and OOS startup'
+            : 'Frame-literate training notes'
 
   return (
     <div className="app-shell">
@@ -40,6 +44,7 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
           <a className={route.page === 'roster' ? 'is-active' : ''} href={hrefFor('/')}><span aria-hidden="true">▦</span><strong>Roster</strong><em>{roster.length}</em></a>
           <a className={route.page === 'fighter' ? 'is-active' : ''} href={hrefFor('/fighter/mario')}><span aria-hidden="true">◎</span><strong>Fighter guides</strong><em>{allGuides.length}</em></a>
           <a className={route.page === 'practice' ? 'is-active' : ''} href={hrefFor('/practice/mario')}><span aria-hidden="true">▶</span><strong>Practice</strong></a>
+          <a className={route.page === 'drills' ? 'is-active' : ''} href={hrefFor('/drills')}><span aria-hidden="true">✓</span><strong>Custom drills</strong></a>
           <a className={route.page === 'tools' ? 'is-active' : ''} href={hrefFor('/tools')}><span aria-hidden="true">⌁</span><strong>Frame tools</strong></a>
           <a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>How to read it</strong></a>
         </nav>
@@ -53,6 +58,7 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
         <a className={route.page === 'roster' ? 'is-active' : ''} href={hrefFor('/')}><span aria-hidden="true">▦</span><strong>Roster</strong></a>
         <a className={route.page === 'fighter' ? 'is-active' : ''} href={hrefFor('/fighter/mario')}><span aria-hidden="true">◎</span><strong>Guides</strong></a>
         <a className={route.page === 'practice' ? 'is-active' : ''} href={hrefFor('/practice/mario')}><span aria-hidden="true">▶</span><strong>Practice</strong></a>
+        <a className={route.page === 'drills' ? 'is-active' : ''} href={hrefFor('/drills')}><span aria-hidden="true">✓</span><strong>Drills</strong></a>
         <a className={route.page === 'tools' ? 'is-active' : ''} href={hrefFor('/tools')}><span aria-hidden="true">⌁</span><strong>Tools</strong></a>
         <a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>About</strong></a>
       </nav>
