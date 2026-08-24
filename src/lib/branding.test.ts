@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 
 const TEXT_EXTENSIONS = /\.(?:md|ts|tsx|css|html|json|yml|yaml|mjs|py)$/
 const SKIP = new Set(['.git', 'node_modules', 'dist'])
+const RETIRED_THEME_PATTERN = new RegExp(['ti', 'tan'].join(''), 'i')
 
 function textFiles(directory: string): string[] {
   return readdirSync(directory).flatMap((name) => {
@@ -20,8 +21,8 @@ function textFiles(directory: string): string[] {
 }
 
 describe('theme branding', () => {
-  it('uses Arena as the alternate theme name everywhere in maintained text', () => {
-    const violations = textFiles(process.cwd()).filter((path) => /arena/i.test(readFileSync(path, 'utf8')))
+  it('uses Arena as the alternate theme name throughout maintained text', () => {
+    const violations = textFiles(process.cwd()).filter((path) => RETIRED_THEME_PATTERN.test(readFileSync(path, 'utf8')))
     expect(violations).toEqual([])
   })
 })
