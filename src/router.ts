@@ -4,6 +4,7 @@ export type AppRoute =
   | { page: 'roster' }
   | { page: 'fighter'; slug: string }
   | { page: 'practice'; slug: string }
+  | { page: 'drills' }
   | { page: 'tools' }
   | { page: 'about' }
   | { page: 'not-found' }
@@ -20,6 +21,7 @@ function getHash() {
 export function parseRoute(hash: string): AppRoute {
   const normalized = hash.replace(/^#/, '') || '/'
   if (normalized === '/' || normalized === '') return { page: 'roster' }
+  if (normalized === '/drills') return { page: 'drills' }
   if (normalized === '/tools') return { page: 'tools' }
   if (normalized === '/about') return { page: 'about' }
   const fighterMatch = normalized.match(/^\/fighter\/([a-z0-9-]+)$/)
