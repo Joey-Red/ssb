@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest'
+import snapshotJson from './frameData.generated.json'
+import { indexFrameData } from './frameData'
 import { roster } from './roster'
-import { frameDataByFighterId, frameDataSnapshot, frameMoveCount } from './frameData'
+import type { FrameDataSnapshot } from '../types'
 
+const frameDataSnapshot = snapshotJson as unknown as FrameDataSnapshot
+const { byFighterId: frameDataByFighterId, moveCount: frameMoveCount } = indexFrameData(frameDataSnapshot)
 const categories = new Set(['ground', 'aerial', 'special', 'grab', 'defense', 'misc'])
 
 describe('committed frame-data snapshot', () => {
@@ -12,6 +16,7 @@ describe('committed frame-data snapshot', () => {
     for (const fighter of roster) {
       const data = frameDataByFighterId.get(fighter.id)
       expect(data, `${fighter.id} frame data`).toBeDefined()
+      expect(data?.name).toBe(fighter.name)
       expect(data?.moves.length, `${fighter.id} move rows`).toBeGreaterThanOrEqual(12)
       expect(data?.sourceUrl).toBe(`https://ultimateframedata.com/${data?.sourceUrl.split('/').at(-1)}`)
     }

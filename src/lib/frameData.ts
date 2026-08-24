@@ -11,7 +11,7 @@ export function firstFrame(value: string | null): number | null {
 
 export function lastFrame(value: string | null): number | null {
   const values = frameNumbers(value)
-  return values[values.length - 1] ?? null
+  return values.length > 0 ? Math.max(...values) : null
 }
 
 export function numericValue(value: string | null): number | null {

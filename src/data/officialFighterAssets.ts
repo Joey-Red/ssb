@@ -1,11 +1,4 @@
 const codeOverrides: Readonly<Record<string, string>> = {
-  'incineroar': 'gaogaen',
-  'isabelle': 'shizue',
-  'piranha-plant': 'packun_flower',
-  'hero': 'dq_hero',
-  'pyra': 'homura',
-  'mythra': 'hikari',
-  'min-min': 'minmin',
   'mii-brawler': 'mii_fighter',
   'mii-swordfighter': 'mii_fighter',
   'mii-gunner': 'mii_fighter',

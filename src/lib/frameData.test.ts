@@ -14,6 +14,7 @@ describe('frame-data helpers', () => {
     expect(frameNumbers('5/7/9/11/13/23(1—2)')).toEqual([5, 7, 9, 11, 13, 23, 1, 2])
     expect(firstFrame('5—7')).toBe(5)
     expect(lastFrame('5—7')).toBe(7)
+    expect(lastFrame('17—19/25—39(2)')).toBe(39)
   })
 
   it('adds the universal 3-frame jumpsquat to aerial OOS startup', () => {

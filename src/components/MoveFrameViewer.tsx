@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type KeyboardEvent } from 'react'
 import { officialFighterRenderUrl } from '../data/officialFighterAssets'
 import { getVisualMoveMedia } from '../data/visualMedia'
-import type { FrameMove, VisualFramePhase } from '../types'
+import type { FrameMove, VisualFramePhase, VisualSpriteSheet } from '../types'
 import { firstFrame, lastFrame, numericValue } from '../lib/frameData'
 import './MoveFrameViewer.css'
 
@@ -10,6 +10,33 @@ function fallbackPhase(frame: number, activeStart: number | null, activeEnd: num
   if (frame < activeStart) return 'startup'
   if (frame <= activeEnd) return 'active'
   return 'recovery'
+}
+
+function localMediaUrl(src: string): string {
+  if (/^https?:\/\//.test(src)) return src
+  return `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`
+}
+
+function SpriteFrame({ sheet, frame, label, totalFrames }: { sheet: VisualSpriteSheet; frame: number; label: string; totalFrames: number }) {
+  const index = frame - 1
+  const column = index % sheet.columns
+  const row = Math.floor(index / sheet.columns)
+  const rows = Math.ceil(totalFrames / sheet.columns)
+  const sheetWidth = sheet.frameWidth * sheet.columns
+  const sheetHeight = sheet.frameHeight * rows
+
+  return (
+    <svg className="visual-player__sprite" viewBox={`0 0 ${sheet.frameWidth} ${sheet.frameHeight}`} role="img" aria-label={`${label}, exact frame ${frame}`}>
+      <image
+        href={localMediaUrl(sheet.src)}
+        width={sheetWidth}
+        height={sheetHeight}
+        x={-column * sheet.frameWidth}
+        y={-row * sheet.frameHeight}
+        preserveAspectRatio="none"
+      />
+    </svg>
+  )
 }
 
 export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: string; fighterName: string; move: FrameMove }) {
@@ -45,6 +72,9 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const phase = currentFrame?.phase ?? fallbackPhase(frame, activeStart, activeEnd)
   const regions = currentFrame?.regions ?? []
   const hasHostedStill = Boolean(currentFrame?.imageSrc)
+  const hasSpriteSheet = Boolean(media?.spriteSheet)
+  const hasExactVisual = hasHostedStill || hasSpriteSheet
+  const hasOverlayData = Boolean(media?.frames.some((item) => (item.regions?.length ?? 0) > 0 && (item.imageSrc || media.spriteSheet)))
   const fighterRender = officialFighterRenderUrl(fighterId)
 
   const timing = useMemo(() => ({
@@ -74,6 +104,8 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
     }
   }
 
+  const stageStyle = media?.spriteSheet ? { aspectRatio: `${media.spriteSheet.frameWidth} / ${media.spriteSheet.frameHeight}` } : undefined
+
   return (
     <section className="visual-media-card" aria-label={`${fighterName} ${move.name} visual frame player`}>
       <header className="visual-media-card__head">
@@ -82,9 +114,14 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
       </header>
       <div className="visual-player" tabIndex={0} onKeyDown={onKeyDown}>
         <div className="visual-player__split">
-          <div className={`visual-player__stage visual-player__stage--${phase}${hasHostedStill ? '' : media?.animatedPreviewUrl ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
+          <div style={stageStyle} className={`visual-player__stage visual-player__stage--${phase}${hasExactVisual ? ' visual-player__stage--exact' : media?.animatedPreviewUrl ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
             {hasHostedStill && currentFrame?.imageSrc ? (
-              <img src={currentFrame.imageSrc} alt={`${fighterName} ${move.name}, frame ${frame}`} loading="lazy" decoding="async" />
+              <img src={localMediaUrl(currentFrame.imageSrc)} alt={`${fighterName} ${move.name}, frame ${frame}`} loading="lazy" decoding="async" />
+            ) : media?.spriteSheet ? (
+              <>
+                <SpriteFrame sheet={media.spriteSheet} frame={frame} label={`${fighterName} ${move.name}`} totalFrames={total} />
+                <span className="visual-player__preview-label">Exact frame sheet</span>
+              </>
             ) : media?.animatedPreviewUrl ? (
               <>
                 <img src={media.animatedPreviewUrl} alt={`${fighterName} ${move.name} animated hitbox reference`} loading="lazy" decoding="async" />
@@ -97,7 +134,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
               </>
             )}
             <span className="visual-player__phase">{phase}</span>
-            {showOverlay && hasHostedStill && regions.length > 0 && <div className="visual-player__overlay" aria-hidden="true">{regions.map((region) => <span key={region.id} className={`hitbox-circle hitbox-circle--${region.kind}`} style={{ left: `${region.x}%`, top: `${region.y}%`, width: `${region.radius * 2}%`, aspectRatio: '1' }} title={region.label} />)}</div>}
+            {showOverlay && hasExactVisual && regions.length > 0 && <div className="visual-player__overlay" aria-hidden="true">{regions.map((region) => <span key={region.id} className={`hitbox-circle hitbox-circle--${region.kind}`} style={{ left: `${region.x}%`, top: `${region.y}%`, width: `${region.radius * 2}%`, aspectRatio: '1' }} title={region.label} />)}</div>}
           </div>
           <aside className="visual-player__timing" aria-label="Current move timing">
             <h5>Frame index</h5>
@@ -111,9 +148,9 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           <input type="range" min="1" max={Math.max(2, total)} value={frame} onChange={(event) => { setPlaying(false); setSafeFrame(Number(event.target.value)) }} aria-label="Seek frame" />
           <span className="visual-player__readout">{frame} / {total}f</span>
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame + 1) }} aria-label="Next frame">+1f</button>
-          <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label>
+          {hasOverlayData ? <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label> : <span className="visual-player__overlay-status">Overlay not staged</span>}
         </div>
-        <p className="visual-player__note">{hasHostedStill ? 'This exact game frame uses a hosted still; hitbox annotations can be toggled independently.' : media?.animatedPreviewUrl ? 'This is the real source hitbox animation. The frame controls still index documented game timing; exact seek-synchronized stills can be staged separately.' : 'A real fighter render is shown while the controls index documented move timing. Exact hitbox geometry remains unavailable until move-specific visual media is staged.'}</p>
+        <p className="visual-player__note">{hasExactVisual ? 'The slider is selecting an exact staged visual frame; annotations can be toggled independently when overlay metadata is available.' : media?.animatedPreviewUrl ? 'This is the real source hitbox animation, but the GIF itself is not seek-synchronized. The frame controls index documented timing until an exact local frame sheet is staged.' : 'A real fighter render is shown while the controls index documented move timing. Exact hitbox geometry remains unavailable until move-specific visual media is staged.'}</p>
       </div>
     </section>
   )

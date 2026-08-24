@@ -1,0 +1,151 @@
+/* Festival surface normalization.
+   Component styles retain Titan's literal dark values; this layer overrides them only
+   when Festival is active so the alternate Titan theme remains untouched. */
+
+html[data-theme='festival'] :is(
+  .search-field,
+  .roster-filters select,
+  .favorite-filter,
+  .combo-filters select,
+  .percent-filter,
+  .percent-button,
+  .practice-now,
+  .routine-row,
+  .practice-header__controls select,
+  .practice-percent,
+  .practice-focus-card,
+  .matchup-heading select,
+  .matchup-grid > article,
+  .di-route,
+  .drill-builder input,
+  .drill-builder select,
+  .drill-builder textarea,
+  .drill-card,
+  .compare-pickers label,
+  .compare-pickers select,
+  .discovery-controls input,
+  .oos-compare article,
+  .discovery-list a,
+  .frame-row,
+  kbd
+) {
+  background: #fffaf0;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] :is(
+  .combo-card,
+  .frame-record,
+  .fighter-utility,
+  .visual-player__timing,
+  .source-stack a,
+  .compare-grid,
+  .compare-metric
+) {
+  background: #fffdf7;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] :is(
+  .search-field,
+  .roster-filters select,
+  .favorite-filter,
+  .combo-filters select,
+  .percent-filter,
+  .practice-header__controls select,
+  .matchup-heading select,
+  .drill-builder input,
+  .drill-builder select,
+  .drill-builder textarea,
+  .compare-pickers select,
+  .discovery-controls input
+) {
+  box-shadow: 2px 2px 0 rgba(33,20,15,.22);
+}
+
+html[data-theme='festival'] :is(
+  .percent-button:hover,
+  .percent-button.is-active,
+  .routine-row.is-active,
+  .practice-percent:hover,
+  .practice-percent:focus-visible,
+  .practice-percent.is-active,
+  .discovery-list a:hover,
+  .discovery-list a:focus-visible
+) {
+  background: #ffe3a1;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] .practice-focus-card__percent {
+  color: var(--text);
+  background: linear-gradient(145deg,#ffe09b,#fff4cf);
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] :is(.practice-purpose,.combo-execution,.quick-list p,.frame-notes) {
+  color: #4f392f;
+}
+
+html[data-theme='festival'] :is(.source-links a,.source-stack a,.fighter-pager a,.drill-card__links a) {
+  color: #3c5f9b;
+}
+
+html[data-theme='festival'] .badge--kill-confirm {
+  color: #6c4710;
+  border-color: #8d6b2e;
+  background: #fff0bd;
+}
+
+html[data-theme='festival'] .drill-progress {
+  background: #ead9bd;
+  border-color: var(--line-strong);
+}
+html[data-theme='festival'] .drill-progress span { background: var(--festival-green); }
+html[data-theme='festival'] .drill-route strong { background: #fff1c9; border-color: var(--line-strong); }
+html[data-theme='festival'] .drill-card__buttons .drill-rep {
+  background: var(--festival-blue);
+  color: #fff;
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] .compare-pickers label,
+html[data-theme='festival'] .oos-compare article,
+html[data-theme='festival'] .discovery-list a {
+  border-width: 2px;
+  box-shadow: 3px 3px 0 rgba(33,20,15,.18);
+}
+html[data-theme='festival'] .oos-compare h3 { background: #ffe09b; border-color: var(--line-strong); }
+html[data-theme='festival'] .oos-compare article > div { border-color: #b99578; }
+html[data-theme='festival'] .discovery-list a:nth-child(4n+1) { border-left: 7px solid var(--festival-red); }
+html[data-theme='festival'] .discovery-list a:nth-child(4n+2) { border-left: 7px solid var(--festival-blue); }
+html[data-theme='festival'] .discovery-list a:nth-child(4n+3) { border-left: 7px solid var(--festival-yellow); }
+html[data-theme='festival'] .discovery-list a:nth-child(4n) { border-left: 7px solid var(--festival-green); }
+html[data-theme='festival'] .discovery-list b { color: var(--festival-red); }
+html[data-theme='festival'] .compare-metric--header { background: #ffe09b; }
+html[data-theme='festival'] .compare-metric { border-color: #b99578; }
+
+html[data-theme='festival'] kbd {
+  color: var(--text);
+  background: #fff1c9;
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] textarea::placeholder,
+html[data-theme='festival'] input::placeholder { color: #9a7868; opacity: 1; }
+
+@media (forced-colors: active) {
+  html[data-theme='festival'] :is(
+    .search-field,.favorite-filter,.combo-card,.percent-filter,.percent-button,.practice-now,.routine-row,
+    .practice-focus-card,.matchup-grid > article,.di-route,.drill-card,.compare-pickers label,.oos-compare article,
+    .discovery-list a,.frame-row,.source-stack a
+  ) {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+    box-shadow: none;
+  }
+}

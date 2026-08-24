@@ -1,0 +1,2 @@
+# Maintenance-only dependency for converting approved/local GIF references into exact-frame sprite sheets.
+Pillow>=10.4,<13
