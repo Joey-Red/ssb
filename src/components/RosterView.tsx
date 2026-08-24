@@ -3,6 +3,7 @@ import { guideByFighterId } from '../data/allGuides'
 import { fighterById, roster } from '../data/roster'
 import { clearLocalData, useLocalState } from '../lib/storage'
 import { hrefFor } from '../router'
+import { FighterGlyph } from './FighterGlyph'
 import './RosterView.css'
 
 export function RosterView() {
@@ -59,16 +60,16 @@ export function RosterView() {
 
   return (
     <div className="page-stack">
-      <section className="hero-panel">
+      <section className="hero-panel roster-hero">
         <div>
-          <p className="eyebrow">SSBU training companion</p>
-          <h1>Pick a fighter. Practice the right thing.</h1>
-          <p className="hero-copy">Fast memory aids, source-aware routes, and a 0–200% training ladder for the complete roster. Frame data and move visuals grow into the same pages later.</p>
+          <p className="eyebrow">SSBU Training Festival</p>
+          <h1>Choose your fighter. Make every rep count.</h1>
+          <p className="hero-copy">Big visual cues, source-aware routes, full frame data, and an 0–200% training ladder for every fighter. Festival is the default look; Titan is always one toggle away.</p>
         </div>
         <div className="hero-stats" aria-label="Guide status">
           <div><strong>{roster.length}</strong><span>fighter guides</span></div>
           <div><strong>{localState.favorites.length}</strong><span>favorites</span></div>
-          <div><strong>0</strong><span>servers required</span></div>
+          <div><strong>60</strong><span>frames / second</span></div>
         </div>
       </section>
 
@@ -84,7 +85,7 @@ export function RosterView() {
       <section className="panel roster-panel" aria-labelledby="roster-title">
         <div className="roster-toolbar">
           <div>
-            <p className="eyebrow">Roster</p>
+            <p className="eyebrow">Choose your fighter</p>
             <h2 id="roster-title">All fighters</h2>
           </div>
           <label className="search-field">
@@ -125,7 +126,7 @@ export function RosterView() {
                   href={hrefFor(`/fighter/${fighter.slug}`)}
                   ref={(element) => { refs.current[index] = element }}
                 >
-                  <div className="fighter-mark" aria-hidden="true">{fighter.name.split(/\s|&/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('')}</div>
+                  <div className="fighter-mark fighter-mark--visual" aria-hidden="true"><FighterGlyph name={fighter.name} compact /></div>
                   <div className="fighter-card__body">
                     <span className="fighter-series">{fighter.series}</span>
                     <strong>{fighter.name}</strong>
