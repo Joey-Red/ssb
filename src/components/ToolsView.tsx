@@ -19,8 +19,8 @@ function MoveSelect({ data, moveId, onChange }: { data: FighterFrameData; moveId
 }
 
 export function ToolsView() {
-  const initialLeft = roster[0]?.id ?? 'mario'
-  const initialRight = roster[1]?.id ?? 'donkey-kong'
+  const initialLeft: string = roster[0]?.id ?? 'mario'
+  const initialRight: string = roster[1]?.id ?? 'donkey-kong'
   const [leftId, setLeftId] = useState(initialLeft)
   const [rightId, setRightId] = useState(initialRight)
   const leftData = frameDataByFighterId.get(leftId)
