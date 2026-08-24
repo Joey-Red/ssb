@@ -4,10 +4,13 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "prepare:data": "node scripts/prepare-static-data.mjs",
+    "predev": "npm run prepare:data",
     "dev": "vite",
     "lint": "eslint .",
     "test": "vitest",
     "test:run": "vitest run --passWithNoTests",
+    "prebuild": "npm run prepare:data",
     "build": "npm run test:run && tsc -b && vite build",
     "check": "npm run lint && npm run build",
     "preview": "vite preview"
