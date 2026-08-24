@@ -74,6 +74,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const hasHostedStill = Boolean(currentFrame?.imageSrc)
   const hasSpriteSheet = Boolean(media?.spriteSheet)
   const hasExactVisual = hasHostedStill || hasSpriteSheet
+  const hasOverlayData = Boolean(media?.frames.some((item) => (item.regions?.length ?? 0) > 0 && (item.imageSrc || media.spriteSheet)))
   const fighterRender = officialFighterRenderUrl(fighterId)
 
   const timing = useMemo(() => ({
@@ -147,9 +148,9 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           <input type="range" min="1" max={Math.max(2, total)} value={frame} onChange={(event) => { setPlaying(false); setSafeFrame(Number(event.target.value)) }} aria-label="Seek frame" />
           <span className="visual-player__readout">{frame} / {total}f</span>
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame + 1) }} aria-label="Next frame">+1f</button>
-          <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label>
+          {hasOverlayData ? <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label> : <span className="visual-player__overlay-status">Overlay not staged</span>}
         </div>
-        <p className="visual-player__note">{hasExactVisual ? 'The slider is selecting an exact staged visual frame; annotations can be toggled independently.' : media?.animatedPreviewUrl ? 'This is the real source hitbox animation, but the GIF itself is not seek-synchronized. The frame controls index documented timing until an exact local frame sheet is staged.' : 'A real fighter render is shown while the controls index documented move timing. Exact hitbox geometry remains unavailable until move-specific visual media is staged.'}</p>
+        <p className="visual-player__note">{hasExactVisual ? 'The slider is selecting an exact staged visual frame; annotations can be toggled independently when overlay metadata is available.' : media?.animatedPreviewUrl ? 'This is the real source hitbox animation, but the GIF itself is not seek-synchronized. The frame controls index documented timing until an exact local frame sheet is staged.' : 'A real fighter render is shown while the controls index documented move timing. Exact hitbox geometry remains unavailable until move-specific visual media is staged.'}</p>
       </div>
     </section>
   )
