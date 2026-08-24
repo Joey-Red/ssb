@@ -130,4 +130,4 @@ npm run build
 ## Deployment
 `main → GitHub Actions → Vite dist → GitHub Pages → phone/tablet/desktop browser`.
 
-The M21–M30 development batch intentionally remains on its feature branch until the dedicated merge/deployment cleanup pass.
+M01–M30 are merged into `main`. Future work should begin as new milestones from this clean baseline rather than extending the retired M21–M30 feature branch.
