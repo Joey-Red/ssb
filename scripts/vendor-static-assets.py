@@ -29,6 +29,7 @@ FIGHTER_RENDER_DIR = PUBLIC / "media/fighters/renders"
 FIGHTER_THUMB_DIR = PUBLIC / "media/fighters/thumbs"
 HITBOX_DIR = PUBLIC / "media/hitboxes"
 SHEET_DIR = PUBLIC / "media/frame-sheets"
+GAME_FRAME_MS = 1000 / 60
 
 SESSION = requests.Session()
 SESSION.headers.update({
@@ -133,9 +134,37 @@ def vendor_fighter(fighter_id: str) -> dict[str, str]:
     return {"renderSource": render_source, "thumbSource": thumb_source}
 
 
-def composed_gif_frames(data: bytes) -> list[Image.Image]:
+def exact_game_frames(data: bytes, expected: int, key: str) -> list[Image.Image]:
+    """Return one image per 60 FPS game frame without inventing missing frames.
+
+    GIF encoders can collapse repeated visual frames into one image block with a longer
+    duration. We expand only when the encoded durations reconstruct the documented
+    game-frame count exactly; otherwise the source is rejected for exact-frame use.
+    """
     with Image.open(io.BytesIO(data)) as source:
-        return [frame.convert("RGBA") for frame in ImageSequence.Iterator(source)]
+        raw: list[Image.Image] = []
+        expanded: list[Image.Image] = []
+        durations: list[int] = []
+        default_duration = int(source.info.get("duration", round(GAME_FRAME_MS)))
+        for frame in ImageSequence.Iterator(source):
+            image = frame.convert("RGBA").copy()
+            duration = int(frame.info.get("duration", default_duration) or default_duration)
+            raw.append(image)
+            durations.append(duration)
+            repeats = max(1, round(duration / GAME_FRAME_MS))
+            expanded.extend(image.copy() for _ in range(repeats))
+
+    if len(raw) == expected:
+        return raw
+    if len(expanded) == expected:
+        print(f"visual: {key} expanded {len(raw)} GIF blocks to {len(expanded)} game frames from encoded durations")
+        return expanded
+
+    total_ms = sum(durations)
+    raise RuntimeError(
+        f"{key}: expected {expected} game frames; GIF has {len(raw)} image blocks, "
+        f"duration expansion gives {len(expanded)} frames ({total_ms}ms total; durations={sorted(set(durations))})"
+    )
 
 
 def make_sheet(frames: list[Image.Image], output: Path, columns: int = 8, max_edge: int = 480) -> dict[str, int | str]:
@@ -170,10 +199,8 @@ def vendor_visuals() -> dict[str, object]:
         gif_path.parent.mkdir(parents=True, exist_ok=True)
         gif_path.write_bytes(data)
 
-        frames = composed_gif_frames(data)
         expected = int(move["totalFrames"])
-        if len(frames) != expected:
-            raise RuntimeError(f"{key}: expected {expected} source frames, found {len(frames)}")
+        frames = exact_game_frames(data, expected, key)
         sheet_path = SHEET_DIR / fighter_id / f"{move_id}.webp"
         sheet = make_sheet(frames, sheet_path)
         generated[key] = {
@@ -184,12 +211,16 @@ def vendor_visuals() -> dict[str, object]:
             },
             "sha256": hashlib.sha256(data).hexdigest(),
         }
+        print(f"visual: {key} -> {expected} exact frames")
     return generated
 
 
 def main() -> int:
     for directory in (FIGHTER_RENDER_DIR, FIGHTER_THUMB_DIR, HITBOX_DIR, SHEET_DIR):
         directory.mkdir(parents=True, exist_ok=True)
+
+    # Validate exact move media first so timing/source issues fail quickly during maintenance.
+    move_assets = vendor_visuals()
 
     fighter_sources: dict[str, dict[str, str]] = {}
     failures: list[str] = []
@@ -203,7 +234,6 @@ def main() -> int:
     if failures:
         raise SystemExit("fighter asset failures:\n" + "\n".join(failures))
 
-    move_assets = vendor_visuals()
     GENERATED_MANIFEST.write_text(json.dumps({
         "version": 1,
         "generatedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
