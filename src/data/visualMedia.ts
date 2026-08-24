@@ -1,54 +1,88 @@
 import assetManifestJson from './visualMediaAssets.generated.json'
 import sourceManifestJson from './visualMediaSources.json'
-import type { VisualFrame, VisualMoveMedia, VisualSpriteSheet } from '../types'
+import type { VisualMediaVariant, VisualMoveMedia, VisualSpriteSheet } from '../types'
 
-type FrameRange = readonly [start: number, end: number]
-type SourceMove = {
+type SourceVariant = {
+  id: string
+  label: string
+  downloadUrl: string
+  mediaType: 'gif' | 'image'
+}
+type SourceMoveV2 = {
   fighterId: string
   moveId: string
   label: string
   sourceUrl: string
-  downloadUrl: string
-  totalFrames: number
-  activeRanges: number[][]
+  totalFrames: number | null
+  startupFrame: number | null
+  active: string | null
+  activeSpan: number[]
+  variants: SourceVariant[]
 }
-type GeneratedMoveAsset = {
+type SourceManifestV2 = {
+  version: 2
+  fightersScanned: number
+  mappedMoves: number
+  mappedVariants: number
+  moves: SourceMoveV2[]
+}
+type GeneratedV1Move = {
   previewSrc: string
   spriteSheet?: VisualSpriteSheet
 }
-type GeneratedAssetManifest = {
+type GeneratedV1 = {
   version: 1
   generatedAt: string | null
-  moves: Record<string, GeneratedMoveAsset>
+  moves: Record<string, GeneratedV1Move>
+}
+type GeneratedV2Variant = VisualMediaVariant & {
+  sha256?: string
+  sourceFrameCount?: number
+}
+type GeneratedV2Move = {
+  variants: GeneratedV2Variant[]
+}
+type GeneratedV2 = {
+  version: 2
+  generatedAt: string | null
+  moves: Record<string, GeneratedV2Move>
 }
 
-const sourceManifest = sourceManifestJson as { version: 1; moves: SourceMove[] }
-const assetManifest = assetManifestJson as GeneratedAssetManifest
+const sourceManifest = sourceManifestJson as SourceManifestV2
+const assetManifest = assetManifestJson as GeneratedV1 | GeneratedV2
 
-function makeFrames(totalFrames: number, activeRanges: readonly FrameRange[]): readonly VisualFrame[] {
-  const firstActive = Math.min(...activeRanges.map(([start]) => start))
-  return Array.from({ length: totalFrames }, (_, index) => {
-    const frame = index + 1
-    const isActive = activeRanges.some(([start, end]) => frame >= start && frame <= end)
-    const phase = isActive ? 'active' : frame < firstActive ? 'startup' : 'recovery'
-    return { frame, phase }
-  })
+function stagedVariants(key: string, source: SourceMoveV2): readonly VisualMediaVariant[] {
+  if (assetManifest.version === 2) {
+    return assetManifest.moves[key]?.variants ?? []
+  }
+  const legacy = assetManifest.moves[key]
+  if (!legacy) return []
+  const label = source.variants[0]?.label ?? source.label
+  return [{
+    id: source.variants[0]?.id ?? 'default',
+    label,
+    ...(legacy.spriteSheet ? { spriteSheet: legacy.spriteSheet } : {}),
+  }]
 }
 
 export const visualMoveMedia = sourceManifest.moves.map((source): VisualMoveMedia => {
   const key = `${source.fighterId}:${source.moveId}`
-  const staged = assetManifest.moves[key]
-  const activeRanges = source.activeRanges.map(([start, end]) => [start, end] as FrameRange)
+  const variants = stagedVariants(key, source)
+  const primarySheet = variants.find((variant) => variant.spriteSheet)?.spriteSheet
+  const fallbackTotal = source.activeSpan[1] ?? source.startupFrame ?? 1
   return {
     id: `${source.fighterId}-${source.moveId}-ufd`,
     fighterId: source.fighterId,
     moveId: source.moveId,
     label: source.label,
     sourceUrl: source.sourceUrl,
-    ...(staged?.previewSrc ? { animatedPreviewUrl: staged.previewSrc } : {}),
-    ...(staged?.spriteSheet ? { spriteSheet: staged.spriteSheet } : {}),
-    totalFrames: source.totalFrames,
-    frames: makeFrames(source.totalFrames, activeRanges),
+    ...(primarySheet ? { spriteSheet: primarySheet } : {}),
+    ...(variants.length ? { variants } : {}),
+    totalFrames: source.totalFrames ?? fallbackTotal,
+    // No independent overlay geometry is staged for the discovered UFD media.
+    // The player's authoritative phase/timing comes from FrameMove and exact
+    // image cells are mapped by spriteSheet.frameNumbers.
+    frames: [],
   }
 })
 
