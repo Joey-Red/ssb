@@ -1,7 +1,48 @@
-.fighter-mark--visual{overflow:visible;padding:0;background:transparent!important;border:0!important;box-shadow:none!important}.fighter-mark--visual .fighter-glyph{width:100%;max-width:100%;height:auto}.fighter-picture{margin:0}.fighter-picture--compact .fighter-picture__label{display:none}.fighter-picture--compact{aspect-ratio:1}.fighter-picture--compact .fighter-picture__glyph{width:74%}
+.fighter-mark--visual{overflow:visible;padding:0;background:transparent!important;border:0!important;box-shadow:none!important}.fighter-mark--visual .fighter-picture{width:100%;height:100%;max-width:100%}.fighter-picture{margin:0}.fighter-picture--compact .fighter-picture__label{display:none}.fighter-picture--compact{aspect-ratio:1}.fighter-picture__fallback{position:absolute;z-index:1;width:min(58%,180px);opacity:.16}.fighter-picture__render{position:relative;z-index:2;width:100%;height:100%;object-fit:contain;object-position:center bottom;padding:8px 8px 0;filter:drop-shadow(0 10px 14px rgba(0,0,0,.2))}.fighter-picture--compact .fighter-picture__fallback{width:72%}.fighter-picture--compact .fighter-picture__render{padding:0;object-fit:cover;object-position:center}
 
 html[data-theme='festival'] .fighter-glyph{background:#fff8df;border:3px solid var(--line-strong);box-shadow:3px 3px 0 var(--line-strong)}html[data-theme='festival'] .fighter-glyph__ring{stroke:#503526;stroke-width:2}html[data-theme='festival'] .fighter-glyph__axis{stroke:#d5a944;stroke-width:2}html[data-theme='festival'] .fighter-glyph__node{fill:#ffd85d;stroke:#503526;stroke-width:1.5}html[data-theme='festival'] .fighter-glyph__core{fill:#e94335;stroke:#21140f;stroke-width:2}html[data-theme='festival'] .fighter-glyph>strong{color:#21140f;text-shadow:2px 2px 0 #fff}html[data-theme='festival'] .fighter-glyph--compact{border-width:2px;box-shadow:2px 2px 0 var(--line-strong)}
 
-.fighter-hero__picture{width:100%;min-width:0}.fighter-hero__picture .fighter-picture{width:100%}html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(180px,28%) minmax(0,1fr);align-items:stretch}html[data-theme='festival'] .fighter-hero__picture{align-self:stretch}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{height:100%;min-height:230px;aspect-ratio:auto}html[data-theme='festival'] .fighter-hero__content{align-self:center;position:relative;z-index:1}html[data-theme='festival'] .fighter-hero__meta{font-weight:900;color:#6b4938}html[data-theme='festival'] .memory-aid p{color:#4d3328;font-weight:700}
+.fighter-hero__picture{width:100%;min-width:0}.fighter-hero__picture .fighter-picture{width:100%}html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(180px,28%) minmax(0,1fr);align-items:stretch}html[data-theme='festival'] .fighter-hero__picture{align-self:stretch}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{height:100%;min-height:230px;aspect-ratio:auto}html[data-theme='festival'] .fighter-hero__picture .fighter-picture__render{padding:12px 14px 0}html[data-theme='festival'] .fighter-hero__content{align-self:center;position:relative;z-index:1}html[data-theme='festival'] .fighter-hero__meta{font-weight:900;color:#6b4938}html[data-theme='festival'] .memory-aid p{color:#4d3328;font-weight:700}
 
-@media(max-width:900px){html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(130px,34%) minmax(0,1fr)}}@media(max-width:640px){html[data-theme='festival'] .fighter-hero{grid-template-columns:1fr;padding:12px}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{min-height:180px;aspect-ratio:16/9}html[data-theme='festival'] .fighter-hero__content{padding:4px 4px 8px}html[data-theme='festival'] .memory-aid{grid-column:auto}.fighter-picture__label{left:8px;right:8px;bottom:8px}}@media(min-width:1600px){html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(260px,30%) minmax(0,1fr)}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{min-height:320px}}@media(min-width:2200px){html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(320px,31%) minmax(0,1fr)}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{min-height:390px}}
+/* Festival must stay warm and bright all the way through the frame-data workspace. */
+html[data-theme='festival'] .frame-data-panel{background:#fffaf0;color:#24150f}
+html[data-theme='festival'] .frame-stats>span,
+html[data-theme='festival'] .oos-strip,
+html[data-theme='festival'] .oos-options>span,
+html[data-theme='festival'] .frame-search,
+html[data-theme='festival'] .frame-category-tabs button,
+html[data-theme='festival'] .frame-record>summary,
+html[data-theme='festival'] .frame-record[open]>summary,
+html[data-theme='festival'] .frame-record__details,
+html[data-theme='festival'] .frame-extra-grid>span,
+html[data-theme='festival'] .frame-timeline__bar,
+html[data-theme='festival'] .frame-timeline--fallback>span,
+html[data-theme='festival'] .visual-player__timing{background:#fff7df;color:#24150f;border-color:#604232}
+html[data-theme='festival'] .frame-record>summary:hover{background:#ffedbd}
+html[data-theme='festival'] .frame-record[open]>summary{background:#ffe3a1}
+html[data-theme='festival'] .frame-record__details{border-top:2px solid #604232}
+html[data-theme='festival'] .frame-extra-grid>span{background:#fff2c9}
+html[data-theme='festival'] .frame-search{border:2px solid #604232;box-shadow:2px 2px 0 #604232}
+html[data-theme='festival'] .frame-category-tabs button{border:2px solid #604232;background:#fffaf0;color:#4f392f}
+html[data-theme='festival'] .frame-category-tabs button.is-active{background:#2676d2;color:#fff;border-color:#21140f;box-shadow:2px 2px 0 #21140f}
+html[data-theme='festival'] .frame-grid--header{color:#715242;border-color:#9d7a62}
+html[data-theme='festival'] .frame-record{border-color:#9d7a62}
+html[data-theme='festival'] .frame-move-name small,
+html[data-theme='festival'] .frame-stats small,
+html[data-theme='festival'] .frame-extra-grid small,
+html[data-theme='festival'] .frame-timeline__bar small,
+html[data-theme='festival'] .frame-timeline figcaption,
+html[data-theme='festival'] .frame-data-footnote{color:#765849}
+html[data-theme='festival'] .frame-timeline__startup{background:#ffecc0}
+html[data-theme='festival'] .frame-timeline__active{background:#ffd0c8;color:#32160f}
+html[data-theme='festival'] .frame-timeline__recovery{background:#dcecff}
+html[data-theme='festival'] .frame-timeline figcaption em{color:#5d4438}
+html[data-theme='festival'] .frame-source-link{color:#3c5f9b;border-color:#3c5f9b}
+
+html[data-theme='festival'] .visual-player__stage--fighter{background:linear-gradient(135deg,#ffe5a5,#fff8df 55%,#dcecff)}
+html[data-theme='festival'] .visual-player__stage--startup{box-shadow:inset 0 0 0 7px rgba(246,201,69,.26),3px 3px 0 var(--line-strong)}
+html[data-theme='festival'] .visual-player__stage--active{box-shadow:inset 0 0 0 7px rgba(233,67,53,.22),3px 3px 0 var(--line-strong)}
+html[data-theme='festival'] .visual-player__stage--recovery{box-shadow:inset 0 0 0 7px rgba(38,118,210,.18),3px 3px 0 var(--line-strong)}
+.visual-player__fighter-render{position:absolute;inset:4% 6% 0;width:88%!important;height:96%!important;object-fit:contain!important;object-position:center bottom;opacity:.9;filter:drop-shadow(0 12px 16px rgba(33,20,15,.22))}.visual-player__stage--fighter .visual-player__diagram{position:relative;z-index:2;align-self:end;margin-bottom:18px;padding:10px 18px;border:2px solid rgba(33,20,15,.7);border-radius:12px;background:rgba(255,250,240,.88);box-shadow:3px 3px 0 rgba(33,20,15,.65)}.visual-player__stage--fighter .visual-player__diagram strong{font-size:clamp(34px,5vw,60px)}
+
+@media(max-width:900px){html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(130px,34%) minmax(0,1fr)}}@media(max-width:640px){html[data-theme='festival'] .fighter-hero{grid-template-columns:1fr;padding:12px}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{min-height:180px;aspect-ratio:16/9}html[data-theme='festival'] .fighter-hero__content{padding:4px 4px 8px}html[data-theme='festival'] .memory-aid{grid-column:auto}.fighter-picture__label{left:8px;right:8px;bottom:8px}.visual-player__fighter-render{inset:3% 3% 0;width:94%!important;height:97%!important}}@media(min-width:1600px){html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(260px,30%) minmax(0,1fr)}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{min-height:320px}}@media(min-width:2200px){html[data-theme='festival'] .fighter-hero{grid-template-columns:minmax(320px,31%) minmax(0,1fr)}html[data-theme='festival'] .fighter-hero__picture .fighter-picture{min-height:390px}}
