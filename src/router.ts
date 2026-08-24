@@ -3,6 +3,7 @@ import { useSyncExternalStore } from 'react'
 export type AppRoute =
   | { page: 'roster' }
   | { page: 'fighter'; slug: string }
+  | { page: 'practice'; slug: string }
   | { page: 'about' }
   | { page: 'not-found' }
 
@@ -21,6 +22,8 @@ export function parseRoute(hash: string): AppRoute {
   if (normalized === '/about') return { page: 'about' }
   const fighterMatch = normalized.match(/^\/fighter\/([a-z0-9-]+)$/)
   if (fighterMatch?.[1]) return { page: 'fighter', slug: fighterMatch[1] }
+  const practiceMatch = normalized.match(/^\/practice\/([a-z0-9-]+)$/)
+  if (practiceMatch?.[1]) return { page: 'practice', slug: practiceMatch[1] }
   return { page: 'not-found' }
 }
 
