@@ -1,5 +1,11 @@
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { visualMoveMedia } from './visualMedia'
+
+function publicFile(src: string): string {
+  return join(process.cwd(), 'public', src.replace(/^\/+/, ''))
+}
 
 function validateVisualMedia(): string[] {
   const errors: string[] = []
@@ -12,10 +18,11 @@ function validateVisualMedia(): string[] {
     const key = `${media.fighterId}:${media.moveId}`
     if (keys.has(key)) errors.push(`duplicate fighter/move visual ${key}`)
     keys.add(key)
-    if (!media.sourceUrl.startsWith('https://')) errors.push(`${media.id}: source must be https`)
-    if (media.animatedPreviewUrl && !media.animatedPreviewUrl.startsWith('https://')) errors.push(`${media.id}: preview must be https`)
+    if (!media.sourceUrl.startsWith('https://')) errors.push(`${media.id}: source documentation must be https`)
+    if (!media.animatedPreviewUrl || /^https?:\/\//.test(media.animatedPreviewUrl)) errors.push(`${media.id}: preview must be a local static asset`)
+    if (!media.spriteSheet) errors.push(`${media.id}: exact frame sheet is required`)
     if (media.spriteSheet) {
-      if (/^https?:\/\//.test(media.spriteSheet.src)) errors.push(`${media.id}: exact frame sheet must be a local static asset`)
+      if (/^https?:\/\//.test(media.spriteSheet.src)) errors.push(`${media.id}: exact frame sheet must be local`)
       if (media.spriteSheet.frameWidth < 1 || media.spriteSheet.frameHeight < 1) errors.push(`${media.id}: invalid frame-sheet dimensions`)
       if (media.spriteSheet.columns < 1) errors.push(`${media.id}: frame-sheet columns must be positive`)
     }
@@ -34,18 +41,25 @@ function validateVisualMedia(): string[] {
 }
 
 describe('visual frame media', () => {
-  it('keeps frame sequences contiguous and overlay-safe', () => expect(validateVisualMedia()).toEqual([]))
+  it('keeps frame sequences contiguous, local and overlay-safe', () => expect(validateVisualMedia()).toEqual([]))
 
-  it('uses real UFD animated references for every registered preview', () => {
-    expect(visualMoveMedia.length).toBeGreaterThanOrEqual(19)
-    expect(visualMoveMedia.every((media) => media.animatedPreviewUrl?.includes('ultimateframedata.com/hitboxes/'))).toBe(true)
+  it('ships exact local preview and sprite assets for every registered move', () => {
+    expect(visualMoveMedia).toHaveLength(19)
+    for (const media of visualMoveMedia) {
+      expect(media.animatedPreviewUrl, media.id).toBeTruthy()
+      expect(media.spriteSheet, media.id).toBeTruthy()
+      expect(existsSync(publicFile(media.animatedPreviewUrl!)), `${media.id} preview`).toBe(true)
+      expect(existsSync(publicFile(media.spriteSheet!.src)), `${media.id} sheet`).toBe(true)
+    }
   })
 
-  it('covers all five Pyra and Mythra aerials', () => {
+  it('covers all five Pyra and Mythra aerials with exact seekable sheets', () => {
     const aerials = ['neutral-air', 'forward-air', 'back-air', 'up-air', 'down-air']
     for (const fighterId of ['pyra', 'mythra']) {
-      const covered = new Set(visualMoveMedia.filter((media) => media.fighterId === fighterId).map((media) => media.moveId))
+      const fighterMedia = visualMoveMedia.filter((media) => media.fighterId === fighterId)
+      const covered = new Set(fighterMedia.map((media) => media.moveId))
       expect(aerials.every((moveId) => covered.has(moveId)), fighterId).toBe(true)
+      expect(fighterMedia.every((media) => Boolean(media.spriteSheet)), `${fighterId} exact sheets`).toBe(true)
     }
   })
 })
