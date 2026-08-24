@@ -1,43 +1,67 @@
 #!/usr/bin/env python3
-"""Refresh the committed SSBU frame-data snapshot from Ultimate Frame Data.
+"""Refresh the committed SSBU frame-data snapshot.
 
-Maintenance-time only: the deployed browser app never scrapes or calls UFD.
-The generator stores structured factual values and intentionally does not copy
-source-site prose or media. Complex move notation is kept as raw factual text.
+Ultimate Frame Data (UFD) remains the canonical factual reference shown to
+users. UFD rejects GitHub-hosted runners, so maintenance builds read a public
+GitHub mirror of UFD's normalized CSV facts instead. The deployed browser app
+never calls either service at runtime.
+
+Only structured factual fields are retained. Source-site prose, images,
+animations, and hitbox media are intentionally excluded. The only value
+extracted from a prose notes column is the factual autocancel frame window.
 """
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import re
 import sys
-import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import requests
-from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "src" / "data" / "ufd-manifest.json"
 OUTPUT_PATH = ROOT / "src" / "data" / "frameData.generated.json"
-USER_AGENT = "ssbu-training-guide-frame-data-refresh/1.0 (+https://github.com/Joey-Red/ssb)"
-TIMEOUT_SECONDS = 20
+MIRROR_BASE = "https://raw.githubusercontent.com/TheFakeNatty/smash-data/main/data/raw"
+MIRROR_REPO = "https://github.com/TheFakeNatty/smash-data"
+USER_AGENT = "ssbu-training-guide-frame-data-refresh/2.0 (+https://github.com/Joey-Red/ssb)"
+TIMEOUT_SECONDS = 25
 MIN_MOVES = 12
+MAX_WORKERS = 8
 
 EMPTY_VALUES = {"", "--", "-", "n/a", "N/A"}
 AERIALS = {"neutral air", "forward air", "back air", "up air", "down air"}
-GROUND_WORDS = ("jab", "tilt", "dash attack", "smash")
 GRAB_WORDS = ("grab", "pummel", "throw")
-DEFENSE_WORDS = ("dodge", "roll")
+DEFENSE_WORDS = ("dodge", "roll", "ledge", "getup")
+EXPECTED_COLUMNS = {
+    "character",
+    "section",
+    "move",
+    "startup",
+    "total_frames",
+    "landing_lag",
+    "damage",
+    "advantage_on_shield",
+    "active_frames",
+    "notes",
+    "shield_lag",
+    "shield_stun",
+    "hitbox_type",
+    "end_lag",
+}
 
 
 def clean(value: str | None) -> str | None:
     if value is None:
         return None
-    value = " ".join(value.replace("\u00a0", " ").split()).strip()
-    return None if value in EMPTY_VALUES else value
+    normalized = " ".join(value.replace("\u00a0", " ").split()).strip()
+    return None if normalized in EMPTY_VALUES else normalized
 
 
 def first_integer(value: str | None) -> int | None:
@@ -48,14 +72,15 @@ def first_integer(value: str | None) -> int | None:
 
 
 def slugify(value: str) -> str:
-    value = value.lower().replace("&", " and ")
-    value = re.sub(r"[^a-z0-9]+", "-", value).strip("-")
-    return value or "move"
+    normalized = value.lower().replace("&", " and ")
+    normalized = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+    return normalized or "move"
 
 
-def category_for(name: str) -> str:
+def category_for(name: str, section: str | None) -> str:
     lower = name.lower().strip()
     base = re.sub(r"\s*\([^)]*\)\s*$", "", lower)
+    section_lower = (section or "").lower()
     if base in AERIALS:
         return "aerial"
     if lower.startswith(("neutral b", "side b", "up b", "down b")):
@@ -64,95 +89,96 @@ def category_for(name: str) -> str:
         return "grab"
     if any(word in lower for word in DEFENSE_WORDS):
         return "defense"
-    if lower.startswith(GROUND_WORDS) or any(word in lower for word in (" tilt", " smash")):
+    if "aerial" in section_lower and "air" in lower:
+        return "aerial"
+    if "special" in section_lower:
+        return "special"
+    if any(token in lower for token in ("jab", "tilt", "dash attack", "smash")):
         return "ground"
     return "misc"
 
 
-def field(container: Any, class_name: str) -> str | None:
-    node = container.find(class_=class_name)
-    return clean(node.get_text(" ", strip=True) if node else None)
-
-
 def extract_autocancel(notes: str | None) -> str | None:
+    """Extract only the factual autocancel window, never the source prose."""
     if not notes:
         return None
     match = re.search(r"auto\s*cancels?\s+on\s+frame\s+(.+?)(?:\.|$)", notes, flags=re.IGNORECASE)
     if not match:
         return None
-    value = re.sub(r"\bframe\s+", "", match.group(1), flags=re.IGNORECASE)
+    value = match.group(1)
+    value = re.sub(r"\bframe\s+", "", value, flags=re.IGNORECASE)
     value = re.sub(r"\s+and\s+", "; ", value, flags=re.IGNORECASE)
+    value = re.sub(r"\s+onward\b", "+", value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<=\d)[-–—](?=\d)", "–", value)
     return clean(value)
 
 
-def parse_stats(soup: BeautifulSoup) -> dict[str, str | None]:
-    text = soup.get_text("\n", strip=True)
-
-    def match(*patterns: str) -> str | None:
-        for pattern in patterns:
-            result = re.search(pattern, text, flags=re.IGNORECASE)
-            if result:
-                return clean(result.group(1))
-        return None
-
-    fall_pair = re.search(
-        r"Fall\s*Speed\s*/\s*Fast\s*Fall\s*Speed\s*[—–-]\s*([\d.]+)\s*/\s*([\d.]+)",
-        text,
-        flags=re.IGNORECASE,
-    )
-
+def empty_stats() -> dict[str, None]:
+    # The transport mirror contains move rows, not the UFD movement-stat table.
+    # Unknown is better than silently inferring or fabricating values.
     return {
-        "weight": match(r"Weight\s*[—–-]\s*([\d.]+)"),
-        "gravity": match(r"Gravity\s*[—–-]\s*([\d.]+)"),
-        "walkSpeed": match(r"Walk\s*Speed\s*[—–-]\s*([\d.]+)", r"Walk\s*[—–-]\s*([\d.]+)"),
-        "runSpeed": match(r"Run\s*Speed\s*[—–-]\s*([\d.]+)", r"Run\s*[—–-]\s*([\d.]+)"),
-        "initialDash": match(r"Initial\s*Dash\s*[—–-]\s*([\d.]+)"),
-        "airSpeed": match(r"Air\s*Speed\s*[—–-]\s*([\d.]+)"),
-        "airAcceleration": match(r"Total\s*Air\s*Acceleration\s*[—–-]\s*([\d.]+)"),
-        "fallSpeed": clean(fall_pair.group(1)) if fall_pair else match(r"Fall\s*Speed\s*[—–-]\s*([\d.]+)"),
-        "fastFallSpeed": clean(fall_pair.group(2)) if fall_pair else match(r"Fast\s*Fall\s*Speed\s*[—–-]\s*([\d.]+)"),
+        "weight": None,
+        "gravity": None,
+        "walkSpeed": None,
+        "runSpeed": None,
+        "initialDash": None,
+        "airSpeed": None,
+        "airAcceleration": None,
+        "fallSpeed": None,
+        "fastFallSpeed": None,
     }
 
 
-def parse_moves(soup: BeautifulSoup) -> list[dict[str, Any]]:
-    moves: list[dict[str, Any]] = []
-    used_ids: dict[str, int] = {}
+def parse_rows(text: str) -> tuple[str, list[dict[str, Any]]]:
+    reader = csv.DictReader(io.StringIO(text))
+    columns = set(reader.fieldnames or [])
+    missing = EXPECTED_COLUMNS - columns
+    if missing:
+        raise RuntimeError(f"mirror CSV is missing columns: {sorted(missing)}")
 
-    for container in soup.find_all("div", class_=lambda value: value and "movecontainer" in str(value).split()):
-        name = field(container, "movename")
+    moves: list[dict[str, Any]] = []
+    seen_names: set[str] = set()
+    character_name = ""
+
+    for row in reader:
+        name = clean(row.get("move"))
+        character_name = character_name or clean(row.get("character")) or ""
         if not name or name.lower() == "stats":
             continue
 
-        startup = field(container, "startup")
-        active = field(container, "activeframes")
-        total_frames = field(container, "totalframes")
-        landing_lag = field(container, "landinglag")
-        damage = field(container, "basedamage")
-        on_shield = field(container, "advantage")
-        shield_lag = field(container, "shieldlag")
-        shield_stun = field(container, "shieldstun")
-        hitbox_type = field(container, "whichhitbox")
-        end_lag = field(container, "endlag")
-        source_notes = field(container, "notes")
-        autocancel = extract_autocancel(source_notes)
-
-        if not any((startup, active, total_frames, landing_lag, damage, on_shield, end_lag, autocancel)):
+        # The mirror repeats the same logical move under multiple presentation
+        # sections. Keep the first exact move-name occurrence only.
+        name_key = " ".join(name.lower().split())
+        if name_key in seen_names:
             continue
 
-        base_id = slugify(name)
-        occurrence = used_ids.get(base_id, 0) + 1
-        used_ids[base_id] = occurrence
-        move_id = base_id if occurrence == 1 else f"{base_id}-{occurrence}"
+        startup = clean(row.get("startup"))
+        active = clean(row.get("active_frames"))
+        total_frames = clean(row.get("total_frames"))
+        landing_lag = clean(row.get("landing_lag"))
+        damage = clean(row.get("damage"))
+        on_shield = clean(row.get("advantage_on_shield"))
+        shield_lag = clean(row.get("shield_lag"))
+        shield_stun = clean(row.get("shield_stun"))
+        hitbox_type = clean(row.get("hitbox_type"))
+        end_lag = clean(row.get("end_lag"))
+        autocancel = extract_autocancel(clean(row.get("notes")))
 
+        # Drop navigation/place-holder rows that contain no move facts.
+        if not any((startup, active, total_frames, landing_lag, damage, on_shield, shield_lag, shield_stun, end_lag, autocancel)):
+            continue
+
+        seen_names.add(name_key)
         moves.append(
             {
-                "id": move_id,
+                "id": slugify(name),
                 "name": name,
-                "category": category_for(name),
+                "category": category_for(name, clean(row.get("section"))),
                 "startup": startup,
                 "startupFrame": first_integer(startup),
                 "active": active,
                 "totalFrames": total_frames,
+                # The mirror does not expose a distinct authoritative FAF field.
                 "faf": None,
                 "landingLag": landing_lag,
                 "autocancel": autocancel,
@@ -166,71 +192,75 @@ def parse_moves(soup: BeautifulSoup) -> list[dict[str, Any]]:
             }
         )
 
-    return moves
+    return character_name, moves
 
 
-def fetch_html(session: requests.Session, url: str) -> str:
-    last_error: Exception | None = None
-    for attempt in range(1, 4):
-        try:
-            response = session.get(url, timeout=TIMEOUT_SECONDS)
-            response.raise_for_status()
-            if "movecontainer" not in response.text:
-                raise RuntimeError("response did not contain UFD move data")
-            return response.text
-        except Exception as error:
-            last_error = error
-            if attempt < 3:
-                time.sleep(attempt * 1.25)
-    raise RuntimeError(f"failed to fetch {url}: {last_error}")
+def fetch_fighter(entry: dict[str, str], canonical_base: str) -> tuple[str, dict[str, Any]]:
+    fighter_id = entry["fighterId"]
+    ufd_slug = entry["ufdSlug"]
+    mirror_url = f"{MIRROR_BASE}/{ufd_slug}_moves.csv"
+    canonical_url = f"{canonical_base}/{ufd_slug}"
+    response = requests.get(
+        mirror_url,
+        headers={"User-Agent": USER_AGENT, "Accept": "text/csv,text/plain;q=0.9,*/*;q=0.1"},
+        timeout=TIMEOUT_SECONDS,
+    )
+    response.raise_for_status()
+    name, moves = parse_rows(response.text)
+    if len(moves) < MIN_MOVES:
+        raise RuntimeError(f"only {len(moves)} unique factual move rows parsed")
+    return fighter_id, {
+        "fighterId": fighter_id,
+        "name": name or fighter_id,
+        "sourceUrl": canonical_url,
+        "stats": empty_stats(),
+        "moves": moves,
+    }
 
 
 def main() -> int:
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    base_url = manifest["sourceBaseUrl"].rstrip("/")
+    canonical_base = manifest["sourceBaseUrl"].rstrip("/")
+    entries = manifest["fighters"]
     fighters: dict[str, Any] = {}
     failures: list[str] = []
 
-    session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml"})
-
-    for index, entry in enumerate(manifest["fighters"], start=1):
-        fighter_id = entry["fighterId"]
-        url = f"{base_url}/{entry['ufdSlug']}"
-        print(f"[{index:02d}/{len(manifest['fighters'])}] {fighter_id} <- {url}")
-        try:
-            html = fetch_html(session, url)
-            soup = BeautifulSoup(html, "html.parser")
-            heading = soup.find("h1", class_=lambda value: value and "charactername" in str(value).split())
-            name = clean(heading.get_text(" ", strip=True) if heading else None) or fighter_id
-            moves = parse_moves(soup)
-            if len(moves) < MIN_MOVES:
-                raise RuntimeError(f"only {len(moves)} move rows parsed")
-            fighters[fighter_id] = {
-                "fighterId": fighter_id,
-                "name": name,
-                "sourceUrl": url,
-                "stats": parse_stats(soup),
-                "moves": moves,
-            }
-        except Exception as error:
-            failures.append(f"{fighter_id}: {error}")
-        time.sleep(0.05)
+    print(f"Refreshing {len(entries)} fighters from maintenance mirror: {MIRROR_REPO}")
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        future_by_entry = {pool.submit(fetch_fighter, entry, canonical_base): entry for entry in entries}
+        for future in as_completed(future_by_entry):
+            entry = future_by_entry[future]
+            fighter_id = entry["fighterId"]
+            try:
+                result_id, data = future.result()
+                fighters[result_id] = data
+                print(f"[ok] {fighter_id}: {len(data['moves'])} unique move rows")
+            except Exception as error:
+                failures.append(f"{fighter_id}: {error}")
+                print(f"[failed] {fighter_id}: {error}", file=sys.stderr)
 
     if failures:
         print("\nFrame-data refresh failed; refusing to write a partial snapshot:", file=sys.stderr)
-        for failure in failures:
+        for failure in sorted(failures):
             print(f"- {failure}", file=sys.stderr)
         return 1
 
+    # Keep fighter order stable according to the project's canonical manifest.
+    ordered_fighters = {entry["fighterId"]: fighters[entry["fighterId"]] for entry in entries}
     snapshot = {
         "version": 1,
         "generatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "source": {"id": "ultimate-frame-data", "label": "Ultimate Frame Data", "baseUrl": base_url},
-        "fighters": fighters,
+        "source": {
+            "id": "ultimate-frame-data",
+            "label": "Ultimate Frame Data",
+            "baseUrl": canonical_base,
+            "transportMirror": MIRROR_REPO,
+        },
+        "fighters": ordered_fighters,
     }
     OUTPUT_PATH.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"\nWrote {len(fighters)} fighters to {OUTPUT_PATH.relative_to(ROOT)}")
+    row_count = sum(len(data["moves"]) for data in ordered_fighters.values())
+    print(f"\nWrote {len(ordered_fighters)} fighters / {row_count} unique move rows to {OUTPUT_PATH.relative_to(ROOT)}")
     return 0
 
 
