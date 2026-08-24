@@ -34,20 +34,3 @@ jobs:
         run: pip install -r scripts/requirements-media.txt
       - name: Probe UFD visual discovery
         run: python scripts/probe-ufd-visuals.py
-      - name: Vendor all runtime visual assets
-        run: python scripts/vendor-static-assets.py
-      - name: Commit vendored assets
-        shell: bash
-        run: |
-          set -euo pipefail
-          branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/media src/data/visualMediaAssets.generated.json
-          if git diff --cached --quiet; then
-            echo 'Vendored visual assets are already current.'
-            exit 0
-          fi
-          git commit -m 'chore: refresh local visual assets'
-          git pull --rebase origin "$branch"
-          git push origin HEAD:"$branch"
