@@ -4,6 +4,7 @@ import { sourceById } from '../data/sources'
 import { formatFrames } from '../lib/frame'
 import { hrefFor } from '../router'
 import { ComboExplorer } from './ComboExplorer'
+import { FighterUtility } from './FighterUtility'
 import { TrainingLadder } from './TrainingLadder'
 import './FighterView.css'
 
@@ -42,6 +43,7 @@ export function FighterView({ slug }: { slug: string }) {
   return (
     <div className="page-stack">
       <FighterHeader name={fighter.name} series={fighter.series} archetype={guide.archetype} memoryAid={guide.memoryAid} />
+      <FighterUtility fighterId={fighter.id} fighterSlug={fighter.slug} fighterName={fighter.name} totalSteps={guide.trainingRoutine.length} />
       <div className="fighter-layout">
         <main className="fighter-main">
           <TrainingLadder steps={guide.trainingRoutine} />
