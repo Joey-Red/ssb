@@ -5,6 +5,7 @@ import { hrefFor, useRoute } from './router'
 
 const FighterView = lazy(() => import('./components/FighterView').then((module) => ({ default: module.FighterView })))
 const PracticeView = lazy(() => import('./components/PracticeView').then((module) => ({ default: module.PracticeView })))
+const DrillsView = lazy(() => import('./components/DrillsView').then((module) => ({ default: module.DrillsView })))
 const ToolsView = lazy(() => import('./components/ToolsView').then((module) => ({ default: module.ToolsView })))
 
 const frameGlossary = [
@@ -42,6 +43,7 @@ export default function App() {
   if (route.page === 'roster') content = <RosterView />
   else if (route.page === 'fighter') content = <Suspense fallback={<RouteFallback />}><FighterView slug={route.slug} /></Suspense>
   else if (route.page === 'practice') content = <Suspense fallback={<RouteFallback />}><PracticeView slug={route.slug} /></Suspense>
+  else if (route.page === 'drills') content = <Suspense fallback={<RouteFallback />}><DrillsView /></Suspense>
   else if (route.page === 'tools') content = <Suspense fallback={<RouteFallback />}><ToolsView /></Suspense>
   else if (route.page === 'about') content = <AboutView />
   else content = <section className="panel empty-state"><span className="empty-state__icon" aria-hidden="true">404</span><h1>Page not found</h1><p>This route is not part of the app.</p><a className="button-link" href={hrefFor('/')}>Return to roster</a></section>
