@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type KeyboardEvent } from 'react'
+import { officialFighterRenderUrl } from '../data/officialFighterAssets'
 import { getVisualMoveMedia } from '../data/visualMedia'
 import type { FrameMove, VisualFramePhase } from '../types'
 import { firstFrame, lastFrame, numericValue } from '../lib/frameData'
@@ -44,6 +45,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const phase = currentFrame?.phase ?? fallbackPhase(frame, activeStart, activeEnd)
   const regions = currentFrame?.regions ?? []
   const hasHostedStill = Boolean(currentFrame?.imageSrc)
+  const fighterRender = officialFighterRenderUrl(fighterId)
 
   const timing = useMemo(() => ({
     startup: move.startup ?? '—',
@@ -75,21 +77,24 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   return (
     <section className="visual-media-card" aria-label={`${fighterName} ${move.name} visual frame player`}>
       <header className="visual-media-card__head">
-        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek one game frame at a time. Overlay geometry is only drawn when that exact frame has annotation data.</p></div>
-        {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Source ↗</a> : <span className="visual-media-card__source">Timing only</span>}
+        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek one game frame at a time. Exact hitbox geometry is only drawn when that frame has annotation data.</p></div>
+        {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Hitbox source ↗</a> : <span className="visual-media-card__source">Fighter visual + timing</span>}
       </header>
       <div className="visual-player" tabIndex={0} onKeyDown={onKeyDown}>
         <div className="visual-player__split">
-          <div className={`visual-player__stage${hasHostedStill ? '' : media?.animatedPreviewUrl ? '' : ' visual-player__stage--diagram'}`}>
+          <div className={`visual-player__stage visual-player__stage--${phase}${hasHostedStill ? '' : media?.animatedPreviewUrl ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
             {hasHostedStill && currentFrame?.imageSrc ? (
               <img src={currentFrame.imageSrc} alt={`${fighterName} ${move.name}, frame ${frame}`} loading="lazy" decoding="async" />
             ) : media?.animatedPreviewUrl ? (
               <>
                 <img src={media.animatedPreviewUrl} alt={`${fighterName} ${move.name} animated hitbox reference`} loading="lazy" decoding="async" />
-                <span className="visual-player__preview-label">Animated source preview</span>
+                <span className="visual-player__preview-label">Real hitbox animation</span>
               </>
             ) : (
-              <div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{fighterName} · {move.name}</small></div>
+              <>
+                <img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} official Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.hidden = true }} />
+                <div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{move.name}</small></div>
+              </>
             )}
             <span className="visual-player__phase">{phase}</span>
             {showOverlay && hasHostedStill && regions.length > 0 && <div className="visual-player__overlay" aria-hidden="true">{regions.map((region) => <span key={region.id} className={`hitbox-circle hitbox-circle--${region.kind}`} style={{ left: `${region.x}%`, top: `${region.y}%`, width: `${region.radius * 2}%`, aspectRatio: '1' }} title={region.label} />)}</div>}
@@ -108,7 +113,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame + 1) }} aria-label="Next frame">+1f</button>
           <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label>
         </div>
-        <p className="visual-player__note">{hasHostedStill ? 'This frame uses a hosted still and its overlay can be independently toggled.' : media?.animatedPreviewUrl ? 'The source GIF is a real hitbox reference but is not seek-synchronized. The controls index the documented game frames; locally hosted still sequences will replace the preview per frame as they are added.' : 'No visual media is staged for this move yet. The player still indexes the documented timing without inventing a hitbox image.'}</p>
+        <p className="visual-player__note">{hasHostedStill ? 'This exact game frame uses a hosted still; hitbox annotations can be toggled independently.' : media?.animatedPreviewUrl ? 'This is the real source hitbox animation. The frame controls still index documented game timing; exact seek-synchronized stills can be staged separately.' : 'A real fighter render is shown while the controls index documented move timing. Exact hitbox geometry remains unavailable until move-specific visual media is staged.'}</p>
       </div>
     </section>
   )
