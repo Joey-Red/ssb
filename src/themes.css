@@ -1,0 +1,312 @@
+/* Festival is the default product identity. Titan remains the alternate theme. */
+html[data-theme='festival'] {
+  color-scheme: light;
+  --bg: #f7efd8;
+  --surface: #fffaf0;
+  --surface-2: #fff1c9;
+  --surface-3: #ffe09b;
+  --line: #3d2a20;
+  --line-strong: #21140f;
+  --text: #24150f;
+  --muted: #6d5144;
+  --quiet: #8b6d5e;
+  --accent: #e94335;
+  --accent-dim: #ffd7d1;
+  --danger: #b51e2e;
+  --festival-red: #e94335;
+  --festival-blue: #2676d2;
+  --festival-yellow: #f6c945;
+  --festival-green: #3aa65d;
+  --festival-cream: #fffaf0;
+  --radius: 18px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme='festival'] body {
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(233,67,53,.12) 0 4px, transparent 4.5px),
+    radial-gradient(circle at 42px 38px, rgba(38,118,210,.11) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 68px 18px, rgba(246,201,69,.2) 0 5px, transparent 5.5px);
+  background-size: 84px 68px;
+}
+
+html[data-theme='festival'] .app-shell { grid-template-columns: 220px minmax(0,1fr); }
+html[data-theme='festival'] .sidebar {
+  border-right: 3px solid var(--line-strong);
+  background: #f8d94f;
+  padding: 20px 12px;
+  box-shadow: 6px 0 0 rgba(33,20,15,.12);
+}
+html[data-theme='festival'] .brand {
+  padding: 2px 8px 26px;
+  gap: 12px;
+  color: var(--text);
+}
+html[data-theme='festival'] .brand-mark {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--festival-red);
+  color: white;
+  box-shadow: 4px 4px 0 var(--line-strong);
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+html[data-theme='festival'] .brand strong { font-size: 25px; letter-spacing: -.055em; line-height: .9; }
+html[data-theme='festival'] .brand small { color: #4d352a; font-size: 9px; font-weight: 900; letter-spacing: .18em; }
+html[data-theme='festival'] .nav-label,
+html[data-theme='festival'] .eyebrow { color: #664331; font-weight: 950; }
+html[data-theme='festival'] .side-nav a {
+  min-height: 46px;
+  color: #4d352a;
+  border: 2px solid transparent;
+  border-radius: 12px;
+}
+html[data-theme='festival'] .side-nav a:hover,
+html[data-theme='festival'] .side-nav a.is-active {
+  background: #fff8e8;
+  border-color: var(--line-strong);
+  color: var(--text);
+  box-shadow: 3px 3px 0 var(--line-strong);
+}
+html[data-theme='festival'] .side-nav a.is-active span { color: var(--festival-red); }
+html[data-theme='festival'] .side-nav em { border: 2px solid rgba(33,20,15,.35); color: #4d352a; }
+html[data-theme='festival'] .sidebar-footer { color: #5c4438; border-top: 2px solid rgba(33,20,15,.35); }
+html[data-theme='festival'] .sidebar-footer strong { color: var(--text); }
+html[data-theme='festival'] .health-dot { background: var(--festival-green); box-shadow: 0 0 0 3px rgba(58,166,93,.16); }
+
+html[data-theme='festival'] .topbar {
+  height: 76px;
+  background: rgba(255,250,240,.94);
+  border-bottom: 3px solid var(--line-strong);
+  backdrop-filter: blur(10px);
+}
+html[data-theme='festival'] .topbar h2 { font-size: 26px; font-weight: 950; letter-spacing: -.045em; }
+html[data-theme='festival'] .topbar p { color: var(--muted); font-size: 12px; font-weight: 700; }
+html[data-theme='festival'] .topbar-status {
+  border: 2px solid var(--line-strong);
+  background: white;
+  color: var(--text);
+  box-shadow: 3px 3px 0 var(--line-strong);
+}
+
+.theme-toggle {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-3);
+  color: var(--text);
+  border-radius: 10px;
+  min-height: 38px;
+  padding: 7px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-weight: 850;
+  font-size: 11px;
+}
+.theme-toggle__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 1px solid currentColor; }
+html[data-theme='festival'] .theme-toggle {
+  border-width: 2px;
+  background: var(--festival-blue);
+  color: white;
+  box-shadow: 3px 3px 0 var(--line-strong);
+}
+html[data-theme='festival'] .theme-toggle__dot { background: var(--festival-yellow); }
+
+html[data-theme='festival'] .content { padding: 20px; max-width: 1900px; }
+html[data-theme='festival'] .hero-panel,
+html[data-theme='festival'] .panel {
+  position: relative;
+  overflow: clip;
+  border: 3px solid var(--line-strong);
+  background: var(--surface);
+  box-shadow: 7px 7px 0 rgba(33,20,15,.2);
+}
+html[data-theme='festival'] .hero-panel::before {
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -46px;
+  top: -58px;
+  border-radius: 50%;
+  background: var(--festival-red);
+  opacity: .13;
+  pointer-events: none;
+}
+html[data-theme='festival'] .hero-panel::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 80px;
+  bottom: -58px;
+  transform: rotate(22deg);
+  border: 16px solid var(--festival-blue);
+  opacity: .11;
+  pointer-events: none;
+}
+html[data-theme='festival'] .hero-panel h1,
+html[data-theme='festival'] .panel h1 {
+  color: var(--text);
+  font-weight: 950;
+  text-wrap: balance;
+}
+html[data-theme='festival'] .hero-panel h1 { font-size: clamp(48px,7vw,104px); line-height: .88; max-width: 1040px; }
+html[data-theme='festival'] .hero-copy { color: var(--muted); font-weight: 650; }
+html[data-theme='festival'] .hero-stats > div {
+  border: 2px solid var(--line-strong);
+  background: white;
+  box-shadow: 3px 3px 0 var(--line-strong);
+}
+html[data-theme='festival'] .hero-stats > div:nth-child(1) strong { color: var(--festival-red); }
+html[data-theme='festival'] .hero-stats > div:nth-child(2) strong { color: var(--festival-blue); }
+html[data-theme='festival'] .hero-stats > div:nth-child(3) strong { color: var(--festival-green); }
+html[data-theme='festival'] .button-link {
+  border: 2px solid var(--line-strong);
+  background: var(--festival-red);
+  color: white;
+  box-shadow: 3px 3px 0 var(--line-strong);
+  font-weight: 900;
+}
+
+html[data-theme='festival'] .fighter-card {
+  border: 2px solid var(--line-strong);
+  background: #fffaf0;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 rgba(33,20,15,.18);
+}
+html[data-theme='festival'] .fighter-card:hover,
+html[data-theme='festival'] .fighter-card:focus-visible { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--line-strong); }
+html[data-theme='festival'] .fighter-card:nth-child(4n+1) .fighter-mark { background: var(--festival-red); }
+html[data-theme='festival'] .fighter-card:nth-child(4n+2) .fighter-mark { background: var(--festival-blue); }
+html[data-theme='festival'] .fighter-card:nth-child(4n+3) .fighter-mark { background: var(--festival-yellow); color: var(--text); }
+html[data-theme='festival'] .fighter-card:nth-child(4n) .fighter-mark { background: var(--festival-green); }
+html[data-theme='festival'] .fighter-mark {
+  border: 2px solid var(--line-strong);
+  color: white;
+  box-shadow: 2px 2px 0 var(--line-strong);
+  font-weight: 950;
+}
+html[data-theme='festival'] .fighter-series { color: var(--muted); font-weight: 800; }
+html[data-theme='festival'] .status-pill { border-width: 2px; }
+
+html[data-theme='festival'] .fighter-hero {
+  border: 3px solid var(--line-strong);
+  background: #fffaf0;
+  box-shadow: 8px 8px 0 rgba(33,20,15,.2);
+  border-radius: 24px;
+  overflow: hidden;
+}
+html[data-theme='festival'] .fighter-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -45px -65px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--festival-yellow);
+  opacity: .2;
+  pointer-events: none;
+}
+html[data-theme='festival'] .fighter-hero h1 { font-size: clamp(62px,9vw,132px); font-weight: 950; line-height: .82; text-wrap: balance; }
+html[data-theme='festival'] .fighter-hero__mark { border: 3px solid var(--line-strong); background: var(--festival-blue); box-shadow: 5px 5px 0 var(--line-strong); }
+html[data-theme='festival'] .memory-aid { border-left: 6px solid var(--festival-red); background: #fff2cc; border-radius: 0 14px 14px 0; padding: 12px 16px; }
+html[data-theme='festival'] .section-heading h2 { font-size: clamp(28px,3vw,44px); font-weight: 950; letter-spacing: -.045em; }
+
+html[data-theme='festival'] input,
+html[data-theme='festival'] select {
+  color: var(--text);
+  background: white;
+  border-color: var(--line-strong);
+}
+html[data-theme='festival'] .frame-record,
+html[data-theme='festival'] .combo-card,
+html[data-theme='festival'] .practice-focus-card,
+html[data-theme='festival'] .fighter-utility,
+html[data-theme='festival'] .matchup-grid > article {
+  background: #fffdf7;
+  border-color: var(--line-strong);
+}
+html[data-theme='festival'] .badge,
+html[data-theme='festival'] .status-pill { background: #fff1c9; color: var(--text); border-color: rgba(33,20,15,.4); }
+html[data-theme='festival'] .route-chip { background: var(--festival-blue); color: white; border: 2px solid var(--line-strong); }
+
+html[data-theme='festival'] .mobile-nav {
+  background: rgba(255,248,226,.97);
+  border-top: 3px solid var(--line-strong);
+  box-shadow: 0 -5px 0 rgba(33,20,15,.08);
+}
+html[data-theme='festival'] .mobile-nav a { color: #624737; }
+html[data-theme='festival'] .mobile-nav a.is-active { background: var(--festival-red); color: white; border: 2px solid var(--line-strong); }
+
+@media (max-width: 900px) {
+  html[data-theme='festival'] .app-shell { grid-template-columns: 1fr; }
+  html[data-theme='festival'] .content { padding: 12px 12px 96px; }
+  html[data-theme='festival'] .topbar { height: 68px; padding: 0 12px; }
+  html[data-theme='festival'] .topbar h2 { font-size: 20px; }
+  html[data-theme='festival'] .theme-toggle { min-height: 42px; padding: 7px 9px; }
+  html[data-theme='festival'] .theme-toggle__label { display: none; }
+  html[data-theme='festival'] .hero-panel { padding: 26px 20px; }
+  html[data-theme='festival'] .hero-panel h1 { font-size: clamp(44px,12vw,72px); }
+  html[data-theme='festival'] .fighter-hero h1 { font-size: clamp(54px,15vw,90px); }
+}
+
+@media (max-width: 560px) {
+  html[data-theme='festival'] body { background-size: 64px 54px; }
+  html[data-theme='festival'] .hero-panel,
+  html[data-theme='festival'] .panel,
+  html[data-theme='festival'] .fighter-hero { border-width: 2px; box-shadow: 4px 4px 0 rgba(33,20,15,.18); }
+  html[data-theme='festival'] .hero-panel::before { width: 100px; height: 100px; }
+  html[data-theme='festival'] .hero-panel::after { display: none; }
+  html[data-theme='festival'] .hero-stats { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  html[data-theme='festival'] .hero-stats > div { padding: 10px 8px; min-width: 0; }
+  html[data-theme='festival'] .hero-stats strong { font-size: 25px; }
+  html[data-theme='festival'] .hero-stats span { font-size: 8px; }
+  html[data-theme='festival'] .fighter-card:hover { transform: none; }
+}
+
+@media (min-width: 1600px) and (min-height: 800px) {
+  html[data-theme='festival'] body .app-shell { grid-template-columns: 270px minmax(0,1fr); }
+  html[data-theme='festival'] body .sidebar { padding: 28px 16px; }
+  html[data-theme='festival'] body .brand-mark { width: 58px; height: 58px; font-size: 26px; }
+  html[data-theme='festival'] body .brand strong { font-size: 31px; }
+  html[data-theme='festival'] body .topbar { height: 88px; }
+  html[data-theme='festival'] body .topbar h2 { font-size: 31px; }
+  html[data-theme='festival'] body .content { padding: 28px; max-width: 2240px; }
+  html[data-theme='festival'] body .hero-panel { min-height: 330px; padding: 46px; }
+  html[data-theme='festival'] body .hero-panel h1 { font-size: clamp(72px,6vw,124px); }
+  html[data-theme='festival'] body .hero-copy { font-size: 20px; }
+  html[data-theme='festival'] body .fighter-card__body strong { font-size: 20px; }
+  html[data-theme='festival'] body .fighter-hero h1 { font-size: clamp(96px,7vw,154px); }
+}
+
+@media (min-width: 2200px) and (min-height: 1100px) {
+  html[data-theme='festival'] body .app-shell { grid-template-columns: 310px minmax(0,1fr); }
+  html[data-theme='festival'] body .brand strong { font-size: 36px; }
+  html[data-theme='festival'] body .topbar { height: 98px; }
+  html[data-theme='festival'] body .topbar h2 { font-size: 36px; }
+  html[data-theme='festival'] body .content { padding: 34px; max-width: 2520px; }
+  html[data-theme='festival'] body .hero-panel { min-height: 390px; padding: 58px; }
+  html[data-theme='festival'] body .hero-panel h1 { font-size: clamp(86px,5.5vw,146px); }
+  html[data-theme='festival'] body .fighter-hero h1 { font-size: clamp(116px,6.5vw,176px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme='festival'] .fighter-card:hover,
+  html[data-theme='festival'] .fighter-card:focus-visible { transform: none; }
+}
+
+@media (forced-colors: active) {
+  html[data-theme='festival'] body { background: Canvas; }
+  html[data-theme='festival'] .sidebar,
+  html[data-theme='festival'] .topbar,
+  html[data-theme='festival'] .hero-panel,
+  html[data-theme='festival'] .panel,
+  html[data-theme='festival'] .fighter-hero { background: Canvas; color: CanvasText; box-shadow: none; }
+}
