@@ -6,6 +6,7 @@ on:
     types: [opened, reopened]
     paths:
       - 'scripts/vendor-static-assets.py'
+      - 'scripts/probe-ufd-visuals.py'
       - 'scripts/requirements-media.txt'
       - 'src/data/visualMediaSources.json'
       - '.github/workflows/vendor-static-assets.yml'
@@ -31,6 +32,8 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
+      - name: Probe UFD visual discovery
+        run: python scripts/probe-ufd-visuals.py
       - name: Vendor all runtime visual assets
         run: python scripts/vendor-static-assets.py
       - name: Commit vendored assets
