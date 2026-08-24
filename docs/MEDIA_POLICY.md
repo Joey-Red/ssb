@@ -1,35 +1,43 @@
-# Media rights and provenance policy
+# Visual media and provenance policy
 
-The SSBU Training Guide is public and must not treat “available on the web” as permission to redistribute an asset.
+The SSBU Training Festival separates numeric timing facts, source imagery, and overlay annotations so each can be maintained independently.
 
-## Allowed embedded media
+## Media modes
 
-An image, animation, diagram, or icon may be bundled into the app only when at least one of these is true:
+The app supports three practical visual modes:
 
-1. **Project-owned** — created specifically for this repository and containing no copied game art.
-2. **Explicitly licensed** — the asset has a redistribution license compatible with this repository, and the repository records the source, author/attribution, and license.
+1. **Project-owned UI art** — procedural fighter identity graphics, decorative motifs, diagrams, and interface assets created for this repository.
+2. **External source reference** — an image/GIF can be displayed from its canonical HTTPS source while retaining a visible source link. This is used for the first UFD hitbox-animation references.
+3. **Hosted frame-study media** — selected screenshots/frame captures can be stored with the site for deterministic frame seeking. Their hitbox circles/regions remain separate structured overlay metadata rather than being baked into the image.
 
-## Source-link-only media
+## Frame-study rules
 
-Nintendo/Super Smash Bros. screenshots, fighter renders, move GIFs, Ultimate Frame Data hitbox images, wiki images, tournament screenshots, and other third-party media are **source-link-only by default**. The app may link users to the original source page, but it must not download, mirror, hotlink, or bundle the media without an explicit rights review.
+A hosted visual frame entry records the game-frame number and phase. Optional overlay circles/regions use percentage coordinates so they remain aligned when the image scales across phones, desktop, 2K, and ultrawide.
 
-## Data is separate from media
+The viewer must not infer geometry from startup/active notation. If a frame has no explicit region data, no synthetic hitbox circle is drawn. This keeps the visual layer correctable and prevents the UI from presenting guessed geometry as measured fact.
 
-Factual frame values are stored in the project-owned normalized data schema with source metadata. That does not grant permission to copy the source site's prose, layout, images, or animations.
+## Animated references versus seekable stills
 
-## Required asset metadata
+An animated hitbox GIF is useful visual reference material, but ordinary browser GIF playback is not a deterministic game-frame seek API. The UI therefore labels an external GIF as an **animated source preview**.
 
-Any future bundled third-party asset must have a `MediaAsset` record containing:
+Exact seek synchronization is provided by numbered hosted still frames. The player can use the same move/frame schema for both modes, allowing a move to begin with an animated reference and later gain true per-frame stills without changing the surrounding UI.
 
-- stable project id;
-- fighter id when applicable;
-- source URL;
-- author/attribution when required;
-- license name or grant;
-- status `explicitly-licensed`.
+## Provenance metadata
 
-An asset without that record does not ship.
+Visual move entries include:
 
-## Current visual strategy
+- stable media id;
+- fighter id and move id;
+- human-readable label;
+- canonical source/reference URL;
+- optional animated preview URL;
+- total game-frame count;
+- contiguous numbered frame rows;
+- optional per-frame image path;
+- optional overlay regions/captions.
 
-The application uses project-owned procedural fighter identity marks and abstract frame timelines. These provide visual structure without copying Nintendo character art or third-party hitbox GIFs. External UFD/SmashWiki links remain available for users who want the original reference material.
+Tests reject duplicate move-media keys, broken frame numbering, non-HTTPS references, out-of-bounds region coordinates, and invalid circle radii.
+
+## Performance
+
+Visual routes are lazy-loaded with fighter pages. Images use native lazy loading/async decoding, and the initial roster route does not preload every fighter's move media. Hosted still sequences should be added in size-conscious batches rather than bundled into the initial JavaScript payload.
