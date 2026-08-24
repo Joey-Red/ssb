@@ -1,0 +1,69 @@
+name: Refresh SSBU frame-data snapshot
+
+on:
+  push:
+    branches: [milestones-21-29]
+    paths:
+      - scripts/refresh-frame-data.py
+      - scripts/requirements-frame-data.txt
+      - src/data/ufd-manifest.json
+      - .github/workflows/refresh-frame-data.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-frame-data-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-frame-data.txt
+
+      - name: Install refresh dependencies
+        run: python -m pip install -r scripts/requirements-frame-data.txt
+
+      - name: Refresh committed snapshot
+        run: python scripts/refresh-frame-data.py
+
+      - name: Verify full roster snapshot
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path('src/data/ufd-manifest.json').read_text(encoding='utf-8'))
+          snapshot = json.loads(Path('src/data/frameData.generated.json').read_text(encoding='utf-8'))
+          expected = {entry['fighterId'] for entry in manifest['fighters']}
+          actual = set(snapshot['fighters'])
+          if expected != actual:
+              raise SystemExit(f'Frame-data roster mismatch: missing={sorted(expected-actual)} extra={sorted(actual-expected)}')
+          sparse = [fighter_id for fighter_id, data in snapshot['fighters'].items() if len(data.get('moves', [])) < 12]
+          if sparse:
+              raise SystemExit(f'Frame-data fighters with too few rows: {sparse}')
+          print(f'Validated {len(actual)} fighters and {sum(len(data["moves"]) for data in snapshot["fighters"].values())} move rows')
+          PY
+
+      - name: Commit refreshed snapshot
+        run: |
+          if git diff --quiet -- src/data/frameData.generated.json; then
+            echo "Snapshot already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/frameData.generated.json
+          git commit -m "data(m23): refresh full-roster frame-data snapshot"
+          git push origin HEAD:${{ github.ref_name }}
