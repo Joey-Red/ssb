@@ -1,0 +1,107 @@
+html[data-theme='festival'] .search-field,
+html[data-theme='festival'] .favorite-filter,
+html[data-theme='festival'] .roster-filters select,
+html[data-theme='festival'] .filter-actions button,
+html[data-theme='festival'] .recent-links a,
+html[data-theme='festival'] .frame-row,
+html[data-theme='festival'] .source-stack a,
+html[data-theme='festival'] .percent-button,
+html[data-theme='festival'] .routine-row,
+html[data-theme='festival'] .practice-now,
+html[data-theme='festival'] .combo-card,
+html[data-theme='festival'] .drill-card,
+html[data-theme='festival'] .drill-builder,
+html[data-theme='festival'] .compare-card,
+html[data-theme='festival'] .discovery-row,
+html[data-theme='festival'] .move-frame-viewer {
+  background: #fffdf7;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+html[data-theme='festival'] .search-field { background: white; border-width: 2px; }
+html[data-theme='festival'] .search-field:focus-within { border-color: var(--festival-blue); box-shadow: 0 0 0 3px rgba(38,118,210,.14); }
+html[data-theme='festival'] .search-field input { color: var(--text); }
+html[data-theme='festival'] .search-field input::placeholder { color: #806759; opacity: 1; }
+html[data-theme='festival'] .favorite-filter { border-width: 2px; color: var(--text); }
+html[data-theme='festival'] .roster-filters label:not(.favorite-filter) { color: #664b3d; font-weight: 900; }
+html[data-theme='festival'] .roster-filters select { border-width: 2px; }
+html[data-theme='festival'] .filter-actions button { border-width: 2px; font-weight: 800; color: #624737; }
+html[data-theme='festival'] .recent-links a { border: 2px solid var(--line-strong); color: #5d4134; box-shadow: 2px 2px 0 rgba(33,20,15,.14); }
+html[data-theme='festival'] .result-count { color: #715648; font-weight: 800; }
+
+html[data-theme='festival'] .quick-list li { border-top-color: rgba(33,20,15,.2); }
+html[data-theme='festival'] .quick-list li > span { color: #8b6250; font-weight: 900; }
+html[data-theme='festival'] .quick-list p,
+html[data-theme='festival'] .practice-purpose,
+html[data-theme='festival'] .practice-note,
+html[data-theme='festival'] .combo-execution,
+html[data-theme='festival'] .condition-list,
+html[data-theme='festival'] .frame-footnote,
+html[data-theme='festival'] .source-details summary,
+html[data-theme='festival'] .source-stack span,
+html[data-theme='festival'] .pending-panel p:not(.eyebrow),
+html[data-theme='festival'] .visual-player__note {
+  color: #684b3d;
+}
+html[data-theme='festival'] .source-stack strong,
+html[data-theme='festival'] .frame-row strong { color: var(--text); }
+html[data-theme='festival'] .frame-row small { color: #7c5d4e; }
+html[data-theme='festival'] .subsection { border-top-color: rgba(33,20,15,.24); }
+html[data-theme='festival'] .source-details { border-top-color: rgba(33,20,15,.24); }
+
+html[data-theme='festival'] .percent-button,
+html[data-theme='festival'] .frame-category-tabs button,
+html[data-theme='festival'] .combo-filters select,
+html[data-theme='festival'] .drill-builder input,
+html[data-theme='festival'] .drill-builder textarea,
+html[data-theme='festival'] .drill-builder select,
+html[data-theme='festival'] .matchup-heading select {
+  background: white;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+html[data-theme='festival'] .percent-button.is-active,
+html[data-theme='festival'] .frame-category-tabs button.is-active {
+  background: var(--festival-blue);
+  color: white;
+  border-color: var(--line-strong);
+}
+html[data-theme='festival'] .confidence,
+html[data-theme='festival'] .section-meta,
+html[data-theme='festival'] .routine-purpose { color: #705447; }
+html[data-theme='festival'] .fighter-pager a { border: 2px solid var(--line-strong); background: #fff9e9; color: #715648; box-shadow: 3px 3px 0 rgba(33,20,15,.16); }
+html[data-theme='festival'] .fighter-pager a strong { color: var(--text); }
+html[data-theme='festival'] .empty-state__icon,
+html[data-theme='festival'] .pending-icon { background: #fff0bf; border: 2px solid var(--line-strong); color: var(--text); }
+
+html[data-theme='festival'] .frame-grid--header { color: #634739; }
+html[data-theme='festival'] .frame-record summary { color: var(--text); }
+html[data-theme='festival'] .frame-move-name small,
+html[data-theme='festival'] .frame-data-footnote,
+html[data-theme='festival'] .oos-strip p { color: #6e5143; }
+html[data-theme='festival'] .oos-strip { background: #e8f3ff; border: 2px solid #274f7c; }
+html[data-theme='festival'] .oos-options span { background: white; border-color: #274f7c; }
+html[data-theme='festival'] .frame-stats > span { background: #fff4cf; border-color: var(--line-strong); }
+
+html[data-theme='festival'] .fighter-utility { box-shadow: 3px 3px 0 rgba(33,20,15,.15); }
+html[data-theme='festival'] .fighter-utility button,
+html[data-theme='festival'] .fighter-utility a { color: var(--text); }
+html[data-theme='festival'] .fighter-utility__favorite.is-active { background: #fff0b3; border-color: #7c5d1b; }
+
+@media(max-width:560px){
+  html[data-theme='festival'] .roster-toolbar h2,
+  html[data-theme='festival'] .section-heading h2 { font-size: clamp(27px,9vw,38px); }
+  html[data-theme='festival'] .roster-filters { gap: 10px; }
+  html[data-theme='festival'] .fighter-card { min-height: 88px; padding: 11px; }
+  html[data-theme='festival'] .fighter-card__body strong { white-space: normal; line-height: 1.05; }
+  html[data-theme='festival'] .frame-record__details { padding-inline: 6px; }
+}
+
+@media(min-width:1600px){
+  html[data-theme='festival'] .search-field { min-height: 54px; }
+  html[data-theme='festival'] .roster-filters select,
+  html[data-theme='festival'] .favorite-filter,
+  html[data-theme='festival'] .filter-actions button { min-height: 46px; font-size: 13px; }
+  html[data-theme='festival'] .quick-list p { font-size: 15px; }
+}
