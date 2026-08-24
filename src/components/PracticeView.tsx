@@ -18,10 +18,45 @@ export function PracticeView({ slug }: { slug: string }) {
   const fighter = fighterBySlug.get(slug)
   const localState = useLocalState()
   const guide = fighter ? guideByFighterId.get(fighter.id) : undefined
+  const steps = guide?.trainingRoutine ?? []
+  const saved = fighter ? localState.practice[fighter.id] : undefined
+  const rawIndex = saved?.stepIndex ?? 0
+  const stepIndex = steps.length > 0 ? Math.max(0, Math.min(steps.length - 1, rawIndex)) : 0
+  const currentStep = steps[stepIndex]
+  const fighterId = fighter?.id
+  const currentPercent = currentStep?.percent
 
   useEffect(() => {
-    if (fighter) recordRecent(fighter.id)
-  }, [fighter])
+    if (fighterId) recordRecent(fighterId)
+  }, [fighterId])
+
+  useEffect(() => {
+    if (!fighterId || currentPercent === undefined || steps.length === 0) return
+
+    function onKeyDown(event: globalThis.KeyboardEvent) {
+      const target = event.target as HTMLElement | null
+      if (target?.closest('input, select, textarea, button, a')) return
+
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        const next = Math.max(0, stepIndex - 1)
+        setPracticeStep(fighterId, next)
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        const next = Math.min(steps.length - 1, stepIndex + 1)
+        setPracticeStep(fighterId, next)
+      } else if (event.key.toLowerCase() === 'r') {
+        event.preventDefault()
+        incrementPracticeRep(fighterId, currentPercent)
+      } else if (event.key.toLowerCase() === 'c') {
+        event.preventDefault()
+        togglePracticeComplete(fighterId, currentPercent)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [currentPercent, fighterId, stepIndex, steps.length])
 
   if (!fighter || !guide) {
     return (
@@ -34,12 +69,6 @@ export function PracticeView({ slug }: { slug: string }) {
     )
   }
 
-  const steps = guide.trainingRoutine
-  const saved = localState.practice[fighter.id]
-  const rawIndex = saved?.stepIndex ?? 0
-  const stepIndex = Math.max(0, Math.min(steps.length - 1, rawIndex))
-  const currentStep = steps[stepIndex]
-
   if (!currentStep) {
     return <section className="panel empty-state"><h1>No practice steps</h1><p>This guide needs a training routine.</p></section>
   }
@@ -51,28 +80,6 @@ export function PracticeView({ slug }: { slug: string }) {
     const next = Math.max(0, Math.min(steps.length - 1, stepIndex + delta))
     setPracticeStep(fighter.id, next)
   }
-
-  useEffect(() => {
-    function onKeyDown(event: globalThis.KeyboardEvent) {
-      const target = event.target as HTMLElement | null
-      if (target?.closest('input, select, textarea, button, a')) return
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault()
-        move(-1)
-      } else if (event.key === 'ArrowRight') {
-        event.preventDefault()
-        move(1)
-      } else if (event.key.toLowerCase() === 'r') {
-        event.preventDefault()
-        incrementPracticeRep(fighter.id, currentStep.percent)
-      } else if (event.key.toLowerCase() === 'c') {
-        event.preventDefault()
-        togglePracticeComplete(fighter.id, currentStep.percent)
-      }
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [currentStep.percent, fighter.id, stepIndex, steps.length])
 
   function selectFighter(nextSlug: string) {
     window.location.hash = `/practice/${nextSlug}`
