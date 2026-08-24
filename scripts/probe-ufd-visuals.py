@@ -23,20 +23,22 @@ print("TYPE", response.headers.get("content-type"))
 response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")
-links = []
-for tag in soup.find_all(["a", "img"]):
-    raw = tag.get("href") or tag.get("src")
-    if raw and ".gif" in raw.lower():
-        links.append((tag, urljoin(URL, raw)))
-
-print("GIF_COUNT", len(links))
-for index, (tag, absolute) in enumerate(links[:20], start=1):
-    print(f"GIF {index}: {absolute}")
-    node = tag
-    for depth in range(5):
-        if node is None:
-            break
-        text = " ".join(node.get_text(" ", strip=True).split())[:300]
-        classes = " ".join(node.get("class", [])) if hasattr(node, "get") else ""
-        print(f"  P{depth}: <{getattr(node, 'name', '?')}> class={classes!r} text={text!r}")
-        node = node.parent
+hitbox_links = soup.select("a.hitboximg")
+print("HITBOX_LINK_COUNT", len(hitbox_links))
+for index, tag in enumerate(hitbox_links[:60], start=1):
+    attrs = {key: value for key, value in tag.attrs.items() if key in {"href", "data-src", "data-featherlight", "class"}}
+    image = tag.find("img")
+    img_attrs = {}
+    if image:
+        img_attrs = {key: value for key, value in image.attrs.items() if key in {"src", "data-src", "data-original", "loading", "class"}}
+    container = tag.find_parent("div", class_="movecontainer")
+    move_text = " ".join(container.get_text(" ", strip=True).split())[:180] if container else ""
+    candidates = []
+    for node in (tag, image):
+        if not node:
+            continue
+        for key in ("href", "src", "data-src", "data-original", "data-featherlight"):
+            raw = node.get(key)
+            if isinstance(raw, str) and (".gif" in raw.lower() or "/hitboxes/" in raw.lower()):
+                candidates.append(urljoin(URL, raw))
+    print(f"LINK {index}: attrs={attrs!r} img={img_attrs!r} candidates={candidates!r} move={move_text!r}")
