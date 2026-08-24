@@ -6,8 +6,8 @@ afterEach(() => setTheme('festival'))
 describe('theme state', () => {
   it('defaults to Festival without stored browser state', () => expect(getTheme()).toBe('festival'))
   it('switches between the supported themes', () => {
-    setTheme('titan')
-    expect(getTheme()).toBe('titan')
+    setTheme('arena')
+    expect(getTheme()).toBe('arena')
     setTheme('festival')
     expect(getTheme()).toBe('festival')
   })
