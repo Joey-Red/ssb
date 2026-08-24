@@ -138,26 +138,26 @@ CI validates roster/guide/frame/media/router invariants, runs lint and strict Ty
 Users can build fighter-specific drills with percent, action route, notes, target reps, progress, reset/delete/clear-completed controls, and links back into practice/guides. State stays browser-local with no account, sync, or telemetry.
 
 ## Phase 5 — Festival visual identity and visual frame study
-### M31 — Persistent theme system
-Add `festival | titan` theme state, make Festival the default for first-time users, preserve Titan as the alternate, persist the user choice locally, and apply the theme before first paint to avoid flashes.
-### M32 — Festival design language
-Build the Festival token set and component treatments: bright game-like color blocks, playful geometry, bold outlines/shadows, celebratory accents, and a more Nintendo/Mario-like sense of energy while preserving clear information hierarchy.
-### M33 — Large branding and typography pass
-Increase brand, fighter-name, page-title, section-heading, stat, and key-action scale across phone/tablet/desktop/2K/ultrawide breakpoints. Long fighter names must still wrap/fit cleanly.
-### M34 — Responsive decorative visual system
-Add reusable project-owned motifs/background shapes/badges and richer fighter-card/hero treatments. Decorations must progressively simplify on small screens and never obstruct content or focus states.
-### M35 — Fighter pictures and media slots
-Add responsive fighter imagery/media slots to roster and fighter views, with intrinsic sizing, lazy loading, fallback visuals, and static Pages-friendly asset paths.
-### M36 — Visual move media schema
-Extend the data model for move frame sequences, source images, frame phases, per-frame hitbox circles/regions, captions, and overlay availability. Add validation so geometry cannot silently appear on the wrong frame.
-### M37 — Frame-by-frame hitbox player
-Replace the placeholder-only visual layer with a media player that supports previous/next frame, play/pause, direct seeking, keyboard arrows, frame count/readout, phase display, overlay on/off, and circles/regions drawn over the current image.
-### M38 — Theme-aware responsive/accessibility audit
-Audit both Festival and Titan from 320px through ultrawide: text scaling, overflow, mobile navigation, frame tables, media viewer sizing, contrast, focus, keyboard operation, touch controls, reduced motion, and forced-colors behavior.
-### M39 — Visual performance/offline hardening
-Keep visual media from bloating first load: route/media lazy loading, responsive dimensions, browser-native image loading hints, cache-aware static assets, and bundle-size review. The frame player must not load every fighter’s media on initial app load.
+### M31 — Persistent theme system ✅
+`festival | titan` theme state is browser-local, Festival is the first-run default, Titan remains available, and pre-paint theme restoration avoids a theme flash.
+### M32 — Festival design language ✅
+Festival adds cream/red/blue/yellow/green game-like tokens, stronger outlines/shadows, playful decoration, celebratory surfaces, and a clearly different identity from Titan rather than a recolor.
+### M33 — Large branding and typography pass ✅
+Brand, page titles, fighter names, section headings, stats, and primary actions scale more aggressively across phone/tablet/desktop/2K/ultrawide breakpoints, with wrapping/fallback rules for constrained screens.
+### M34 — Responsive decorative visual system ✅
+Reusable background motifs, fighter glyph treatments, badges, cards, and hero decorations simplify at smaller breakpoints and preserve focus/content readability.
+### M35 — Fighter pictures and media slots ✅
+Roster cards and fighter heroes now have responsive visual identity art/media slots with stable aspect ratios and fallback-safe rendering; the move viewer supports real image media separately.
+### M36 — Visual move media schema ✅
+Typed move-frame sequences store phase, optional image, optional caption, and percentage-positioned hitbox circles/regions. Validation enforces contiguous frames and safe overlay bounds.
+### M37 — Frame-by-frame hitbox player ✅
+Move details now include previous/next frame, 60 FPS play/pause, seek slider, keyboard stepping, current-frame/phase readout, overlay toggle, hosted-still support, and initial real UFD animated hitbox references for Mario/Pyra/Mythra neutral air.
+### M38 — Theme-aware responsive/accessibility audit ✅
+Festival hard-coded dark-component conflicts were overridden, native Festival controls are forced to light scheme, touch controls remain >=44px, mobile/2K/ultrawide layouts have dedicated rules, and reduced-motion/forced-colors paths remain supported.
+### M39 — Visual performance/offline hardening ✅
+Fighter-heavy routes remain lazy-loaded; images use native lazy loading/async decoding; visual references are not preloaded on the roster route. The release gate confirmed the initial JS moved only from roughly 276 KB to 278 KB uncompressed. The older monolithic frame-data chunk remains a separate optimization target.
 ### M40 — Festival release and GitHub Pages QA
-Make Festival the production default, keep Titan toggleable, run the complete gate, merge the batch, deploy through GitHub Pages, and verify live roster → fighter → frame viewer → tools → drills → practice flows on desktop and mobile-sized layouts.
+Release candidate is implemented and branch CI has passed with 23/23 tests. Final completion requires merge to `main`, successful Pages deployment, and live route/theme/media verification.
 
 ## Quality gate
 ```text
@@ -170,4 +170,4 @@ npm run build
 ## Deployment
 `main → GitHub Actions → Vite dist → GitHub Pages → phone/tablet/desktop browser`.
 
-M01–M30 are merged into `main`. M31–M40 are the Festival visual-release batch and are developed on `milestones-31-40` before final merge/deployment.
+M01–M30 are merged into `main`. M31–M39 are complete on `milestones-31-40`; M40 closes after the Festival release is merged and verified on GitHub Pages.
