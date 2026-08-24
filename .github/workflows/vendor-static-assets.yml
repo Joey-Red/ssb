@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/discover-ufd-visuals.py'
       - 'scripts/vendor-static-assets.py'
+      - 'scripts/build-runtime-visual-index.py'
       - 'scripts/requirements-media.txt'
       - 'src/data/ufd-manifest.json'
       - 'src/data/frameData.generated.json'
@@ -38,6 +39,8 @@ jobs:
         run: python scripts/discover-ufd-visuals.py
       - name: Vendor active-frame visual assets
         run: python scripts/vendor-static-assets.py
+      - name: Build per-fighter runtime visual indexes
+        run: python scripts/build-runtime-visual-index.py
       - name: Commit discovered and vendored media
         shell: bash
         run: |
@@ -45,7 +48,7 @@ jobs:
           branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A public/media src/data/visualMediaSources.json src/data/visualMediaAssets.generated.json
+          git add -A public/media public/data/visual-media src/data/visualMediaSources.json src/data/visualMediaAssets.generated.json
           if git diff --cached --quiet; then
             echo 'Full-roster visual assets are already current.'
             exit 0
