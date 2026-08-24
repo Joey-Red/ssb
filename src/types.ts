@@ -124,6 +124,8 @@ export interface FrameDataSnapshot {
     id: 'ultimate-frame-data'
     label: string
     baseUrl: string
+    /** Maintenance transport only; the canonical values are attributed to UFD. */
+    transportMirror?: string
   }
   fighters: Readonly<Record<string, FighterFrameData>>
 }
