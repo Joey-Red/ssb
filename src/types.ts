@@ -145,9 +145,9 @@ export interface MediaAsset {
 }
 
 export type VisualFramePhase = 'startup' | 'active' | 'recovery' | 'landing' | 'other'
-export type VisualRegionKind = 'strong' | 'weak' | 'grab'
+export type VisualRegionKind = 'strong' | 'weak' | 'grab' | 'hurtbox' | 'intangible'
 
-/** Coordinates are percentages of the displayed image, keeping overlays responsive. */
+/** Coordinates are percentages of the displayed exact-frame image. */
 export interface VisualCircleRegion {
   id: string
   kind: VisualRegionKind
@@ -165,14 +165,27 @@ export interface VisualFrame {
   regions?: readonly VisualCircleRegion[]
 }
 
+/**
+ * A local sprite sheet packs exact move frames into a fixed grid. `src` is
+ * relative to Vite's BASE_URL so the same metadata works in dev and Pages.
+ */
+export interface VisualSpriteSheet {
+  src: string
+  frameWidth: number
+  frameHeight: number
+  columns: number
+}
+
 export interface VisualMoveMedia {
   id: string
   fighterId: string
   moveId: string
   label: string
   sourceUrl: string
-  /** Optional animated reference used until/alongside locally hosted frame stills. */
+  /** Optional animated source reference. It is never treated as seek-synchronized. */
   animatedPreviewUrl?: string
+  /** Optional local exact-frame sprite sheet used by the frame slider. */
+  spriteSheet?: VisualSpriteSheet
   totalFrames: number
   frames: readonly VisualFrame[]
 }
