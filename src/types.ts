@@ -73,10 +73,9 @@ export interface FighterGuide {
 export type MoveCategory = 'ground' | 'aerial' | 'special' | 'grab' | 'defense' | 'misc'
 
 /**
- * Raw UFD notation is intentionally preserved for fields that can contain
- * ranges, multi-hits, early/late values, or move-specific annotations.
- * startupFrame is the first parsed integer and exists only for sorting and
- * derived helper displays; it never replaces the raw startup field.
+ * Raw UFD notation is intentionally preserved for factual fields that can
+ * contain ranges, multi-hits, or early/late values. Total frames and FAF are
+ * separate fields: one is never silently substituted for the other.
  */
 export interface FrameMove {
   id: string
@@ -86,7 +85,9 @@ export interface FrameMove {
   startupFrame: number | null
   active: string | null
   totalFrames: string | null
+  faf: string | null
   landingLag: string | null
+  autocancel: string | null
   damage: string | null
   onShield: string | null
   shieldLag: string | null
