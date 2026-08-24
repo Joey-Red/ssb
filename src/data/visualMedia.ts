@@ -42,7 +42,7 @@ export const visualMoveMedia = [
 ] as const satisfies readonly VisualMoveMedia[]
 
 export const visualMediaByMove = new Map<string, VisualMoveMedia>(
-  visualMoveMedia.map((media) => [`${media.fighterId}:${media.moveId}`, media]),
+  visualMoveMedia.map((media) => [`${media.fighterId}:${media.moveId}`, media] as const),
 )
 
 export function getVisualMoveMedia(fighterId: string, moveId: string): VisualMoveMedia | undefined {
