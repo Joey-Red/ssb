@@ -74,7 +74,7 @@ jobs:
           git fetch origin "${TARGET_BRANCH}"
           git reset --hard "origin/${TARGET_BRANCH}"
           cp /tmp/frameData.generated.json src/data/frameData.generated.json
-          if git diff --quiet -- src/data/frameData.generated.json; then
+          if [ -z "$(git status --porcelain -- src/data/frameData.generated.json)" ]; then
             echo "Snapshot already current."
             exit 0
           fi
