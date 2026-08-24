@@ -1,7 +1,10 @@
+import { lazy, Suspense } from 'react'
 import { AppShell } from './components/AppShell'
-import { FighterView } from './components/FighterView'
 import { RosterView } from './components/RosterView'
 import { hrefFor, useRoute } from './router'
+
+const FighterView = lazy(() => import('./components/FighterView').then((module) => ({ default: module.FighterView })))
+const PracticeView = lazy(() => import('./components/PracticeView').then((module) => ({ default: module.PracticeView })))
 
 const frameGlossary = [
   {
@@ -90,11 +93,16 @@ function AboutView() {
   )
 }
 
+function RouteFallback() {
+  return <section className="panel loading-panel" role="status" aria-live="polite">Loading training data…</section>
+}
+
 export default function App() {
   const route = useRoute()
   let content
   if (route.page === 'roster') content = <RosterView />
-  else if (route.page === 'fighter') content = <FighterView slug={route.slug} />
+  else if (route.page === 'fighter') content = <Suspense fallback={<RouteFallback />}><FighterView slug={route.slug} /></Suspense>
+  else if (route.page === 'practice') content = <Suspense fallback={<RouteFallback />}><PracticeView slug={route.slug} /></Suspense>
   else if (route.page === 'about') content = <AboutView />
   else {
     content = (
