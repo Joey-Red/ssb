@@ -17,6 +17,7 @@ function validateVisualMedia(): string[] {
     if (media.frames.length !== media.totalFrames) errors.push(`${media.id}: expected ${media.totalFrames} frame rows, found ${media.frames.length}`)
     media.frames.forEach((frame, index) => {
       if (frame.frame !== index + 1) errors.push(`${media.id}: frame numbering is not contiguous at ${index + 1}`)
+      if ((frame.regions?.length ?? 0) > 0 && !frame.imageSrc) errors.push(`${media.id}: frame ${frame.frame} has overlay geometry without an exact still image`)
       for (const region of frame.regions ?? []) {
         if (region.x < 0 || region.x > 100 || region.y < 0 || region.y > 100) errors.push(`${media.id}: ${region.id} is outside the image`)
         if (region.radius <= 0 || region.radius > 50) errors.push(`${media.id}: ${region.id} has invalid radius`)
@@ -28,8 +29,17 @@ function validateVisualMedia(): string[] {
 
 describe('visual frame media', () => {
   it('keeps frame sequences contiguous and overlay-safe', () => expect(validateVisualMedia()).toEqual([]))
-  it('ships real animated references for the initial visual set', () => {
-    expect(visualMoveMedia.length).toBeGreaterThanOrEqual(3)
+
+  it('uses real UFD animated references for every registered preview', () => {
+    expect(visualMoveMedia.length).toBeGreaterThanOrEqual(19)
     expect(visualMoveMedia.every((media) => media.animatedPreviewUrl?.includes('ultimateframedata.com/hitboxes/'))).toBe(true)
+  })
+
+  it('covers all five Pyra and Mythra aerials', () => {
+    const aerials = ['neutral-air', 'forward-air', 'back-air', 'up-air', 'down-air']
+    for (const fighterId of ['pyra', 'mythra']) {
+      const covered = new Set(visualMoveMedia.filter((media) => media.fighterId === fighterId).map((media) => media.moveId))
+      expect(aerials.every((moveId) => covered.has(moveId)), fighterId).toBe(true)
+    }
   })
 })
