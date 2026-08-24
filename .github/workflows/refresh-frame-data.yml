@@ -8,6 +8,14 @@ on:
       - scripts/requirements-frame-data.txt
       - src/data/ufd-manifest.json
       - .github/workflows/refresh-frame-data.yml
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+    paths:
+      - scripts/refresh-frame-data.py
+      - scripts/requirements-frame-data.txt
+      - src/data/ufd-manifest.json
+      - .github/workflows/refresh-frame-data.yml
   workflow_dispatch:
 
 permissions:
@@ -19,12 +27,15 @@ concurrency:
 
 jobs:
   refresh:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ github.head_ref || github.ref_name }}
     steps:
-      - name: Checkout
+      - name: Checkout source branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ env.TARGET_BRANCH }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -53,7 +64,8 @@ jobs:
           sparse = [fighter_id for fighter_id, data in snapshot['fighters'].items() if len(data.get('moves', [])) < 12]
           if sparse:
               raise SystemExit(f'Frame-data fighters with too few rows: {sparse}')
-          print(f'Validated {len(actual)} fighters and {sum(len(data["moves"]) for data in snapshot["fighters"].values())} move rows')
+          rows = sum(len(data['moves']) for data in snapshot['fighters'].values())
+          print(f'Validated {len(actual)} fighters and {rows} move rows')
           PY
 
       - name: Commit refreshed snapshot
@@ -66,4 +78,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/frameData.generated.json
           git commit -m "data(m23): refresh full-roster frame-data snapshot"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin HEAD:${TARGET_BRANCH}
