@@ -11,18 +11,17 @@ const initialState: FrameDataState = { data: null, error: null, loading: true }
 let resolvedData: FrameDataIndex | null = null
 let resolvedError: string | null = null
 
+function currentState(): FrameDataState {
+  if (resolvedData) return { data: resolvedData, error: null, loading: false }
+  if (resolvedError) return { data: null, error: resolvedError, loading: false }
+  return initialState
+}
+
 export function useFrameDataIndex(): FrameDataState {
-  const [state, setState] = useState<FrameDataState>(() => resolvedData
-    ? { data: resolvedData, error: null, loading: false }
-    : resolvedError
-      ? { data: null, error: resolvedError, loading: false }
-      : initialState)
+  const [state, setState] = useState<FrameDataState>(currentState)
 
   useEffect(() => {
-    if (resolvedData) {
-      setState({ data: resolvedData, error: null, loading: false })
-      return
-    }
+    if (resolvedData || resolvedError) return
 
     let cancelled = false
     void loadFrameDataIndex()
