@@ -36,6 +36,8 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
             ? 'Compare moves and OOS startup'
             : 'Frame-literate training notes'
 
+  const alternateTheme = theme === 'festival' ? 'Arena' : 'Festival'
+
   return (
     <div className="app-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -53,15 +55,15 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
           <a className={route.page === 'tools' ? 'is-active' : ''} href={hrefFor('/tools')}><span aria-hidden="true">⌁</span><strong>Frame tools</strong></a>
           <a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>How to read it</strong></a>
         </nav>
-        <div className="sidebar-footer"><span className="health-dot" aria-hidden="true"/><strong>Static & local-first</strong><p>No server, login, telemetry, or runtime data dependency.</p></div>
+        <div className="sidebar-footer"><span className="health-dot" aria-hidden="true"/><strong>Static & local-first</strong><p>No server, login, telemetry, or automatic third-party asset requests.</p></div>
       </aside>
       <div className="app-column">
         <header className="topbar">
           <div><h2>{title}</h2><p>{subtitle}</p></div>
           <div className="topbar-actions">
-            <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={`Switch to ${theme === 'festival' ? 'Titan' : 'Festival'} theme`} title={`Switch to ${theme === 'festival' ? 'Titan' : 'Festival'} theme`}>
+            <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={`Switch to ${alternateTheme} theme`} title={`Switch to ${alternateTheme} theme`}>
               <span className="theme-toggle__dot" aria-hidden="true" />
-              <span className="theme-toggle__label">{theme === 'festival' ? 'Festival' : 'Titan'}</span>
+              <span className="theme-toggle__label">{theme === 'festival' ? 'Festival' : 'Arena'}</span>
             </button>
             <div className="topbar-status"><span className="health-dot" aria-hidden="true"/><strong>Ready</strong><span>{allGuides.length}/{roster.length} guides</span></div>
           </div>

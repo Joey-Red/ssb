@@ -2,42 +2,40 @@
 
 The SSBU Training Festival separates numeric timing facts, source imagery, and overlay annotations so each can be maintained independently.
 
+## Runtime network rule
+
+The deployed app is self-contained for UI resources. Fighter art, thumbnails, hitbox previews, exact-frame sheets, JSON data, CSS, scripts, fonts, and other automatic resources must be served from the same GitHub Pages origin. The app must not hotlink third-party images/media or make automatic third-party data requests.
+
+External URLs may remain as **explicit source/reference links** that a user chooses to open. Those links document provenance; they are not runtime dependencies.
+
+A same-origin Content Security Policy and automated source/file-integrity tests enforce this boundary.
+
 ## Media modes
 
 The app supports three practical visual modes:
 
 1. **Project-owned UI art** — procedural fighter identity graphics, decorative motifs, diagrams, and interface assets created for this repository.
-2. **External source reference** — an image/GIF can be displayed from its canonical HTTPS source while retaining a visible source link. This is used for the first UFD hitbox-animation references.
-3. **Hosted frame-study media** — selected screenshots/frame captures can be stored with the site for deterministic frame seeking. Their hitbox circles/regions remain separate structured overlay metadata rather than being baked into the image.
+2. **Vendored source media** — reviewed fighter imagery and hitbox animations downloaded during maintenance, optimized, committed under `public/media`, and served locally by Pages. Canonical source links remain attached for provenance.
+3. **Exact frame-study media** — local fixed-grid sprite sheets or numbered still frames. Moving the player slider selects one deterministic image for that game-frame index.
 
 ## Frame-study rules
 
-A hosted visual frame entry records the game-frame number and phase. Optional overlay circles/regions use percentage coordinates so they remain aligned when the image scales across phones, desktop, 2K, and ultrawide.
+A visual frame entry records the game-frame number and phase. Optional overlay circles/regions use percentage coordinates so they remain aligned when the image scales across phones, desktop, 2K, and ultrawide.
 
 The viewer must not infer geometry from startup/active notation. If a frame has no explicit region data, no synthetic hitbox circle is drawn. This keeps the visual layer correctable and prevents the UI from presenting guessed geometry as measured fact.
 
-## Animated references versus seekable stills
+## Animated previews versus exact seeking
 
-An animated hitbox GIF is useful visual reference material, but ordinary browser GIF playback is not a deterministic game-frame seek API. The UI therefore labels an external GIF as an **animated source preview**.
+A locally hosted hitbox GIF remains useful as a quick fallback preview, but ordinary browser GIF playback is not treated as seek-synchronized. Exact seeking uses a local sprite sheet/still sequence generated from reviewed source media and validated against the move's expected game-frame count.
 
-Exact seek synchronization is provided by numbered hosted still frames. The player can use the same move/frame schema for both modes, allowing a move to begin with an animated reference and later gain true per-frame stills without changing the surrounding UI.
+The player supports direct frame entry, previous/next frame, 0.25×/0.5×/1× playback, first/last-active jumps, and active-span looping. When an exact sheet exists, playback and seeking operate on that frame index rather than an independently playing animation.
 
 ## Provenance metadata
 
-Visual move entries include:
+Source manifests retain canonical source/reference URLs and maintenance download URLs. The generated runtime manifest contains only local preview/sprite paths plus dimensions/checksums. Runtime components consume the generated local manifest, not maintenance download URLs.
 
-- stable media id;
-- fighter id and move id;
-- human-readable label;
-- canonical source/reference URL;
-- optional animated preview URL;
-- total game-frame count;
-- contiguous numbered frame rows;
-- optional per-frame image path;
-- optional overlay regions/captions.
+Tests reject duplicate move-media keys, broken frame numbering, missing local files, external runtime preview/sprite URLs, out-of-bounds region coordinates, invalid circle radii, and missing full-roster fighter art.
 
-Tests reject duplicate move-media keys, broken frame numbering, non-HTTPS references, out-of-bounds region coordinates, and invalid circle radii.
+## Performance and offline behavior
 
-## Performance
-
-Visual routes are lazy-loaded with fighter pages. Images use native lazy loading/async decoding, and the initial roster route does not preload every fighter's move media. Hosted still sequences should be added in size-conscious batches rather than bundled into the initial JavaScript payload.
+Visual routes remain lazy-loaded with fighter pages. Images use native lazy loading/async decoding. The 89-fighter numeric frame snapshot is already an on-demand same-origin JSON asset rather than a large JavaScript chunk. Local images, sheets, and JSON are eligible for the service worker's same-origin runtime cache, while the roster route still avoids preloading every move visual.

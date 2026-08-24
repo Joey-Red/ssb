@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-24T22:37:01Z",
+  "moves": {
+    "mario:neutral-air": {
+      "previewSrc": "media/hitboxes/mario/neutral-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mario/neutral-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 452,
+        "columns": 8,
+        "frameCount": 45
+      },
+      "sha256": "89bce681e99eab5e3d360e31d69769768072b28885b94de0818aa48e7649e677"
+    },
+    "mario:forward-air": {
+      "previewSrc": "media/hitboxes/mario/forward-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mario/forward-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 457,
+        "columns": 8,
+        "frameCount": 59
+      },
+      "sha256": "7be6a862662cab38f6345c2f8eb79f3a4c74e40d038e60016532ac1cae850451"
+    },
+    "mario:back-air": {
+      "previewSrc": "media/hitboxes/mario/back-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mario/back-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 341,
+        "columns": 8,
+        "frameCount": 33
+      },
+      "sha256": "0756ca84067db68c463abf8d9414f13a03184e65fba6065d7b405822239dbea9"
+    },
+    "mario:up-air": {
+      "previewSrc": "media/hitboxes/mario/up-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mario/up-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 396,
+        "columns": 8,
+        "frameCount": 30
+      },
+      "sha256": "5cab799c1bdaca444c5a5df70777fa4b2eff39a8505d2f2cf6b480b33b5e90d6"
+    },
+    "pyra:neutral-air": {
+      "previewSrc": "media/hitboxes/pyra/neutral-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/pyra/neutral-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 472,
+        "columns": 8,
+        "frameCount": 55
+      },
+      "sha256": "695b2f9c999216b76cfdd350f556706cb9765358de0f562c68c2faf750eef278"
+    },
+    "pyra:forward-air": {
+      "previewSrc": "media/hitboxes/pyra/forward-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/pyra/forward-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 476,
+        "columns": 8,
+        "frameCount": 48
+      },
+      "sha256": "66602b0143de428fd2aa21f632ea9fef432375240d2355b53553fb733d990e05"
+    },
+    "pyra:back-air": {
+      "previewSrc": "media/hitboxes/pyra/back-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/pyra/back-air.webp",
+        "frameWidth": 467,
+        "frameHeight": 480,
+        "columns": 8,
+        "frameCount": 49
+      },
+      "sha256": "f769402d484aa894c4cdfe7c905f4f4d7703538398abee737af9046dd6a46088"
+    },
+    "pyra:up-air": {
+      "previewSrc": "media/hitboxes/pyra/up-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/pyra/up-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 358,
+        "columns": 8,
+        "frameCount": 56
+      },
+      "sha256": "b6efebafc418e8b0b657bec6520fb1e87a1fafd24929b6328f50128c4b298c73"
+    },
+    "pyra:down-air": {
+      "previewSrc": "media/hitboxes/pyra/down-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/pyra/down-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 358,
+        "columns": 8,
+        "frameCount": 64
+      },
+      "sha256": "5bf9e02b33471e49f682b71c7cb5a463534a4c9b1a6f51c4af836d131ae2c153"
+    },
+    "mythra:neutral-air": {
+      "previewSrc": "media/hitboxes/mythra/neutral-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mythra/neutral-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 472,
+        "columns": 8,
+        "frameCount": 50
+      },
+      "sha256": "95e278c6fb85c68691a62eda6813c55bd632def433b861cb17ee4c5a62f31e5e"
+    },
+    "mythra:forward-air": {
+      "previewSrc": "media/hitboxes/mythra/forward-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mythra/forward-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 476,
+        "columns": 8,
+        "frameCount": 37
+      },
+      "sha256": "edd2c285a0e993af2de2aafd8cb6cca804e35803715b921299f7c2dc9c110a3e"
+    },
+    "mythra:back-air": {
+      "previewSrc": "media/hitboxes/mythra/back-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mythra/back-air.webp",
+        "frameWidth": 467,
+        "frameHeight": 480,
+        "columns": 8,
+        "frameCount": 33
+      },
+      "sha256": "fdb6c6d1ba055eb14cbff7872a36605dd5f3c78d15687733d065152620aa7ea2"
+    },
+    "mythra:up-air": {
+      "previewSrc": "media/hitboxes/mythra/up-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mythra/up-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 358,
+        "columns": 8,
+        "frameCount": 30
+      },
+      "sha256": "6bf531a1d48d2a0265730d3d58fbbc414b00de582d89c9e5b234e0eef4d2420b"
+    },
+    "mythra:down-air": {
+      "previewSrc": "media/hitboxes/mythra/down-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/mythra/down-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 358,
+        "columns": 8,
+        "frameCount": 40
+      },
+      "sha256": "291f25eec6e6046153a2e20b41f1bc42fd7367bc6514ccdf8f952a14c7053f78"
+    },
+    "kazuya:neutral-air": {
+      "previewSrc": "media/hitboxes/kazuya/neutral-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/kazuya/neutral-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 448,
+        "columns": 8,
+        "frameCount": 28
+      },
+      "sha256": "0dc4c65543a3804c33280c512393be5c182f5f0ec712478a39bb9ab9e79f6f75"
+    },
+    "kazuya:forward-air": {
+      "previewSrc": "media/hitboxes/kazuya/forward-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/kazuya/forward-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 370,
+        "columns": 8,
+        "frameCount": 30
+      },
+      "sha256": "0af5486d0a416eeaef753099675d0690701bcf723b23a2bcc2da62c477978d6f"
+    },
+    "kazuya:back-air": {
+      "previewSrc": "media/hitboxes/kazuya/back-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/kazuya/back-air.webp",
+        "frameWidth": 480,
+        "frameHeight": 431,
+        "columns": 8,
+        "frameCount": 45
+      },
+      "sha256": "11b29a21bea84617894c26005a481ddab5c301abdfc091268ad91015fdcd9199"
+    },
+    "kazuya:up-air": {
+      "previewSrc": "media/hitboxes/kazuya/up-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/kazuya/up-air.webp",
+        "frameWidth": 380,
+        "frameHeight": 480,
+        "columns": 8,
+        "frameCount": 33
+      },
+      "sha256": "ba0d43094f1b62b405c58a9fb7ec42ec4d5f7c8c912bb50b8333de53232618b4"
+    },
+    "kazuya:down-air": {
+      "previewSrc": "media/hitboxes/kazuya/down-air.gif",
+      "spriteSheet": {
+        "src": "media/frame-sheets/kazuya/down-air.webp",
+        "frameWidth": 469,
+        "frameHeight": 480,
+        "columns": 8,
+        "frameCount": 57
+      },
+      "sha256": "887b64e4ace514e6eeb8779f0a84228ef7e4859056e09841e498d881393e9baf"
+    }
+  }
+}

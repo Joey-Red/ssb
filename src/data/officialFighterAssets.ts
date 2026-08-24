@@ -1,22 +1,13 @@
-const codeOverrides: Readonly<Record<string, string>> = {
-  'mii-brawler': 'mii_fighter',
-  'mii-swordfighter': 'mii_fighter',
-  'mii-gunner': 'mii_fighter',
-  'squirtle': 'pokemon_trainer',
-  'ivysaur': 'pokemon_trainer',
-  'charizard': 'pokemon_trainer',
+function publicAsset(path: string): string {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 }
 
-export function officialFighterCode(fighterId: string): string {
-  return codeOverrides[fighterId] ?? fighterId.replaceAll('-', '_')
-}
-
+/** Local, vendored fighter render served from the same Pages origin. */
 export function officialFighterRenderUrl(fighterId: string): string {
-  const code = officialFighterCode(fighterId)
-  return `https://www.smashbros.com/assets_v2/img/fighter/${code}/main.png`
+  return publicAsset(`media/fighters/renders/${fighterId}.webp`)
 }
 
+/** Local, vendored roster thumbnail served from the same Pages origin. */
 export function officialFighterThumbUrl(fighterId: string): string {
-  const code = officialFighterCode(fighterId)
-  return `https://www.smashbros.com/assets_v2/img/fighter/thumb_v/${code}.png`
+  return publicAsset(`media/fighters/thumbs/${fighterId}.webp`)
 }

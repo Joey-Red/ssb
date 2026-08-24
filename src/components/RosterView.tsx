@@ -64,7 +64,7 @@ export function RosterView() {
         <div>
           <p className="eyebrow">SSBU Training Festival</p>
           <h1>Choose your fighter. Make every rep count.</h1>
-          <p className="hero-copy">Big visual cues, source-aware routes, full frame data, and an 0–200% training ladder for every fighter. Festival is the default look; Titan is always one toggle away.</p>
+          <p className="hero-copy">Big visual cues, source-aware routes, full frame data, and an 0–200% training ladder for every fighter. Festival is the default look; Arena is always one toggle away.</p>
         </div>
         <div className="hero-stats" aria-label="Guide status">
           <div><strong>{roster.length}</strong><span>fighter guides</span></div>

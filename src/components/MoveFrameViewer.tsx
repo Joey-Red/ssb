@@ -5,6 +5,8 @@ import type { FrameMove, VisualFramePhase, VisualSpriteSheet } from '../types'
 import { firstFrame, lastFrame, numericValue } from '../lib/frameData'
 import './MoveFrameViewer.css'
 
+type PlaybackSpeed = 0.25 | 0.5 | 1
+
 function fallbackPhase(frame: number, activeStart: number | null, activeEnd: number | null): VisualFramePhase {
   if (activeStart === null || activeEnd === null) return 'other'
   if (frame < activeStart) return 'startup'
@@ -13,20 +15,19 @@ function fallbackPhase(frame: number, activeStart: number | null, activeEnd: num
 }
 
 function localMediaUrl(src: string): string {
-  if (/^https?:\/\//.test(src)) return src
   return `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`
 }
 
-function SpriteFrame({ sheet, frame, label, totalFrames }: { sheet: VisualSpriteSheet; frame: number; label: string; totalFrames: number }) {
+function SpriteFrame({ sheet, frame, label }: { sheet: VisualSpriteSheet; frame: number; label: string }) {
   const index = frame - 1
   const column = index % sheet.columns
   const row = Math.floor(index / sheet.columns)
-  const rows = Math.ceil(totalFrames / sheet.columns)
+  const rows = Math.ceil(sheet.frameCount / sheet.columns)
   const sheetWidth = sheet.frameWidth * sheet.columns
   const sheetHeight = sheet.frameHeight * rows
 
   return (
-    <svg className="visual-player__sprite" viewBox={`0 0 ${sheet.frameWidth} ${sheet.frameHeight}`} role="img" aria-label={`${label}, exact frame ${frame}`}>
+    <svg className="visual-player__sprite" viewBox={`0 0 ${sheet.frameWidth} ${sheet.frameHeight}`} role="img" aria-label={`${label}, exact source frame ${frame}`}>
       <image
         href={localMediaUrl(sheet.src)}
         width={sheetWidth}
@@ -47,35 +48,49 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const initial = Math.min(total, Math.max(1, move.startupFrame ?? 1))
   const [frame, setFrame] = useState(initial)
   const [playing, setPlaying] = useState(false)
+  const [speed, setSpeed] = useState<PlaybackSpeed>(1)
+  const [loopActive, setLoopActive] = useState(false)
   const [showOverlay, setShowOverlay] = useState(true)
+  const [previewFailed, setPreviewFailed] = useState(false)
 
   useEffect(() => {
     setFrame(initial)
     setPlaying(false)
+    setPreviewFailed(false)
   }, [initial, move.id])
 
   useEffect(() => {
     if (!playing) return
+    const delay = 1000 / (60 * speed)
     const timer = window.setInterval(() => {
       setFrame((current) => {
+        if (loopActive && activeStart !== null && activeEnd !== null) {
+          if (current < activeStart || current >= activeEnd) return activeStart
+          return current + 1
+        }
         if (current >= total) {
           setPlaying(false)
           return total
         }
         return current + 1
       })
-    }, 1000 / 60)
+    }, delay)
     return () => window.clearInterval(timer)
-  }, [playing, total])
+  }, [activeEnd, activeStart, loopActive, playing, speed, total])
 
   const currentFrame = media?.frames.find((item) => item.frame === frame)
   const phase = currentFrame?.phase ?? fallbackPhase(frame, activeStart, activeEnd)
   const regions = currentFrame?.regions ?? []
   const hasHostedStill = Boolean(currentFrame?.imageSrc)
-  const hasSpriteSheet = Boolean(media?.spriteSheet)
-  const hasExactVisual = hasHostedStill || hasSpriteSheet
-  const hasOverlayData = Boolean(media?.frames.some((item) => (item.regions?.length ?? 0) > 0 && (item.imageSrc || media.spriteSheet)))
+  const sourceCoverage = media?.spriteSheet?.frameCount ?? 0
+  const hasSpriteFrame = Boolean(media?.spriteSheet && frame <= sourceCoverage)
+  const hasExactVisual = hasHostedStill || hasSpriteFrame
+  const hasOverlayData = Boolean(media?.frames.some((item) => {
+    const exactImageAvailable = Boolean(item.imageSrc || (media.spriteSheet && item.frame <= media.spriteSheet.frameCount))
+    return (item.regions?.length ?? 0) > 0 && exactImageAvailable
+  }))
   const fighterRender = officialFighterRenderUrl(fighterId)
+  const canLoopActive = activeStart !== null && activeEnd !== null
 
   const timing = useMemo(() => ({
     startup: move.startup ?? '—',
@@ -90,47 +105,61 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
     setFrame(Math.max(1, Math.min(total, next)))
   }
 
+  function jumpToActive(which: 'first' | 'last') {
+    const target = which === 'first' ? activeStart : activeEnd
+    if (target === null) return
+    setPlaying(false)
+    setSafeFrame(target)
+  }
+
   function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
-    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLButtonElement) return
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLButtonElement || event.target instanceof HTMLSelectElement) return
     if (event.key === 'ArrowLeft') {
       event.preventDefault()
+      setPlaying(false)
       setSafeFrame(frame - 1)
     } else if (event.key === 'ArrowRight') {
       event.preventDefault()
+      setPlaying(false)
       setSafeFrame(frame + 1)
     } else if (event.key === ' ') {
       event.preventDefault()
       setPlaying((value) => !value)
+    } else if (event.key.toLowerCase() === 'a' && activeStart !== null) {
+      event.preventDefault()
+      jumpToActive('first')
     }
   }
 
   const stageStyle = media?.spriteSheet ? { aspectRatio: `${media.spriteSheet.frameWidth} / ${media.spriteSheet.frameHeight}` } : undefined
+  const showAnimatedPreview = Boolean(media?.animatedPreviewUrl && !previewFailed && !media?.spriteSheet)
+  const coverageLabel = media?.spriteSheet ? `${sourceCoverage}/${total}f` : null
 
   return (
     <section className="visual-media-card" aria-label={`${fighterName} ${move.name} visual frame player`}>
       <header className="visual-media-card__head">
-        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek one game frame at a time. Exact hitbox geometry is only drawn when that frame has annotation data.</p></div>
-        {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Hitbox source ↗</a> : <span className="visual-media-card__source">Fighter visual + timing</span>}
+        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek one documented game frame at a time. Exact source imagery is shown only where that frame exists in the staged source.</p></div>
+        {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Source notes ↗</a> : <span className="visual-media-card__source">Timing only</span>}
       </header>
       <div className="visual-player" tabIndex={0} onKeyDown={onKeyDown}>
         <div className="visual-player__split">
-          <div style={stageStyle} className={`visual-player__stage visual-player__stage--${phase}${hasExactVisual ? ' visual-player__stage--exact' : media?.animatedPreviewUrl ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
+          <div style={stageStyle} className={`visual-player__stage visual-player__stage--${phase}${hasExactVisual ? ' visual-player__stage--exact' : showAnimatedPreview ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
             {hasHostedStill && currentFrame?.imageSrc ? (
               <img src={localMediaUrl(currentFrame.imageSrc)} alt={`${fighterName} ${move.name}, frame ${frame}`} loading="lazy" decoding="async" />
-            ) : media?.spriteSheet ? (
+            ) : hasSpriteFrame && media?.spriteSheet ? (
               <>
-                <SpriteFrame sheet={media.spriteSheet} frame={frame} label={`${fighterName} ${move.name}`} totalFrames={total} />
-                <span className="visual-player__preview-label">Exact frame sheet</span>
+                <SpriteFrame sheet={media.spriteSheet} frame={frame} label={`${fighterName} ${move.name}`} />
+                <span className="visual-player__preview-label">Exact local source frame</span>
               </>
-            ) : media?.animatedPreviewUrl ? (
+            ) : showAnimatedPreview && media?.animatedPreviewUrl ? (
               <>
-                <img src={media.animatedPreviewUrl} alt={`${fighterName} ${move.name} animated hitbox reference`} loading="lazy" decoding="async" />
-                <span className="visual-player__preview-label">Real hitbox animation</span>
+                <img src={localMediaUrl(media.animatedPreviewUrl)} alt={`${fighterName} ${move.name} local animated hitbox reference`} loading="lazy" decoding="async" onError={() => setPreviewFailed(true)} />
+                <span className="visual-player__preview-label">Local animation fallback</span>
               </>
             ) : (
               <>
-                <img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} official Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.hidden = true }} />
-                <div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{move.name}</small></div>
+                <img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true }} />
+                <div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{media?.spriteSheet ? 'Source visual unavailable for this frame' : move.name}</small></div>
               </>
             )}
             <span className="visual-player__phase">{phase}</span>
@@ -138,19 +167,26 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           </div>
           <aside className="visual-player__timing" aria-label="Current move timing">
             <h5>Frame index</h5>
-            <dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd></dl>
+            <dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{coverageLabel && <><dt>Visual coverage</dt><dd>{coverageLabel}</dd></>}</dl>
             {currentFrame?.caption && <p className="visual-player__note">{currentFrame.caption}</p>}
           </aside>
         </div>
         <div className="visual-player__controls" aria-label="Frame player controls">
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame - 1) }} aria-label="Previous frame">−1f</button>
-          <button type="button" onClick={() => { if (frame >= total) setFrame(1); setPlaying((value) => !value) }} aria-label={playing ? 'Pause frame playback' : 'Play frames'}>{playing ? 'Ⅱ' : '▶'}</button>
-          <input type="range" min="1" max={Math.max(2, total)} value={frame} onChange={(event) => { setPlaying(false); setSafeFrame(Number(event.target.value)) }} aria-label="Seek frame" />
-          <span className="visual-player__readout">{frame} / {total}f</span>
+          <button type="button" onClick={() => { if (frame >= total) setFrame(loopActive && activeStart !== null ? activeStart : 1); setPlaying((value) => !value) }} aria-label={playing ? 'Pause frame playback' : 'Play frames'}>{playing ? 'Ⅱ' : '▶'}</button>
+          <input className="visual-player__seek" type="range" min="1" max={Math.max(2, total)} value={frame} onChange={(event) => { setPlaying(false); setSafeFrame(Number(event.target.value)) }} aria-label="Seek frame" />
+          <label className="visual-player__frame-input"><span>Frame</span><input type="number" min="1" max={total} value={frame} onChange={(event) => { setPlaying(false); setSafeFrame(Number(event.target.value)) }} /></label>
+          <span className="visual-player__readout">/ {total}f</span>
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame + 1) }} aria-label="Next frame">+1f</button>
-          {hasOverlayData ? <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label> : <span className="visual-player__overlay-status">Overlay not staged</span>}
         </div>
-        <p className="visual-player__note">{hasExactVisual ? 'The slider is selecting an exact staged visual frame; annotations can be toggled independently when overlay metadata is available.' : media?.animatedPreviewUrl ? 'This is the real source hitbox animation, but the GIF itself is not seek-synchronized. The frame controls index documented timing until an exact local frame sheet is staged.' : 'A real fighter render is shown while the controls index documented move timing. Exact hitbox geometry remains unavailable until move-specific visual media is staged.'}</p>
+        <div className="visual-player__study-controls" aria-label="Frame study controls">
+          <label><span>Speed</span><select value={speed} onChange={(event) => setSpeed(Number(event.target.value) as PlaybackSpeed)}><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1">1×</option></select></label>
+          <button type="button" disabled={activeStart === null} onClick={() => jumpToActive('first')}>First active</button>
+          <button type="button" disabled={activeEnd === null} onClick={() => jumpToActive('last')}>Last active</button>
+          <label className="visual-player__loop-toggle"><input type="checkbox" checked={loopActive} disabled={!canLoopActive} onChange={(event) => { setLoopActive(event.target.checked); if (event.target.checked && activeStart !== null) setFrame(activeStart) }} /> Loop active span</label>
+          {hasOverlayData ? <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label> : <span className="visual-player__overlay-status">Overlay metadata not staged</span>}
+        </div>
+        <p className="visual-player__note">{media?.spriteSheet ? `Local exact-source coverage: ${sourceCoverage}/${total} documented frames. Playback and seeking never fabricate a missing source image.` : showAnimatedPreview ? 'The local GIF is a fallback preview only; the timing controls are independent until an exact local frame sheet is staged.' : 'A local fighter render is shown while the controls index documented timing. No third-party asset request is made.'}</p>
       </div>
     </section>
   )

@@ -8,7 +8,7 @@ Build a polished, mobile-first Super Smash Bros. Ultimate training companion tha
 - GitHub Pages compatible and refresh-safe.
 - Responsive from 320px phones through tablets, desktop, 2K, and ultrawide.
 - **Festival is the default visual theme:** bright, playful, celebratory, large branded typography, strong color blocks, game-like shapes, and richer visuals inspired by the energy of Nintendo/Mario UI without sacrificing training readability.
-- **Titan remains available as a toggleable alternate theme:** the existing matte dark, restrained, compact presentation is preserved rather than replaced.
+- **Arena remains available as a toggleable alternate theme:** the existing matte dark, restrained, compact presentation is preserved rather than replaced.
 - Theme choice persists locally and never requires an account.
 - Branding, fighter names, section titles, and primary actions should be deliberately larger and more prominent than the original UI.
 - Decorative visuals must scale or simplify responsively instead of causing horizontal overflow, cramped cards, unreadable frame tables, or lost touch targets.
@@ -75,7 +75,7 @@ React/TypeScript/Vite, strict compilation, lint/test/build scripts, production b
 ### M02 — GitHub Pages deployment ✅
 Pages-safe Vite base, hash routing, GitHub Actions build/deploy workflow.
 ### M03 — Responsive application shell ✅
-Titan-inspired tokens/surfaces, desktop sidebar, mobile navigation, focus and reduced-motion behavior.
+Arena-inspired tokens/surfaces, desktop sidebar, mobile navigation, focus and reduced-motion behavior.
 ### M04 — Core data contracts ✅
 Fighter/training/combo/source/frame types, validation, frame-only utilities and tests.
 ### M05 — Complete roster manifest ✅
@@ -139,9 +139,9 @@ Users can build fighter-specific drills with percent, action route, notes, targe
 
 ## Phase 5 — Festival visual identity and visual frame study
 ### M31 — Persistent theme system ✅
-`festival | titan` theme state is browser-local, Festival is the first-run default, Titan remains available, and pre-paint theme restoration avoids a theme flash.
+`festival | arena` theme state is browser-local, Festival is the first-run default, Arena remains available, and pre-paint theme restoration avoids a theme flash.
 ### M32 — Festival design language ✅
-Festival adds cream/red/blue/yellow/green game-like tokens, stronger outlines/shadows, playful decoration, celebratory surfaces, and a clearly different identity from Titan rather than a recolor.
+Festival adds cream/red/blue/yellow/green game-like tokens, stronger outlines/shadows, playful decoration, celebratory surfaces, and a clearly different identity from Arena rather than a recolor.
 ### M33 — Large branding and typography pass ✅
 Brand, page titles, fighter names, section headings, stats, and primary actions scale more aggressively across phone/tablet/desktop/2K/ultrawide breakpoints, with wrapping/fallback rules for constrained screens.
 ### M34 — Responsive decorative visual system ✅
@@ -156,8 +156,52 @@ Move details now include previous/next frame, 60 FPS play/pause, seek slider, ke
 Festival hard-coded dark-component conflicts were overridden, native Festival controls are forced to light scheme, touch controls remain >=44px, mobile/2K/ultrawide layouts have dedicated rules, and reduced-motion/forced-colors paths remain supported.
 ### M39 — Visual performance/offline hardening ✅
 Fighter-heavy routes remain lazy-loaded; images use native lazy loading/async decoding; visual references are not preloaded on the roster route. The release gate confirmed the initial JS moved only from roughly 276 KB to 278 KB uncompressed. The older monolithic frame-data chunk remains a separate optimization target.
-### M40 — Festival release and GitHub Pages QA
+### M40 — Festival release and GitHub Pages QA ✅
 Release candidate is implemented and branch CI has passed with 23/23 tests. Final completion requires merge to `main`, successful Pages deployment, and live route/theme/media verification.
+
+## Phase 5B — Live Festival QA hardening
+### M41 — Festival dark-surface eradication ✅
+Festival-only overrides remove remaining hard-coded dark component surfaces without changing the alternate dark theme.
+### M42 — Tools presentation cleanup ✅
+Frame Tools use canonical fighter names, readable Festival surfaces, and responsive controls.
+### M43 — Move-discovery relevance ✅
+Fast-button discovery defaults to actual attacks rather than pummels/throws/defensive/misc rows, while an all-rows mode remains available.
+### M44 — Fighter-image mapping audit ✅
+The 89-fighter visual mapping and fallback path are tested; local vendoring is completed in M52.
+### M45 — Expanded hitbox media registry ✅
+Mario, Pyra, Mythra, and Kazuya aerial references are registered with source-aware timing metadata.
+### M46 — Exact-frame pipeline foundation ✅
+The player supports local exact sprite sheets and the maintenance tooling can convert reviewed animations into frame-addressable sheets.
+### M47 — Overlay hardening ✅
+Overlay regions require exact frame media and support hitbox, hurtbox, grab, and intangibility region types without fabricated geometry.
+### M48 — Frame-data payload optimization ✅
+The 89-fighter frame snapshot moved out of JavaScript into an on-demand/cacheable same-origin JSON asset, removing the previous oversized JS chunk.
+### M49 — Timing/content consistency audit ✅
+Visual timing is cross-checked against the committed frame snapshot, including complex multi-hit notation.
+### M50 — Hardening release ✅
+The Festival QA/tool/performance hardening batch passed the exact-head quality gate and was merged to `main`.
+
+## Phase 6 — Local assets and exact frame study
+### M51 — Zero-runtime-network asset architecture ✅
+Runtime visuals use same-origin BASE_URL-relative paths, CSP restricts automatic images/media/connections to the Pages origin, and tests reject third-party runtime asset/request URLs.
+### M52 — Full-roster local fighter art and portrait alignment ✅
+All 89 fighter pages receive vendored local renders and centered thumbnails; transparent fallback art no longer shows behind successful portraits.
+### M53 — Local hitbox-preview repair ✅
+Every registered hitbox animation is downloaded into the repository and no longer depends on third-party hotlinking at runtime.
+### M54 — Exact frame-sheet population ✅
+Every registered move animation is converted to a local, validated exact-frame sprite sheet whose frame count matches the move reference.
+### M55 — Advanced frame playback controls ✅
+The frame player supports direct frame entry, 0.25×/0.5×/1× playback, first/last-active jumps, active-span looping, keyboard stepping, and touch-safe controls.
+### M56 — Pyra exact visual study ✅
+All five Pyra aerials have local previews and exact seekable frame sheets with timing consistency checks.
+### M57 — Mythra exact visual study ✅
+All five Mythra aerials have local previews and exact seekable frame sheets with timing consistency checks.
+### M58 — Mario and Kazuya exact visual study ✅
+The currently registered Mario and Kazuya aerial references use local exact sheets, including Kazuya Up Air and complex Down Air timing.
+### M59 — Offline/media integrity audit ✅
+Automated tests require all roster images and registered move media to exist locally, enforce same-origin automatic runtime networking, and keep local JSON/images cacheable.
+### M60 — Arena rename, release QA, merge and Pages deployment
+The alternate dark theme is named Arena everywhere. Completion requires exact-head CI, merge to `main`, successful Pages deployment, live responsive QA, and branch cleanup.
 
 ## Quality gate
 ```text

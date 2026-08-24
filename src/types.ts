@@ -166,14 +166,16 @@ export interface VisualFrame {
 }
 
 /**
- * A local sprite sheet packs exact move frames into a fixed grid. `src` is
- * relative to Vite's BASE_URL so the same metadata works in dev and Pages.
+ * A local sprite sheet packs sequential source frames into a fixed grid.
+ * `frameCount` records exact visual coverage independently from move Total Frames;
+ * missing source visuals are surfaced rather than duplicated or invented.
  */
 export interface VisualSpriteSheet {
   src: string
   frameWidth: number
   frameHeight: number
   columns: number
+  frameCount: number
 }
 
 export interface VisualMoveMedia {
@@ -182,9 +184,9 @@ export interface VisualMoveMedia {
   moveId: string
   label: string
   sourceUrl: string
-  /** Optional animated source reference. It is never treated as seek-synchronized. */
+  /** Optional local animated fallback; never treated as seek-synchronized. */
   animatedPreviewUrl?: string
-  /** Optional local exact-frame sprite sheet used by the frame slider. */
+  /** Local exact source-frame sheet. */
   spriteSheet?: VisualSpriteSheet
   totalFrames: number
   frames: readonly VisualFrame[]

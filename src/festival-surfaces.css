@@ -1,6 +1,6 @@
 /* Festival surface normalization.
-   Component styles retain Titan's literal dark values; this layer overrides them only
-   when Festival is active so the alternate Titan theme remains untouched. */
+   Component styles retain Arena's literal dark values; this layer overrides them only
+   when Festival is active so the alternate Arena theme remains untouched. */
 
 html[data-theme='festival'] :is(
   .search-field,
