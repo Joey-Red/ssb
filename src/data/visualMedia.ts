@@ -1,59 +1,60 @@
 import type { VisualFrame, VisualMoveMedia } from '../types'
 
-function makeFrames(totalFrames: number, activeStart: number, activeEnd: number): readonly VisualFrame[] {
+type FrameRange = readonly [start: number, end: number]
+
+function makeFrames(totalFrames: number, activeRanges: readonly FrameRange[]): readonly VisualFrame[] {
   return Array.from({ length: totalFrames }, (_, index) => {
     const frame = index + 1
-    const phase = frame < activeStart ? 'startup' : frame <= activeEnd ? 'active' : 'recovery'
+    const isActive = activeRanges.some(([start, end]) => frame >= start && frame <= end)
+    const firstActive = Math.min(...activeRanges.map(([start]) => start))
+    const phase = isActive ? 'active' : frame < firstActive ? 'startup' : 'recovery'
     return { frame, phase }
   })
 }
 
+function visual(
+  fighterId: string,
+  moveId: string,
+  label: string,
+  preview: string,
+  totalFrames: number,
+  activeRanges: readonly FrameRange[],
+): VisualMoveMedia {
+  return {
+    id: `${fighterId}-${moveId}-ufd`,
+    fighterId,
+    moveId,
+    label,
+    sourceUrl: `https://ultimateframedata.com/${fighterId}`,
+    animatedPreviewUrl: preview,
+    totalFrames,
+    frames: makeFrames(totalFrames, activeRanges),
+  }
+}
+
 export const visualMoveMedia = [
-  {
-    id: 'mario-neutral-air-ufd',
-    fighterId: 'mario',
-    moveId: 'neutral-air',
-    label: 'Mario Neutral Air',
-    sourceUrl: 'https://ultimateframedata.com/mario',
-    animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/mario/MarioNAir.gif',
-    totalFrames: 45,
-    frames: makeFrames(45, 3, 27),
-  },
-  {
-    id: 'pyra-neutral-air-ufd',
-    fighterId: 'pyra',
-    moveId: 'neutral-air',
-    label: 'Pyra Neutral Air',
-    sourceUrl: 'https://ultimateframedata.com/pyra',
-    animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/Pyra/PyraNAir.gif',
-    totalFrames: 56,
-    frames: makeFrames(56, 11, 22),
-  },
-  {
-    id: 'mythra-neutral-air-ufd',
-    fighterId: 'mythra',
-    moveId: 'neutral-air',
-    label: 'Mythra Neutral Air',
-    sourceUrl: 'https://ultimateframedata.com/mythra',
-    animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/Mythra/MythraNAir.gif',
-    totalFrames: 50,
-    frames: makeFrames(50, 8, 19),
-  },
-  {
-    id: 'kazuya-neutral-air-ufd', fighterId: 'kazuya', moveId: 'neutral-air', label: 'Kazuya Neutral Air', sourceUrl: 'https://ultimateframedata.com/kazuya', animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4NAir.gif', totalFrames: 28, frames: makeFrames(28, 8, 16),
-  },
-  {
-    id: 'kazuya-forward-air-ufd', fighterId: 'kazuya', moveId: 'forward-air', label: 'Kazuya Forward Air', sourceUrl: 'https://ultimateframedata.com/kazuya', animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4FAir.gif', totalFrames: 30, frames: makeFrames(30, 8, 14),
-  },
-  {
-    id: 'kazuya-back-air-ufd', fighterId: 'kazuya', moveId: 'back-air', label: 'Kazuya Back Air', sourceUrl: 'https://ultimateframedata.com/kazuya', animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4BAir.gif', totalFrames: 45, frames: makeFrames(45, 11, 18),
-  },
-  {
-    id: 'kazuya-up-air-ufd', fighterId: 'kazuya', moveId: 'up-air', label: 'Kazuya Up Air', sourceUrl: 'https://ultimateframedata.com/kazuya', animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4UAir.gif', totalFrames: 33, frames: makeFrames(33, 4, 9),
-  },
-  {
-    id: 'kazuya-down-air-ufd', fighterId: 'kazuya', moveId: 'down-air', label: 'Kazuya Down Air', sourceUrl: 'https://ultimateframedata.com/kazuya', animatedPreviewUrl: 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4DAir.gif', totalFrames: 57, frames: makeFrames(57, 17, 39),
-  },
+  visual('mario', 'neutral-air', 'Mario Neutral Air', 'https://ultimateframedata.com/hitboxes/mario/MarioNAir.gif', 45, [[3, 27]]),
+  visual('mario', 'forward-air', 'Mario Forward Air', 'https://ultimateframedata.com/hitboxes/mario/MarioFAir.gif', 59, [[16, 21]]),
+  visual('mario', 'back-air', 'Mario Back Air', 'https://ultimateframedata.com/hitboxes/mario/MarioBAir.gif', 33, [[6, 10]]),
+  visual('mario', 'up-air', 'Mario Up Air', 'https://ultimateframedata.com/hitboxes/mario/MarioUAir.gif', 30, [[4, 7]]),
+
+  visual('pyra', 'neutral-air', 'Pyra Neutral Air', 'https://ultimateframedata.com/hitboxes/Pyra/PyraNAir.gif', 56, [[11, 22]]),
+  visual('pyra', 'forward-air', 'Pyra Forward Air', 'https://ultimateframedata.com/hitboxes/Pyra/PyraFAir.gif', 48, [[11, 14]]),
+  visual('pyra', 'back-air', 'Pyra Back Air', 'https://ultimateframedata.com/hitboxes/Pyra/PyraBAir.gif', 49, [[16, 18]]),
+  visual('pyra', 'up-air', 'Pyra Up Air', 'https://ultimateframedata.com/hitboxes/Pyra/PyraUAir.gif', 57, [[13, 17]]),
+  visual('pyra', 'down-air', 'Pyra Down Air', 'https://ultimateframedata.com/hitboxes/Pyra/PyraDAir.gif', 65, [[17, 20]]),
+
+  visual('mythra', 'neutral-air', 'Mythra Neutral Air', 'https://ultimateframedata.com/hitboxes/Mythra/MythraNAir.gif', 50, [[8, 19]]),
+  visual('mythra', 'forward-air', 'Mythra Forward Air', 'https://ultimateframedata.com/hitboxes/Mythra/MythraFAir.gif', 37, [[8, 11]]),
+  visual('mythra', 'back-air', 'Mythra Back Air', 'https://ultimateframedata.com/hitboxes/Mythra/MythraBAir.gif', 33, [[10, 12]]),
+  visual('mythra', 'up-air', 'Mythra Up Air', 'https://ultimateframedata.com/hitboxes/Mythra/MythraUAir.gif', 30, [[9, 13]]),
+  visual('mythra', 'down-air', 'Mythra Down Air', 'https://ultimateframedata.com/hitboxes/Mythra/MythraDAir.gif', 40, [[13, 16]]),
+
+  visual('kazuya', 'neutral-air', 'Kazuya Neutral Air', 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4NAir.gif', 28, [[8, 16]]),
+  visual('kazuya', 'forward-air', 'Kazuya Forward Air', 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4FAir.gif', 30, [[8, 14]]),
+  visual('kazuya', 'back-air', 'Kazuya Back Air', 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4BAir.gif', 45, [[11, 18]]),
+  visual('kazuya', 'up-air', 'Kazuya Up Air', 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4UAir.gif', 33, [[4, 9]]),
+  visual('kazuya', 'down-air', 'Kazuya Down Air', 'https://ultimateframedata.com/hitboxes/kazuya/Shoto4DAir.gif', 57, [[17, 39]]),
 ] as const satisfies readonly VisualMoveMedia[]
 
 export const visualMediaByMove = new Map<string, VisualMoveMedia>(
