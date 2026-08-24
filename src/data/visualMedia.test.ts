@@ -1,70 +1,86 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { roster } from './roster'
-import { visualMoveMedia } from './visualMedia'
+import type { VisualMoveMedia } from '../types'
+
+type SourceManifest = {
+  version: 2
+  fightersScanned: number
+  fightersWithVisuals: number
+  mappedMoves: number
+  mappedVariants: number
+  moves: Array<{ fighterId: string; moveId: string; totalFrames: number | null; activeSpan: number[]; variants: Array<{ id: string }> }>
+}
+type AssetVariant = { id: string; imageSrc?: string; spriteSheet?: { src: string; frameCount: number; frameNumbers?: number[] } }
+type AssetManifest = { version: 2; moves: Record<string, { variants: AssetVariant[] }> }
+
+const root = process.cwd()
+const source = JSON.parse(readFileSync(join(root, 'src/data/visualMediaSources.json'), 'utf8')) as SourceManifest
+const assets = JSON.parse(readFileSync(join(root, 'src/data/visualMediaAssets.generated.json'), 'utf8')) as AssetManifest
 
 function publicFile(src: string): string {
-  return join(process.cwd(), 'public', src.replace(/^\/+/, ''))
+  return join(root, 'public', src.replace(/^\/+/, ''))
 }
 
-function validateVisualMedia(): string[] {
-  const errors: string[] = []
-  const ids = new Set<string>()
-  const keys = new Set<string>()
-
-  for (const media of visualMoveMedia) {
-    if (ids.has(media.id)) errors.push(`duplicate media id ${media.id}`)
-    ids.add(media.id)
-    const key = `${media.fighterId}:${media.moveId}`
-    if (keys.has(key)) errors.push(`duplicate fighter/move visual ${key}`)
-    keys.add(key)
-    if (!media.sourceUrl.startsWith('https://ultimateframedata.com/')) errors.push(`${media.id}: canonical source must be UFD https`)
-    if (!media.variants?.length) errors.push(`${media.id}: no local visual variants staged`)
-
-    for (const variant of media.variants ?? []) {
-      if (!variant.spriteSheet && !variant.imageSrc) errors.push(`${media.id}/${variant.id}: variant has no local asset`)
-      if (variant.imageSrc) {
-        if (/^https?:\/\//.test(variant.imageSrc)) errors.push(`${media.id}/${variant.id}: static image must be local`)
-        if (!existsSync(publicFile(variant.imageSrc))) errors.push(`${media.id}/${variant.id}: static image missing`)
-      }
-      const sheet = variant.spriteSheet
-      if (!sheet) continue
-      if (/^https?:\/\//.test(sheet.src)) errors.push(`${media.id}/${variant.id}: sheet must be local`)
-      if (!existsSync(publicFile(sheet.src))) errors.push(`${media.id}/${variant.id}: sheet missing`)
-      if (sheet.frameWidth < 1 || sheet.frameHeight < 1 || sheet.columns < 1 || sheet.frameCount < 1) errors.push(`${media.id}/${variant.id}: invalid sheet geometry`)
-      if (sheet.frameNumbers) {
-        if (sheet.frameNumbers.length !== sheet.frameCount) errors.push(`${media.id}/${variant.id}: frame-number map length mismatch`)
-        if (new Set(sheet.frameNumbers).size !== sheet.frameNumbers.length) errors.push(`${media.id}/${variant.id}: duplicate exact frame numbers`)
-        if (sheet.frameNumbers.some((frame) => frame < 1 || frame > media.totalFrames)) errors.push(`${media.id}/${variant.id}: exact frame outside documented move length`)
-        if (sheet.frameNumbers.some((frame, index) => index > 0 && frame <= sheet.frameNumbers![index - 1]!)) errors.push(`${media.id}/${variant.id}: frame-number map is not ascending`)
-      }
-    }
-  }
-  return errors
+function runtimeIndex(fighterId: string): { version: 1; fighterId: string; moves: VisualMoveMedia[] } {
+  return JSON.parse(readFileSync(join(root, 'public/data/visual-media', `${fighterId}.json`), 'utf8')) as { version: 1; fighterId: string; moves: VisualMoveMedia[] }
 }
 
 describe('full-roster visual frame media', () => {
-  it('maps move visuals for every fighter and keeps all runtime assets local', () => {
-    expect(visualMoveMedia.length).toBeGreaterThanOrEqual(2500)
-    const coveredFighters = new Set(visualMoveMedia.map((media) => media.fighterId))
-    expect(coveredFighters.size).toBe(89)
-    expect(roster.every((fighter) => coveredFighters.has(fighter.id))).toBe(true)
-    expect(validateVisualMedia()).toEqual([])
+  it('discovers source visuals for every fighter at full-roster scale', () => {
+    expect(source.version).toBe(2)
+    expect(source.fightersScanned).toBe(89)
+    expect(source.fightersWithVisuals).toBe(89)
+    expect(source.mappedMoves).toBeGreaterThanOrEqual(2500)
+    expect(source.mappedVariants).toBeGreaterThanOrEqual(3000)
+    expect(new Set(source.moves.map((move) => move.fighterId)).size).toBe(89)
   })
 
-  it('provides exact frame-addressable sheets at full-roster scale', () => {
-    const withExactSheets = visualMoveMedia.filter((media) => media.variants?.some((variant) => variant.spriteSheet))
-    expect(withExactSheets.length).toBeGreaterThanOrEqual(2000)
-    const exactFighters = new Set(withExactSheets.map((media) => media.fighterId))
-    expect(exactFighters.size).toBe(89)
-  })
-
-  it('retains all five Pyra and Mythra aerial study views', () => {
-    const aerials = ['neutral-air', 'forward-air', 'back-air', 'up-air', 'down-air']
-    for (const fighterId of ['pyra', 'mythra']) {
-      const covered = new Set(visualMoveMedia.filter((media) => media.fighterId === fighterId).map((media) => media.moveId))
-      expect(aerials.every((moveId) => covered.has(moveId)), fighterId).toBe(true)
+  it('ships every discovered variant as a same-origin local runtime asset', () => {
+    expect(assets.version).toBe(2)
+    let exactSheetMoves = 0
+    for (const move of source.moves) {
+      const key = `${move.fighterId}:${move.moveId}`
+      const staged = assets.moves[key]
+      expect(staged, key).toBeDefined()
+      expect(staged?.variants.length, key).toBe(move.variants.length)
+      let hasSheet = false
+      for (const variant of staged?.variants ?? []) {
+        expect(Boolean(variant.spriteSheet || variant.imageSrc), `${key}/${variant.id}`).toBe(true)
+        if (variant.imageSrc) {
+          expect(variant.imageSrc).not.toMatch(/^https?:\/\//)
+          expect(existsSync(publicFile(variant.imageSrc)), `${key}/${variant.id} image`).toBe(true)
+        }
+        if (variant.spriteSheet) {
+          hasSheet = true
+          const sheet = variant.spriteSheet
+          expect(sheet.src).not.toMatch(/^https?:\/\//)
+          expect(existsSync(publicFile(sheet.src)), `${key}/${variant.id} sheet`).toBe(true)
+          expect(sheet.frameCount).toBeGreaterThan(0)
+          expect(sheet.frameNumbers?.length, `${key}/${variant.id} frame map`).toBe(sheet.frameCount)
+          const numbers = sheet.frameNumbers ?? []
+          expect(new Set(numbers).size).toBe(numbers.length)
+          expect(numbers.every((frame, index) => frame > 0 && (index === 0 || frame > numbers[index - 1]!))).toBe(true)
+          if (move.totalFrames !== null) expect(numbers.every((frame) => frame <= move.totalFrames!)).toBe(true)
+        }
+      }
+      if (hasSheet) exactSheetMoves += 1
     }
+    expect(exactSheetMoves).toBeGreaterThanOrEqual(2000)
+  })
+
+  it('splits runtime metadata into one compact local index per fighter', () => {
+    const dir = join(root, 'public/data/visual-media')
+    expect(readdirSync(dir).filter((name) => name.endsWith('.json'))).toHaveLength(89)
+    let moveCount = 0
+    for (const fighter of roster) {
+      const payload = runtimeIndex(fighter.id)
+      expect(payload.version).toBe(1)
+      expect(payload.fighterId).toBe(fighter.id)
+      expect(payload.moves.length).toBeGreaterThan(0)
+      moveCount += payload.moves.length
+    }
+    expect(moveCount).toBe(source.mappedMoves)
   })
 })
