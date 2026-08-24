@@ -1,5 +1,6 @@
 node_modules
 dist
 .vite
+public/data/frameData.generated.json
 *.local
 .DS_Store
