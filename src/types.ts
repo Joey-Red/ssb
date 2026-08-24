@@ -143,3 +143,36 @@ export interface MediaAsset {
   attribution?: string
   license?: string
 }
+
+export type VisualFramePhase = 'startup' | 'active' | 'recovery' | 'landing' | 'other'
+export type VisualRegionKind = 'strong' | 'weak' | 'grab'
+
+/** Coordinates are percentages of the displayed image, keeping overlays responsive. */
+export interface VisualCircleRegion {
+  id: string
+  kind: VisualRegionKind
+  x: number
+  y: number
+  radius: number
+  label?: string
+}
+
+export interface VisualFrame {
+  frame: number
+  phase: VisualFramePhase
+  imageSrc?: string
+  caption?: string
+  regions?: readonly VisualCircleRegion[]
+}
+
+export interface VisualMoveMedia {
+  id: string
+  fighterId: string
+  moveId: string
+  label: string
+  sourceUrl: string
+  /** Optional animated reference used until/alongside locally hosted frame stills. */
+  animatedPreviewUrl?: string
+  totalFrames: number
+  frames: readonly VisualFrame[]
+}
