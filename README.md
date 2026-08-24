@@ -16,3 +16,9 @@ npm run check
 ```
 
 This runs linting, tests, strict TypeScript compilation, and a production Vite build.
+
+## GitHub Pages
+
+The app uses hash routing and Vite base `/ssb/`, so refresh/direct navigation never depends on server rewrite rules.
+
+Expected production URL: `https://joey-red.github.io/ssb/`
