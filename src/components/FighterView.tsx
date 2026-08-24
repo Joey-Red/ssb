@@ -1,8 +1,8 @@
 import { guideByFighterId } from '../data/allGuides'
-import { frameDataByFighterId } from '../data/frameData'
 import { fighterBySlug, roster } from '../data/roster'
 import { sourceById } from '../data/sources'
 import { formatFrames } from '../lib/frame'
+import { useFrameDataIndex } from '../lib/useFrameData'
 import { hrefFor } from '../router'
 import { ComboExplorer } from './ComboExplorer'
 import { FighterPicture } from './FighterPicture'
@@ -13,11 +13,12 @@ import { TrainingLadder } from './TrainingLadder'
 import './FighterView.css'
 
 export function FighterView({ slug }: { slug: string }) {
+  const frameState = useFrameDataIndex()
   const fighter = fighterBySlug.get(slug)
   if (!fighter) return <NotFoundFighter />
 
   const guide = guideByFighterId.get(fighter.id)
-  const frameData = frameDataByFighterId.get(fighter.id)
+  const frameData = frameState.data?.byFighterId.get(fighter.id)
   const index = roster.findIndex((entry) => entry.id === fighter.id)
   const previous = index > 0 ? roster[index - 1] : roster[roster.length - 1]
   const next = index < roster.length - 1 ? roster[index + 1] : roster[0]
@@ -40,7 +41,13 @@ export function FighterView({ slug }: { slug: string }) {
         <main className="fighter-main">
           <TrainingLadder steps={guide.trainingRoutine} />
           <ComboExplorer combos={guide.combos} />
-          {frameData ? <FrameDataPanel data={frameData} /> : <section className="panel pending-panel"><span className="pending-icon" aria-hidden="true">!</span><div><p className="eyebrow">Frame data</p><h2>Snapshot unavailable</h2><p>The committed frame-data snapshot does not contain this fighter. Validation should prevent this state from shipping.</p></div></section>}
+          {frameData ? (
+            <FrameDataPanel data={frameData} />
+          ) : frameState.loading ? (
+            <section className="panel pending-panel" aria-live="polite"><span className="pending-icon" aria-hidden="true">…</span><div><p className="eyebrow">Frame data</p><h2>Loading move reference</h2><p>The full roster snapshot is loaded only when a frame-data view needs it.</p></div></section>
+          ) : (
+            <section className="panel pending-panel"><span className="pending-icon" aria-hidden="true">!</span><div><p className="eyebrow">Frame data</p><h2>Snapshot unavailable</h2><p>{frameState.error ?? 'The static frame-data snapshot does not contain this fighter.'}</p></div></section>
+          )}
         </main>
         <aside className="fighter-side" aria-label={`${fighter.name} quick guide`}>
           <section className="panel sticky-panel">
