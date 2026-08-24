@@ -25,7 +25,7 @@ export function FighterView({ slug }: { slug: string }) {
   if (!guide) {
     return (
       <div className="page-stack">
-        <FighterHeader name={fighter.name} series={fighter.series} archetype="Roster indexed · guide data unavailable" memoryAid="This fighter exists in the roster, but its guide failed to load. The data validation gate should prevent this state from shipping." />
+        <FighterHeader fighterId={fighter.id} name={fighter.name} series={fighter.series} archetype="Roster indexed · guide data unavailable" memoryAid="This fighter exists in the roster, but its guide failed to load. The data validation gate should prevent this state from shipping." />
         <section className="panel pending-panel"><span className="pending-icon" aria-hidden="true">!</span><div><p className="eyebrow">Data status</p><h2>Guide unavailable</h2><p>Return to the roster and try again. If this is on the live build, the static guide dataset needs repair.</p><a className="button-link" href={hrefFor('/')}>Back to roster</a></div></section>
         <FighterPager previous={previous} next={next} />
       </div>
@@ -34,7 +34,7 @@ export function FighterView({ slug }: { slug: string }) {
 
   return (
     <div className="page-stack">
-      <FighterHeader name={fighter.name} series={fighter.series} archetype={guide.archetype} memoryAid={guide.memoryAid} />
+      <FighterHeader fighterId={fighter.id} name={fighter.name} series={fighter.series} archetype={guide.archetype} memoryAid={guide.memoryAid} />
       <FighterUtility fighterId={fighter.id} fighterSlug={fighter.slug} fighterName={fighter.name} totalSteps={guide.trainingRoutine.length} />
       <div className="fighter-layout">
         <main className="fighter-main">
@@ -61,8 +61,8 @@ export function FighterView({ slug }: { slug: string }) {
   )
 }
 
-function FighterHeader({ name, series, archetype, memoryAid }: { name: string; series: string; archetype: string; memoryAid: string }) {
-  return <section className="fighter-hero"><div className="fighter-hero__picture"><FighterPicture name={name} series={series} /></div><div className="fighter-hero__content"><div className="fighter-hero__meta"><span>{series}</span><span>•</span><span>{archetype}</span></div><h1>{name}</h1><div className="memory-aid"><span>Memory aid</span><p>{memoryAid}</p></div></div></section>
+function FighterHeader({ fighterId, name, series, archetype, memoryAid }: { fighterId: string; name: string; series: string; archetype: string; memoryAid: string }) {
+  return <section className="fighter-hero"><div className="fighter-hero__picture"><FighterPicture fighterId={fighterId} name={name} series={series} /></div><div className="fighter-hero__content"><div className="fighter-hero__meta"><span>{series}</span><span>•</span><span>{archetype}</span></div><h1>{name}</h1><div className="memory-aid"><span>Memory aid</span><p>{memoryAid}</p></div></div></section>
 }
 
 function FighterPager({ previous, next }: { previous: (typeof roster)[number] | undefined; next: (typeof roster)[number] | undefined }) {
