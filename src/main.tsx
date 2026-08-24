@@ -10,6 +10,7 @@ import './festival-layout.css'
 import './visual-overrides.css'
 import './festival-component-fixes.css'
 import './festival-surfaces.css'
+import './frame-media.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
