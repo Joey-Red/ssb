@@ -1,0 +1,50 @@
+name: Vendor static visual assets
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+    paths:
+      - 'scripts/vendor-static-assets.py'
+      - 'scripts/requirements-media.txt'
+      - 'src/data/visualMediaSources.json'
+      - '.github/workflows/vendor-static-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  vendor:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout writable branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-media.txt
+      - name: Install media tooling
+        run: pip install -r scripts/requirements-media.txt
+      - name: Vendor all runtime visual assets
+        run: python scripts/vendor-static-assets.py
+      - name: Commit vendored assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/media src/data/visualMediaAssets.generated.json
+          if git diff --cached --quiet; then
+            echo 'Vendored assets are already current.'
+            exit 0
+          fi
+          git commit -m 'chore: vendor local visual assets'
+          git pull --rebase origin "$branch"
+          git push origin HEAD:"$branch"
