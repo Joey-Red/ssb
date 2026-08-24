@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { officialFighterRenderUrl, officialFighterThumbUrl } from '../data/officialFighterAssets'
 import { FighterGlyph } from './FighterGlyph'
 
@@ -18,19 +18,21 @@ export function FighterPicture({ fighterId, name, series, compact = false }: { f
     '--portrait-secondary': secondary,
   } as CSSProperties
   const imageUrl = compact ? officialFighterThumbUrl(fighterId) : officialFighterRenderUrl(fighterId)
+  const [failed, setFailed] = useState(false)
+
+  useEffect(() => setFailed(false), [imageUrl])
 
   return (
-    <figure className={`fighter-picture${compact ? ' fighter-picture--compact' : ''}`} style={style} aria-label={`${name} character art`}>
-      <div className="fighter-picture__fallback" aria-hidden="true"><FighterGlyph name={name} /></div>
-      <img
+    <figure className={`fighter-picture${compact ? ' fighter-picture--compact' : ''}${failed ? ' fighter-picture--failed' : ''}`} style={style} aria-label={`${name} character art`}>
+      {failed && <div className="fighter-picture__fallback" aria-hidden="true"><FighterGlyph name={name} /></div>}
+      {!failed && <img
         className="fighter-picture__render"
         src={imageUrl}
-        alt={`${name} official Super Smash Bros. Ultimate render`}
+        alt={`${name} Super Smash Bros. Ultimate render`}
         loading="lazy"
         decoding="async"
-        referrerPolicy="no-referrer"
-        onError={(event) => { event.currentTarget.hidden = true }}
-      />
+        onError={() => setFailed(true)}
+      />}
       <figcaption className="fighter-picture__label"><strong>{name}</strong><span>{series}</span></figcaption>
     </figure>
   )
