@@ -21,7 +21,7 @@ function splitRoute(value: string): string[] {
 
 export function DrillsView() {
   const { drills } = useLocalState()
-  const [fighterId, setFighterId] = useState(roster[0]?.id ?? 'mario')
+  const [fighterId, setFighterId] = useState<string>(roster[0]?.id ?? 'mario')
   const [title, setTitle] = useState('')
   const [routeText, setRouteText] = useState('')
   const [percentText, setPercentText] = useState('')
