@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Refresh the committed SSBU frame-data snapshot from Ultimate Frame Data.
 
-This script is a maintenance tool only. The browser application never scrapes
-or calls Ultimate Frame Data at runtime; it reads the generated JSON snapshot.
-Raw move notation is preserved whenever UFD represents ranges, multi-hits,
-early/late hitboxes, or move-specific values.
+Maintenance-time only: the deployed browser app never scrapes or calls UFD.
+The generator stores structured factual values and intentionally does not copy
+source-site prose or media. Complex move notation is kept as raw factual text.
 """
 
 from __future__ import annotations
@@ -75,6 +74,17 @@ def field(container: Any, class_name: str) -> str | None:
     return clean(node.get_text(" ", strip=True) if node else None)
 
 
+def extract_autocancel(notes: str | None) -> str | None:
+    if not notes:
+        return None
+    match = re.search(r"auto\s*cancels?\s+on\s+frame\s+(.+?)(?:\.|$)", notes, flags=re.IGNORECASE)
+    if not match:
+        return None
+    value = re.sub(r"\bframe\s+", "", match.group(1), flags=re.IGNORECASE)
+    value = re.sub(r"\s+and\s+", "; ", value, flags=re.IGNORECASE)
+    return clean(value)
+
+
 def parse_stats(soup: BeautifulSoup) -> dict[str, str | None]:
     text = soup.get_text("\n", strip=True)
 
@@ -123,12 +133,10 @@ def parse_moves(soup: BeautifulSoup) -> list[dict[str, Any]]:
         shield_stun = field(container, "shieldstun")
         hitbox_type = field(container, "whichhitbox")
         end_lag = field(container, "endlag")
-        notes = field(container, "notes")
+        source_notes = field(container, "notes")
+        autocancel = extract_autocancel(source_notes)
 
-        # Ignore pure headings/placeholders, but retain defensive options and throws
-        # even when they lack startup because their total/landing/intangibility data
-        # is still useful to a frame reference.
-        if not any((startup, active, total_frames, landing_lag, damage, on_shield, end_lag, notes)):
+        if not any((startup, active, total_frames, landing_lag, damage, on_shield, end_lag, autocancel)):
             continue
 
         base_id = slugify(name)
@@ -145,14 +153,16 @@ def parse_moves(soup: BeautifulSoup) -> list[dict[str, Any]]:
                 "startupFrame": first_integer(startup),
                 "active": active,
                 "totalFrames": total_frames,
+                "faf": None,
                 "landingLag": landing_lag,
+                "autocancel": autocancel,
                 "damage": damage,
                 "onShield": on_shield,
                 "shieldLag": shield_lag,
                 "shieldStun": shield_stun,
                 "hitboxType": hitbox_type,
                 "endLag": end_lag,
-                "notes": notes,
+                "notes": None,
             }
         )
 
@@ -168,7 +178,7 @@ def fetch_html(session: requests.Session, url: str) -> str:
             if "movecontainer" not in response.text:
                 raise RuntimeError("response did not contain UFD move data")
             return response.text
-        except Exception as error:  # requests exposes several transport exceptions
+        except Exception as error:
             last_error = error
             if attempt < 3:
                 time.sleep(attempt * 1.25)
@@ -216,11 +226,7 @@ def main() -> int:
     snapshot = {
         "version": 1,
         "generatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "source": {
-            "id": "ultimate-frame-data",
-            "label": "Ultimate Frame Data",
-            "baseUrl": base_url,
-        },
+        "source": {"id": "ultimate-frame-data", "label": "Ultimate Frame Data", "baseUrl": base_url},
         "fighters": fighters,
     }
     OUTPUT_PATH.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
