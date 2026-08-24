@@ -3,7 +3,7 @@ import { guideByFighterId } from '../data/allGuides'
 import { fighterById, roster } from '../data/roster'
 import { clearLocalData, useLocalState } from '../lib/storage'
 import { hrefFor } from '../router'
-import { FighterGlyph } from './FighterGlyph'
+import { FighterPicture } from './FighterPicture'
 import './RosterView.css'
 
 export function RosterView() {
@@ -126,7 +126,7 @@ export function RosterView() {
                   href={hrefFor(`/fighter/${fighter.slug}`)}
                   ref={(element) => { refs.current[index] = element }}
                 >
-                  <div className="fighter-mark fighter-mark--visual" aria-hidden="true"><FighterGlyph name={fighter.name} compact /></div>
+                  <div className="fighter-mark fighter-mark--visual"><FighterPicture fighterId={fighter.id} name={fighter.name} series={fighter.series} compact /></div>
                   <div className="fighter-card__body">
                     <span className="fighter-series">{fighter.series}</span>
                     <strong>{fighter.name}</strong>
