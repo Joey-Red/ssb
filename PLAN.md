@@ -18,6 +18,7 @@ Build a polished, mobile-first Super Smash Bros. Ultimate training companion tha
 - Accessible keyboard navigation, visible focus, semantic markup, reduced-motion support, forced-colors support, and practical touch targets.
 - Frame visuals may use hosted game-frame captures/photos as the visual reference. Hitbox/hurtbox annotations are stored as separate overlay metadata so circles/regions can be toggled, corrected, and audited without baking guesses into the image.
 - The visual frame viewer must support frame stepping and seeking like a small video player while remaining usable by keyboard, touch, and mouse.
+- **No automatic third-party runtime resource requests.** Fighter art, hitbox media, exact-frame sheets, frame JSON, icons, and other app-loaded resources are vendored and served from the GitHub Pages origin. External source URLs are explicit user-opened references only.
 
 ## Architecture
 React + TypeScript + Vite, strict TypeScript, project-owned CSS, hash routing for Pages reliability, static TypeScript/JSON data, static visual media, Vitest validation, local-only browser persistence, lazy-loaded heavy views, progressive offline caching, and GitHub Actions deployment.
@@ -44,14 +45,14 @@ Every source-backed route stores a percentage window, classification, confidence
 SSBU runs at 60 FPS. Frame data is stored/displayed as frames: startup, active frames, total frames, FAF when independently available, landing lag, autocancel windows, shield advantage, OOS timing, and related move data. **Total Frames and FAF are separate fields and are never substituted for each other.** Frame timing is never converted into the old tick system.
 
 ### Visual move model
-A visual move reference is a static sequence of numbered frames with optional per-frame annotations. Each frame can provide:
+A visual move reference is a static sequence of numbered documented frames with optional per-frame source imagery and annotations. Each frame can provide:
 - a hosted frame capture/photo;
 - frame number and move phase (`startup | active | recovery | landing | other`);
 - one or more hitbox circles/regions;
 - optional hurtbox/interaction regions later;
 - short factual annotation/source metadata.
 
-The viewer behaves like a compact video player: previous/next frame, play/pause, frame-number seek slider, direct frame readout, keyboard stepping, touch-friendly controls, and an overlay toggle. The UI must never imply continuous active hitboxes across frames that do not actually contain them.
+The viewer behaves like a compact video player: previous/next frame, play/pause, frame-number seek slider, direct frame input/readout, slow-motion speed choices, first/last-active jumps, active-span looping, keyboard stepping, touch-friendly controls, and an overlay toggle. Each distinct staged source image is frame-addressable. If a source animation omits a distinct image for one of the documented recovery frames, the UI reports the source-visual coverage gap instead of duplicating or inventing an image. The UI must never imply continuous active hitboxes across frames that do not actually contain them.
 
 ## Roster rules
 The canonical manifest contains 89 independent fighter pages. Squirtle/Ivysaur/Charizard are independent pages; Pyra/Mythra are independent pages with Aegis relation metadata; Echo relationships are explicit; costume-only variants are not duplicated.
@@ -66,6 +67,7 @@ The canonical manifest contains 89 independent fighter pages. Squirtle/Ivysaur/C
 7. Visual-frame images and overlay geometry are separate data layers; changing an annotation does not require altering the source image.
 8. Unknown factual fields remain unknown instead of being inferred from adjacent values.
 9. A frame viewer may show circles/regions only when that frame has explicit overlay metadata; missing geometry stays visibly unavailable rather than fabricated.
+10. A missing source image is never synthesized merely to make visual coverage equal documented total frames.
 
 # Milestones
 
@@ -147,17 +149,17 @@ Brand, page titles, fighter names, section headings, stats, and primary actions 
 ### M34 — Responsive decorative visual system ✅
 Reusable background motifs, fighter glyph treatments, badges, cards, and hero decorations simplify at smaller breakpoints and preserve focus/content readability.
 ### M35 — Fighter pictures and media slots ✅
-Roster cards and fighter heroes now have responsive visual identity art/media slots with stable aspect ratios and fallback-safe rendering; the move viewer supports real image media separately.
+Roster cards and fighter heroes have responsive visual art/media slots with stable aspect ratios and fallback-safe rendering; M52 replaces runtime-hotlinked fighter imagery with vendored local assets.
 ### M36 — Visual move media schema ✅
-Typed move-frame sequences store phase, optional image, optional caption, and percentage-positioned hitbox circles/regions. Validation enforces contiguous frames and safe overlay bounds.
+Typed move-frame sequences store phase, optional image, optional caption, and percentage-positioned hitbox circles/regions. Validation enforces contiguous documented frames and safe overlay bounds.
 ### M37 — Frame-by-frame hitbox player ✅
-Move details now include previous/next frame, 60 FPS play/pause, seek slider, keyboard stepping, current-frame/phase readout, overlay toggle, hosted-still support, and initial real UFD animated hitbox references for Mario/Pyra/Mythra neutral air.
+Move details include previous/next frame, 60 FPS play/pause, seek slider, keyboard stepping, current-frame/phase readout, overlay support, hosted-still support, and initial hitbox-reference integration; Phase 6 makes those registered assets local and frame-addressable.
 ### M38 — Theme-aware responsive/accessibility audit ✅
 Festival hard-coded dark-component conflicts were overridden, native Festival controls are forced to light scheme, touch controls remain >=44px, mobile/2K/ultrawide layouts have dedicated rules, and reduced-motion/forced-colors paths remain supported.
 ### M39 — Visual performance/offline hardening ✅
-Fighter-heavy routes remain lazy-loaded; images use native lazy loading/async decoding; visual references are not preloaded on the roster route. The release gate confirmed the initial JS moved only from roughly 276 KB to 278 KB uncompressed. The older monolithic frame-data chunk remains a separate optimization target.
+Fighter-heavy routes remain lazy-loaded; images use native lazy loading/async decoding; visual references are not preloaded on the roster route. The release gate confirmed the initial JS moved only from roughly 276 KB to 278 KB uncompressed. The older monolithic frame-data chunk was subsequently resolved in M48.
 ### M40 — Festival release and GitHub Pages QA ✅
-Release candidate is implemented and branch CI has passed with 23/23 tests. Final completion requires merge to `main`, successful Pages deployment, and live route/theme/media verification.
+Festival became the deployed first-run theme, Arena remained available as the persistent alternate, and the release was merged and validated through GitHub Pages.
 
 ## Phase 5B — Live Festival QA hardening
 ### M41 — Festival dark-surface eradication ✅
@@ -171,9 +173,9 @@ The 89-fighter visual mapping and fallback path are tested; local vendoring is c
 ### M45 — Expanded hitbox media registry ✅
 Mario, Pyra, Mythra, and Kazuya aerial references are registered with source-aware timing metadata.
 ### M46 — Exact-frame pipeline foundation ✅
-The player supports local exact sprite sheets and the maintenance tooling can convert reviewed animations into frame-addressable sheets.
+The player supports local source-frame sprite sheets and maintenance tooling can convert reviewed animations into frame-addressable sheets.
 ### M47 — Overlay hardening ✅
-Overlay regions require exact frame media and support hitbox, hurtbox, grab, and intangibility region types without fabricated geometry.
+Overlay regions require an exact staged frame image and support hitbox, hurtbox, grab, and intangibility region types without fabricated geometry.
 ### M48 — Frame-data payload optimization ✅
 The 89-fighter frame snapshot moved out of JavaScript into an on-demand/cacheable same-origin JSON asset, removing the previous oversized JS chunk.
 ### M49 — Timing/content consistency audit ✅
@@ -187,21 +189,21 @@ Runtime visuals use same-origin BASE_URL-relative paths, CSP restricts automatic
 ### M52 — Full-roster local fighter art and portrait alignment ✅
 All 89 fighter pages receive vendored local renders and centered thumbnails; transparent fallback art no longer shows behind successful portraits.
 ### M53 — Local hitbox-preview repair ✅
-Every registered hitbox animation is downloaded into the repository and no longer depends on third-party hotlinking at runtime.
-### M54 — Exact frame-sheet population ✅
-Every registered move animation is converted to a local, validated exact-frame sprite sheet whose frame count matches the move reference.
+Every currently registered hitbox animation is downloaded into the repository and no longer depends on third-party hotlinking at runtime.
+### M54 — Exact source-frame sheet population ✅
+Every registered move animation is converted into a local frame-addressable sprite sheet. The build records actual source-image coverage separately from documented total frames; missing source images are reported rather than synthesized. Of the current 19 registered moves, all source images are seekable, with only Pyra Neutral Air (55/56), Up Air (56/57), and Down Air (64/65) lacking a distinct source image for the final documented recovery frame.
 ### M55 — Advanced frame playback controls ✅
 The frame player supports direct frame entry, 0.25×/0.5×/1× playback, first/last-active jumps, active-span looping, keyboard stepping, and touch-safe controls.
 ### M56 — Pyra exact visual study ✅
-All five Pyra aerials have local previews and exact seekable frame sheets with timing consistency checks.
+All five Pyra aerials have local previews and frame-addressable source sheets with timing consistency checks and explicit visual-coverage reporting.
 ### M57 — Mythra exact visual study ✅
-All five Mythra aerials have local previews and exact seekable frame sheets with timing consistency checks.
+All five Mythra aerials have local previews and complete frame-addressable source sheets with timing consistency checks.
 ### M58 — Mario and Kazuya exact visual study ✅
-The currently registered Mario and Kazuya aerial references use local exact sheets, including Kazuya Up Air and complex Down Air timing.
+The currently registered Mario and Kazuya aerial references use local complete source sheets, including Kazuya Up Air and complex Down Air timing.
 ### M59 — Offline/media integrity audit ✅
-Automated tests require all roster images and registered move media to exist locally, enforce same-origin automatic runtime networking, and keep local JSON/images cacheable.
-### M60 — Arena rename, release QA, merge and Pages deployment
-The alternate dark theme is named Arena everywhere. Completion requires exact-head CI, merge to `main`, successful Pages deployment, live responsive QA, and branch cleanup.
+Automated tests require all 89 roster renders/thumbnails and all 19 registered move previews/sheets to exist locally, enforce same-origin automatic runtime networking, and keep local JSON/images cacheable.
+### M60 — Arena rename, release QA, merge and Pages deployment ✅
+The alternate dark theme is named Arena throughout maintained code/text. The M51–M60 exact head passed lint, 33/33 tests, strict TypeScript, and the production Vite build; PR #9 was squash-merged to `main`, and GitHub Pages reported a successful deployment of the merged release.
 
 ## Quality gate
 ```text
@@ -209,9 +211,9 @@ npm run lint
 npm test
 npm run build
 ```
-`npm run check` runs the complete gate. Static validation rejects malformed/duplicate roster routes, missing full-roster guides, invalid 0–200 routine structure, bad percentage windows, missing sources, invalid startup-frame fields, unsupported `true` classifications, unsafe/malformed media entries, invalid visual-frame overlays, and incomplete frame-data snapshots.
+`npm run check` runs the complete gate. Static validation rejects malformed/duplicate roster routes, missing full-roster guides, invalid 0–200 routine structure, bad percentage windows, missing sources, invalid startup-frame fields, unsupported `true` classifications, unsafe/malformed media entries, invalid visual-frame overlays, incomplete frame-data snapshots, missing vendored fighter/move media, and prohibited automatic third-party runtime resource URLs.
 
 ## Deployment
 `main → GitHub Actions → Vite dist → GitHub Pages → phone/tablet/desktop browser`.
 
-M01–M30 are merged into `main`. M31–M39 are complete on `milestones-31-40`; M40 closes after the Festival release is merged and verified on GitHub Pages.
+**M01–M60 are merged into `main` and deployed through GitHub Pages.**
