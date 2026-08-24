@@ -1,12 +1,12 @@
 import { useSyncExternalStore } from 'react'
 
-export type AppTheme = 'festival' | 'titan'
+export type AppTheme = 'festival' | 'arena'
 
 const THEME_KEY = 'ssbu-training-guide:theme'
 const listeners = new Set<() => void>()
 
 function isTheme(value: unknown): value is AppTheme {
-  return value === 'festival' || value === 'titan'
+  return value === 'festival' || value === 'arena'
 }
 
 function readTheme(): AppTheme {
@@ -24,7 +24,7 @@ let theme: AppTheme = readTheme()
 function apply(themeValue: AppTheme): void {
   if (typeof document === 'undefined') return
   document.documentElement.dataset.theme = themeValue
-  document.documentElement.style.colorScheme = themeValue === 'titan' ? 'dark' : 'light'
+  document.documentElement.style.colorScheme = themeValue === 'arena' ? 'dark' : 'light'
   const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
   if (meta) meta.content = themeValue === 'festival' ? '#fff3d6' : '#0b0c0d'
 }
@@ -59,7 +59,7 @@ export function setTheme(next: AppTheme): void {
 }
 
 export function toggleTheme(): void {
-  setTheme(theme === 'festival' ? 'titan' : 'festival')
+  setTheme(theme === 'festival' ? 'arena' : 'festival')
 }
 
 export function useTheme(): AppTheme {
