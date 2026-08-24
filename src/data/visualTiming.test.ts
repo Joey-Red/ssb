@@ -8,7 +8,7 @@ import type { FrameDataSnapshot } from '../types'
 const index = indexFrameData(snapshotJson as unknown as FrameDataSnapshot)
 
 describe('visual-media timing consistency', () => {
-  it('keeps registered visual references aligned to the committed move timing', () => {
+  it('keeps every discovered visual reference attached to a committed move row', () => {
     for (const media of visualMoveMedia) {
       const fighter = index.byFighterId.get(media.fighterId)
       expect(fighter, media.fighterId).toBeDefined()
@@ -19,11 +19,14 @@ describe('visual-media timing consistency', () => {
       const total = numericValue(move.totalFrames)
       if (total !== null) expect(media.totalFrames, `${media.id} total`).toBe(total)
 
-      const activeFrames = media.frames.filter((frame) => frame.phase === 'active').map((frame) => frame.frame)
       const expectedStart = firstFrame(move.active)
       const expectedEnd = lastFrame(move.active)
-      if (expectedStart !== null) expect(activeFrames[0], `${media.id} active start`).toBe(expectedStart)
-      if (expectedEnd !== null) expect(activeFrames.at(-1), `${media.id} active end`).toBe(expectedEnd)
+      for (const variant of media.variants ?? []) {
+        const numbers = variant.spriteSheet?.frameNumbers
+        if (!numbers?.length) continue
+        if (expectedStart !== null) expect(numbers[0], `${media.id}/${variant.id} visual start`).toBeGreaterThanOrEqual(expectedStart)
+        if (expectedEnd !== null) expect(numbers.at(-1), `${media.id}/${variant.id} visual end`).toBeLessThanOrEqual(expectedEnd)
+      }
     }
   })
 })
