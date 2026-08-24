@@ -1,16 +1,9 @@
 name: Refresh SSBU frame-data snapshot
 
 on:
-  push:
-    branches: [milestones-21-29]
-    paths:
-      - scripts/refresh-frame-data.py
-      - scripts/requirements-frame-data.txt
-      - src/data/ufd-manifest.json
-      - .github/workflows/refresh-frame-data.yml
   pull_request:
     branches: [main]
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
     paths:
       - scripts/refresh-frame-data.py
       - scripts/requirements-frame-data.txt
@@ -81,5 +74,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/frameData.generated.json
-          git commit -m "data(m23): refresh full-roster frame-data snapshot"
+          git commit -m "data: refresh full-roster frame-data snapshot"
           git push origin HEAD:${TARGET_BRANCH}
