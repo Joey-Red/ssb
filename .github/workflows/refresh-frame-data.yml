@@ -23,7 +23,7 @@ permissions:
 
 concurrency:
   group: refresh-frame-data-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh:
