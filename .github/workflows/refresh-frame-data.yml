@@ -68,8 +68,12 @@ jobs:
           print(f'Validated {len(actual)} fighters and {rows} move rows')
           PY
 
-      - name: Commit refreshed snapshot
+      - name: Commit refreshed snapshot on latest branch head
         run: |
+          cp src/data/frameData.generated.json /tmp/frameData.generated.json
+          git fetch origin "${TARGET_BRANCH}"
+          git reset --hard "origin/${TARGET_BRANCH}"
+          cp /tmp/frameData.generated.json src/data/frameData.generated.json
           if git diff --quiet -- src/data/frameData.generated.json; then
             echo "Snapshot already current."
             exit 0
