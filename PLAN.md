@@ -6,15 +6,15 @@ Build a polished, mobile-first Super Smash Bros. Ultimate training companion tha
 ## Non-negotiables
 - Frontend only: no server, database, login, telemetry, or required runtime API.
 - GitHub Pages compatible and refresh-safe.
-- Responsive from 320px phones through tablets, desktop, and ultrawide.
+- Responsive from 320px phones through tablets, desktop, 2K, and ultrawide.
 - Titan-inspired matte dark UI: restrained borders, compact density, no neon/glassmorphism.
 - Static, versioned, source-aware fighter data.
 - Never label a route “true” merely because it is commonly performed. Preserve DI/character/percent/rage/hitbox/stage conditions.
 - Use standard SSBU frame terminology only. The abandoned 0.6-second tick concept is not part of the product.
-- Accessible keyboard navigation, visible focus, semantic markup, reduced-motion support, and practical touch targets.
+- Accessible keyboard navigation, visible focus, semantic markup, reduced-motion support, forced-colors support, and practical touch targets.
 
 ## Architecture
-React + TypeScript + Vite, strict TypeScript, project-owned CSS, hash routing for Pages reliability, static TypeScript data modules, Vitest validation, GitHub Actions deployment.
+React + TypeScript + Vite, strict TypeScript, project-owned CSS, hash routing for Pages reliability, static TypeScript data modules, Vitest validation, local-only browser persistence, lazy-loaded heavy views, progressive offline caching, and GitHub Actions deployment.
 
 ```text
 src/
@@ -23,6 +23,8 @@ src/
   lib/
   router.ts
   types.ts
+public/
+  sw.js
 ```
 
 ### Core classifications
@@ -71,18 +73,29 @@ Classification and percentage filtering, conditions, confidence state, source li
 ### M10 — Reference fighter dataset ✅
 Mario, Squirtle, Pyra, Mythra: memory aid, quick guide, 0–200 routine, combos/confirms, key startup frames, sources, verification classifications.
 
-## Next
-### M11 — Frame-literacy help
-Expand contextual definitions/tooltips for startup, active, recovery/FAF, hitlag, hitstun, DI, SDI, shield advantage, landing lag, autocancel, and OOS.
-### M12 — Full-roster memory aids
-### M13 — Full-roster quick guides
-### M14 — Full-roster 0–200 routines
-### M15 — Full-roster combo/confirm dataset
-### M16 — Full content verification pass
-### M17 — Search/filter/favorites/recents polish
-### M18 — Practice session mode
-### M19 — Mobile/accessibility hardening
-### M20 — Performance/offline resilience
+## Phase 3 — Full roster and training UX
+### M11 — Frame-literacy help ✅
+Expanded contextual definitions for startup, active frames, recovery/FAF, landing lag, autocancel, hitlag, hitstun, shield advantage, OOS, DI, SDI, and combo classification.
+### M12 — Full-roster memory aids ✅
+All 89 fighter pages have concise memory cues.
+### M13 — Full-roster quick guides ✅
+Every fighter has practical neutral/advantage/kill-plan notes without copied third-party prose.
+### M14 — Full-roster 0–200 routines ✅
+Every fighter has 11 training checkpoints from 0% through 200%, with routes shortened when confirms stop being practical.
+### M15 — Full-roster combo/confirm dataset ✅
+The entire roster has classified practice routes/confirm concepts with true-combo labels reserved for supported claims.
+### M16 — Full content verification pass ✅
+Validation enforces roster coverage, percentage structure, source references, startup integrity, and conservative true-combo labeling.
+### M17 — Search/filter/favorites/recents polish ✅
+Search includes guide metadata; series/archetype/favorites filters, recent fighters, local-only favorites, and reset controls are implemented.
+### M18 — Practice session mode ✅
+Dedicated practice routes include fighter switching, step navigation, rep counts, completion tracking, keyboard controls, and local persistence.
+### M19 — Mobile/accessibility hardening ✅
+Coarse-pointer touch targets, four-item mobile navigation, visible focus, forced-colors handling, reduced motion, screen-reader status text, and responsive large-screen behavior are covered.
+### M20 — Performance/offline resilience ✅
+Fighter/practice views are lazy-loaded and the production build registers a scoped service worker that caches the app shell and fetched static assets for repeat/offline use without making offline support a runtime requirement.
+
+## Next — Frame-data expansion
 ### M21 — Full frame-data schema
 ### M22 — Frame-data UI
 ### M23 — Full-roster frame-data population
@@ -99,7 +112,7 @@ npm run lint
 npm test
 npm run build
 ```
-Static validation rejects malformed/duplicate roster routes, invalid 0–200 routine structure, bad percentage windows, missing sources, and invalid startup-frame fields.
+Static validation rejects malformed/duplicate roster routes, missing full-roster guides, invalid 0–200 routine structure, bad percentage windows, missing sources, invalid startup-frame fields, and unsupported `true` classifications in generated practice data.
 
 ## Deployment
 `main → GitHub Actions → Vite dist → GitHub Pages → phone/tablet/desktop browser`.
