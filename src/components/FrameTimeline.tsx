@@ -15,7 +15,7 @@ export function FrameTimeline({ move }: { move: FrameMove }) {
       <div className="frame-timeline frame-timeline--fallback" aria-label={`${move.name} frame timeline`}>
         <span><b>Startup</b>{move.startup ?? '—'}</span>
         <span><b>Active</b>{move.active ?? '—'}</span>
-        <span><b>Total / FAF</b>{move.totalFrames ?? '—'}</span>
+        <span><b>Total frames</b>{move.totalFrames ?? '—'}</span>
       </div>
     )
   }
@@ -34,7 +34,9 @@ export function FrameTimeline({ move }: { move: FrameMove }) {
       </div>
       <figcaption>
         <span>Active: <strong>{move.active}</strong></span>
-        <span>Total / FAF: <strong>{move.totalFrames}</strong></span>
+        <span>Total frames: <strong>{move.totalFrames}</strong></span>
+        {move.faf && <span>FAF: <strong>{move.faf}</strong></span>}
+        {move.autocancel && <span>Autocancel: <strong>{move.autocancel}</strong></span>}
         {complex && <em>* Multi-hit/late notation is not treated as continuously active; use the raw Active value.</em>}
       </figcaption>
     </figure>
