@@ -6,6 +6,7 @@ import { registerOfflineSupport } from './lib/offline'
 import './styles.css'
 import './accessibility.css'
 import './themes.css'
+import './festival-layout.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
