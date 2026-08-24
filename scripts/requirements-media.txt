@@ -1,2 +1,4 @@
-# Maintenance-only dependency for converting approved/local GIF references into exact-frame sprite sheets.
+# Maintenance-only dependencies for vendoring runtime visuals and converting approved
+# animations into exact-frame sprite sheets.
 Pillow>=10.4,<13
+requests==2.32.5
