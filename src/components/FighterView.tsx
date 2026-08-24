@@ -1,4 +1,4 @@
-import { guideByFighterId } from '../data/guides'
+import { guideByFighterId } from '../data/allGuides'
 import { fighterBySlug, roster } from '../data/roster'
 import { sourceById } from '../data/sources'
 import { formatFrames } from '../lib/frame'
@@ -22,15 +22,15 @@ export function FighterView({ slug }: { slug: string }) {
         <FighterHeader
           name={fighter.name}
           series={fighter.series}
-          archetype="Roster indexed · guide data pending"
-          memoryAid="This fighter is already wired into routing/search. Its verified memory aid, 0–200% routine, and combo data arrive during the full-roster content milestones."
+          archetype="Roster indexed · guide data unavailable"
+          memoryAid="This fighter exists in the roster, but its guide failed to load. The data validation gate should prevent this state from shipping."
         />
         <section className="panel pending-panel">
-          <span className="pending-icon" aria-hidden="true">+</span>
+          <span className="pending-icon" aria-hidden="true">!</span>
           <div>
             <p className="eyebrow">Data status</p>
-            <h2>Foundation ready; guide pending</h2>
-            <p>We intentionally show a clear pending state instead of filler combos. Mario, Squirtle, Pyra, and Mythra are the first reference implementations.</p>
+            <h2>Guide unavailable</h2>
+            <p>Return to the roster and try again. If this is on the live build, the static guide dataset needs repair.</p>
             <a className="button-link" href={hrefFor('/')}>Back to roster</a>
           </div>
         </section>
@@ -65,19 +65,23 @@ export function FighterView({ slug }: { slug: string }) {
             </ol>
             <div className="subsection">
               <h3>Key startup frames</h3>
-              <div className="frame-list">
-                {guide.keyFrames.map((frame) => (
-                  <div className="frame-row" key={frame.move}>
-                    <span>
-                      <strong>{frame.move}</strong>
-                      <small>{frame.note}</small>
-                    </span>
-                    <b>{formatFrames(frame.startup)}</b>
-                  </div>
-                ))}
-              </div>
+              {guide.keyFrames.length > 0 ? (
+                <div className="frame-list">
+                  {guide.keyFrames.map((frame) => (
+                    <div className="frame-row" key={frame.move}>
+                      <span>
+                        <strong>{frame.move}</strong>
+                        <small>{frame.note}</small>
+                      </span>
+                      <b>{formatFrames(frame.startup)}</b>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="frame-footnote">Full move-by-move frame tables arrive in the frame-data phase. The training guide already uses standard game-frame terminology.</p>
+              )}
               <p className="frame-footnote">
-                <a href={hrefFor('/about') + '#startup'}>Startup</a> is the first frame the relevant hitbox can appear. Standard Smash frame notation only.
+                <a href={hrefFor('/about')}>Startup</a> is the first frame the relevant hitbox can appear. Standard Smash frame notation only.
               </p>
             </div>
             <details className="source-details">
