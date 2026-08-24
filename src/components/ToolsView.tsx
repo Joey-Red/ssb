@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { frameDataByFighterId, frameMoveCount } from '../data/frameData'
 import { roster } from '../data/roster'
 import { fastestOosOptions } from '../lib/frameData'
-import type { FighterFrameData, FrameMove } from '../types'
+import type { FighterFrameData } from '../types'
 import { FrameTimeline } from './FrameTimeline'
 import './ToolsView.css'
 
@@ -60,7 +60,7 @@ export function ToolsView() {
           <label><span>Fighter B</span><select value={rightId} onChange={(event) => changeFighter('right', event.target.value)}>{roster.map((fighter) => <option key={fighter.id} value={fighter.id}>{fighter.name}</option>)}</select><MoveSelect data={rightData} moveId={rightMove.id} onChange={setRightMoveId}/></label>
         </div>
         <div className="compare-grid"><div className="compare-metric compare-metric--header"><span>Metric</span><strong>{leftData.name} · {leftMove.name}</strong><strong>{rightData.name} · {rightMove.name}</strong></div>{[
-          metric('Startup', leftMove.startup, rightMove.startup), metric('Active', leftMove.active, rightMove.active), metric('Total / FAF', leftMove.totalFrames, rightMove.totalFrames), metric('Landing lag', leftMove.landingLag, rightMove.landingLag), metric('On shield', leftMove.onShield, rightMove.onShield), metric('Damage', leftMove.damage, rightMove.damage),
+          metric('Startup', leftMove.startup, rightMove.startup), metric('Active', leftMove.active, rightMove.active), metric('Total frames', leftMove.totalFrames, rightMove.totalFrames), metric('FAF', leftMove.faf, rightMove.faf), metric('Landing lag', leftMove.landingLag, rightMove.landingLag), metric('Autocancel', leftMove.autocancel, rightMove.autocancel), metric('On shield', leftMove.onShield, rightMove.onShield), metric('Damage', leftMove.damage, rightMove.damage),
         ]}</div>
         <div className="compare-timelines"><FrameTimeline move={leftMove}/><FrameTimeline move={rightMove}/></div>
       </>}
