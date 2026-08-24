@@ -24,7 +24,7 @@ let theme: AppTheme = readTheme()
 function apply(themeValue: AppTheme): void {
   if (typeof document === 'undefined') return
   document.documentElement.dataset.theme = themeValue
-  document.documentElement.style.colorScheme = themeValue === 'titan' ? 'dark' : 'light dark'
+  document.documentElement.style.colorScheme = themeValue === 'titan' ? 'dark' : 'light'
   const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
   if (meta) meta.content = themeValue === 'festival' ? '#fff3d6' : '#0b0c0d'
 }
