@@ -10,7 +10,7 @@ on:
       - .github/workflows/refresh-frame-data.yml
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened]
+    types: [opened, reopened]
     paths:
       - scripts/refresh-frame-data.py
       - scripts/requirements-frame-data.txt
@@ -23,7 +23,7 @@ permissions:
 
 concurrency:
   group: refresh-frame-data-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   refresh:
