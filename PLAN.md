@@ -205,6 +205,28 @@ Automated tests require all 89 roster renders/thumbnails and all 19 registered m
 ### M60 — Arena rename, release QA, merge and Pages deployment ✅
 The alternate dark theme is named Arena throughout maintained code/text. The M51–M60 exact head passed lint, 33/33 tests, strict TypeScript, and the production Vite build; PR #9 was squash-merged to `main`, and GitHub Pages reported a successful deployment of the merged release.
 
+## Phase 7 — Full-roster visual study expansion
+### M61 — Full-roster UFD visual discovery ✅
+Maintenance tooling scans all 89 fighter pages and maps available UFD hitbox/reference media to committed move IDs without adding production runtime networking.
+### M62 — Full-roster move/variant mapping ✅
+The generated source manifest covers all 89 fighters at production scale, with 2,580 mapped moves and 3,075 source variants in the release snapshot.
+### M63 — Same-origin full-roster visual vendoring ✅
+Discovered visual media is downloaded during maintenance and served from the GitHub Pages origin; the deployed app does not hotlink third-party media.
+### M64 — Active/impact exact-frame sheet generation ✅
+Source animations that genuinely overlap documented active/impact frames are converted to compact frame-addressable WebP sheets with explicit game-frame numbers.
+### M65 — Honest unaligned-source handling ✅
+Short, alternate, landing, projectile, or other source animations that cannot be aligned honestly to the documented move window remain untimed local static references instead of receiving invented frame mappings.
+### M66 — Per-fighter lazy visual indexes ✅
+Runtime visual metadata is split into 89 same-origin fighter indexes so opening one fighter does not require downloading the full-roster visual manifest.
+### M67 — Multi-variant visual study integration ✅
+The frame viewer supports locally staged source variants while preserving the distinction between exact frame-addressable sheets and untimed static references.
+### M68 — Visual timing and media integrity validation ✅
+Automated tests verify full-roster coverage, local asset existence, ascending unique frame maps, Total Frames bounds, timing consistency, and zero automatic third-party runtime requests.
+### M69 — Production-scale Pages/performance audit ✅
+The release remains lazy-loaded and Pages-safe despite the expanded media library; production CI validates the Vite build and same-origin runtime architecture.
+### M70 — Release QA, merge, branch consolidation, and Pages deployment ✅
+The exact PR head passed lint, 33/33 tests, strict TypeScript, and the production Vite build before squash merge to `main`. Release finalization consolidates stale milestone branches and publishes the resulting `main` through GitHub Pages.
+
 ## Quality gate
 ```text
 npm run lint
@@ -216,4 +238,4 @@ npm run build
 ## Deployment
 `main → GitHub Actions → Vite dist → GitHub Pages → phone/tablet/desktop browser`.
 
-**M01–M60 are merged into `main` and deployed through GitHub Pages.**
+**M01–M70 are merged into `main` and deployed through GitHub Pages.**
