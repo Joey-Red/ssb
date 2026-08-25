@@ -251,11 +251,21 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
         start, end = int(span[0]), int(span[1])
     else:
         start, end = 1, min(len(all_frames), 8)
-    frame_numbers = [number for number in range(max(1, start), max(start, end) + 1) if number <= len(all_frames)]
+
+    total_frames = move.get("totalFrames")
+    max_documented_frame = int(total_frames) if isinstance(total_frames, int) and total_frames > 0 else len(all_frames)
+    max_source_frame = min(len(all_frames), max_documented_frame)
+    frame_numbers = [
+        number
+        for number in range(max(1, start), max(start, end) + 1)
+        if number <= max_source_frame
+    ]
     if not frame_numbers:
         # Preserve an honest source reference even if its visual sequence starts
-        # later/ends earlier than the documented timing window.
-        fallback = min(max(1, move.get("startupFrame") or 1), len(all_frames))
+        # later/ends earlier than the documented timing window. Never map a
+        # sprite cell beyond the documented Total Frames value.
+        fallback_limit = max(1, max_source_frame)
+        fallback = min(max(1, move.get("startupFrame") or 1), fallback_limit)
         frame_numbers = [fallback]
     selected = [all_frames[number - 1] for number in frame_numbers]
     relative = f"media/frame-sheets/{fighter_id}/{move_id}/{variant_id}.webp"
@@ -304,7 +314,6 @@ def vendor_visuals() -> dict[str, Any]:
     if failures:
         raise RuntimeError("visual asset failures:\n" + "\n".join(failures))
 
-    # Source order determines the stable variant selector order.
     for move in source_manifest["moves"]:
         key = f"{move['fighterId']}:{move['moveId']}"
         order = {safe_name(variant["id"]): index for index, variant in enumerate(move["variants"])}
