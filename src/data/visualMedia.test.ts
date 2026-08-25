@@ -180,22 +180,32 @@ describe('full-roster visual frame media', () => {
     expect(stagedUnresolved).toHaveLength(coverage.unresolvedVariants)
   })
 
-  it('splits runtime metadata into one compact local index per fighter', () => {
+  it('splits runtime metadata into one local index per fighter without treating synthetic fallbacks as collision evidence', () => {
     const dir = join(root, 'public/data/visual-media')
     expect(readdirSync(dir).filter((name) => name.endsWith('.json'))).toHaveLength(89)
     let moveCount = 0
+    let syntheticVariantCount = 0
     for (const fighter of roster) {
       const payload = runtimeIndex(fighter.id)
       expect(payload.version).toBe(1)
       expect(payload.fighterId).toBe(fighter.id)
       expect(payload.moves.length).toBeGreaterThan(0)
+      expect(new Set(payload.moves.map((move) => move.moveId)).size).toBe(payload.moves.length)
       for (const move of payload.moves) {
         for (const variant of move.variants ?? []) {
-          expect(variant.interactionEvidence, `${fighter.id}:${move.moveId}/${variant.id} runtime collision provenance`).toBeTruthy()
+          if (variant.sourceFormat === 'synthetic-illustrative') {
+            syntheticVariantCount += 1
+            expect(variant.interactionEvidence, `${fighter.id}:${move.moveId}/${variant.id} synthetic collision evidence`).toBeUndefined()
+            expect(variant.mappingMethod).toBe('synthetic-phase-schematic-not-source-evidence')
+          } else {
+            expect(variant.interactionEvidence, `${fighter.id}:${move.moveId}/${variant.id} runtime collision provenance`).toBeTruthy()
+          }
         }
       }
       moveCount += payload.moves.length
     }
-    expect(moveCount).toBe(source.mappedMoves)
+    expect(moveCount).toBeGreaterThanOrEqual(source.mappedMoves)
+    expect(moveCount).toBeLessThanOrEqual(3588)
+    expect(syntheticVariantCount).toBe(moveCount - source.mappedMoves)
   })
 })
