@@ -215,6 +215,12 @@ export interface VisualMediaVariant {
   timelineBasis?: string
   mappingMethod?: string
   sourceFormat?: string
+  /** Collision visualization is baked into the source media or separately reviewed. */
+  interactionEvidence?: 'embedded-source' | 'reviewed-overlay'
+  reviewedOverride?: {
+    sourceUrl: string
+    provenanceNote: string
+  }
 }
 
 export interface VisualMoveMedia {
