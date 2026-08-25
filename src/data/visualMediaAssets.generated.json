@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T01:06:19Z",
+  "generatedAt": "2026-08-25T01:26:19Z",
   "moves": {
     "mario:jab-2": {
       "variants": [
@@ -6114,16 +6114,7 @@
           "id": "kirbyuthrow",
           "label": "KirbyUThrow",
           "sha256": "d703506ac1da8f731fd22cf134a01bd2c5b1e2468af192da05daed4c68ea7ba3",
-          "spriteSheet": {
-            "src": "media/frame-sheets/kirby/up-throw/kirbyuthrow.webp",
-            "frameWidth": 300,
-            "frameHeight": 294,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              49
-            ]
-          },
+          "imageSrc": "media/hitboxes/kirby/up-throw/kirbyuthrow.webp",
           "sourceFrameCount": 49
         }
       ]
@@ -7510,16 +7501,7 @@
           "id": "pikachuquickattack",
           "label": "PikachuQuickAttack",
           "sha256": "14741c065db1e5f467d5b4a7e7a53cc0454f4446c627c2406afb2c6b4db46a9a",
-          "spriteSheet": {
-            "src": "media/frame-sheets/pikachu/up-b-quick-attack/pikachuquickattack.webp",
-            "frameWidth": 300,
-            "frameHeight": 198,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/pikachu/up-b-quick-attack/pikachuquickattack.webp",
           "sourceFrameCount": 5
         }
       ]
@@ -15505,16 +15487,7 @@
           "id": "sheikburstgrenade",
           "label": "SheikBurstGrenade",
           "sha256": "668dcf67d21f1dfd6d89cacc0ee273e65c9db69ec3d69463edd38a651a078bad",
-          "spriteSheet": {
-            "src": "media/frame-sheets/sheik/side-b-burst-grenade/sheikburstgrenade.webp",
-            "frameWidth": 300,
-            "frameHeight": 296,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/sheik/side-b-burst-grenade/sheikburstgrenade.webp",
           "sourceFrameCount": 4
         },
         {
@@ -24911,16 +24884,7 @@
           "id": "chromsoaringslashdescent",
           "label": "ChromSoaringSlashDescent",
           "sha256": "f37dc8dde51f11b892e452be9d9331060be2d04f35dc366ce7b0e756e6a88b90",
-          "spriteSheet": {
-            "src": "media/frame-sheets/chrom/up-b-soaring-slash/chromsoaringslashdescent.webp",
-            "frameWidth": 300,
-            "frameHeight": 251,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/chrom/up-b-soaring-slash/chromsoaringslashdescent.webp",
           "sourceFrameCount": 5
         },
         {
@@ -25182,16 +25146,7 @@
           "id": "mrgame-watchjab",
           "label": "MrGame_WatchJab",
           "sha256": "a94e61910fd467c66caaa0c10dc576aacce2ddbf2e412adc37c674ebf4638ec1",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/jab/mrgame-watchjab.webp",
-            "frameWidth": 300,
-            "frameHeight": 172,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/jab/mrgame-watchjab.webp",
           "sourceFrameCount": 3
         }
       ]
@@ -25243,16 +25198,7 @@
           "id": "mrgame-watchftilt",
           "label": "MrGame_WatchFTilt",
           "sha256": "59572581fc62ca55037499d7fcdbbf2858ba2069c4baba07c46b71d08290fa7e",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/forward-tilt/mrgame-watchftilt.webp",
-            "frameWidth": 300,
-            "frameHeight": 191,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/forward-tilt/mrgame-watchftilt.webp",
           "sourceFrameCount": 4
         }
       ]
@@ -25263,16 +25209,7 @@
           "id": "mrgame-watchutilt",
           "label": "MrGame_WatchUTilt",
           "sha256": "c224e12ca5eeea7822bea31df406bc1209bcf7defc9c659b4c76e060ce188ee8",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/up-tilt/mrgame-watchutilt.webp",
-            "frameWidth": 300,
-            "frameHeight": 220,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/up-tilt/mrgame-watchutilt.webp",
           "sourceFrameCount": 5
         }
       ]
@@ -25328,16 +25265,7 @@
           "id": "mrgame-watchfsmash",
           "label": "MrGame_WatchFSmash",
           "sha256": "d821f2fa1ef772fd63b286899d023732d32132ca67b5918732673b86635a3e4c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/forward-smash/mrgame-watchfsmash.webp",
-            "frameWidth": 300,
-            "frameHeight": 188,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/forward-smash/mrgame-watchfsmash.webp",
           "sourceFrameCount": 4
         }
       ]
@@ -25348,16 +25276,7 @@
           "id": "mrgame-watchusmash",
           "label": "MrGame_WatchUSmash",
           "sha256": "54349f26ad2f132cc927cff4c79059758b0209d8aca5d49e60141902dd0bdc8a",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/up-smash/mrgame-watchusmash.webp",
-            "frameWidth": 300,
-            "frameHeight": 216,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              8
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/up-smash/mrgame-watchusmash.webp",
           "sourceFrameCount": 8
         }
       ]
@@ -25368,16 +25287,7 @@
           "id": "mrgame-watchdsmash",
           "label": "MrGame_WatchDSmash",
           "sha256": "a0ebfc5f0d65772494d0228db2a5b5c135d7737d6288924d204161df8000e0c5",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/down-smash/mrgame-watchdsmash.webp",
-            "frameWidth": 300,
-            "frameHeight": 154,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/down-smash/mrgame-watchdsmash.webp",
           "sourceFrameCount": 3
         }
       ]
@@ -25468,16 +25378,7 @@
           "id": "mrgame-watchuair",
           "label": "MrGame_WatchUAir",
           "sha256": "8ac4ec9093a5765acd45352c077f05260f87c91474eb43cc573ab9deaa785204",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/up-air/mrgame-watchuair.webp",
-            "frameWidth": 122,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              8
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/up-air/mrgame-watchuair.webp",
           "sourceFrameCount": 8
         }
       ]
@@ -25515,25 +25416,16 @@
         {
           "id": "mrgame-watchchef",
           "label": "MrGame_WatchChef",
-          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
+          "sha256": "2a3412cb9551d9ee0fdda9c7dfcb8931f62060a818dbe0251a6fb6a16e8ebb2f",
           "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
-          "sourceFrameCount": 1
+          "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchchef",
           "label": "MrGame_WatchChef",
-          "sha256": "2a3412cb9551d9ee0fdda9c7dfcb8931f62060a818dbe0251a6fb6a16e8ebb2f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
-            "frameWidth": 300,
-            "frameHeight": 232,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
-          "sourceFrameCount": 4
+          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
+          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -25543,144 +25435,63 @@
           "id": "mrgame-watchjudge1",
           "label": "MrGame_WatchJudge1",
           "sha256": "dd28a1560d2256c2e29f826f922c5dce6498771b75ca07b8bbd66c23e1ee6fc6",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge1.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge1.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge2",
           "label": "MrGame_WatchJudge2",
           "sha256": "80f0b0cd332f1f96183c427a1547261796072634f2068c404a7e9cb2e8600094",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge2.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge2.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge3",
           "label": "MrGame_WatchJudge3",
           "sha256": "4f86b1702bac094fb717c45fa3a2a7bd34fccc53bb5bb5484c6b7b58f16c6aba",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge3.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge3.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge4",
           "label": "MrGame_WatchJudge4",
           "sha256": "81f3f69807d32dbf415cedc337484e43b80373411d09a6f34e57d57d41db02bd",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge4.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge4.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge5",
           "label": "MrGame_WatchJudge5",
           "sha256": "6abcba7f06e664607ab2d357c04bac02d32c57bb4603eb3390a3be79b3b6a210",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge5.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge5.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge6",
           "label": "MrGame_WatchJudge6",
           "sha256": "0f92d95eb5b77fd3ff7df37ea7baf37d7bc614547ca78fe575091338a67427a8",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge6.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge6.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge7",
           "label": "MrGame_WatchJudge7",
           "sha256": "33926468630344fef6b9aaeb2c3081b4e9a6162915b79576c6eb73a338a87955",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge7.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge7.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge8",
           "label": "MrGame_WatchJudge8",
           "sha256": "586dd465142023499e5bd921a1666775a720ed855b5cd93e3611cf5513494b9a",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge8.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge8.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "mrgame-watchjudge9",
           "label": "MrGame_WatchJudge9",
           "sha256": "69262002375f4d9ed8e9e8be0650e220566930560d20d4568387aca00634bea7",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/side-b-judge/mrgame-watchjudge9.webp",
-            "frameWidth": 292,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/side-b-judge/mrgame-watchjudge9.webp",
           "sourceFrameCount": 4
         }
       ]
@@ -25802,16 +25613,7 @@
           "id": "mrgame-watchpivotgrab",
           "label": "MrGame_WatchPivotGrab",
           "sha256": "9627fbed2fbc01b9a0d3201af265b02258a70dcfc09e4a5cd6ecf491c2387979",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/pivot-grab/mrgame-watchpivotgrab.webp",
-            "frameWidth": 300,
-            "frameHeight": 146,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              9
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/pivot-grab/mrgame-watchpivotgrab.webp",
           "sourceFrameCount": 9
         }
       ]
@@ -25844,16 +25646,7 @@
           "id": "mrgame-watchfthrow",
           "label": "MrGame_WatchFThrow",
           "sha256": "2e42bc41b43b09585801e4765b79c83729bda0c1b4b5806b834f1d816ce21482",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/forward-throw/mrgame-watchfthrow.webp",
-            "frameWidth": 300,
-            "frameHeight": 288,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              10
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/forward-throw/mrgame-watchfthrow.webp",
           "sourceFrameCount": 10
         }
       ]
@@ -25864,16 +25657,7 @@
           "id": "mrgame-watchbthrow",
           "label": "MrGame_WatchBThrow",
           "sha256": "efe0eb303c5dfcaad8362503e48d31ac01ddda49d7f172c4de5477c411f78db6",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/backward-throw/mrgame-watchbthrow.webp",
-            "frameWidth": 300,
-            "frameHeight": 288,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              10
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/backward-throw/mrgame-watchbthrow.webp",
           "sourceFrameCount": 10
         }
       ]
@@ -25884,16 +25668,7 @@
           "id": "mrgamewatchuthrow",
           "label": "MrGameWatchUThrow",
           "sha256": "1c918411cd6b3ed78d27e00f567c6dc2c1fb6a04b1189b01f4a617ca8a5ec417",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/up-throw/mrgamewatchuthrow.webp",
-            "frameWidth": 300,
-            "frameHeight": 274,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              10
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/up-throw/mrgamewatchuthrow.webp",
           "sourceFrameCount": 10
         }
       ]
@@ -25904,16 +25679,7 @@
           "id": "mrgame-watchdthrow",
           "label": "MrGame_WatchDThrow",
           "sha256": "7b6360ce4d219ef5739dbd6cd6fdebb23ab54462760b34bc0e044df549a8c0da",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/down-throw/mrgame-watchdthrow.webp",
-            "frameWidth": 300,
-            "frameHeight": 288,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              11
-            ]
-          },
+          "imageSrc": "media/hitboxes/mr-game-and-watch/down-throw/mrgame-watchdthrow.webp",
           "sourceFrameCount": 11
         }
       ]
@@ -26489,16 +26255,7 @@
           "id": "metaknightmachtornado",
           "label": "MetaKnightMachTornado",
           "sha256": "034280dc90f624245fb957d1d107edf080edc8ebca44f8c89bdae5de6024684c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/meta-knight/neutral-b-mach-tornado/metaknightmachtornado.webp",
-            "frameWidth": 300,
-            "frameHeight": 274,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              6
-            ]
-          },
+          "imageSrc": "media/hitboxes/meta-knight/neutral-b-mach-tornado/metaknightmachtornado.webp",
           "sourceFrameCount": 6
         }
       ]
@@ -33898,16 +33655,7 @@
           "id": "charitarduthrow",
           "label": "charitardUThrow",
           "sha256": "e09e92ec475362b8f3cb71f5311274743513f4a1d1dfb9595e651a137d505c66",
-          "spriteSheet": {
-            "src": "media/frame-sheets/charizard/up-throw/charitarduthrow.webp",
-            "frameWidth": 243,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              46
-            ]
-          },
+          "imageSrc": "media/hitboxes/charizard/up-throw/charitarduthrow.webp",
           "sourceFrameCount": 46
         }
       ]
@@ -34380,16 +34128,7 @@
           "id": "diddykongpeanutpopgunboom",
           "label": "DiddyKongPeanutPopgunBoom",
           "sha256": "3a0a5264c425b8713b44dce9ade9c4b919779e1383b41207f80b36589cfd1e1c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/diddy-kong/peanut-popgun-misfire/diddykongpeanutpopgunboom.webp",
-            "frameWidth": 300,
-            "frameHeight": 211,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              109
-            ]
-          },
+          "imageSrc": "media/hitboxes/diddy-kong/peanut-popgun-misfire/diddykongpeanutpopgunboom.webp",
           "sourceFrameCount": 109
         }
       ]
@@ -36065,16 +35804,7 @@
           "id": "sonicspindashaerial",
           "label": "SonicSpinDashAerial",
           "sha256": "fe743c213664c85491d513aeff52686f82a7cd5a2e5d587e932e3a118956ae86",
-          "spriteSheet": {
-            "src": "media/frame-sheets/sonic/side-b-spin-dash/sonicspindashaerial.webp",
-            "frameWidth": 300,
-            "frameHeight": 288,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              7
-            ]
-          },
+          "imageSrc": "media/hitboxes/sonic/side-b-spin-dash/sonicspindashaerial.webp",
           "sourceFrameCount": 7
         },
         {
@@ -36436,16 +36166,7 @@
           "id": "kingdededejabrapid",
           "label": "KingDededeJabRapid",
           "sha256": "10ea372aeec076075a36a7f82fd69c26469a8318b07f2c40d4878543eeaa51c0",
-          "spriteSheet": {
-            "src": "media/frame-sheets/king-dedede/rapid-jab/kingdededejabrapid.webp",
-            "frameWidth": 300,
-            "frameHeight": 194,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/king-dedede/rapid-jab/kingdededejabrapid.webp",
           "sourceFrameCount": 21
         }
       ]
@@ -36821,16 +36542,7 @@
           "id": "kingdededeinhalestart",
           "label": "KingDededeInhaleStart",
           "sha256": "27acc6803f53079e7c95c723bb807cb3597ee8ea0ab73514ae754d2f0320ff88",
-          "spriteSheet": {
-            "src": "media/frame-sheets/king-dedede/neutral-b-inhale/kingdededeinhalestart.webp",
-            "frameWidth": 300,
-            "frameHeight": 234,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              14
-            ]
-          },
+          "imageSrc": "media/hitboxes/king-dedede/neutral-b-inhale/kingdededeinhalestart.webp",
           "sourceFrameCount": 16
         },
         {
@@ -36902,32 +36614,14 @@
           "id": "kingdededegordo",
           "label": "KingDededeGordo",
           "sha256": "193924a348988fa710f465e158bed87701b7b6a09620e553f10af56be8f60e40",
-          "spriteSheet": {
-            "src": "media/frame-sheets/king-dedede/side-b-gordo-throw/kingdededegordo.webp",
-            "frameWidth": 300,
-            "frameHeight": 287,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/king-dedede/side-b-gordo-throw/kingdededegordo.webp",
           "sourceFrameCount": 5
         },
         {
           "id": "kingdededegordowall",
           "label": "KingDededeGordoWall",
           "sha256": "2c78403ebcdf62697af0c2881d779474bfd0ff567d6bbfabafb18b0000bd711c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/king-dedede/side-b-gordo-throw/kingdededegordowall.webp",
-            "frameWidth": 300,
-            "frameHeight": 287,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/king-dedede/side-b-gordo-throw/kingdededegordowall.webp",
           "sourceFrameCount": 4
         }
       ]
@@ -38301,32 +37995,14 @@
           "id": "lucarioextremespeedg",
           "label": "LucarioExtremeSpeedG",
           "sha256": "3daaac180ac20e946a8ad16d3d8fa03ff7f10da59af113a1590381e978a707cc",
-          "spriteSheet": {
-            "src": "media/frame-sheets/lucario/up-b-extreme-speed/lucarioextremespeedg.webp",
-            "frameWidth": 291,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              29
-            ]
-          },
+          "imageSrc": "media/hitboxes/lucario/up-b-extreme-speed/lucarioextremespeedg.webp",
           "sourceFrameCount": 29
         },
         {
           "id": "lucarioextremespeeda",
           "label": "LucarioExtremeSpeedA",
           "sha256": "15b0a9a0d2e84ceef28ce7bf03d443136ff350a97a98dc9e6a13adf73d8117c8",
-          "spriteSheet": {
-            "src": "media/frame-sheets/lucario/up-b-extreme-speed/lucarioextremespeeda.webp",
-            "frameWidth": 297,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              36
-            ]
-          },
+          "imageSrc": "media/hitboxes/lucario/up-b-extreme-speed/lucarioextremespeeda.webp",
           "sourceFrameCount": 36
         }
       ]
@@ -42422,16 +42098,7 @@
           "id": "megamancrashbomberexplosion",
           "label": "MegaManCrashBomberExplosion",
           "sha256": "f463b567bd083f987f00abbc7f5243244ba9072f15cf7667c430f6fb0e4b7f57",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mega-man/side-b-crash-bomber/megamancrashbomberexplosion.webp",
-            "frameWidth": 300,
-            "frameHeight": 286,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              2
-            ]
-          },
+          "imageSrc": "media/hitboxes/mega-man/side-b-crash-bomber/megamancrashbomberexplosion.webp",
           "sourceFrameCount": 2
         }
       ]
@@ -45117,32 +44784,14 @@
           "id": "littlemacstraightlungemaxg",
           "label": "LittleMacStraightLungeMaxG",
           "sha256": "02e7658a3d1bb1ac2f9dcee4bbd4e0c7deb5dfb55ec02ade3ac51169650ad3dd",
-          "spriteSheet": {
-            "src": "media/frame-sheets/little-mac/neutral-b-full-charge-straight-lunge-full-charge/littlemacstraightlungemaxg.webp",
-            "frameWidth": 300,
-            "frameHeight": 197,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              23
-            ]
-          },
+          "imageSrc": "media/hitboxes/little-mac/neutral-b-full-charge-straight-lunge-full-charge/littlemacstraightlungemaxg.webp",
           "sourceFrameCount": 23
         },
         {
           "id": "littlemacstraightlungemaxa",
           "label": "LittleMacStraightLungeMaxA",
           "sha256": "db69162b21b1030ac9838013cad82da6b056fe3bd32fe658e316965e6dc64be6",
-          "spriteSheet": {
-            "src": "media/frame-sheets/little-mac/neutral-b-full-charge-straight-lunge-full-charge/littlemacstraightlungemaxa.webp",
-            "frameWidth": 300,
-            "frameHeight": 238,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              23
-            ]
-          },
+          "imageSrc": "media/hitboxes/little-mac/neutral-b-full-charge-straight-lunge-full-charge/littlemacstraightlungemaxa.webp",
           "sourceFrameCount": 23
         }
       ]
@@ -47156,16 +46805,7 @@
           "id": "miibrawlersuplexhit",
           "label": "MiiBrawlerSuplexHit",
           "sha256": "456189024a0e4568fe6b8c09c9f87e37b9ae57b78041f84af23088e89baf376e",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mii-brawler/suplex-success/miibrawlersuplexhit.webp",
-            "frameWidth": 245,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              79
-            ]
-          },
+          "imageSrc": "media/hitboxes/mii-brawler/suplex-success/miibrawlersuplexhit.webp",
           "sourceFrameCount": 87
         }
       ]
@@ -51472,32 +51112,14 @@
           "id": "pacmanpowerpelletearly",
           "label": "PacManPowerPelletEarly",
           "sha256": "51b590543a9ec06cc14a752fee72725ce5e9c2faa2d73268f090aeaa1a55e675",
-          "spriteSheet": {
-            "src": "media/frame-sheets/pac-man/side-b-power-pellet-travel-dash/pacmanpowerpelletearly.webp",
-            "frameWidth": 300,
-            "frameHeight": 277,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/pac-man/side-b-power-pellet-travel-dash/pacmanpowerpelletearly.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "pacmanpowerpelletlate",
           "label": "PacManPowerPelletLate",
           "sha256": "2c66e5722ae3e11964c15016360b43fe17db03a24c081adf38793e4bd170cb1c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/pac-man/side-b-power-pellet-travel-dash/pacmanpowerpelletlate.webp",
-            "frameWidth": 300,
-            "frameHeight": 257,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/pac-man/side-b-power-pellet-travel-dash/pacmanpowerpelletlate.webp",
           "sourceFrameCount": 5
         }
       ]
@@ -54330,16 +53952,7 @@
           "id": "bowserjrclowncannon",
           "label": "BowserJrClownCannon",
           "sha256": "1c0f8fea5978578de9f6a2af45b9ce164ddde84966c5a5fe1f2388d49ac6ad7f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bowser-jr/neutral-b-clown-cannon/bowserjrclowncannon.webp",
-            "frameWidth": 300,
-            "frameHeight": 278,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              18
-            ]
-          },
+          "imageSrc": "media/hitboxes/bowser-jr/neutral-b-clown-cannon/bowserjrclowncannon.webp",
           "sourceFrameCount": 18
         }
       ]
@@ -60449,16 +60062,7 @@
           "id": "bayonettajab3bulletarts",
           "label": "BayonettaJab3BulletArts",
           "sha256": "b2dc5b46e985493de9489dd24ca0c60bbf2190a3dff102bfc1ea5ecd7a26d934",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bayonetta/jab-3/bayonettajab3bulletarts.webp",
-            "frameWidth": 300,
-            "frameHeight": 148,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/bayonetta/jab-3/bayonettajab3bulletarts.webp",
           "sourceFrameCount": 4
         }
       ]
@@ -60798,16 +60402,7 @@
           "id": "bayonettausmashbulletarts",
           "label": "BayonettaUSmashBulletArts",
           "sha256": "06e6d89ab269cb253703f8e2e0cb2ba5cbd262172c3ce585881d4d5a41348faa",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bayonetta/up-smash/bayonettausmashbulletarts.webp",
-            "frameWidth": 261,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              7
-            ]
-          },
+          "imageSrc": "media/hitboxes/bayonetta/up-smash/bayonettausmashbulletarts.webp",
           "sourceFrameCount": 7
         }
       ]
@@ -60955,16 +60550,7 @@
           "id": "bayonettafair3bulletarts",
           "label": "BayonettaFAir3BulletArts",
           "sha256": "6667744eddc3ebb388bfe60dc39fdd5035e7349944bff3086833977df6d8c70b",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bayonetta/forward-air-3/bayonettafair3bulletarts.webp",
-            "frameWidth": 182,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              7
-            ]
-          },
+          "imageSrc": "media/hitboxes/bayonetta/forward-air-3/bayonettafair3bulletarts.webp",
           "sourceFrameCount": 7
         }
       ]
@@ -61415,16 +61001,7 @@
           "id": "bayonettaafterburnerkickupbulletarts",
           "label": "BayonettaAfterBurnerKickUpBulletArts",
           "sha256": "c530a4b5239625b1603cfdecb28fd1b09cf3b33a70dd6ea246142c4117aebd31",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bayonetta/after-burner-kick/bayonettaafterburnerkickupbulletarts.webp",
-            "frameWidth": 300,
-            "frameHeight": 210,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/bayonetta/after-burner-kick/bayonettaafterburnerkickupbulletarts.webp",
           "sourceFrameCount": 5
         }
       ]
@@ -62220,16 +61797,7 @@
           "id": "inklingsplatbombexplosion",
           "label": "InklingSplatBombExplosion",
           "sha256": "c3be7b515c25919e5e2ba9b773c0c49cbe241a2f21caeebc25558612785decbd",
-          "spriteSheet": {
-            "src": "media/frame-sheets/inkling/down-b-splat-bomb/inklingsplatbombexplosion.webp",
-            "frameWidth": 300,
-            "frameHeight": 291,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/inkling/down-b-splat-bomb/inklingsplatbombexplosion.webp",
           "sourceFrameCount": 3
         }
       ]
@@ -62827,32 +62395,14 @@
           "id": "ridleyplasmabreath",
           "label": "RidleyPlasmaBreath",
           "sha256": "50ab34c445a87a35c9c3d397f6b9ad4777954c932cf6daa9e85eb96367076042",
-          "spriteSheet": {
-            "src": "media/frame-sheets/ridley/neutral-b-plasma-breath/ridleyplasmabreath.webp",
-            "frameWidth": 300,
-            "frameHeight": 248,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              2
-            ]
-          },
+          "imageSrc": "media/hitboxes/ridley/neutral-b-plasma-breath/ridleyplasmabreath.webp",
           "sourceFrameCount": 2
         },
         {
           "id": "ridleyplasmabreathcharge",
           "label": "RidleyPlasmaBreathCharge",
           "sha256": "68ce8dfcbb10a3752d682ee9ca35564a3531579430be9b42de6a48570c4d3e94",
-          "spriteSheet": {
-            "src": "media/frame-sheets/ridley/neutral-b-plasma-breath/ridleyplasmabreathcharge.webp",
-            "frameWidth": 300,
-            "frameHeight": 261,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              26
-            ]
-          },
+          "imageSrc": "media/hitboxes/ridley/neutral-b-plasma-breath/ridleyplasmabreathcharge.webp",
           "sourceFrameCount": 26
         }
       ]
@@ -63771,16 +63321,7 @@
           "id": "simonaxe",
           "label": "SimonAxe",
           "sha256": "2fa985a3fa188ac7ef39bf26e9a83e6e2ebd6f88eff3ceb777f388bd3740bfc7",
-          "spriteSheet": {
-            "src": "media/frame-sheets/simon/neutral-b-axe/simonaxe.webp",
-            "frameWidth": 300,
-            "frameHeight": 290,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              24
-            ]
-          },
+          "imageSrc": "media/hitboxes/simon/neutral-b-axe/simonaxe.webp",
           "sourceFrameCount": 24
         }
       ]
@@ -64688,16 +64229,7 @@
           "id": "richteraxe",
           "label": "RichterAxe",
           "sha256": "2fa985a3fa188ac7ef39bf26e9a83e6e2ebd6f88eff3ceb777f388bd3740bfc7",
-          "spriteSheet": {
-            "src": "media/frame-sheets/richter/neutral-b-axe/richteraxe.webp",
-            "frameWidth": 300,
-            "frameHeight": 290,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              24
-            ]
-          },
+          "imageSrc": "media/hitboxes/richter/neutral-b-axe/richteraxe.webp",
           "sourceFrameCount": 24
         }
       ]
@@ -70506,16 +70038,7 @@
           "id": "kamikazee",
           "label": "Kamikazee",
           "sha256": "f023b35324f9206995a8975a1ac06411c30d847460012921806dab98353262e0",
-          "spriteSheet": {
-            "src": "media/frame-sheets/hero/kamikazee/kamikazee.webp",
-            "frameWidth": 300,
-            "frameHeight": 180,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              20
-            ]
-          },
+          "imageSrc": "media/hitboxes/hero/kamikazee/kamikazee.webp",
           "sourceFrameCount": 20
         }
       ]
@@ -73779,32 +73302,14 @@
           "id": "minmindragonjab",
           "label": "MinMinDragonJab",
           "sha256": "52ba0e35c5d1243434c6b561f1b28a60820d64f2b9a4c6c60a8250966bde7e93",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-dragon/minmindragonjab.webp",
-            "frameWidth": 300,
-            "frameHeight": 242,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-dragon/minmindragonjab.webp",
           "sourceFrameCount": 3
         },
         {
           "id": "minmindragonaerialtilt",
           "label": "MinMinDragonAerialTilt",
           "sha256": "c8926b4605568931621494f30396e292ac7b707bcbdf3c2d9ff351d3fe3bec14",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-dragon/minmindragonaerialtilt.webp",
-            "frameWidth": 300,
-            "frameHeight": 242,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-dragon/minmindragonaerialtilt.webp",
           "sourceFrameCount": 3
         }
       ]
@@ -73815,32 +73320,14 @@
           "id": "minminpowerdragonjab",
           "label": "MinMinPowerDragonJab",
           "sha256": "2a6d37141bf26c869f6f01b91f469c6d4ba4c011ba0759ad17a97ca2b07665e0",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-power-dragon/minminpowerdragonjab.webp",
-            "frameWidth": 300,
-            "frameHeight": 243,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-power-dragon/minminpowerdragonjab.webp",
           "sourceFrameCount": 3
         },
         {
           "id": "minminpowerdragonaerialtilt",
           "label": "MinMinPowerDragonAerialTilt",
           "sha256": "3c97e8d2529ed050faa3abbc3f395d533da0abdb3d94b198fe8cabf180734bf0",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-power-dragon/minminpowerdragonaerialtilt.webp",
-            "frameWidth": 300,
-            "frameHeight": 243,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-power-dragon/minminpowerdragonaerialtilt.webp",
           "sourceFrameCount": 3
         }
       ]
@@ -73851,32 +73338,14 @@
           "id": "minminramramjab",
           "label": "MinMinRamRamJab",
           "sha256": "cbfb7afd3c3984494729045299fd7a2216360acc6c850de42e8ae22917a432d7",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-ramram/minminramramjab.webp",
-            "frameWidth": 300,
-            "frameHeight": 278,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-ramram/minminramramjab.webp",
           "sourceFrameCount": 4
         },
         {
           "id": "minminramramaerialtilt",
           "label": "MinMinRamRamAerialTilt",
           "sha256": "74047307b5c30c673c5970b2105976126ae02de2bb7a54abf949de448bd2cdc3",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-ramram/minminramramaerialtilt.webp",
-            "frameWidth": 300,
-            "frameHeight": 293,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              4
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-ramram/minminramramaerialtilt.webp",
           "sourceFrameCount": 4
         }
       ]
@@ -73887,32 +73356,14 @@
           "id": "minminmegawattjab",
           "label": "MinMinMegawattJab",
           "sha256": "a65ab40132724d7393a3b24dd09ae9d63e1344d6cb50f4dac9619d1b3eccb367",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-megawatt/minminmegawattjab.webp",
-            "frameWidth": 300,
-            "frameHeight": 284,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              2
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-megawatt/minminmegawattjab.webp",
           "sourceFrameCount": 2
         },
         {
           "id": "minminmegawattaerialtilt",
           "label": "MinMinMegawattAerialTilt",
           "sha256": "3d2aea5816322590e104ea22e545f39f25fa4fbd0c8bb26a5b475b6ae79dd1c9",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-tilt-megawatt/minminmegawattaerialtilt.webp",
-            "frameWidth": 300,
-            "frameHeight": 278,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              2
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-tilt-megawatt/minminmegawattaerialtilt.webp",
           "sourceFrameCount": 2
         }
       ]
@@ -74011,48 +73462,21 @@
           "id": "minminramramfsmashuncharged",
           "label": "MinMinRamRamFSmashUncharged",
           "sha256": "bf6d3f9b341b9b1d3f817252e5a257a37b14e164e2dafbc562c5ab3a87518a08",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-smash-ramram/minminramramfsmashuncharged.webp",
-            "frameWidth": 300,
-            "frameHeight": 284,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-smash-ramram/minminramramfsmashuncharged.webp",
           "sourceFrameCount": 5
         },
         {
           "id": "minminramramfsmashcharged",
           "label": "MinMinRamRamFSmashCharged",
           "sha256": "56193f33fd2808a69bc4648f997c0d56a1a8fb368ed2169e1f09264952cfa2e5",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-smash-ramram/minminramramfsmashcharged.webp",
-            "frameWidth": 300,
-            "frameHeight": 292,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-smash-ramram/minminramramfsmashcharged.webp",
           "sourceFrameCount": 5
         },
         {
           "id": "minminramramaerialsmash",
           "label": "MinMinRamRamAerialSmash",
           "sha256": "4187f4b5b542fd6169f089086b36deddf5bce3003332ad081ee2796857347ee7",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-smash-ramram/minminramramaerialsmash.webp",
-            "frameWidth": 300,
-            "frameHeight": 284,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-smash-ramram/minminramramaerialsmash.webp",
           "sourceFrameCount": 5
         }
       ]
@@ -74063,48 +73487,21 @@
           "id": "minminmegawattfsmashuncharged",
           "label": "MinMinMegawattFSmashUncharged",
           "sha256": "c6aa3d1ae64c3417bf3ee304f0b8925aca36a2b2a2d678ff0c0302e1f9183722",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-smash-megawatt/minminmegawattfsmashuncharged.webp",
-            "frameWidth": 300,
-            "frameHeight": 289,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-smash-megawatt/minminmegawattfsmashuncharged.webp",
           "sourceFrameCount": 5
         },
         {
           "id": "minminmegawattfsmashcharged",
           "label": "MinMinMegawattFSmashCharged",
           "sha256": "37085bbe37bb653b9f49f0b9c29678f4810d008cab2e83d622eb9054b35518d7",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-smash-megawatt/minminmegawattfsmashcharged.webp",
-            "frameWidth": 300,
-            "frameHeight": 261,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-smash-megawatt/minminmegawattfsmashcharged.webp",
           "sourceFrameCount": 5
         },
         {
           "id": "minminmegawattaerialsmash",
           "label": "MinMinMegawattAerialSmash",
           "sha256": "ea32f199f8551d91b6c64868ccea5d4ce17196f3bc924a1dcfcd7d2b66fdeafb",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/forward-smash-megawatt/minminmegawattaerialsmash.webp",
-            "frameWidth": 300,
-            "frameHeight": 269,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              5
-            ]
-          },
+          "imageSrc": "media/hitboxes/min-min/forward-smash-megawatt/minminmegawattaerialsmash.webp",
           "sourceFrameCount": 5
         }
       ]
@@ -74879,16 +74276,7 @@
           "id": "steveelytra",
           "label": "SteveElytra",
           "sha256": "51a9c06366325c4a7c8f6dd1ec58149a5e0ad0280ddbcb0ac98d0f8737d28fdf",
-          "spriteSheet": {
-            "src": "media/frame-sheets/steve/up-b-elytra/steveelytra.webp",
-            "frameWidth": 300,
-            "frameHeight": 243,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              3
-            ]
-          },
+          "imageSrc": "media/hitboxes/steve/up-b-elytra/steveelytra.webp",
           "sourceFrameCount": 3
         }
       ]
