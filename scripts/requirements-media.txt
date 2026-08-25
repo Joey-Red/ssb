@@ -1,4 +1,6 @@
 # Maintenance-only dependencies for vendoring runtime visuals and converting approved
-# animations into exact-frame sprite sheets.
+# animations into exact-frame sprite sheets. None of these ship to the browser.
 Pillow>=10.4,<13
 requests==2.32.5
+beautifulsoup4==4.13.5
+curl-cffi==0.13.0

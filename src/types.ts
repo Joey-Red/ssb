@@ -166,9 +166,9 @@ export interface VisualFrame {
 }
 
 /**
- * A local sprite sheet packs sequential source frames into a fixed grid.
- * `frameCount` records exact visual coverage independently from move Total Frames;
- * missing source visuals are surfaced rather than duplicated or invented.
+ * A local sprite sheet packs selected source frames into a fixed grid.
+ * `frameNumbers` maps each sheet cell to the documented game frame it depicts,
+ * allowing active/impact-only sheets without pretending omitted frames exist.
  */
 export interface VisualSpriteSheet {
   src: string
@@ -176,6 +176,16 @@ export interface VisualSpriteSheet {
   frameHeight: number
   columns: number
   frameCount: number
+  frameNumbers?: readonly number[]
+}
+
+export interface VisualMediaVariant {
+  id: string
+  label: string
+  /** Exact selected source frames when the source is an animation. */
+  spriteSheet?: VisualSpriteSheet
+  /** Local static hitbox reference when UFD exposes an image rather than an animation. */
+  imageSrc?: string
 }
 
 export interface VisualMoveMedia {
@@ -184,10 +194,12 @@ export interface VisualMoveMedia {
   moveId: string
   label: string
   sourceUrl: string
-  /** Optional local animated fallback; never treated as seek-synchronized. */
+  /** Legacy/local preview support; never treated as seek-synchronized. */
   animatedPreviewUrl?: string
-  /** Local exact source-frame sheet. */
+  /** Primary exact source-frame sheet retained for backwards compatibility. */
   spriteSheet?: VisualSpriteSheet
+  /** All locally staged source variants (angled attacks, landing variants, etc.). */
+  variants?: readonly VisualMediaVariant[]
   totalFrames: number
   frames: readonly VisualFrame[]
 }

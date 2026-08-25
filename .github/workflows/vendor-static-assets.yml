@@ -5,9 +5,12 @@ on:
   pull_request:
     types: [opened, reopened]
     paths:
+      - 'scripts/discover-ufd-visuals.py'
       - 'scripts/vendor-static-assets.py'
+      - 'scripts/build-runtime-visual-index.py'
       - 'scripts/requirements-media.txt'
-      - 'src/data/visualMediaSources.json'
+      - 'src/data/ufd-manifest.json'
+      - 'src/data/frameData.generated.json'
       - '.github/workflows/vendor-static-assets.yml'
 
 permissions:
@@ -17,6 +20,7 @@ jobs:
   vendor:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
+    timeout-minutes: 120
     steps:
       - name: Checkout writable branch
         uses: actions/checkout@v7
@@ -31,20 +35,24 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Vendor all runtime visual assets
+      - name: Discover full-roster UFD visuals
+        run: python scripts/discover-ufd-visuals.py
+      - name: Vendor active-frame visual assets
         run: python scripts/vendor-static-assets.py
-      - name: Commit vendored assets
+      - name: Build per-fighter runtime visual indexes
+        run: python scripts/build-runtime-visual-index.py
+      - name: Commit discovered and vendored media
         shell: bash
         run: |
           set -euo pipefail
           branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/media src/data/visualMediaAssets.generated.json
+          git add -A public/media public/data/visual-media src/data/visualMediaSources.json src/data/visualMediaAssets.generated.json
           if git diff --cached --quiet; then
-            echo 'Vendored visual assets are already current.'
+            echo 'Full-roster visual assets are already current.'
             exit 0
           fi
-          git commit -m 'chore: refresh local visual assets'
+          git commit -m 'chore: vendor full-roster active-frame visuals'
           git pull --rebase origin "$branch"
           git push origin HEAD:"$branch"

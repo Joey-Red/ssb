@@ -1,61 +1,45 @@
-import assetManifestJson from './visualMediaAssets.generated.json'
-import sourceManifestJson from './visualMediaSources.json'
-import type { VisualFrame, VisualMoveMedia, VisualSpriteSheet } from '../types'
+import type { VisualMoveMedia } from '../types'
 
-type FrameRange = readonly [start: number, end: number]
-type SourceMove = {
-  fighterId: string
-  moveId: string
-  label: string
-  sourceUrl: string
-  downloadUrl: string
-  totalFrames: number
-  activeRanges: number[][]
-}
-type GeneratedMoveAsset = {
-  previewSrc: string
-  spriteSheet?: VisualSpriteSheet
-}
-type GeneratedAssetManifest = {
+type FighterVisualIndex = {
   version: 1
-  generatedAt: string | null
-  moves: Record<string, GeneratedMoveAsset>
+  fighterId: string
+  moves: VisualMoveMedia[]
 }
 
-const sourceManifest = sourceManifestJson as { version: 1; moves: SourceMove[] }
-const assetManifest = assetManifestJson as GeneratedAssetManifest
+const cache = new Map<string, Map<string, VisualMoveMedia>>()
+const pending = new Map<string, Promise<Map<string, VisualMoveMedia>>>()
 
-function makeFrames(totalFrames: number, activeRanges: readonly FrameRange[]): readonly VisualFrame[] {
-  const firstActive = Math.min(...activeRanges.map(([start]) => start))
-  return Array.from({ length: totalFrames }, (_, index) => {
-    const frame = index + 1
-    const isActive = activeRanges.some(([start, end]) => frame >= start && frame <= end)
-    const phase = isActive ? 'active' : frame < firstActive ? 'startup' : 'recovery'
-    return { frame, phase }
-  })
+function localIndexUrl(fighterId: string): string {
+  return `${import.meta.env.BASE_URL}data/visual-media/${encodeURIComponent(fighterId)}.json`
 }
 
-export const visualMoveMedia = sourceManifest.moves.map((source): VisualMoveMedia => {
-  const key = `${source.fighterId}:${source.moveId}`
-  const staged = assetManifest.moves[key]
-  const activeRanges = source.activeRanges.map(([start, end]) => [start, end] as FrameRange)
-  return {
-    id: `${source.fighterId}-${source.moveId}-ufd`,
-    fighterId: source.fighterId,
-    moveId: source.moveId,
-    label: source.label,
-    sourceUrl: source.sourceUrl,
-    ...(staged?.previewSrc ? { animatedPreviewUrl: staged.previewSrc } : {}),
-    ...(staged?.spriteSheet ? { spriteSheet: staged.spriteSheet } : {}),
-    totalFrames: source.totalFrames,
-    frames: makeFrames(source.totalFrames, activeRanges),
-  }
-})
+function indexMoves(payload: FighterVisualIndex): Map<string, VisualMoveMedia> {
+  return new Map(payload.moves.map((media) => [media.moveId, media] as const))
+}
 
-export const visualMediaByMove = new Map<string, VisualMoveMedia>(
-  visualMoveMedia.map((media) => [`${media.fighterId}:${media.moveId}`, media] as const),
-)
+export async function loadVisualMediaForFighter(fighterId: string): Promise<Map<string, VisualMoveMedia>> {
+  const existing = cache.get(fighterId)
+  if (existing) return existing
+  const inFlight = pending.get(fighterId)
+  if (inFlight) return inFlight
 
-export function getVisualMoveMedia(fighterId: string, moveId: string): VisualMoveMedia | undefined {
-  return visualMediaByMove.get(`${fighterId}:${moveId}`)
+  const request = fetch(localIndexUrl(fighterId), { cache: 'force-cache' })
+    .then(async (response) => {
+      if (!response.ok) throw new Error(`visual media ${response.status}`)
+      const payload = await response.json() as FighterVisualIndex
+      if (payload.version !== 1 || payload.fighterId !== fighterId || !Array.isArray(payload.moves)) {
+        throw new Error(`invalid visual media index for ${fighterId}`)
+      }
+      const indexed = indexMoves(payload)
+      cache.set(fighterId, indexed)
+      return indexed
+    })
+    .finally(() => pending.delete(fighterId))
+
+  pending.set(fighterId, request)
+  return request
+}
+
+export async function getVisualMoveMedia(fighterId: string, moveId: string): Promise<VisualMoveMedia | undefined> {
+  return (await loadVisualMediaForFighter(fighterId)).get(moveId)
 }

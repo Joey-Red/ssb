@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
-"""Vendor all runtime visual assets into public/ for zero third-party asset requests.
+"""Vendor runtime visuals into public/ for zero third-party browser requests.
 
-Network access is maintenance/build-time only. The deployed SPA references only files
-under its own Vite BASE_URL. Fighter art is sourced from the official Smash site;
-registered hitbox animations are sourced from Ultimate Frame Data and converted into
-seekable local sprite sheets.
-
-Important: UFD GIF playback duration is presentation slow-motion, not SSBU's 60 FPS
-clock. Each distinct GIF image block is therefore treated as one sequential source
-visual. If UFD provides fewer visual images than documented move frames, coverage is
-recorded honestly and the missing frames remain visually unavailable in the player.
+Maintenance-only networking downloads discovered UFD visuals and converts them to
+compact same-origin WebP assets. GIFs are not shipped wholesale for the full roster:
+source frames that overlap the documented active/impact span are packed into an
+exact frame-addressable sprite sheet. Visuals that cannot be aligned to documented
+game frames remain local static references instead of receiving invented timing.
 """
-
 from __future__ import annotations
 
 import hashlib
@@ -19,8 +14,12 @@ import io
 import json
 import math
 import re
+import shutil
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 import requests
 from PIL import Image, ImageSequence
@@ -34,12 +33,16 @@ FIGHTER_RENDER_DIR = PUBLIC / "media/fighters/renders"
 FIGHTER_THUMB_DIR = PUBLIC / "media/fighters/thumbs"
 HITBOX_DIR = PUBLIC / "media/hitboxes"
 SHEET_DIR = PUBLIC / "media/frame-sheets"
+PROVENANCE_PATH = PUBLIC / "media/asset-provenance.json"
+MAX_WORKERS = 6
+MAX_EDGE = 300
+WEBP_QUALITY = 72
+MEDIA_BUDGET_BYTES = 780 * 1024 * 1024
 
-SESSION = requests.Session()
-SESSION.headers.update({
-    "User-Agent": "Mozilla/5.0 (compatible; SSBUTrainingGuideAssetVendor/1.0)",
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; SSBUTrainingGuideAssetVendor/2.0)",
     "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-})
+}
 
 CODE_CANDIDATES: dict[str, list[str]] = {
     "mii-brawler": ["mii_fighter"],
@@ -75,12 +78,24 @@ def candidates(fighter_id: str) -> list[str]:
 
 
 def fetch_bytes(url: str, *, referer: str | None = None) -> bytes:
-    headers = {"Referer": referer} if referer else None
-    response = SESSION.get(url, headers=headers, timeout=45)
-    response.raise_for_status()
-    if not response.content:
-        raise RuntimeError(f"empty response from {url}")
-    return response.content
+    headers = dict(HEADERS)
+    if referer:
+        headers["Referer"] = referer
+    last_error: Exception | None = None
+    for attempt in range(4):
+        try:
+            response = requests.get(url, headers=headers, timeout=60)
+            if response.status_code in {429, 500, 502, 503, 504}:
+                raise RuntimeError(f"HTTP {response.status_code}")
+            response.raise_for_status()
+            if not response.content:
+                raise RuntimeError("empty response")
+            return response.content
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt < 3:
+                time.sleep(1.0 + attempt * 1.5)
+    raise RuntimeError(f"failed to download {url}: {last_error}")
 
 
 def first_available(urls: list[str], *, referer: str | None = None) -> tuple[bytes, str]:
@@ -88,7 +103,7 @@ def first_available(urls: list[str], *, referer: str | None = None) -> tuple[byt
     for url in urls:
         try:
             return fetch_bytes(url, referer=referer), url
-        except Exception as exc:  # noqa: BLE001 - collect all source candidates
+        except Exception as exc:  # noqa: BLE001
             failures.append(f"{url}: {exc}")
     raise RuntimeError("; ".join(failures))
 
@@ -136,103 +151,209 @@ def vendor_fighter(fighter_id: str) -> dict[str, str]:
     return {"renderSource": render_source, "thumbSource": thumb_source}
 
 
+def ensure_fighter_assets() -> dict[str, dict[str, str]]:
+    ids = roster_ids()
+    previous: dict[str, Any] = {}
+    if PROVENANCE_PATH.exists():
+        try:
+            previous = json.loads(PROVENANCE_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            previous = {}
+    sources: dict[str, dict[str, str]] = dict(previous.get("fighterSources", {}))
+    failures: list[str] = []
+    for fighter_id in ids:
+        render = FIGHTER_RENDER_DIR / f"{fighter_id}.webp"
+        thumb = FIGHTER_THUMB_DIR / f"{fighter_id}.webp"
+        if render.exists() and thumb.exists():
+            continue
+        try:
+            sources[fighter_id] = vendor_fighter(fighter_id)
+            print(f"fighter repaired: {fighter_id}")
+        except Exception as exc:  # noqa: BLE001
+            failures.append(f"{fighter_id}: {exc}")
+    if failures:
+        raise RuntimeError("fighter asset failures:\n" + "\n".join(failures))
+    missing = [fighter_id for fighter_id in ids if not (FIGHTER_RENDER_DIR / f"{fighter_id}.webp").exists() or not (FIGHTER_THUMB_DIR / f"{fighter_id}.webp").exists()]
+    if missing:
+        raise RuntimeError(f"missing local fighter assets: {', '.join(missing)}")
+    return sources
+
+
 def source_visual_frames(data: bytes) -> list[Image.Image]:
-    """Return the distinct sequential image blocks provided by the source GIF."""
     with Image.open(io.BytesIO(data)) as source:
         return [frame.convert("RGBA").copy() for frame in ImageSequence.Iterator(source)]
 
 
-def make_sheet(frames: list[Image.Image], output: Path, columns: int = 8, max_edge: int = 480) -> dict[str, int | str]:
+def resized_frames(frames: list[Image.Image]) -> tuple[list[Image.Image], int, int]:
     if not frames:
-        raise RuntimeError("animation contains no frames")
+        raise RuntimeError("animation contains no source images")
     width, height = frames[0].size
     if any(frame.size != (width, height) for frame in frames):
         raise RuntimeError("animation contains inconsistent frame sizes")
-    scale = min(1.0, max_edge / max(width, height))
+    scale = min(1.0, MAX_EDGE / max(width, height))
     frame_width = max(1, round(width * scale))
     frame_height = max(1, round(height * scale))
     if (frame_width, frame_height) != (width, height):
         frames = [frame.resize((frame_width, frame_height), Image.Resampling.LANCZOS) for frame in frames]
+    return frames, frame_width, frame_height
+
+
+def make_sheet(frames: list[Image.Image], frame_numbers: list[int], output: Path, columns: int = 6) -> dict[str, Any]:
+    frames, frame_width, frame_height = resized_frames(frames)
     rows = math.ceil(len(frames) / columns)
     sheet = Image.new("RGBA", (frame_width * columns, frame_height * rows), (0, 0, 0, 0))
     for index, frame in enumerate(frames):
         sheet.alpha_composite(frame, ((index % columns) * frame_width, (index // columns) * frame_height))
     output.parent.mkdir(parents=True, exist_ok=True)
-    sheet.save(output, "WEBP", lossless=True, method=6)
+    sheet.save(output, "WEBP", quality=WEBP_QUALITY, method=4)
     return {
         "frameWidth": frame_width,
         "frameHeight": frame_height,
         "columns": columns,
         "frameCount": len(frames),
+        "frameNumbers": frame_numbers,
     }
 
 
-def vendor_visuals() -> dict[str, object]:
+def save_static_reference(data: bytes, output: Path) -> None:
+    image = open_rgba(data)
+    image.thumbnail((MAX_EDGE, MAX_EDGE), Image.Resampling.LANCZOS)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    image.save(output, "WEBP", quality=WEBP_QUALITY, method=4)
+
+
+def safe_name(value: str) -> str:
+    value = re.sub(r"[^a-zA-Z0-9._-]+", "-", value).strip("-.")
+    return value[:96] or "visual"
+
+
+def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+    fighter_id = move["fighterId"]
+    move_id = move["moveId"]
+    variant_id = safe_name(variant["id"])
+    data = fetch_bytes(variant["downloadUrl"], referer=move["sourceUrl"])
+    sha = hashlib.sha256(data).hexdigest()
+    result: dict[str, Any] = {
+        "id": variant_id,
+        "label": variant.get("label") or variant_id,
+        "sha256": sha,
+    }
+
+    if variant["mediaType"] == "image":
+        relative = f"media/hitboxes/{fighter_id}/{move_id}/{variant_id}.webp"
+        save_static_reference(data, PUBLIC / relative)
+        result["imageSrc"] = relative
+        result["sourceFrameCount"] = 1
+        return f"{fighter_id}:{move_id}", result
+
+    all_frames = source_visual_frames(data)
+    span = move.get("activeSpan") or []
+    if len(span) == 2:
+        start, end = int(span[0]), int(span[1])
+    else:
+        start, end = 1, min(len(all_frames), 8)
+
+    total_frames = move.get("totalFrames")
+    max_documented_frame = int(total_frames) if isinstance(total_frames, int) and total_frames > 0 else len(all_frames)
+    max_source_frame = min(len(all_frames), max_documented_frame)
+    frame_numbers = [
+        number
+        for number in range(max(1, start), max(start, end) + 1)
+        if number <= max_source_frame
+    ]
+    if not frame_numbers:
+        # This source animation has no image at the documented active/impact
+        # window. Keep a local untimed reference rather than inventing a game
+        # frame for one of its source-image indices.
+        relative = f"media/hitboxes/{fighter_id}/{move_id}/{variant_id}.webp"
+        save_static_reference(data, PUBLIC / relative)
+        result["imageSrc"] = relative
+        result["sourceFrameCount"] = len(all_frames)
+        return f"{fighter_id}:{move_id}", result
+
+    selected = [all_frames[number - 1] for number in frame_numbers]
+    relative = f"media/frame-sheets/{fighter_id}/{move_id}/{variant_id}.webp"
+    sheet = make_sheet(selected, frame_numbers, PUBLIC / relative)
+    result["spriteSheet"] = {"src": relative, **sheet}
+    result["sourceFrameCount"] = len(all_frames)
+    return f"{fighter_id}:{move_id}", result
+
+
+def directory_bytes(path: Path) -> int:
+    return sum(item.stat().st_size for item in path.rglob("*") if item.is_file()) if path.exists() else 0
+
+
+def vendor_visuals() -> dict[str, Any]:
     source_manifest = json.loads(MEDIA_SOURCES.read_text(encoding="utf-8"))
-    generated: dict[str, object] = {}
+    if source_manifest.get("version") != 2:
+        raise RuntimeError("visual source manifest must be version 2; run discover-ufd-visuals.py first")
+
+    shutil.rmtree(HITBOX_DIR, ignore_errors=True)
+    shutil.rmtree(SHEET_DIR, ignore_errors=True)
+    HITBOX_DIR.mkdir(parents=True, exist_ok=True)
+    SHEET_DIR.mkdir(parents=True, exist_ok=True)
+
+    generated: dict[str, dict[str, Any]] = {
+        f"{move['fighterId']}:{move['moveId']}": {"variants": []}
+        for move in source_manifest["moves"]
+    }
     failures: list[str] = []
-    for move in source_manifest["moves"]:
-        fighter_id = move["fighterId"]
-        move_id = move["moveId"]
-        key = f"{fighter_id}:{move_id}"
-        try:
-            data = fetch_bytes(move["downloadUrl"], referer=move["sourceUrl"])
-            gif_path = HITBOX_DIR / fighter_id / f"{move_id}.gif"
-            gif_path.parent.mkdir(parents=True, exist_ok=True)
-            gif_path.write_bytes(data)
-            expected = int(move["totalFrames"])
-            frames = source_visual_frames(data)
-            if len(frames) > expected:
-                raise RuntimeError(f"source has {len(frames)} image blocks for {expected} documented move frames")
-            sheet_path = SHEET_DIR / fighter_id / f"{move_id}.webp"
-            sheet = make_sheet(frames, sheet_path)
-            generated[key] = {
-                "previewSrc": f"media/hitboxes/{fighter_id}/{move_id}.gif",
-                "spriteSheet": {
-                    "src": f"media/frame-sheets/{fighter_id}/{move_id}.webp",
-                    **sheet,
-                },
-                "sha256": hashlib.sha256(data).hexdigest(),
-            }
-            print(f"visual: {key} -> {len(frames)}/{expected} source frames")
-        except Exception as exc:  # noqa: BLE001 - report all move failures together
-            failures.append(f"{key}: {exc}")
+    work = [(move, variant) for move in source_manifest["moves"] for variant in move["variants"]]
+    print(f"processing {len(source_manifest['moves'])} mapped moves / {len(work)} source variants")
+
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        futures = {pool.submit(process_variant, move, variant): (move, variant) for move, variant in work}
+        completed = 0
+        for future in as_completed(futures):
+            move, variant = futures[future]
+            try:
+                key, record = future.result()
+                generated[key]["variants"].append(record)
+                completed += 1
+                if completed % 100 == 0 or completed == len(work):
+                    print(f"visual assets: {completed}/{len(work)}")
+            except Exception as exc:  # noqa: BLE001
+                failures.append(f"{move['fighterId']}:{move['moveId']}:{variant['id']}: {exc}")
+
     if failures:
         raise RuntimeError("visual asset failures:\n" + "\n".join(failures))
+
+    for move in source_manifest["moves"]:
+        key = f"{move['fighterId']}:{move['moveId']}"
+        order = {safe_name(variant["id"]): index for index, variant in enumerate(move["variants"])}
+        generated[key]["variants"].sort(key=lambda variant: order.get(variant["id"], 9999))
+
     return generated
 
 
 def main() -> int:
-    for directory in (FIGHTER_RENDER_DIR, FIGHTER_THUMB_DIR, HITBOX_DIR, SHEET_DIR):
+    for directory in (FIGHTER_RENDER_DIR, FIGHTER_THUMB_DIR):
         directory.mkdir(parents=True, exist_ok=True)
 
+    fighter_sources = ensure_fighter_assets()
     move_assets = vendor_visuals()
-
-    fighter_sources: dict[str, dict[str, str]] = {}
-    failures: list[str] = []
-    for fighter_id in roster_ids():
-        try:
-            fighter_sources[fighter_id] = vendor_fighter(fighter_id)
-            print(f"fighter: {fighter_id}")
-        except Exception as exc:  # noqa: BLE001 - report every failed roster asset together
-            failures.append(f"{fighter_id}: {exc}")
-    if failures:
-        raise SystemExit("fighter asset failures:\n" + "\n".join(failures))
+    media_size = directory_bytes(PUBLIC / "media")
+    if media_size > MEDIA_BUDGET_BYTES:
+        raise SystemExit(f"vendored media is {media_size / 1024 / 1024:.1f} MiB, above {MEDIA_BUDGET_BYTES / 1024 / 1024:.0f} MiB budget")
 
     GENERATED_MANIFEST.write_text(json.dumps({
-        "version": 1,
+        "version": 2,
         "generatedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "moves": move_assets,
     }, indent=2) + "\n", encoding="utf-8")
 
-    provenance_path = PUBLIC / "media/asset-provenance.json"
-    provenance_path.write_text(json.dumps({
-        "version": 1,
+    source_manifest = json.loads(MEDIA_SOURCES.read_text(encoding="utf-8"))
+    PROVENANCE_PATH.write_text(json.dumps({
+        "version": 2,
         "fighterSources": fighter_sources,
         "visualMoveCount": len(move_assets),
+        "visualVariantCount": sum(len(record["variants"]) for record in move_assets.values()),
+        "fightersScanned": source_manifest.get("fightersScanned", 0),
+        "mediaBytes": media_size,
     }, indent=2) + "\n", encoding="utf-8")
 
-    print(f"vendored {len(fighter_sources)} fighter visuals and {len(move_assets)} move sheets")
+    print(f"vendored {len(fighter_sources) or 89} fighter visuals, {len(move_assets)} move visual records, {sum(len(record['variants']) for record in move_assets.values())} variants")
+    print(f"runtime media size: {media_size / 1024 / 1024:.1f} MiB")
     return 0
 
 

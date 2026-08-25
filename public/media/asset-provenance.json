@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "fighterSources": {
     "mario": {
       "renderSource": "https://www.smashbros.com/assets_v2/img/fighter/mario/main.png",
@@ -358,5 +358,8 @@
       "thumbSource": "https://www.smashbros.com/assets_v2/img/fighter/thumb_v/sora.png"
     }
   },
-  "visualMoveCount": 19
+  "visualMoveCount": 2580,
+  "visualVariantCount": 3075,
+  "fightersScanned": 89,
+  "mediaBytes": 82216436
 }
