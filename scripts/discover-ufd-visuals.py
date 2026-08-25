@@ -181,11 +181,17 @@ def discover_fighter(entry: dict[str, str], fighter_data: dict[str, Any]) -> tup
         })
         if any(variant["downloadUrl"] == url for variant in record["variants"]):
             continue
+        identifier = visual_id(url)
+        # Landing animations use their own landing-state timeline and cannot be
+        # truthfully indexed against the aerial attack's active game frames.
+        # Preserve them as local static references until a separate landing
+        # timeline is modeled instead of assigning misleading game-frame numbers.
+        is_landing_reference = "landing" in identifier
         record["variants"].append({
-            "id": visual_id(url),
+            "id": identifier,
             "label": Path(urlparse(url).path).stem,
             "downloadUrl": url,
-            "mediaType": "gif" if extension(url) == ".gif" else "image",
+            "mediaType": "gif" if extension(url) == ".gif" and not is_landing_reference else "image",
         })
 
     ordered = []
