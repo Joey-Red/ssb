@@ -27,6 +27,8 @@ The viewer must not infer geometry from startup/active notation. If a frame has 
 
 For a variant to claim **full exact coverage**, its frame map must contain every integer from `1` through the move's documented Total Frames exactly once and in order. A short animation, alternate clip, projectile-only sequence, landing timeline, or still image cannot claim full exact coverage merely because it is visually related to the move.
 
+Visual variant IDs must be unique within each move. When a source publishes multiple media files with the same filename stem, discovery preserves the canonical first ID and deterministically suffixes later collisions by media type (and, only if necessary, a numeric suffix). This prevents static and animated forms of the same source name from becoming ambiguous in the runtime selector.
+
 ## Animated previews versus exact seeking
 
 A locally hosted moving source reference remains useful when a source cannot support complete exact seeking, but ordinary browser animation playback is not treated as seek-synchronized. Exact seeking always uses the local sprite-sheet/still sequence and its explicit game-frame map.
@@ -43,7 +45,7 @@ This residual list is deliberate maintenance data: improving an entry requires b
 
 Source manifests retain canonical source/reference URLs and maintenance download URLs. The generated runtime manifest contains only local image/animation/sprite paths plus dimensions, checksums, coverage state, and source-frame counts. Runtime components consume the generated local manifest, not maintenance download URLs.
 
-Tests reject duplicate move-media keys, broken frame numbering, missing local files, external runtime media URLs, false full-coverage claims, out-of-bounds region coordinates, invalid circle radii, and missing full-roster fighter art.
+Tests reject duplicate move-media keys, duplicate per-move visual variant IDs, broken frame numbering, missing local files, external runtime media URLs, false full-coverage claims, out-of-bounds region coordinates, invalid circle radii, and missing full-roster fighter art.
 
 ## Performance and offline behavior
 
