@@ -8,7 +8,7 @@ import type { FrameDataSnapshot } from '../types'
 
 type SourceMove = { fighterId: string; moveId: string; totalFrames: number | null; active: string | null; activeSpan: number[] }
 type SourceManifest = { version: 2; moves: SourceMove[] }
-type AssetManifest = { version: 2; moves: Record<string, { variants: Array<{ spriteSheet?: { frameNumbers?: number[] } }> }> }
+type AssetManifest = { version: 2; moves: Record<string, { variants: Array<{ id?: string; spriteSheet?: { frameNumbers?: number[] } }> }> }
 
 const index = indexFrameData(snapshotJson as unknown as FrameDataSnapshot)
 const source = JSON.parse(readFileSync(join(process.cwd(), 'src/data/visualMediaSources.json'), 'utf8')) as SourceManifest
@@ -20,26 +20,28 @@ describe('visual-media timing consistency', () => {
       const fighter = index.byFighterId.get(media.fighterId)
       expect(fighter, media.fighterId).toBeDefined()
       const move = fighter?.moves.find((candidate) => candidate.id === media.moveId)
-      expect(move, `${media.fighterId}/${media.moveId}`).toBeDefined()
+      const key = `${media.fighterId}/${media.moveId}`
+      expect(move, key).toBeDefined()
       if (!move) continue
 
       const total = numericValue(move.totalFrames)
-      if (total !== null) expect(media.totalFrames, `${media.fighterId}/${media.moveId} total`).toBe(total)
+      if (total !== null) expect(media.totalFrames, `${key} total`).toBe(total)
 
       const expectedStart = firstFrame(move.active)
       const expectedEnd = lastFrame(move.active)
       if (move.active && media.activeSpan.length === 2) {
-        if (expectedStart !== null) expect(media.activeSpan[0], `${media.fighterId}/${media.moveId} active start`).toBe(expectedStart)
-        if (expectedEnd !== null) expect(media.activeSpan[1], `${media.fighterId}/${media.moveId} active end`).toBe(expectedEnd)
+        if (expectedStart !== null) expect(media.activeSpan[0], `${key} active start`).toBe(expectedStart)
+        if (expectedEnd !== null) expect(media.activeSpan[1], `${key} active end`).toBe(expectedEnd)
       }
 
       const staged = assets.moves[`${media.fighterId}:${media.moveId}`]
-      expect(staged).toBeDefined()
+      expect(staged, `${key} staged media`).toBeDefined()
       for (const variant of staged?.variants ?? []) {
         const frames = variant.spriteSheet?.frameNumbers ?? []
         if (!frames.length || media.activeSpan.length !== 2) continue
-        expect(frames[0]).toBeGreaterThanOrEqual(media.activeSpan[0]!)
-        expect(frames.at(-1)).toBeLessThanOrEqual(media.activeSpan[1]!)
+        const variantKey = `${key}/${variant.id ?? 'unnamed'}`
+        expect(frames[0], `${variantKey} first staged frame`).toBeGreaterThanOrEqual(media.activeSpan[0]!)
+        expect(frames.at(-1), `${variantKey} last staged frame`).toBeLessThanOrEqual(media.activeSpan[1]!)
       }
     }
   })
