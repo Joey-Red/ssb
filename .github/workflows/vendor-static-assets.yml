@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/discover-ufd-visuals.py'
       - 'scripts/discover-external-visuals.py'
+      - 'scripts/discover-smashwiki-filename-visuals.py'
       - 'scripts/reconcile-external-visuals.py'
       - 'scripts/normalize-visual-source-provenance.py'
       - 'scripts/resolve-ruben-timing.py'
@@ -61,6 +62,8 @@ jobs:
         run: python scripts/audit-visual-coverage.py
       - name: Discover curated external visuals
         run: python scripts/discover-external-visuals.py
+      - name: Recover filename-only SmashWiki animations
+        run: python scripts/discover-smashwiki-filename-visuals.py
       - name: Reconcile stronger external replacements
         run: python scripts/reconcile-external-visuals.py
       - name: Normalize multi-source provenance
@@ -99,6 +102,7 @@ jobs:
           git add -A public/media public/data/visual-media \
             src/data/visualMediaSources.json \
             src/data/externalVisualSources.generated.json \
+            src/data/smashwikiFilenameVisuals.generated.json \
             src/data/smashwikiHistoricalVisuals.generated.json \
             src/data/rubenTimingOverrides.generated.json \
             src/data/ultimateHitboxesArchive.generated.json \
