@@ -10,7 +10,7 @@ A mobile-first, frontend-only Super Smash Bros. Ultimate training companion for 
 - **Arena remains built in:** the original matte dark interface is available from the top-bar theme toggle.
 - Theme preference is browser-local and is applied before first paint so returning Arena users do not see a Festival flash.
 - Festival layouts have dedicated phone, tablet/desktop, 2K, and ultrawide treatments instead of simply scaling one fixed desktop design.
-- Fighter cards and fighter heroes include responsive project-owned visual identity art with fallback-safe sizing.
+- Fighter cards and fighter heroes include responsive local fighter art with fallback-safe sizing.
 
 ## Application features
 
@@ -22,9 +22,11 @@ A mobile-first, frontend-only Super Smash Bros. Ultimate training companion for 
 - Dedicated practice mode with rep counting, completion tracking, fighter switching, percentage navigation, and keyboard controls.
 - Custom drill queue with fighter/percent setup, action routes, notes, target reps, progress, reset, and completed-drill cleanup.
 - Full-roster move timing snapshot with searchable per-fighter tables, raw multi-hit/range notation, autocancel windows where available, and explicit separation of Total Frames from FAF.
-- Frame timelines plus a visual move player with previous/next frame, 60 FPS play/pause, direct seek, keyboard stepping, phase readout, and hitbox-overlay toggle.
-- Visual-media schema supports per-frame hosted stills and percentage-positioned hitbox circles/regions, keeping image data and annotation geometry separate.
-- Initial real hitbox-media references are wired for Mario, Pyra, and Mythra neutral air using their UFD animated references. The player clearly distinguishes an animated source preview from a seek-synchronized hosted still sequence.
+- Frame timelines plus a visual move player with previous/next frame, 60 FPS play/pause, direct seek, keyboard stepping, active-span looping, speed controls, phase readout, and source-variant selection.
+- Maintenance tooling scans all 89 UFD fighter pages and maps locally stageable hitbox media to the committed move IDs. The current generated set contains 2,580 mapped moves and 3,075 valid source variants.
+- Runtime visual media is entirely same-origin: source images are vendored into the repository and converted to compact active/impact-frame sheets or local static references. The deployed app does not hotlink UFD media.
+- Visual metadata is split into one cacheable JSON index per fighter, so opening one character does not download the full-roster visual manifest.
+- Exact source images are mapped to documented game-frame numbers. Missing source imagery is shown as missing rather than duplicated, interpolated, or fabricated.
 - Matchup/DI practice lab that surfaces training focuses without pretending a universal matchup chart or DI answer exists.
 - Cross-roster frame tools for side-by-side moves, OOS startup references, and fast-move discovery.
 - Frame-literacy glossary using standard SSBU frames only.
@@ -36,13 +38,15 @@ Visual move data is separate from numeric frame data. A `VisualMoveMedia` entry 
 
 - fighter + move identity;
 - source/reference URL;
-- optional animated reference;
-- numbered game frames;
-- startup/active/recovery/landing phase per frame;
-- optional hosted still image per frame;
-- optional hitbox circles/regions positioned as percentages of the displayed image.
+- documented game-frame timing;
+- exact locally staged source frames;
+- one or more source variants for angled/alternate visualizations;
+- a local static reference when UFD provides an image instead of an animation;
+- optional hitbox circles/regions when separately reviewed overlay geometry exists.
 
-The player never fabricates a circle for a frame that lacks overlay metadata. When only an animated reference exists, it is shown as a real source preview while the seek controls continue to index documented game frames independently.
+The frame player never invents an image or collision region. Compact sprite sheets contain only exact source images selected for the move's active/impact study span, and each cell records the game-frame number it represents. Startup and recovery timing remains seekable even when no corresponding source image was staged.
+
+The maintenance discovery step uses a browser-compatible HTTP fingerprint because ordinary hosted-runner requests to UFD are rejected. That networking exists only in the asset-refresh workflow; the production application remains same-origin and works from committed static assets.
 
 ## Frame-data provenance
 
@@ -56,6 +60,8 @@ Refresh the numeric snapshot manually when maintaining frame data:
 python -m pip install -r scripts/requirements-frame-data.txt
 python scripts/refresh-frame-data.py
 ```
+
+Full-roster visual refreshes run through the dedicated GitHub Actions workflow, which discovers current UFD visual references, vendors valid media, builds compact active/impact sheets, and writes the 89 per-fighter runtime indexes.
 
 ## Development
 
