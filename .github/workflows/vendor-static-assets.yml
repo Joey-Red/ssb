@@ -57,6 +57,8 @@ jobs:
         run: pip install -r scripts/requirements-media.txt
       - name: Discover full-roster UFD visuals
         run: python scripts/discover-ufd-visuals.py
+      - name: Refresh source-less targets after UFD discovery
+        run: python scripts/audit-visual-coverage.py
       - name: Discover curated external visuals
         run: python scripts/discover-external-visuals.py
       - name: Reconcile stronger external replacements
