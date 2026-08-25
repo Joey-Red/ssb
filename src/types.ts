@@ -146,7 +146,22 @@ export interface MediaAsset {
 
 export type VisualFramePhase = 'startup' | 'active' | 'recovery' | 'landing' | 'other'
 export type VisualRegionKind = 'strong' | 'weak' | 'grab' | 'hurtbox' | 'intangible'
-export type VisualMediaCoverage = 'full' | 'partial' | 'untimed-animation' | 'static'
+export type VisualTimelineClass =
+  | 'fighter-action'
+  | 'landing'
+  | 'projectile'
+  | 'effect'
+  | 'charge-state'
+  | 'loop-state'
+  | 'companion-action'
+  | 'transition'
+export type VisualMediaCoverage =
+  | 'full'
+  | 'source-timed'
+  | 'exact-static'
+  | 'partial'
+  | 'untimed-animation'
+  | 'static'
 
 /** Coordinates are percentages of the displayed exact-frame image. */
 export interface VisualCircleRegion {
@@ -167,10 +182,11 @@ export interface VisualFrame {
 }
 
 /**
- * A local sprite sheet packs exact source frames into a fixed grid.
- * `frameNumbers` maps each sheet cell to the documented game frame it depicts.
- * Full-motion sheets contain 1..Total Frames; partial sheets retain only frames
- * whose game-frame mapping can be justified.
+ * A local sprite sheet packs source images into a fixed grid.
+ * `frameNumbers` maps each physical sheet cell to the first timeline frame it
+ * represents. `gameFrameCells`, when present, maps every 1-based timeline frame
+ * to a zero-based physical sheet cell; repeated cell indexes represent a source
+ * image whose encoded duration truthfully holds across several 60 FPS frames.
  */
 export interface VisualSpriteSheet {
   src: string
@@ -179,23 +195,26 @@ export interface VisualSpriteSheet {
   columns: number
   frameCount: number
   frameNumbers?: readonly number[]
+  gameFrameCells?: readonly number[]
 }
 
 export interface VisualMediaVariant {
   id: string
   label: string
-  /** Exact frame-addressable local source images. */
   spriteSheet?: VisualSpriteSheet
-  /** Same-origin animation used when the source cannot support a full exact timeline. */
   animationSrc?: string
-  /** Local static reference for inherently static/separately timed source media. */
   imageSrc?: string
-  /** Whether the variant covers the complete documented move timeline exactly. */
   coverage?: VisualMediaCoverage
-  /** Human-readable explanation for non-full coverage. */
   coverageReason?: string
-  /** Number of source images discovered in the original animation/reference. */
   sourceFrameCount?: number
+  sourceDurationMs?: number | null
+  sourceLoop?: number
+  timelineClass?: VisualTimelineClass
+  timelineTotalFrames?: number
+  timingBasis?: 'parent-action' | 'independent-source'
+  timelineBasis?: string
+  mappingMethod?: string
+  sourceFormat?: string
 }
 
 export interface VisualMoveMedia {
