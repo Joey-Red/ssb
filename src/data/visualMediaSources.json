@@ -292,7 +292,7 @@
       "startupFrame": 5,
       "active": "5/7/9/11/13/23(1\u20142)",
       "activeSpan": [
-        1,
+        5,
         23
       ],
       "variants": [
@@ -856,7 +856,7 @@
       "startupFrame": 19,
       "active": "26\u201427 (19\u201420 after starting charge)",
       "activeSpan": [
-        19,
+        26,
         27
       ],
       "variants": [
@@ -2155,7 +2155,7 @@
       "startupFrame": 5,
       "active": "5/7\u201414(rehit: 3)/16\u201417",
       "activeSpan": [
-        3,
+        5,
         17
       ],
       "variants": [
@@ -2344,7 +2344,7 @@
       "startupFrame": 33,
       "active": "33-82/1\u201418",
       "activeSpan": [
-        1,
+        33,
         82
       ],
       "variants": [
@@ -2815,7 +2815,7 @@
       "startupFrame": 5,
       "active": "5/7\u201414(rehit: 3)/16\u201417",
       "activeSpan": [
-        3,
+        5,
         17
       ],
       "variants": [
@@ -3004,7 +3004,7 @@
       "startupFrame": 33,
       "active": "33\u201482/1\u201418",
       "activeSpan": [
-        1,
+        33,
         82
       ],
       "variants": [
@@ -4180,7 +4180,7 @@
       "startupFrame": 11,
       "active": "26\u201427 (11\u201412 from charge)",
       "activeSpan": [
-        11,
+        26,
         27
       ],
       "variants": [
@@ -4846,7 +4846,7 @@
       "startupFrame": 11,
       "active": "11\u201412/13\u201419/20\u201432, 9\u201410/11\u201417/18\u201430",
       "activeSpan": [
-        9,
+        11,
         32
       ],
       "variants": [
@@ -5305,7 +5305,7 @@
       "startupFrame": 11,
       "active": "11\u201425/27 (rehit: 3)",
       "activeSpan": [
-        3,
+        11,
         27
       ],
       "variants": [
@@ -5326,7 +5326,7 @@
       "startupFrame": 4,
       "active": "4\u20145/8\u20149/12\u201413/16\u201417/20\u201421/24\u201425/1\u20142",
       "activeSpan": [
-        1,
+        4,
         25
       ],
       "variants": [
@@ -5374,7 +5374,7 @@
       "startupFrame": 14,
       "active": "14\u201415/16\u201426/1\u20142",
       "activeSpan": [
-        1,
+        14,
         26
       ],
       "variants": [
@@ -5464,7 +5464,7 @@
       "startupFrame": 13,
       "active": "13\u201415(16\u201485): Early // 21\u201423(24\u201493): Late // 1-2: Contact",
       "activeSpan": [
-        1,
+        13,
         93
       ],
       "variants": [
@@ -6553,7 +6553,7 @@
       "startupFrame": 8,
       "active": "8\u201418 (rehit: 5) / 20-21",
       "activeSpan": [
-        5,
+        8,
         21
       ],
       "variants": [
@@ -6595,7 +6595,7 @@
       "startupFrame": 8,
       "active": "8\u201414 (rehit: 2) / 15\u201416",
       "activeSpan": [
-        2,
+        8,
         16
       ],
       "variants": [
@@ -7369,7 +7369,7 @@
       "startupFrame": 14,
       "active": "14\u201418(19\u201424/25\u201427)/1\u20142",
       "activeSpan": [
-        1,
+        14,
         27
       ],
       "variants": [
@@ -9460,7 +9460,7 @@
       "startupFrame": 17,
       "active": "17\u201424/25\u201449/1\u20146",
       "activeSpan": [
-        1,
+        17,
         49
       ],
       "variants": [
@@ -9520,7 +9520,7 @@
       "startupFrame": 6,
       "active": "6\u201438/39 (rehit: 5)",
       "activeSpan": [
-        5,
+        6,
         39
       ],
       "variants": [
@@ -9541,7 +9541,7 @@
       "startupFrame": 6,
       "active": "6\u20147/8\u201411/12\u201415/16\u201419/20\u201423/24\u201427/28\u201431/32\u201435/36\u201439/40\u201443/44\u201447/48\u201451 (rehit: 5)",
       "activeSpan": [
-        5,
+        6,
         51
       ],
       "variants": [
@@ -9562,7 +9562,7 @@
       "startupFrame": 11,
       "active": "11/37.../1\u20142",
       "activeSpan": [
-        1,
+        11,
         37
       ],
       "variants": [
@@ -9583,7 +9583,7 @@
       "startupFrame": 31,
       "active": "31.../1\u20142",
       "activeSpan": [
-        1,
+        31,
         31
       ],
       "variants": [
@@ -10786,7 +10786,7 @@
       "startupFrame": 15,
       "active": "15\u201418/19\u201433/1\u20142",
       "activeSpan": [
-        1,
+        15,
         33
       ],
       "variants": [
@@ -11410,7 +11410,7 @@
       "startupFrame": 11,
       "active": "11-22 (Rehit Rate : 4) / 26",
       "activeSpan": [
-        4,
+        11,
         26
       ],
       "variants": [
@@ -12391,7 +12391,7 @@
       "startupFrame": 14,
       "active": "14\u201417/18\u201426/1\u20142",
       "activeSpan": [
-        1,
+        14,
         26
       ],
       "variants": [
@@ -12445,7 +12445,7 @@
       "startupFrame": 17,
       "active": "17\u201452 (4\u201439 on charge release)",
       "activeSpan": [
-        4,
+        17,
         52
       ],
       "variants": [
@@ -12904,7 +12904,7 @@
       "startupFrame": 7,
       "active": "7\u201425(rehit: 4)/26\u201427",
       "activeSpan": [
-        4,
+        7,
         27
       ],
       "variants": [
@@ -12994,7 +12994,7 @@
       "startupFrame": 8,
       "active": "8\u201434/7\u201433",
       "activeSpan": [
-        7,
+        8,
         34
       ],
       "variants": [
@@ -15139,7 +15139,7 @@
       "startupFrame": 9,
       "active": "9\u201447/49 (rehit: 4)",
       "activeSpan": [
-        4,
+        9,
         49
       ],
       "variants": [
@@ -15412,7 +15412,7 @@
       "startupFrame": 60,
       "active": "60\u201461(62\u201463) / Windboxes 6\u201452",
       "activeSpan": [
-        6,
+        60,
         63
       ],
       "variants": [
@@ -15823,7 +15823,7 @@
       "startupFrame": 16,
       "active": "16\u201418/19\u201429/2\u20143",
       "activeSpan": [
-        2,
+        16,
         29
       ],
       "variants": [
@@ -16846,7 +16846,7 @@
       "startupFrame": 21,
       "active": "21\u201424 (or 10\u201414 from release)",
       "activeSpan": [
-        10,
+        21,
         24
       ],
       "variants": [
@@ -17062,7 +17062,7 @@
       "startupFrame": 9,
       "active": "9/11\u201419(rehit: 3) / 20\u201421",
       "activeSpan": [
-        3,
+        9,
         21
       ],
       "variants": [
@@ -17578,7 +17578,7 @@
       "startupFrame": 21,
       "active": "Normal: 21\u201424 (or 10\u201414 from release) || Max: 21\u201425",
       "activeSpan": [
-        10,
+        21,
         25
       ],
       "variants": [
@@ -17794,7 +17794,7 @@
       "startupFrame": 10,
       "active": "10\u201411/39\u201447(rehit: 7) / 54\u2014**/1\u20144",
       "activeSpan": [
-        1,
+        10,
         54
       ],
       "variants": [
@@ -18289,7 +18289,7 @@
       "startupFrame": 10,
       "active": "10\u201413/14\u201417/18\u201421/22/1",
       "activeSpan": [
-        1,
+        10,
         22
       ],
       "variants": [
@@ -18337,7 +18337,7 @@
       "startupFrame": 12,
       "active": "12\u201413/14\u201438/1\u20142",
       "activeSpan": [
-        1,
+        12,
         38
       ],
       "variants": [
@@ -18391,7 +18391,7 @@
       "startupFrame": 16,
       "active": "16\u201423(Judge 5: 16\u201418/19\u201421/22\u201424/25\u201427)",
       "activeSpan": [
-        5,
+        16,
         27
       ],
       "variants": [
@@ -20923,7 +20923,7 @@
       "startupFrame": 14,
       "active": "14\u201449/1\u20143",
       "activeSpan": [
-        1,
+        14,
         49
       ],
       "variants": [
@@ -21025,7 +21025,7 @@
       "startupFrame": 6,
       "active": "6/12\u201424(rehit: 4)/28/34\u201435",
       "activeSpan": [
-        4,
+        6,
         35
       ],
       "variants": [
@@ -21427,7 +21427,7 @@
       "startupFrame": 16,
       "active": "16\u201418, 10\u201411, 8\u201411, 12\u201413/14\u201429",
       "activeSpan": [
-        8,
+        16,
         29
       ],
       "variants": [
@@ -23062,7 +23062,7 @@
       "startupFrame": 5,
       "active": "5\u201414/15\u201416 (rehit: 2)",
       "activeSpan": [
-        2,
+        5,
         16
       ],
       "variants": [
@@ -23110,7 +23110,7 @@
       "startupFrame": 6,
       "active": "6\u201420/22 (rehit: 3)",
       "activeSpan": [
-        3,
+        6,
         22
       ],
       "variants": [
@@ -23152,7 +23152,7 @@
       "startupFrame": 9,
       "active": "9\u201441/43\u201444 (rehit: 5)",
       "activeSpan": [
-        5,
+        9,
         44
       ],
       "variants": [
@@ -24238,7 +24238,7 @@
       "startupFrame": 9,
       "active": "9\u201410/16\u201426(rehit: 3)/27\u201428",
       "activeSpan": [
-        3,
+        9,
         28
       ],
       "variants": [
@@ -25303,7 +25303,7 @@
       "startupFrame": 7,
       "active": "7\u201421 (rehit: 5) / 26",
       "activeSpan": [
-        5,
+        7,
         26
       ],
       "variants": [
@@ -25408,7 +25408,7 @@
       "startupFrame": 21,
       "active": "21\u201438(1\u201419)",
       "activeSpan": [
-        1,
+        21,
         38
       ],
       "variants": [
@@ -26653,7 +26653,7 @@
       "startupFrame": 29,
       "active": "29(5\u2014146)",
       "activeSpan": [
-        5,
+        29,
         146
       ],
       "variants": [
@@ -26686,7 +26686,7 @@
       "startupFrame": 69,
       "active": "69/4\u20145/6\u201420",
       "activeSpan": [
-        4,
+        69,
         69
       ],
       "variants": [
@@ -27682,7 +27682,7 @@
       "startupFrame": 46,
       "active": "46\u201447(1)",
       "activeSpan": [
-        1,
+        46,
         47
       ],
       "variants": [
@@ -28765,7 +28765,7 @@
       "startupFrame": 17,
       "active": "17\u201425(26\u201464)/1",
       "activeSpan": [
-        1,
+        17,
         64
       ],
       "variants": [
@@ -28855,7 +28855,7 @@
       "startupFrame": 6,
       "active": "6\u201414/15\u201446/48 (rehit: 4)",
       "activeSpan": [
-        4,
+        6,
         48
       ],
       "variants": [
@@ -29464,7 +29464,7 @@
       "startupFrame": 18,
       "active": "18\u201420/27\u201432(Rehit :2)/37\u201438",
       "activeSpan": [
-        2,
+        18,
         38
       ],
       "variants": [
@@ -30439,7 +30439,7 @@
       "startupFrame": 11,
       "active": "11\u201417/18\u201431/32\u201454/55\u201461 (rehit: 3/5/5/5)",
       "activeSpan": [
-        3,
+        11,
         61
       ],
       "variants": [
@@ -31879,7 +31879,7 @@
       "startupFrame": 10,
       "active": "10\u201420(rehit rate: 3)/22",
       "activeSpan": [
-        3,
+        10,
         22
       ],
       "variants": [
@@ -32743,7 +32743,7 @@
       "startupFrame": 8,
       "active": "8\u201414/25\u201431 (windbox: 7\u201417)",
       "activeSpan": [
-        7,
+        8,
         31
       ],
       "variants": [
@@ -33286,7 +33286,7 @@
       "startupFrame": 30,
       "active": "30\u201473 (rehit: 3)",
       "activeSpan": [
-        3,
+        30,
         73
       ],
       "variants": [
@@ -33997,7 +33997,7 @@
       "startupFrame": 16,
       "active": "Dash: 16\u201430Hit: 4\u20145/8\u201410/13/15\u201416/18\u201419/28\u201429",
       "activeSpan": [
-        4,
+        16,
         30
       ],
       "variants": [
@@ -34024,7 +34024,7 @@
       "startupFrame": 16,
       "active": "Dash: 16\u201430Hit: 4\u20145/8\u201410/13/15\u201416/18\u201419/28\u201430",
       "activeSpan": [
-        4,
+        16,
         30
       ],
       "variants": [
@@ -34120,7 +34120,7 @@
       "startupFrame": 10,
       "active": "10\u201415/3\u2014**/1\u20142",
       "activeSpan": [
-        1,
+        10,
         15
       ],
       "variants": [
@@ -34252,7 +34252,7 @@
       "startupFrame": 8,
       "active": "8\u201421(1\u20142)",
       "activeSpan": [
-        1,
+        8,
         21
       ],
       "variants": [
@@ -34759,7 +34759,7 @@
       "startupFrame": 14,
       "active": "14\u201437(rehit: 5)/1\u20143",
       "activeSpan": [
-        1,
+        14,
         37
       ],
       "variants": [
@@ -34855,7 +34855,7 @@
       "startupFrame": 25,
       "active": "Ground: 25\u201460Air: 30\u201465Hit: 2\u20145",
       "activeSpan": [
-        2,
+        25,
         65
       ],
       "variants": [
@@ -35452,7 +35452,7 @@
       "startupFrame": 17,
       "active": "17\u201438(rehit: 4)/40",
       "activeSpan": [
-        4,
+        17,
         40
       ],
       "variants": [
@@ -35578,7 +35578,7 @@
       "startupFrame": 17,
       "active": "17/18\u201432(rehit: 3)/34",
       "activeSpan": [
-        3,
+        17,
         34
       ],
       "variants": [
@@ -35845,7 +35845,7 @@
       "startupFrame": 18,
       "active": "18\u2014133/1\u20144",
       "activeSpan": [
-        1,
+        18,
         133
       ],
       "variants": [
@@ -36145,7 +36145,7 @@
       "startupFrame": 8,
       "active": "8\u201422/24\u201425 (rehit: 3)",
       "activeSpan": [
-        3,
+        8,
         25
       ],
       "variants": [
@@ -36271,7 +36271,7 @@
       "startupFrame": 5,
       "active": "5\u201427/29\u201430 (rehit: 4)",
       "activeSpan": [
-        4,
+        5,
         30
       ],
       "variants": [
@@ -36334,7 +36334,7 @@
       "startupFrame": 10,
       "active": "10\u201422/24\u201425 (rehit: 3)",
       "activeSpan": [
-        3,
+        10,
         25
       ],
       "variants": [
@@ -37651,7 +37651,7 @@
       "startupFrame": 23,
       "active": "23\u201492(Rehit: 4)",
       "activeSpan": [
-        4,
+        23,
         92
       ],
       "variants": [
@@ -38290,7 +38290,7 @@
       "startupFrame": 22,
       "active": "Ground: 22/23-31/32-33Air: 22/23\u2014...1\u20142",
       "activeSpan": [
-        1,
+        22,
         33
       ],
       "variants": [
@@ -38782,7 +38782,7 @@
       "startupFrame": 15,
       "active": "15\u201438 (rehit: 3) / 39",
       "activeSpan": [
-        3,
+        15,
         39
       ],
       "variants": [
@@ -41800,7 +41800,7 @@
       "startupFrame": 16,
       "active": "16\u201462, Multihits: (1\u201428 (Rehit : 6)/29\u201430)",
       "activeSpan": [
-        1,
+        16,
         62
       ],
       "variants": [
@@ -41989,7 +41989,7 @@
       "startupFrame": 7,
       "active": "7\u20149/10(11\u201416)/1\u20143",
       "activeSpan": [
-        1,
+        7,
         16
       ],
       "variants": [
@@ -42547,7 +42547,7 @@
       "startupFrame": 12,
       "active": "12\u201428(rehit: 2)/1\u20145",
       "activeSpan": [
-        1,
+        12,
         28
       ],
       "variants": [
@@ -42637,7 +42637,7 @@
       "startupFrame": 18,
       "active": "18\u201419/20\u201428(rehit: 2)/29\u201430",
       "activeSpan": [
-        2,
+        18,
         30
       ],
       "variants": [
@@ -43378,7 +43378,7 @@
       "startupFrame": 18,
       "active": "18\u201424(25\u201435)/1\u20142",
       "activeSpan": [
-        1,
+        18,
         35
       ],
       "variants": [
@@ -43465,7 +43465,7 @@
       "startupFrame": 15,
       "active": "15\u201416/17\u201418/19\u201424/25\u201439 first // 1\u201411/20\u201424 second",
       "activeSpan": [
-        1,
+        15,
         39
       ],
       "variants": [
@@ -43525,7 +43525,7 @@
       "startupFrame": 8,
       "active": "8\u201425/1",
       "activeSpan": [
-        1,
+        8,
         25
       ],
       "variants": [
@@ -44116,7 +44116,7 @@
       "startupFrame": 12,
       "active": "12/15\u201421/1\u201410",
       "activeSpan": [
-        1,
+        12,
         21
       ],
       "variants": [
@@ -45355,7 +45355,7 @@
       "startupFrame": 6,
       "active": "6/9\u201420/21 (rehit: 3)",
       "activeSpan": [
-        3,
+        6,
         21
       ],
       "variants": [
@@ -46021,7 +46021,7 @@
       "startupFrame": 6,
       "active": "6/9\u201420/21 (rehit: 3)",
       "activeSpan": [
-        3,
+        6,
         21
       ],
       "variants": [
@@ -49033,7 +49033,7 @@
       "startupFrame": 5,
       "active": "5\u201418/20\u201421 (rehit: 4)",
       "activeSpan": [
-        4,
+        5,
         21
       ],
       "variants": [
@@ -49339,7 +49339,7 @@
       "startupFrame": 16,
       "active": "16\u201442/1\u201419",
       "activeSpan": [
-        1,
+        16,
         42
       ],
       "variants": [
@@ -49360,7 +49360,7 @@
       "startupFrame": 16,
       "active": "16\u201432(1\u201415/16\u201427)",
       "activeSpan": [
-        1,
+        16,
         32
       ],
       "variants": [
@@ -49969,7 +49969,7 @@
       "startupFrame": 6,
       "active": "6\u201427/1\u201416/17\u201440",
       "activeSpan": [
-        1,
+        6,
         40
       ],
       "variants": [
@@ -49990,7 +49990,7 @@
       "startupFrame": 6,
       "active": "6\u201417/1\u201424",
       "activeSpan": [
-        1,
+        6,
         24
       ],
       "variants": [
@@ -50563,7 +50563,7 @@
       "startupFrame": 9,
       "active": "9\u201410/13\u201425 (rehit: 2)/26\u201427",
       "activeSpan": [
-        2,
+        9,
         27
       ],
       "variants": [
@@ -50785,7 +50785,7 @@
       "startupFrame": 10,
       "active": "10\u2014143/1",
       "activeSpan": [
-        1,
+        10,
         143
       ],
       "variants": [
@@ -51877,7 +51877,7 @@
       "startupFrame": 13,
       "active": "13\u201416(rehit: 7)/17\u201427(rehit: 4)/28\u201429",
       "activeSpan": [
-        4,
+        13,
         29
       ],
       "variants": [
@@ -51919,7 +51919,7 @@
       "startupFrame": 6,
       "active": "6\u201426(rehit: 7)/28/2",
       "activeSpan": [
-        2,
+        6,
         28
       ],
       "variants": [
@@ -51988,7 +51988,7 @@
       "startupFrame": 10,
       "active": "10\u201419(rehit: 5)/20\u201423",
       "activeSpan": [
-        5,
+        10,
         23
       ],
       "variants": [
@@ -52117,7 +52117,7 @@
       "startupFrame": 62,
       "active": "62\u201467/2\u20145",
       "activeSpan": [
-        2,
+        62,
         67
       ],
       "variants": [
@@ -52765,7 +52765,7 @@
       "startupFrame": 15,
       "active": "15\u201418/19\u201433/1\u20143",
       "activeSpan": [
-        1,
+        15,
         33
       ],
       "variants": [
@@ -52960,7 +52960,7 @@
       "startupFrame": 12,
       "active": "12\u201435(Rehit: 6)/36\u201439",
       "activeSpan": [
-        6,
+        12,
         39
       ],
       "variants": [
@@ -53008,7 +53008,7 @@
       "startupFrame": 8,
       "active": "8\u201411(Rehit: 2)/12\u201417 // 26\u201429(Rehit:2)/30\u201435",
       "activeSpan": [
-        2,
+        8,
         35
       ],
       "variants": [
@@ -53110,7 +53110,7 @@
       "startupFrame": 28,
       "active": "28\u201437/38\u201444 (Ground) // 23\u201432/33\u201439 (Air)",
       "activeSpan": [
-        23,
+        28,
         44
       ],
       "variants": [
@@ -53656,7 +53656,7 @@
       "startupFrame": 19,
       "active": "19\u201423/24\u201439(1\u20142)",
       "activeSpan": [
-        1,
+        19,
         39
       ],
       "variants": [
@@ -53827,7 +53827,7 @@
       "startupFrame": 38,
       "active": "38\u201452 (Rehit: 5)/53",
       "activeSpan": [
-        5,
+        38,
         53
       ],
       "variants": [
@@ -54874,7 +54874,7 @@
       "startupFrame": 9,
       "active": "9\u201410/11\u201424(rehit: 5)/26\u201427",
       "activeSpan": [
-        5,
+        9,
         27
       ],
       "variants": [
@@ -54916,7 +54916,7 @@
       "startupFrame": 8,
       "active": "8\u201413(rehit: 3)(14\u201419)",
       "activeSpan": [
-        3,
+        8,
         19
       ],
       "variants": [
@@ -56014,7 +56014,7 @@
       "startupFrame": 17,
       "active": "17\u201418/19\u201439/1\u20142",
       "activeSpan": [
-        1,
+        17,
         39
       ],
       "variants": [
@@ -56824,7 +56824,7 @@
       "startupFrame": 30,
       "active": "Ground: 30\u201452/44\u201466/58\u201480Air: 29\u201452/43\u201466/58\u201480",
       "activeSpan": [
-        29,
+        30,
         80
       ],
       "variants": [
