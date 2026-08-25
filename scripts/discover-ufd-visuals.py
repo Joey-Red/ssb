@@ -42,6 +42,27 @@ PROJECTILE_WORDS = {
     "projectile", "soccerball", "spring", "strawberry", "thunderjolt",
     "turnip", "watershuriken", "gyro", "ptooie", "rear egg", "holy water",
 }
+# These source labels name an independently travelling projectile/effect even
+# though the generic move name itself may not contain one of PROJECTILE_WORDS.
+# Keep this list specific: broad fragments such as "flare" would incorrectly
+# classify fighter actions like Flare Blade.
+PROJECTILE_LABEL_FRAGMENTS = {
+    "ivysaurrazorleaf",
+    "miiswordfightergalestrike",
+    "miiswordfightershurikenoflight",
+    "robinthoron",
+    "robinarcfire",
+    "ryuhadoken",
+    "ryushakunetsuhadoken",
+    "kenhadoken",
+    "piranhaplantpoisonbreath",
+    "terrypowerwave",
+    "bylethfailnaught",
+    "sephirothflare",
+    "sephirothgigaflare",
+    "soramagicfiraga",
+    "sorathundaga",
+}
 EFFECT_WORDS = {"burst", "boom", "detonate", "explosion", "explode", "vortex"}
 CHARGE_WORDS = {"charge", "charged", "charging", "full charge", "max", "maximum", "minimum", "partial charge"}
 STATE_WORDS = {"idle", "drive", "travel", "flying", "falling", "loop", "rapid"}
@@ -172,12 +193,20 @@ def timeline_class(fighter_id: str, move_name: str, label: str) -> str:
     compact_label = label_text.replace(" ", "")
 
     # Pikachu's Down-B source named PikachuThunder depicts the separately
-    # generated thunderbolt, not Pikachu's parent action. The bolt is created
-    # independently and can remain active after Pikachu is interruptible, so it
-    # must own an independent projectile timeline rather than inherit the
-    # parent move's Total Frames/active span.
+    # generated thunderbolt, not Pikachu's parent action.
     if fighter_id == "pikachu" and compact_label == "pikachuthunder":
         return "projectile"
+
+    # A thrown Pikmin remains its own companion entity after Olimar's throw
+    # animation. Treat the source as a companion timeline rather than forcing it
+    # onto Olimar's parent action duration.
+    if fighter_id == "olimar" and "pikminthrow" in compact_label:
+        return "companion-action"
+
+    # Focus Attack level sources represent distinct charge/release states, not a
+    # single complete parent timeline shared by all levels.
+    if fighter_id in {"ryu", "ken"} and "focusattack" in compact_label:
+        return "charge-state"
 
     if "landing" in words or label_text.endswith(" landing"):
         return "landing"
@@ -187,6 +216,8 @@ def timeline_class(fighter_id: str, move_name: str, label: str) -> str:
         return "effect"
     if any(word in combined for word in EFFECT_WORDS):
         return "effect"
+    if any(fragment in compact_label for fragment in PROJECTILE_LABEL_FRAGMENTS):
+        return "projectile"
     if any(word.replace(" ", "") in compact_label for word in PROJECTILE_WORDS):
         return "projectile"
     if any(word in combined for word in CHARGE_WORDS):
