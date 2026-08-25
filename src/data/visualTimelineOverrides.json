@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "description": "Reviewed timing/source overrides for visual variants that cannot be resolved from the generated UFD frame snapshot and encoded source timing alone. Entries must include provenance; guesses are prohibited.",
+  "entries": {}
+}
