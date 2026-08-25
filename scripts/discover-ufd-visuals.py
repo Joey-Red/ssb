@@ -54,11 +54,10 @@ def extension(url: str) -> str:
 
 def active_span(active: str | None, startup: int | None, total: str | None) -> tuple[int, int] | None:
     if active:
-        # Parenthetical values describe durations/rehit windows rather than
-        # additional absolute game-frame numbers. Strip them before finding
-        # the documented active span.
-        cleaned = re.sub(r"\([^)]*\)", "", active)
-        cleaned = re.sub(r"\b\d+\s*x\b", "", cleaned, flags=re.IGNORECASE)
+        # UFD uses parentheses for later/late hit windows on many moves (for
+        # example Mario Dash Attack 6—9(10—25)). Preserve every documented
+        # absolute frame number and let the vendor clamp only to Total Frames.
+        cleaned = re.sub(r"\b\d+\s*x\b", "", active, flags=re.IGNORECASE)
         values = [int(value) for value in re.findall(r"\d+", cleaned)]
         if values:
             lo, hi = min(values), max(values)
@@ -97,7 +96,6 @@ def move_aliases(name: str) -> list[str]:
 
 def match_move(container_text: str, moves: list[dict[str, Any]]) -> dict[str, Any] | None:
     text = normalized(container_text)
-    # UFD sometimes prefixes landing-state labels before the actual move name.
     prefixes = ("normal landing ", "landing ", "aerial ", "grounded ")
     candidates = [text]
     for prefix in prefixes:
@@ -111,9 +109,6 @@ def match_move(container_text: str, moves: list[dict[str, Any]]) -> dict[str, An
                 if candidate.startswith(alias + " ") or candidate == alias:
                     scored.append((len(alias), move))
                     break
-                # A few containers prepend small state labels. Restrict a
-                # fallback containment match to the beginning of the row so
-                # damage/notes cannot accidentally match another move.
                 position = candidate.find(alias)
                 if 0 <= position <= 24:
                     scored.append((len(alias) - position, move))
