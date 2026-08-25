@@ -3,8 +3,9 @@
 
 Maintenance-only networking downloads discovered UFD visuals and converts them to
 compact same-origin WebP assets. GIFs are not shipped wholesale for the full roster:
-only the documented active/impact span is packed into an exact frame-addressable
-sprite sheet. Static UFD hitbox images remain clearly static references.
+source frames that overlap the documented active/impact span are packed into an
+exact frame-addressable sprite sheet. Visuals that cannot be aligned to documented
+game frames remain local static references instead of receiving invented timing.
 """
 from __future__ import annotations
 
@@ -261,12 +262,15 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
         if number <= max_source_frame
     ]
     if not frame_numbers:
-        # Preserve an honest source reference even if its visual sequence starts
-        # later/ends earlier than the documented timing window. Never map a
-        # sprite cell beyond the documented Total Frames value.
-        fallback_limit = max(1, max_source_frame)
-        fallback = min(max(1, move.get("startupFrame") or 1), fallback_limit)
-        frame_numbers = [fallback]
+        # This source animation has no image at the documented active/impact
+        # window. Keep a local untimed reference rather than inventing a game
+        # frame for one of its source-image indices.
+        relative = f"media/hitboxes/{fighter_id}/{move_id}/{variant_id}.webp"
+        save_static_reference(data, PUBLIC / relative)
+        result["imageSrc"] = relative
+        result["sourceFrameCount"] = len(all_frames)
+        return f"{fighter_id}:{move_id}", result
+
     selected = [all_frames[number - 1] for number in frame_numbers]
     relative = f"media/frame-sheets/{fighter_id}/{move_id}/{variant_id}.webp"
     sheet = make_sheet(selected, frame_numbers, PUBLIC / relative)
