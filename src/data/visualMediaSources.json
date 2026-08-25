@@ -18375,7 +18375,7 @@
           "mediaType": "gif"
         },
         {
-          "id": "mrgame-watchchef",
+          "id": "mrgame-watchchef-png",
           "label": "MrGame_WatchChef",
           "downloadUrl": "https://ultimateframedata.com/hitboxes/mr_game_and_watch/MrGame_WatchChef.png",
           "mediaType": "image"
@@ -24870,7 +24870,7 @@
           "mediaType": "gif"
         },
         {
-          "id": "diddykongrocketbarrels",
+          "id": "diddykongrocketbarrels-png",
           "label": "DiddyKongRocketBarrels",
           "downloadUrl": "https://ultimateframedata.com/hitboxes/diddy_kong/DiddyKongRocketBarrels.png",
           "mediaType": "image"
@@ -24918,7 +24918,7 @@
           "mediaType": "image"
         },
         {
-          "id": "diddykongbanana",
+          "id": "diddykongbanana-gif",
           "label": "DiddyKongBanana",
           "downloadUrl": "https://ultimateframedata.com/hitboxes/diddy_kong/DiddyKongBanana.gif",
           "mediaType": "gif"
@@ -46926,7 +46926,7 @@
           "mediaType": "gif"
         },
         {
-          "id": "isabelledashattack",
+          "id": "isabelledashattack-png",
           "label": "IsabelleDashAttack",
           "downloadUrl": "https://ultimateframedata.com/hitboxes/isabelle/IsabelleDashAttack.png",
           "mediaType": "image"
@@ -52047,7 +52047,7 @@
           "mediaType": "gif"
         },
         {
-          "id": "bylethfailnaughtmax",
+          "id": "bylethfailnaughtmax-png",
           "label": "BylethFailnaughtMax",
           "downloadUrl": "https://ultimateframedata.com/hitboxes/byleth/BylethFailnaughtMax.png",
           "mediaType": "image"

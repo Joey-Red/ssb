@@ -4,10 +4,10 @@ import { describe, expect, it } from 'vitest'
 import snapshotJson from './frameData.generated.json'
 import { indexFrameData } from './frameData'
 import { firstFrame, lastFrame, numericValue } from '../lib/frameData'
-import type { FrameDataSnapshot } from '../types'
+import type { FrameDataSnapshot, VisualMediaCoverage } from '../types'
 
 type SourceMove = { fighterId: string; moveId: string; totalFrames: number | null; active: string | null; activeSpan: number[] }
-type AssetManifest = { version: 2; moves: Record<string, { variants: Array<{ id?: string; spriteSheet?: { frameNumbers?: number[] } }> }> }
+type AssetManifest = { version: 2; moves: Record<string, { variants: Array<{ id?: string; coverage?: VisualMediaCoverage; spriteSheet?: { frameNumbers?: number[] } }> }> }
 type SourceManifest = { version: 2; moves: SourceMove[] }
 
 const index = indexFrameData(snapshotJson as unknown as FrameDataSnapshot)
@@ -15,7 +15,7 @@ const source = JSON.parse(readFileSync(join(process.cwd(), 'src/data/visualMedia
 const assets = JSON.parse(readFileSync(join(process.cwd(), 'src/data/visualMediaAssets.generated.json'), 'utf8')) as AssetManifest
 
 describe('visual-media timing consistency', () => {
-  it('keeps discovered visual references aligned to committed move timing', () => {
+  it('keeps full variants mapped to 1..Total and partial variants inside the conservative active span', () => {
     const stagedRangeMismatches: string[] = []
 
     for (const media of source.moves) {
@@ -40,13 +40,27 @@ describe('visual-media timing consistency', () => {
       expect(staged, `${key} staged media`).toBeDefined()
       for (const variant of staged?.variants ?? []) {
         const frames = variant.spriteSheet?.frameNumbers ?? []
-        if (!frames.length || media.activeSpan.length !== 2) continue
+        if (!frames.length) continue
+
+        if (variant.coverage === 'full') {
+          if (total === null) {
+            stagedRangeMismatches.push(`${key}/${variant.id ?? 'unnamed'} claims full coverage without Total Frames`)
+            continue
+          }
+          const expected = Array.from({ length: total }, (_, index) => index + 1)
+          if (frames.length !== expected.length || frames.some((frame, index) => frame !== expected[index])) {
+            stagedRangeMismatches.push(`${key}/${variant.id ?? 'unnamed'} full mapping is not 1-${total}`)
+          }
+          continue
+        }
+
+        if (media.activeSpan.length !== 2) continue
         const first = frames[0]!
         const last = frames.at(-1)!
         const activeStart = media.activeSpan[0]!
         const activeEnd = media.activeSpan[1]!
         if (first < activeStart || last > activeEnd) {
-          stagedRangeMismatches.push(`${key}/${variant.id ?? 'unnamed'} staged ${first}-${last}, active ${activeStart}-${activeEnd}`)
+          stagedRangeMismatches.push(`${key}/${variant.id ?? 'unnamed'} partial staged ${first}-${last}, active ${activeStart}-${activeEnd}`)
         }
       }
     }

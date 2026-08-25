@@ -61,6 +61,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const [variantId, setVariantId] = useState(firstVariantId)
   const selectedVariant = variants.find((variant) => variant.id === variantId) ?? variants[0]
   const selectedSheet = selectedVariant?.spriteSheet ?? (variants.length === 0 ? media?.spriteSheet : undefined)
+  const selectedAnimationSrc = selectedVariant?.animationSrc
   const staticImageSrc = selectedVariant?.imageSrc
   const sheetFrameNumbers = selectedSheet?.frameNumbers ?? (selectedSheet ? Array.from({ length: selectedSheet.frameCount }, (_, index) => index + 1) : [])
 
@@ -151,28 +152,50 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   }
 
   const stageStyle = selectedSheet ? { aspectRatio: `${selectedSheet.frameWidth} / ${selectedSheet.frameHeight}` } : undefined
-  const showAnimatedPreview = Boolean(media?.animatedPreviewUrl && !previewFailed && !selectedSheet && !hasStaticVisual)
-  const exactCoverageLabel = selectedSheet ? `${selectedSheet.frameCount} exact source frame${selectedSheet.frameCount === 1 ? '' : 's'}` : null
+  const showAnimatedFallback = Boolean(selectedAnimationSrc && !previewFailed && !hasExactVisual)
+  const showLegacyAnimatedPreview = Boolean(media?.animatedPreviewUrl && !previewFailed && !selectedSheet && !selectedAnimationSrc && !hasStaticVisual)
+  const exactCoverageLabel = selectedSheet
+    ? selectedVariant?.coverage === 'full'
+      ? `${selectedSheet.frameCount} / ${total} exact frames`
+      : `${selectedSheet.frameCount} exact mapped frames`
+    : null
   const sourceStatus = mediaLoading ? 'Loading local visuals…' : mediaFailed ? 'Local visual index unavailable' : media ? null : 'Timing only'
+
+  const coverageNote = selectedVariant?.coverage === 'full'
+    ? 'This same-origin visual contains an exact source image for every documented game frame, so startup, active, and recovery all scrub and play continuously.'
+    : selectedVariant?.coverage === 'partial' && selectedAnimationSrc
+      ? `Exact frame mapping is incomplete (${selectedVariant.coverageReason ?? 'source coverage is partial'}). Exact mapped frames stay synchronized; other frames show the local moving source animation as an explicitly unsynchronized reference.`
+      : selectedVariant?.coverage === 'untimed-animation' && selectedAnimationSrc
+        ? `This source remains animated locally, but it cannot be aligned to a complete documented game-frame timeline: ${selectedVariant.coverageReason ?? 'exact timing unavailable'}.`
+        : selectedVariant?.coverage === 'static'
+          ? `This source is inherently static or separately timed: ${selectedVariant.coverageReason ?? 'animated frame coverage unavailable'}. It remains on the generated coverage-gap list.`
+          : selectedSheet
+            ? `This same-origin sheet contains ${selectedSheet.frameCount} exact source images mapped to documented game frames. Frames outside that exact set are never fabricated.`
+            : mediaLoading
+              ? 'Loading this fighter’s same-origin visual index…'
+              : media
+                ? 'This move is mapped to UFD, but exact full-motion source coverage is not available for this variant.'
+                : 'Timing remains available when UFD does not expose a matching move visual.'
 
   return (
     <section className="visual-media-card" aria-label={`${fighterName} ${move.name} visual frame player`}>
       <header className="visual-media-card__head">
-        <div><span className="eyebrow">Frame-by-frame visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek documented game frames. Local source imagery appears on the exact active/impact frames that were staged; omitted frames are never invented.</p></div>
+        <div><span className="eyebrow">Full move visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek startup, active, and recovery game frames. Full-source variants animate continuously across the complete documented move; incomplete sources stay clearly labeled rather than receiving invented mappings.</p></div>
         {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Source notes ↗</a> : <span className="visual-media-card__source">{sourceStatus}</span>}
       </header>
       <div className="visual-player" tabIndex={0} onKeyDown={onKeyDown}>
         <div className="visual-player__split">
-          <div style={stageStyle} className={`visual-player__stage visual-player__stage--${phase}${hasExactVisual ? ' visual-player__stage--exact' : hasStaticVisual || showAnimatedPreview ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
+          <div style={stageStyle} className={`visual-player__stage visual-player__stage--${phase}${hasExactVisual ? ' visual-player__stage--exact' : hasStaticVisual || showAnimatedFallback || showLegacyAnimatedPreview ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
             {hasHostedStill && currentFrame?.imageSrc ? <img src={localMediaUrl(currentFrame.imageSrc)} alt={`${fighterName} ${move.name}, frame ${frame}`} loading="lazy" decoding="async" />
               : hasSpriteFrame && selectedSheet ? <><SpriteFrame sheet={selectedSheet} cellIndex={sheetCellIndex} frame={frame} label={`${fighterName} ${move.name}`} /><span className="visual-player__preview-label">Exact local source frame</span></>
-              : hasStaticVisual && staticImageSrc ? <><img src={localMediaUrl(staticImageSrc)} alt={`${fighterName} ${move.name} static hitbox reference`} loading="lazy" decoding="async" /><span className="visual-player__preview-label">Static source reference</span></>
-              : showAnimatedPreview && media?.animatedPreviewUrl ? <><img src={localMediaUrl(media.animatedPreviewUrl)} alt={`${fighterName} ${move.name} local animated hitbox reference`} loading="lazy" decoding="async" onError={() => setPreviewFailed(true)} /><span className="visual-player__preview-label">Local animation fallback</span></>
-              : <><img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true }} /><div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{mediaLoading ? 'Loading local visual index…' : media ? 'No exact source image staged for this frame' : move.name}</small></div></>}
+              : showAnimatedFallback && selectedAnimationSrc ? <><img src={localMediaUrl(selectedAnimationSrc)} alt={`${fighterName} ${move.name} local moving source reference`} loading="lazy" decoding="async" onError={() => setPreviewFailed(true)} /><span className="visual-player__preview-label">Moving source reference · not frame-synced</span></>
+              : hasStaticVisual && staticImageSrc ? <><img src={localMediaUrl(staticImageSrc)} alt={`${fighterName} ${move.name} static hitbox reference`} loading="lazy" decoding="async" /><span className="visual-player__preview-label">Static source reference · coverage gap</span></>
+              : showLegacyAnimatedPreview && media?.animatedPreviewUrl ? <><img src={localMediaUrl(media.animatedPreviewUrl)} alt={`${fighterName} ${move.name} local animated hitbox reference`} loading="lazy" decoding="async" onError={() => setPreviewFailed(true)} /><span className="visual-player__preview-label">Local animation fallback</span></>
+              : <><img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true }} /><div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{mediaLoading ? 'Loading local visual index…' : media ? 'No exact or animated source visual staged for this frame' : move.name}</small></div></>}
             <span className="visual-player__phase">{phase}</span>
             {showOverlay && hasExactVisual && regions.length > 0 && <div className="visual-player__overlay" aria-hidden="true">{regions.map((region) => <span key={region.id} className={`hitbox-circle hitbox-circle--${region.kind}`} style={{ left: `${region.x}%`, top: `${region.y}%`, width: `${region.radius * 2}%`, aspectRatio: '1' }} title={region.label} />)}</div>}
           </div>
-          <aside className="visual-player__timing" aria-label="Current move timing"><h5>Frame index</h5><dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{exactCoverageLabel && <><dt>Exact visual set</dt><dd>{exactCoverageLabel}</dd></>}</dl>{currentFrame?.caption && <p className="visual-player__note">{currentFrame.caption}</p>}</aside>
+          <aside className="visual-player__timing" aria-label="Current move timing"><h5>Frame index</h5><dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{exactCoverageLabel && <><dt>Visual coverage</dt><dd>{exactCoverageLabel}</dd></>}</dl>{currentFrame?.caption && <p className="visual-player__note">{currentFrame.caption}</p>}</aside>
         </div>
         <div className="visual-player__controls" aria-label="Frame player controls">
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame - 1) }} aria-label="Previous frame">−1f</button>
@@ -183,14 +206,14 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame + 1) }} aria-label="Next frame">+1f</button>
         </div>
         <div className="visual-player__study-controls" aria-label="Frame study controls">
-          {variants.length > 1 && <label><span>Visual</span><select value={selectedVariant?.id ?? ''} onChange={(event) => { setVariantId(event.target.value); setPlaying(false) }}>{variants.map((variant) => <option key={variant.id} value={variant.id}>{variant.label}</option>)}</select></label>}
+          {variants.length > 1 && <label><span>Visual</span><select value={selectedVariant?.id ?? ''} onChange={(event) => { setVariantId(event.target.value); setPlaying(false); setPreviewFailed(false) }}>{variants.map((variant) => <option key={variant.id} value={variant.id}>{variant.label}</option>)}</select></label>}
           <label><span>Speed</span><select value={speed} onChange={(event) => setSpeed(Number(event.target.value) as PlaybackSpeed)}><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1">1×</option></select></label>
           <button type="button" disabled={activeStart === null} onClick={() => jumpToActive('first')}>First active</button>
           <button type="button" disabled={activeEnd === null} onClick={() => jumpToActive('last')}>Last active</button>
           <label className="visual-player__loop-toggle"><input type="checkbox" checked={loopActive} disabled={!canLoopActive} onChange={(event) => { setLoopActive(event.target.checked); if (event.target.checked && activeStart !== null) setFrame(activeStart) }} /> Loop active span</label>
           {hasOverlayData ? <label className="visual-player__overlay-toggle"><input type="checkbox" checked={showOverlay} onChange={(event) => setShowOverlay(event.target.checked)} /> Hitboxes</label> : <span className="visual-player__overlay-status">Source hitboxes are baked into these study images</span>}
         </div>
-        <p className="visual-player__note">{selectedSheet ? `This compact same-origin sheet contains ${selectedSheet.frameCount} exact source images mapped to their documented game-frame numbers. Startup/recovery frames outside the staged visual span use the local fighter render instead of fabricated imagery.` : hasStaticVisual ? 'UFD provides a static hitbox reference for this move. It is hosted locally, but is not presented as a frame-synchronized animation.' : showAnimatedPreview ? 'The local animation is a fallback preview only; timing controls remain independent.' : mediaLoading ? 'Loading this fighter’s same-origin visual index…' : media ? 'This move is mapped to UFD, but an exact local image is not available for the selected frame.' : 'Timing remains available when UFD does not expose a matching move visual.'}</p>
+        <p className="visual-player__note">{coverageNote}</p>
       </div>
     </section>
   )

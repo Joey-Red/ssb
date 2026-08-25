@@ -52,6 +52,30 @@ def extension(url: str) -> str:
     return Path(urlparse(url).path).suffix.lower()
 
 
+def unique_visual_id(record: dict[str, Any], url: str) -> str:
+    """Return a deterministic ID even when UFD reuses one stem across formats.
+
+    UFD occasionally publishes a static PNG and animated GIF with the same
+    filename stem (for example Diddy Kong's Banana). Keeping both under the
+    same ID makes the runtime variant selector ambiguous and can cause one
+    source form to overwrite the other. Preserve the first canonical stem and
+    suffix later collisions with their media extension, then a numeric suffix
+    only if UFD somehow repeats that combination as well.
+    """
+    base = visual_id(url)
+    used = {str(variant.get("id", "")) for variant in record.get("variants", [])}
+    if base not in used:
+        return base
+
+    media_suffix = extension(url).lstrip(".") or "media"
+    candidate = f"{base}-{media_suffix}"
+    counter = 2
+    while candidate in used:
+        candidate = f"{base}-{media_suffix}-{counter}"
+        counter += 1
+    return candidate
+
+
 def positive_frame(value: str | None) -> int | None:
     match = re.search(r"\d+", value or "")
     if not match:
@@ -181,7 +205,7 @@ def discover_fighter(entry: dict[str, str], fighter_data: dict[str, Any]) -> tup
         })
         if any(variant["downloadUrl"] == url for variant in record["variants"]):
             continue
-        identifier = visual_id(url)
+        identifier = unique_visual_id(record, url)
         # Landing animations use their own landing-state timeline and cannot be
         # truthfully indexed against the aerial attack's active game frames.
         # Preserve them as local static references until a separate landing
@@ -238,6 +262,14 @@ def main() -> int:
     moves = [move for entry in entries for move in discovered[entry["fighterId"]]]
     mapped_fighters = sum(1 for entry in entries if discovered[entry["fighterId"]])
     mapped_variants = sum(len(move["variants"]) for move in moves)
+    duplicate_variant_ids = [
+        f"{move['fighterId']}:{move['moveId']}"
+        for move in moves
+        if len({variant['id'] for variant in move['variants']}) != len(move['variants'])
+    ]
+    if duplicate_variant_ids:
+        raise SystemExit("duplicate visual variant ids remain: " + ", ".join(duplicate_variant_ids))
+
     output = {
         "version": 2,
         "source": "Ultimate Frame Data",

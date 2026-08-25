@@ -146,6 +146,7 @@ export interface MediaAsset {
 
 export type VisualFramePhase = 'startup' | 'active' | 'recovery' | 'landing' | 'other'
 export type VisualRegionKind = 'strong' | 'weak' | 'grab' | 'hurtbox' | 'intangible'
+export type VisualMediaCoverage = 'full' | 'partial' | 'untimed-animation' | 'static'
 
 /** Coordinates are percentages of the displayed exact-frame image. */
 export interface VisualCircleRegion {
@@ -166,9 +167,10 @@ export interface VisualFrame {
 }
 
 /**
- * A local sprite sheet packs selected source frames into a fixed grid.
- * `frameNumbers` maps each sheet cell to the documented game frame it depicts,
- * allowing active/impact-only sheets without pretending omitted frames exist.
+ * A local sprite sheet packs exact source frames into a fixed grid.
+ * `frameNumbers` maps each sheet cell to the documented game frame it depicts.
+ * Full-motion sheets contain 1..Total Frames; partial sheets retain only frames
+ * whose game-frame mapping can be justified.
  */
 export interface VisualSpriteSheet {
   src: string
@@ -182,10 +184,18 @@ export interface VisualSpriteSheet {
 export interface VisualMediaVariant {
   id: string
   label: string
-  /** Exact selected source frames when the source is an animation. */
+  /** Exact frame-addressable local source images. */
   spriteSheet?: VisualSpriteSheet
-  /** Local static hitbox reference when UFD exposes an image rather than an animation. */
+  /** Same-origin animation used when the source cannot support a full exact timeline. */
+  animationSrc?: string
+  /** Local static reference for inherently static/separately timed source media. */
   imageSrc?: string
+  /** Whether the variant covers the complete documented move timeline exactly. */
+  coverage?: VisualMediaCoverage
+  /** Human-readable explanation for non-full coverage. */
+  coverageReason?: string
+  /** Number of source images discovered in the original animation/reference. */
+  sourceFrameCount?: number
 }
 
 export interface VisualMoveMedia {
