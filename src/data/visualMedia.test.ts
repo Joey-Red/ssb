@@ -149,7 +149,7 @@ describe('full-roster visual frame media', () => {
             const firstActive = move.activeSpan[0]!
             const lastActive = move.activeSpan[1]!
             expect(firstActive).toBeGreaterThan(0)
-            expect(lastActive).toBeLessThanOrEqual(variant.timelineTotalFrames ?? 0)
+            expect(lastActive, `${key}/${variant.id} active ${firstActive}-${lastActive} exceeds full timeline ${variant.timelineTotalFrames ?? 0}`).toBeLessThanOrEqual(variant.timelineTotalFrames ?? 0)
           }
         } else if (sourceVariant?.mediaType === 'animation') {
           expect(variant.coverageReason, `${key}/${variant.id} coverage reason`).toBeTruthy()
