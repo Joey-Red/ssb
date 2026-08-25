@@ -169,16 +169,25 @@ def timeline_class(fighter_id: str, move_name: str, label: str) -> str:
     label_text = normalized(label)
     combined = normalized(f"{move_name} {label}")
     words = set(combined.split())
+    compact_label = label_text.replace(" ", "")
+
+    # Pikachu's Down-B source named PikachuThunder depicts the separately
+    # generated thunderbolt, not Pikachu's parent action. The bolt is created
+    # independently and can remain active after Pikachu is interruptible, so it
+    # must own an independent projectile timeline rather than inherit the
+    # parent move's Total Frames/active span.
+    if fighter_id == "pikachu" and compact_label == "pikachuthunder":
+        return "projectile"
 
     if "landing" in words or label_text.endswith(" landing"):
         return "landing"
     if fighter_id == "rosalina-and-luma" and "luma" in words:
         return "companion-action"
-    if "bulletarts" in label_text.replace(" ", ""):
+    if "bulletarts" in compact_label:
         return "effect"
     if any(word in combined for word in EFFECT_WORDS):
         return "effect"
-    if any(word.replace(" ", "") in label_text.replace(" ", "") for word in PROJECTILE_WORDS):
+    if any(word.replace(" ", "") in compact_label for word in PROJECTILE_WORDS):
         return "projectile"
     if any(word in combined for word in CHARGE_WORDS):
         return "charge-state"
@@ -295,7 +304,7 @@ def main() -> int:
     duplicate_variant_ids = [
         f"{move['fighterId']}:{move['moveId']}"
         for move in moves
-        if len({variant['id'] for variant in move['variants']}) != len(move['variants'])
+        if len({variant['id'] for variant in move['variants']}) != len(move["variants"])
     ]
     if duplicate_variant_ids:
         raise SystemExit("duplicate visual variant ids remain: " + ", ".join(duplicate_variant_ids))
