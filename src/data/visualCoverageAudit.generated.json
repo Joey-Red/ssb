@@ -1,39 +1,39 @@
 {
   "version": 2,
   "totalFrameDataMoves": 3588,
-  "mappedSourceVisualMoves": 2701,
-  "mappedVisualMoves": 2701,
+  "mappedSourceVisualMoves": 2735,
+  "mappedVisualMoves": 2735,
   "reviewedCaptureCount": 0,
-  "movesWithoutSourceVisual": 887,
+  "movesWithoutSourceVisual": 853,
   "missingMoveCategories": {
     "defense": 799,
-    "grab": 9,
-    "ground": 5,
-    "misc": 48,
-    "special": 26
+    "grab": 6,
+    "ground": 2,
+    "misc": 36,
+    "special": 10
   },
-  "variantCount": 3339,
-  "resolvedVariants": 2751,
-  "unresolvedVariants": 588,
-  "unresolvedTotal": 1475,
+  "variantCount": 3560,
+  "resolvedVariants": 2852,
+  "unresolvedVariants": 708,
+  "unresolvedTotal": 1561,
   "blockerCounts": {
-    "missing-documented-timing": 129,
-    "short-or-misaligned-source": 319,
-    "static-source-needs-motion": 140
+    "missing-documented-timing": 142,
+    "short-or-misaligned-source": 404,
+    "static-source-needs-motion": 162
   },
   "fightersWithBlockers": 89,
   "fighters": {
     "banjo-and-kazooie": {
-      "unresolvedVariants": 6,
+      "unresolvedVariants": 7,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 15,
+      "totalBlockers": 16,
       "blockers": {
-        "short-or-misaligned-source": 1,
+        "short-or-misaligned-source": 2,
         "static-source-needs-motion": 5
       },
       "timelines": {
         "effect": 2,
-        "fighter-action": 4
+        "fighter-action": 5
       },
       "missingMoveCategories": {
         "defense": 9
@@ -89,6 +89,22 @@
         },
         {
           "fighterId": "banjo-and-kazooie",
+          "moveId": "down-air",
+          "moveLabel": "Banjo_and_kazooie Down Air",
+          "variantId": "banjo-kazooiedairlanding",
+          "variantLabel": "Banjo_KazooieDAirLanding",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 27 images / 3510 ms and cannot prove the complete 56-frame fighter action",
+          "sourceFrameCount": 27,
+          "sourceDurationMs": 3510,
+          "totalFrames": 56,
+          "landingLag": 27,
+          "sourceUrl": "https://ultimateframedata.com/banjo_and_kazooie"
+        },
+        {
+          "fighterId": "banjo-and-kazooie",
           "moveId": "down-b-rear-egg",
           "moveLabel": "Banjo_and_kazooie Down B (Rear Egg)",
           "variantId": "smashwiki-banjo-26kazooiereareggexplosionssbu",
@@ -133,7 +149,7 @@
           "sourceDurationMs": 6837,
           "totalFrames": 82,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:Banjo%26KazooieWonderwingSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/banjo_and_kazooie"
         }
       ],
       "movesWithoutVisuals": [
@@ -275,16 +291,16 @@
       ]
     },
     "bayonetta": {
-      "unresolvedVariants": 33,
+      "unresolvedVariants": 34,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 42,
+      "totalBlockers": 43,
       "blockers": {
-        "short-or-misaligned-source": 5,
+        "short-or-misaligned-source": 6,
         "static-source-needs-motion": 28
       },
       "timelines": {
         "effect": 28,
-        "fighter-action": 5
+        "fighter-action": 6
       },
       "missingMoveCategories": {
         "defense": 9
@@ -416,6 +432,22 @@
           "sourceDurationMs": null,
           "totalFrames": 52,
           "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/bayonetta"
+        },
+        {
+          "fighterId": "bayonetta",
+          "moveId": "down-smash",
+          "moveLabel": "Bayonetta Down Smash",
+          "variantId": "bayonettadsmashstomp",
+          "variantLabel": "BayonettaDSmashStomp",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 51 images / 8750 ms and cannot prove the complete 65-frame fighter action",
+          "sourceFrameCount": 51,
+          "sourceDurationMs": 8750,
+          "totalFrames": 65,
+          "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/bayonetta"
         },
         {
@@ -704,7 +736,7 @@
           "sourceDurationMs": 774,
           "totalFrames": 25,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:BayonettaPummelSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/bayonetta"
         },
         {
           "fighterId": "bayonetta",
@@ -1002,7 +1034,7 @@
           "sourceDurationMs": 910,
           "totalFrames": 21,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:BowserPummelSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/bowser"
         },
         {
           "fighterId": "bowser",
@@ -1018,7 +1050,7 @@
           "sourceDurationMs": 10270,
           "totalFrames": null,
           "landingLag": 36,
-          "sourceUrl": "https://www.ssbwiki.com/File:BowserWhirlingFortressAerialSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/bowser"
         }
       ],
       "movesWithoutVisuals": [
@@ -1160,17 +1192,17 @@
       ]
     },
     "bowser-jr": {
-      "unresolvedVariants": 11,
+      "unresolvedVariants": 12,
       "movesWithoutSourceVisual": 10,
-      "totalBlockers": 21,
+      "totalBlockers": 22,
       "blockers": {
         "missing-documented-timing": 4,
-        "short-or-misaligned-source": 3,
+        "short-or-misaligned-source": 4,
         "static-source-needs-motion": 4
       },
       "timelines": {
         "effect": 4,
-        "fighter-action": 7
+        "fighter-action": 8
       },
       "missingMoveCategories": {
         "defense": 10
@@ -1242,6 +1274,22 @@
         },
         {
           "fighterId": "bowser-jr",
+          "moveId": "forward-air",
+          "moveLabel": "Bowser_jr Forward Air",
+          "variantId": "bowserjrfairlanding",
+          "variantLabel": "BowserJrFAirLanding",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 16 images / 2080 ms and cannot prove the complete 43-frame fighter action",
+          "sourceFrameCount": 16,
+          "sourceDurationMs": 2080,
+          "totalFrames": 43,
+          "landingLag": 16,
+          "sourceUrl": "https://ultimateframedata.com/bowser_jr"
+        },
+        {
+          "fighterId": "bowser-jr",
           "moveId": "neutral-b-clown-cannon",
           "moveLabel": "Bowser_jr Neutral B (Clown Cannon)",
           "variantId": "smashwiki-bowserjrnspecialssbu",
@@ -1254,7 +1302,7 @@
           "sourceDurationMs": 2322,
           "totalFrames": 72,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:BowserJrNSpecialSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/bowser_jr"
         },
         {
           "fighterId": "bowser-jr",
@@ -1534,7 +1582,7 @@
           "sourceDurationMs": 9620,
           "totalFrames": 74,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:BylethDSmashSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/byleth"
         },
         {
           "fighterId": "byleth",
@@ -1550,7 +1598,7 @@
           "sourceDurationMs": 780,
           "totalFrames": 22,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:BylethPummelSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/byleth"
         }
       ],
       "movesWithoutVisuals": [
@@ -1784,7 +1832,7 @@
           "sourceDurationMs": 4290,
           "totalFrames": 39,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:CaptainFalconDThrowSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/captain_falcon"
         },
         {
           "fighterId": "captain-falcon",
@@ -1800,7 +1848,7 @@
           "sourceDurationMs": 780,
           "totalFrames": 19,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:CaptainFalconPummelSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/captain_falcon"
         },
         {
           "fighterId": "captain-falcon",
@@ -1974,19 +2022,18 @@
       ]
     },
     "charizard": {
-      "unresolvedVariants": 8,
-      "movesWithoutSourceVisual": 11,
-      "totalBlockers": 19,
+      "unresolvedVariants": 9,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 18,
       "blockers": {
         "missing-documented-timing": 1,
-        "short-or-misaligned-source": 7
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 8
+        "fighter-action": 9
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "special": 2
+        "defense": 9
       },
       "variants": [
         {
@@ -2052,6 +2099,22 @@
           "totalFrames": 37,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/pt_charizard"
+        },
+        {
+          "fighterId": "charizard",
+          "moveId": "neutral-b-flamethrower",
+          "moveLabel": "Pt_charizard Neutral B (Flamethrower)",
+          "variantId": "smashwiki-shorthand-charizard-neutral-b-ssbu",
+          "variantLabel": "Charizard_Neutral_B_SSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 43 images / 1720 ms and cannot prove the complete 70-frame fighter action",
+          "sourceFrameCount": 43,
+          "sourceDurationMs": 1720,
+          "totalFrames": 70,
+          "landingLag": null,
+          "sourceUrl": "https://www.ssbwiki.com/File:Charizard_Neutral_B_SSBU.gif"
         },
         {
           "fighterId": "charizard",
@@ -2253,36 +2316,6 @@
           "sourceUrl": "https://ultimateframedata.com/pt_charizard",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "charizard",
-          "fighterName": "Pt_charizard",
-          "moveId": "down-b-pokemon-change",
-          "moveLabel": "Pt_charizard Down B (Pokemon Change)",
-          "moveName": "Down B (Pokemon Change)",
-          "category": "special",
-          "startup": null,
-          "active": "**",
-          "totalFrames": "39",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_charizard",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "charizard",
-          "fighterName": "Pt_charizard",
-          "moveId": "neutral-b-flamethrower",
-          "moveLabel": "Pt_charizard Neutral B (Flamethrower)",
-          "moveName": "Neutral B (Flamethrower)",
-          "category": "special",
-          "startup": "19/26/33/40",
-          "active": "19\u201422/26\u201429/33\u201436/40\u201443",
-          "totalFrames": "70",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_charizard",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
@@ -2315,7 +2348,7 @@
           "sourceDurationMs": 774,
           "totalFrames": 19,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:ChromPummelSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/chrom"
         },
         {
           "fighterId": "chrom",
@@ -4518,21 +4551,21 @@
       ]
     },
     "duck-hunt": {
-      "unresolvedVariants": 10,
-      "movesWithoutSourceVisual": 16,
-      "totalBlockers": 26,
+      "unresolvedVariants": 11,
+      "movesWithoutSourceVisual": 14,
+      "totalBlockers": 25,
       "blockers": {
+        "missing-documented-timing": 1,
         "short-or-misaligned-source": 1,
         "static-source-needs-motion": 9
       },
       "timelines": {
         "effect": 4,
-        "fighter-action": 6
+        "fighter-action": 7
       },
       "missingMoveCategories": {
         "defense": 9,
-        "misc": 5,
-        "special": 2
+        "misc": 5
       },
       "variants": [
         {
@@ -4694,6 +4727,22 @@
           "totalFrames": 64,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/duck_hunt"
+        },
+        {
+          "fighterId": "duck-hunt",
+          "moveId": "up-b-duck-jump",
+          "moveLabel": "Duck_hunt Up B (Duck Jump)",
+          "variantId": "smashwiki-curated-duck-hunt-up-b-ssbu",
+          "variantLabel": "Duck Hunt Up B SSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 78,
+          "sourceDurationMs": 3120,
+          "totalFrames": null,
+          "landingLag": 30,
+          "sourceUrl": "https://www.ssbwiki.com/File:Duck_Hunt_Up_B_SSBU.gif"
         }
       ],
       "movesWithoutVisuals": [
@@ -4903,36 +4952,6 @@
           "active": "**",
           "totalFrames": "41",
           "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/duck_hunt",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "duck-hunt",
-          "fighterName": "Duck_hunt",
-          "moveId": "down-b-wild-gunman",
-          "moveLabel": "Duck_hunt Down B (Wild Gunman)",
-          "moveName": "Down B (Wild Gunman)",
-          "category": "special",
-          "startup": null,
-          "active": "**",
-          "totalFrames": "41",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/duck_hunt",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "duck-hunt",
-          "fighterName": "Duck_hunt",
-          "moveId": "up-b-duck-jump",
-          "moveLabel": "Duck_hunt Up B (Duck Jump)",
-          "moveName": "Up B (Duck Jump)",
-          "category": "special",
-          "startup": null,
-          "active": "**",
-          "totalFrames": null,
-          "landingLag": "30",
           "sourceUrl": "https://ultimateframedata.com/duck_hunt",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -5689,21 +5708,100 @@
       ]
     },
     "greninja": {
-      "unresolvedVariants": 4,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 14,
+      "unresolvedVariants": 9,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 18,
       "blockers": {
         "missing-documented-timing": 1,
-        "short-or-misaligned-source": 3
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 4
+        "fighter-action": 9
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "special": 1
+        "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "greninja",
+          "moveId": "down-b-attack-substitute-attack",
+          "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+          "variantId": "greninjasubstitutehitdiagonaldown",
+          "variantLabel": "GreninjaSubstituteHitDiagonalDown",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action",
+          "sourceFrameCount": 19,
+          "sourceDurationMs": 2470,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/greninja"
+        },
+        {
+          "fighterId": "greninja",
+          "moveId": "down-b-attack-substitute-attack",
+          "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+          "variantId": "greninjasubstitutehitdiagonalup",
+          "variantLabel": "GreninjaSubstituteHitDiagonalUp",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action",
+          "sourceFrameCount": 19,
+          "sourceDurationMs": 2470,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/greninja"
+        },
+        {
+          "fighterId": "greninja",
+          "moveId": "down-b-attack-substitute-attack",
+          "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+          "variantId": "greninjasubstitutehitdown",
+          "variantLabel": "GreninjaSubstituteHitDown",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action",
+          "sourceFrameCount": 19,
+          "sourceDurationMs": 2470,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/greninja"
+        },
+        {
+          "fighterId": "greninja",
+          "moveId": "down-b-attack-substitute-attack",
+          "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+          "variantId": "greninjasubstitutehitside",
+          "variantLabel": "GreninjaSubstituteHitSide",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action",
+          "sourceFrameCount": 19,
+          "sourceDurationMs": 2470,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/greninja"
+        },
+        {
+          "fighterId": "greninja",
+          "moveId": "down-b-attack-substitute-attack",
+          "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+          "variantId": "greninjasubstitutehitup",
+          "variantLabel": "GreninjaSubstituteHitUp",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action",
+          "sourceFrameCount": 19,
+          "sourceDurationMs": 2470,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/greninja"
+        },
         {
           "fighterId": "greninja",
           "moveId": "side-b-shadow-sneak",
@@ -5904,35 +6002,20 @@
           "sourceUrl": "https://ultimateframedata.com/greninja",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "greninja",
-          "fighterName": "Greninja",
-          "moveId": "down-b-attack-substitute-attack",
-          "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
-          "moveName": "Down B, Attack (Substitute, Attack)",
-          "category": "special",
-          "startup": "19",
-          "active": "19",
-          "totalFrames": "63",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/greninja",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "hero": {
-      "unresolvedVariants": 8,
+      "unresolvedVariants": 12,
       "movesWithoutSourceVisual": 20,
-      "totalBlockers": 28,
+      "totalBlockers": 32,
       "blockers": {
         "missing-documented-timing": 3,
-        "short-or-misaligned-source": 3,
+        "short-or-misaligned-source": 7,
         "static-source-needs-motion": 2
       },
       "timelines": {
-        "fighter-action": 8
+        "fighter-action": 12
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -6023,6 +6106,54 @@
           "fighterId": "hero",
           "moveId": "side-b-zap-zapple-kazap",
           "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+          "variantId": "herokazap",
+          "variantLabel": "HeroKazap",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 93,
+          "sourceDurationMs": 12090,
+          "totalFrames": 30,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/hero"
+        },
+        {
+          "fighterId": "hero",
+          "moveId": "side-b-zap-zapple-kazap",
+          "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+          "variantId": "herozap",
+          "variantLabel": "HeroZap",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 38,
+          "sourceDurationMs": 4940,
+          "totalFrames": 30,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/hero"
+        },
+        {
+          "fighterId": "hero",
+          "moveId": "side-b-zap-zapple-kazap",
+          "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+          "variantId": "herozapnomana",
+          "variantLabel": "HeroZapNoMana",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 38,
+          "sourceDurationMs": 4940,
+          "totalFrames": 30,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/hero"
+        },
+        {
+          "fighterId": "hero",
+          "moveId": "side-b-zap-zapple-kazap",
+          "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
           "variantId": "smashwiki-herozapssbu",
           "variantLabel": "HeroZapSSBU",
           "timelineClass": "fighter-action",
@@ -6033,7 +6164,23 @@
           "sourceDurationMs": 4940,
           "totalFrames": 30,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:HeroZapSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/hero"
+        },
+        {
+          "fighterId": "hero",
+          "moveId": "side-b-zap-zapple-kazap",
+          "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+          "variantId": "herozapple",
+          "variantLabel": "HeroZapple",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 51,
+          "sourceDurationMs": 6630,
+          "totalFrames": 30,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/hero"
         },
         {
           "fighterId": "hero",
@@ -6574,15 +6721,15 @@
       ]
     },
     "ike": {
-      "unresolvedVariants": 5,
+      "unresolvedVariants": 12,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 14,
+      "totalBlockers": 21,
       "blockers": {
-        "missing-documented-timing": 1,
-        "short-or-misaligned-source": 4
+        "missing-documented-timing": 6,
+        "short-or-misaligned-source": 6
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 12
       },
       "missingMoveCategories": {
         "defense": 9
@@ -6622,6 +6769,38 @@
         },
         {
           "fighterId": "ike",
+          "moveId": "neutral-b-eruption",
+          "moveLabel": "Ike Neutral B (Eruption)",
+          "variantId": "ikeeruption",
+          "variantLabel": "IkeEruption",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 59 images / 7670 ms and cannot prove the complete 78-frame fighter action",
+          "sourceFrameCount": 59,
+          "sourceDurationMs": 7670,
+          "totalFrames": 78,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
+          "moveId": "neutral-b-eruption",
+          "moveLabel": "Ike Neutral B (Eruption)",
+          "variantId": "ikeeruptionmid",
+          "variantLabel": "IkeEruptionMid",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 59 images / 7670 ms and cannot prove the complete 78-frame fighter action",
+          "sourceFrameCount": 59,
+          "sourceDurationMs": 7670,
+          "totalFrames": 78,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
           "moveId": "side-b-quickdraw",
           "moveLabel": "Ike Side B (Quickdraw)",
           "variantId": "ikequickdraw",
@@ -6656,6 +6835,54 @@
           "fighterId": "ike",
           "moveId": "up-b-aether",
           "moveLabel": "Ike Up B (Aether)",
+          "variantId": "ikeaethera",
+          "variantLabel": "IkeAetherA",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 60,
+          "sourceDurationMs": 7800,
+          "totalFrames": null,
+          "landingLag": 36,
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
+          "moveId": "up-b-aether",
+          "moveLabel": "Ike Up B (Aether)",
+          "variantId": "ikeaetherfall",
+          "variantLabel": "IkeAetherFall",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 5,
+          "sourceDurationMs": 650,
+          "totalFrames": null,
+          "landingLag": 36,
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
+          "moveId": "up-b-aether",
+          "moveLabel": "Ike Up B (Aether)",
+          "variantId": "ikeaetherg",
+          "variantLabel": "IkeAetherG",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 60,
+          "sourceDurationMs": 7800,
+          "totalFrames": null,
+          "landingLag": 36,
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
+          "moveId": "up-b-aether",
+          "moveLabel": "Ike Up B (Aether)",
           "variantId": "smashwiki-ikeaethergroundedssbu",
           "variantLabel": "IkeAetherGroundedSSBU",
           "timelineClass": "fighter-action",
@@ -6666,7 +6893,39 @@
           "sourceDurationMs": 7800,
           "totalFrames": null,
           "landingLag": 36,
-          "sourceUrl": "https://www.ssbwiki.com/File:IkeAetherFallingSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
+          "moveId": "up-b-aether",
+          "moveLabel": "Ike Up B (Aether)",
+          "variantId": "ikeaetherlanding",
+          "variantLabel": "IkeAetherLanding",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 36,
+          "sourceDurationMs": 4680,
+          "totalFrames": null,
+          "landingLag": 36,
+          "sourceUrl": "https://ultimateframedata.com/ike"
+        },
+        {
+          "fighterId": "ike",
+          "moveId": "up-b-aether",
+          "moveLabel": "Ike Up B (Aether)",
+          "variantId": "ikeaethersword",
+          "variantLabel": "IkeAetherSword",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 46,
+          "sourceDurationMs": 5980,
+          "totalFrames": null,
+          "landingLag": 36,
+          "sourceUrl": "https://ultimateframedata.com/ike"
         }
       ],
       "movesWithoutVisuals": [
@@ -7211,15 +7470,15 @@
       ]
     },
     "isabelle": {
-      "unresolvedVariants": 2,
+      "unresolvedVariants": 3,
       "movesWithoutSourceVisual": 11,
-      "totalBlockers": 13,
+      "totalBlockers": 14,
       "blockers": {
         "missing-documented-timing": 1,
-        "static-source-needs-motion": 1
+        "static-source-needs-motion": 2
       },
       "timelines": {
-        "effect": 1,
+        "effect": 2,
         "fighter-action": 1
       },
       "missingMoveCategories": {
@@ -7228,6 +7487,22 @@
         "misc": 1
       },
       "variants": [
+        {
+          "fighterId": "isabelle",
+          "moveId": "down-b-lloid-trap",
+          "moveLabel": "Isabelle Down B (Lloid Trap)",
+          "variantId": "isabellelloidtrapburst",
+          "variantLabel": "IsabelleLloidTrapBurst",
+          "timelineClass": "effect",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "effect source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 49,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/isabelle"
+        },
         {
           "fighterId": "isabelle",
           "moveId": "down-b-lloid-trap",
@@ -7242,7 +7517,7 @@
           "sourceDurationMs": null,
           "totalFrames": 49,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:IsabelleLloidTrapSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/isabelle"
         },
         {
           "fighterId": "isabelle",
@@ -7431,8 +7706,8 @@
     },
     "ivysaur": {
       "unresolvedVariants": 3,
-      "movesWithoutSourceVisual": 12,
-      "totalBlockers": 15,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 12,
       "blockers": {
         "short-or-misaligned-source": 3
       },
@@ -7440,9 +7715,7 @@
         "fighter-action": 3
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "ground": 1,
-        "special": 2
+        "defense": 9
       },
       "variants": [
         {
@@ -7625,51 +7898,6 @@
           "startup": null,
           "active": null,
           "totalFrames": "21/26",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "ivysaur",
-          "fighterName": "Pt_ivysaur",
-          "moveId": "down-smash",
-          "moveLabel": "Pt_ivysaur Down Smash",
-          "moveName": "Down Smash",
-          "category": "ground",
-          "startup": "13",
-          "active": "13\u201414",
-          "totalFrames": "45",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "ivysaur",
-          "fighterName": "Pt_ivysaur",
-          "moveId": "down-b-pokemon-change",
-          "moveLabel": "Pt_ivysaur Down B (Pokemon Change)",
-          "moveName": "Down B (Pokemon Change)",
-          "category": "special",
-          "startup": null,
-          "active": "**",
-          "totalFrames": "39",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "ivysaur",
-          "fighterName": "Pt_ivysaur",
-          "moveId": "up-b-vinewhip",
-          "moveLabel": "Pt_ivysaur Up B (Vinewhip)",
-          "moveName": "Up B (Vinewhip)",
-          "category": "special",
-          "startup": "15",
-          "active": "15\u201417",
-          "totalFrames": "47",
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
           "blockerClass": "no-source-visual",
@@ -8159,21 +8387,36 @@
       ]
     },
     "kazuya": {
-      "unresolvedVariants": 4,
-      "movesWithoutSourceVisual": 12,
-      "totalBlockers": 16,
+      "unresolvedVariants": 5,
+      "movesWithoutSourceVisual": 10,
+      "totalBlockers": 15,
       "blockers": {
-        "short-or-misaligned-source": 4
+        "short-or-misaligned-source": 5
       },
       "timelines": {
-        "fighter-action": 4
+        "fighter-action": 5
       },
       "missingMoveCategories": {
         "defense": 9,
-        "misc": 2,
-        "special": 1
+        "misc": 1
       },
       "variants": [
+        {
+          "fighterId": "kazuya",
+          "moveId": "down-b-heaven-s-door",
+          "moveLabel": "Kazuya Down B (Heaven's Door)",
+          "variantId": "shoto4heavensdoorground",
+          "variantLabel": "Shoto4HeavensDoorGround",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 42 images / 5460 ms and cannot prove the complete 49-frame fighter action",
+          "sourceFrameCount": 42,
+          "sourceDurationMs": 5460,
+          "totalFrames": 49,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/kazuya"
+        },
         {
           "fighterId": "kazuya",
           "moveId": "electric-wind-god-fist",
@@ -8385,36 +8628,6 @@
           "startup": "27",
           "active": "27\u201443",
           "totalFrames": "67",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/kazuya",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "kazuya",
-          "fighterName": "Kazuya",
-          "moveId": "rage-drive-non-input",
-          "moveLabel": "Kazuya Rage Drive (Non Input)",
-          "moveName": "Rage Drive (Non Input)",
-          "category": "misc",
-          "startup": "14",
-          "active": "14\u201415",
-          "totalFrames": "57 (42 throw)",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/kazuya",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "kazuya",
-          "fighterName": "Kazuya",
-          "moveId": "down-b-heaven-s-door",
-          "moveLabel": "Kazuya Down B (Heaven's Door)",
-          "moveName": "Down B (Heaven's Door)",
-          "category": "special",
-          "startup": "14",
-          "active": "**",
-          "totalFrames": "49 (59 in air)",
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/kazuya",
           "blockerClass": "no-source-visual",
@@ -9019,15 +9232,16 @@
       ]
     },
     "king-k-rool": {
-      "unresolvedVariants": 5,
+      "unresolvedVariants": 10,
       "movesWithoutSourceVisual": 10,
-      "totalBlockers": 15,
+      "totalBlockers": 20,
       "blockers": {
         "missing-documented-timing": 3,
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 5,
+        "static-source-needs-motion": 2
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 10
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -9054,6 +9268,38 @@
           "fighterId": "king-k-rool",
           "moveId": "neutral-b-blunderbuss-kannonball",
           "moveLabel": "King_k_rool Neutral B (Blunderbuss Kannonball)",
+          "variantId": "kingkroolblunderbusskannonballdetection",
+          "variantLabel": "KingKRoolBlunderbussKannonballDetection",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 65-frame parent action, but documented interaction remains active through frame 150; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 15,
+          "sourceDurationMs": 1950,
+          "totalFrames": 65,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
+        },
+        {
+          "fighterId": "king-k-rool",
+          "moveId": "neutral-b-blunderbuss-kannonball",
+          "moveLabel": "King_k_rool Neutral B (Blunderbuss Kannonball)",
+          "variantId": "kingkroolkannonball",
+          "variantLabel": "KingKRoolKannonball",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 65,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
+        },
+        {
+          "fighterId": "king-k-rool",
+          "moveId": "neutral-b-blunderbuss-kannonball",
+          "moveLabel": "King_k_rool Neutral B (Blunderbuss Kannonball)",
           "variantId": "smashwiki-kingkroolnspecialvacuumssbu",
           "variantLabel": "KingKRoolNSpecialVacuumSSBU",
           "timelineClass": "fighter-action",
@@ -9064,7 +9310,7 @@
           "sourceDurationMs": 1950,
           "totalFrames": 65,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:KingKRoolNSpecialVacuumSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
         },
         {
           "fighterId": "king-k-rool",
@@ -9086,6 +9332,54 @@
           "fighterId": "king-k-rool",
           "moveId": "side-b-crownerang",
           "moveLabel": "King_k_rool Side B (Crownerang)",
+          "variantId": "kingkroolcrownerang",
+          "variantLabel": "KingKRoolCrownerang",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 63-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 79,
+          "sourceDurationMs": 10270,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
+        },
+        {
+          "fighterId": "king-k-rool",
+          "moveId": "side-b-crownerang",
+          "moveLabel": "King_k_rool Side B (Crownerang)",
+          "variantId": "kingkroolcrownerangthrow",
+          "variantLabel": "KingKRoolCrownerangThrow",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 63-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 63,
+          "sourceDurationMs": 8190,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
+        },
+        {
+          "fighterId": "king-k-rool",
+          "moveId": "side-b-crownerang",
+          "moveLabel": "King_k_rool Side B (Crownerang)",
+          "variantId": "kingkroolcrownerangthrown",
+          "variantLabel": "KingKRoolCrownerangThrown",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 63,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
+        },
+        {
+          "fighterId": "king-k-rool",
+          "moveId": "side-b-crownerang",
+          "moveLabel": "King_k_rool Side B (Crownerang)",
           "variantId": "smashwiki-kingkroolsspecialssbu",
           "variantLabel": "KingKRoolSSpecialSSBU",
           "timelineClass": "fighter-action",
@@ -9096,7 +9390,7 @@
           "sourceDurationMs": 5460,
           "totalFrames": 63,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:KingKRoolSSpecialSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/king_k_rool"
         },
         {
           "fighterId": "king-k-rool",
@@ -10604,15 +10898,15 @@
       ]
     },
     "lucina": {
-      "unresolvedVariants": 5,
+      "unresolvedVariants": 8,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 14,
+      "totalBlockers": 17,
       "blockers": {
         "missing-documented-timing": 3,
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 5
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 8
       },
       "missingMoveCategories": {
         "defense": 9
@@ -10649,6 +10943,54 @@
           "totalFrames": 34,
           "landingLag": null,
           "sourceUrl": "https://www.ssbwiki.com/File:LucinaFThrowSSBU.gif"
+        },
+        {
+          "fighterId": "lucina",
+          "moveId": "neutral-b-shieldbreaker",
+          "moveLabel": "Lucina Neutral B (Shieldbreaker)",
+          "variantId": "lucinashieldbreaker",
+          "variantLabel": "LucinaShieldbreaker",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 32 images / 4160 ms and cannot prove the complete 50-frame fighter action",
+          "sourceFrameCount": 32,
+          "sourceDurationMs": 4160,
+          "totalFrames": 50,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/lucina"
+        },
+        {
+          "fighterId": "lucina",
+          "moveId": "neutral-b-shieldbreaker",
+          "moveLabel": "Lucina Neutral B (Shieldbreaker)",
+          "variantId": "lucinashieldbreakerdown",
+          "variantLabel": "LucinaShieldbreakerDown",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 32 images / 4160 ms and cannot prove the complete 50-frame fighter action",
+          "sourceFrameCount": 32,
+          "sourceDurationMs": 4160,
+          "totalFrames": 50,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/lucina"
+        },
+        {
+          "fighterId": "lucina",
+          "moveId": "neutral-b-shieldbreaker",
+          "moveLabel": "Lucina Neutral B (Shieldbreaker)",
+          "variantId": "lucinashieldbreakerup",
+          "variantLabel": "LucinaShieldbreakerUp",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 32 images / 4160 ms and cannot prove the complete 50-frame fighter action",
+          "sourceFrameCount": 32,
+          "sourceDurationMs": 4160,
+          "totalFrames": 50,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/lucina"
         },
         {
           "fighterId": "lucina",
@@ -11259,15 +11601,15 @@
       ]
     },
     "marth": {
-      "unresolvedVariants": 5,
+      "unresolvedVariants": 8,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 14,
+      "totalBlockers": 17,
       "blockers": {
         "missing-documented-timing": 3,
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 5
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 8
       },
       "missingMoveCategories": {
         "defense": 9
@@ -11304,6 +11646,54 @@
           "totalFrames": 34,
           "landingLag": null,
           "sourceUrl": "https://www.ssbwiki.com/File:MarthFThrowSSBU.gif"
+        },
+        {
+          "fighterId": "marth",
+          "moveId": "neutral-b-shield-breaker",
+          "moveLabel": "Marth Neutral B (Shield Breaker)",
+          "variantId": "marthshieldbreaker",
+          "variantLabel": "MarthShieldbreaker",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 39 images / 5070 ms and cannot prove the complete 50-frame fighter action",
+          "sourceFrameCount": 39,
+          "sourceDurationMs": 5070,
+          "totalFrames": 50,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/marth"
+        },
+        {
+          "fighterId": "marth",
+          "moveId": "neutral-b-shield-breaker",
+          "moveLabel": "Marth Neutral B (Shield Breaker)",
+          "variantId": "marthshieldbreakerdown",
+          "variantLabel": "MarthShieldbreakerDown",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 39 images / 5070 ms and cannot prove the complete 50-frame fighter action",
+          "sourceFrameCount": 39,
+          "sourceDurationMs": 5070,
+          "totalFrames": 50,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/marth"
+        },
+        {
+          "fighterId": "marth",
+          "moveId": "neutral-b-shield-breaker",
+          "moveLabel": "Marth Neutral B (Shield Breaker)",
+          "variantId": "marthshieldbreakerup",
+          "variantLabel": "MarthShieldbreakerUp",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 39 images / 5070 ms and cannot prove the complete 50-frame fighter action",
+          "sourceFrameCount": 39,
+          "sourceDurationMs": 5070,
+          "totalFrames": 50,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/marth"
         },
         {
           "fighterId": "marth",
@@ -11494,8 +11884,8 @@
     },
     "mega-man": {
       "unresolvedVariants": 8,
-      "movesWithoutSourceVisual": 11,
-      "totalBlockers": 19,
+      "movesWithoutSourceVisual": 10,
+      "totalBlockers": 18,
       "blockers": {
         "short-or-misaligned-source": 8
       },
@@ -11504,8 +11894,7 @@
       },
       "missingMoveCategories": {
         "defense": 9,
-        "ground": 1,
-        "special": 1
+        "ground": 1
       },
       "variants": [
         {
@@ -11787,39 +12176,119 @@
           "sourceUrl": "https://ultimateframedata.com/mega_man",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "mega-man",
-          "fighterName": "Mega_man",
-          "moveId": "up-b-rush-coil",
-          "moveLabel": "Mega_man Up B (Rush Coil)",
-          "moveName": "Up B (Rush Coil)",
-          "category": "special",
-          "startup": null,
-          "active": null,
-          "totalFrames": "41",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/mega_man",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "meta-knight": {
-      "unresolvedVariants": 5,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 15,
+      "unresolvedVariants": 11,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 20,
       "blockers": {
-        "short-or-misaligned-source": 5
+        "short-or-misaligned-source": 11
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 11
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "misc": 1
+        "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "meta-knight",
+          "moveId": "dimensional-cape-attack",
+          "moveLabel": "Meta_knight Dimensional Cape, Attack",
+          "variantId": "metaknightdimensionalcapea",
+          "variantLabel": "MetaKnightDimensionalCapeA",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action",
+          "sourceFrameCount": 64,
+          "sourceDurationMs": 8320,
+          "totalFrames": 92,
+          "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/meta_knight"
+        },
+        {
+          "fighterId": "meta-knight",
+          "moveId": "dimensional-cape-attack",
+          "moveLabel": "Meta_knight Dimensional Cape, Attack",
+          "variantId": "metaknightdimensionalcapeab",
+          "variantLabel": "MetaKnightDimensionalCapeAB",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action",
+          "sourceFrameCount": 64,
+          "sourceDurationMs": 8320,
+          "totalFrames": 92,
+          "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/meta_knight"
+        },
+        {
+          "fighterId": "meta-knight",
+          "moveId": "dimensional-cape-attack",
+          "moveLabel": "Meta_knight Dimensional Cape, Attack",
+          "variantId": "metaknightdimensionalcapeaf",
+          "variantLabel": "MetaKnightDimensionalCapeAF",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action",
+          "sourceFrameCount": 64,
+          "sourceDurationMs": 8320,
+          "totalFrames": 92,
+          "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/meta_knight"
+        },
+        {
+          "fighterId": "meta-knight",
+          "moveId": "dimensional-cape-attack",
+          "moveLabel": "Meta_knight Dimensional Cape, Attack",
+          "variantId": "metaknightdimensionalcapeg",
+          "variantLabel": "MetaKnightDimensionalCapeG",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action",
+          "sourceFrameCount": 64,
+          "sourceDurationMs": 8320,
+          "totalFrames": 92,
+          "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/meta_knight"
+        },
+        {
+          "fighterId": "meta-knight",
+          "moveId": "dimensional-cape-attack",
+          "moveLabel": "Meta_knight Dimensional Cape, Attack",
+          "variantId": "metaknightdimensionalcapegb",
+          "variantLabel": "MetaKnightDimensionalCapeGB",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action",
+          "sourceFrameCount": 64,
+          "sourceDurationMs": 8320,
+          "totalFrames": 92,
+          "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/meta_knight"
+        },
+        {
+          "fighterId": "meta-knight",
+          "moveId": "dimensional-cape-attack",
+          "moveLabel": "Meta_knight Dimensional Cape, Attack",
+          "variantId": "metaknightdimensionalcapegf",
+          "variantLabel": "MetaKnightDimensionalCapeGF",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action",
+          "sourceFrameCount": 64,
+          "sourceDurationMs": 8320,
+          "totalFrames": 92,
+          "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/meta_knight"
+        },
         {
           "fighterId": "meta-knight",
           "moveId": "pummel",
@@ -12036,21 +12505,6 @@
           "sourceUrl": "https://ultimateframedata.com/meta_knight",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "meta-knight",
-          "fighterName": "Meta_knight",
-          "moveId": "dimensional-cape-attack",
-          "moveLabel": "Meta_knight Dimensional Cape, Attack",
-          "moveName": "Dimensional Cape, Attack",
-          "category": "misc",
-          "startup": "34",
-          "active": "34",
-          "totalFrames": "92",
-          "landingLag": "30",
-          "sourceUrl": "https://ultimateframedata.com/meta_knight",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
@@ -12219,20 +12673,19 @@
       ]
     },
     "mii-brawler": {
-      "unresolvedVariants": 15,
-      "movesWithoutSourceVisual": 13,
-      "totalBlockers": 28,
+      "unresolvedVariants": 16,
+      "movesWithoutSourceVisual": 11,
+      "totalBlockers": 27,
       "blockers": {
         "missing-documented-timing": 8,
-        "short-or-misaligned-source": 7
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 15
+        "fighter-action": 16
       },
       "missingMoveCategories": {
         "defense": 9,
-        "grab": 1,
-        "misc": 3
+        "misc": 2
       },
       "variants": [
         {
@@ -12297,6 +12750,22 @@
           "sourceDurationMs": 6760,
           "totalFrames": 52,
           "landingLag": 37,
+          "sourceUrl": "https://ultimateframedata.com/mii_brawler"
+        },
+        {
+          "fighterId": "mii-brawler",
+          "moveId": "flashing-mach-punch",
+          "moveLabel": "Mii_brawler Flashing Mach Punch",
+          "variantId": "miibrawlerflashingmachpunchmiss",
+          "variantLabel": "MiiBrawlerFlashingMachPunchMiss",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 54 images / 7020 ms and cannot prove the complete 93-frame fighter action",
+          "sourceFrameCount": 54,
+          "sourceDurationMs": 7020,
+          "totalFrames": 93,
+          "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/mii_brawler"
         },
         {
@@ -12615,36 +13084,6 @@
         {
           "fighterId": "mii-brawler",
           "fighterName": "Mii_brawler",
-          "moveId": "counter-throw-activated",
-          "moveLabel": "Mii_brawler Counter Throw, Activated",
-          "moveName": "Counter Throw, Activated",
-          "category": "grab",
-          "startup": "3/16",
-          "active": "**",
-          "totalFrames": "Grab: 39 (if missed) // Throw: 46",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/mii_brawler",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "mii-brawler",
-          "fighterName": "Mii_brawler",
-          "moveId": "flashing-mach-punch",
-          "moveLabel": "Mii_brawler Flashing Mach Punch",
-          "moveName": "Flashing Mach Punch",
-          "category": "misc",
-          "startup": "10/14/17/20/23 (25/27/29/31/33/35/37/39/41/43/45/47/49/51/53/55/65",
-          "active": "10/14/17/20/23",
-          "totalFrames": "93/54",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/mii_brawler",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "mii-brawler",
-          "fighterName": "Mii_brawler",
           "moveId": "head-on-assault-air",
           "moveLabel": "Mii_brawler Head-On Assault, Air",
           "moveName": "Head-On Assault, Air",
@@ -12675,21 +13114,21 @@
       ]
     },
     "mii-gunner": {
-      "unresolvedVariants": 8,
-      "movesWithoutSourceVisual": 7,
+      "unresolvedVariants": 9,
+      "movesWithoutSourceVisual": 6,
       "totalBlockers": 15,
       "blockers": {
         "missing-documented-timing": 3,
         "short-or-misaligned-source": 4,
-        "static-source-needs-motion": 1
+        "static-source-needs-motion": 2
       },
       "timelines": {
-        "effect": 1,
+        "effect": 2,
         "fighter-action": 7
       },
       "missingMoveCategories": {
         "defense": 5,
-        "misc": 2
+        "misc": 1
       },
       "variants": [
         {
@@ -12787,6 +13226,22 @@
           "totalFrames": 43,
           "landingLag": 12,
           "sourceUrl": "https://www.ssbwiki.com/File:MiiGunnerFAirSSBU.gif"
+        },
+        {
+          "fighterId": "mii-gunner",
+          "moveId": "grenade-launch",
+          "moveLabel": "Mii_gunner Grenade Launch",
+          "variantId": "miigunnergrenadelauncherexplosion",
+          "variantLabel": "MiiGunnerGrenadeLauncherExplosion",
+          "timelineClass": "effect",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "effect source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 53,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mii_gunner"
         },
         {
           "fighterId": "mii-gunner",
@@ -12911,28 +13366,13 @@
           "sourceUrl": "https://ultimateframedata.com/mii_gunner",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "mii-gunner",
-          "fighterName": "Mii_gunner",
-          "moveId": "grenade-launch",
-          "moveLabel": "Mii_gunner Grenade Launch",
-          "moveName": "Grenade Launch",
-          "category": "misc",
-          "startup": "32",
-          "active": "32\u2014111",
-          "totalFrames": "53",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/mii_gunner",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "mii-swordfighter": {
       "unresolvedVariants": 12,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 22,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 21,
       "blockers": {
         "missing-documented-timing": 3,
         "short-or-misaligned-source": 9
@@ -12941,8 +13381,7 @@
         "fighter-action": 12
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "misc": 1
+        "defense": 9
       },
       "variants": [
         {
@@ -13273,39 +13712,56 @@
           "sourceUrl": "https://ultimateframedata.com/mii_swordfighter",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "mii-swordfighter",
-          "fighterName": "Mii_swordfighter",
-          "moveId": "gale-stab-charge",
-          "moveLabel": "Mii_swordfighter Gale Stab (Charge)",
-          "moveName": "Gale Stab (Charge)",
-          "category": "misc",
-          "startup": "8/11",
-          "active": "8\u201421/11\u201424",
-          "totalFrames": "72/--",
-          "landingLag": "29 (Freefall)",
-          "sourceUrl": "https://ultimateframedata.com/mii_swordfighter",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "min-min": {
-      "unresolvedVariants": 16,
-      "movesWithoutSourceVisual": 12,
-      "totalBlockers": 28,
+      "unresolvedVariants": 21,
+      "movesWithoutSourceVisual": 10,
+      "totalBlockers": 31,
       "blockers": {
-        "short-or-misaligned-source": 16
+        "short-or-misaligned-source": 21
       },
       "timelines": {
-        "fighter-action": 16
+        "fighter-action": 21
       },
       "missingMoveCategories": {
         "defense": 9,
-        "special": 3
+        "special": 1
       },
       "variants": [
+        {
+          "fighterId": "min-min",
+          "moveId": "forward-smash-dragon-laser",
+          "moveLabel": "Minmin Forward Smash, Dragon (Laser)",
+          "variantId": "minmindragonaerialsmash",
+          "variantLabel": "MinMinDragonAerialSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action",
+          "sourceFrameCount": 5,
+          "sourceDurationMs": 5000,
+          "totalFrames": 65,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/minmin"
+        },
+        {
+          "fighterId": "min-min",
+          "moveId": "forward-smash-dragon-laser",
+          "moveLabel": "Minmin Forward Smash, Dragon (Laser)",
+          "variantId": "minmindragonfsmash",
+          "variantLabel": "MinMinDragonFSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action",
+          "sourceFrameCount": 5,
+          "sourceDurationMs": 5000,
+          "totalFrames": 65,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/minmin"
+        },
         {
           "fighterId": "min-min",
           "moveId": "forward-smash-dragon-laser",
@@ -13320,7 +13776,7 @@
           "sourceDurationMs": 5000,
           "totalFrames": 65,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:MinMinFSmashDragonBeamSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/minmin"
         },
         {
           "fighterId": "min-min",
@@ -13352,7 +13808,39 @@
           "sourceDurationMs": 5000,
           "totalFrames": 65,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:MinMinFSmashPowerDragonBeamSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/minmin"
+        },
+        {
+          "fighterId": "min-min",
+          "moveId": "forward-smash-power-dragon-laser",
+          "moveLabel": "Minmin Forward Smash, Power Dragon (Laser)",
+          "variantId": "minminpowerdragonaerialsmash",
+          "variantLabel": "MinMinPowerDragonAerialSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action",
+          "sourceFrameCount": 5,
+          "sourceDurationMs": 5000,
+          "totalFrames": 65,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/minmin"
+        },
+        {
+          "fighterId": "min-min",
+          "moveId": "forward-smash-power-dragon-laser",
+          "moveLabel": "Minmin Forward Smash, Power Dragon (Laser)",
+          "variantId": "minminpowerdragonfsmash",
+          "variantLabel": "MinMinPowerDragonFSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action",
+          "sourceFrameCount": 5,
+          "sourceDurationMs": 5000,
+          "totalFrames": 65,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/minmin"
         },
         {
           "fighterId": "min-min",
@@ -13534,6 +14022,22 @@
           "fighterId": "min-min",
           "moveId": "jab-1",
           "moveLabel": "Minmin Jab 1",
+          "variantId": "minminjab1",
+          "variantLabel": "MinMinJab1",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 23 images / 2990 ms and cannot prove the complete 24-frame fighter action",
+          "sourceFrameCount": 23,
+          "sourceDurationMs": 2990,
+          "totalFrames": 24,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/minmin"
+        },
+        {
+          "fighterId": "min-min",
+          "moveId": "jab-1",
+          "moveLabel": "Minmin Jab 1",
           "variantId": "smashwiki-minminjab1ssbu",
           "variantLabel": "MinMinJab1SSBU",
           "timelineClass": "fighter-action",
@@ -13544,7 +14048,7 @@
           "sourceDurationMs": 2990,
           "totalFrames": 24,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:MinMinJab1SSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/minmin"
         },
         {
           "fighterId": "min-min",
@@ -13695,36 +14199,6 @@
           "active": null,
           "totalFrames": "20/25",
           "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/minmin",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "min-min",
-          "fighterName": "Minmin",
-          "moveId": "down-b-arms-change",
-          "moveLabel": "Minmin Down B (Arms Change)",
-          "moveName": "Down B (Arms Change)",
-          "category": "special",
-          "startup": "1",
-          "active": "**",
-          "totalFrames": "1",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/minmin",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "min-min",
-          "fighterName": "Minmin",
-          "moveId": "up-b-arms-hook",
-          "moveLabel": "Minmin Up B (Arms Hook)",
-          "moveName": "Up B (Arms Hook)",
-          "category": "special",
-          "startup": "12",
-          "active": "12\u201420",
-          "totalFrames": "54",
-          "landingLag": "**",
           "sourceUrl": "https://ultimateframedata.com/minmin",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -14574,21 +15048,52 @@
       ]
     },
     "mythra": {
-      "unresolvedVariants": 6,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 16,
+      "unresolvedVariants": 11,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 20,
       "blockers": {
-        "missing-documented-timing": 3,
-        "short-or-misaligned-source": 3
+        "missing-documented-timing": 5,
+        "short-or-misaligned-source": 6
       },
       "timelines": {
-        "fighter-action": 6
+        "fighter-action": 11
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "misc": 1
+        "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "mythra",
+          "moveId": "chroma-dust",
+          "moveLabel": "Mythra Chroma Dust",
+          "variantId": "mythrachromadustinterpolated",
+          "variantLabel": "MythraChromaDustInterpolated",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 63,
+          "sourceDurationMs": 8190,
+          "totalFrames": null,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/mythra"
+        },
+        {
+          "fighterId": "mythra",
+          "moveId": "chroma-dust",
+          "moveLabel": "Mythra Chroma Dust",
+          "variantId": "mythraupspecial",
+          "variantLabel": "MythraUpSpecial",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 27,
+          "sourceDurationMs": 3510,
+          "totalFrames": null,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/mythra"
+        },
         {
           "fighterId": "mythra",
           "moveId": "jab-3",
@@ -14609,6 +15114,38 @@
           "fighterId": "mythra",
           "moveId": "neutral-b-lightning-buster",
           "moveLabel": "Mythra Neutral B (Lightning Buster)",
+          "variantId": "mythralightningbuster",
+          "variantLabel": "MythraLightningBuster",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 63 images / 8190 ms and cannot prove the complete 67-frame fighter action",
+          "sourceFrameCount": 63,
+          "sourceDurationMs": 8190,
+          "totalFrames": 67,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mythra"
+        },
+        {
+          "fighterId": "mythra",
+          "moveId": "neutral-b-lightning-buster",
+          "moveLabel": "Mythra Neutral B (Lightning Buster)",
+          "variantId": "mythralightningbusteraerial",
+          "variantLabel": "MythraLightningBusterAerial",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 63 images / 8190 ms and cannot prove the complete 67-frame fighter action",
+          "sourceFrameCount": 63,
+          "sourceDurationMs": 8190,
+          "totalFrames": 67,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mythra"
+        },
+        {
+          "fighterId": "mythra",
+          "moveId": "neutral-b-lightning-buster",
+          "moveLabel": "Mythra Neutral B (Lightning Buster)",
           "variantId": "smashwiki-mythranspecial1ssbu",
           "variantLabel": "MythraNSpecial1SSBU",
           "timelineClass": "fighter-action",
@@ -14619,7 +15156,7 @@
           "sourceDurationMs": 8190,
           "totalFrames": 67,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:MythraNSpecial1SSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/mythra"
         },
         {
           "fighterId": "mythra",
@@ -14636,6 +15173,22 @@
           "totalFrames": 19,
           "landingLag": null,
           "sourceUrl": "https://www.ssbwiki.com/File:MythraPummelSSBU.gif"
+        },
+        {
+          "fighterId": "mythra",
+          "moveId": "side-b-photon-edge",
+          "moveLabel": "Mythra Side B (Photon Edge)",
+          "variantId": "mythraphotonedge2",
+          "variantLabel": "MythraPhotonEdge2",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 39 images / 5070 ms and cannot prove the complete 100-frame fighter action",
+          "sourceFrameCount": 39,
+          "sourceDurationMs": 5070,
+          "totalFrames": 100,
+          "landingLag": 18,
+          "sourceUrl": "https://ultimateframedata.com/mythra"
         },
         {
           "fighterId": "mythra",
@@ -14821,35 +15374,20 @@
           "sourceUrl": "https://ultimateframedata.com/mythra",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "mythra",
-          "fighterName": "Mythra",
-          "moveId": "chroma-dust",
-          "moveLabel": "Mythra Chroma Dust",
-          "moveName": "Chroma Dust",
-          "category": "misc",
-          "startup": "10...",
-          "active": "10\u201412/41-56/42-57/43-58/44-59/45-60",
-          "totalFrames": null,
-          "landingLag": "20",
-          "sourceUrl": "https://ultimateframedata.com/mythra",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "ness": {
-      "unresolvedVariants": 8,
+      "unresolvedVariants": 9,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 17,
+      "totalBlockers": 18,
       "blockers": {
         "missing-documented-timing": 1,
         "short-or-misaligned-source": 5,
-        "static-source-needs-motion": 2
+        "static-source-needs-motion": 3
       },
       "timelines": {
-        "fighter-action": 8
+        "fighter-action": 9
       },
       "missingMoveCategories": {
         "defense": 9
@@ -14966,6 +15504,22 @@
           "totalFrames": 19,
           "landingLag": null,
           "sourceUrl": "https://www.ssbwiki.com/File:NessPummelSSBU.gif"
+        },
+        {
+          "fighterId": "ness",
+          "moveId": "side-b-pk-fire",
+          "moveLabel": "Ness Side B (PK Fire)",
+          "variantId": "nesspkfirepillar",
+          "variantLabel": "NessPKFirePillar",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 55,
+          "landingLag": 12,
+          "sourceUrl": "https://ultimateframedata.com/ness"
         },
         {
           "fighterId": "ness",
@@ -15123,22 +15677,54 @@
       ]
     },
     "olimar": {
-      "unresolvedVariants": 5,
-      "movesWithoutSourceVisual": 13,
-      "totalBlockers": 18,
+      "unresolvedVariants": 8,
+      "movesWithoutSourceVisual": 11,
+      "totalBlockers": 19,
       "blockers": {
         "missing-documented-timing": 1,
         "short-or-misaligned-source": 2,
-        "static-source-needs-motion": 2
+        "static-source-needs-motion": 5
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 8
       },
       "missingMoveCategories": {
         "defense": 9,
-        "grab": 4
+        "grab": 2
       },
       "variants": [
+        {
+          "fighterId": "olimar",
+          "moveId": "down-smash",
+          "moveLabel": "Olimar Down Smash",
+          "variantId": "olimarandhistwobignuts",
+          "variantLabel": "OLIMARANDHISTWOBIGNUTS",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 38,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/olimar"
+        },
+        {
+          "fighterId": "olimar",
+          "moveId": "forward-smash",
+          "moveLabel": "Olimar Forward Smash",
+          "variantId": "olimarfsmash",
+          "variantLabel": "OlimarFSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 39,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/olimar"
+        },
         {
           "fighterId": "olimar",
           "moveId": "forward-smash",
@@ -15153,7 +15739,7 @@
           "sourceDurationMs": null,
           "totalFrames": 39,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:RedPikminFSmashSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/olimar"
         },
         {
           "fighterId": "olimar",
@@ -15207,6 +15793,22 @@
           "fighterId": "olimar",
           "moveId": "up-smash",
           "moveLabel": "Olimar Up Smash",
+          "variantId": "olimarusmash",
+          "variantLabel": "OlimarUSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 39,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/olimar"
+        },
+        {
+          "fighterId": "olimar",
+          "moveId": "up-smash",
+          "moveLabel": "Olimar Up Smash",
           "variantId": "smashwiki-redpikminusmashssbu",
           "variantLabel": "RedPikminUSmashSSBU",
           "timelineClass": "fighter-action",
@@ -15217,7 +15819,7 @@
           "sourceDurationMs": 5024,
           "totalFrames": 39,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:RedPikminUSmashSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/olimar"
         }
       ],
       "movesWithoutVisuals": [
@@ -15381,36 +15983,6 @@
           "startup": "12",
           "active": "12\u201423",
           "totalFrames": "44/51/60",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/olimar",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "olimar",
-          "fighterName": "Olimar",
-          "moveId": "purple-grabs",
-          "moveLabel": "Olimar Purple Grabs",
-          "moveName": "Purple Grabs",
-          "category": "grab",
-          "startup": "12",
-          "active": "12\u201423",
-          "totalFrames": "41/47/56",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/olimar",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "olimar",
-          "fighterName": "Olimar",
-          "moveId": "red-blue-yellow-grabs",
-          "moveLabel": "Olimar Red/Blue/Yellow Grabs",
-          "moveName": "Red/Blue/Yellow Grabs",
-          "category": "grab",
-          "startup": "12",
-          "active": "12\u201423",
-          "totalFrames": "41/47/56",
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/olimar",
           "blockerClass": "no-source-visual",
@@ -16895,15 +17467,15 @@
       ]
     },
     "pyra": {
-      "unresolvedVariants": 8,
+      "unresolvedVariants": 9,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 17,
+      "totalBlockers": 18,
       "blockers": {
         "missing-documented-timing": 1,
-        "short-or-misaligned-source": 7
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 8
+        "fighter-action": 9
       },
       "missingMoveCategories": {
         "defense": 9
@@ -16961,6 +17533,22 @@
           "fighterId": "pyra",
           "moveId": "neutral-b-flame-nova",
           "moveLabel": "Pyra Neutral B (Flame Nova)",
+          "variantId": "pyraflamenova1",
+          "variantLabel": "PyraFlameNova1",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 49 images / 6370 ms and cannot prove the complete 58-frame fighter action",
+          "sourceFrameCount": 49,
+          "sourceDurationMs": 6370,
+          "totalFrames": 58,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/pyra"
+        },
+        {
+          "fighterId": "pyra",
+          "moveId": "neutral-b-flame-nova",
+          "moveLabel": "Pyra Neutral B (Flame Nova)",
           "variantId": "smashwiki-pyranspecial1ssbu",
           "variantLabel": "PyraNSpecial1SSBU",
           "timelineClass": "fighter-action",
@@ -16971,7 +17559,7 @@
           "sourceDurationMs": 6370,
           "totalFrames": 58,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:PyraNSpecial1SSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/pyra"
         },
         {
           "fighterId": "pyra",
@@ -17177,16 +17765,16 @@
       ]
     },
     "richter": {
-      "unresolvedVariants": 6,
+      "unresolvedVariants": 7,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 15,
+      "totalBlockers": 16,
       "blockers": {
         "missing-documented-timing": 1,
         "short-or-misaligned-source": 2,
-        "static-source-needs-motion": 3
+        "static-source-needs-motion": 4
       },
       "timelines": {
-        "fighter-action": 6
+        "fighter-action": 7
       },
       "missingMoveCategories": {
         "defense": 9
@@ -17276,6 +17864,22 @@
           "fighterId": "richter",
           "moveId": "whip-dangle",
           "moveLabel": "Richter Whip Dangle",
+          "variantId": "richterwhipdanglethingy",
+          "variantLabel": "RichterWhipDangleThingy",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/richter"
+        },
+        {
+          "fighterId": "richter",
+          "moveId": "whip-dangle",
+          "moveLabel": "Richter Whip Dangle",
           "variantId": "smashwiki-simonwhipdanglessbu",
           "variantLabel": "SimonWhipDangleSSBU",
           "timelineClass": "fighter-action",
@@ -17286,7 +17890,7 @@
           "sourceDurationMs": null,
           "totalFrames": null,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:SimonWhipDangleSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/richter"
         }
       ],
       "movesWithoutVisuals": [
@@ -17591,18 +18195,18 @@
       ]
     },
     "rob": {
-      "unresolvedVariants": 2,
-      "movesWithoutSourceVisual": 11,
+      "unresolvedVariants": 3,
+      "movesWithoutSourceVisual": 10,
       "totalBlockers": 13,
       "blockers": {
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 3
       },
       "timelines": {
-        "fighter-action": 2
+        "fighter-action": 3
       },
       "missingMoveCategories": {
         "defense": 9,
-        "special": 2
+        "special": 1
       },
       "variants": [
         {
@@ -17636,6 +18240,22 @@
           "totalFrames": 18,
           "landingLag": null,
           "sourceUrl": "https://www.ssbwiki.com/File:ROBPummelSSBU.gif"
+        },
+        {
+          "fighterId": "rob",
+          "moveId": "side-b-arm-rotor",
+          "moveLabel": "Rob Side B (Arm Rotor)",
+          "variantId": "robarmrotornew",
+          "variantLabel": "ROBArmRotorNew",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 84 images / 11050 ms and cannot prove the complete 85-frame fighter action",
+          "sourceFrameCount": 84,
+          "sourceDurationMs": 11050,
+          "totalFrames": 85,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/rob"
         }
       ],
       "movesWithoutVisuals": [
@@ -17777,21 +18397,6 @@
         {
           "fighterId": "rob",
           "fighterName": "Rob",
-          "moveId": "side-b-arm-rotor",
-          "moveLabel": "Rob Side B (Arm Rotor)",
-          "moveName": "Side B (Arm Rotor)",
-          "category": "special",
-          "startup": "13...",
-          "active": "13/14\u201421/22\u201437/44",
-          "totalFrames": "85",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/rob",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "rob",
-          "fighterName": "Rob",
           "moveId": "side-b-arm-rotor-mashing",
           "moveLabel": "Rob Side B (Arm Rotor, Mashing)",
           "moveName": "Side B (Arm Rotor, Mashing)",
@@ -17807,20 +18412,68 @@
       ]
     },
     "robin": {
-      "unresolvedVariants": 4,
+      "unresolvedVariants": 7,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 13,
+      "totalBlockers": 16,
       "blockers": {
         "missing-documented-timing": 2,
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 5
       },
       "timelines": {
-        "fighter-action": 4
+        "fighter-action": 7
       },
       "missingMoveCategories": {
         "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "robin",
+          "moveId": "neutral-b-thunder-elthunder-arcthunder",
+          "moveLabel": "Robin Neutral B (Thunder/Elthunder/Arcthunder)",
+          "variantId": "robinarcthunder",
+          "variantLabel": "RobinArcthunder",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 86,
+          "sourceDurationMs": 11180,
+          "totalFrames": 32,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/robin"
+        },
+        {
+          "fighterId": "robin",
+          "moveId": "neutral-b-thunder-elthunder-arcthunder",
+          "moveLabel": "Robin Neutral B (Thunder/Elthunder/Arcthunder)",
+          "variantId": "robinelthunder",
+          "variantLabel": "RobinElthunder",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 52,
+          "sourceDurationMs": 6760,
+          "totalFrames": 32,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/robin"
+        },
+        {
+          "fighterId": "robin",
+          "moveId": "neutral-b-thunder-elthunder-arcthunder",
+          "moveLabel": "Robin Neutral B (Thunder/Elthunder/Arcthunder)",
+          "variantId": "robinthunder",
+          "variantLabel": "RobinThunder",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 32,
+          "sourceDurationMs": 4160,
+          "totalFrames": 32,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/robin"
+        },
         {
           "fighterId": "robin",
           "moveId": "neutral-b-thunder-elthunder-arcthunder",
@@ -17835,7 +18488,7 @@
           "sourceDurationMs": 4160,
           "totalFrames": 32,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:RobinThoronSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/robin"
         },
         {
           "fighterId": "robin",
@@ -18509,20 +19162,19 @@
       ]
     },
     "ryu": {
-      "unresolvedVariants": 11,
-      "movesWithoutSourceVisual": 11,
-      "totalBlockers": 22,
+      "unresolvedVariants": 15,
+      "movesWithoutSourceVisual": 10,
+      "totalBlockers": 25,
       "blockers": {
         "missing-documented-timing": 7,
-        "short-or-misaligned-source": 4
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 11
+        "fighter-action": 15
       },
       "missingMoveCategories": {
         "defense": 9,
-        "misc": 1,
-        "special": 1
+        "misc": 1
       },
       "variants": [
         {
@@ -18540,6 +19192,70 @@
           "totalFrames": 16,
           "landingLag": null,
           "sourceUrl": "https://www.ssbwiki.com/File:RyuPummelSSBU.gif"
+        },
+        {
+          "fighterId": "ryu",
+          "moveId": "side-b-tatsumaki-senpukyaku",
+          "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+          "variantId": "ryutatsumakisenpukyakuheavygrounded",
+          "variantLabel": "RyuTatsumakiSenpukyakuHeavyGrounded",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 16 images / 2080 ms and cannot prove the complete 58-frame fighter action",
+          "sourceFrameCount": 16,
+          "sourceDurationMs": 2080,
+          "totalFrames": 58,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/ryu"
+        },
+        {
+          "fighterId": "ryu",
+          "moveId": "side-b-tatsumaki-senpukyaku",
+          "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+          "variantId": "ryutatsumakisenpukyakulightgrounded",
+          "variantLabel": "RyuTatsumakiSenpukyakuLightGrounded",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 16 images / 2080 ms and cannot prove the complete 58-frame fighter action",
+          "sourceFrameCount": 16,
+          "sourceDurationMs": 2080,
+          "totalFrames": 58,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/ryu"
+        },
+        {
+          "fighterId": "ryu",
+          "moveId": "side-b-tatsumaki-senpukyaku",
+          "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+          "variantId": "ryutatsumakisenpukyakumediumgrounded",
+          "variantLabel": "RyuTatsumakiSenpukyakuMediumGrounded",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 16 images / 2080 ms and cannot prove the complete 58-frame fighter action",
+          "sourceFrameCount": 16,
+          "sourceDurationMs": 2080,
+          "totalFrames": 58,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/ryu"
+        },
+        {
+          "fighterId": "ryu",
+          "moveId": "side-b-tatsumaki-senpukyaku",
+          "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+          "variantId": "ryutatsumakisenpukyakustart",
+          "variantLabel": "RyuTatsumakiSenpukyakuStart",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 12 images / 1560 ms and cannot prove the complete 58-frame fighter action",
+          "sourceFrameCount": 12,
+          "sourceDurationMs": 1560,
+          "totalFrames": 58,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/ryu"
         },
         {
           "fighterId": "ryu",
@@ -18848,21 +19564,6 @@
           "startup": null,
           "active": "**",
           "totalFrames": "19/19",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/ryu",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "ryu",
-          "fighterName": "Ryu",
-          "moveId": "side-b-tatsumaki-senpukyaku",
-          "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
-          "moveName": "Side B (Tatsumaki Senpukyaku)",
-          "category": "special",
-          "startup": "8",
-          "active": "8-9, 13-15, 29-31, and 45-47",
-          "totalFrames": "58\u201490",
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/ryu",
           "blockerClass": "no-source-visual",
@@ -19735,15 +20436,16 @@
       ]
     },
     "shulk": {
-      "unresolvedVariants": 4,
+      "unresolvedVariants": 6,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 13,
+      "totalBlockers": 15,
       "blockers": {
         "missing-documented-timing": 2,
+        "short-or-misaligned-source": 2,
         "static-source-needs-motion": 2
       },
       "timelines": {
-        "fighter-action": 4
+        "fighter-action": 6
       },
       "missingMoveCategories": {
         "defense": 9
@@ -19763,6 +20465,38 @@
           "sourceDurationMs": 7670,
           "totalFrames": null,
           "landingLag": 30,
+          "sourceUrl": "https://ultimateframedata.com/shulk"
+        },
+        {
+          "fighterId": "shulk",
+          "moveId": "down-b-vision",
+          "moveLabel": "Shulk Down B (Vision)",
+          "variantId": "shulkvisionback",
+          "variantLabel": "ShulkVisionBack",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 56 images / 7280 ms and cannot prove the complete 69-frame fighter action",
+          "sourceFrameCount": 56,
+          "sourceDurationMs": 7280,
+          "totalFrames": 69,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/shulk"
+        },
+        {
+          "fighterId": "shulk",
+          "moveId": "down-b-vision",
+          "moveLabel": "Shulk Down B (Vision)",
+          "variantId": "shulkvisionforward",
+          "variantLabel": "ShulkVisionForward",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 50 images / 6500 ms and cannot prove the complete 69-frame fighter action",
+          "sourceFrameCount": 50,
+          "sourceDurationMs": 6500,
+          "totalFrames": 69,
+          "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/shulk"
         },
         {
@@ -19953,16 +20687,16 @@
       ]
     },
     "simon": {
-      "unresolvedVariants": 8,
+      "unresolvedVariants": 9,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 17,
+      "totalBlockers": 18,
       "blockers": {
         "missing-documented-timing": 1,
         "short-or-misaligned-source": 4,
-        "static-source-needs-motion": 3
+        "static-source-needs-motion": 4
       },
       "timelines": {
-        "fighter-action": 8
+        "fighter-action": 9
       },
       "missingMoveCategories": {
         "defense": 9
@@ -20094,7 +20828,23 @@
           "sourceDurationMs": null,
           "totalFrames": null,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:SimonWhipDangleSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/simon"
+        },
+        {
+          "fighterId": "simon",
+          "moveId": "whip-dangle",
+          "moveLabel": "Simon Whip Dangle",
+          "variantId": "simonwhipdanglethingy",
+          "variantLabel": "SimonWhipDangleThingy",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/simon"
         }
       ],
       "movesWithoutVisuals": [
@@ -20236,16 +20986,16 @@
       ]
     },
     "snake": {
-      "unresolvedVariants": 8,
+      "unresolvedVariants": 12,
       "movesWithoutSourceVisual": 10,
-      "totalBlockers": 18,
+      "totalBlockers": 22,
       "blockers": {
         "short-or-misaligned-source": 3,
-        "static-source-needs-motion": 5
+        "static-source-needs-motion": 9
       },
       "timelines": {
-        "effect": 3,
-        "fighter-action": 5
+        "effect": 5,
+        "fighter-action": 7
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -20315,6 +21065,70 @@
           "totalFrames": 19,
           "landingLag": 13,
           "sourceUrl": "https://www.ssbwiki.com/File:SnakePummelSSBU.gif"
+        },
+        {
+          "fighterId": "snake",
+          "moveId": "side-b-nikita",
+          "moveLabel": "Snake Side B (Nikita)",
+          "variantId": "nikita-explosion-strong",
+          "variantLabel": "Nikita Explosion (Strong)",
+          "timelineClass": "effect",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "effect source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/snake"
+        },
+        {
+          "fighterId": "snake",
+          "moveId": "side-b-nikita",
+          "moveLabel": "Snake Side B (Nikita)",
+          "variantId": "nikita-explosion-weak",
+          "variantLabel": "Nikita Explosion (Weak)",
+          "timelineClass": "effect",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "effect source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/snake"
+        },
+        {
+          "fighterId": "snake",
+          "moveId": "side-b-nikita",
+          "moveLabel": "Snake Side B (Nikita)",
+          "variantId": "nikita-hurtbox-weak",
+          "variantLabel": "Nikita Hurtbox (Weak)",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/snake"
+        },
+        {
+          "fighterId": "snake",
+          "moveId": "side-b-nikita",
+          "moveLabel": "Snake Side B (Nikita)",
+          "variantId": "nikitasearch",
+          "variantLabel": "NikitaSearch",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/snake"
         },
         {
           "fighterId": "snake",
@@ -20866,21 +21680,36 @@
       ]
     },
     "sora": {
-      "unresolvedVariants": 3,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 13,
+      "unresolvedVariants": 7,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 16,
       "blockers": {
         "missing-documented-timing": 1,
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 6
       },
       "timelines": {
-        "fighter-action": 3
+        "fighter-action": 7
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "ground": 1
+        "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "sora",
+          "moveId": "ftilt-1-ftilt-2-combo",
+          "moveLabel": "Sora FTilt 1 > FTilt 2 Combo",
+          "variantId": "soraftilt2",
+          "variantLabel": "SoraFTilt2",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 35 images / 4550 ms and cannot prove the complete 40-frame fighter action",
+          "sourceFrameCount": 35,
+          "sourceDurationMs": 4550,
+          "totalFrames": 40,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/sora"
+        },
         {
           "fighterId": "sora",
           "moveId": "pummel",
@@ -20901,6 +21730,22 @@
           "fighterId": "sora",
           "moveId": "side-b-sonic-blade",
           "moveLabel": "Sora Side B (Sonic Blade)",
+          "variantId": "sorasonicblade1",
+          "variantLabel": "SoraSonicBlade1",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action",
+          "sourceFrameCount": 12,
+          "sourceDurationMs": 1560,
+          "totalFrames": 48,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/sora"
+        },
+        {
+          "fighterId": "sora",
+          "moveId": "side-b-sonic-blade",
+          "moveLabel": "Sora Side B (Sonic Blade)",
           "variantId": "smashwiki-sorasonicblade1ssbu",
           "variantLabel": "SoraSonicBlade1SSBU",
           "timelineClass": "fighter-action",
@@ -20911,7 +21756,39 @@
           "sourceDurationMs": 1560,
           "totalFrames": 48,
           "landingLag": 20,
-          "sourceUrl": "https://www.ssbwiki.com/File:SoraSonicBlade1SSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/sora"
+        },
+        {
+          "fighterId": "sora",
+          "moveId": "side-b-sonic-blade",
+          "moveLabel": "Sora Side B (Sonic Blade)",
+          "variantId": "sorasonicblade2",
+          "variantLabel": "SoraSonicBlade2",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action",
+          "sourceFrameCount": 12,
+          "sourceDurationMs": 1560,
+          "totalFrames": 48,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/sora"
+        },
+        {
+          "fighterId": "sora",
+          "moveId": "side-b-sonic-blade",
+          "moveLabel": "Sora Side B (Sonic Blade)",
+          "variantId": "sorasonicblade3",
+          "variantLabel": "SoraSonicBlade3",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action",
+          "sourceFrameCount": 12,
+          "sourceDurationMs": 1560,
+          "totalFrames": 48,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/sora"
         },
         {
           "fighterId": "sora",
@@ -21065,28 +21942,13 @@
           "sourceUrl": "https://ultimateframedata.com/sora",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "sora",
-          "fighterName": "Sora",
-          "moveId": "ftilt-1-ftilt-2-combo",
-          "moveLabel": "Sora FTilt 1 > FTilt 2 Combo",
-          "moveName": "FTilt 1 > FTilt 2 Combo",
-          "category": "ground",
-          "startup": "13, 7",
-          "active": "13\u201417, 7\u201410",
-          "totalFrames": "40, 35",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/sora",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "squirtle": {
       "unresolvedVariants": 4,
-      "movesWithoutSourceVisual": 12,
-      "totalBlockers": 16,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 13,
       "blockers": {
         "missing-documented-timing": 2,
         "short-or-misaligned-source": 2
@@ -21095,9 +21957,7 @@
         "fighter-action": 4
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "ground": 1,
-        "special": 2
+        "defense": 9
       },
       "variants": [
         {
@@ -21300,71 +22160,42 @@
           "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "squirtle",
-          "fighterName": "Pt_squirtle",
-          "moveId": "forward-tilt",
-          "moveLabel": "Pt_squirtle Forward Tilt",
-          "moveName": "Forward Tilt",
-          "category": "ground",
-          "startup": "5",
-          "active": "5\u20146",
-          "totalFrames": "17",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "squirtle",
-          "fighterName": "Pt_squirtle",
-          "moveId": "down-b-pokemon-change",
-          "moveLabel": "Pt_squirtle Down B (Pokemon Change)",
-          "moveName": "Down B (Pokemon Change)",
-          "category": "special",
-          "startup": null,
-          "active": "**",
-          "totalFrames": "39",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "squirtle",
-          "fighterName": "Pt_squirtle",
-          "moveId": "neutral-b-watergun",
-          "moveLabel": "Pt_squirtle Neutral B (Watergun)",
-          "moveName": "Neutral B (Watergun)",
-          "category": "special",
-          "startup": "26",
-          "active": "24\u2014**",
-          "totalFrames": "63",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "steve": {
-      "unresolvedVariants": 26,
-      "movesWithoutSourceVisual": 12,
-      "totalBlockers": 38,
+      "unresolvedVariants": 41,
+      "movesWithoutSourceVisual": 10,
+      "totalBlockers": 51,
       "blockers": {
-        "missing-documented-timing": 4,
-        "short-or-misaligned-source": 17,
+        "missing-documented-timing": 6,
+        "short-or-misaligned-source": 30,
         "static-source-needs-motion": 5
       },
       "timelines": {
-        "fighter-action": 26
+        "fighter-action": 41
       },
       "missingMoveCategories": {
         "defense": 9,
-        "misc": 3
+        "misc": 1
       },
       "variants": [
+        {
+          "fighterId": "steve",
+          "moveId": "dash-attack",
+          "moveLabel": "Steve Dash Attack",
+          "variantId": "stevedashattackgold",
+          "variantLabel": "SteveDashAttackGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 28 images / 3640 ms and cannot prove the complete 31-frame fighter action",
+          "sourceFrameCount": 28,
+          "sourceDurationMs": 3640,
+          "totalFrames": 31,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
         {
           "fighterId": "steve",
           "moveId": "dash-grab",
@@ -21443,7 +22274,39 @@
           "sourceDurationMs": 1518,
           "totalFrames": null,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:SteveDSpecialSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "down-b-tnt",
+          "moveLabel": "Steve Down B (TNT)",
+          "variantId": "stevetnt",
+          "variantLabel": "SteveTNT",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 3,
+          "sourceDurationMs": 1520,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "down-b-tnt",
+          "moveLabel": "Steve Down B (TNT)",
+          "variantId": "stevetntpressureplate",
+          "variantLabel": "SteveTNTPressurePlate",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 4,
+          "sourceDurationMs": 1780,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
         },
         {
           "fighterId": "steve",
@@ -21545,6 +22408,38 @@
           "fighterId": "steve",
           "moveId": "forward-smash",
           "moveLabel": "Steve Forward Smash",
+          "variantId": "stevefsmashgold",
+          "variantLabel": "SteveFSmashGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 35 images / 4550 ms and cannot prove the complete 43-frame fighter action",
+          "sourceFrameCount": 35,
+          "sourceDurationMs": 4550,
+          "totalFrames": 43,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "forward-smash",
+          "moveLabel": "Steve Forward Smash",
+          "variantId": "stevefsmashpunch",
+          "variantLabel": "SteveFSmashPunch",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 42 images / 5590 ms and cannot prove the complete 43-frame fighter action",
+          "sourceFrameCount": 42,
+          "sourceDurationMs": 5590,
+          "totalFrames": 43,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "forward-smash",
+          "moveLabel": "Steve Forward Smash",
           "variantId": "smashwiki-stevefsmashpunchssbu",
           "variantLabel": "SteveFSmashPunchSSBU",
           "timelineClass": "fighter-action",
@@ -21555,7 +22450,7 @@
           "sourceDurationMs": 5548,
           "totalFrames": 43,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:SteveFSmashPunchSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/steve"
         },
         {
           "fighterId": "steve",
@@ -21591,6 +22486,54 @@
         },
         {
           "fighterId": "steve",
+          "moveId": "jab-forward-tilt",
+          "moveLabel": "Steve Jab / Forward Tilt",
+          "variantId": "stevejabftiltgold",
+          "variantLabel": "SteveJabFTiltGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 1820 ms and cannot prove the complete 16-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 1820,
+          "totalFrames": 16,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "neutral-air",
+          "moveLabel": "Steve Neutral Air",
+          "variantId": "stevenairgold",
+          "variantLabel": "SteveNAirGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 12 images / 1820 ms and cannot prove the complete 17-frame fighter action",
+          "sourceFrameCount": 12,
+          "sourceDurationMs": 1820,
+          "totalFrames": 17,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "neutral-air",
+          "moveLabel": "Steve Neutral Air",
+          "variantId": "stevenairpunch",
+          "variantLabel": "SteveNAirPunch",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 2080 ms and cannot prove the complete 17-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 2080,
+          "totalFrames": 17,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
           "moveId": "neutral-air",
           "moveLabel": "Steve Neutral Air",
           "variantId": "smashwiki-stevenairpunchssbu",
@@ -21603,7 +22546,23 @@
           "sourceDurationMs": 2080,
           "totalFrames": 17,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:SteveNAirPunchSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "neutral-air",
+          "moveLabel": "Steve Neutral Air",
+          "variantId": "stevenairwoodstoneirondiamond",
+          "variantLabel": "SteveNAirWoodStoneIronDiamond",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 2080 ms and cannot prove the complete 17-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 2080,
+          "totalFrames": 17,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
         },
         {
           "fighterId": "steve",
@@ -21719,6 +22678,54 @@
         },
         {
           "fighterId": "steve",
+          "moveId": "sword-back-air-short-hop-macro-bair",
+          "moveLabel": "Steve Sword Back Air (Short Hop Macro BAir)",
+          "variantId": "stevebairswordgold",
+          "variantLabel": "SteveBAirSwordGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 1820 ms and cannot prove the complete 16-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 1820,
+          "totalFrames": 16,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "sword-forward-air-short-hop-macro-fair",
+          "moveLabel": "Steve Sword Forward Air (Short Hop Macro FAir)",
+          "variantId": "stevefairswordgold",
+          "variantLabel": "SteveFAirSwordGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 1820 ms and cannot prove the complete 16-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 1820,
+          "totalFrames": 16,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "up-air",
+          "moveLabel": "Steve Up Air",
+          "variantId": "steveuairgold",
+          "variantLabel": "SteveUAirGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 11 images / 1430 ms and cannot prove the complete 13-frame fighter action",
+          "sourceFrameCount": 11,
+          "sourceDurationMs": 1430,
+          "totalFrames": 13,
+          "landingLag": 10,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
           "moveId": "up-b-elytra",
           "moveLabel": "Steve Up B (Elytra)",
           "variantId": "smashwiki-steveuspecialssbu",
@@ -21769,6 +22776,38 @@
           "fighterId": "steve",
           "moveId": "up-tilt",
           "moveLabel": "Steve Up Tilt",
+          "variantId": "steveutiltgold",
+          "variantLabel": "SteveUTiltGold",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 12 images / 1560 ms and cannot prove the complete 16-frame fighter action",
+          "sourceFrameCount": 12,
+          "sourceDurationMs": 1560,
+          "totalFrames": 16,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "up-tilt",
+          "moveLabel": "Steve Up Tilt",
+          "variantId": "steveutiltpunch",
+          "variantLabel": "SteveUTiltPunch",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 2080 ms and cannot prove the complete 16-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 2080,
+          "totalFrames": 16,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "up-tilt",
+          "moveLabel": "Steve Up Tilt",
           "variantId": "smashwiki-steveutiltpunchssbu",
           "variantLabel": "SteveUTiltPunchSSBU",
           "timelineClass": "fighter-action",
@@ -21779,7 +22818,23 @@
           "sourceDurationMs": 2080,
           "totalFrames": 16,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:SteveUTiltPunchSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/steve"
+        },
+        {
+          "fighterId": "steve",
+          "moveId": "up-tilt",
+          "moveLabel": "Steve Up Tilt",
+          "variantId": "steveutiltwoodstoneirondiamond",
+          "variantLabel": "SteveUTiltWoodStoneIronDiamond",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 14 images / 2080 ms and cannot prove the complete 16-frame fighter action",
+          "sourceFrameCount": 14,
+          "sourceDurationMs": 2080,
+          "totalFrames": 16,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/steve"
         }
       ],
       "movesWithoutVisuals": [
@@ -21932,53 +22987,22 @@
           "sourceUrl": "https://ultimateframedata.com/steve",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "steve",
-          "fighterName": "Steve",
-          "moveId": "sword-back-air-short-hop-macro-bair",
-          "moveLabel": "Steve Sword Back Air (Short Hop Macro BAir)",
-          "moveName": "Sword Back Air (Short Hop Macro BAir)",
-          "category": "misc",
-          "startup": "4 (Gold: 3)",
-          "active": "4\u20146 (Gold: 3\u20145)",
-          "totalFrames": "16 (Gold: 14)",
-          "landingLag": "-- (can only be done rising)",
-          "sourceUrl": "https://ultimateframedata.com/steve",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "steve",
-          "fighterName": "Steve",
-          "moveId": "sword-forward-air-short-hop-macro-fair",
-          "moveLabel": "Steve Sword Forward Air (Short Hop Macro FAir)",
-          "moveName": "Sword Forward Air (Short Hop Macro FAir)",
-          "category": "misc",
-          "startup": "4 (Gold: 3)",
-          "active": "4\u20146 (Gold: 3\u20145)",
-          "totalFrames": "16 (Gold: 14)",
-          "landingLag": "-- (can only be done rising)",
-          "sourceUrl": "https://ultimateframedata.com/steve",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "terry": {
-      "unresolvedVariants": 7,
-      "movesWithoutSourceVisual": 11,
-      "totalBlockers": 18,
+      "unresolvedVariants": 18,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 27,
       "blockers": {
         "missing-documented-timing": 1,
-        "short-or-misaligned-source": 6
+        "short-or-misaligned-source": 17
       },
       "timelines": {
-        "fighter-action": 7
+        "fighter-action": 18
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "misc": 2
+        "defense": 9
       },
       "variants": [
         {
@@ -22015,6 +23039,38 @@
         },
         {
           "fighterId": "terry",
+          "moveId": "burning-knuckle-input",
+          "moveLabel": "Terry Burning Knuckle, Input",
+          "variantId": "terryburningknuckleairstronginput",
+          "variantLabel": "TerryBurningKnuckleAirStrongInput",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 50 images / 6500 ms and cannot prove the complete 60-frame fighter action",
+          "sourceFrameCount": 50,
+          "sourceDurationMs": 6500,
+          "totalFrames": 60,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "burning-knuckle-input",
+          "moveLabel": "Terry Burning Knuckle, Input",
+          "variantId": "terryburningknuckleairweakinput",
+          "variantLabel": "TerryBurningKnuckleAirWeakInput",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 46 images / 5980 ms and cannot prove the complete 60-frame fighter action",
+          "sourceFrameCount": 46,
+          "sourceDurationMs": 5980,
+          "totalFrames": 60,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
           "moveId": "buster-wolf",
           "moveLabel": "Terry Buster Wolf",
           "variantId": "terrybusterwolf",
@@ -22043,7 +23099,151 @@
           "sourceDurationMs": 2709,
           "totalFrames": 54,
           "landingLag": 20,
-          "sourceUrl": "https://www.ssbwiki.com/File:TerryDSpecialUpWeakSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkrisestrong",
+          "variantLabel": "TerryPowerDunkRiseStrong",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 27 images / 3510 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 27,
+          "sourceDurationMs": 3510,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkrisestronginput",
+          "variantLabel": "TerryPowerDunkRiseStrongInput",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 27 images / 3510 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 27,
+          "sourceDurationMs": 3510,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkriseweak",
+          "variantLabel": "TerryPowerDunkRiseWeak",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 21 images / 2730 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 21,
+          "sourceDurationMs": 2730,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkriseweakinput",
+          "variantLabel": "TerryPowerDunkRiseWeakInput",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 21 images / 2730 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 21,
+          "sourceDurationMs": 2730,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkspike",
+          "variantLabel": "TerryPowerDunkSpike",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 42 images / 5460 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 42,
+          "sourceDurationMs": 5460,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkstrong",
+          "variantLabel": "TerryPowerDunkStrong",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 42 images / 5460 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 42,
+          "sourceDurationMs": 5460,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "down-b-power-dunk",
+          "moveLabel": "Terry Down B (Power Dunk)",
+          "variantId": "terrypowerdunkweak",
+          "variantLabel": "TerryPowerDunkWeak",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 41 images / 5330 ms and cannot prove the complete 54-frame fighter action",
+          "sourceFrameCount": 41,
+          "sourceDurationMs": 5330,
+          "totalFrames": 54,
+          "landingLag": 20,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "forward-b-burning-knuckle",
+          "moveLabel": "Terry Forward B (Burning Knuckle)",
+          "variantId": "terryburningknuckleairstrong",
+          "variantLabel": "TerryBurningKnuckleAirStrong",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 50 images / 6500 ms and cannot prove the complete 60-frame fighter action",
+          "sourceFrameCount": 50,
+          "sourceDurationMs": 6500,
+          "totalFrames": 60,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/terry"
+        },
+        {
+          "fighterId": "terry",
+          "moveId": "forward-b-burning-knuckle",
+          "moveLabel": "Terry Forward B (Burning Knuckle)",
+          "variantId": "terryburningknuckleairweak",
+          "variantLabel": "TerryBurningKnuckleAirWeak",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 46 images / 5980 ms and cannot prove the complete 60-frame fighter action",
+          "sourceFrameCount": 46,
+          "sourceDurationMs": 5980,
+          "totalFrames": 60,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/terry"
         },
         {
           "fighterId": "terry",
@@ -22225,36 +23425,6 @@
           "startup": null,
           "active": null,
           "totalFrames": "20/25",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/terry",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "terry",
-          "fighterName": "Terry",
-          "moveId": "burning-knuckle-input",
-          "moveLabel": "Terry Burning Knuckle, Input",
-          "moveName": "Burning Knuckle, Input",
-          "category": "misc",
-          "startup": "15/21 (21/28) | 14/19 (18/23)",
-          "active": "15\u201421(22\u201430) | 21\u201428(29\u201439) | 14\u201419(20\u201426) | 18\u201423(24\u201430)",
-          "totalFrames": "60 (69) | 46 (50)",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/terry",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "terry",
-          "fighterName": "Terry",
-          "moveId": "forward-b-burning-knuckle",
-          "moveLabel": "Terry Forward B (Burning Knuckle)",
-          "moveName": "Forward B (Burning Knuckle)",
-          "category": "misc",
-          "startup": "15/19 (21/26) | 14\u201417(18\u201426)",
-          "active": "15\u201419(20\u201430) | 21\u201428(27\u201439) | 14\u201417(18\u201426) | 18\u201421(22\u201430)",
-          "totalFrames": "60 (69) | 46 (50)",
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/terry",
           "blockerClass": "no-source-visual",
@@ -22531,22 +23701,22 @@
       ]
     },
     "villager": {
-      "unresolvedVariants": 9,
-      "movesWithoutSourceVisual": 12,
-      "totalBlockers": 21,
+      "unresolvedVariants": 17,
+      "movesWithoutSourceVisual": 11,
+      "totalBlockers": 28,
       "blockers": {
+        "missing-documented-timing": 2,
         "short-or-misaligned-source": 5,
-        "static-source-needs-motion": 4
+        "static-source-needs-motion": 10
       },
       "timelines": {
-        "effect": 1,
-        "fighter-action": 8
+        "effect": 3,
+        "fighter-action": 14
       },
       "missingMoveCategories": {
         "defense": 9,
         "grab": 1,
-        "ground": 1,
-        "misc": 1
+        "ground": 1
       },
       "variants": [
         {
@@ -22633,6 +23803,70 @@
           "fighterId": "villager",
           "moveId": "side-b-lloid-rocket",
           "moveLabel": "Villager Side B (Lloid Rocket)",
+          "variantId": "villagerlloidrocketexplosion",
+          "variantLabel": "VillagerLloidRocketExplosion",
+          "timelineClass": "effect",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "effect source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 35,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "side-b-lloid-rocket",
+          "moveLabel": "Villager Side B (Lloid Rocket)",
+          "variantId": "villagerlloidrocketfall",
+          "variantLabel": "VillagerLloidRocketFall",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 35,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "side-b-lloid-rocket",
+          "moveLabel": "Villager Side B (Lloid Rocket)",
+          "variantId": "villagerlloidrocketfly",
+          "variantLabel": "VillagerLloidRocketFly",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 35,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "side-b-lloid-rocket",
+          "moveLabel": "Villager Side B (Lloid Rocket)",
+          "variantId": "villagerlloidrocketwallexplosion",
+          "variantLabel": "VillagerLloidRocketWallExplosion",
+          "timelineClass": "effect",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "effect source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 35,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "side-b-lloid-rocket",
+          "moveLabel": "Villager Side B (Lloid Rocket)",
           "variantId": "smashwiki-villagersspecialexplosionssbu",
           "variantLabel": "VillagerSSpecialExplosionSSBU",
           "timelineClass": "effect",
@@ -22643,7 +23877,7 @@
           "sourceDurationMs": null,
           "totalFrames": 35,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:VillagerSSpecialFlySSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/villager"
         },
         {
           "fighterId": "villager",
@@ -22659,7 +23893,71 @@
           "sourceDurationMs": null,
           "totalFrames": 35,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:VillagerSSpecialFlySSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "timber-tree-grow-fall",
+          "moveLabel": "Villager Timber Tree Grow/Fall",
+          "variantId": "villagertimberfall",
+          "variantLabel": "VillagerTimberFall",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 45,
+          "sourceDurationMs": 5850,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "timber-tree-grow-fall",
+          "moveLabel": "Villager Timber Tree Grow/Fall",
+          "variantId": "villagertimbergrowth",
+          "variantLabel": "VillagerTimberGrowth",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 48,
+          "sourceDurationMs": 6610,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "timber-tree-grow-fall",
+          "moveLabel": "Villager Timber Tree Grow/Fall",
+          "variantId": "villagerwoodspawn",
+          "variantLabel": "VillagerWoodSpawn",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "timber-tree-grow-fall",
+          "moveLabel": "Villager Timber Tree Grow/Fall",
+          "variantId": "villagerwoodthrown",
+          "variantLabel": "VillagerWoodThrown",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
         },
         {
           "fighterId": "villager",
@@ -22859,34 +24157,19 @@
           "sourceUrl": "https://ultimateframedata.com/villager",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "villager",
-          "fighterName": "Villager",
-          "moveId": "timber-tree-grow-fall",
-          "moveLabel": "Villager Timber Tree Grow/Fall",
-          "moveName": "Timber Tree Grow/Fall",
-          "category": "misc",
-          "startup": "46/16",
-          "active": "**",
-          "totalFrames": null,
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/villager",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
         }
       ]
     },
     "wario": {
-      "unresolvedVariants": 7,
+      "unresolvedVariants": 9,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 16,
+      "totalBlockers": 18,
       "blockers": {
         "missing-documented-timing": 1,
-        "short-or-misaligned-source": 6
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 7
+        "fighter-action": 9
       },
       "missingMoveCategories": {
         "defense": 9
@@ -22960,6 +24243,38 @@
           "fighterId": "wario",
           "moveId": "neutral-b-chomp",
           "moveLabel": "Wario Neutral B (Chomp)",
+          "variantId": "wariochomp",
+          "variantLabel": "WarioChomp",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 41-frame parent action, but documented interaction remains active through frame 64; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 60,
+          "sourceDurationMs": 7800,
+          "totalFrames": 41,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/wario"
+        },
+        {
+          "fighterId": "wario",
+          "moveId": "neutral-b-chomp",
+          "moveLabel": "Wario Neutral B (Chomp)",
+          "variantId": "wariochompbite",
+          "variantLabel": "WarioChompBite",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 41-frame parent action, but documented interaction remains active through frame 64; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 39,
+          "sourceDurationMs": 5070,
+          "totalFrames": 41,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/wario"
+        },
+        {
+          "fighterId": "wario",
+          "moveId": "neutral-b-chomp",
+          "moveLabel": "Wario Neutral B (Chomp)",
           "variantId": "smashwiki-wariochompssbu",
           "variantLabel": "WarioChompSSBU",
           "timelineClass": "fighter-action",
@@ -22970,7 +24285,7 @@
           "sourceDurationMs": 7800,
           "totalFrames": 41,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:WarioChompBombSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/wario"
         },
         {
           "fighterId": "wario",
@@ -23144,20 +24459,36 @@
       ]
     },
     "wii-fit-trainer": {
-      "unresolvedVariants": 1,
-      "movesWithoutSourceVisual": 10,
+      "unresolvedVariants": 2,
+      "movesWithoutSourceVisual": 9,
       "totalBlockers": 11,
       "blockers": {
+        "missing-documented-timing": 1,
         "short-or-misaligned-source": 1
       },
       "timelines": {
-        "fighter-action": 1
+        "fighter-action": 2
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "special": 1
+        "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "wii-fit-trainer",
+          "moveId": "down-b-deep-breathing",
+          "moveLabel": "Wii_fit_trainer Down B (Deep Breathing)",
+          "variantId": "smashwiki-curated-wii-fit-trainer-down-b-ssbu",
+          "variantLabel": "Wii Fit Trainer Down B SSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 50,
+          "sourceDurationMs": 2000,
+          "totalFrames": null,
+          "landingLag": null,
+          "sourceUrl": "https://www.ssbwiki.com/File:Wii_Fit_Trainer_Down_B_SSBU.gif"
+        },
         {
           "fighterId": "wii-fit-trainer",
           "moveId": "pummel",
@@ -23306,21 +24637,6 @@
           "startup": null,
           "active": null,
           "totalFrames": "20/25",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/wii_fit_trainer",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "wii-fit-trainer",
-          "fighterName": "Wii_fit_trainer",
-          "moveId": "down-b-deep-breathing",
-          "moveLabel": "Wii_fit_trainer Down B (Deep Breathing)",
-          "moveName": "Down B (Deep Breathing)",
-          "category": "special",
-          "startup": "39",
-          "active": "**",
-          "totalFrames": null,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/wii_fit_trainer",
           "blockerClass": "no-source-visual",
@@ -24049,20 +25365,68 @@
       ]
     },
     "zelda": {
-      "unresolvedVariants": 3,
+      "unresolvedVariants": 9,
       "movesWithoutSourceVisual": 9,
-      "totalBlockers": 12,
+      "totalBlockers": 18,
       "blockers": {
-        "short-or-misaligned-source": 2,
-        "static-source-needs-motion": 1
+        "short-or-misaligned-source": 6,
+        "static-source-needs-motion": 3
       },
       "timelines": {
-        "fighter-action": 3
+        "fighter-action": 9
       },
       "missingMoveCategories": {
         "defense": 9
       },
       "variants": [
+        {
+          "fighterId": "zelda",
+          "moveId": "down-b-phantom-slash",
+          "moveLabel": "Zelda Down B (Phantom Slash)",
+          "variantId": "phantomkick",
+          "variantLabel": "PhantomKick",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 49 images / 6370 ms and cannot prove the complete 66-frame fighter action",
+          "sourceFrameCount": 49,
+          "sourceDurationMs": 6370,
+          "totalFrames": 66,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/zelda"
+        },
+        {
+          "fighterId": "zelda",
+          "moveId": "down-b-phantom-slash",
+          "moveLabel": "Zelda Down B (Phantom Slash)",
+          "variantId": "phantompunch",
+          "variantLabel": "PhantomPunch",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 59 images / 7670 ms and cannot prove the complete 66-frame fighter action",
+          "sourceFrameCount": 59,
+          "sourceDurationMs": 7670,
+          "totalFrames": 66,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/zelda"
+        },
+        {
+          "fighterId": "zelda",
+          "moveId": "down-b-phantom-slash",
+          "moveLabel": "Zelda Down B (Phantom Slash)",
+          "variantId": "phantomswing1",
+          "variantLabel": "PhantomSwing1",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 65 images / 8450 ms and cannot prove the complete 66-frame fighter action",
+          "sourceFrameCount": 65,
+          "sourceDurationMs": 8450,
+          "totalFrames": 66,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/zelda"
+        },
         {
           "fighterId": "zelda",
           "moveId": "down-b-phantom-slash",
@@ -24077,7 +25441,55 @@
           "sourceDurationMs": 6370,
           "totalFrames": 66,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:ZeldaDSpecialKickSSBU.gif"
+          "sourceUrl": "https://ultimateframedata.com/zelda"
+        },
+        {
+          "fighterId": "zelda",
+          "moveId": "down-b-phantom-slash",
+          "moveLabel": "Zelda Down B (Phantom Slash)",
+          "variantId": "zeldaphantomhurtbox",
+          "variantLabel": "ZeldaPhantomHurtbox",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 66,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/zelda"
+        },
+        {
+          "fighterId": "zelda",
+          "moveId": "side-b-din-s-fire",
+          "moveLabel": "Zelda Side B (Din's Fire)",
+          "variantId": "zeldadinsfire",
+          "variantLabel": "ZeldaDinsFire",
+          "timelineClass": "fighter-action",
+          "coverage": "static",
+          "blockerClass": "static-source-needs-motion",
+          "reason": "fighter-action source is static and does not prove a complete moving timeline",
+          "sourceFrameCount": 1,
+          "sourceDurationMs": null,
+          "totalFrames": 69,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/zelda"
+        },
+        {
+          "fighterId": "zelda",
+          "moveId": "side-b-din-s-fire",
+          "moveLabel": "Zelda Side B (Din's Fire)",
+          "variantId": "zeldadinsfiremin",
+          "variantLabel": "ZeldaDinsFireMin",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 69-frame parent action, but documented interaction remains active through frame 75; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 69,
+          "sourceDurationMs": 8970,
+          "totalFrames": 69,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/zelda"
         },
         {
           "fighterId": "zelda",
@@ -24093,7 +25505,7 @@
           "sourceDurationMs": null,
           "totalFrames": 69,
           "landingLag": null,
-          "sourceUrl": "https://www.ssbwiki.com/File:ZeldaSSpecialSSBU.png"
+          "sourceUrl": "https://ultimateframedata.com/zelda"
         },
         {
           "fighterId": "zelda",
@@ -24252,8 +25664,8 @@
     },
     "zero-suit-samus": {
       "unresolvedVariants": 4,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 14,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 13,
       "blockers": {
         "missing-documented-timing": 3,
         "short-or-misaligned-source": 1
@@ -24262,8 +25674,7 @@
         "fighter-action": 4
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "misc": 1
+        "defense": 9
       },
       "variants": [
         {
@@ -24463,21 +25874,6 @@
           "active": null,
           "totalFrames": "18/23",
           "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/zero_suit_samus",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "zero-suit-samus",
-          "fighterName": "Zero_suit_samus",
-          "moveId": "flip-jump-kick",
-          "moveLabel": "Zero_suit_samus Flip Jump, Kick",
-          "moveName": "Flip Jump, Kick",
-          "category": "misc",
-          "startup": "9",
-          "active": "9\u201412",
-          "totalFrames": "59",
-          "landingLag": "35",
           "sourceUrl": "https://ultimateframedata.com/zero_suit_samus",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -25441,36 +26837,6 @@
       "startup": null,
       "active": null,
       "totalFrames": "23/28",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_charizard",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "charizard",
-      "fighterName": "Pt_charizard",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_charizard Down B (Pokemon Change)",
-      "moveName": "Down B (Pokemon Change)",
-      "category": "special",
-      "startup": null,
-      "active": "**",
-      "totalFrames": "39",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_charizard",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "charizard",
-      "fighterName": "Pt_charizard",
-      "moveId": "neutral-b-flamethrower",
-      "moveLabel": "Pt_charizard Neutral B (Flamethrower)",
-      "moveName": "Neutral B (Flamethrower)",
-      "category": "special",
-      "startup": "19/26/33/40",
-      "active": "19\u201422/26\u201429/33\u201436/40\u201443",
-      "totalFrames": "70",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/pt_charizard",
       "blockerClass": "no-source-visual",
@@ -27007,36 +28373,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "duck-hunt",
-      "fighterName": "Duck_hunt",
-      "moveId": "down-b-wild-gunman",
-      "moveLabel": "Duck_hunt Down B (Wild Gunman)",
-      "moveName": "Down B (Wild Gunman)",
-      "category": "special",
-      "startup": null,
-      "active": "**",
-      "totalFrames": "41",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/duck_hunt",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "duck-hunt",
-      "fighterName": "Duck_hunt",
-      "moveId": "up-b-duck-jump",
-      "moveLabel": "Duck_hunt Up B (Duck Jump)",
-      "moveName": "Up B (Duck Jump)",
-      "category": "special",
-      "startup": null,
-      "active": "**",
-      "totalFrames": null,
-      "landingLag": "30",
-      "sourceUrl": "https://ultimateframedata.com/duck_hunt",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "falco",
       "fighterName": "Falco",
       "moveId": "air-dodge-diagonally-down",
@@ -27586,21 +28922,6 @@
       "startup": null,
       "active": null,
       "totalFrames": "19/24",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/greninja",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "greninja",
-      "fighterName": "Greninja",
-      "moveId": "down-b-attack-substitute-attack",
-      "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
-      "moveName": "Down B, Attack (Substitute, Attack)",
-      "category": "special",
-      "startup": "19",
-      "active": "19",
-      "totalFrames": "63",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/greninja",
       "blockerClass": "no-source-visual",
@@ -28747,51 +30068,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "ivysaur",
-      "fighterName": "Pt_ivysaur",
-      "moveId": "down-smash",
-      "moveLabel": "Pt_ivysaur Down Smash",
-      "moveName": "Down Smash",
-      "category": "ground",
-      "startup": "13",
-      "active": "13\u201414",
-      "totalFrames": "45",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "ivysaur",
-      "fighterName": "Pt_ivysaur",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_ivysaur Down B (Pokemon Change)",
-      "moveName": "Down B (Pokemon Change)",
-      "category": "special",
-      "startup": null,
-      "active": "**",
-      "totalFrames": "39",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "ivysaur",
-      "fighterName": "Pt_ivysaur",
-      "moveId": "up-b-vinewhip",
-      "moveLabel": "Pt_ivysaur Up B (Vinewhip)",
-      "moveName": "Up B (Vinewhip)",
-      "category": "special",
-      "startup": "15",
-      "active": "15\u201417",
-      "totalFrames": "47",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "jigglypuff",
       "fighterName": "Jigglypuff",
       "moveId": "air-dodge-diagonally-down",
@@ -29266,36 +30542,6 @@
       "startup": "27",
       "active": "27\u201443",
       "totalFrames": "67",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/kazuya",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "kazuya",
-      "fighterName": "Kazuya",
-      "moveId": "rage-drive-non-input",
-      "moveLabel": "Kazuya Rage Drive (Non Input)",
-      "moveName": "Rage Drive (Non Input)",
-      "category": "misc",
-      "startup": "14",
-      "active": "14\u201415",
-      "totalFrames": "57 (42 throw)",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/kazuya",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "kazuya",
-      "fighterName": "Kazuya",
-      "moveId": "down-b-heaven-s-door",
-      "moveLabel": "Kazuya Down B (Heaven's Door)",
-      "moveName": "Down B (Heaven's Door)",
-      "category": "special",
-      "startup": "14",
-      "active": "**",
-      "totalFrames": "49 (59 in air)",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/kazuya",
       "blockerClass": "no-source-visual",
@@ -31162,21 +32408,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "mega-man",
-      "fighterName": "Mega_man",
-      "moveId": "up-b-rush-coil",
-      "moveLabel": "Mega_man Up B (Rush Coil)",
-      "moveName": "Up B (Rush Coil)",
-      "category": "special",
-      "startup": null,
-      "active": null,
-      "totalFrames": "41",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/mega_man",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "meta-knight",
       "fighterName": "Meta_knight",
       "moveId": "air-dodge-diagonally-down",
@@ -31307,21 +32538,6 @@
       "active": null,
       "totalFrames": "19/24",
       "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/meta_knight",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "meta-knight",
-      "fighterName": "Meta_knight",
-      "moveId": "dimensional-cape-attack",
-      "moveLabel": "Meta_knight Dimensional Cape, Attack",
-      "moveName": "Dimensional Cape, Attack",
-      "category": "misc",
-      "startup": "34",
-      "active": "34",
-      "totalFrames": "92",
-      "landingLag": "30",
       "sourceUrl": "https://ultimateframedata.com/meta_knight",
       "blockerClass": "no-source-visual",
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -31614,36 +32830,6 @@
     {
       "fighterId": "mii-brawler",
       "fighterName": "Mii_brawler",
-      "moveId": "counter-throw-activated",
-      "moveLabel": "Mii_brawler Counter Throw, Activated",
-      "moveName": "Counter Throw, Activated",
-      "category": "grab",
-      "startup": "3/16",
-      "active": "**",
-      "totalFrames": "Grab: 39 (if missed) // Throw: 46",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/mii_brawler",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "fighterName": "Mii_brawler",
-      "moveId": "flashing-mach-punch",
-      "moveLabel": "Mii_brawler Flashing Mach Punch",
-      "moveName": "Flashing Mach Punch",
-      "category": "misc",
-      "startup": "10/14/17/20/23 (25/27/29/31/33/35/37/39/41/43/45/47/49/51/53/55/65",
-      "active": "10/14/17/20/23",
-      "totalFrames": "93/54",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/mii_brawler",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "fighterName": "Mii_brawler",
       "moveId": "head-on-assault-air",
       "moveLabel": "Mii_brawler Head-On Assault, Air",
       "moveName": "Head-On Assault, Air",
@@ -31757,21 +32943,6 @@
       "active": "**",
       "totalFrames": null,
       "landingLag": "14",
-      "sourceUrl": "https://ultimateframedata.com/mii_gunner",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "mii-gunner",
-      "fighterName": "Mii_gunner",
-      "moveId": "grenade-launch",
-      "moveLabel": "Mii_gunner Grenade Launch",
-      "moveName": "Grenade Launch",
-      "category": "misc",
-      "startup": "32",
-      "active": "32\u2014111",
-      "totalFrames": "53",
-      "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/mii_gunner",
       "blockerClass": "no-source-visual",
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -31912,21 +33083,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "mii-swordfighter",
-      "fighterName": "Mii_swordfighter",
-      "moveId": "gale-stab-charge",
-      "moveLabel": "Mii_swordfighter Gale Stab (Charge)",
-      "moveName": "Gale Stab (Charge)",
-      "category": "misc",
-      "startup": "8/11",
-      "active": "8\u201421/11\u201424",
-      "totalFrames": "72/--",
-      "landingLag": "29 (Freefall)",
-      "sourceUrl": "https://ultimateframedata.com/mii_swordfighter",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "min-min",
       "fighterName": "Minmin",
       "moveId": "air-dodge-diagonally-down",
@@ -32057,36 +33213,6 @@
       "active": null,
       "totalFrames": "20/25",
       "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/minmin",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "min-min",
-      "fighterName": "Minmin",
-      "moveId": "down-b-arms-change",
-      "moveLabel": "Minmin Down B (Arms Change)",
-      "moveName": "Down B (Arms Change)",
-      "category": "special",
-      "startup": "1",
-      "active": "**",
-      "totalFrames": "1",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/minmin",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "min-min",
-      "fighterName": "Minmin",
-      "moveId": "up-b-arms-hook",
-      "moveLabel": "Minmin Up B (Arms Hook)",
-      "moveName": "Up B (Arms Hook)",
-      "category": "special",
-      "startup": "12",
-      "active": "12\u201420",
-      "totalFrames": "54",
-      "landingLag": "**",
       "sourceUrl": "https://ultimateframedata.com/minmin",
       "blockerClass": "no-source-visual",
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -32372,21 +33498,6 @@
       "active": null,
       "totalFrames": "25/31",
       "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/mythra",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "mythra",
-      "fighterName": "Mythra",
-      "moveId": "chroma-dust",
-      "moveLabel": "Mythra Chroma Dust",
-      "moveName": "Chroma Dust",
-      "category": "misc",
-      "startup": "10...",
-      "active": "10\u201412/41-56/42-57/43-58/44-59/45-60",
-      "totalFrames": null,
-      "landingLag": "20",
       "sourceUrl": "https://ultimateframedata.com/mythra",
       "blockerClass": "no-source-visual",
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -32686,36 +33797,6 @@
       "startup": "12",
       "active": "12\u201423",
       "totalFrames": "44/51/60",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/olimar",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "olimar",
-      "fighterName": "Olimar",
-      "moveId": "purple-grabs",
-      "moveLabel": "Olimar Purple Grabs",
-      "moveName": "Purple Grabs",
-      "category": "grab",
-      "startup": "12",
-      "active": "12\u201423",
-      "totalFrames": "41/47/56",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/olimar",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "olimar",
-      "fighterName": "Olimar",
-      "moveId": "red-blue-yellow-grabs",
-      "moveLabel": "Olimar Red/Blue/Yellow Grabs",
-      "moveName": "Red/Blue/Yellow Grabs",
-      "category": "grab",
-      "startup": "12",
-      "active": "12\u201423",
-      "totalFrames": "41/47/56",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/olimar",
       "blockerClass": "no-source-visual",
@@ -34254,21 +35335,6 @@
     {
       "fighterId": "rob",
       "fighterName": "Rob",
-      "moveId": "side-b-arm-rotor",
-      "moveLabel": "Rob Side B (Arm Rotor)",
-      "moveName": "Side B (Arm Rotor)",
-      "category": "special",
-      "startup": "13...",
-      "active": "13/14\u201421/22\u201437/44",
-      "totalFrames": "85",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/rob",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "rob",
-      "fighterName": "Rob",
       "moveId": "side-b-arm-rotor-mashing",
       "moveLabel": "Rob Side B (Arm Rotor, Mashing)",
       "moveName": "Side B (Arm Rotor, Mashing)",
@@ -34831,21 +35897,6 @@
       "startup": null,
       "active": "**",
       "totalFrames": "19/19",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/ryu",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "ryu",
-      "fighterName": "Ryu",
-      "moveId": "side-b-tatsumaki-senpukyaku",
-      "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
-      "moveName": "Side B (Tatsumaki Senpukyaku)",
-      "category": "special",
-      "startup": "8",
-      "active": "8-9, 13-15, 29-31, and 45-47",
-      "totalFrames": "58\u201490",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/ryu",
       "blockerClass": "no-source-visual",
@@ -35962,21 +37013,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "sora",
-      "fighterName": "Sora",
-      "moveId": "ftilt-1-ftilt-2-combo",
-      "moveLabel": "Sora FTilt 1 > FTilt 2 Combo",
-      "moveName": "FTilt 1 > FTilt 2 Combo",
-      "category": "ground",
-      "startup": "13, 7",
-      "active": "13\u201417, 7\u201410",
-      "totalFrames": "40, 35",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/sora",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "squirtle",
       "fighterName": "Pt_squirtle",
       "moveId": "air-dodge-diagonally-down",
@@ -36106,51 +37142,6 @@
       "startup": null,
       "active": null,
       "totalFrames": "19/24",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "squirtle",
-      "fighterName": "Pt_squirtle",
-      "moveId": "forward-tilt",
-      "moveLabel": "Pt_squirtle Forward Tilt",
-      "moveName": "Forward Tilt",
-      "category": "ground",
-      "startup": "5",
-      "active": "5\u20146",
-      "totalFrames": "17",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "squirtle",
-      "fighterName": "Pt_squirtle",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_squirtle Down B (Pokemon Change)",
-      "moveName": "Down B (Pokemon Change)",
-      "category": "special",
-      "startup": null,
-      "active": "**",
-      "totalFrames": "39",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "squirtle",
-      "fighterName": "Pt_squirtle",
-      "moveId": "neutral-b-watergun",
-      "moveLabel": "Pt_squirtle Neutral B (Watergun)",
-      "moveName": "Neutral B (Watergun)",
-      "category": "special",
-      "startup": "26",
-      "active": "24\u2014**",
-      "totalFrames": "63",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
       "blockerClass": "no-source-visual",
@@ -36307,36 +37298,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "steve",
-      "fighterName": "Steve",
-      "moveId": "sword-back-air-short-hop-macro-bair",
-      "moveLabel": "Steve Sword Back Air (Short Hop Macro BAir)",
-      "moveName": "Sword Back Air (Short Hop Macro BAir)",
-      "category": "misc",
-      "startup": "4 (Gold: 3)",
-      "active": "4\u20146 (Gold: 3\u20145)",
-      "totalFrames": "16 (Gold: 14)",
-      "landingLag": "-- (can only be done rising)",
-      "sourceUrl": "https://ultimateframedata.com/steve",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "steve",
-      "fighterName": "Steve",
-      "moveId": "sword-forward-air-short-hop-macro-fair",
-      "moveLabel": "Steve Sword Forward Air (Short Hop Macro FAir)",
-      "moveName": "Sword Forward Air (Short Hop Macro FAir)",
-      "category": "misc",
-      "startup": "4 (Gold: 3)",
-      "active": "4\u20146 (Gold: 3\u20145)",
-      "totalFrames": "16 (Gold: 14)",
-      "landingLag": "-- (can only be done rising)",
-      "sourceUrl": "https://ultimateframedata.com/steve",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "terry",
       "fighterName": "Terry",
       "moveId": "air-dodge-diagonally-down",
@@ -36466,36 +37427,6 @@
       "startup": null,
       "active": null,
       "totalFrames": "20/25",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/terry",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "terry",
-      "fighterName": "Terry",
-      "moveId": "burning-knuckle-input",
-      "moveLabel": "Terry Burning Knuckle, Input",
-      "moveName": "Burning Knuckle, Input",
-      "category": "misc",
-      "startup": "15/21 (21/28) | 14/19 (18/23)",
-      "active": "15\u201421(22\u201430) | 21\u201428(29\u201439) | 14\u201419(20\u201426) | 18\u201423(24\u201430)",
-      "totalFrames": "60 (69) | 46 (50)",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/terry",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "terry",
-      "fighterName": "Terry",
-      "moveId": "forward-b-burning-knuckle",
-      "moveLabel": "Terry Forward B (Burning Knuckle)",
-      "moveName": "Forward B (Burning Knuckle)",
-      "category": "misc",
-      "startup": "15/19 (21/26) | 14\u201417(18\u201426)",
-      "active": "15\u201419(20\u201430) | 21\u201428(27\u201439) | 14\u201417(18\u201426) | 18\u201421(22\u201430)",
-      "totalFrames": "60 (69) | 46 (50)",
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/terry",
       "blockerClass": "no-source-visual",
@@ -36802,21 +37733,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "villager",
-      "fighterName": "Villager",
-      "moveId": "timber-tree-grow-fall",
-      "moveLabel": "Villager Timber Tree Grow/Fall",
-      "moveName": "Timber Tree Grow/Fall",
-      "category": "misc",
-      "startup": "46/16",
-      "active": "**",
-      "totalFrames": null,
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/villager",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "wario",
       "fighterName": "Wario",
       "moveId": "air-dodge-diagonally-down",
@@ -37081,21 +37997,6 @@
       "startup": null,
       "active": null,
       "totalFrames": "20/25",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/wii_fit_trainer",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "wii-fit-trainer",
-      "fighterName": "Wii_fit_trainer",
-      "moveId": "down-b-deep-breathing",
-      "moveLabel": "Wii_fit_trainer Down B (Deep Breathing)",
-      "moveName": "Down B (Deep Breathing)",
-      "category": "special",
-      "startup": "39",
-      "active": "**",
-      "totalFrames": null,
       "landingLag": null,
       "sourceUrl": "https://ultimateframedata.com/wii_fit_trainer",
       "blockerClass": "no-source-visual",
@@ -37772,21 +38673,6 @@
       "active": null,
       "totalFrames": "18/23",
       "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/zero_suit_samus",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "zero-suit-samus",
-      "fighterName": "Zero_suit_samus",
-      "moveId": "flip-jump-kick",
-      "moveLabel": "Zero_suit_samus Flip Jump, Kick",
-      "moveName": "Flip Jump, Kick",
-      "category": "misc",
-      "startup": "9",
-      "active": "9\u201412",
-      "totalFrames": "59",
-      "landingLag": "35",
       "sourceUrl": "https://ultimateframedata.com/zero_suit_samus",
       "blockerClass": "no-source-visual",
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"

@@ -6,8 +6,11 @@ on:
     types: [opened, reopened, synchronize]
     paths:
       - 'scripts/discover-ufd-visuals.py'
+      - 'scripts/discover-ufd-precise-visuals.py'
       - 'scripts/discover-external-visuals.py'
       - 'scripts/discover-smashwiki-filename-visuals.py'
+      - 'scripts/discover-smashwiki-shorthand-visuals.py'
+      - 'scripts/discover-smashwiki-curated-gap-visuals.py'
       - 'scripts/reconcile-external-visuals.py'
       - 'scripts/normalize-visual-source-provenance.py'
       - 'scripts/resolve-ruben-timing.py'
@@ -55,15 +58,17 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install discovery tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Discover fresh UFD baseline
+      - name: Discover precise full-roster UFD visuals
         run: |
-          python scripts/discover-ufd-visuals.py
+          python scripts/discover-ufd-precise-visuals.py
           python scripts/audit-visual-coverage.py
           cp src/data/visualCoverageAudit.generated.json /tmp/visual-audit-before.json
       - name: Recover external source visuals
         run: |
           python scripts/discover-external-visuals.py
           python scripts/discover-smashwiki-filename-visuals.py
+          python scripts/discover-smashwiki-shorthand-visuals.py
+          python scripts/discover-smashwiki-curated-gap-visuals.py
           python scripts/audit-visual-coverage.py
       - name: Write measurable discovery summary
         shell: bash
@@ -76,12 +81,16 @@ jobs:
           after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
           external = json.loads(Path('src/data/externalVisualSources.generated.json').read_text())
           filename = json.loads(Path('src/data/smashwikiFilenameVisuals.generated.json').read_text())
+          shorthand = json.loads(Path('src/data/smashwikiShorthandVisuals.generated.json').read_text())
+          curated = json.loads(Path('src/data/smashwikiCuratedGapVisuals.generated.json').read_text())
           summary = {
               'sourceLessBeforeExternalDiscovery': before['movesWithoutSourceVisual'],
               'sourceLessAfterExternalDiscovery': after['movesWithoutSourceVisual'],
               'sourceLessMovesRecoveredThisPass': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
               'externalTableParserAddedMoves': external['addedMoves'],
               'filenameSweepRecoveredMoves': filename['recoveredSourceLessMoves'],
+              'shorthandRecoveredMoves': shorthand['recoveredSourceLessMoves'],
+              'curatedRecoveredMoves': curated['recoveredSourceLessMoves'],
               'filenameSweepFilesScanned': filename['filesScanned'],
               'mappedSourceVisualMovesAfterDiscovery': after['mappedSourceVisualMoves'],
           }
@@ -96,6 +105,8 @@ jobs:
             visual-discovery-summary.json
             src/data/externalVisualSources.generated.json
             src/data/smashwikiFilenameVisuals.generated.json
+            src/data/smashwikiShorthandVisuals.generated.json
+            src/data/smashwikiCuratedGapVisuals.generated.json
             src/data/visualCoverageAudit.generated.json
           retention-days: 7
 
@@ -117,14 +128,18 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Discover full-roster UFD visuals
-        run: python scripts/discover-ufd-visuals.py
+      - name: Discover precise full-roster UFD visuals
+        run: python scripts/discover-ufd-precise-visuals.py
       - name: Refresh source-less targets after UFD discovery
         run: python scripts/audit-visual-coverage.py
       - name: Discover curated external visuals
         run: python scripts/discover-external-visuals.py
       - name: Recover filename-only SmashWiki animations
         run: python scripts/discover-smashwiki-filename-visuals.py
+      - name: Recover shorthand SmashWiki animations
+        run: python scripts/discover-smashwiki-shorthand-visuals.py
+      - name: Recover verified curated SmashWiki gaps
+        run: python scripts/discover-smashwiki-curated-gap-visuals.py
       - name: Reconcile stronger external replacements
         run: python scripts/reconcile-external-visuals.py
       - name: Normalize multi-source provenance
@@ -164,6 +179,8 @@ jobs:
             src/data/visualMediaSources.json \
             src/data/externalVisualSources.generated.json \
             src/data/smashwikiFilenameVisuals.generated.json \
+            src/data/smashwikiShorthandVisuals.generated.json \
+            src/data/smashwikiCuratedGapVisuals.generated.json \
             src/data/smashwikiHistoricalVisuals.generated.json \
             src/data/rubenTimingOverrides.generated.json \
             src/data/ultimateHitboxesArchive.generated.json \

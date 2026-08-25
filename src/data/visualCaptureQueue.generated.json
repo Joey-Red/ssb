@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T21:22:01Z",
-  "unresolvedSourceVariants": 588,
-  "movesWithoutSourceVisual": 887,
-  "jobCount": 1475,
+  "generatedAt": "2026-08-25T22:52:45Z",
+  "unresolvedSourceVariants": 708,
+  "movesWithoutSourceVisual": 853,
+  "jobCount": 1561,
   "jobs": [
     {
       "key": "banjo-and-kazooie:air-dodge-diagonally-down:manual-full-move",
@@ -258,6 +258,34 @@
       }
     },
     {
+      "key": "banjo-and-kazooie:down-air:banjo-kazooiedairlanding",
+      "fighterId": "banjo-and-kazooie",
+      "moveId": "down-air",
+      "moveLabel": "Banjo_and_kazooie Down Air",
+      "variantId": "banjo-kazooiedairlanding",
+      "variantLabel": "Banjo_KazooieDAirLanding",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 56,
+      "sourceUrl": "https://ultimateframedata.com/banjo_and_kazooie",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/banjo-and-kazooie/down-air/banjo-kazooiedairlanding",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "banjo-and-kazooie:down-b-rear-egg:banjokazooiereareggexplode",
       "fighterId": "banjo-and-kazooie",
       "moveId": "down-b-rear-egg",
@@ -380,7 +408,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 82,
-      "sourceUrl": "https://www.ssbwiki.com/File:Banjo%26KazooieWonderwingSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/banjo_and_kazooie",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -813,6 +841,34 @@
       },
       "expectedImport": {
         "directory": "captures/bayonetta/down-air/smashwiki-bayonettadairlandingbulletartsssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "bayonetta:down-smash:bayonettadsmashstomp",
+      "fighterId": "bayonetta",
+      "moveId": "down-smash",
+      "moveLabel": "Bayonetta Down Smash",
+      "variantId": "bayonettadsmashstomp",
+      "variantLabel": "BayonettaDSmashStomp",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/bayonetta",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/bayonetta/down-smash/bayonettadsmashstomp",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -1360,7 +1416,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 25,
-      "sourceUrl": "https://www.ssbwiki.com/File:BayonettaPummelSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/bayonetta",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -1864,7 +1920,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 21,
-      "sourceUrl": "https://www.ssbwiki.com/File:BowserPummelSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/bowser",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -1920,7 +1976,7 @@
       "blockerClass": "missing-documented-timing",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:BowserWhirlingFortressAerialSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/bowser",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -2246,6 +2302,34 @@
       }
     },
     {
+      "key": "bowser-jr:forward-air:bowserjrfairlanding",
+      "fighterId": "bowser-jr",
+      "moveId": "forward-air",
+      "moveLabel": "Bowser_jr Forward Air",
+      "variantId": "bowserjrfairlanding",
+      "variantLabel": "BowserJrFAirLanding",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 43,
+      "sourceUrl": "https://ultimateframedata.com/bowser_jr",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/bowser-jr/forward-air/bowserjrfairlanding",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "bowser-jr:forward-roll:manual-full-move",
       "fighterId": "bowser-jr",
       "moveId": "forward-roll",
@@ -2312,7 +2396,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 72,
-      "sourceUrl": "https://www.ssbwiki.com/File:BowserJrNSpecialSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/bowser_jr",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -2704,7 +2788,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 74,
-      "sourceUrl": "https://www.ssbwiki.com/File:BylethDSmashSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/byleth",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -2788,7 +2872,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 22,
-      "sourceUrl": "https://www.ssbwiki.com/File:BylethPummelSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/byleth",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -3124,7 +3208,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 39,
-      "sourceUrl": "https://www.ssbwiki.com/File:CaptainFalconDThrowSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/captain_falcon",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -3208,7 +3292,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 19,
-      "sourceUrl": "https://www.ssbwiki.com/File:CaptainFalconPummelSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/captain_falcon",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -3506,34 +3590,6 @@
       }
     },
     {
-      "key": "charizard:down-b-pokemon-change:manual-full-move",
-      "fighterId": "charizard",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_charizard Down B (Pokemon Change)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 39,
-      "sourceUrl": "https://ultimateframedata.com/pt_charizard",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/charizard/down-b-pokemon-change/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "charizard:forward-roll:manual-full-move",
       "fighterId": "charizard",
       "moveId": "forward-roll",
@@ -3674,17 +3730,17 @@
       }
     },
     {
-      "key": "charizard:neutral-b-flamethrower:manual-full-move",
+      "key": "charizard:neutral-b-flamethrower:smashwiki-shorthand-charizard-neutral-b-ssbu",
       "fighterId": "charizard",
       "moveId": "neutral-b-flamethrower",
       "moveLabel": "Pt_charizard Neutral B (Flamethrower)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "smashwiki-shorthand-charizard-neutral-b-ssbu",
+      "variantLabel": "Charizard_Neutral_B_SSBU",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 70,
-      "sourceUrl": "https://ultimateframedata.com/pt_charizard",
+      "sourceUrl": "https://www.ssbwiki.com/File:Charizard_Neutral_B_SSBU.gif",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -3696,7 +3752,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/charizard/neutral-b-flamethrower/manual-full-move",
+        "directory": "captures/charizard/neutral-b-flamethrower/smashwiki-shorthand-charizard-neutral-b-ssbu",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -4076,7 +4132,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 19,
-      "sourceUrl": "https://www.ssbwiki.com/File:ChromPummelSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/chrom",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -7790,34 +7846,6 @@
       }
     },
     {
-      "key": "duck-hunt:down-b-wild-gunman:manual-full-move",
-      "fighterId": "duck-hunt",
-      "moveId": "down-b-wild-gunman",
-      "moveLabel": "Duck_hunt Down B (Wild Gunman)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 41,
-      "sourceUrl": "https://ultimateframedata.com/duck_hunt",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/duck-hunt/down-b-wild-gunman/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "duck-hunt:forward-roll:manual-full-move",
       "fighterId": "duck-hunt",
       "moveId": "forward-roll",
@@ -8154,17 +8182,17 @@
       }
     },
     {
-      "key": "duck-hunt:up-b-duck-jump:manual-full-move",
+      "key": "duck-hunt:up-b-duck-jump:smashwiki-curated-duck-hunt-up-b-ssbu",
       "fighterId": "duck-hunt",
       "moveId": "up-b-duck-jump",
       "moveLabel": "Duck_hunt Up B (Duck Jump)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "smashwiki-curated-duck-hunt-up-b-ssbu",
+      "variantLabel": "Duck Hunt Up B SSBU",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://ultimateframedata.com/duck_hunt",
+      "sourceUrl": "https://www.ssbwiki.com/File:Duck_Hunt_Up_B_SSBU.gif",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -8176,7 +8204,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/duck-hunt/up-b-duck-jump/manual-full-move",
+        "directory": "captures/duck-hunt/up-b-duck-jump/smashwiki-curated-duck-hunt-up-b-ssbu",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -9750,15 +9778,15 @@
       }
     },
     {
-      "key": "greninja:down-b-attack-substitute-attack:manual-full-move",
+      "key": "greninja:down-b-attack-substitute-attack:greninjasubstitutehitdiagonaldown",
       "fighterId": "greninja",
       "moveId": "down-b-attack-substitute-attack",
       "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "greninjasubstitutehitdiagonaldown",
+      "variantLabel": "GreninjaSubstituteHitDiagonalDown",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 63,
       "sourceUrl": "https://ultimateframedata.com/greninja",
       "captureRequirements": {
@@ -9772,7 +9800,119 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/greninja/down-b-attack-substitute-attack/manual-full-move",
+        "directory": "captures/greninja/down-b-attack-substitute-attack/greninjasubstitutehitdiagonaldown",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "greninja:down-b-attack-substitute-attack:greninjasubstitutehitdiagonalup",
+      "fighterId": "greninja",
+      "moveId": "down-b-attack-substitute-attack",
+      "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+      "variantId": "greninjasubstitutehitdiagonalup",
+      "variantLabel": "GreninjaSubstituteHitDiagonalUp",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/greninja",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/greninja/down-b-attack-substitute-attack/greninjasubstitutehitdiagonalup",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "greninja:down-b-attack-substitute-attack:greninjasubstitutehitdown",
+      "fighterId": "greninja",
+      "moveId": "down-b-attack-substitute-attack",
+      "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+      "variantId": "greninjasubstitutehitdown",
+      "variantLabel": "GreninjaSubstituteHitDown",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/greninja",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/greninja/down-b-attack-substitute-attack/greninjasubstitutehitdown",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "greninja:down-b-attack-substitute-attack:greninjasubstitutehitside",
+      "fighterId": "greninja",
+      "moveId": "down-b-attack-substitute-attack",
+      "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+      "variantId": "greninjasubstitutehitside",
+      "variantLabel": "GreninjaSubstituteHitSide",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/greninja",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/greninja/down-b-attack-substitute-attack/greninjasubstitutehitside",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "greninja:down-b-attack-substitute-attack:greninjasubstitutehitup",
+      "fighterId": "greninja",
+      "moveId": "down-b-attack-substitute-attack",
+      "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
+      "variantId": "greninjasubstitutehitup",
+      "variantLabel": "GreninjaSubstituteHitUp",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/greninja",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/greninja/down-b-attack-substitute-attack/greninjasubstitutehitup",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -10534,6 +10674,118 @@
       }
     },
     {
+      "key": "hero:side-b-zap-zapple-kazap:herokazap",
+      "fighterId": "hero",
+      "moveId": "side-b-zap-zapple-kazap",
+      "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+      "variantId": "herokazap",
+      "variantLabel": "HeroKazap",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 30,
+      "sourceUrl": "https://ultimateframedata.com/hero",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/hero/side-b-zap-zapple-kazap/herokazap",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "hero:side-b-zap-zapple-kazap:herozap",
+      "fighterId": "hero",
+      "moveId": "side-b-zap-zapple-kazap",
+      "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+      "variantId": "herozap",
+      "variantLabel": "HeroZap",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 30,
+      "sourceUrl": "https://ultimateframedata.com/hero",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/hero/side-b-zap-zapple-kazap/herozap",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "hero:side-b-zap-zapple-kazap:herozapnomana",
+      "fighterId": "hero",
+      "moveId": "side-b-zap-zapple-kazap",
+      "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+      "variantId": "herozapnomana",
+      "variantLabel": "HeroZapNoMana",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 30,
+      "sourceUrl": "https://ultimateframedata.com/hero",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/hero/side-b-zap-zapple-kazap/herozapnomana",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "hero:side-b-zap-zapple-kazap:herozapple",
+      "fighterId": "hero",
+      "moveId": "side-b-zap-zapple-kazap",
+      "moveLabel": "Hero Side B, (Zap/Zapple/Kazap)",
+      "variantId": "herozapple",
+      "variantLabel": "HeroZapple",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 30,
+      "sourceUrl": "https://ultimateframedata.com/hero",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/hero/side-b-zap-zapple-kazap/herozapple",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "hero:side-b-zap-zapple-kazap:smashwiki-herozapssbu",
       "fighterId": "hero",
       "moveId": "side-b-zap-zapple-kazap",
@@ -10544,7 +10796,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 30,
-      "sourceUrl": "https://www.ssbwiki.com/File:HeroZapSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/hero",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -11374,6 +11626,62 @@
       }
     },
     {
+      "key": "ike:neutral-b-eruption:ikeeruption",
+      "fighterId": "ike",
+      "moveId": "neutral-b-eruption",
+      "moveLabel": "Ike Neutral B (Eruption)",
+      "variantId": "ikeeruption",
+      "variantLabel": "IkeEruption",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 78,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/neutral-b-eruption/ikeeruption",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ike:neutral-b-eruption:ikeeruptionmid",
+      "fighterId": "ike",
+      "moveId": "neutral-b-eruption",
+      "moveLabel": "Ike Neutral B (Eruption)",
+      "variantId": "ikeeruptionmid",
+      "variantLabel": "IkeEruptionMid",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 78,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/neutral-b-eruption/ikeeruptionmid",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "ike:side-b-quickdraw:ikequickdraw",
       "fighterId": "ike",
       "moveId": "side-b-quickdraw",
@@ -11458,6 +11766,146 @@
       }
     },
     {
+      "key": "ike:up-b-aether:ikeaethera",
+      "fighterId": "ike",
+      "moveId": "up-b-aether",
+      "moveLabel": "Ike Up B (Aether)",
+      "variantId": "ikeaethera",
+      "variantLabel": "IkeAetherA",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/up-b-aether/ikeaethera",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ike:up-b-aether:ikeaetherfall",
+      "fighterId": "ike",
+      "moveId": "up-b-aether",
+      "moveLabel": "Ike Up B (Aether)",
+      "variantId": "ikeaetherfall",
+      "variantLabel": "IkeAetherFall",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/up-b-aether/ikeaetherfall",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ike:up-b-aether:ikeaetherg",
+      "fighterId": "ike",
+      "moveId": "up-b-aether",
+      "moveLabel": "Ike Up B (Aether)",
+      "variantId": "ikeaetherg",
+      "variantLabel": "IkeAetherG",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/up-b-aether/ikeaetherg",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ike:up-b-aether:ikeaetherlanding",
+      "fighterId": "ike",
+      "moveId": "up-b-aether",
+      "moveLabel": "Ike Up B (Aether)",
+      "variantId": "ikeaetherlanding",
+      "variantLabel": "IkeAetherLanding",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/up-b-aether/ikeaetherlanding",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ike:up-b-aether:ikeaethersword",
+      "fighterId": "ike",
+      "moveId": "up-b-aether",
+      "moveLabel": "Ike Up B (Aether)",
+      "variantId": "ikeaethersword",
+      "variantLabel": "IkeAetherSword",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/ike",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ike/up-b-aether/ikeaethersword",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "ike:up-b-aether:smashwiki-ikeaethergroundedssbu",
       "fighterId": "ike",
       "moveId": "up-b-aether",
@@ -11468,7 +11916,7 @@
       "blockerClass": "missing-documented-timing",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:IkeAetherFallingSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/ike",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -12326,6 +12774,34 @@
       }
     },
     {
+      "key": "isabelle:down-b-lloid-trap:isabellelloidtrapburst",
+      "fighterId": "isabelle",
+      "moveId": "down-b-lloid-trap",
+      "moveLabel": "Isabelle Down B (Lloid Trap)",
+      "variantId": "isabellelloidtrapburst",
+      "variantLabel": "IsabelleLloidTrapBurst",
+      "timelineClass": "effect",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/isabelle",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/isabelle/down-b-lloid-trap/isabellelloidtrapburst",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "isabelle:down-b-lloid-trap:smashwiki-isabellelloidtrapexplosionssbu",
       "fighterId": "isabelle",
       "moveId": "down-b-lloid-trap",
@@ -12336,7 +12812,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:IsabelleLloidTrapSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/isabelle",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -12718,62 +13194,6 @@
       }
     },
     {
-      "key": "ivysaur:down-b-pokemon-change:manual-full-move",
-      "fighterId": "ivysaur",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_ivysaur Down B (Pokemon Change)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 39,
-      "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/ivysaur/down-b-pokemon-change/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "ivysaur:down-smash:manual-full-move",
-      "fighterId": "ivysaur",
-      "moveId": "down-smash",
-      "moveLabel": "Pt_ivysaur Down Smash",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "ground",
-      "documentedTargetFrames": 45,
-      "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/ivysaur/down-smash/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "ivysaur:forward-roll:manual-full-move",
       "fighterId": "ivysaur",
       "moveId": "forward-roll",
@@ -12909,34 +13329,6 @@
       },
       "expectedImport": {
         "directory": "captures/ivysaur/spot-dodge/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "ivysaur:up-b-vinewhip:manual-full-move",
-      "fighterId": "ivysaur",
-      "moveId": "up-b-vinewhip",
-      "moveLabel": "Pt_ivysaur Up B (Vinewhip)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 47,
-      "sourceUrl": "https://ultimateframedata.com/pt_ivysaur",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/ivysaur/up-b-vinewhip/manual-full-move",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -13950,15 +14342,15 @@
       }
     },
     {
-      "key": "kazuya:down-b-heaven-s-door:manual-full-move",
+      "key": "kazuya:down-b-heaven-s-door:shoto4heavensdoorground",
       "fighterId": "kazuya",
       "moveId": "down-b-heaven-s-door",
       "moveLabel": "Kazuya Down B (Heaven's Door)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "shoto4heavensdoorground",
+      "variantLabel": "Shoto4HeavensDoorGround",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 49,
       "sourceUrl": "https://ultimateframedata.com/kazuya",
       "captureRequirements": {
@@ -13972,7 +14364,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/kazuya/down-b-heaven-s-door/manual-full-move",
+        "directory": "captures/kazuya/down-b-heaven-s-door/shoto4heavensdoorground",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -14141,34 +14533,6 @@
       },
       "expectedImport": {
         "directory": "captures/kazuya/pummel/smashwiki-kazuyapummelssbu",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "kazuya:rage-drive-non-input:manual-full-move",
-      "fighterId": "kazuya",
-      "moveId": "rage-drive-non-input",
-      "moveLabel": "Kazuya Rage Drive (Non Input)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
-      "documentedTargetFrames": 57,
-      "sourceUrl": "https://ultimateframedata.com/kazuya",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/kazuya/rage-drive-non-input/manual-full-move",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -15490,6 +15854,62 @@
       }
     },
     {
+      "key": "king-k-rool:neutral-b-blunderbuss-kannonball:kingkroolblunderbusskannonballdetection",
+      "fighterId": "king-k-rool",
+      "moveId": "neutral-b-blunderbuss-kannonball",
+      "moveLabel": "King_k_rool Neutral B (Blunderbuss Kannonball)",
+      "variantId": "kingkroolblunderbusskannonballdetection",
+      "variantLabel": "KingKRoolBlunderbussKannonballDetection",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/king-k-rool/neutral-b-blunderbuss-kannonball/kingkroolblunderbusskannonballdetection",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "king-k-rool:neutral-b-blunderbuss-kannonball:kingkroolkannonball",
+      "fighterId": "king-k-rool",
+      "moveId": "neutral-b-blunderbuss-kannonball",
+      "moveLabel": "King_k_rool Neutral B (Blunderbuss Kannonball)",
+      "variantId": "kingkroolkannonball",
+      "variantLabel": "KingKRoolKannonball",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/king-k-rool/neutral-b-blunderbuss-kannonball/kingkroolkannonball",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "king-k-rool:neutral-b-blunderbuss-kannonball:smashwiki-kingkroolnspecialvacuumssbu",
       "fighterId": "king-k-rool",
       "moveId": "neutral-b-blunderbuss-kannonball",
@@ -15500,7 +15920,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 65,
-      "sourceUrl": "https://www.ssbwiki.com/File:KingKRoolNSpecialVacuumSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -15546,6 +15966,90 @@
       }
     },
     {
+      "key": "king-k-rool:side-b-crownerang:kingkroolcrownerang",
+      "fighterId": "king-k-rool",
+      "moveId": "side-b-crownerang",
+      "moveLabel": "King_k_rool Side B (Crownerang)",
+      "variantId": "kingkroolcrownerang",
+      "variantLabel": "KingKRoolCrownerang",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/king-k-rool/side-b-crownerang/kingkroolcrownerang",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "king-k-rool:side-b-crownerang:kingkroolcrownerangthrow",
+      "fighterId": "king-k-rool",
+      "moveId": "side-b-crownerang",
+      "moveLabel": "King_k_rool Side B (Crownerang)",
+      "variantId": "kingkroolcrownerangthrow",
+      "variantLabel": "KingKRoolCrownerangThrow",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/king-k-rool/side-b-crownerang/kingkroolcrownerangthrow",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "king-k-rool:side-b-crownerang:kingkroolcrownerangthrown",
+      "fighterId": "king-k-rool",
+      "moveId": "side-b-crownerang",
+      "moveLabel": "King_k_rool Side B (Crownerang)",
+      "variantId": "kingkroolcrownerangthrown",
+      "variantLabel": "KingKRoolCrownerangThrown",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 63,
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/king-k-rool/side-b-crownerang/kingkroolcrownerangthrown",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "king-k-rool:side-b-crownerang:smashwiki-kingkroolsspecialssbu",
       "fighterId": "king-k-rool",
       "moveId": "side-b-crownerang",
@@ -15556,7 +16060,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 63,
-      "sourceUrl": "https://www.ssbwiki.com/File:KingKRoolSSpecialSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/king_k_rool",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -18150,6 +18654,90 @@
       }
     },
     {
+      "key": "lucina:neutral-b-shieldbreaker:lucinashieldbreaker",
+      "fighterId": "lucina",
+      "moveId": "neutral-b-shieldbreaker",
+      "moveLabel": "Lucina Neutral B (Shieldbreaker)",
+      "variantId": "lucinashieldbreaker",
+      "variantLabel": "LucinaShieldbreaker",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 50,
+      "sourceUrl": "https://ultimateframedata.com/lucina",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/lucina/neutral-b-shieldbreaker/lucinashieldbreaker",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "lucina:neutral-b-shieldbreaker:lucinashieldbreakerdown",
+      "fighterId": "lucina",
+      "moveId": "neutral-b-shieldbreaker",
+      "moveLabel": "Lucina Neutral B (Shieldbreaker)",
+      "variantId": "lucinashieldbreakerdown",
+      "variantLabel": "LucinaShieldbreakerDown",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 50,
+      "sourceUrl": "https://ultimateframedata.com/lucina",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/lucina/neutral-b-shieldbreaker/lucinashieldbreakerdown",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "lucina:neutral-b-shieldbreaker:lucinashieldbreakerup",
+      "fighterId": "lucina",
+      "moveId": "neutral-b-shieldbreaker",
+      "moveLabel": "Lucina Neutral B (Shieldbreaker)",
+      "variantId": "lucinashieldbreakerup",
+      "variantLabel": "LucinaShieldbreakerUp",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 50,
+      "sourceUrl": "https://ultimateframedata.com/lucina",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/lucina/neutral-b-shieldbreaker/lucinashieldbreakerup",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "lucina:spot-dodge:manual-full-move",
       "fighterId": "lucina",
       "moveId": "spot-dodge",
@@ -19242,6 +19830,90 @@
       }
     },
     {
+      "key": "marth:neutral-b-shield-breaker:marthshieldbreaker",
+      "fighterId": "marth",
+      "moveId": "neutral-b-shield-breaker",
+      "moveLabel": "Marth Neutral B (Shield Breaker)",
+      "variantId": "marthshieldbreaker",
+      "variantLabel": "MarthShieldbreaker",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 50,
+      "sourceUrl": "https://ultimateframedata.com/marth",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/marth/neutral-b-shield-breaker/marthshieldbreaker",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "marth:neutral-b-shield-breaker:marthshieldbreakerdown",
+      "fighterId": "marth",
+      "moveId": "neutral-b-shield-breaker",
+      "moveLabel": "Marth Neutral B (Shield Breaker)",
+      "variantId": "marthshieldbreakerdown",
+      "variantLabel": "MarthShieldbreakerDown",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 50,
+      "sourceUrl": "https://ultimateframedata.com/marth",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/marth/neutral-b-shield-breaker/marthshieldbreakerdown",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "marth:neutral-b-shield-breaker:marthshieldbreakerup",
+      "fighterId": "marth",
+      "moveId": "neutral-b-shield-breaker",
+      "moveLabel": "Marth Neutral B (Shield Breaker)",
+      "variantId": "marthshieldbreakerup",
+      "variantLabel": "MarthShieldbreakerUp",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 50,
+      "sourceUrl": "https://ultimateframedata.com/marth",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/marth/neutral-b-shield-breaker/marthshieldbreakerup",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "marth:spot-dodge:manual-full-move",
       "fighterId": "marth",
       "moveId": "spot-dodge",
@@ -19830,34 +20502,6 @@
       }
     },
     {
-      "key": "mega-man:up-b-rush-coil:manual-full-move",
-      "fighterId": "mega-man",
-      "moveId": "up-b-rush-coil",
-      "moveLabel": "Mega_man Up B (Rush Coil)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 41,
-      "sourceUrl": "https://ultimateframedata.com/mega_man",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/mega-man/up-b-rush-coil/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "mega-man:up-tilt:smashwiki-megamanutiltssbu",
       "fighterId": "mega-man",
       "moveId": "up-tilt",
@@ -20054,15 +20698,15 @@
       }
     },
     {
-      "key": "meta-knight:dimensional-cape-attack:manual-full-move",
+      "key": "meta-knight:dimensional-cape-attack:metaknightdimensionalcapea",
       "fighterId": "meta-knight",
       "moveId": "dimensional-cape-attack",
       "moveLabel": "Meta_knight Dimensional Cape, Attack",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "metaknightdimensionalcapea",
+      "variantLabel": "MetaKnightDimensionalCapeA",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 92,
       "sourceUrl": "https://ultimateframedata.com/meta_knight",
       "captureRequirements": {
@@ -20076,7 +20720,147 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/meta-knight/dimensional-cape-attack/manual-full-move",
+        "directory": "captures/meta-knight/dimensional-cape-attack/metaknightdimensionalcapea",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "meta-knight:dimensional-cape-attack:metaknightdimensionalcapeab",
+      "fighterId": "meta-knight",
+      "moveId": "dimensional-cape-attack",
+      "moveLabel": "Meta_knight Dimensional Cape, Attack",
+      "variantId": "metaknightdimensionalcapeab",
+      "variantLabel": "MetaKnightDimensionalCapeAB",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 92,
+      "sourceUrl": "https://ultimateframedata.com/meta_knight",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/meta-knight/dimensional-cape-attack/metaknightdimensionalcapeab",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "meta-knight:dimensional-cape-attack:metaknightdimensionalcapeaf",
+      "fighterId": "meta-knight",
+      "moveId": "dimensional-cape-attack",
+      "moveLabel": "Meta_knight Dimensional Cape, Attack",
+      "variantId": "metaknightdimensionalcapeaf",
+      "variantLabel": "MetaKnightDimensionalCapeAF",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 92,
+      "sourceUrl": "https://ultimateframedata.com/meta_knight",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/meta-knight/dimensional-cape-attack/metaknightdimensionalcapeaf",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "meta-knight:dimensional-cape-attack:metaknightdimensionalcapeg",
+      "fighterId": "meta-knight",
+      "moveId": "dimensional-cape-attack",
+      "moveLabel": "Meta_knight Dimensional Cape, Attack",
+      "variantId": "metaknightdimensionalcapeg",
+      "variantLabel": "MetaKnightDimensionalCapeG",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 92,
+      "sourceUrl": "https://ultimateframedata.com/meta_knight",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/meta-knight/dimensional-cape-attack/metaknightdimensionalcapeg",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "meta-knight:dimensional-cape-attack:metaknightdimensionalcapegb",
+      "fighterId": "meta-knight",
+      "moveId": "dimensional-cape-attack",
+      "moveLabel": "Meta_knight Dimensional Cape, Attack",
+      "variantId": "metaknightdimensionalcapegb",
+      "variantLabel": "MetaKnightDimensionalCapeGB",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 92,
+      "sourceUrl": "https://ultimateframedata.com/meta_knight",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/meta-knight/dimensional-cape-attack/metaknightdimensionalcapegb",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "meta-knight:dimensional-cape-attack:metaknightdimensionalcapegf",
+      "fighterId": "meta-knight",
+      "moveId": "dimensional-cape-attack",
+      "moveLabel": "Meta_knight Dimensional Cape, Attack",
+      "variantId": "metaknightdimensionalcapegf",
+      "variantLabel": "MetaKnightDimensionalCapeGF",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 92,
+      "sourceUrl": "https://ultimateframedata.com/meta_knight",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/meta-knight/dimensional-cape-attack/metaknightdimensionalcapegf",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -20782,34 +21566,6 @@
       }
     },
     {
-      "key": "mii-brawler:counter-throw-activated:manual-full-move",
-      "fighterId": "mii-brawler",
-      "moveId": "counter-throw-activated",
-      "moveLabel": "Mii_brawler Counter Throw, Activated",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "grab",
-      "documentedTargetFrames": 39,
-      "sourceUrl": "https://ultimateframedata.com/mii_brawler",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/mii-brawler/counter-throw-activated/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "mii-brawler:exploding-side-kick:smashwiki-miibrawleronslaughtaerialssbu",
       "fighterId": "mii-brawler",
       "moveId": "exploding-side-kick",
@@ -20894,15 +21650,15 @@
       }
     },
     {
-      "key": "mii-brawler:flashing-mach-punch:manual-full-move",
+      "key": "mii-brawler:flashing-mach-punch:miibrawlerflashingmachpunchmiss",
       "fighterId": "mii-brawler",
       "moveId": "flashing-mach-punch",
       "moveLabel": "Mii_brawler Flashing Mach Punch",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "miibrawlerflashingmachpunchmiss",
+      "variantLabel": "MiiBrawlerFlashingMachPunchMiss",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 93,
       "sourceUrl": "https://ultimateframedata.com/mii_brawler",
       "captureRequirements": {
@@ -20916,7 +21672,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/mii-brawler/flashing-mach-punch/manual-full-move",
+        "directory": "captures/mii-brawler/flashing-mach-punch/miibrawlerflashingmachpunchmiss",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -21706,16 +22462,16 @@
       }
     },
     {
-      "key": "mii-gunner:grenade-launch:manual-full-move",
+      "key": "mii-gunner:grenade-launch:miigunnergrenadelauncherexplosion",
       "fighterId": "mii-gunner",
       "moveId": "grenade-launch",
       "moveLabel": "Mii_gunner Grenade Launch",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
-      "documentedTargetFrames": 53,
+      "variantId": "miigunnergrenadelauncherexplosion",
+      "variantLabel": "MiiGunnerGrenadeLauncherExplosion",
+      "timelineClass": "effect",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
       "sourceUrl": "https://ultimateframedata.com/mii_gunner",
       "captureRequirements": {
         "fps": 60,
@@ -21728,7 +22484,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/mii-gunner/grenade-launch/manual-full-move",
+        "directory": "captures/mii-gunner/grenade-launch/miigunnergrenadelauncherexplosion",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -22121,34 +22877,6 @@
       },
       "expectedImport": {
         "directory": "captures/mii-swordfighter/forward-roll/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "mii-swordfighter:gale-stab-charge:manual-full-move",
-      "fighterId": "mii-swordfighter",
-      "moveId": "gale-stab-charge",
-      "moveLabel": "Mii_swordfighter Gale Stab (Charge)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
-      "documentedTargetFrames": 72,
-      "sourceUrl": "https://ultimateframedata.com/mii_swordfighter",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/mii-swordfighter/gale-stab-charge/manual-full-move",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -22574,34 +23302,6 @@
       }
     },
     {
-      "key": "min-min:down-b-arms-change:manual-full-move",
-      "fighterId": "min-min",
-      "moveId": "down-b-arms-change",
-      "moveLabel": "Minmin Down B (Arms Change)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 1,
-      "sourceUrl": "https://ultimateframedata.com/minmin",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/min-min/down-b-arms-change/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "min-min:forward-roll:manual-full-move",
       "fighterId": "min-min",
       "moveId": "forward-roll",
@@ -22630,6 +23330,62 @@
       }
     },
     {
+      "key": "min-min:forward-smash-dragon-laser:minmindragonaerialsmash",
+      "fighterId": "min-min",
+      "moveId": "forward-smash-dragon-laser",
+      "moveLabel": "Minmin Forward Smash, Dragon (Laser)",
+      "variantId": "minmindragonaerialsmash",
+      "variantLabel": "MinMinDragonAerialSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/minmin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/min-min/forward-smash-dragon-laser/minmindragonaerialsmash",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "min-min:forward-smash-dragon-laser:minmindragonfsmash",
+      "fighterId": "min-min",
+      "moveId": "forward-smash-dragon-laser",
+      "moveLabel": "Minmin Forward Smash, Dragon (Laser)",
+      "variantId": "minmindragonfsmash",
+      "variantLabel": "MinMinDragonFSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/minmin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/min-min/forward-smash-dragon-laser/minmindragonfsmash",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "min-min:forward-smash-dragon-laser:smashwiki-minminfsmashdragonssbu",
       "fighterId": "min-min",
       "moveId": "forward-smash-dragon-laser",
@@ -22640,7 +23396,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 65,
-      "sourceUrl": "https://www.ssbwiki.com/File:MinMinFSmashDragonBeamSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/minmin",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -22686,6 +23442,62 @@
       }
     },
     {
+      "key": "min-min:forward-smash-power-dragon-laser:minminpowerdragonaerialsmash",
+      "fighterId": "min-min",
+      "moveId": "forward-smash-power-dragon-laser",
+      "moveLabel": "Minmin Forward Smash, Power Dragon (Laser)",
+      "variantId": "minminpowerdragonaerialsmash",
+      "variantLabel": "MinMinPowerDragonAerialSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/minmin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/min-min/forward-smash-power-dragon-laser/minminpowerdragonaerialsmash",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "min-min:forward-smash-power-dragon-laser:minminpowerdragonfsmash",
+      "fighterId": "min-min",
+      "moveId": "forward-smash-power-dragon-laser",
+      "moveLabel": "Minmin Forward Smash, Power Dragon (Laser)",
+      "variantId": "minminpowerdragonfsmash",
+      "variantLabel": "MinMinPowerDragonFSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 65,
+      "sourceUrl": "https://ultimateframedata.com/minmin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/min-min/forward-smash-power-dragon-laser/minminpowerdragonfsmash",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "min-min:forward-smash-power-dragon-laser:smashwiki-minminfairbairsmashpowerdragonssbu",
       "fighterId": "min-min",
       "moveId": "forward-smash-power-dragon-laser",
@@ -22696,7 +23508,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 65,
-      "sourceUrl": "https://www.ssbwiki.com/File:MinMinFSmashPowerDragonBeamSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/minmin",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -23022,6 +23834,34 @@
       }
     },
     {
+      "key": "min-min:jab-1:minminjab1",
+      "fighterId": "min-min",
+      "moveId": "jab-1",
+      "moveLabel": "Minmin Jab 1",
+      "variantId": "minminjab1",
+      "variantLabel": "MinMinJab1",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 24,
+      "sourceUrl": "https://ultimateframedata.com/minmin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/min-min/jab-1/minminjab1",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "min-min:jab-1:smashwiki-minminjab1ssbu",
       "fighterId": "min-min",
       "moveId": "jab-1",
@@ -23032,7 +23872,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 24,
-      "sourceUrl": "https://www.ssbwiki.com/File:MinMinJab1SSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/minmin",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -23129,34 +23969,6 @@
       },
       "expectedImport": {
         "directory": "captures/min-min/spot-dodge/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "min-min:up-b-arms-hook:manual-full-move",
-      "fighterId": "min-min",
-      "moveId": "up-b-arms-hook",
-      "moveLabel": "Minmin Up B (Arms Hook)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 54,
-      "sourceUrl": "https://ultimateframedata.com/minmin",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/min-min/up-b-arms-hook/manual-full-move",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -24786,15 +25598,15 @@
       }
     },
     {
-      "key": "mythra:chroma-dust:manual-full-move",
+      "key": "mythra:chroma-dust:mythrachromadustinterpolated",
       "fighterId": "mythra",
       "moveId": "chroma-dust",
       "moveLabel": "Mythra Chroma Dust",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "mythrachromadustinterpolated",
+      "variantLabel": "MythraChromaDustInterpolated",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
       "documentedTargetFrames": null,
       "sourceUrl": "https://ultimateframedata.com/mythra",
       "captureRequirements": {
@@ -24808,7 +25620,35 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/mythra/chroma-dust/manual-full-move",
+        "directory": "captures/mythra/chroma-dust/mythrachromadustinterpolated",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "mythra:chroma-dust:mythraupspecial",
+      "fighterId": "mythra",
+      "moveId": "chroma-dust",
+      "moveLabel": "Mythra Chroma Dust",
+      "variantId": "mythraupspecial",
+      "variantLabel": "MythraUpSpecial",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/mythra",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mythra/chroma-dust/mythraupspecial",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -24898,6 +25738,62 @@
       }
     },
     {
+      "key": "mythra:neutral-b-lightning-buster:mythralightningbuster",
+      "fighterId": "mythra",
+      "moveId": "neutral-b-lightning-buster",
+      "moveLabel": "Mythra Neutral B (Lightning Buster)",
+      "variantId": "mythralightningbuster",
+      "variantLabel": "MythraLightningBuster",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 67,
+      "sourceUrl": "https://ultimateframedata.com/mythra",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mythra/neutral-b-lightning-buster/mythralightningbuster",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "mythra:neutral-b-lightning-buster:mythralightningbusteraerial",
+      "fighterId": "mythra",
+      "moveId": "neutral-b-lightning-buster",
+      "moveLabel": "Mythra Neutral B (Lightning Buster)",
+      "variantId": "mythralightningbusteraerial",
+      "variantLabel": "MythraLightningBusterAerial",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 67,
+      "sourceUrl": "https://ultimateframedata.com/mythra",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mythra/neutral-b-lightning-buster/mythralightningbusteraerial",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "mythra:neutral-b-lightning-buster:smashwiki-mythranspecial1ssbu",
       "fighterId": "mythra",
       "moveId": "neutral-b-lightning-buster",
@@ -24908,7 +25804,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 67,
-      "sourceUrl": "https://www.ssbwiki.com/File:MythraNSpecial1SSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/mythra",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -24949,6 +25845,34 @@
       },
       "expectedImport": {
         "directory": "captures/mythra/pummel/smashwiki-mythrapummelssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "mythra:side-b-photon-edge:mythraphotonedge2",
+      "fighterId": "mythra",
+      "moveId": "side-b-photon-edge",
+      "moveLabel": "Mythra Side B (Photon Edge)",
+      "variantId": "mythraphotonedge2",
+      "variantLabel": "MythraPhotonEdge2",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 100,
+      "sourceUrl": "https://ultimateframedata.com/mythra",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mythra/side-b-photon-edge/mythraphotonedge2",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -25486,6 +26410,34 @@
       }
     },
     {
+      "key": "ness:side-b-pk-fire:nesspkfirepillar",
+      "fighterId": "ness",
+      "moveId": "side-b-pk-fire",
+      "moveLabel": "Ness Side B (PK Fire)",
+      "variantId": "nesspkfirepillar",
+      "variantLabel": "NessPKFirePillar",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 55,
+      "sourceUrl": "https://ultimateframedata.com/ness",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ness/side-b-pk-fire/nesspkfirepillar",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "ness:spot-dodge:manual-full-move",
       "fighterId": "ness",
       "moveId": "spot-dodge",
@@ -25738,6 +26690,34 @@
       }
     },
     {
+      "key": "olimar:down-smash:olimarandhistwobignuts",
+      "fighterId": "olimar",
+      "moveId": "down-smash",
+      "moveLabel": "Olimar Down Smash",
+      "variantId": "olimarandhistwobignuts",
+      "variantLabel": "OLIMARANDHISTWOBIGNUTS",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 38,
+      "sourceUrl": "https://ultimateframedata.com/olimar",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/olimar/down-smash/olimarandhistwobignuts",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "olimar:forward-roll:manual-full-move",
       "fighterId": "olimar",
       "moveId": "forward-roll",
@@ -25766,6 +26746,34 @@
       }
     },
     {
+      "key": "olimar:forward-smash:olimarfsmash",
+      "fighterId": "olimar",
+      "moveId": "forward-smash",
+      "moveLabel": "Olimar Forward Smash",
+      "variantId": "olimarfsmash",
+      "variantLabel": "OlimarFSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 39,
+      "sourceUrl": "https://ultimateframedata.com/olimar",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/olimar/forward-smash/olimarfsmash",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "olimar:forward-smash:smashwiki-redpikminfsmashssbu",
       "fighterId": "olimar",
       "moveId": "forward-smash",
@@ -25776,7 +26784,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": 39,
-      "sourceUrl": "https://www.ssbwiki.com/File:RedPikminFSmashSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/olimar",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -25906,62 +26914,6 @@
       }
     },
     {
-      "key": "olimar:purple-grabs:manual-full-move",
-      "fighterId": "olimar",
-      "moveId": "purple-grabs",
-      "moveLabel": "Olimar Purple Grabs",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "grab",
-      "documentedTargetFrames": 41,
-      "sourceUrl": "https://ultimateframedata.com/olimar",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/olimar/purple-grabs/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "olimar:red-blue-yellow-grabs:manual-full-move",
-      "fighterId": "olimar",
-      "moveId": "red-blue-yellow-grabs",
-      "moveLabel": "Olimar Red/Blue/Yellow Grabs",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "grab",
-      "documentedTargetFrames": 41,
-      "sourceUrl": "https://ultimateframedata.com/olimar",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/olimar/red-blue-yellow-grabs/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "olimar:spot-dodge:manual-full-move",
       "fighterId": "olimar",
       "moveId": "spot-dodge",
@@ -26018,6 +26970,34 @@
       }
     },
     {
+      "key": "olimar:up-smash:olimarusmash",
+      "fighterId": "olimar",
+      "moveId": "up-smash",
+      "moveLabel": "Olimar Up Smash",
+      "variantId": "olimarusmash",
+      "variantLabel": "OlimarUSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 39,
+      "sourceUrl": "https://ultimateframedata.com/olimar",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/olimar/up-smash/olimarusmash",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "olimar:up-smash:smashwiki-redpikminusmashssbu",
       "fighterId": "olimar",
       "moveId": "up-smash",
@@ -26028,7 +27008,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 39,
-      "sourceUrl": "https://www.ssbwiki.com/File:RedPikminUSmashSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/olimar",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -28818,6 +29798,34 @@
       }
     },
     {
+      "key": "pyra:neutral-b-flame-nova:pyraflamenova1",
+      "fighterId": "pyra",
+      "moveId": "neutral-b-flame-nova",
+      "moveLabel": "Pyra Neutral B (Flame Nova)",
+      "variantId": "pyraflamenova1",
+      "variantLabel": "PyraFlameNova1",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 58,
+      "sourceUrl": "https://ultimateframedata.com/pyra",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/pyra/neutral-b-flame-nova/pyraflamenova1",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "pyra:neutral-b-flame-nova:smashwiki-pyranspecial1ssbu",
       "fighterId": "pyra",
       "moveId": "neutral-b-flame-nova",
@@ -28828,7 +29836,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 58,
-      "sourceUrl": "https://www.ssbwiki.com/File:PyraNSpecial1SSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/pyra",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -29378,6 +30386,34 @@
       }
     },
     {
+      "key": "richter:whip-dangle:richterwhipdanglethingy",
+      "fighterId": "richter",
+      "moveId": "whip-dangle",
+      "moveLabel": "Richter Whip Dangle",
+      "variantId": "richterwhipdanglethingy",
+      "variantLabel": "RichterWhipDangleThingy",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/richter",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/richter/whip-dangle/richterwhipdanglethingy",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "richter:whip-dangle:smashwiki-simonwhipdanglessbu",
       "fighterId": "richter",
       "moveId": "whip-dangle",
@@ -29388,7 +30424,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:SimonWhipDangleSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/richter",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -29966,15 +31002,15 @@
       }
     },
     {
-      "key": "rob:side-b-arm-rotor:manual-full-move",
+      "key": "rob:side-b-arm-rotor:robarmrotornew",
       "fighterId": "rob",
       "moveId": "side-b-arm-rotor",
       "moveLabel": "Rob Side B (Arm Rotor)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "robarmrotornew",
+      "variantLabel": "ROBArmRotorNew",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 85,
       "sourceUrl": "https://ultimateframedata.com/rob",
       "captureRequirements": {
@@ -29988,7 +31024,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/rob/side-b-arm-rotor/manual-full-move",
+        "directory": "captures/rob/side-b-arm-rotor/robarmrotornew",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -30274,6 +31310,90 @@
       }
     },
     {
+      "key": "robin:neutral-b-thunder-elthunder-arcthunder:robinarcthunder",
+      "fighterId": "robin",
+      "moveId": "neutral-b-thunder-elthunder-arcthunder",
+      "moveLabel": "Robin Neutral B (Thunder/Elthunder/Arcthunder)",
+      "variantId": "robinarcthunder",
+      "variantLabel": "RobinArcthunder",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 32,
+      "sourceUrl": "https://ultimateframedata.com/robin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/robin/neutral-b-thunder-elthunder-arcthunder/robinarcthunder",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "robin:neutral-b-thunder-elthunder-arcthunder:robinelthunder",
+      "fighterId": "robin",
+      "moveId": "neutral-b-thunder-elthunder-arcthunder",
+      "moveLabel": "Robin Neutral B (Thunder/Elthunder/Arcthunder)",
+      "variantId": "robinelthunder",
+      "variantLabel": "RobinElthunder",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 32,
+      "sourceUrl": "https://ultimateframedata.com/robin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/robin/neutral-b-thunder-elthunder-arcthunder/robinelthunder",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "robin:neutral-b-thunder-elthunder-arcthunder:robinthunder",
+      "fighterId": "robin",
+      "moveId": "neutral-b-thunder-elthunder-arcthunder",
+      "moveLabel": "Robin Neutral B (Thunder/Elthunder/Arcthunder)",
+      "variantId": "robinthunder",
+      "variantLabel": "RobinThunder",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 32,
+      "sourceUrl": "https://ultimateframedata.com/robin",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/robin/neutral-b-thunder-elthunder-arcthunder/robinthunder",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "robin:neutral-b-thunder-elthunder-arcthunder:smashwiki-robinthunderssbu",
       "fighterId": "robin",
       "moveId": "neutral-b-thunder-elthunder-arcthunder",
@@ -30284,7 +31404,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 32,
-      "sourceUrl": "https://www.ssbwiki.com/File:RobinThoronSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/robin",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -31590,15 +32710,15 @@
       }
     },
     {
-      "key": "ryu:side-b-tatsumaki-senpukyaku:manual-full-move",
+      "key": "ryu:side-b-tatsumaki-senpukyaku:ryutatsumakisenpukyakuheavygrounded",
       "fighterId": "ryu",
       "moveId": "side-b-tatsumaki-senpukyaku",
       "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "ryutatsumakisenpukyakuheavygrounded",
+      "variantLabel": "RyuTatsumakiSenpukyakuHeavyGrounded",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 58,
       "sourceUrl": "https://ultimateframedata.com/ryu",
       "captureRequirements": {
@@ -31612,7 +32732,91 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/ryu/side-b-tatsumaki-senpukyaku/manual-full-move",
+        "directory": "captures/ryu/side-b-tatsumaki-senpukyaku/ryutatsumakisenpukyakuheavygrounded",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ryu:side-b-tatsumaki-senpukyaku:ryutatsumakisenpukyakulightgrounded",
+      "fighterId": "ryu",
+      "moveId": "side-b-tatsumaki-senpukyaku",
+      "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+      "variantId": "ryutatsumakisenpukyakulightgrounded",
+      "variantLabel": "RyuTatsumakiSenpukyakuLightGrounded",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 58,
+      "sourceUrl": "https://ultimateframedata.com/ryu",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ryu/side-b-tatsumaki-senpukyaku/ryutatsumakisenpukyakulightgrounded",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ryu:side-b-tatsumaki-senpukyaku:ryutatsumakisenpukyakumediumgrounded",
+      "fighterId": "ryu",
+      "moveId": "side-b-tatsumaki-senpukyaku",
+      "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+      "variantId": "ryutatsumakisenpukyakumediumgrounded",
+      "variantLabel": "RyuTatsumakiSenpukyakuMediumGrounded",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 58,
+      "sourceUrl": "https://ultimateframedata.com/ryu",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ryu/side-b-tatsumaki-senpukyaku/ryutatsumakisenpukyakumediumgrounded",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ryu:side-b-tatsumaki-senpukyaku:ryutatsumakisenpukyakustart",
+      "fighterId": "ryu",
+      "moveId": "side-b-tatsumaki-senpukyaku",
+      "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
+      "variantId": "ryutatsumakisenpukyakustart",
+      "variantLabel": "RyuTatsumakiSenpukyakuStart",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 58,
+      "sourceUrl": "https://ultimateframedata.com/ryu",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ryu/side-b-tatsumaki-senpukyaku/ryutatsumakisenpukyakustart",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -33494,6 +34698,62 @@
       }
     },
     {
+      "key": "shulk:down-b-vision:shulkvisionback",
+      "fighterId": "shulk",
+      "moveId": "down-b-vision",
+      "moveLabel": "Shulk Down B (Vision)",
+      "variantId": "shulkvisionback",
+      "variantLabel": "ShulkVisionBack",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 69,
+      "sourceUrl": "https://ultimateframedata.com/shulk",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/shulk/down-b-vision/shulkvisionback",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "shulk:down-b-vision:shulkvisionforward",
+      "fighterId": "shulk",
+      "moveId": "down-b-vision",
+      "moveLabel": "Shulk Down B (Vision)",
+      "variantId": "shulkvisionforward",
+      "variantLabel": "ShulkVisionForward",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 69,
+      "sourceUrl": "https://ultimateframedata.com/shulk",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/shulk/down-b-vision/shulkvisionforward",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "shulk:forward-roll:manual-full-move",
       "fighterId": "shulk",
       "moveId": "forward-roll",
@@ -34110,6 +35370,34 @@
       }
     },
     {
+      "key": "simon:whip-dangle:simonwhipdanglethingy",
+      "fighterId": "simon",
+      "moveId": "whip-dangle",
+      "moveLabel": "Simon Whip Dangle",
+      "variantId": "simonwhipdanglethingy",
+      "variantLabel": "SimonWhipDangleThingy",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/simon",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/simon/whip-dangle/simonwhipdanglethingy",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "simon:whip-dangle:smashwiki-simonwhipdanglessbu",
       "fighterId": "simon",
       "moveId": "whip-dangle",
@@ -34120,7 +35408,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:SimonWhipDangleSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/simon",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -34497,6 +35785,118 @@
       },
       "expectedImport": {
         "directory": "captures/snake/pummel/smashwiki-snakepummelssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "snake:side-b-nikita:nikita-explosion-strong",
+      "fighterId": "snake",
+      "moveId": "side-b-nikita",
+      "moveLabel": "Snake Side B (Nikita)",
+      "variantId": "nikita-explosion-strong",
+      "variantLabel": "Nikita Explosion (Strong)",
+      "timelineClass": "effect",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/snake",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/snake/side-b-nikita/nikita-explosion-strong",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "snake:side-b-nikita:nikita-explosion-weak",
+      "fighterId": "snake",
+      "moveId": "side-b-nikita",
+      "moveLabel": "Snake Side B (Nikita)",
+      "variantId": "nikita-explosion-weak",
+      "variantLabel": "Nikita Explosion (Weak)",
+      "timelineClass": "effect",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/snake",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/snake/side-b-nikita/nikita-explosion-weak",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "snake:side-b-nikita:nikita-hurtbox-weak",
+      "fighterId": "snake",
+      "moveId": "side-b-nikita",
+      "moveLabel": "Snake Side B (Nikita)",
+      "variantId": "nikita-hurtbox-weak",
+      "variantLabel": "Nikita Hurtbox (Weak)",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/snake",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/snake/side-b-nikita/nikita-hurtbox-weak",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "snake:side-b-nikita:nikitasearch",
+      "fighterId": "snake",
+      "moveId": "side-b-nikita",
+      "moveLabel": "Snake Side B (Nikita)",
+      "variantId": "nikitasearch",
+      "variantLabel": "NikitaSearch",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/snake",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/snake/side-b-nikita/nikitasearch",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -35398,15 +36798,15 @@
       }
     },
     {
-      "key": "sora:ftilt-1-ftilt-2-combo:manual-full-move",
+      "key": "sora:ftilt-1-ftilt-2-combo:soraftilt2",
       "fighterId": "sora",
       "moveId": "ftilt-1-ftilt-2-combo",
       "moveLabel": "Sora FTilt 1 > FTilt 2 Combo",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "soraftilt2",
+      "variantLabel": "SoraFTilt2",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "ground",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 40,
       "sourceUrl": "https://ultimateframedata.com/sora",
       "captureRequirements": {
@@ -35420,7 +36820,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/sora/ftilt-1-ftilt-2-combo/manual-full-move",
+        "directory": "captures/sora/ftilt-1-ftilt-2-combo/soraftilt2",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -35492,7 +36892,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 48,
-      "sourceUrl": "https://www.ssbwiki.com/File:SoraSonicBlade1SSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/sora",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -35505,6 +36905,90 @@
       },
       "expectedImport": {
         "directory": "captures/sora/side-b-sonic-blade/smashwiki-sorasonicblade1ssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "sora:side-b-sonic-blade:sorasonicblade1",
+      "fighterId": "sora",
+      "moveId": "side-b-sonic-blade",
+      "moveLabel": "Sora Side B (Sonic Blade)",
+      "variantId": "sorasonicblade1",
+      "variantLabel": "SoraSonicBlade1",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 48,
+      "sourceUrl": "https://ultimateframedata.com/sora",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/sora/side-b-sonic-blade/sorasonicblade1",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "sora:side-b-sonic-blade:sorasonicblade2",
+      "fighterId": "sora",
+      "moveId": "side-b-sonic-blade",
+      "moveLabel": "Sora Side B (Sonic Blade)",
+      "variantId": "sorasonicblade2",
+      "variantLabel": "SoraSonicBlade2",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 48,
+      "sourceUrl": "https://ultimateframedata.com/sora",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/sora/side-b-sonic-blade/sorasonicblade2",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "sora:side-b-sonic-blade:sorasonicblade3",
+      "fighterId": "sora",
+      "moveId": "side-b-sonic-blade",
+      "moveLabel": "Sora Side B (Sonic Blade)",
+      "variantId": "sorasonicblade3",
+      "variantLabel": "SoraSonicBlade3",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 48,
+      "sourceUrl": "https://ultimateframedata.com/sora",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/sora/side-b-sonic-blade/sorasonicblade3",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -35762,34 +37246,6 @@
       }
     },
     {
-      "key": "squirtle:down-b-pokemon-change:manual-full-move",
-      "fighterId": "squirtle",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_squirtle Down B (Pokemon Change)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 39,
-      "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/squirtle/down-b-pokemon-change/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "squirtle:forward-roll:manual-full-move",
       "fighterId": "squirtle",
       "moveId": "forward-roll",
@@ -35818,34 +37274,6 @@
       }
     },
     {
-      "key": "squirtle:forward-tilt:manual-full-move",
-      "fighterId": "squirtle",
-      "moveId": "forward-tilt",
-      "moveLabel": "Pt_squirtle Forward Tilt",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "ground",
-      "documentedTargetFrames": 17,
-      "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/squirtle/forward-tilt/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "squirtle:neutral-air-dodge:manual-full-move",
       "fighterId": "squirtle",
       "moveId": "neutral-air-dodge",
@@ -35869,34 +37297,6 @@
       },
       "expectedImport": {
         "directory": "captures/squirtle/neutral-air-dodge/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "squirtle:neutral-b-watergun:manual-full-move",
-      "fighterId": "squirtle",
-      "moveId": "neutral-b-watergun",
-      "moveLabel": "Pt_squirtle Neutral B (Watergun)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 63,
-      "sourceUrl": "https://ultimateframedata.com/pt_squirtle",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/squirtle/neutral-b-watergun/manual-full-move",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -36182,6 +37582,34 @@
       }
     },
     {
+      "key": "steve:dash-attack:stevedashattackgold",
+      "fighterId": "steve",
+      "moveId": "dash-attack",
+      "moveLabel": "Steve Dash Attack",
+      "variantId": "stevedashattackgold",
+      "variantLabel": "SteveDashAttackGold",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 31,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/dash-attack/stevedashattackgold",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "steve:dash-grab:smashwiki-stevedashgrabssbu",
       "fighterId": "steve",
       "moveId": "dash-grab",
@@ -36304,7 +37732,7 @@
       "blockerClass": "missing-documented-timing",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:SteveDSpecialSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/steve",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -36317,6 +37745,62 @@
       },
       "expectedImport": {
         "directory": "captures/steve/down-b-tnt/smashwiki-stevedspecialssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:down-b-tnt:stevetnt",
+      "fighterId": "steve",
+      "moveId": "down-b-tnt",
+      "moveLabel": "Steve Down B (TNT)",
+      "variantId": "stevetnt",
+      "variantLabel": "SteveTNT",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/down-b-tnt/stevetnt",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:down-b-tnt:stevetntpressureplate",
+      "fighterId": "steve",
+      "moveId": "down-b-tnt",
+      "moveLabel": "Steve Down B (TNT)",
+      "variantId": "stevetntpressureplate",
+      "variantLabel": "SteveTNTPressurePlate",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/down-b-tnt/stevetntpressureplate",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -36528,7 +38012,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 43,
-      "sourceUrl": "https://www.ssbwiki.com/File:SteveFSmashPunchSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/steve",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -36541,6 +38025,62 @@
       },
       "expectedImport": {
         "directory": "captures/steve/forward-smash/smashwiki-stevefsmashpunchssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:forward-smash:stevefsmashgold",
+      "fighterId": "steve",
+      "moveId": "forward-smash",
+      "moveLabel": "Steve Forward Smash",
+      "variantId": "stevefsmashgold",
+      "variantLabel": "SteveFSmashGold",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 43,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/forward-smash/stevefsmashgold",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:forward-smash:stevefsmashpunch",
+      "fighterId": "steve",
+      "moveId": "forward-smash",
+      "moveLabel": "Steve Forward Smash",
+      "variantId": "stevefsmashpunch",
+      "variantLabel": "SteveFSmashPunch",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 43,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/forward-smash/stevefsmashpunch",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -36602,6 +38142,34 @@
       }
     },
     {
+      "key": "steve:jab-forward-tilt:stevejabftiltgold",
+      "fighterId": "steve",
+      "moveId": "jab-forward-tilt",
+      "moveLabel": "Steve Jab / Forward Tilt",
+      "variantId": "stevejabftiltgold",
+      "variantLabel": "SteveJabFTiltGold",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 16,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/jab-forward-tilt/stevejabftiltgold",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "steve:neutral-air:smashwiki-stevenairpunchssbu",
       "fighterId": "steve",
       "moveId": "neutral-air",
@@ -36612,7 +38180,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 17,
-      "sourceUrl": "https://www.ssbwiki.com/File:SteveNAirPunchSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/steve",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -36625,6 +38193,90 @@
       },
       "expectedImport": {
         "directory": "captures/steve/neutral-air/smashwiki-stevenairpunchssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:neutral-air:stevenairgold",
+      "fighterId": "steve",
+      "moveId": "neutral-air",
+      "moveLabel": "Steve Neutral Air",
+      "variantId": "stevenairgold",
+      "variantLabel": "SteveNAirGold",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 17,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/neutral-air/stevenairgold",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:neutral-air:stevenairpunch",
+      "fighterId": "steve",
+      "moveId": "neutral-air",
+      "moveLabel": "Steve Neutral Air",
+      "variantId": "stevenairpunch",
+      "variantLabel": "SteveNAirPunch",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 17,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/neutral-air/stevenairpunch",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:neutral-air:stevenairwoodstoneirondiamond",
+      "fighterId": "steve",
+      "moveId": "neutral-air",
+      "moveLabel": "Steve Neutral Air",
+      "variantId": "stevenairwoodstoneirondiamond",
+      "variantLabel": "SteveNAirWoodStoneIronDiamond",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 17,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/neutral-air/stevenairwoodstoneirondiamond",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -36910,15 +38562,15 @@
       }
     },
     {
-      "key": "steve:sword-back-air-short-hop-macro-bair:manual-full-move",
+      "key": "steve:sword-back-air-short-hop-macro-bair:stevebairswordgold",
       "fighterId": "steve",
       "moveId": "sword-back-air-short-hop-macro-bair",
       "moveLabel": "Steve Sword Back Air (Short Hop Macro BAir)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "stevebairswordgold",
+      "variantLabel": "SteveBAirSwordGold",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 16,
       "sourceUrl": "https://ultimateframedata.com/steve",
       "captureRequirements": {
@@ -36932,21 +38584,21 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/steve/sword-back-air-short-hop-macro-bair/manual-full-move",
+        "directory": "captures/steve/sword-back-air-short-hop-macro-bair/stevebairswordgold",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
     },
     {
-      "key": "steve:sword-forward-air-short-hop-macro-fair:manual-full-move",
+      "key": "steve:sword-forward-air-short-hop-macro-fair:stevefairswordgold",
       "fighterId": "steve",
       "moveId": "sword-forward-air-short-hop-macro-fair",
       "moveLabel": "Steve Sword Forward Air (Short Hop Macro FAir)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "stevefairswordgold",
+      "variantLabel": "SteveFAirSwordGold",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 16,
       "sourceUrl": "https://ultimateframedata.com/steve",
       "captureRequirements": {
@@ -36960,7 +38612,35 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/steve/sword-forward-air-short-hop-macro-fair/manual-full-move",
+        "directory": "captures/steve/sword-forward-air-short-hop-macro-fair/stevefairswordgold",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:up-air:steveuairgold",
+      "fighterId": "steve",
+      "moveId": "up-air",
+      "moveLabel": "Steve Up Air",
+      "variantId": "steveuairgold",
+      "variantLabel": "SteveUAirGold",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 13,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/up-air/steveuairgold",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -37060,7 +38740,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 16,
-      "sourceUrl": "https://www.ssbwiki.com/File:SteveUTiltPunchSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/steve",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -37073,6 +38753,90 @@
       },
       "expectedImport": {
         "directory": "captures/steve/up-tilt/smashwiki-steveutiltpunchssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:up-tilt:steveutiltgold",
+      "fighterId": "steve",
+      "moveId": "up-tilt",
+      "moveLabel": "Steve Up Tilt",
+      "variantId": "steveutiltgold",
+      "variantLabel": "SteveUTiltGold",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 16,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/up-tilt/steveutiltgold",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:up-tilt:steveutiltpunch",
+      "fighterId": "steve",
+      "moveId": "up-tilt",
+      "moveLabel": "Steve Up Tilt",
+      "variantId": "steveutiltpunch",
+      "variantLabel": "SteveUTiltPunch",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 16,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/up-tilt/steveutiltpunch",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "steve:up-tilt:steveutiltwoodstoneirondiamond",
+      "fighterId": "steve",
+      "moveId": "up-tilt",
+      "moveLabel": "Steve Up Tilt",
+      "variantId": "steveutiltwoodstoneirondiamond",
+      "variantLabel": "SteveUTiltWoodStoneIronDiamond",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 16,
+      "sourceUrl": "https://ultimateframedata.com/steve",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/steve/up-tilt/steveutiltwoodstoneirondiamond",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -37302,15 +39066,15 @@
       }
     },
     {
-      "key": "terry:burning-knuckle-input:manual-full-move",
+      "key": "terry:burning-knuckle-input:terryburningknuckleairstronginput",
       "fighterId": "terry",
       "moveId": "burning-knuckle-input",
       "moveLabel": "Terry Burning Knuckle, Input",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "terryburningknuckleairstronginput",
+      "variantLabel": "TerryBurningKnuckleAirStrongInput",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 60,
       "sourceUrl": "https://ultimateframedata.com/terry",
       "captureRequirements": {
@@ -37324,7 +39088,35 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/terry/burning-knuckle-input/manual-full-move",
+        "directory": "captures/terry/burning-knuckle-input/terryburningknuckleairstronginput",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:burning-knuckle-input:terryburningknuckleairweakinput",
+      "fighterId": "terry",
+      "moveId": "burning-knuckle-input",
+      "moveLabel": "Terry Burning Knuckle, Input",
+      "variantId": "terryburningknuckleairweakinput",
+      "variantLabel": "TerryBurningKnuckleAirWeakInput",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 60,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/burning-knuckle-input/terryburningknuckleairweakinput",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -37368,7 +39160,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 54,
-      "sourceUrl": "https://www.ssbwiki.com/File:TerryDSpecialUpWeakSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/terry",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -37386,15 +39178,211 @@
       }
     },
     {
-      "key": "terry:forward-b-burning-knuckle:manual-full-move",
+      "key": "terry:down-b-power-dunk:terrypowerdunkrisestrong",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkrisestrong",
+      "variantLabel": "TerryPowerDunkRiseStrong",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkrisestrong",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:down-b-power-dunk:terrypowerdunkrisestronginput",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkrisestronginput",
+      "variantLabel": "TerryPowerDunkRiseStrongInput",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkrisestronginput",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:down-b-power-dunk:terrypowerdunkriseweak",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkriseweak",
+      "variantLabel": "TerryPowerDunkRiseWeak",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkriseweak",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:down-b-power-dunk:terrypowerdunkriseweakinput",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkriseweakinput",
+      "variantLabel": "TerryPowerDunkRiseWeakInput",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkriseweakinput",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:down-b-power-dunk:terrypowerdunkspike",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkspike",
+      "variantLabel": "TerryPowerDunkSpike",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkspike",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:down-b-power-dunk:terrypowerdunkstrong",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkstrong",
+      "variantLabel": "TerryPowerDunkStrong",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkstrong",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:down-b-power-dunk:terrypowerdunkweak",
+      "fighterId": "terry",
+      "moveId": "down-b-power-dunk",
+      "moveLabel": "Terry Down B (Power Dunk)",
+      "variantId": "terrypowerdunkweak",
+      "variantLabel": "TerryPowerDunkWeak",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 54,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/down-b-power-dunk/terrypowerdunkweak",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:forward-b-burning-knuckle:terryburningknuckleairstrong",
       "fighterId": "terry",
       "moveId": "forward-b-burning-knuckle",
       "moveLabel": "Terry Forward B (Burning Knuckle)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "terryburningknuckleairstrong",
+      "variantLabel": "TerryBurningKnuckleAirStrong",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 60,
       "sourceUrl": "https://ultimateframedata.com/terry",
       "captureRequirements": {
@@ -37408,7 +39396,35 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/terry/forward-b-burning-knuckle/manual-full-move",
+        "directory": "captures/terry/forward-b-burning-knuckle/terryburningknuckleairstrong",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "terry:forward-b-burning-knuckle:terryburningknuckleairweak",
+      "fighterId": "terry",
+      "moveId": "forward-b-burning-knuckle",
+      "moveLabel": "Terry Forward B (Burning Knuckle)",
+      "variantId": "terryburningknuckleairweak",
+      "variantLabel": "TerryBurningKnuckleAirWeak",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 60,
+      "sourceUrl": "https://ultimateframedata.com/terry",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/terry/forward-b-burning-knuckle/terryburningknuckleairweak",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -38460,7 +40476,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://www.ssbwiki.com/File:VillagerSSpecialFlySSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/villager",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -38488,7 +40504,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": 35,
-      "sourceUrl": "https://www.ssbwiki.com/File:VillagerSSpecialFlySSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/villager",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -38501,6 +40517,118 @@
       },
       "expectedImport": {
         "directory": "captures/villager/side-b-lloid-rocket/smashwiki-villagersspecialflyssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:side-b-lloid-rocket:villagerlloidrocketexplosion",
+      "fighterId": "villager",
+      "moveId": "side-b-lloid-rocket",
+      "moveLabel": "Villager Side B (Lloid Rocket)",
+      "variantId": "villagerlloidrocketexplosion",
+      "variantLabel": "VillagerLloidRocketExplosion",
+      "timelineClass": "effect",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/side-b-lloid-rocket/villagerlloidrocketexplosion",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:side-b-lloid-rocket:villagerlloidrocketfall",
+      "fighterId": "villager",
+      "moveId": "side-b-lloid-rocket",
+      "moveLabel": "Villager Side B (Lloid Rocket)",
+      "variantId": "villagerlloidrocketfall",
+      "variantLabel": "VillagerLloidRocketFall",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 35,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/side-b-lloid-rocket/villagerlloidrocketfall",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:side-b-lloid-rocket:villagerlloidrocketfly",
+      "fighterId": "villager",
+      "moveId": "side-b-lloid-rocket",
+      "moveLabel": "Villager Side B (Lloid Rocket)",
+      "variantId": "villagerlloidrocketfly",
+      "variantLabel": "VillagerLloidRocketFly",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 35,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/side-b-lloid-rocket/villagerlloidrocketfly",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:side-b-lloid-rocket:villagerlloidrocketwallexplosion",
+      "fighterId": "villager",
+      "moveId": "side-b-lloid-rocket",
+      "moveLabel": "Villager Side B (Lloid Rocket)",
+      "variantId": "villagerlloidrocketwallexplosion",
+      "variantLabel": "VillagerLloidRocketWallExplosion",
+      "timelineClass": "effect",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/side-b-lloid-rocket/villagerlloidrocketwallexplosion",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -38534,15 +40662,15 @@
       }
     },
     {
-      "key": "villager:timber-tree-grow-fall:manual-full-move",
+      "key": "villager:timber-tree-grow-fall:villagertimberfall",
       "fighterId": "villager",
       "moveId": "timber-tree-grow-fall",
       "moveLabel": "Villager Timber Tree Grow/Fall",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "villagertimberfall",
+      "variantLabel": "VillagerTimberFall",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
       "documentedTargetFrames": null,
       "sourceUrl": "https://ultimateframedata.com/villager",
       "captureRequirements": {
@@ -38556,7 +40684,91 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/villager/timber-tree-grow-fall/manual-full-move",
+        "directory": "captures/villager/timber-tree-grow-fall/villagertimberfall",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:timber-tree-grow-fall:villagertimbergrowth",
+      "fighterId": "villager",
+      "moveId": "timber-tree-grow-fall",
+      "moveLabel": "Villager Timber Tree Grow/Fall",
+      "variantId": "villagertimbergrowth",
+      "variantLabel": "VillagerTimberGrowth",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/timber-tree-grow-fall/villagertimbergrowth",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:timber-tree-grow-fall:villagerwoodspawn",
+      "fighterId": "villager",
+      "moveId": "timber-tree-grow-fall",
+      "moveLabel": "Villager Timber Tree Grow/Fall",
+      "variantId": "villagerwoodspawn",
+      "variantLabel": "VillagerWoodSpawn",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/timber-tree-grow-fall/villagerwoodspawn",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:timber-tree-grow-fall:villagerwoodthrown",
+      "fighterId": "villager",
+      "moveId": "timber-tree-grow-fall",
+      "moveLabel": "Villager Timber Tree Grow/Fall",
+      "variantId": "villagerwoodthrown",
+      "variantLabel": "VillagerWoodThrown",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/timber-tree-grow-fall/villagerwoodthrown",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -38964,7 +41176,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 41,
-      "sourceUrl": "https://www.ssbwiki.com/File:WarioChompBombSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/wario",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -38977,6 +41189,62 @@
       },
       "expectedImport": {
         "directory": "captures/wario/neutral-b-chomp/smashwiki-wariochompssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "wario:neutral-b-chomp:wariochomp",
+      "fighterId": "wario",
+      "moveId": "neutral-b-chomp",
+      "moveLabel": "Wario Neutral B (Chomp)",
+      "variantId": "wariochomp",
+      "variantLabel": "WarioChomp",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 41,
+      "sourceUrl": "https://ultimateframedata.com/wario",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/wario/neutral-b-chomp/wariochomp",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "wario:neutral-b-chomp:wariochompbite",
+      "fighterId": "wario",
+      "moveId": "neutral-b-chomp",
+      "moveLabel": "Wario Neutral B (Chomp)",
+      "variantId": "wariochompbite",
+      "variantLabel": "WarioChompBite",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 41,
+      "sourceUrl": "https://ultimateframedata.com/wario",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/wario/neutral-b-chomp/wariochompbite",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -39234,17 +41502,17 @@
       }
     },
     {
-      "key": "wii-fit-trainer:down-b-deep-breathing:manual-full-move",
+      "key": "wii-fit-trainer:down-b-deep-breathing:smashwiki-curated-wii-fit-trainer-down-b-ssbu",
       "fighterId": "wii-fit-trainer",
       "moveId": "down-b-deep-breathing",
       "moveLabel": "Wii_fit_trainer Down B (Deep Breathing)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "smashwiki-curated-wii-fit-trainer-down-b-ssbu",
+      "variantLabel": "Wii Fit Trainer Down B SSBU",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://ultimateframedata.com/wii_fit_trainer",
+      "sourceUrl": "https://www.ssbwiki.com/File:Wii_Fit_Trainer_Down_B_SSBU.gif",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -39256,7 +41524,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/wii-fit-trainer/down-b-deep-breathing/manual-full-move",
+        "directory": "captures/wii-fit-trainer/down-b-deep-breathing/smashwiki-curated-wii-fit-trainer-down-b-ssbu",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -40746,6 +43014,90 @@
       }
     },
     {
+      "key": "zelda:down-b-phantom-slash:phantomkick",
+      "fighterId": "zelda",
+      "moveId": "down-b-phantom-slash",
+      "moveLabel": "Zelda Down B (Phantom Slash)",
+      "variantId": "phantomkick",
+      "variantLabel": "PhantomKick",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 66,
+      "sourceUrl": "https://ultimateframedata.com/zelda",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/zelda/down-b-phantom-slash/phantomkick",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "zelda:down-b-phantom-slash:phantompunch",
+      "fighterId": "zelda",
+      "moveId": "down-b-phantom-slash",
+      "moveLabel": "Zelda Down B (Phantom Slash)",
+      "variantId": "phantompunch",
+      "variantLabel": "PhantomPunch",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 66,
+      "sourceUrl": "https://ultimateframedata.com/zelda",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/zelda/down-b-phantom-slash/phantompunch",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "zelda:down-b-phantom-slash:phantomswing1",
+      "fighterId": "zelda",
+      "moveId": "down-b-phantom-slash",
+      "moveLabel": "Zelda Down B (Phantom Slash)",
+      "variantId": "phantomswing1",
+      "variantLabel": "PhantomSwing1",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 66,
+      "sourceUrl": "https://ultimateframedata.com/zelda",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/zelda/down-b-phantom-slash/phantomswing1",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "zelda:down-b-phantom-slash:smashwiki-zeldadspecialkickssbu",
       "fighterId": "zelda",
       "moveId": "down-b-phantom-slash",
@@ -40756,7 +43108,7 @@
       "blockerClass": "short-or-misaligned-source",
       "moveCategory": null,
       "documentedTargetFrames": 66,
-      "sourceUrl": "https://www.ssbwiki.com/File:ZeldaDSpecialKickSSBU.gif",
+      "sourceUrl": "https://ultimateframedata.com/zelda",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -40769,6 +43121,34 @@
       },
       "expectedImport": {
         "directory": "captures/zelda/down-b-phantom-slash/smashwiki-zeldadspecialkickssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "zelda:down-b-phantom-slash:zeldaphantomhurtbox",
+      "fighterId": "zelda",
+      "moveId": "down-b-phantom-slash",
+      "moveLabel": "Zelda Down B (Phantom Slash)",
+      "variantId": "zeldaphantomhurtbox",
+      "variantLabel": "ZeldaPhantomHurtbox",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 66,
+      "sourceUrl": "https://ultimateframedata.com/zelda",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/zelda/down-b-phantom-slash/zeldaphantomhurtbox",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -40840,7 +43220,7 @@
       "blockerClass": "static-source-needs-motion",
       "moveCategory": null,
       "documentedTargetFrames": 69,
-      "sourceUrl": "https://www.ssbwiki.com/File:ZeldaSSpecialSSBU.png",
+      "sourceUrl": "https://ultimateframedata.com/zelda",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -40853,6 +43233,62 @@
       },
       "expectedImport": {
         "directory": "captures/zelda/side-b-din-s-fire/smashwiki-zeldasspecialssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "zelda:side-b-din-s-fire:zeldadinsfire",
+      "fighterId": "zelda",
+      "moveId": "side-b-din-s-fire",
+      "moveLabel": "Zelda Side B (Din's Fire)",
+      "variantId": "zeldadinsfire",
+      "variantLabel": "ZeldaDinsFire",
+      "timelineClass": "fighter-action",
+      "blockerClass": "static-source-needs-motion",
+      "moveCategory": null,
+      "documentedTargetFrames": 69,
+      "sourceUrl": "https://ultimateframedata.com/zelda",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/zelda/side-b-din-s-fire/zeldadinsfire",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "zelda:side-b-din-s-fire:zeldadinsfiremin",
+      "fighterId": "zelda",
+      "moveId": "side-b-din-s-fire",
+      "moveLabel": "Zelda Side B (Din's Fire)",
+      "variantId": "zeldadinsfiremin",
+      "variantLabel": "ZeldaDinsFireMin",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 69,
+      "sourceUrl": "https://ultimateframedata.com/zelda",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/zelda/side-b-din-s-fire/zeldadinsfiremin",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -41077,34 +43513,6 @@
       },
       "expectedImport": {
         "directory": "captures/zero-suit-samus/backward-roll/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
-      "key": "zero-suit-samus:flip-jump-kick:manual-full-move",
-      "fighterId": "zero-suit-samus",
-      "moveId": "flip-jump-kick",
-      "moveLabel": "Zero_suit_samus Flip Jump, Kick",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "misc",
-      "documentedTargetFrames": 59,
-      "sourceUrl": "https://ultimateframedata.com/zero_suit_samus",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/zero-suit-samus/flip-jump-kick/manual-full-move",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }

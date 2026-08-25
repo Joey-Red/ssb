@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "sourceLessTargets": 1008,
+  "sourceLessTargets": 891,
   "fightersScanned": 89,
   "filesScanned": 18177,
-  "matchedCandidates": 47,
+  "matchedCandidates": 18,
   "recoveredSourceLessMoves": 14,
   "warnings": [],
   "accepted": [
