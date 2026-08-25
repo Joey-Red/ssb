@@ -8,9 +8,11 @@ on:
       - 'scripts/discover-ufd-visuals.py'
       - 'scripts/discover-external-visuals.py'
       - 'scripts/reconcile-external-visuals.py'
+      - 'scripts/normalize-visual-source-provenance.py'
       - 'scripts/resolve-ruben-timing.py'
       - 'scripts/apply-generated-timing-overrides.py'
       - 'scripts/select-smashwiki-historical-visuals.py'
+      - 'scripts/integrate-ultimate-hitboxes-archive.py'
       - 'scripts/vendor-static-assets.py'
       - 'scripts/vendor-full-motion-assets.py'
       - 'scripts/build-runtime-visual-index.py'
@@ -37,7 +39,7 @@ jobs:
   vendor:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
+    timeout-minutes: 240
     steps:
       - name: Checkout writable branch
         uses: actions/checkout@v7
@@ -58,6 +60,8 @@ jobs:
         run: python scripts/discover-external-visuals.py
       - name: Reconcile stronger external replacements
         run: python scripts/reconcile-external-visuals.py
+      - name: Normalize multi-source provenance
+        run: python scripts/normalize-visual-source-provenance.py
       - name: Resolve conservative Ruben timing evidence
         run: python scripts/resolve-ruben-timing.py
       - name: Apply generated timing evidence for vendoring
@@ -68,6 +72,8 @@ jobs:
         run: python scripts/select-smashwiki-historical-visuals.py
       - name: Re-vendor after historical-source selection
         run: python scripts/vendor-full-motion-assets.py
+      - name: Integrate exact Ultimate Hitboxes archive sequences
+        run: python scripts/integrate-ultimate-hitboxes-archive.py
       - name: Restore human-reviewed timing registry
         run: git checkout -- src/data/visualTimelineOverrides.json
       - name: Build per-fighter runtime visual indexes
@@ -90,7 +96,9 @@ jobs:
           git add -A public/media public/data/visual-media \
             src/data/visualMediaSources.json \
             src/data/externalVisualSources.generated.json \
+            src/data/smashwikiHistoricalVisuals.generated.json \
             src/data/rubenTimingOverrides.generated.json \
+            src/data/ultimateHitboxesArchive.generated.json \
             src/data/visualMediaAssets.generated.json \
             src/data/visualMediaCoverage.generated.json \
             src/data/visualCoverageAudit.generated.json \
