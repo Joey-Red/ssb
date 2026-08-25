@@ -1,0 +1,80 @@
+name: Visual discovery follow-up
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - 'scripts/discover-smashwiki-shorthand-visuals.py'
+      - '.github/workflows/visual-discovery-followup.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discovery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-media.txt
+      - name: Install discovery tooling
+        run: pip install -r scripts/requirements-media.txt
+      - name: Build fresh source-less baseline
+        run: |
+          python scripts/discover-ufd-visuals.py
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/audit-ufd.json
+      - name: Run existing external recovery
+        run: |
+          python scripts/discover-external-visuals.py
+          python scripts/discover-smashwiki-filename-visuals.py
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/audit-before-shorthand.json
+      - name: Recover shorthand animations
+        run: |
+          python scripts/discover-smashwiki-shorthand-visuals.py
+          python scripts/audit-visual-coverage.py
+      - name: Write recovery delta
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          ufd = json.loads(Path('/tmp/audit-ufd.json').read_text())
+          before = json.loads(Path('/tmp/audit-before-shorthand.json').read_text())
+          after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
+          shorthand = json.loads(Path('src/data/smashwikiShorthandVisuals.generated.json').read_text())
+          summary = {
+              'ufdSourceLessMoves': ufd['movesWithoutSourceVisual'],
+              'sourceLessBeforeShorthand': before['movesWithoutSourceVisual'],
+              'sourceLessAfterShorthand': after['movesWithoutSourceVisual'],
+              'existingExternalRecovery': ufd['movesWithoutSourceVisual'] - before['movesWithoutSourceVisual'],
+              'shorthandRecoveredMoves': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
+              'shorthandReportedRecoveredMoves': shorthand['recoveredSourceLessMoves'],
+              'mappedSourceVisualMovesAfterShorthand': after['mappedSourceVisualMoves'],
+              'remainingCategoryCounts': after['missingMoveCategories'],
+          }
+          Path('visual-discovery-followup-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary, indent=2))
+          if summary['shorthandRecoveredMoves'] <= 0:
+              raise SystemExit('shorthand discovery recovered no additional source-less moves')
+          PY
+      - name: Upload follow-up audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-discovery-followup
+          path: |
+            visual-discovery-followup-summary.json
+            src/data/smashwikiShorthandVisuals.generated.json
+            src/data/visualCoverageAudit.generated.json
+          retention-days: 7
