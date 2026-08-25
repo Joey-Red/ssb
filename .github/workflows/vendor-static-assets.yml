@@ -6,11 +6,14 @@ on:
     types: [opened, reopened, synchronize]
     paths:
       - 'scripts/discover-ufd-visuals.py'
+      - 'scripts/discover-external-visuals.py'
+      - 'scripts/reconcile-external-visuals.py'
       - 'scripts/vendor-static-assets.py'
       - 'scripts/vendor-full-motion-assets.py'
       - 'scripts/build-runtime-visual-index.py'
       - 'scripts/audit-visual-coverage.py'
       - 'scripts/build-visual-capture-queue.py'
+      - 'scripts/build-synthetic-visual-fallbacks.py'
       - 'scripts/check-visual-coverage.py'
       - 'scripts/import-visual-captures.py'
       - 'scripts/requirements-media.txt'
@@ -47,14 +50,20 @@ jobs:
         run: pip install -r scripts/requirements-media.txt
       - name: Discover full-roster UFD visuals
         run: python scripts/discover-ufd-visuals.py
+      - name: Discover curated external visuals
+        run: python scripts/discover-external-visuals.py
+      - name: Reconcile stronger external replacements
+        run: python scripts/reconcile-external-visuals.py
       - name: Vendor full-motion visual assets
         run: python scripts/vendor-full-motion-assets.py
       - name: Build per-fighter runtime visual indexes
         run: python scripts/build-runtime-visual-index.py
-      - name: Audit visual coverage
+      - name: Audit source-backed visual coverage
         run: python scripts/audit-visual-coverage.py
       - name: Build deterministic capture queue
         run: python scripts/build-visual-capture-queue.py
+      - name: Build illustrative source-less fallbacks
+        run: python scripts/build-synthetic-visual-fallbacks.py
       - name: Commit discovered and vendored media
         shell: bash
         run: |
@@ -64,15 +73,17 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A public/media public/data/visual-media \
             src/data/visualMediaSources.json \
+            src/data/externalVisualSources.generated.json \
             src/data/visualMediaAssets.generated.json \
             src/data/visualMediaCoverage.generated.json \
             src/data/visualCoverageAudit.generated.json \
             src/data/visualCaptureQueue.generated.json \
+            src/data/visualSyntheticFallbacks.generated.json \
             docs/VISUAL_COVERAGE_AUDIT.generated.md
           if git diff --cached --quiet; then
-            echo 'Full-roster full-motion visual assets are already current.'
+            echo 'Full-roster multi-source visual assets are already current.'
             exit 0
           fi
-          git commit -m 'chore: vendor full-roster full-motion visuals'
+          git commit -m 'chore: vendor multi-source full-motion visuals'
           git pull --rebase origin "$branch"
           git push origin HEAD:"$branch"
