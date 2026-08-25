@@ -92,6 +92,7 @@ describe('full-roster visual frame media', () => {
   it('ships every discovered variant locally with bounded, explicit timeline mappings and source collision evidence', () => {
     expect(assets.version).toBe(3)
     let fullExactVariants = 0
+    const invalidFullTimelines: string[] = []
 
     for (const move of source.moves) {
       const key = `${move.fighterId}:${move.moveId}`
@@ -148,8 +149,11 @@ describe('full-roster visual frame media', () => {
           if (sourceVariant?.timelineClass === 'fighter-action' && move.activeSpan.length === 2) {
             const firstActive = move.activeSpan[0]!
             const lastActive = move.activeSpan[1]!
+            const timelineTotal = variant.timelineTotalFrames ?? 0
             expect(firstActive).toBeGreaterThan(0)
-            expect(lastActive, `${key}/${variant.id} active ${firstActive}-${lastActive} exceeds full timeline ${variant.timelineTotalFrames ?? 0}`).toBeLessThanOrEqual(variant.timelineTotalFrames ?? 0)
+            if (lastActive > timelineTotal) {
+              invalidFullTimelines.push(`${key}/${variant.id} active ${firstActive}-${lastActive} exceeds full timeline ${timelineTotal}`)
+            }
           }
         } else if (sourceVariant?.mediaType === 'animation') {
           expect(variant.coverageReason, `${key}/${variant.id} coverage reason`).toBeTruthy()
@@ -158,6 +162,7 @@ describe('full-roster visual frame media', () => {
     }
 
     expect(fullExactVariants).toBeGreaterThan(0)
+    expect(invalidFullTimelines, `misclassified full parent-action timelines:\n${invalidFullTimelines.join('\n')}`).toEqual([])
   })
 
   it('generates an explicit blocker list containing exactly the unresolved variants', () => {
