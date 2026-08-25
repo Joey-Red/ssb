@@ -134,7 +134,7 @@
       "active": "6\u20149(10\u201425)",
       "activeSpan": [
         6,
-        9
+        25
       ],
       "variants": [
         {
@@ -230,7 +230,7 @@
       "active": "3\u20145(6\u201427)",
       "activeSpan": [
         3,
-        5
+        27
       ],
       "variants": [
         {
@@ -251,7 +251,7 @@
       "active": "6\u20147(8\u201410)",
       "activeSpan": [
         6,
-        7
+        10
       ],
       "variants": [
         {
@@ -292,7 +292,7 @@
       "startupFrame": 5,
       "active": "5/7/9/11/13/23(1\u20142)",
       "activeSpan": [
-        5,
+        1,
         23
       ],
       "variants": [
@@ -320,7 +320,7 @@
       "active": "17\u201421(22\u201446/47\u201486)",
       "activeSpan": [
         17,
-        21
+        86
       ],
       "variants": [
         {
@@ -856,7 +856,7 @@
       "startupFrame": 19,
       "active": "26\u201427 (19\u201420 after starting charge)",
       "activeSpan": [
-        26,
+        19,
         27
       ],
       "variants": [
@@ -938,7 +938,7 @@
       "active": "\u00af\\_(\u30c4)_/\u00af (19/25-27/32-33/40-42/49-50/55-58/62)",
       "activeSpan": [
         19,
-        26
+        62
       ],
       "variants": [
         {
@@ -959,7 +959,7 @@
       "active": "\u00af\\_(\u30c4)_/\u00af (4-6/10-12/13-14/15-17/18-19/20-21/22-24/25-26/27-29/30-31/32-33/34-36/37-38/39-43)",
       "activeSpan": [
         4,
-        11
+        43
       ],
       "variants": [
         {
@@ -1316,7 +1316,7 @@
       "active": "15(16\u201419)",
       "activeSpan": [
         15,
-        15
+        19
       ],
       "variants": [
         {
@@ -1484,7 +1484,7 @@
       "active": "7\u20148(9\u201431)",
       "activeSpan": [
         7,
-        8
+        31
       ],
       "variants": [
         {
@@ -1547,7 +1547,7 @@
       "active": "11\u201413(14\u201440)",
       "activeSpan": [
         11,
-        13
+        40
       ],
       "variants": [
         {
@@ -1568,7 +1568,7 @@
       "active": "14\u201419(20\u201464)",
       "activeSpan": [
         14,
-        19
+        64
       ],
       "variants": [
         {
@@ -1610,7 +1610,7 @@
       "active": "27\u201435(36\u201463/64\u2014155)",
       "activeSpan": [
         27,
-        35
+        155
       ],
       "variants": [
         {
@@ -1631,7 +1631,7 @@
       "active": "7\u20148(9\u201413/14\u201423/24\u201439)",
       "activeSpan": [
         7,
-        8
+        39
       ],
       "variants": [
         {
@@ -1997,7 +1997,7 @@
       "active": "8\u20149(10\u201413/14\u201418)",
       "activeSpan": [
         8,
-        9
+        18
       ],
       "variants": [
         {
@@ -2093,7 +2093,7 @@
       "active": "8\u201411/14\u201415(16\u201422)",
       "activeSpan": [
         8,
-        15
+        22
       ],
       "variants": [
         {
@@ -2135,7 +2135,7 @@
       "active": "9\u201410(11\u201414)",
       "activeSpan": [
         9,
-        10
+        14
       ],
       "variants": [
         {
@@ -2155,7 +2155,7 @@
       "startupFrame": 5,
       "active": "5/7\u201414(rehit: 3)/16\u201417",
       "activeSpan": [
-        5,
+        3,
         17
       ],
       "variants": [
@@ -2657,7 +2657,7 @@
       "active": "8\u20149(10\u201413/14\u201418)",
       "activeSpan": [
         8,
-        9
+        18
       ],
       "variants": [
         {
@@ -2753,7 +2753,7 @@
       "active": "8\u201411/14\u201415(16\u201422)",
       "activeSpan": [
         8,
-        15
+        22
       ],
       "variants": [
         {
@@ -2795,7 +2795,7 @@
       "active": "9\u201410(11\u201414)",
       "activeSpan": [
         9,
-        10
+        14
       ],
       "variants": [
         {
@@ -2815,7 +2815,7 @@
       "startupFrame": 5,
       "active": "5/7\u201414(rehit: 3)/16\u201417",
       "activeSpan": [
-        5,
+        3,
         17
       ],
       "variants": [
@@ -3413,7 +3413,7 @@
       "active": "3\u20144(5\u201411/12\u201425)",
       "activeSpan": [
         3,
-        4
+        25
       ],
       "variants": [
         {
@@ -4180,7 +4180,7 @@
       "startupFrame": 11,
       "active": "26\u201427 (11\u201412 from charge)",
       "activeSpan": [
-        26,
+        11,
         27
       ],
       "variants": [
@@ -4250,7 +4250,7 @@
       "active": "23\u201426/(41\u201449/50...)",
       "activeSpan": [
         23,
-        26
+        50
       ],
       "variants": [
         {
@@ -4604,7 +4604,7 @@
       "active": "3\u20145(6\u20147)",
       "activeSpan": [
         3,
-        5
+        7
       ],
       "variants": [
         {
@@ -4646,7 +4646,7 @@
       "active": "4\u20147(8\u201415)",
       "activeSpan": [
         4,
-        7
+        15
       ],
       "variants": [
         {
@@ -4667,7 +4667,7 @@
       "active": "13\u201414(15-16)",
       "activeSpan": [
         13,
-        14
+        16
       ],
       "variants": [
         {
@@ -5201,7 +5201,7 @@
       "active": "6\u20148(9\u201412)",
       "activeSpan": [
         6,
-        8
+        12
       ],
       "variants": [
         {
@@ -5305,7 +5305,7 @@
       "startupFrame": 11,
       "active": "11\u201425/27 (rehit: 3)",
       "activeSpan": [
-        11,
+        3,
         27
       ],
       "variants": [
@@ -5402,7 +5402,7 @@
       "active": "19\u201452(53\u201485/86\u2014114)",
       "activeSpan": [
         19,
-        52
+        114
       ],
       "variants": [
         {
@@ -5465,7 +5465,7 @@
       "active": "13\u201415(16\u201485): Early // 21\u201423(24\u201493): Late // 1-2: Contact",
       "activeSpan": [
         1,
-        23
+        93
       ],
       "variants": [
         {
@@ -5915,7 +5915,7 @@
       "active": "3\u20145(6\u201431)",
       "activeSpan": [
         3,
-        5
+        31
       ],
       "variants": [
         {
@@ -5957,7 +5957,7 @@
       "active": "6\u20147(8\u201413)",
       "activeSpan": [
         6,
-        7
+        13
       ],
       "variants": [
         {
@@ -5978,7 +5978,7 @@
       "active": "5\u20147(8\u201411)",
       "activeSpan": [
         5,
-        7
+        11
       ],
       "variants": [
         {
@@ -5999,7 +5999,7 @@
       "active": "10(11\u201414)",
       "activeSpan": [
         10,
-        10
+        14
       ],
       "variants": [
         {
@@ -6041,7 +6041,7 @@
       "active": "17\u201445(46\u201466)",
       "activeSpan": [
         17,
-        45
+        66
       ],
       "variants": [
         {
@@ -6089,7 +6089,7 @@
       "active": "8(9\u201423)",
       "activeSpan": [
         8,
-        8
+        23
       ],
       "variants": [
         {
@@ -6110,7 +6110,7 @@
       "active": "6(7\u201423)",
       "activeSpan": [
         6,
-        6
+        23
       ],
       "variants": [
         {
@@ -6395,7 +6395,7 @@
       "active": "5\u20146(7\u20148)",
       "activeSpan": [
         5,
-        6
+        8
       ],
       "variants": [
         {
@@ -6506,7 +6506,7 @@
       "active": "12\u201415(17\u201418)/23\u201425(31\u201432)",
       "activeSpan": [
         12,
-        25
+        32
       ],
       "variants": [
         {
@@ -6533,7 +6533,7 @@
       "active": "5\u201412(13\u201415)",
       "activeSpan": [
         5,
-        12
+        15
       ],
       "variants": [
         {
@@ -6553,7 +6553,7 @@
       "startupFrame": 8,
       "active": "8\u201418 (rehit: 5) / 20-21",
       "activeSpan": [
-        8,
+        5,
         21
       ],
       "variants": [
@@ -6575,7 +6575,7 @@
       "active": "10\u201411(12\u201418)",
       "activeSpan": [
         10,
-        11
+        18
       ],
       "variants": [
         {
@@ -6595,7 +6595,7 @@
       "startupFrame": 8,
       "active": "8\u201414 (rehit: 2) / 15\u201416",
       "activeSpan": [
-        8,
+        2,
         16
       ],
       "variants": [
@@ -7061,7 +7061,7 @@
       "active": "7\u20149(10\u201416)",
       "activeSpan": [
         7,
-        9
+        16
       ],
       "variants": [
         {
@@ -7178,7 +7178,7 @@
       "active": "14(15\u201430)",
       "activeSpan": [
         14,
-        14
+        30
       ],
       "variants": [
         {
@@ -7199,7 +7199,7 @@
       "active": "10\u201411(12\u201415)",
       "activeSpan": [
         10,
-        11
+        15
       ],
       "variants": [
         {
@@ -7220,7 +7220,7 @@
       "active": "7\u201410(11\u201412)",
       "activeSpan": [
         7,
-        10
+        12
       ],
       "variants": [
         {
@@ -7349,7 +7349,7 @@
       "active": "13\u201416(17\u201423/24\u201433)",
       "activeSpan": [
         13,
-        16
+        33
       ],
       "variants": [
         {
@@ -7370,7 +7370,7 @@
       "active": "14\u201418(19\u201424/25\u201427)/1\u20142",
       "activeSpan": [
         1,
-        18
+        27
       ],
       "variants": [
         {
@@ -7640,7 +7640,7 @@
       "active": "9\u201410(11\u201413)",
       "activeSpan": [
         9,
-        10
+        13
       ],
       "variants": [
         {
@@ -7682,7 +7682,7 @@
       "active": "5\u20147(8\u201420)",
       "activeSpan": [
         5,
-        7
+        20
       ],
       "variants": [
         {
@@ -7703,7 +7703,7 @@
       "active": "16\u201419(20\u201424)",
       "activeSpan": [
         16,
-        19
+        24
       ],
       "variants": [
         {
@@ -7766,7 +7766,7 @@
       "active": "6\u20147(8\u201430)",
       "activeSpan": [
         6,
-        7
+        30
       ],
       "variants": [
         {
@@ -7787,7 +7787,7 @@
       "active": "8\u20149(10\u201420)",
       "activeSpan": [
         8,
-        9
+        20
       ],
       "variants": [
         {
@@ -8360,7 +8360,7 @@
       "active": "(10/11/12\u201413)(15/16\u201419)",
       "activeSpan": [
         10,
-        17
+        19
       ],
       "variants": [
         {
@@ -8873,7 +8873,7 @@
       "active": "(10/11/12\u201413)(15/16\u201419)",
       "activeSpan": [
         10,
-        17
+        19
       ],
       "variants": [
         {
@@ -9314,7 +9314,7 @@
       "active": "22\u201423(24\u201427)",
       "activeSpan": [
         22,
-        23
+        27
       ],
       "variants": [
         {
@@ -9520,7 +9520,7 @@
       "startupFrame": 6,
       "active": "6\u201438/39 (rehit: 5)",
       "activeSpan": [
-        6,
+        5,
         39
       ],
       "variants": [
@@ -9541,7 +9541,7 @@
       "startupFrame": 6,
       "active": "6\u20147/8\u201411/12\u201415/16\u201419/20\u201423/24\u201427/28\u201431/32\u201435/36\u201439/40\u201443/44\u201447/48\u201451 (rehit: 5)",
       "activeSpan": [
-        6,
+        5,
         51
       ],
       "variants": [
@@ -10619,7 +10619,7 @@
       "active": "5\u20146(7\u20148)",
       "activeSpan": [
         5,
-        6
+        8
       ],
       "variants": [
         {
@@ -10703,7 +10703,7 @@
       "active": "3\u20146(7\u201430)",
       "activeSpan": [
         3,
-        6
+        30
       ],
       "variants": [
         {
@@ -10745,7 +10745,7 @@
       "active": "4\u20146(7\u201414)",
       "activeSpan": [
         4,
-        6
+        14
       ],
       "variants": [
         {
@@ -11410,7 +11410,7 @@
       "startupFrame": 11,
       "active": "11-22 (Rehit Rate : 4) / 26",
       "activeSpan": [
-        11,
+        4,
         26
       ],
       "variants": [
@@ -12445,7 +12445,7 @@
       "startupFrame": 17,
       "active": "17\u201452 (4\u201439 on charge release)",
       "activeSpan": [
-        17,
+        4,
         52
       ],
       "variants": [
@@ -12779,7 +12779,7 @@
       "active": "5(6\u20149)/12(13\u201416)",
       "activeSpan": [
         5,
-        12
+        16
       ],
       "variants": [
         {
@@ -12821,7 +12821,7 @@
       "active": "8\u201411(12\u201418)",
       "activeSpan": [
         8,
-        11
+        18
       ],
       "variants": [
         {
@@ -12904,7 +12904,7 @@
       "startupFrame": 7,
       "active": "7\u201425(rehit: 4)/26\u201427",
       "activeSpan": [
-        7,
+        4,
         27
       ],
       "variants": [
@@ -12932,7 +12932,7 @@
       "active": "9\u201410(11\u201416)",
       "activeSpan": [
         9,
-        10
+        16
       ],
       "variants": [
         {
@@ -13016,7 +13016,7 @@
       "active": "(13\u201418/17\u201422)/(18\u201427)",
       "activeSpan": [
         13,
-        20
+        27
       ],
       "variants": [
         {
@@ -14972,7 +14972,7 @@
       "active": "4\u20145(6\u201427)",
       "activeSpan": [
         4,
-        5
+        27
       ],
       "variants": [
         {
@@ -15035,7 +15035,7 @@
       "active": "5\u20147(8\u201449)",
       "activeSpan": [
         5,
-        7
+        49
       ],
       "variants": [
         {
@@ -15056,7 +15056,7 @@
       "active": "13\u201415(16\u201464)",
       "activeSpan": [
         13,
-        15
+        64
       ],
       "variants": [
         {
@@ -15119,7 +15119,7 @@
       "active": "27\u201429(30\u201482/83\u2014153)",
       "activeSpan": [
         27,
-        29
+        153
       ],
       "variants": [
         {
@@ -15139,7 +15139,7 @@
       "startupFrame": 9,
       "active": "9\u201447/49 (rehit: 4)",
       "activeSpan": [
-        9,
+        4,
         49
       ],
       "variants": [
@@ -15413,7 +15413,7 @@
       "active": "60\u201461(62\u201463) / Windboxes 6\u201452",
       "activeSpan": [
         6,
-        61
+        63
       ],
       "variants": [
         {
@@ -15539,7 +15539,7 @@
       "active": "(7\u20148/9\u201412)(17\u201418/19\u201426)",
       "activeSpan": [
         7,
-        14
+        26
       ],
       "variants": [
         {
@@ -16115,7 +16115,7 @@
       "active": "8(9\u201413)",
       "activeSpan": [
         8,
-        8
+        13
       ],
       "variants": [
         {
@@ -16157,7 +16157,7 @@
       "active": "10\u201411(12\u201420)",
       "activeSpan": [
         10,
-        11
+        20
       ],
       "variants": [
         {
@@ -16846,7 +16846,7 @@
       "startupFrame": 21,
       "active": "21\u201424 (or 10\u201414 from release)",
       "activeSpan": [
-        21,
+        10,
         24
       ],
       "variants": [
@@ -17062,7 +17062,7 @@
       "startupFrame": 9,
       "active": "9/11\u201419(rehit: 3) / 20\u201421",
       "activeSpan": [
-        9,
+        3,
         21
       ],
       "variants": [
@@ -17578,7 +17578,7 @@
       "startupFrame": 21,
       "active": "Normal: 21\u201424 (or 10\u201414 from release) || Max: 21\u201425",
       "activeSpan": [
-        21,
+        10,
         25
       ],
       "variants": [
@@ -18101,7 +18101,7 @@
       "active": "8\u20149(10\u201420)",
       "activeSpan": [
         8,
-        9
+        20
       ],
       "variants": [
         {
@@ -18164,7 +18164,7 @@
       "active": "6\u20149(10\u201419)",
       "activeSpan": [
         6,
-        9
+        19
       ],
       "variants": [
         {
@@ -18391,8 +18391,8 @@
       "startupFrame": 16,
       "active": "16\u201423(Judge 5: 16\u201418/19\u201421/22\u201424/25\u201427)",
       "activeSpan": [
-        16,
-        23
+        5,
+        27
       ],
       "variants": [
         {
@@ -18503,7 +18503,7 @@
       "active": "2\u20147(8\u201414/15\u201426)",
       "activeSpan": [
         2,
-        7
+        26
       ],
       "variants": [
         {
@@ -19111,7 +19111,7 @@
       "startupFrame": 8,
       "active": "(8/9\u201410/11\u201412)22\u201427",
       "activeSpan": [
-        22,
+        8,
         27
       ],
       "variants": [
@@ -19132,7 +19132,7 @@
       "startupFrame": 7,
       "active": "(7/8\u201410)20\u201426",
       "activeSpan": [
-        20,
+        7,
         26
       ],
       "variants": [
@@ -20744,7 +20744,7 @@
       "active": "7\u20149(10\u201419)",
       "activeSpan": [
         7,
-        9
+        19
       ],
       "variants": [
         {
@@ -20840,7 +20840,7 @@
       "active": "10\u201411(15\u201416)",
       "activeSpan": [
         10,
-        11
+        16
       ],
       "variants": [
         {
@@ -21025,7 +21025,7 @@
       "startupFrame": 6,
       "active": "6/12\u201424(rehit: 4)/28/34\u201435",
       "activeSpan": [
-        6,
+        4,
         35
       ],
       "variants": [
@@ -22979,7 +22979,7 @@
       "active": "19/21\u201422/(22\u201423/24\u201425)",
       "activeSpan": [
         19,
-        22
+        25
       ],
       "variants": [
         {
@@ -23062,7 +23062,7 @@
       "startupFrame": 5,
       "active": "5\u201414/15\u201416 (rehit: 2)",
       "activeSpan": [
-        5,
+        2,
         16
       ],
       "variants": [
@@ -23110,7 +23110,7 @@
       "startupFrame": 6,
       "active": "6\u201420/22 (rehit: 3)",
       "activeSpan": [
-        6,
+        3,
         22
       ],
       "variants": [
@@ -23152,7 +23152,7 @@
       "startupFrame": 9,
       "active": "9\u201441/43\u201444 (rehit: 5)",
       "activeSpan": [
-        9,
+        5,
         44
       ],
       "variants": [
@@ -24070,7 +24070,7 @@
       "startupFrame": 6,
       "active": "(6/7\u20149) / 14\u201419",
       "activeSpan": [
-        14,
+        6,
         19
       ],
       "variants": [
@@ -24238,7 +24238,7 @@
       "startupFrame": 9,
       "active": "9\u201410/16\u201426(rehit: 3)/27\u201428",
       "activeSpan": [
-        9,
+        3,
         28
       ],
       "variants": [
@@ -24491,7 +24491,7 @@
       "active": "10\u201411(12/13\u201416)",
       "activeSpan": [
         10,
-        11
+        16
       ],
       "variants": [
         {
@@ -24671,7 +24671,7 @@
       "active": "6\u20149(10\u201416)",
       "activeSpan": [
         6,
-        9
+        16
       ],
       "variants": [
         {
@@ -24797,7 +24797,7 @@
       "active": "6\u201410(11\u201425)",
       "activeSpan": [
         6,
-        10
+        25
       ],
       "variants": [
         {
@@ -24860,7 +24860,7 @@
       "active": "8\u20149(10\u201416/17\u201435)",
       "activeSpan": [
         8,
-        9
+        35
       ],
       "variants": [
         {
@@ -25199,7 +25199,7 @@
       "active": "4/7\u201410(11\u201414/15\u201416)",
       "activeSpan": [
         4,
-        10
+        16
       ],
       "variants": [
         {
@@ -25262,7 +25262,7 @@
       "active": "28/30\u201432(33\u201437/38\u201442/43\u201447/48\u201452/53\u201454)",
       "activeSpan": [
         28,
-        32
+        54
       ],
       "variants": [
         {
@@ -25303,7 +25303,7 @@
       "startupFrame": 7,
       "active": "7\u201421 (rehit: 5) / 26",
       "activeSpan": [
-        7,
+        5,
         26
       ],
       "variants": [
@@ -25325,7 +25325,7 @@
       "active": "15\u201419(19\u201422)",
       "activeSpan": [
         15,
-        19
+        22
       ],
       "variants": [
         {
@@ -25367,7 +25367,7 @@
       "active": "9\u201412(13\u201421)",
       "activeSpan": [
         9,
-        12
+        21
       ],
       "variants": [
         {
@@ -25388,7 +25388,7 @@
       "active": "40\u201443(92\u201495)",
       "activeSpan": [
         40,
-        43
+        95
       ],
       "variants": [
         {
@@ -25408,7 +25408,7 @@
       "startupFrame": 21,
       "active": "21\u201438(1\u201419)",
       "activeSpan": [
-        21,
+        1,
         38
       ],
       "variants": [
@@ -25790,7 +25790,7 @@
       "active": "5\u20148(9\u201420)",
       "activeSpan": [
         5,
-        8
+        20
       ],
       "variants": [
         {
@@ -25853,7 +25853,7 @@
       "active": "6\u20149(10\u201419/20\u201438)",
       "activeSpan": [
         6,
-        9
+        38
       ],
       "variants": [
         {
@@ -25895,7 +25895,7 @@
       "active": "13\u201414(15\u201419)",
       "activeSpan": [
         13,
-        14
+        19
       ],
       "variants": [
         {
@@ -26417,7 +26417,7 @@
       "active": "6\u20147(8\u201411)",
       "activeSpan": [
         6,
-        7
+        11
       ],
       "variants": [
         {
@@ -26438,7 +26438,7 @@
       "active": "26\u201427(28\u201441)",
       "activeSpan": [
         26,
-        27
+        41
       ],
       "variants": [
         {
@@ -26459,7 +26459,7 @@
       "active": "40\u201441(42\u201443/44)",
       "activeSpan": [
         40,
-        41
+        44
       ],
       "variants": [
         {
@@ -26522,7 +26522,7 @@
       "active": "7\u20148(9\u201429)",
       "activeSpan": [
         7,
-        8
+        29
       ],
       "variants": [
         {
@@ -26653,8 +26653,8 @@
       "startupFrame": 29,
       "active": "29(5\u2014146)",
       "activeSpan": [
-        29,
-        29
+        5,
+        146
       ],
       "variants": [
         {
@@ -26936,7 +26936,7 @@
       "active": "4(5)",
       "activeSpan": [
         4,
-        4
+        5
       ],
       "variants": [
         {
@@ -27446,7 +27446,7 @@
       "active": "7\u201410(11\u201415)",
       "activeSpan": [
         7,
-        10
+        15
       ],
       "variants": [
         {
@@ -27467,7 +27467,7 @@
       "active": "19\u201420(21\u201422)",
       "activeSpan": [
         19,
-        20
+        22
       ],
       "variants": [
         {
@@ -27572,7 +27572,7 @@
       "active": "13\u201414(15\u201416)",
       "activeSpan": [
         13,
-        14
+        16
       ],
       "variants": [
         {
@@ -27593,7 +27593,7 @@
       "active": "10\u201411(12\u201413)",
       "activeSpan": [
         10,
-        11
+        13
       ],
       "variants": [
         {
@@ -27682,7 +27682,7 @@
       "startupFrame": 46,
       "active": "46\u201447(1)",
       "activeSpan": [
-        46,
+        1,
         47
       ],
       "variants": [
@@ -28640,7 +28640,7 @@
       "active": "11(12\u201413/14\u201415)",
       "activeSpan": [
         11,
-        11
+        15
       ],
       "variants": [
         {
@@ -28745,7 +28745,7 @@
       "active": "11\u201413(14\u201440)",
       "activeSpan": [
         11,
-        13
+        40
       ],
       "variants": [
         {
@@ -28766,7 +28766,7 @@
       "active": "17\u201425(26\u201464)/1",
       "activeSpan": [
         1,
-        25
+        64
       ],
       "variants": [
         {
@@ -28835,7 +28835,7 @@
       "active": "27\u201436(37\u201477/78\u2014173)",
       "activeSpan": [
         27,
-        36
+        173
       ],
       "variants": [
         {
@@ -28855,7 +28855,7 @@
       "startupFrame": 6,
       "active": "6\u201414/15\u201446/48 (rehit: 4)",
       "activeSpan": [
-        6,
+        4,
         48
       ],
       "variants": [
@@ -29464,7 +29464,7 @@
       "startupFrame": 18,
       "active": "18\u201420/27\u201432(Rehit :2)/37\u201438",
       "activeSpan": [
-        18,
+        2,
         38
       ],
       "variants": [
@@ -29831,7 +29831,7 @@
       "active": "25\u201430(31\u2014144)",
       "activeSpan": [
         25,
-        30
+        144
       ],
       "variants": [
         {
@@ -29873,7 +29873,7 @@
       "active": "9(10\u201411)/29(30\u201431)",
       "activeSpan": [
         9,
-        29
+        31
       ],
       "variants": [
         {
@@ -29894,7 +29894,7 @@
       "active": "3\u201410(11\u201423)",
       "activeSpan": [
         3,
-        10
+        23
       ],
       "variants": [
         {
@@ -29915,7 +29915,7 @@
       "active": "10\u201412(13\u201418/19\u201423)",
       "activeSpan": [
         10,
-        12
+        23
       ],
       "variants": [
         {
@@ -29936,7 +29936,7 @@
       "active": "13\u201415(16\u201421/22\u201426)",
       "activeSpan": [
         13,
-        15
+        26
       ],
       "variants": [
         {
@@ -29957,7 +29957,7 @@
       "active": "6\u20147(8\u201421)",
       "activeSpan": [
         6,
-        7
+        21
       ],
       "variants": [
         {
@@ -29990,7 +29990,7 @@
       "active": "11\u201412(13\u201426)",
       "activeSpan": [
         11,
-        12
+        26
       ],
       "variants": [
         {
@@ -30272,7 +30272,7 @@
       "active": "6(7\u20149/10\u201416)",
       "activeSpan": [
         6,
-        6
+        16
       ],
       "variants": [
         {
@@ -30293,7 +30293,7 @@
       "active": "5\u20148(9\u201421)",
       "activeSpan": [
         5,
-        8
+        21
       ],
       "variants": [
         {
@@ -30356,7 +30356,7 @@
       "active": "17(18\u201419/20\u201433)",
       "activeSpan": [
         17,
-        17
+        33
       ],
       "variants": [
         {
@@ -30398,7 +30398,7 @@
       "active": "9\u201411(12\u201417)",
       "activeSpan": [
         9,
-        11
+        17
       ],
       "variants": [
         {
@@ -30439,7 +30439,7 @@
       "startupFrame": 11,
       "active": "11\u201417/18\u201431/32\u201454/55\u201461 (rehit: 3/5/5/5)",
       "activeSpan": [
-        11,
+        3,
         61
       ],
       "variants": [
@@ -30461,7 +30461,7 @@
       "active": "23\u201425(26\u201435)",
       "activeSpan": [
         23,
-        25
+        35
       ],
       "variants": [
         {
@@ -30863,7 +30863,7 @@
       "active": "6\u20148(9\u201413)",
       "activeSpan": [
         6,
-        8
+        13
       ],
       "variants": [
         {
@@ -30905,7 +30905,7 @@
       "active": "11\u201412(13\u201419)",
       "activeSpan": [
         11,
-        12
+        19
       ],
       "variants": [
         {
@@ -30968,7 +30968,7 @@
       "active": "9(10/11\u201415)",
       "activeSpan": [
         9,
-        9
+        15
       ],
       "variants": [
         {
@@ -30989,7 +30989,7 @@
       "active": "5(6\u201411)",
       "activeSpan": [
         5,
-        5
+        11
       ],
       "variants": [
         {
@@ -31031,7 +31031,7 @@
       "active": "15\u201417(18\u201420)",
       "activeSpan": [
         15,
-        17
+        20
       ],
       "variants": [
         {
@@ -31879,7 +31879,7 @@
       "startupFrame": 10,
       "active": "10\u201420(rehit rate: 3)/22",
       "activeSpan": [
-        10,
+        3,
         22
       ],
       "variants": [
@@ -32516,7 +32516,7 @@
       "active": "10(11\u201414)",
       "activeSpan": [
         10,
-        10
+        14
       ],
       "variants": [
         {
@@ -32743,7 +32743,7 @@
       "startupFrame": 8,
       "active": "8\u201414/25\u201431 (windbox: 7\u201417)",
       "activeSpan": [
-        8,
+        7,
         31
       ],
       "variants": [
@@ -33245,7 +33245,7 @@
       "active": "12\u201417/18(19\u201420/21)",
       "activeSpan": [
         12,
-        18
+        21
       ],
       "variants": [
         {
@@ -33266,7 +33266,7 @@
       "active": "11\u201412(13)",
       "activeSpan": [
         11,
-        12
+        13
       ],
       "variants": [
         {
@@ -33286,7 +33286,7 @@
       "startupFrame": 30,
       "active": "30\u201473 (rehit: 3)",
       "activeSpan": [
-        30,
+        3,
         73
       ],
       "variants": [
@@ -33308,7 +33308,7 @@
       "active": "12\u201413(14\u201419)",
       "activeSpan": [
         12,
-        13
+        19
       ],
       "variants": [
         {
@@ -33392,7 +33392,7 @@
       "active": "17\u201419(20\u201445)",
       "activeSpan": [
         17,
-        19
+        45
       ],
       "variants": [
         {
@@ -33809,7 +33809,7 @@
       "active": "6\u20149(10\u201417)",
       "activeSpan": [
         6,
-        9
+        17
       ],
       "variants": [
         {
@@ -33830,7 +33830,7 @@
       "active": "8\u201412(13\u201414)",
       "activeSpan": [
         8,
-        12
+        14
       ],
       "variants": [
         {
@@ -33872,7 +33872,7 @@
       "active": "3\u20145(6\u201429)",
       "activeSpan": [
         3,
-        5
+        29
       ],
       "variants": [
         {
@@ -33956,7 +33956,7 @@
       "active": "16\u201417(18)",
       "activeSpan": [
         16,
-        17
+        18
       ],
       "variants": [
         {
@@ -33977,7 +33977,7 @@
       "active": "50\u201452 (Reverse: 62\u201464 to 81\u201473)",
       "activeSpan": [
         50,
-        52
+        81
       ],
       "variants": [
         {
@@ -34252,7 +34252,7 @@
       "startupFrame": 8,
       "active": "8\u201421(1\u20142)",
       "activeSpan": [
-        8,
+        1,
         21
       ],
       "variants": [
@@ -34739,7 +34739,7 @@
       "active": "11\u201413(14\u201423)",
       "activeSpan": [
         11,
-        13
+        23
       ],
       "variants": [
         {
@@ -34787,7 +34787,7 @@
       "active": "20\u201437(38\u201455/56\u201471)",
       "activeSpan": [
         20,
-        37
+        71
       ],
       "variants": [
         {
@@ -34808,7 +34808,7 @@
       "active": "13\u201420(21\u201428/29\u201436/37\u201450)",
       "activeSpan": [
         13,
-        20
+        50
       ],
       "variants": [
         {
@@ -34979,7 +34979,7 @@
       "active": "8\u20149(10\u201414/15\u201424/25\u201440)",
       "activeSpan": [
         8,
-        9
+        40
       ],
       "variants": [
         {
@@ -35090,7 +35090,7 @@
       "active": "12\u201414(15\u201422/23\u201430)",
       "activeSpan": [
         12,
-        14
+        30
       ],
       "variants": [
         {
@@ -35452,7 +35452,7 @@
       "startupFrame": 17,
       "active": "17\u201438(rehit: 4)/40",
       "activeSpan": [
-        17,
+        4,
         40
       ],
       "variants": [
@@ -35578,7 +35578,7 @@
       "startupFrame": 17,
       "active": "17/18\u201432(rehit: 3)/34",
       "activeSpan": [
-        17,
+        3,
         34
       ],
       "variants": [
@@ -35792,7 +35792,7 @@
       "active": "6\u20147/(10\u201415/16\u201430)",
       "activeSpan": [
         6,
-        7
+        30
       ],
       "variants": [
         {
@@ -36145,7 +36145,7 @@
       "startupFrame": 8,
       "active": "8\u201422/24\u201425 (rehit: 3)",
       "activeSpan": [
-        8,
+        3,
         25
       ],
       "variants": [
@@ -36271,7 +36271,7 @@
       "startupFrame": 5,
       "active": "5\u201427/29\u201430 (rehit: 4)",
       "activeSpan": [
-        5,
+        4,
         30
       ],
       "variants": [
@@ -36334,7 +36334,7 @@
       "startupFrame": 10,
       "active": "10\u201422/24\u201425 (rehit: 3)",
       "activeSpan": [
-        10,
+        3,
         25
       ],
       "variants": [
@@ -36740,7 +36740,7 @@
       "active": "16\u201418(19\u201429)",
       "activeSpan": [
         16,
-        18
+        29
       ],
       "variants": [
         {
@@ -36761,7 +36761,7 @@
       "active": "11/15\u201417(18\u201428)",
       "activeSpan": [
         11,
-        17
+        28
       ],
       "variants": [
         {
@@ -36782,7 +36782,7 @@
       "active": "15\u201417(18\u201428)",
       "activeSpan": [
         15,
-        17
+        28
       ],
       "variants": [
         {
@@ -36803,7 +36803,7 @@
       "active": "3\u20145(6\u20149/10\u201419)",
       "activeSpan": [
         3,
-        5
+        19
       ],
       "variants": [
         {
@@ -36845,7 +36845,7 @@
       "active": "9\u201411(12\u201416)",
       "activeSpan": [
         9,
-        11
+        16
       ],
       "variants": [
         {
@@ -37394,7 +37394,7 @@
       "active": "8\u201410(11\u201418)",
       "activeSpan": [
         8,
-        10
+        18
       ],
       "variants": [
         {
@@ -37415,7 +37415,7 @@
       "active": "16\u201418(19\u201427)",
       "activeSpan": [
         16,
-        18
+        27
       ],
       "variants": [
         {
@@ -37442,7 +37442,7 @@
       "active": "12,13\u201416(17\u201432)",
       "activeSpan": [
         12,
-        16
+        32
       ],
       "variants": [
         {
@@ -37469,7 +37469,7 @@
       "active": "16\u201417(19\u201422/23\u201428)",
       "activeSpan": [
         16,
-        17
+        28
       ],
       "variants": [
         {
@@ -37496,7 +37496,7 @@
       "active": "7\u201410/20\u201423(24\u201428)",
       "activeSpan": [
         7,
-        23
+        28
       ],
       "variants": [
         {
@@ -37523,7 +37523,7 @@
       "active": "12\u201415(16\u201419)",
       "activeSpan": [
         12,
-        15
+        19
       ],
       "variants": [
         {
@@ -37550,7 +37550,7 @@
       "active": "9\u201410(11\u201416)",
       "activeSpan": [
         9,
-        10
+        16
       ],
       "variants": [
         {
@@ -37577,7 +37577,7 @@
       "active": "10\u201413(14\u201423)",
       "activeSpan": [
         10,
-        13
+        23
       ],
       "variants": [
         {
@@ -37604,7 +37604,7 @@
       "active": "13\u201415(16\u201417/18\u201424)",
       "activeSpan": [
         13,
-        15
+        24
       ],
       "variants": [
         {
@@ -37651,7 +37651,7 @@
       "startupFrame": 23,
       "active": "23\u201492(Rehit: 4)",
       "activeSpan": [
-        23,
+        4,
         92
       ],
       "variants": [
@@ -37700,7 +37700,7 @@
       "active": "8(9\u201412/13\u201431) / 28\u201432(33\u201455)",
       "activeSpan": [
         8,
-        32
+        55
       ],
       "variants": [
         {
@@ -38120,7 +38120,7 @@
       "active": "(18\u201421/22\u201429)/(30\u201433)",
       "activeSpan": [
         18,
-        25
+        33
       ],
       "variants": [
         {
@@ -38204,7 +38204,7 @@
       "active": "19\u201421(22\u201423)",
       "activeSpan": [
         19,
-        21
+        23
       ],
       "variants": [
         {
@@ -38741,7 +38741,7 @@
       "active": "12\u201413(14\u201418)",
       "activeSpan": [
         12,
-        13
+        18
       ],
       "variants": [
         {
@@ -38762,7 +38762,7 @@
       "active": "6\u20149(10\u201413)",
       "activeSpan": [
         6,
-        9
+        13
       ],
       "variants": [
         {
@@ -38782,7 +38782,7 @@
       "startupFrame": 15,
       "active": "15\u201438 (rehit: 3) / 39",
       "activeSpan": [
-        15,
+        3,
         39
       ],
       "variants": [
@@ -39299,7 +39299,7 @@
       "active": "10\u201413(14\u201419)",
       "activeSpan": [
         10,
-        13
+        19
       ],
       "variants": [
         {
@@ -39383,7 +39383,7 @@
       "active": "6\u20148(9\u201437)",
       "activeSpan": [
         6,
-        8
+        37
       ],
       "variants": [
         {
@@ -39404,7 +39404,7 @@
       "active": "7(8\u20149/10\u201411)",
       "activeSpan": [
         7,
-        7
+        11
       ],
       "variants": [
         {
@@ -39425,7 +39425,7 @@
       "active": "7\u20148(9\u201410)",
       "activeSpan": [
         7,
-        8
+        10
       ],
       "variants": [
         {
@@ -39752,7 +39752,7 @@
       "active": "7(8\u201411)",
       "activeSpan": [
         7,
-        7
+        11
       ],
       "variants": [
         {
@@ -39920,7 +39920,7 @@
       "active": "7(8\u201411)",
       "activeSpan": [
         7,
-        7
+        11
       ],
       "variants": [
         {
@@ -39983,7 +39983,7 @@
       "active": "7\u20149(10\u201415)",
       "activeSpan": [
         7,
-        9
+        15
       ],
       "variants": [
         {
@@ -40025,7 +40025,7 @@
       "active": "9(10\u201412)",
       "activeSpan": [
         9,
-        9
+        12
       ],
       "variants": [
         {
@@ -40067,7 +40067,7 @@
       "active": "4\u20146(7\u201431)",
       "activeSpan": [
         4,
-        6
+        31
       ],
       "variants": [
         {
@@ -40088,7 +40088,7 @@
       "active": "8\u20149(10\u201414)",
       "activeSpan": [
         8,
-        9
+        14
       ],
       "variants": [
         {
@@ -40172,7 +40172,7 @@
       "active": "12\u201418(19\u201493) / 12\u201417(18\u201478) / 12\u201416(17\u201461)",
       "activeSpan": [
         12,
-        18
+        93
       ],
       "variants": [
         {
@@ -40205,7 +40205,7 @@
       "active": "12\u201421(22\u201479) / 12\u201420(21\u201472) / 12\u201419(20\u201466)",
       "activeSpan": [
         12,
-        21
+        79
       ],
       "variants": [
         {
@@ -40271,7 +40271,7 @@
       "active": "6(7\u20148/9\u201419)",
       "activeSpan": [
         6,
-        6
+        19
       ],
       "variants": [
         {
@@ -40304,7 +40304,7 @@
       "active": "6(7\u20148/9\u201419)",
       "activeSpan": [
         6,
-        6
+        19
       ],
       "variants": [
         {
@@ -40601,7 +40601,7 @@
       "active": "7(8\u201411)",
       "activeSpan": [
         7,
-        7
+        11
       ],
       "variants": [
         {
@@ -40727,7 +40727,7 @@
       "active": "7(8\u201411)",
       "activeSpan": [
         7,
-        7
+        11
       ],
       "variants": [
         {
@@ -40790,7 +40790,7 @@
       "active": "7\u20149(10\u201415)",
       "activeSpan": [
         7,
-        9
+        15
       ],
       "variants": [
         {
@@ -40832,7 +40832,7 @@
       "active": "9(10\u201412)",
       "activeSpan": [
         9,
-        9
+        12
       ],
       "variants": [
         {
@@ -40874,7 +40874,7 @@
       "active": "6\u20148(9\u201417)",
       "activeSpan": [
         6,
-        8
+        17
       ],
       "variants": [
         {
@@ -40895,7 +40895,7 @@
       "active": "8\u20149(10\u201414)",
       "activeSpan": [
         8,
-        9
+        14
       ],
       "variants": [
         {
@@ -40979,7 +40979,7 @@
       "active": "13\u201419(20\u201487) / 13\u201418(19\u201479) / 13\u201417(18\u201472)",
       "activeSpan": [
         13,
-        19
+        87
       ],
       "variants": [
         {
@@ -41012,7 +41012,7 @@
       "active": "8\u20149(13\u201414/18\u201419/23\u201424/28\u201429/33\u201434/38\u201439)",
       "activeSpan": [
         8,
-        9
+        39
       ],
       "variants": [
         {
@@ -41045,7 +41045,7 @@
       "active": "8\u20149(13\u201414/18\u201419/23\u201424/28\u201429/33\u201434/38\u201439)",
       "activeSpan": [
         8,
-        9
+        39
       ],
       "variants": [
         {
@@ -41072,7 +41072,7 @@
       "active": "6\u20148(9\u201419)",
       "activeSpan": [
         6,
-        8
+        19
       ],
       "variants": [
         {
@@ -41099,7 +41099,7 @@
       "active": "6\u20148(9\u201419)",
       "activeSpan": [
         6,
-        8
+        19
       ],
       "variants": [
         {
@@ -41558,7 +41558,7 @@
       "active": "7\u20148(9\u201417)",
       "activeSpan": [
         7,
-        8
+        17
       ],
       "variants": [
         {
@@ -41579,7 +41579,7 @@
       "active": "9\u201413(14\u201418)",
       "activeSpan": [
         9,
-        13
+        18
       ],
       "variants": [
         {
@@ -41621,7 +41621,7 @@
       "active": "12(13\u201414/15\u201416)",
       "activeSpan": [
         12,
-        12
+        16
       ],
       "variants": [
         {
@@ -41684,7 +41684,7 @@
       "active": "18\u201419(20\u201425)",
       "activeSpan": [
         18,
-        19
+        25
       ],
       "variants": [
         {
@@ -41726,7 +41726,7 @@
       "active": "8\u20149(10\u201423)",
       "activeSpan": [
         8,
-        9
+        23
       ],
       "variants": [
         {
@@ -41747,7 +41747,7 @@
       "active": "11\u201413(14\u201439)",
       "activeSpan": [
         11,
-        13
+        39
       ],
       "variants": [
         {
@@ -41768,7 +41768,7 @@
       "active": "18\u201435(36\u201467)",
       "activeSpan": [
         18,
-        35
+        67
       ],
       "variants": [
         {
@@ -41800,7 +41800,7 @@
       "startupFrame": 16,
       "active": "16\u201462, Multihits: (1\u201428 (Rehit : 6)/29\u201430)",
       "activeSpan": [
-        16,
+        1,
         62
       ],
       "variants": [
@@ -41942,7 +41942,7 @@
       "active": "7/10(11/12\u201415/**)",
       "activeSpan": [
         7,
-        10
+        15
       ],
       "variants": [
         {
@@ -41990,7 +41990,7 @@
       "active": "7\u20149/10(11\u201416)/1\u20143",
       "activeSpan": [
         1,
-        10
+        16
       ],
       "variants": [
         {
@@ -42332,7 +42332,7 @@
       "active": "7\u20148(9\u201416)",
       "activeSpan": [
         7,
-        8
+        16
       ],
       "variants": [
         {
@@ -42464,7 +42464,7 @@
       "active": "6\u20147(8\u201419)",
       "activeSpan": [
         6,
-        7
+        19
       ],
       "variants": [
         {
@@ -42506,7 +42506,7 @@
       "active": "13(14\u201416)",
       "activeSpan": [
         13,
-        13
+        16
       ],
       "variants": [
         {
@@ -42596,7 +42596,7 @@
       "active": "10\u201417(18\u201424)",
       "activeSpan": [
         10,
-        17
+        24
       ],
       "variants": [
         {
@@ -42617,7 +42617,7 @@
       "active": "6/14\u201421(22\u201428)",
       "activeSpan": [
         6,
-        21
+        28
       ],
       "variants": [
         {
@@ -42637,7 +42637,7 @@
       "startupFrame": 18,
       "active": "18\u201419/20\u201428(rehit: 2)/29\u201430",
       "activeSpan": [
-        18,
+        2,
         30
       ],
       "variants": [
@@ -43136,7 +43136,7 @@
       "active": "15\u201420(21\u201426)",
       "activeSpan": [
         15,
-        20
+        26
       ],
       "variants": [
         {
@@ -43190,7 +43190,7 @@
       "active": "18\u201419(20\u201421/22\u201423)",
       "activeSpan": [
         18,
-        19
+        23
       ],
       "variants": [
         {
@@ -43217,7 +43217,7 @@
       "active": "9\u201417(18\u201425) (full extended 26\u201466)",
       "activeSpan": [
         9,
-        17
+        66
       ],
       "variants": [
         {
@@ -43352,7 +43352,7 @@
       "active": "9\u201418 (full extended 21\u201465)",
       "activeSpan": [
         9,
-        18
+        65
       ],
       "variants": [
         {
@@ -43379,7 +43379,7 @@
       "active": "18\u201424(25\u201435)/1\u20142",
       "activeSpan": [
         1,
-        24
+        35
       ],
       "variants": [
         {
@@ -43979,7 +43979,7 @@
       "active": "(11\u201412/13\u201415)/(20\u201421/22\u201424)",
       "activeSpan": [
         11,
-        18
+        24
       ],
       "variants": [
         {
@@ -45355,7 +45355,7 @@
       "startupFrame": 6,
       "active": "6/9\u201420/21 (rehit: 3)",
       "activeSpan": [
-        6,
+        3,
         21
       ],
       "variants": [
@@ -46021,7 +46021,7 @@
       "startupFrame": 6,
       "active": "6/9\u201420/21 (rehit: 3)",
       "activeSpan": [
-        6,
+        3,
         21
       ],
       "variants": [
@@ -46445,7 +46445,7 @@
       "active": "(6\u20149/10\u201411)(19/20/21\u201423)(22\u201423)",
       "activeSpan": [
         6,
-        13
+        23
       ],
       "variants": [
         {
@@ -47027,7 +47027,7 @@
       "active": "10\u201412(13\u201418/19\u201423)",
       "activeSpan": [
         10,
-        12
+        23
       ],
       "variants": [
         {
@@ -47048,7 +47048,7 @@
       "active": "13\u201415(16\u201421/22\u201426)",
       "activeSpan": [
         13,
-        15
+        26
       ],
       "variants": [
         {
@@ -47600,7 +47600,7 @@
       "active": "8\u201410(11\u201414)",
       "activeSpan": [
         8,
-        10
+        14
       ],
       "variants": [
         {
@@ -47798,7 +47798,7 @@
       "active": "(11/13\u201415/16\u201424)(38...)",
       "activeSpan": [
         11,
-        18
+        38
       ],
       "variants": [
         {
@@ -48872,7 +48872,7 @@
       "active": "16\u201418(16\u201419)",
       "activeSpan": [
         16,
-        18
+        19
       ],
       "variants": [
         {
@@ -49033,7 +49033,7 @@
       "startupFrame": 5,
       "active": "5\u201418/20\u201421 (rehit: 4)",
       "activeSpan": [
-        5,
+        4,
         21
       ],
       "variants": [
@@ -49360,7 +49360,7 @@
       "startupFrame": 16,
       "active": "16\u201432(1\u201415/16\u201427)",
       "activeSpan": [
-        16,
+        1,
         32
       ],
       "variants": [
@@ -50501,7 +50501,7 @@
       "active": "12\u201417(18\u201421)",
       "activeSpan": [
         12,
-        17
+        21
       ],
       "variants": [
         {
@@ -50522,7 +50522,7 @@
       "active": "9\u201412(13\u201420)",
       "activeSpan": [
         9,
-        12
+        20
       ],
       "variants": [
         {
@@ -50563,7 +50563,7 @@
       "startupFrame": 9,
       "active": "9\u201410/13\u201425 (rehit: 2)/26\u201427",
       "activeSpan": [
-        9,
+        2,
         27
       ],
       "variants": [
@@ -50627,7 +50627,7 @@
       "active": "15\u201417(18)",
       "activeSpan": [
         15,
-        17
+        18
       ],
       "variants": [
         {
@@ -50690,7 +50690,7 @@
       "active": "13\u201422(23\u201452/53\u2014102)",
       "activeSpan": [
         13,
-        22
+        102
       ],
       "variants": [
         {
@@ -50744,7 +50744,7 @@
       "active": "18\u201435(36\u201453)",
       "activeSpan": [
         18,
-        35
+        53
       ],
       "variants": [
         {
@@ -51107,7 +51107,7 @@
       "active": "10\u201414(15\u201422)",
       "activeSpan": [
         10,
-        14
+        22
       ],
       "variants": [
         {
@@ -51149,7 +51149,7 @@
       "active": "10(11\u201414)",
       "activeSpan": [
         10,
-        10
+        14
       ],
       "variants": [
         {
@@ -51191,7 +51191,7 @@
       "active": "4\u20148(9\u201419)",
       "activeSpan": [
         4,
-        8
+        19
       ],
       "variants": [
         {
@@ -51212,7 +51212,7 @@
       "active": "7\u201410(11\u201417)",
       "activeSpan": [
         7,
-        10
+        17
       ],
       "variants": [
         {
@@ -51233,7 +51233,7 @@
       "active": "11\u201413(14\u201415)",
       "activeSpan": [
         11,
-        13
+        15
       ],
       "variants": [
         {
@@ -51350,7 +51350,7 @@
       "active": "13(14\u201420)/21(22\u201426)",
       "activeSpan": [
         13,
-        21
+        26
       ],
       "variants": [
         {
@@ -51877,7 +51877,7 @@
       "startupFrame": 13,
       "active": "13\u201416(rehit: 7)/17\u201427(rehit: 4)/28\u201429",
       "activeSpan": [
-        13,
+        4,
         29
       ],
       "variants": [
@@ -51968,7 +51968,7 @@
       "active": "13\u201414(15\u201417)",
       "activeSpan": [
         13,
-        14
+        17
       ],
       "variants": [
         {
@@ -51988,7 +51988,7 @@
       "startupFrame": 10,
       "active": "10\u201419(rehit: 5)/20\u201423",
       "activeSpan": [
-        10,
+        5,
         23
       ],
       "variants": [
@@ -52376,7 +52376,7 @@
       "active": "Ground: 14(15\u201424) // Air: 14(15\u201422)",
       "activeSpan": [
         14,
-        14
+        24
       ],
       "variants": [
         {
@@ -52403,7 +52403,7 @@
       "active": "Ground: 14(15\u201424) // Air: 14(15\u201422)",
       "activeSpan": [
         14,
-        14
+        24
       ],
       "variants": [
         {
@@ -52430,7 +52430,7 @@
       "active": "Ground: 14(15\u201421/22\u201429) // Air: 14(15\u201419/20\u201424)",
       "activeSpan": [
         14,
-        14
+        29
       ],
       "variants": [
         {
@@ -52457,7 +52457,7 @@
       "active": "Ground: 14(15\u201432) // Air: 14(15\u201427)",
       "activeSpan": [
         14,
-        14
+        32
       ],
       "variants": [
         {
@@ -52484,7 +52484,7 @@
       "active": "(5-6/7-11)(6-9/10-15)",
       "activeSpan": [
         5,
-        12
+        15
       ],
       "variants": [
         {
@@ -52547,7 +52547,7 @@
       "active": "Ground: 16(17\u201418/19\u201425/26\u201435) // Air: 16(17\u201418/19\u201424/25\u201432)",
       "activeSpan": [
         16,
-        16
+        35
       ],
       "variants": [
         {
@@ -52580,7 +52580,7 @@
       "active": "Ground: 16(17\u201419/20\u201431/32\u201438) // Air: 16(17\u201419/20\u201429/30\u201436)",
       "activeSpan": [
         16,
-        16
+        38
       ],
       "variants": [
         {
@@ -52960,7 +52960,7 @@
       "startupFrame": 12,
       "active": "12\u201435(Rehit: 6)/36\u201439",
       "activeSpan": [
-        12,
+        6,
         39
       ],
       "variants": [
@@ -53008,7 +53008,7 @@
       "startupFrame": 8,
       "active": "8\u201411(Rehit: 2)/12\u201417 // 26\u201429(Rehit:2)/30\u201435",
       "activeSpan": [
-        8,
+        2,
         35
       ],
       "variants": [
@@ -53402,7 +53402,7 @@
       "active": "10/13-15(16-25)",
       "activeSpan": [
         10,
-        15
+        25
       ],
       "variants": [
         {
@@ -53423,7 +53423,7 @@
       "active": "9\u201415(16\u201422)",
       "activeSpan": [
         9,
-        15
+        22
       ],
       "variants": [
         {
@@ -53444,7 +53444,7 @@
       "active": "14\u201415(16\u201419)",
       "activeSpan": [
         14,
-        15
+        19
       ],
       "variants": [
         {
@@ -53594,7 +53594,7 @@
       "active": "13\u201414(15\u201418)",
       "activeSpan": [
         13,
-        14
+        18
       ],
       "variants": [
         {
@@ -53656,7 +53656,7 @@
       "startupFrame": 19,
       "active": "19\u201423/24\u201439(1\u20142)",
       "activeSpan": [
-        19,
+        1,
         39
       ],
       "variants": [
@@ -53683,7 +53683,7 @@
       "startupFrame": 41,
       "active": "(22\u201427/28\u201434/35\u201439/40\u201495)/98\u2014101",
       "activeSpan": [
-        98,
+        22,
         101
       ],
       "variants": [
@@ -53705,7 +53705,7 @@
       "active": "21\u201448/(58\u201460/61\u201466/67\u201468)",
       "activeSpan": [
         21,
-        48
+        68
       ],
       "variants": [
         {
@@ -53726,7 +53726,7 @@
       "active": "130\u2014176/(183\u2014184/185\u2014200/201\u2014202)",
       "activeSpan": [
         130,
-        176
+        202
       ],
       "variants": [
         {
@@ -53827,7 +53827,7 @@
       "startupFrame": 38,
       "active": "38\u201452 (Rehit: 5)/53",
       "activeSpan": [
-        38,
+        5,
         53
       ],
       "variants": [
@@ -54308,7 +54308,7 @@
       "active": "11\u201416(17\u201422)",
       "activeSpan": [
         11,
-        16
+        22
       ],
       "variants": [
         {
@@ -54350,7 +54350,7 @@
       "active": "16\u201417(18)",
       "activeSpan": [
         16,
-        17
+        18
       ],
       "variants": [
         {
@@ -54874,7 +54874,7 @@
       "startupFrame": 9,
       "active": "9\u201410/11\u201424(rehit: 5)/26\u201427",
       "activeSpan": [
-        9,
+        5,
         27
       ],
       "variants": [
@@ -54916,8 +54916,8 @@
       "startupFrame": 8,
       "active": "8\u201413(rehit: 3)(14\u201419)",
       "activeSpan": [
-        8,
-        13
+        3,
+        19
       ],
       "variants": [
         {
@@ -54965,7 +54965,7 @@
       "active": "10\u201411(12)",
       "activeSpan": [
         10,
-        11
+        12
       ],
       "variants": [
         {
@@ -55007,7 +55007,7 @@
       "active": "13\u201415(16)",
       "activeSpan": [
         13,
-        15
+        16
       ],
       "variants": [
         {
@@ -55742,7 +55742,7 @@
       "active": "15\u201416(17\u201419)",
       "activeSpan": [
         15,
-        16
+        19
       ],
       "variants": [
         {
@@ -55784,7 +55784,7 @@
       "active": "12\u201413(14\u201416)",
       "activeSpan": [
         12,
-        13
+        16
       ],
       "variants": [
         {
@@ -55805,7 +55805,7 @@
       "active": "17\u201418(19)",
       "activeSpan": [
         17,
-        18
+        19
       ],
       "variants": [
         {
@@ -55889,7 +55889,7 @@
       "active": "15(16/17/18-20)",
       "activeSpan": [
         15,
-        15
+        20
       ],
       "variants": [
         {
@@ -55931,7 +55931,7 @@
       "active": "8\u20149(10\u201416)",
       "activeSpan": [
         8,
-        9
+        16
       ],
       "variants": [
         {
@@ -55952,7 +55952,7 @@
       "active": "8\u20149(10\u201414)",
       "activeSpan": [
         8,
-        9
+        14
       ],
       "variants": [
         {
@@ -55973,7 +55973,7 @@
       "active": "11\u201413(14\u201418)",
       "activeSpan": [
         11,
-        13
+        18
       ],
       "variants": [
         {
@@ -55994,7 +55994,7 @@
       "active": "4\u20146(7\u20149)",
       "activeSpan": [
         4,
-        6
+        9
       ],
       "variants": [
         {
@@ -56525,7 +56525,7 @@
       "active": "7\u201412(13\u201418/19\u201424)",
       "activeSpan": [
         7,
-        12
+        24
       ],
       "variants": [
         {
@@ -56546,7 +56546,7 @@
       "active": "16\u201417(18\u201420)",
       "activeSpan": [
         16,
-        17
+        20
       ],
       "variants": [
         {
@@ -56851,7 +56851,7 @@
       "startupFrame": 9,
       "active": "(9/10-11)/17-19/20-22/24-26/27-29/31-33/41-43",
       "activeSpan": [
-        17,
+        9,
         43
       ],
       "variants": [
