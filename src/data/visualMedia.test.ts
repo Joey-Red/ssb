@@ -2,22 +2,29 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { roster } from './roster'
-import type { VisualMediaCoverage, VisualMoveMedia } from '../types'
+import type { VisualMediaCoverage, VisualMoveMedia, VisualTimelineClass } from '../types'
 
-type SourceVariant = { id: string; mediaType: 'gif' | 'image' }
+type SourceVariant = {
+  id: string
+  mediaType: 'animation' | 'image'
+  timelineClass: VisualTimelineClass
+  timingBasis: 'parent-action' | 'independent-source'
+}
 type SourceMove = {
   fighterId: string
   moveId: string
   totalFrames: number | null
+  landingLag: number | null
   activeSpan: number[]
   variants: SourceVariant[]
 }
 type SourceManifest = {
-  version: 2
+  version: 3
   fightersScanned: number
   fightersWithVisuals: number
   mappedMoves: number
   mappedVariants: number
+  timelineCounts: Record<string, number>
   moves: SourceMove[]
 }
 type AssetVariant = {
@@ -27,21 +34,28 @@ type AssetVariant = {
   coverage?: VisualMediaCoverage
   coverageReason?: string
   sourceFrameCount?: number
-  spriteSheet?: { src: string; frameCount: number; frameNumbers?: number[] }
+  sourceDurationMs?: number | null
+  timelineClass?: VisualTimelineClass
+  timelineTotalFrames?: number
+  mappingMethod?: string
+  spriteSheet?: { src: string; frameCount: number; frameNumbers?: number[]; gameFrameCells?: number[] }
 }
-type AssetManifest = { version: 2; moves: Record<string, { variants: AssetVariant[] }> }
+type AssetManifest = { version: 3; moves: Record<string, { variants: AssetVariant[] }> }
 type CoverageReport = {
-  version: 1
+  version: 2
   mappedMoves: number
   variantCount: number
+  resolvedVariants: number
+  unresolvedVariants: number
   fullExactVariants: number
-  partialExactVariants: number
-  untimedAnimatedVariants: number
-  staticVariants: number
+  sourceTimedVariants: number
+  exactStaticVariants: number
   gapCount: number
-  gaps: Array<{ fighterId: string; moveId: string; variantId: string; coverage: Exclude<VisualMediaCoverage, 'full'>; reason: string }>
+  blockerCounts: Record<string, number>
+  gaps: Array<{ fighterId: string; moveId: string; variantId: string; coverage: VisualMediaCoverage; reason: string; blockerClass: string }>
 }
 
+const resolvedCoverage = new Set<VisualMediaCoverage>(['full', 'source-timed', 'exact-static'])
 const root = process.cwd()
 const source = JSON.parse(readFileSync(join(root, 'src/data/visualMediaSources.json'), 'utf8')) as SourceManifest
 const assets = JSON.parse(readFileSync(join(root, 'src/data/visualMediaAssets.generated.json'), 'utf8')) as AssetManifest
@@ -56,21 +70,26 @@ function runtimeIndex(fighterId: string): { version: 1; fighterId: string; moves
 }
 
 describe('full-roster visual frame media', () => {
-  it('discovers source visuals for every fighter at full-roster scale with unique per-move variant ids', () => {
-    expect(source.version).toBe(2)
+  it('discovers source visuals for every fighter and classifies every source timeline', () => {
+    expect(source.version).toBe(3)
     expect(source.fightersScanned).toBe(89)
     expect(source.fightersWithVisuals).toBe(89)
     expect(source.mappedMoves).toBeGreaterThanOrEqual(2500)
     expect(source.mappedVariants).toBeGreaterThanOrEqual(3000)
     expect(new Set(source.moves.map((move) => move.fighterId)).size).toBe(89)
+    expect(Object.keys(source.timelineCounts).length).toBeGreaterThan(1)
     for (const move of source.moves) {
       const ids = move.variants.map((variant) => variant.id)
       expect(new Set(ids).size, `${move.fighterId}:${move.moveId} duplicate visual variant ids`).toBe(ids.length)
+      for (const variant of move.variants) {
+        expect(variant.timelineClass, `${move.fighterId}:${move.moveId}/${variant.id}`).toBeTruthy()
+        expect(variant.timingBasis).toBe(variant.timelineClass === 'fighter-action' ? 'parent-action' : 'independent-source')
+      }
     }
   })
 
-  it('ships every discovered variant locally and promotes every provably complete GIF to full exact coverage', () => {
-    expect(assets.version).toBe(2)
+  it('ships every discovered variant locally with bounded, explicit timeline mappings', () => {
+    expect(assets.version).toBe(3)
     let fullExactVariants = 0
 
     for (const move of source.moves) {
@@ -83,8 +102,9 @@ describe('full-roster visual frame media', () => {
       for (const variant of staged?.variants ?? []) {
         const sourceVariant = sourceVariants.get(variant.id)
         expect(sourceVariant, `${key}/${variant.id} source variant`).toBeDefined()
-        expect(['full', 'partial', 'untimed-animation', 'static']).toContain(variant.coverage)
+        expect(['full', 'source-timed', 'exact-static', 'partial', 'untimed-animation', 'static']).toContain(variant.coverage)
         expect(Boolean(variant.spriteSheet || variant.animationSrc || variant.imageSrc), `${key}/${variant.id}`).toBe(true)
+        expect(variant.timelineClass).toBe(sourceVariant?.timelineClass)
 
         if (variant.imageSrc) {
           expect(variant.imageSrc).not.toMatch(/^https?:\/\//)
@@ -99,29 +119,36 @@ describe('full-roster visual frame media', () => {
           expect(sheet.src).not.toMatch(/^https?:\/\//)
           expect(existsSync(publicFile(sheet.src)), `${key}/${variant.id} sheet`).toBe(true)
           expect(sheet.frameCount).toBeGreaterThan(0)
-          expect(sheet.frameNumbers?.length, `${key}/${variant.id} frame map`).toBe(sheet.frameCount)
+          expect(sheet.frameNumbers?.length, `${key}/${variant.id} physical cell map`).toBe(sheet.frameCount)
           const numbers = sheet.frameNumbers ?? []
           expect(new Set(numbers).size).toBe(numbers.length)
           expect(numbers.every((frame, index) => frame > 0 && (index === 0 || frame > numbers[index - 1]!))).toBe(true)
-          if (move.totalFrames !== null) {
-            expect(numbers.filter((frame) => frame > move.totalFrames!), `${key}/${variant.id} frames beyond total ${move.totalFrames}`).toEqual([])
+          if (sheet.gameFrameCells) {
+            expect(sheet.gameFrameCells.length, `${key}/${variant.id} held-frame map`).toBe(variant.timelineTotalFrames)
+            expect(sheet.gameFrameCells.every((cell) => Number.isInteger(cell) && cell >= 0 && cell < sheet.frameCount)).toBe(true)
           }
         }
 
-        if (sourceVariant?.mediaType === 'gif' && move.totalFrames !== null && (variant.sourceFrameCount ?? 0) >= move.totalFrames) {
-          expect(variant.coverage, `${key}/${variant.id} complete source should be full`).toBe('full')
+        if (sourceVariant?.mediaType === 'animation') {
+          expect(variant.animationSrc, `${key}/${variant.id} animation source must remain locally playable`).toBeDefined()
+        }
+
+        if (sourceVariant?.mediaType === 'animation' && sourceVariant.timelineClass === 'fighter-action' && move.totalFrames !== null && (variant.sourceFrameCount ?? 0) >= move.totalFrames) {
+          expect(variant.coverage, `${key}/${variant.id} complete fighter-action source should be full`).toBe('full')
         }
 
         if (variant.coverage === 'full') {
           fullExactVariants += 1
-          expect(move.totalFrames, `${key}/${variant.id} full coverage requires total frames`).not.toBeNull()
+          expect(variant.timelineTotalFrames, `${key}/${variant.id} full timeline length`).toBeGreaterThan(0)
           expect(variant.spriteSheet, `${key}/${variant.id} full coverage sheet`).toBeDefined()
-          const expected = Array.from({ length: move.totalFrames ?? 0 }, (_, index) => index + 1)
-          expect(variant.spriteSheet?.frameNumbers, `${key}/${variant.id} complete 1..Total mapping`).toEqual(expected)
-          expect(variant.spriteSheet?.frameCount).toBe(move.totalFrames)
-        } else if (sourceVariant?.mediaType === 'gif') {
-          expect(variant.animationSrc, `${key}/${variant.id} incomplete GIF must stay animated`).toBeDefined()
-          expect(variant.coverageReason, `${key}/${variant.id} gap reason`).toBeTruthy()
+          if (variant.spriteSheet?.gameFrameCells) {
+            expect(variant.spriteSheet.gameFrameCells).toHaveLength(variant.timelineTotalFrames ?? 0)
+          } else {
+            const expected = Array.from({ length: variant.timelineTotalFrames ?? 0 }, (_, index) => index + 1)
+            expect(variant.spriteSheet?.frameNumbers, `${key}/${variant.id} complete 1..timeline mapping`).toEqual(expected)
+          }
+        } else if (sourceVariant?.mediaType === 'animation') {
+          expect(variant.coverageReason, `${key}/${variant.id} coverage reason`).toBeTruthy()
         }
       }
     }
@@ -129,19 +156,19 @@ describe('full-roster visual frame media', () => {
     expect(fullExactVariants).toBeGreaterThan(0)
   })
 
-  it('generates an explicit residual list for every non-full source variant', () => {
-    expect(coverage.version).toBe(1)
+  it('generates an explicit blocker list containing exactly the unresolved variants', () => {
+    expect(coverage.version).toBe(2)
     expect(coverage.mappedMoves).toBe(source.mappedMoves)
     expect(coverage.variantCount).toBe(source.mappedVariants)
-    expect(coverage.fullExactVariants).toBeGreaterThan(0)
-    expect(coverage.fullExactVariants + coverage.gapCount).toBe(coverage.variantCount)
+    expect(coverage.resolvedVariants + coverage.unresolvedVariants).toBe(coverage.variantCount)
+    expect(coverage.gapCount).toBe(coverage.unresolvedVariants)
     expect(coverage.gaps).toHaveLength(coverage.gapCount)
-    expect(coverage.gaps.every((gap) => gap.reason.length > 0)).toBe(true)
+    expect(coverage.gaps.every((gap) => gap.reason.length > 0 && gap.blockerClass.length > 0)).toBe(true)
 
-    const stagedNonFull = Object.values(assets.moves)
+    const stagedUnresolved = Object.values(assets.moves)
       .flatMap((move) => move.variants)
-      .filter((variant) => variant.coverage !== 'full')
-    expect(stagedNonFull).toHaveLength(coverage.gapCount)
+      .filter((variant) => !resolvedCoverage.has(variant.coverage ?? 'partial'))
+    expect(stagedUnresolved).toHaveLength(coverage.unresolvedVariants)
   })
 
   it('splits runtime metadata into one compact local index per fighter', () => {
