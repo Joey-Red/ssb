@@ -56,13 +56,17 @@ function runtimeIndex(fighterId: string): { version: 1; fighterId: string; moves
 }
 
 describe('full-roster visual frame media', () => {
-  it('discovers source visuals for every fighter at full-roster scale', () => {
+  it('discovers source visuals for every fighter at full-roster scale with unique per-move variant ids', () => {
     expect(source.version).toBe(2)
     expect(source.fightersScanned).toBe(89)
     expect(source.fightersWithVisuals).toBe(89)
     expect(source.mappedMoves).toBeGreaterThanOrEqual(2500)
     expect(source.mappedVariants).toBeGreaterThanOrEqual(3000)
     expect(new Set(source.moves.map((move) => move.fighterId)).size).toBe(89)
+    for (const move of source.moves) {
+      const ids = move.variants.map((variant) => variant.id)
+      expect(new Set(ids).size, `${move.fighterId}:${move.moveId} duplicate visual variant ids`).toBe(ids.length)
+    }
   })
 
   it('ships every discovered variant locally and promotes every provably complete GIF to full exact coverage', () => {
