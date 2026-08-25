@@ -7,8 +7,8 @@ import { firstFrame, lastFrame, numericValue } from '../lib/frameData'
 import type { FrameDataSnapshot } from '../types'
 
 type SourceMove = { fighterId: string; moveId: string; totalFrames: number | null; active: string | null; activeSpan: number[] }
-type SourceManifest = { version: 2; moves: SourceMove[] }
 type AssetManifest = { version: 2; moves: Record<string, { variants: Array<{ id?: string; spriteSheet?: { frameNumbers?: number[] } }> }> }
+type SourceManifest = { version: 2; moves: SourceMove[] }
 
 const index = indexFrameData(snapshotJson as unknown as FrameDataSnapshot)
 const source = JSON.parse(readFileSync(join(process.cwd(), 'src/data/visualMediaSources.json'), 'utf8')) as SourceManifest
@@ -16,6 +16,8 @@ const assets = JSON.parse(readFileSync(join(process.cwd(), 'src/data/visualMedia
 
 describe('visual-media timing consistency', () => {
   it('keeps discovered visual references aligned to committed move timing', () => {
+    const stagedRangeMismatches: string[] = []
+
     for (const media of source.moves) {
       const fighter = index.byFighterId.get(media.fighterId)
       expect(fighter, media.fighterId).toBeDefined()
@@ -39,10 +41,16 @@ describe('visual-media timing consistency', () => {
       for (const variant of staged?.variants ?? []) {
         const frames = variant.spriteSheet?.frameNumbers ?? []
         if (!frames.length || media.activeSpan.length !== 2) continue
-        const variantKey = `${key}/${variant.id ?? 'unnamed'}`
-        expect(frames[0], `${variantKey} first staged frame`).toBeGreaterThanOrEqual(media.activeSpan[0]!)
-        expect(frames.at(-1), `${variantKey} last staged frame`).toBeLessThanOrEqual(media.activeSpan[1]!)
+        const first = frames[0]!
+        const last = frames.at(-1)!
+        const activeStart = media.activeSpan[0]!
+        const activeEnd = media.activeSpan[1]!
+        if (first < activeStart || last > activeEnd) {
+          stagedRangeMismatches.push(`${key}/${variant.id ?? 'unnamed'} staged ${first}-${last}, active ${activeStart}-${activeEnd}`)
+        }
       }
     }
+
+    expect(stagedRangeMismatches).toEqual([])
   })
 })
