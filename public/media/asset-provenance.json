@@ -360,11 +360,11 @@
   },
   "visualMoveCount": 2580,
   "visualVariantCount": 3075,
-  "fullExactVariantCount": 2155,
-  "sourceTimedVariantCount": 314,
+  "fullExactVariantCount": 2108,
+  "sourceTimedVariantCount": 352,
   "exactStaticVariantCount": 62,
-  "visualCoverageGapCount": 544,
+  "visualCoverageGapCount": 553,
   "reviewedOverrideCount": 0,
   "fightersScanned": 89,
-  "mediaBytes": 462804406
+  "mediaBytes": 463100054
 }

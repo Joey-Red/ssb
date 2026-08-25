@@ -6,9 +6,9 @@
 - Reviewed local captures: **0**
 - Moves with no visual: **1008**
 - Source variants: **3075**
-- Resolved source/reviewed variants: **2531**
-- Unresolved source variants: **544**
-- Total unresolved move/variant blockers: **1552**
+- Resolved source/reviewed variants: **2522**
+- Unresolved source variants: **553**
+- Total unresolved move/variant blockers: **1561**
 - Fighters with blockers: **89**
 
 This file is generated. A listed item is a source/timing blocker, not permission to invent a mapping or image.
@@ -79,6 +79,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `BayonettaJab2BulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Bayonetta Jab 3**
   - `BayonettaJab3` — fighter-action / short-or-misaligned-source: source has 35 images / 5030 ms and cannot prove the complete 39-frame fighter action
+- **Bayonetta Neutral Air**
+  - `BayonettaNAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 66; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Bayonetta Pummel**
   - `BayonettaPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 25-frame fighter action
 - **Bayonetta Rapid Jab Finisher**
@@ -86,6 +88,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Bayonetta Side B (Heel Slide)**
   - `BayonettaHeelSlideBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaHeelSlideEnd` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 66-frame fighter action
+- **Bayonetta Up Air**
+  - `BayonettaUAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 29-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Bayonetta Up Smash**
   - `BayonettaUSmash` — fighter-action / short-or-misaligned-source: source has 49 images / 8240 ms and cannot prove the complete 64-frame fighter action
 - **Bayonetta Up Tilt**
@@ -785,9 +789,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ken Pummel**
   - `KenPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Ken Side B (Tatsumaki Senpukyaku)**
-  - `KenTatsumakiSenpukyakuStart` — fighter-action / short-or-misaligned-source: source has 13 images / 1690 ms and cannot prove the complete 32-frame fighter action
-  - `KenTatsumakiSenpukyakuStrongGrounded` — fighter-action / short-or-misaligned-source: source has 10 images / 1300 ms and cannot prove the complete 32-frame fighter action
-  - `KenTatsumakiSenpukyakuWeakGrounded` — fighter-action / short-or-misaligned-source: source has 10 images / 1300 ms and cannot prove the complete 32-frame fighter action
+  - `KenTatsumakiSenpukyakuStart` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `KenTatsumakiSenpukyakuStrongGrounded` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `KenTatsumakiSenpukyakuWeakGrounded` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Ken True Flame Shoryuken**
   - `KenShoryukenHeavyInput` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Ken True Shoryuken**
@@ -1081,10 +1085,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MegaManDashGrab` — fighter-action / short-or-misaligned-source: source has 42 images / 5820 ms and cannot prove the complete 45-frame fighter action
 - **Mega_man Grab**
   - `MegaManGrab` — fighter-action / short-or-misaligned-source: source has 35 images / 4790 ms and cannot prove the complete 37-frame fighter action
+- **Mega_man Jab**
+  - `MegaManJab` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 35-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mega_man Leaf Shield, Throw**
   - `MegaManLeafShieldFly` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 55-frame fighter action
+- **Mega_man Neutral Air**
+  - `MegaManNAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 33-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mega_man Pummel**
   - `MegaManPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
+- **Mega_man Up Air**
+  - `MegaManUAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 53-frame parent action, but documented interaction remains active through frame 61; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mega_man Up Tilt**
   - `MegaManUTilt` — fighter-action / short-or-misaligned-source: source has 52 images / 6760 ms and cannot prove the complete 70-frame fighter action
 
@@ -1155,6 +1165,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_brawler Shot Put** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Burning Dropkick**
   - `MiiBrawlerBurningDropkick` — fighter-action / short-or-misaligned-source: source has 60 images / 7800 ms and cannot prove the complete 68-frame fighter action
+- **Mii_brawler Exploding Side Kick**
+  - `MiiBrawlerExplodingSideKick` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 79-frame parent action, but documented interaction remains active through frame 81; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mii_brawler Feint Jump, Kick**
   - `MiiBrawlerFeintJumpAutoKick` — fighter-action / short-or-misaligned-source: source has 26 images / 3380 ms and cannot prove the complete 52-frame fighter action
   - `MiiBrawlerFeintJumpKick` — fighter-action / short-or-misaligned-source: source has 46 images / 6760 ms and cannot prove the complete 52-frame fighter action
@@ -1174,6 +1186,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MiiBrawlerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Mii_brawler Suplex, Grab**
   - `MiiBrawlerSuplexA` — fighter-action / short-or-misaligned-source: source has 48 images / 6240 ms and cannot prove the complete 51-frame fighter action
+- **Mii_brawler Suplex, Success**
+  - `MiiBrawlerSuplexHit` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 79-frame parent action, but documented interaction remains active through frame 82; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mii_brawler Thrust Uppercut**
   - `MiiBrawlerThrustUppercut` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
@@ -1534,7 +1548,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pikachu Down Air**
   - `PikachuDAirLanding` — fighter-action / short-or-misaligned-source: source has 22 images / 2860 ms and cannot prove the complete 47-frame fighter action
 - **Pikachu Down B (Thunder)**
-  - `PikachuThunderHit` — fighter-action / short-or-misaligned-source: source has 74 images / 9620 ms and cannot prove the complete 86-frame fighter action
+  - `PikachuThunderHit` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 86-frame parent action, but documented interaction remains active through frame 93; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Pikachu Down Throw**
   - `PikachuDThrow` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 51-frame fighter action
 - **Pikachu Pummel**
@@ -1689,8 +1703,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Robin Neutral B (Thunder/Elthunder/Arcthunder)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Robin Pummel**
   - `RobinPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 21-frame fighter action
-- **Robin Side B (Arcfire)**
-  - `RobinArcfireHit` — fighter-action / short-or-misaligned-source: source has 62 images / 8060 ms and cannot prove the complete 63-frame fighter action
 - **Robin Thrown Items**
   - `RobinLevinSword` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Robin Up B (Elwind)**
@@ -2123,6 +2135,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Villager Timber Tree Grow/Fall** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Villager Down B (Timber Plant, Timber Water)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Villager Side B (Lloid Rocket)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Dash Attack**
+  - `VillagerDashAttack` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `VillagerDashAttackOffLedge` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline
+- **Villager Forward Smash**
+  - `VillagerFSmash` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 49-frame parent action, but documented interaction remains active through frame 144; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Villager Neutral B (Pocket)**
   - `VillagerPocket` — fighter-action / short-or-misaligned-source: source has 35 images / 6500 ms and cannot prove the complete 50-frame fighter action
 - **Villager Pummel**

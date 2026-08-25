@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T15:00:43Z",
-  "unresolvedSourceVariants": 544,
+  "generatedAt": "2026-08-25T15:39:12Z",
+  "unresolvedSourceVariants": 553,
   "movesWithoutSourceVisual": 1008,
-  "jobCount": 1552,
+  "jobCount": 1561,
   "jobs": [
     {
       "key": "banjo-and-kazooie:air-dodge-diagonally-down:manual-full-move",
@@ -1126,6 +1126,34 @@
       }
     },
     {
+      "key": "bayonetta:neutral-air:bayonettanair",
+      "fighterId": "bayonetta",
+      "moveId": "neutral-air",
+      "moveLabel": "Bayonetta Neutral Air",
+      "variantId": "bayonettanair",
+      "variantLabel": "BayonettaNAir",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 32,
+      "sourceUrl": "https://ultimateframedata.com/bayonetta",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/bayonetta/neutral-air/bayonettanair",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "bayonetta:neutral-air-dodge:manual-full-move",
       "fighterId": "bayonetta",
       "moveId": "neutral-air-dodge",
@@ -1289,6 +1317,34 @@
       },
       "expectedImport": {
         "directory": "captures/bayonetta/spot-dodge/manual-full-move",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "bayonetta:up-air:bayonettauair",
+      "fighterId": "bayonetta",
+      "moveId": "up-air",
+      "moveLabel": "Bayonetta Up Air",
+      "variantId": "bayonettauair",
+      "variantLabel": "BayonettaUAir",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 29,
+      "sourceUrl": "https://ultimateframedata.com/bayonetta",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/bayonetta/up-air/bayonettauair",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -20502,6 +20558,34 @@
       }
     },
     {
+      "key": "mega-man:jab:megamanjab",
+      "fighterId": "mega-man",
+      "moveId": "jab",
+      "moveLabel": "Mega_man Jab",
+      "variantId": "megamanjab",
+      "variantLabel": "MegaManJab",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 35,
+      "sourceUrl": "https://ultimateframedata.com/mega_man",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mega-man/jab/megamanjab",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "mega-man:leaf-shield-throw:megamanleafshieldfly",
       "fighterId": "mega-man",
       "moveId": "leaf-shield-throw",
@@ -20525,6 +20609,34 @@
       },
       "expectedImport": {
         "directory": "captures/mega-man/leaf-shield-throw/megamanleafshieldfly",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "mega-man:neutral-air:megamannair",
+      "fighterId": "mega-man",
+      "moveId": "neutral-air",
+      "moveLabel": "Mega_man Neutral Air",
+      "variantId": "megamannair",
+      "variantLabel": "MegaManNAir",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 33,
+      "sourceUrl": "https://ultimateframedata.com/mega_man",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mega-man/neutral-air/megamannair",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -20609,6 +20721,34 @@
       },
       "expectedImport": {
         "directory": "captures/mega-man/spot-dodge/manual-full-move",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "mega-man:up-air:megamanuair",
+      "fighterId": "mega-man",
+      "moveId": "up-air",
+      "moveLabel": "Mega_man Up Air",
+      "variantId": "megamanuair",
+      "variantLabel": "MegaManUAir",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 53,
+      "sourceUrl": "https://ultimateframedata.com/mega_man",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mega-man/up-air/megamanuair",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -21818,6 +21958,34 @@
       }
     },
     {
+      "key": "mii-brawler:exploding-side-kick:miibrawlerexplodingsidekick",
+      "fighterId": "mii-brawler",
+      "moveId": "exploding-side-kick",
+      "moveLabel": "Mii_brawler Exploding Side Kick",
+      "variantId": "miibrawlerexplodingsidekick",
+      "variantLabel": "MiiBrawlerExplodingSideKick",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 79,
+      "sourceUrl": "https://ultimateframedata.com/mii_brawler",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mii-brawler/exploding-side-kick/miibrawlerexplodingsidekick",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "mii-brawler:feint-jump-kick:miibrawlerfeintjumpautokick",
       "fighterId": "mii-brawler",
       "moveId": "feint-jump-kick",
@@ -22373,6 +22541,34 @@
       },
       "expectedImport": {
         "directory": "captures/mii-brawler/suplex-grab/miibrawlersuplexa",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "mii-brawler:suplex-success:miibrawlersuplexhit",
+      "fighterId": "mii-brawler",
+      "moveId": "suplex-success",
+      "moveLabel": "Mii_brawler Suplex, Success",
+      "variantId": "miibrawlersuplexhit",
+      "variantLabel": "MiiBrawlerSuplexHit",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 79,
+      "sourceUrl": "https://ultimateframedata.com/mii_brawler",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/mii-brawler/suplex-success/miibrawlersuplexhit",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -32178,34 +32374,6 @@
       }
     },
     {
-      "key": "robin:side-b-arcfire:robinarcfirehit",
-      "fighterId": "robin",
-      "moveId": "side-b-arcfire",
-      "moveLabel": "Robin Side B (Arcfire)",
-      "variantId": "robinarcfirehit",
-      "variantLabel": "RobinArcfireHit",
-      "timelineClass": "fighter-action",
-      "blockerClass": "short-or-misaligned-source",
-      "moveCategory": null,
-      "documentedTargetFrames": 63,
-      "sourceUrl": "https://ultimateframedata.com/robin",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/robin/side-b-arcfire/robinarcfirehit",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "robin:spot-dodge:manual-full-move",
       "fighterId": "robin",
       "moveId": "spot-dodge",
@@ -40158,6 +40326,62 @@
       }
     },
     {
+      "key": "villager:dash-attack:villagerdashattack",
+      "fighterId": "villager",
+      "moveId": "dash-attack",
+      "moveLabel": "Villager Dash Attack",
+      "variantId": "villagerdashattack",
+      "variantLabel": "VillagerDashAttack",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 42,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/dash-attack/villagerdashattack",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:dash-attack:villagerdashattackoffledge",
+      "fighterId": "villager",
+      "moveId": "dash-attack",
+      "moveLabel": "Villager Dash Attack",
+      "variantId": "villagerdashattackoffledge",
+      "variantLabel": "VillagerDashAttackOffLedge",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 42,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/dash-attack/villagerdashattackoffledge",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
       "key": "villager:down-b-timber-plant-timber-water:manual-full-move",
       "fighterId": "villager",
       "moveId": "down-b-timber-plant-timber-water",
@@ -40209,6 +40433,34 @@
       },
       "expectedImport": {
         "directory": "captures/villager/forward-roll/manual-full-move",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "villager:forward-smash:villagerfsmash",
+      "fighterId": "villager",
+      "moveId": "forward-smash",
+      "moveLabel": "Villager Forward Smash",
+      "variantId": "villagerfsmash",
+      "variantLabel": "VillagerFSmash",
+      "timelineClass": "fighter-action",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
+      "documentedTargetFrames": 49,
+      "sourceUrl": "https://ultimateframedata.com/villager",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/villager/forward-smash/villagerfsmash",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }

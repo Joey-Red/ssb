@@ -7,12 +7,12 @@
   "mappedMoves": 2580,
   "mappedVariants": 3075,
   "timelineCounts": {
-    "charge-state": 49,
-    "companion-action": 21,
+    "charge-state": 52,
+    "companion-action": 26,
     "effect": 55,
-    "fighter-action": 2665,
+    "fighter-action": 2627,
     "loop-state": 110,
-    "projectile": 173,
+    "projectile": 203,
     "transition": 2
   },
   "moves": [
@@ -28571,8 +28571,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/pt_ivysaur/IvysaurRazorLeafTilt.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ivysaurrazorleafsmash",
@@ -28580,8 +28580,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/pt_ivysaur/IvysaurRazorLeafSmash.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -32644,8 +32644,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/olimar/RedPikminThrow.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "companion-action",
+          "timingBasis": "independent-source"
         },
         {
           "id": "yellowpikminthrow",
@@ -32653,8 +32653,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/olimar/YellowPikminThrow.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "companion-action",
+          "timingBasis": "independent-source"
         },
         {
           "id": "bluepikminthrow",
@@ -32662,8 +32662,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/olimar/BluePikminThrow.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "companion-action",
+          "timingBasis": "independent-source"
         },
         {
           "id": "whitepikminthrow",
@@ -32671,8 +32671,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/olimar/WhitePikminThrow.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "companion-action",
+          "timingBasis": "independent-source"
         },
         {
           "id": "purplepikminthrow",
@@ -32680,8 +32680,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/olimar/PurplePikminThrow.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "companion-action",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -41934,8 +41934,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/mii_swordfighter/MiiSwordFighterGaleStrike.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -41959,8 +41959,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/mii_swordfighter/MiiSwordFighterShurikenofLight.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -45406,8 +45406,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/Robin/RobinThoron.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -45431,8 +45431,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/Robin/RobinArcfire.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "robinarcfirehit",
@@ -45440,8 +45440,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/Robin/RobinArcfireHit.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -48443,8 +48443,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuHadokenWeak.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ryuhadokenmeidum",
@@ -48452,8 +48452,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuHadokenMeidum.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ryuhadokenheavy",
@@ -48461,8 +48461,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuHadokenHeavy.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -48486,8 +48486,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuShakunetsuHadokenWeak.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ryushakunetsuhadokenmeidum",
@@ -48495,8 +48495,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuShakunetsuHadokenMeidum.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ryushakunetsuhadokenheavy",
@@ -48504,8 +48504,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuShakunetsuHadokenHeavy.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -48658,8 +48658,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuFocusAttackLvl1.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "charge-state",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ryufocusattacklvl2",
@@ -48667,8 +48667,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuFocusAttackLvl2.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "charge-state",
+          "timingBasis": "independent-source"
         },
         {
           "id": "ryufocusattacklvl3",
@@ -48676,8 +48676,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ryu/RyuFocusAttackLvl3.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "charge-state",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -49426,8 +49426,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ken/KenHadokenWeak.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "kenhadokenmeidum",
@@ -49435,8 +49435,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ken/KenHadokenMeidum.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "kenhadokenheavy",
@@ -49444,8 +49444,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ken/KenHadokenHeavy.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -49664,8 +49664,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ken/KenFocusAttackLv1.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "charge-state",
+          "timingBasis": "independent-source"
         },
         {
           "id": "kenfocusattacklv2",
@@ -49673,8 +49673,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ken/KenFocusAttackLv2.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "charge-state",
+          "timingBasis": "independent-source"
         },
         {
           "id": "kenfocusattacklv3",
@@ -49682,8 +49682,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/ken/KenFocusAttackLv3.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "charge-state",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -58462,8 +58462,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/piranha_plant/PiranhaPlantPoisonBreathMin.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -58487,7 +58487,7 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/piranha_plant/PiranhaPlantPoisonBreathMax.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "charge-state",
+          "timelineClass": "projectile",
           "timingBasis": "independent-source"
         }
       ]
@@ -61899,8 +61899,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/terry/TerryPowerWaveGWeak.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "terrypowerwavegstrong",
@@ -61908,8 +61908,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/terry/TerryPowerWaveGStrong.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -61933,8 +61933,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/terry/TerryPowerWaveAWeak.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "terrypowerwaveastrong",
@@ -61942,8 +61942,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/terry/TerryPowerWaveAStrong.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -62787,8 +62787,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/byleth/BylethFailnaught.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "bylethfailnaughtmax",
@@ -62796,7 +62796,7 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/byleth/BylethFailnaughtMax.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "charge-state",
+          "timelineClass": "projectile",
           "timingBasis": "independent-source"
         },
         {
@@ -62805,7 +62805,7 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/byleth/BylethFailnaughtMax.png",
           "sourceFormat": "png",
           "mediaType": "image",
-          "timelineClass": "charge-state",
+          "timelineClass": "projectile",
           "timingBasis": "independent-source"
         }
       ]
@@ -64805,8 +64805,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/sephiroth/SephirothFlare.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -64855,8 +64855,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/sephiroth/SephirothGigaflare.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -68573,8 +68573,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/sora/SoraMagicFiraga.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },
@@ -68598,8 +68598,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/sora/SoraThundagaG.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "sorathundagaa",
@@ -68607,8 +68607,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/sora/SoraThundagaA.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         }
       ]
     },

@@ -14,12 +14,12 @@
     "special": 76
   },
   "variantCount": 3075,
-  "resolvedVariants": 2531,
-  "unresolvedVariants": 544,
-  "unresolvedTotal": 1552,
+  "resolvedVariants": 2522,
+  "unresolvedVariants": 553,
+  "unresolvedTotal": 1561,
   "blockerCounts": {
     "missing-documented-timing": 106,
-    "short-or-misaligned-source": 356,
+    "short-or-misaligned-source": 365,
     "static-source-needs-motion": 82
   },
   "fightersWithBlockers": 89,
@@ -292,16 +292,16 @@
       ]
     },
     "bayonetta": {
-      "unresolvedVariants": 22,
+      "unresolvedVariants": 24,
       "movesWithoutSourceVisual": 11,
-      "totalBlockers": 33,
+      "totalBlockers": 35,
       "blockers": {
-        "short-or-misaligned-source": 8,
+        "short-or-misaligned-source": 10,
         "static-source-needs-motion": 14
       },
       "timelines": {
         "effect": 14,
-        "fighter-action": 8
+        "fighter-action": 10
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -567,6 +567,22 @@
         },
         {
           "fighterId": "bayonetta",
+          "moveId": "neutral-air",
+          "moveLabel": "Bayonetta Neutral Air",
+          "variantId": "bayonettanair",
+          "variantLabel": "BayonettaNAir",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 66; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 32,
+          "sourceDurationMs": 4160,
+          "totalFrames": 32,
+          "landingLag": 10,
+          "sourceUrl": "https://ultimateframedata.com/bayonetta"
+        },
+        {
+          "fighterId": "bayonetta",
           "moveId": "pummel",
           "moveLabel": "Bayonetta Pummel",
           "variantId": "bayonettapummel",
@@ -627,6 +643,22 @@
           "sourceDurationMs": 5460,
           "totalFrames": 66,
           "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/bayonetta"
+        },
+        {
+          "fighterId": "bayonetta",
+          "moveId": "up-air",
+          "moveLabel": "Bayonetta Up Air",
+          "variantId": "bayonettauair",
+          "variantLabel": "BayonettaUAir",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 29-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 29,
+          "sourceDurationMs": 3770,
+          "totalFrames": 29,
+          "landingLag": 8,
           "sourceUrl": "https://ultimateframedata.com/bayonetta"
         },
         {
@@ -8705,7 +8737,7 @@
           "timelineClass": "fighter-action",
           "coverage": "partial",
           "blockerClass": "short-or-misaligned-source",
-          "reason": "source has 13 images / 1690 ms and cannot prove the complete 32-frame fighter action",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline",
           "sourceFrameCount": 13,
           "sourceDurationMs": 1690,
           "totalFrames": 32,
@@ -8721,7 +8753,7 @@
           "timelineClass": "fighter-action",
           "coverage": "partial",
           "blockerClass": "short-or-misaligned-source",
-          "reason": "source has 10 images / 1300 ms and cannot prove the complete 32-frame fighter action",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline",
           "sourceFrameCount": 10,
           "sourceDurationMs": 1300,
           "totalFrames": 32,
@@ -8737,7 +8769,7 @@
           "timelineClass": "fighter-action",
           "coverage": "partial",
           "blockerClass": "short-or-misaligned-source",
-          "reason": "source has 10 images / 1300 ms and cannot prove the complete 32-frame fighter action",
+          "reason": "fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline",
           "sourceFrameCount": 10,
           "sourceDurationMs": 1300,
           "totalFrames": 32,
@@ -11956,14 +11988,14 @@
       ]
     },
     "mega-man": {
-      "unresolvedVariants": 5,
+      "unresolvedVariants": 8,
       "movesWithoutSourceVisual": 12,
-      "totalBlockers": 17,
+      "totalBlockers": 20,
       "blockers": {
-        "short-or-misaligned-source": 5
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 5
+        "fighter-action": 8
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -12005,6 +12037,22 @@
         },
         {
           "fighterId": "mega-man",
+          "moveId": "jab",
+          "moveLabel": "Mega_man Jab",
+          "variantId": "megamanjab",
+          "variantLabel": "MegaManJab",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 35-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 35,
+          "sourceDurationMs": 4550,
+          "totalFrames": 35,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mega_man"
+        },
+        {
+          "fighterId": "mega-man",
           "moveId": "leaf-shield-throw",
           "moveLabel": "Mega_man Leaf Shield, Throw",
           "variantId": "megamanleafshieldfly",
@@ -12016,6 +12064,22 @@
           "sourceFrameCount": 45,
           "sourceDurationMs": 5850,
           "totalFrames": 55,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mega_man"
+        },
+        {
+          "fighterId": "mega-man",
+          "moveId": "neutral-air",
+          "moveLabel": "Mega_man Neutral Air",
+          "variantId": "megamannair",
+          "variantLabel": "MegaManNAir",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 33-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 34,
+          "sourceDurationMs": 4420,
+          "totalFrames": 33,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/mega_man"
         },
@@ -12033,6 +12097,22 @@
           "sourceDurationMs": 780,
           "totalFrames": 19,
           "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mega_man"
+        },
+        {
+          "fighterId": "mega-man",
+          "moveId": "up-air",
+          "moveLabel": "Mega_man Up Air",
+          "variantId": "megamanuair",
+          "variantLabel": "MegaManUAir",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 53-frame parent action, but documented interaction remains active through frame 61; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 71,
+          "sourceDurationMs": 9230,
+          "totalFrames": 53,
+          "landingLag": 20,
           "sourceUrl": "https://ultimateframedata.com/mega_man"
         },
         {
@@ -12781,15 +12861,15 @@
       ]
     },
     "mii-brawler": {
-      "unresolvedVariants": 14,
+      "unresolvedVariants": 16,
       "movesWithoutSourceVisual": 15,
-      "totalBlockers": 29,
+      "totalBlockers": 31,
       "blockers": {
         "missing-documented-timing": 8,
-        "short-or-misaligned-source": 6
+        "short-or-misaligned-source": 8
       },
       "timelines": {
-        "fighter-action": 14
+        "fighter-action": 16
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -12811,6 +12891,22 @@
           "sourceFrameCount": 60,
           "sourceDurationMs": 7800,
           "totalFrames": 68,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mii_brawler"
+        },
+        {
+          "fighterId": "mii-brawler",
+          "moveId": "exploding-side-kick",
+          "moveLabel": "Mii_brawler Exploding Side Kick",
+          "variantId": "miibrawlerexplodingsidekick",
+          "variantLabel": "MiiBrawlerExplodingSideKick",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 79-frame parent action, but documented interaction remains active through frame 81; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 79,
+          "sourceDurationMs": 10270,
+          "totalFrames": 79,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/mii_brawler"
         },
@@ -13003,6 +13099,22 @@
           "sourceFrameCount": 48,
           "sourceDurationMs": 6240,
           "totalFrames": 51,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/mii_brawler"
+        },
+        {
+          "fighterId": "mii-brawler",
+          "moveId": "suplex-success",
+          "moveLabel": "Mii_brawler Suplex, Success",
+          "variantId": "miibrawlersuplexhit",
+          "variantLabel": "MiiBrawlerSuplexHit",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 79-frame parent action, but documented interaction remains active through frame 82; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 87,
+          "sourceDurationMs": 11310,
+          "totalFrames": 79,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/mii_brawler"
         },
@@ -17173,7 +17285,7 @@
           "timelineClass": "fighter-action",
           "coverage": "partial",
           "blockerClass": "short-or-misaligned-source",
-          "reason": "source has 74 images / 9620 ms and cannot prove the complete 86-frame fighter action",
+          "reason": "fighter-action source can cover the 86-frame parent action, but documented interaction remains active through frame 93; complete move coverage requires a proven independent projectile/effect/object timeline",
           "sourceFrameCount": 74,
           "sourceDurationMs": 9620,
           "totalFrames": 86,
@@ -18828,15 +18940,15 @@
       ]
     },
     "robin": {
-      "unresolvedVariants": 4,
+      "unresolvedVariants": 3,
       "movesWithoutSourceVisual": 10,
-      "totalBlockers": 14,
+      "totalBlockers": 13,
       "blockers": {
         "missing-documented-timing": 2,
-        "short-or-misaligned-source": 2
+        "short-or-misaligned-source": 1
       },
       "timelines": {
-        "fighter-action": 4
+        "fighter-action": 3
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -18856,22 +18968,6 @@
           "sourceFrameCount": 6,
           "sourceDurationMs": 780,
           "totalFrames": 21,
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/robin"
-        },
-        {
-          "fighterId": "robin",
-          "moveId": "side-b-arcfire",
-          "moveLabel": "Robin Side B (Arcfire)",
-          "variantId": "robinarcfirehit",
-          "variantLabel": "RobinArcfireHit",
-          "timelineClass": "fighter-action",
-          "coverage": "partial",
-          "blockerClass": "short-or-misaligned-source",
-          "reason": "source has 62 images / 8060 ms and cannot prove the complete 63-frame fighter action",
-          "sourceFrameCount": 62,
-          "sourceDurationMs": 8060,
-          "totalFrames": 63,
           "landingLag": null,
           "sourceUrl": "https://ultimateframedata.com/robin"
         },
@@ -23608,15 +23704,15 @@
       ]
     },
     "villager": {
-      "unresolvedVariants": 3,
+      "unresolvedVariants": 6,
       "movesWithoutSourceVisual": 15,
-      "totalBlockers": 18,
+      "totalBlockers": 21,
       "blockers": {
-        "short-or-misaligned-source": 2,
+        "short-or-misaligned-source": 5,
         "static-source-needs-motion": 1
       },
       "timelines": {
-        "fighter-action": 3
+        "fighter-action": 6
       },
       "missingMoveCategories": {
         "defense": 9,
@@ -23626,6 +23722,54 @@
         "special": 2
       },
       "variants": [
+        {
+          "fighterId": "villager",
+          "moveId": "dash-attack",
+          "moveLabel": "Villager Dash Attack",
+          "variantId": "villagerdashattack",
+          "variantLabel": "VillagerDashAttack",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 44,
+          "sourceDurationMs": 5720,
+          "totalFrames": 42,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "dash-attack",
+          "moveLabel": "Villager Dash Attack",
+          "variantId": "villagerdashattackoffledge",
+          "variantLabel": "VillagerDashAttackOffLedge",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 68,
+          "sourceDurationMs": 8840,
+          "totalFrames": 42,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
+        {
+          "fighterId": "villager",
+          "moveId": "forward-smash",
+          "moveLabel": "Villager Forward Smash",
+          "variantId": "villagerfsmash",
+          "variantLabel": "VillagerFSmash",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "fighter-action source can cover the 49-frame parent action, but documented interaction remains active through frame 144; complete move coverage requires a proven independent projectile/effect/object timeline",
+          "sourceFrameCount": 49,
+          "sourceDurationMs": 6370,
+          "totalFrames": 49,
+          "landingLag": null,
+          "sourceUrl": "https://ultimateframedata.com/villager"
+        },
         {
           "fighterId": "villager",
           "moveId": "neutral-b-pocket",
