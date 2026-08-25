@@ -72,7 +72,7 @@ CURATED: tuple[dict[str, str], ...] = (
     },
     {
         "fighterId": "ryu",
-        "moveName": "Side B (Tatsumaki)",
+        "moveName": "Side B (Tatsumaki Senpukyaku)",
         "fileTitle": "File:Ryu Side B SSBU.gif",
         "verification": "SmashWiki Ryu SSBU media labels this animation as Side B",
     },
