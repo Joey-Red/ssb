@@ -4,6 +4,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
+      - 'scripts/discover-ufd-precise-visuals.py'
       - 'scripts/discover-smashwiki-shorthand-visuals.py'
       - 'scripts/discover-smashwiki-curated-gap-visuals.py'
       - '.github/workflows/visual-discovery-followup.yml'
@@ -29,9 +30,14 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install discovery tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Build fresh source-less baseline
+      - name: Build legacy UFD baseline
         run: |
           python scripts/discover-ufd-visuals.py
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/audit-ufd-legacy.json
+      - name: Recover UFD visuals from explicit move names
+        run: |
+          python scripts/discover-ufd-precise-visuals.py
           python scripts/audit-visual-coverage.py
           cp src/data/visualCoverageAudit.generated.json /tmp/audit-ufd.json
       - name: Run existing external recovery
@@ -56,6 +62,7 @@ jobs:
           import json
           from pathlib import Path
 
+          legacy_ufd = json.loads(Path('/tmp/audit-ufd-legacy.json').read_text())
           ufd = json.loads(Path('/tmp/audit-ufd.json').read_text())
           before = json.loads(Path('/tmp/audit-before-followup.json').read_text())
           shorthand_after = json.loads(Path('/tmp/audit-after-shorthand.json').read_text())
@@ -63,7 +70,9 @@ jobs:
           shorthand = json.loads(Path('src/data/smashwikiShorthandVisuals.generated.json').read_text())
           curated = json.loads(Path('src/data/smashwikiCuratedGapVisuals.generated.json').read_text())
           summary = {
-              'ufdSourceLessMoves': ufd['movesWithoutSourceVisual'],
+              'legacyUfdSourceLessMoves': legacy_ufd['movesWithoutSourceVisual'],
+              'preciseUfdSourceLessMoves': ufd['movesWithoutSourceVisual'],
+              'preciseUfdRecoveredMoves': legacy_ufd['movesWithoutSourceVisual'] - ufd['movesWithoutSourceVisual'],
               'sourceLessBeforeFollowup': before['movesWithoutSourceVisual'],
               'sourceLessAfterShorthand': shorthand_after['movesWithoutSourceVisual'],
               'sourceLessAfterCurated': after['movesWithoutSourceVisual'],
@@ -78,6 +87,8 @@ jobs:
           }
           Path('visual-discovery-followup-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
           print(json.dumps(summary, indent=2))
+          if summary['preciseUfdRecoveredMoves'] <= 0:
+              raise SystemExit('precise UFD matching recovered no additional source-less moves')
           if summary['totalFollowupRecoveredMoves'] <= 0:
               raise SystemExit('follow-up discovery recovered no additional source-less moves')
           PY
