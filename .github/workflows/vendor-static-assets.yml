@@ -7,11 +7,13 @@ on:
     paths:
       - 'scripts/discover-ufd-visuals.py'
       - 'scripts/discover-external-visuals.py'
+      - 'scripts/discover-smashwiki-filename-visuals.py'
       - 'scripts/reconcile-external-visuals.py'
       - 'scripts/normalize-visual-source-provenance.py'
       - 'scripts/resolve-ruben-timing.py'
       - 'scripts/apply-generated-timing-overrides.py'
       - 'scripts/select-smashwiki-historical-visuals.py'
+      - 'scripts/revendor-historical-visuals.py'
       - 'scripts/analyze-ultimate-hitboxes-archive.py'
       - 'scripts/vendor-static-assets.py'
       - 'scripts/vendor-full-motion-assets.py'
@@ -36,6 +38,67 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  discovery-audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-media.txt
+      - name: Install discovery tooling
+        run: pip install -r scripts/requirements-media.txt
+      - name: Discover fresh UFD baseline
+        run: |
+          python scripts/discover-ufd-visuals.py
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/visual-audit-before.json
+      - name: Recover external source visuals
+        run: |
+          python scripts/discover-external-visuals.py
+          python scripts/discover-smashwiki-filename-visuals.py
+          python scripts/audit-visual-coverage.py
+      - name: Write measurable discovery summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          before = json.loads(Path('/tmp/visual-audit-before.json').read_text())
+          after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
+          external = json.loads(Path('src/data/externalVisualSources.generated.json').read_text())
+          filename = json.loads(Path('src/data/smashwikiFilenameVisuals.generated.json').read_text())
+          summary = {
+              'sourceLessBeforeExternalDiscovery': before['movesWithoutSourceVisual'],
+              'sourceLessAfterExternalDiscovery': after['movesWithoutSourceVisual'],
+              'sourceLessMovesRecoveredThisPass': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
+              'externalTableParserAddedMoves': external['addedMoves'],
+              'filenameSweepRecoveredMoves': filename['recoveredSourceLessMoves'],
+              'filenameSweepFilesScanned': filename['filesScanned'],
+              'mappedSourceVisualMovesAfterDiscovery': after['mappedSourceVisualMoves'],
+          }
+          Path('visual-discovery-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary, indent=2))
+          PY
+      - name: Upload discovery audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-discovery-audit
+          path: |
+            visual-discovery-summary.json
+            src/data/externalVisualSources.generated.json
+            src/data/smashwikiFilenameVisuals.generated.json
+            src/data/visualCoverageAudit.generated.json
+          retention-days: 7
+
   vendor:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
@@ -56,8 +119,12 @@ jobs:
         run: pip install -r scripts/requirements-media.txt
       - name: Discover full-roster UFD visuals
         run: python scripts/discover-ufd-visuals.py
+      - name: Refresh source-less targets after UFD discovery
+        run: python scripts/audit-visual-coverage.py
       - name: Discover curated external visuals
         run: python scripts/discover-external-visuals.py
+      - name: Recover filename-only SmashWiki animations
+        run: python scripts/discover-smashwiki-filename-visuals.py
       - name: Reconcile stronger external replacements
         run: python scripts/reconcile-external-visuals.py
       - name: Normalize multi-source provenance
@@ -70,8 +137,8 @@ jobs:
         run: python scripts/vendor-full-motion-assets.py
       - name: Select better SmashWiki historical revisions
         run: python scripts/select-smashwiki-historical-visuals.py
-      - name: Re-vendor after historical-source selection
-        run: python scripts/vendor-full-motion-assets.py
+      - name: Re-vendor selected historical revisions only
+        run: python scripts/revendor-historical-visuals.py
       - name: Corroborate residuals with Ultimate Hitboxes metadata
         run: python scripts/analyze-ultimate-hitboxes-archive.py
       - name: Restore human-reviewed timing registry
@@ -96,6 +163,7 @@ jobs:
           git add -A public/media public/data/visual-media \
             src/data/visualMediaSources.json \
             src/data/externalVisualSources.generated.json \
+            src/data/smashwikiFilenameVisuals.generated.json \
             src/data/smashwikiHistoricalVisuals.generated.json \
             src/data/rubenTimingOverrides.generated.json \
             src/data/ultimateHitboxesArchive.generated.json \
