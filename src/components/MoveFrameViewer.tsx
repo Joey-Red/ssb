@@ -26,10 +26,18 @@ function SpriteFrame({ sheet, cellIndex, frame, label }: { sheet: VisualSpriteSh
   const sheetHeight = sheet.frameHeight * rows
 
   return (
-    <svg className="visual-player__sprite" viewBox={`0 0 ${sheet.frameWidth} ${sheet.frameHeight}`} role="img" aria-label={`${label}, exact source frame ${frame}`}>
+    <svg className="visual-player__sprite" viewBox={`0 0 ${sheet.frameWidth} ${sheet.frameHeight}`} role="img" aria-label={`${label}, source-backed timeline frame ${frame}`}>
       <image href={localMediaUrl(sheet.src)} width={sheetWidth} height={sheetHeight} x={-column * sheet.frameWidth} y={-row * sheet.frameHeight} preserveAspectRatio="none" />
     </svg>
   )
+}
+
+function cellForTimelineFrame(sheet: VisualSpriteSheet | undefined, frame: number): number {
+  if (!sheet) return -1
+  const heldCell = sheet.gameFrameCells?.[frame - 1]
+  if (typeof heldCell === 'number') return heldCell
+  const numbers = sheet.frameNumbers ?? Array.from({ length: sheet.frameCount }, (_, index) => index + 1)
+  return numbers.indexOf(frame)
 }
 
 export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: string; fighterName: string; move: FrameMove }) {
@@ -63,12 +71,17 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const selectedSheet = selectedVariant?.spriteSheet ?? (variants.length === 0 ? media?.spriteSheet : undefined)
   const selectedAnimationSrc = selectedVariant?.animationSrc
   const staticImageSrc = selectedVariant?.imageSrc
-  const sheetFrameNumbers = selectedSheet?.frameNumbers ?? (selectedSheet ? Array.from({ length: selectedSheet.frameCount }, (_, index) => index + 1) : [])
+  const timelineClass = selectedVariant?.timelineClass ?? 'fighter-action'
+  const usesParentActionTimeline = timelineClass === 'fighter-action'
 
-  const activeStart = firstFrame(move.active)
-  const activeEnd = lastFrame(move.active)
-  const total = numericValue(move.totalFrames) ?? media?.totalFrames ?? activeEnd ?? move.startupFrame ?? 1
-  const initial = Math.min(total, Math.max(1, move.startupFrame ?? 1))
+  const moveActiveStart = firstFrame(move.active)
+  const moveActiveEnd = lastFrame(move.active)
+  const activeStart = usesParentActionTimeline ? moveActiveStart : null
+  const activeEnd = usesParentActionTimeline ? moveActiveEnd : null
+  const parentTotal = numericValue(move.totalFrames) ?? media?.totalFrames ?? moveActiveEnd ?? move.startupFrame ?? 1
+  const total = selectedVariant?.timelineTotalFrames ?? parentTotal
+  const initial = usesParentActionTimeline ? Math.min(total, Math.max(1, move.startupFrame ?? 1)) : 1
+
   const [frame, setFrame] = useState(initial)
   const [playing, setPlaying] = useState(false)
   const [speed, setSpeed] = useState<PlaybackSpeed>(1)
@@ -102,30 +115,36 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
     return () => window.clearInterval(timer)
   }, [activeEnd, activeStart, loopActive, playing, speed, total])
 
-  const currentFrame = media?.frames.find((item) => item.frame === frame)
-  const phase = currentFrame?.phase ?? fallbackPhase(frame, activeStart, activeEnd)
+  useEffect(() => {
+    setFrame((current) => Math.max(1, Math.min(total, current)))
+    if (!usesParentActionTimeline) setLoopActive(false)
+  }, [total, usesParentActionTimeline])
+
+  const currentFrame = usesParentActionTimeline ? media?.frames.find((item) => item.frame === frame) : undefined
+  const phase: VisualFramePhase = timelineClass === 'landing'
+    ? 'landing'
+    : usesParentActionTimeline
+      ? currentFrame?.phase ?? fallbackPhase(frame, activeStart, activeEnd)
+      : 'other'
   const regions = currentFrame?.regions ?? []
   const hasHostedStill = Boolean(currentFrame?.imageSrc)
-  const sheetCellIndex = sheetFrameNumbers.indexOf(frame)
+  const sheetCellIndex = cellForTimelineFrame(selectedSheet, frame)
   const hasSpriteFrame = Boolean(selectedSheet && sheetCellIndex >= 0)
   const hasExactVisual = hasHostedStill || hasSpriteFrame
   const hasStaticVisual = Boolean(staticImageSrc)
-  const hasOverlayData = Boolean(media?.frames.some((item) => {
-    const mappedIndex = selectedSheet?.frameNumbers?.indexOf(item.frame) ?? -1
-    const exactImageAvailable = Boolean(item.imageSrc || (selectedSheet && (selectedSheet.frameNumbers ? mappedIndex >= 0 : item.frame <= selectedSheet.frameCount)))
+  const hasOverlayData = usesParentActionTimeline && Boolean(media?.frames.some((item) => {
+    const exactImageAvailable = Boolean(item.imageSrc || cellForTimelineFrame(selectedSheet, item.frame) >= 0)
     return (item.regions?.length ?? 0) > 0 && exactImageAvailable
   }))
   const fighterRender = officialFighterRenderUrl(fighterId)
   const canLoopActive = activeStart !== null && activeEnd !== null
 
   const timing = useMemo(() => ({
-    startup: move.startup ?? '—',
-    active: move.active ?? '—',
-    total: move.totalFrames ?? String(total),
-    landing: move.landingLag ?? '—',
-  }), [move.active, move.landingLag, move.startup, move.totalFrames, total])
-
-  if (total < 2) return null
+    startup: usesParentActionTimeline ? move.startup ?? '—' : 'independent',
+    active: usesParentActionTimeline ? move.active ?? '—' : 'independent',
+    total: usesParentActionTimeline ? move.totalFrames ?? String(total) : String(total),
+    landing: timelineClass === 'landing' ? String(total) : move.landingLag ?? '—',
+  }), [move.active, move.landingLag, move.startup, move.totalFrames, timelineClass, total, usesParentActionTimeline])
 
   function setSafeFrame(next: number) {
     setFrame(Math.max(1, Math.min(total, next)))
@@ -156,46 +175,54 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
   const showLegacyAnimatedPreview = Boolean(media?.animatedPreviewUrl && !previewFailed && !selectedSheet && !selectedAnimationSrc && !hasStaticVisual)
   const exactCoverageLabel = selectedSheet
     ? selectedVariant?.coverage === 'full'
-      ? `${selectedSheet.frameCount} / ${total} exact frames`
-      : `${selectedSheet.frameCount} exact mapped frames`
-    : null
+      ? `${total} / ${total} exact timeline frames · ${selectedSheet.frameCount} source images`
+      : selectedVariant?.coverage === 'source-timed'
+        ? `${total} source-timed frames · ${selectedSheet.frameCount} source images`
+        : `${selectedSheet.frameCount} exact source images`
+    : selectedVariant?.coverage === 'exact-static'
+      ? '1 exact static source state'
+      : null
   const sourceStatus = mediaLoading ? 'Loading local visuals…' : mediaFailed ? 'Local visual index unavailable' : media ? null : 'Timing only'
 
   const coverageNote = selectedVariant?.coverage === 'full'
-    ? 'This same-origin visual contains an exact source image for every documented game frame, so startup, active, and recovery all scrub and play continuously.'
-    : selectedVariant?.coverage === 'partial' && selectedAnimationSrc
-      ? `Exact frame mapping is incomplete (${selectedVariant.coverageReason ?? 'source coverage is partial'}). Exact mapped frames stay synchronized; other frames show the local moving source animation as an explicitly unsynchronized reference.`
-      : selectedVariant?.coverage === 'untimed-animation' && selectedAnimationSrc
-        ? `This source remains animated locally, but it cannot be aligned to a complete documented game-frame timeline: ${selectedVariant.coverageReason ?? 'exact timing unavailable'}.`
-        : selectedVariant?.coverage === 'static'
-          ? `This source is inherently static or separately timed: ${selectedVariant.coverageReason ?? 'animated frame coverage unavailable'}. It remains on the generated coverage-gap list.`
-          : selectedSheet
-            ? `This same-origin sheet contains ${selectedSheet.frameCount} exact source images mapped to documented game frames. Frames outside that exact set are never fabricated.`
-            : mediaLoading
-              ? 'Loading this fighter’s same-origin visual index…'
-              : media
-                ? 'This move is mapped to UFD, but exact full-motion source coverage is not available for this variant.'
-                : 'Timing remains available when UFD does not expose a matching move visual.'
+    ? `This ${timelineClass} visual is complete and frame-addressable. Encoded source holds are repeated only for the 60 FPS frames their source timing actually covers.`
+    : selectedVariant?.coverage === 'source-timed'
+      ? `This is an independent ${timelineClass} timeline. It follows the source animation's encoded durations and is intentionally not forced onto the parent attack's Total Frames.`
+      : selectedVariant?.coverage === 'exact-static'
+        ? `This ${timelineClass} source is a truthful static visual state rather than a fabricated animation.`
+        : selectedVariant?.coverage === 'partial' && selectedAnimationSrc
+          ? `Exact frame mapping is incomplete (${selectedVariant.coverageReason ?? 'source coverage is partial'}). Exact mapped frames stay synchronized; other frames show the local moving source animation as an explicitly unsynchronized reference.`
+          : selectedVariant?.coverage === 'untimed-animation' && selectedAnimationSrc
+            ? `This source remains animated locally, but it cannot yet be aligned to a complete documented fighter-action timeline: ${selectedVariant.coverageReason ?? 'exact timing unavailable'}.`
+            : selectedVariant?.coverage === 'static'
+              ? `This source does not prove a complete moving ${timelineClass} timeline: ${selectedVariant.coverageReason ?? 'animated frame coverage unavailable'}. It remains on the generated unresolved list.`
+              : selectedSheet
+                ? `This same-origin sheet contains ${selectedSheet.frameCount} source images mapped only where timing is justified.`
+                : mediaLoading
+                  ? 'Loading this fighter’s same-origin visual index…'
+                  : media
+                    ? 'This move is mapped to UFD, but complete source-backed visual timing is not available for this variant.'
+                    : 'Timing remains available when UFD does not expose a matching move visual.'
 
   return (
     <section className="visual-media-card" aria-label={`${fighterName} ${move.name} visual frame player`}>
       <header className="visual-media-card__head">
-        <div><span className="eyebrow">Full move visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek startup, active, and recovery game frames. Full-source variants animate continuously across the complete documented move; incomplete sources stay clearly labeled rather than receiving invented mappings.</p></div>
+        <div><span className="eyebrow">Full move visual</span><h4>{media?.label ?? `${fighterName} ${move.name}`}</h4><p>Seek source-backed fighter, landing, projectile, effect, and other timelines without forcing unrelated media onto the attack frame count.</p></div>
         {media ? <a className="visual-media-card__source" href={media.sourceUrl} target="_blank" rel="noreferrer">Source notes ↗</a> : <span className="visual-media-card__source">{sourceStatus}</span>}
       </header>
       <div className="visual-player" tabIndex={0} onKeyDown={onKeyDown}>
         <div className="visual-player__split">
           <div style={stageStyle} className={`visual-player__stage visual-player__stage--${phase}${hasExactVisual ? ' visual-player__stage--exact' : hasStaticVisual || showAnimatedFallback || showLegacyAnimatedPreview ? ' visual-player__stage--source' : ' visual-player__stage--fighter'}`}>
             {hasHostedStill && currentFrame?.imageSrc ? <img src={localMediaUrl(currentFrame.imageSrc)} alt={`${fighterName} ${move.name}, frame ${frame}`} loading="lazy" decoding="async" />
-              : hasSpriteFrame && selectedSheet ? <><SpriteFrame sheet={selectedSheet} cellIndex={sheetCellIndex} frame={frame} label={`${fighterName} ${move.name}`} /><span className="visual-player__preview-label">Exact local source frame</span></>
+              : hasSpriteFrame && selectedSheet ? <><SpriteFrame sheet={selectedSheet} cellIndex={sheetCellIndex} frame={frame} label={`${fighterName} ${move.name}`} /><span className="visual-player__preview-label">Source-backed timeline frame</span></>
               : showAnimatedFallback && selectedAnimationSrc ? <><img src={localMediaUrl(selectedAnimationSrc)} alt={`${fighterName} ${move.name} local moving source reference`} loading="lazy" decoding="async" onError={() => setPreviewFailed(true)} /><span className="visual-player__preview-label">Moving source reference · not frame-synced</span></>
-              : hasStaticVisual && staticImageSrc ? <><img src={localMediaUrl(staticImageSrc)} alt={`${fighterName} ${move.name} static hitbox reference`} loading="lazy" decoding="async" /><span className="visual-player__preview-label">Static source reference · coverage gap</span></>
+              : hasStaticVisual && staticImageSrc ? <><img src={localMediaUrl(staticImageSrc)} alt={`${fighterName} ${move.name} static source reference`} loading="lazy" decoding="async" /><span className="visual-player__preview-label">Static source reference</span></>
               : showLegacyAnimatedPreview && media?.animatedPreviewUrl ? <><img src={localMediaUrl(media.animatedPreviewUrl)} alt={`${fighterName} ${move.name} local animated hitbox reference`} loading="lazy" decoding="async" onError={() => setPreviewFailed(true)} /><span className="visual-player__preview-label">Local animation fallback</span></>
-              : <><img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true }} /><div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{mediaLoading ? 'Loading local visual index…' : media ? 'No exact or animated source visual staged for this frame' : move.name}</small></div></>}
+              : <><img className="visual-player__fighter-render" src={fighterRender} alt={`${fighterName} Super Smash Bros. Ultimate render`} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true }} /><div className="visual-player__diagram"><strong>{frame}f</strong><span>{phase}</span><small>{mediaLoading ? 'Loading local visual index…' : media ? 'No exact source visual staged for this frame' : move.name}</small></div></>}
             <span className="visual-player__phase">{phase}</span>
             {showOverlay && hasExactVisual && regions.length > 0 && <div className="visual-player__overlay" aria-hidden="true">{regions.map((region) => <span key={region.id} className={`hitbox-circle hitbox-circle--${region.kind}`} style={{ left: `${region.x}%`, top: `${region.y}%`, width: `${region.radius * 2}%`, aspectRatio: '1' }} title={region.label} />)}</div>}
           </div>
-          <aside className="visual-player__timing" aria-label="Current move timing"><h5>Frame index</h5><dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{exactCoverageLabel && <><dt>Visual coverage</dt><dd>{exactCoverageLabel}</dd></>}</dl>{currentFrame?.caption && <p className="visual-player__note">{currentFrame.caption}</p>}</aside>
+          <aside className="visual-player__timing" aria-label="Current visual timing"><h5>Frame index</h5><dl><dt>Current</dt><dd>{frame}f</dd><dt>Phase</dt><dd>{phase}</dd><dt>Timeline</dt><dd>{timelineClass}</dd><dt>Startup</dt><dd>{timing.startup}</dd><dt>Active</dt><dd>{timing.active}</dd><dt>Total</dt><dd>{timing.total}</dd><dt>Landing</dt><dd>{timing.landing}</dd>{exactCoverageLabel && <><dt>Visual coverage</dt><dd>{exactCoverageLabel}</dd></>}</dl>{currentFrame?.caption && <p className="visual-player__note">{currentFrame.caption}</p>}</aside>
         </div>
         <div className="visual-player__controls" aria-label="Frame player controls">
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame - 1) }} aria-label="Previous frame">−1f</button>
@@ -206,7 +233,7 @@ export function MoveFrameViewer({ fighterId, fighterName, move }: { fighterId: s
           <button type="button" onClick={() => { setPlaying(false); setSafeFrame(frame + 1) }} aria-label="Next frame">+1f</button>
         </div>
         <div className="visual-player__study-controls" aria-label="Frame study controls">
-          {variants.length > 1 && <label><span>Visual</span><select value={selectedVariant?.id ?? ''} onChange={(event) => { setVariantId(event.target.value); setPlaying(false); setPreviewFailed(false) }}>{variants.map((variant) => <option key={variant.id} value={variant.id}>{variant.label}</option>)}</select></label>}
+          {variants.length > 1 && <label><span>Visual</span><select value={selectedVariant?.id ?? ''} onChange={(event) => { setVariantId(event.target.value); setFrame(1); setPlaying(false); setPreviewFailed(false) }}>{variants.map((variant) => <option key={variant.id} value={variant.id}>{variant.label}</option>)}</select></label>}
           <label><span>Speed</span><select value={speed} onChange={(event) => setSpeed(Number(event.target.value) as PlaybackSpeed)}><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1">1×</option></select></label>
           <button type="button" disabled={activeStart === null} onClick={() => jumpToActive('first')}>First active</button>
           <button type="button" disabled={activeEnd === null} onClick={() => jumpToActive('last')}>Last active</button>
