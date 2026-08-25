@@ -104,3 +104,5 @@ jobs:
             src/data/visualMediaCoverage.generated.json
             docs/VISUAL_COMPLETION_SUMMARY.generated.md
           retention-days: 7
+
+# Restacked on the merged PR19 release; changes here intentionally trigger exact-head validation.
