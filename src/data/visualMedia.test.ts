@@ -62,7 +62,10 @@ describe('full-roster visual frame media', () => {
           const numbers = sheet.frameNumbers ?? []
           expect(new Set(numbers).size).toBe(numbers.length)
           expect(numbers.every((frame, index) => frame > 0 && (index === 0 || frame > numbers[index - 1]!))).toBe(true)
-          if (move.totalFrames !== null) expect(numbers.every((frame) => frame <= move.totalFrames!)).toBe(true)
+          if (move.totalFrames !== null) {
+            const overflow = numbers.filter((frame) => frame > move.totalFrames!)
+            expect(overflow, `${key}/${variant.id} frames beyond total ${move.totalFrames}`).toEqual([])
+          }
         }
       }
       if (hasSheet) exactSheetMoves += 1
