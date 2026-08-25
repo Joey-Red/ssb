@@ -42,23 +42,53 @@ FILENAME_PREFIX_OVERRIDES = {
     "pt_ivysaur": ["Ivysaur"],
     "pt_squirtle": ["Squirtle"],
     "minmin": ["MinMin", "Min Min"],
+    "mega-man": ["MegaMan", "Mega Man"],
     "mega_man": ["MegaMan", "Mega Man"],
+    "meta-knight": ["MetaKnight", "Meta Knight"],
     "meta_knight": ["MetaKnight", "Meta Knight"],
+    "mr-game-and-watch": ["MrGameWatch", "Mr Game Watch"],
     "mr_game_and_watch": ["MrGameWatch", "Mr Game Watch"],
+    "rosalina-and-luma": ["RosalinaLuma", "Rosalina Luma", "Rosalina"],
     "rosalina_and_luma": ["RosalinaLuma", "Rosalina Luma", "Rosalina"],
+    "wii-fit-trainer": ["WiiFitTrainer", "Wii Fit Trainer"],
     "wii_fit_trainer": ["WiiFitTrainer", "Wii Fit Trainer"],
 }
+
+# A few single-name prefixes are strict prefixes of another fighter's canonical
+# file prefix. Reject those siblings explicitly rather than allowing a move-name
+# coincidence to turn another fighter's animation into evidence.
+FILENAME_EXCLUDED_PREFIXES = {
+    "bowser": {"bowserjr"},
+}
+
+
+def compact_name(value: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", value.lower())
 
 
 def filename_prefixes(fighter_id: str, fighter: dict[str, Any]) -> list[str]:
     display = ext.wiki_display(fighter_id, fighter)
-    names = [display, display.split()[0], *FILENAME_PREFIX_OVERRIDES.get(fighter_id, [])]
+    # Do not query the first word of a multiword fighter name (for example
+    # "Mii"). Broad prefixes caused cross-fighter matches such as Mii Gunner
+    # media being assigned to Mii Swordfighter.
+    names = [display, *FILENAME_PREFIX_OVERRIDES.get(fighter_id, [])]
     prefixes: list[str] = []
     for name in names:
         compact = re.sub(r"[^A-Za-z0-9]", "", name)
         if len(compact) >= 3 and compact not in prefixes:
             prefixes.append(compact)
     return prefixes
+
+
+def title_matches_fighter(fighter_id: str, fighter: dict[str, Any], title: str) -> bool:
+    compact = compact_name(Path(title).stem)
+    allowed = [compact_name(prefix) for prefix in filename_prefixes(fighter_id, fighter)]
+    if not any(compact.startswith(prefix) for prefix in allowed):
+        return False
+    for excluded in FILENAME_EXCLUDED_PREFIXES.get(fighter_id, set()):
+        if compact.startswith(excluded):
+            return False
+    return True
 
 
 def animation_candidate(
@@ -128,6 +158,8 @@ def scan_fighter(
                 if title in seen_titles or "ssbu" not in title.lower():
                     continue
                 seen_titles.add(title)
+                if not title_matches_fighter(fighter_id, fighter, title):
+                    continue
                 move, score = ext.match_move(title, moves)
                 if move is None or move["id"] not in target_ids:
                     continue
