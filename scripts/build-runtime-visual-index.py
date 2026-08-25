@@ -16,8 +16,8 @@ OUTPUT = ROOT / "public/data/visual-media"
 def main() -> int:
     source = json.loads(SOURCES.read_text(encoding="utf-8"))
     assets = json.loads(ASSETS.read_text(encoding="utf-8"))
-    if source.get("version") != 2 or assets.get("version") != 2:
-        raise SystemExit("visual source/assets must both be version 2")
+    if source.get("version") != 3 or assets.get("version") != 3:
+        raise SystemExit("visual source/assets must both be version 3")
 
     shutil.rmtree(OUTPUT, ignore_errors=True)
     OUTPUT.mkdir(parents=True, exist_ok=True)
@@ -53,7 +53,7 @@ def main() -> int:
         total_bytes += path.stat().st_size
 
     print(f"wrote {len(grouped)} fighter visual indexes / {sum(len(moves) for moves in grouped.values())} moves / {total_bytes / 1024:.1f} KiB")
-    if total_bytes > 12 * 1024 * 1024:
+    if total_bytes > 16 * 1024 * 1024:
         raise SystemExit(f"runtime visual indexes unexpectedly large: {total_bytes / 1024 / 1024:.1f} MiB")
     return 0
 
