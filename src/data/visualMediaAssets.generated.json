@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T00:09:16Z",
+  "generatedAt": "2026-08-25T00:17:59Z",
   "moves": {
     "mario:jab-2": {
       "variants": [
@@ -25415,6 +25415,13 @@
         {
           "id": "mrgame-watchchef",
           "label": "MrGame_WatchChef",
+          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
+          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
+          "sourceFrameCount": 1
+        },
+        {
+          "id": "mrgame-watchchef",
+          "label": "MrGame_WatchChef",
           "sha256": "2a3412cb9551d9ee0fdda9c7dfcb8931f62060a818dbe0251a6fb6a16e8ebb2f",
           "spriteSheet": {
             "src": "media/frame-sheets/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
@@ -25427,13 +25434,6 @@
             ]
           },
           "sourceFrameCount": 4
-        },
-        {
-          "id": "mrgame-watchchef",
-          "label": "MrGame_WatchChef",
-          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
-          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
-          "sourceFrameCount": 1
         }
       ]
     },
