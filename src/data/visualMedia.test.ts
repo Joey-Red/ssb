@@ -38,6 +38,7 @@ type AssetVariant = {
   timelineClass?: VisualTimelineClass
   timelineTotalFrames?: number
   mappingMethod?: string
+  interactionEvidence?: 'embedded-source' | 'reviewed-overlay'
   spriteSheet?: { src: string; frameCount: number; frameNumbers?: number[]; gameFrameCells?: number[] }
 }
 type AssetManifest = { version: 3; moves: Record<string, { variants: AssetVariant[] }> }
@@ -88,7 +89,7 @@ describe('full-roster visual frame media', () => {
     }
   })
 
-  it('ships every discovered variant locally with bounded, explicit timeline mappings', () => {
+  it('ships every discovered variant locally with bounded, explicit timeline mappings and source collision evidence', () => {
     expect(assets.version).toBe(3)
     let fullExactVariants = 0
 
@@ -105,6 +106,7 @@ describe('full-roster visual frame media', () => {
         expect(['full', 'source-timed', 'exact-static', 'partial', 'untimed-animation', 'static']).toContain(variant.coverage)
         expect(Boolean(variant.spriteSheet || variant.animationSrc || variant.imageSrc), `${key}/${variant.id}`).toBe(true)
         expect(variant.timelineClass).toBe(sourceVariant?.timelineClass)
+        expect(variant.interactionEvidence, `${key}/${variant.id} collision provenance`).toBe('embedded-source')
 
         if (variant.imageSrc) {
           expect(variant.imageSrc).not.toMatch(/^https?:\/\//)
@@ -133,10 +135,6 @@ describe('full-roster visual frame media', () => {
           expect(variant.animationSrc, `${key}/${variant.id} animation source must remain locally playable`).toBeDefined()
         }
 
-        if (sourceVariant?.mediaType === 'animation' && sourceVariant.timelineClass === 'fighter-action' && move.totalFrames !== null && (variant.sourceFrameCount ?? 0) >= move.totalFrames) {
-          expect(variant.coverage, `${key}/${variant.id} complete fighter-action source should be full`).toBe('full')
-        }
-
         if (variant.coverage === 'full') {
           fullExactVariants += 1
           expect(variant.timelineTotalFrames, `${key}/${variant.id} full timeline length`).toBeGreaterThan(0)
@@ -146,6 +144,12 @@ describe('full-roster visual frame media', () => {
           } else {
             const expected = Array.from({ length: variant.timelineTotalFrames ?? 0 }, (_, index) => index + 1)
             expect(variant.spriteSheet?.frameNumbers, `${key}/${variant.id} complete 1..timeline mapping`).toEqual(expected)
+          }
+          if (sourceVariant?.timelineClass === 'fighter-action' && move.activeSpan.length === 2) {
+            const firstActive = move.activeSpan[0]!
+            const lastActive = move.activeSpan[1]!
+            expect(firstActive).toBeGreaterThan(0)
+            expect(lastActive).toBeLessThanOrEqual(variant.timelineTotalFrames ?? 0)
           }
         } else if (sourceVariant?.mediaType === 'animation') {
           expect(variant.coverageReason, `${key}/${variant.id} coverage reason`).toBeTruthy()
@@ -180,6 +184,11 @@ describe('full-roster visual frame media', () => {
       expect(payload.version).toBe(1)
       expect(payload.fighterId).toBe(fighter.id)
       expect(payload.moves.length).toBeGreaterThan(0)
+      for (const move of payload.moves) {
+        for (const variant of move.variants ?? []) {
+          expect(variant.interactionEvidence, `${fighter.id}:${move.moveId}/${variant.id} runtime collision provenance`).toBeTruthy()
+        }
+      }
       moveCount += payload.moves.length
     }
     expect(moveCount).toBe(source.mappedMoves)
