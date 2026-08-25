@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T22:52:45Z",
-  "unresolvedSourceVariants": 708,
-  "movesWithoutSourceVisual": 853,
+  "generatedAt": "2026-08-25T23:47:11Z",
+  "unresolvedSourceVariants": 712,
+  "movesWithoutSourceVisual": 849,
   "jobCount": 1561,
   "jobs": [
     {
@@ -9526,17 +9526,17 @@
       }
     },
     {
-      "key": "ganondorf:side-b-air-success-flame-choke-air-success:manual-full-move",
+      "key": "ganondorf:side-b-air-success-flame-choke-air-success:smashwiki-residual-ganondorfflamechokesuccessssbu",
       "fighterId": "ganondorf",
       "moveId": "side-b-air-success-flame-choke-air-success",
       "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "smashwiki-residual-ganondorfflamechokesuccessssbu",
+      "variantLabel": "GanondorfFlameChokeSuccessSSBU",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://ultimateframedata.com/ganondorf",
+      "sourceUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -9548,7 +9548,35 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/ganondorf/side-b-air-success-flame-choke-air-success/manual-full-move",
+        "directory": "captures/ganondorf/side-b-air-success-flame-choke-air-success/smashwiki-residual-ganondorfflamechokesuccessssbu",
+        "metadata": "capture.json",
+        "frames": "0001.png ... NNNN.png"
+      }
+    },
+    {
+      "key": "ganondorf:side-b-air-success-flame-choke-air-success:smashwiki-residual-ganondorfsspecialaerialssbu",
+      "fighterId": "ganondorf",
+      "moveId": "side-b-air-success-flame-choke-air-success",
+      "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
+      "variantId": "smashwiki-residual-ganondorfsspecialaerialssbu",
+      "variantLabel": "GanondorfSSpecialAerialSSBU",
+      "timelineClass": "fighter-action",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
+      "documentedTargetFrames": null,
+      "sourceUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif",
+      "captureRequirements": {
+        "fps": 60,
+        "advanceMode": "one-game-frame-at-a-time",
+        "start": "first frame of the represented action/state",
+        "end": "last documented frame or clearly defined end of independent state",
+        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
+        "noInterpolation": true,
+        "noSyntheticFrames": true,
+        "noDroppedFrames": true
+      },
+      "expectedImport": {
+        "directory": "captures/ganondorf/side-b-air-success-flame-choke-air-success/smashwiki-residual-ganondorfsspecialaerialssbu",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
@@ -13922,34 +13950,6 @@
       }
     },
     {
-      "key": "joker:down-b-rebel-s-guard:manual-full-move",
-      "fighterId": "joker",
-      "moveId": "down-b-rebel-s-guard",
-      "moveLabel": "Joker Down B (Rebel's Guard)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
-      "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
-      "documentedTargetFrames": 52,
-      "sourceUrl": "https://ultimateframedata.com/joker",
-      "captureRequirements": {
-        "fps": 60,
-        "advanceMode": "one-game-frame-at-a-time",
-        "start": "first frame of the represented action/state",
-        "end": "last documented frame or clearly defined end of independent state",
-        "interactionDisplay": "hitbox-grabbox-enabled where the represented action can create an attack/grab collision",
-        "noInterpolation": true,
-        "noSyntheticFrames": true,
-        "noDroppedFrames": true
-      },
-      "expectedImport": {
-        "directory": "captures/joker/down-b-rebel-s-guard/manual-full-move",
-        "metadata": "capture.json",
-        "frames": "0001.png ... NNNN.png"
-      }
-    },
-    {
       "key": "joker:forward-roll:manual-full-move",
       "fighterId": "joker",
       "moveId": "forward-roll",
@@ -14090,17 +14090,17 @@
       }
     },
     {
-      "key": "joker:up-b-arsene-wings-of-rebellion:manual-full-move",
+      "key": "joker:up-b-arsene-wings-of-rebellion:smashwiki-residual-joker-up-b-2-ssbu",
       "fighterId": "joker",
       "moveId": "up-b-arsene-wings-of-rebellion",
       "moveLabel": "Joker Up B, Arsene (Wings of Rebellion)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "smashwiki-residual-joker-up-b-2-ssbu",
+      "variantLabel": "Joker Up B 2 SSBU",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "missing-documented-timing",
+      "moveCategory": null,
       "documentedTargetFrames": null,
-      "sourceUrl": "https://ultimateframedata.com/joker",
+      "sourceUrl": "https://www.ssbwiki.com/File:Joker_Up_B_2_SSBU.gif",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -14112,23 +14112,23 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/joker/up-b-arsene-wings-of-rebellion/manual-full-move",
+        "directory": "captures/joker/up-b-arsene-wings-of-rebellion/smashwiki-residual-joker-up-b-2-ssbu",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }
     },
     {
-      "key": "joker:up-b-grappling-hook:manual-full-move",
+      "key": "joker:up-b-grappling-hook:smashwiki-residual-joker-up-b-ssbu",
       "fighterId": "joker",
       "moveId": "up-b-grappling-hook",
       "moveLabel": "Joker Up B (Grappling Hook)",
-      "variantId": "manual-full-move",
-      "variantLabel": "Reviewed full-move capture",
+      "variantId": "smashwiki-residual-joker-up-b-ssbu",
+      "variantLabel": "Joker Up B SSBU",
       "timelineClass": "fighter-action",
-      "blockerClass": "no-source-visual",
-      "moveCategory": "special",
+      "blockerClass": "short-or-misaligned-source",
+      "moveCategory": null,
       "documentedTargetFrames": 59,
-      "sourceUrl": "https://ultimateframedata.com/joker",
+      "sourceUrl": "https://www.ssbwiki.com/File:Joker_Up_B_SSBU.gif",
       "captureRequirements": {
         "fps": 60,
         "advanceMode": "one-game-frame-at-a-time",
@@ -14140,7 +14140,7 @@
         "noDroppedFrames": true
       },
       "expectedImport": {
-        "directory": "captures/joker/up-b-grappling-hook/manual-full-move",
+        "directory": "captures/joker/up-b-grappling-hook/smashwiki-residual-joker-up-b-ssbu",
         "metadata": "capture.json",
         "frames": "0001.png ... NNNN.png"
       }

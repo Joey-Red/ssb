@@ -3,11 +3,11 @@
 This file is generated after public-source discovery, game-data timing resolution, media vendoring, historical-source selection, reference-only archive corroboration, and the strict coverage audit.
 
 - Frame-data move rows: **3588**
-- Move rows with real source/reviewed visuals: **2735**
-- Move rows still requiring a real visual source/capture: **853**
-- Real source variants: **3560**
-- Resolved real variants: **2852**
-- Unresolved real variants: **708**
+- Move rows with real source/reviewed visuals: **2739**
+- Move rows still requiring a real visual source/capture: **849**
+- Real source variants: **3565**
+- Resolved real variants: **2853**
+- Unresolved real variants: **712**
 - Total real move/variant blockers: **1561**
 - Ruben timing gaps resolved automatically: **0 / 160**
 - External candidates accepted this pass: **450**
@@ -20,16 +20,16 @@ This file is generated after public-source discovery, game-data timing resolutio
 
 ## Remaining variant blockers
 
-- `short-or-misaligned-source`: **404**
+- `short-or-misaligned-source`: **405**
 - `static-source-needs-motion`: **162**
-- `missing-documented-timing`: **142**
+- `missing-documented-timing`: **145**
 
 ## Remaining move rows with no real visual
 
 - `defense`: **799**
 - `misc`: **36**
-- `special`: **10**
 - `grab`: **6**
+- `special`: **6**
 - `ground`: **2**
 
 ## Completion rule

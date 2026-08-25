@@ -4,13 +4,13 @@
   "generatedBy": "scripts/discover-ufd-visuals.py + scripts/discover-external-visuals.py + scripts/discover-smashwiki-filename-visuals.py",
   "fightersScanned": 89,
   "fightersWithVisuals": 89,
-  "mappedMoves": 2735,
-  "mappedVariants": 3560,
+  "mappedMoves": 2739,
+  "mappedVariants": 3565,
   "timelineCounts": {
     "charge-state": 79,
     "companion-action": 26,
     "effect": 103,
-    "fighter-action": 3269,
+    "fighter-action": 3001,
     "loop-state": 128,
     "projectile": 226,
     "transition": 2
@@ -17148,6 +17148,48 @@
     },
     {
       "fighterId": "ganondorf",
+      "moveId": "side-b-air-success-flame-choke-air-success",
+      "label": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
+      "sourceUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif",
+      "totalFrames": null,
+      "startupFrame": null,
+      "active": "1 (Landing)",
+      "activeSpan": [
+        1,
+        1
+      ],
+      "landingLag": 30,
+      "variants": [
+        {
+          "id": "smashwiki-residual-ganondorfsspecialaerialssbu",
+          "label": "GanondorfSSpecialAerialSSBU",
+          "downloadUrl": "https://ssb.wiki.gallery/images/0/0e/GanondorfSSpecialAerialSSBU.gif",
+          "sourceFormat": "gif",
+          "mediaType": "animation",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceProvider": "smashwiki",
+          "sourcePageUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif",
+          "sourceAttribution": "SmashWiki SSBU explicit residual mapping; Flame Choke aerial action",
+          "sourceQuality": 90
+        },
+        {
+          "id": "smashwiki-residual-ganondorfflamechokesuccessssbu",
+          "label": "GanondorfFlameChokeSuccessSSBU",
+          "downloadUrl": "https://ssb.wiki.gallery/images/5/57/GanondorfFlameChokeSuccessSSBU.gif",
+          "sourceFormat": "gif",
+          "mediaType": "animation",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceProvider": "smashwiki",
+          "sourcePageUrl": "https://www.ssbwiki.com/File:GanondorfFlameChokeSuccessSSBU.gif",
+          "sourceAttribution": "SmashWiki SSBU explicit residual mapping; Flame Choke successful-grab state",
+          "sourceQuality": 90
+        }
+      ]
+    },
+    {
+      "fighterId": "ganondorf",
       "moveId": "side-b-flame-choke",
       "label": "Ganondorf Side B (Flame Choke)",
       "sourceUrl": "https://ultimateframedata.com/ganondorf",
@@ -25023,6 +25065,35 @@
     },
     {
       "fighterId": "joker",
+      "moveId": "down-b-rebel-s-guard",
+      "label": "Joker Down B (Rebel's Guard)",
+      "sourceUrl": "https://www.ssbwiki.com/File:Joker_Down_B_SSBU.gif",
+      "totalFrames": 52,
+      "startupFrame": 3,
+      "active": null,
+      "activeSpan": [
+        3,
+        10
+      ],
+      "landingLag": null,
+      "variants": [
+        {
+          "id": "smashwiki-residual-joker-down-b-ssbu",
+          "label": "Joker Down B SSBU",
+          "downloadUrl": "https://ssb.wiki.gallery/images/1/16/Joker_Down_B_SSBU.gif",
+          "sourceFormat": "gif",
+          "mediaType": "animation",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceProvider": "smashwiki",
+          "sourcePageUrl": "https://www.ssbwiki.com/File:Joker_Down_B_SSBU.gif",
+          "sourceAttribution": "SmashWiki SSBU explicit residual mapping; Rebel's Guard down-special animation",
+          "sourceQuality": 90
+        }
+      ]
+    },
+    {
+      "fighterId": "joker",
       "moveId": "down-smash",
       "label": "Joker Down Smash",
       "sourceUrl": "https://ultimateframedata.com/joker",
@@ -25900,6 +25971,61 @@
           "mediaType": "animation",
           "timelineClass": "fighter-action",
           "timingBasis": "parent-action"
+        }
+      ]
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "up-b-arsene-wings-of-rebellion",
+      "label": "Joker Up B, Arsene (Wings of Rebellion)",
+      "sourceUrl": "https://www.ssbwiki.com/File:Joker_Up_B_2_SSBU.gif",
+      "totalFrames": null,
+      "startupFrame": null,
+      "active": "**",
+      "activeSpan": [],
+      "landingLag": 30,
+      "variants": [
+        {
+          "id": "smashwiki-residual-joker-up-b-2-ssbu",
+          "label": "Joker Up B 2 SSBU",
+          "downloadUrl": "https://ssb.wiki.gallery/images/d/d1/Joker_Up_B_2_SSBU.gif",
+          "sourceFormat": "gif",
+          "mediaType": "animation",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceProvider": "smashwiki",
+          "sourcePageUrl": "https://www.ssbwiki.com/File:Joker_Up_B_2_SSBU.gif",
+          "sourceAttribution": "SmashWiki SSBU explicit residual mapping; Wings of Rebellion Arsene up-special animation",
+          "sourceQuality": 90
+        }
+      ]
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "up-b-grappling-hook",
+      "label": "Joker Up B (Grappling Hook)",
+      "sourceUrl": "https://www.ssbwiki.com/File:Joker_Up_B_SSBU.gif",
+      "totalFrames": 59,
+      "startupFrame": 20,
+      "active": "20\u201426",
+      "activeSpan": [
+        20,
+        26
+      ],
+      "landingLag": null,
+      "variants": [
+        {
+          "id": "smashwiki-residual-joker-up-b-ssbu",
+          "label": "Joker Up B SSBU",
+          "downloadUrl": "https://ssb.wiki.gallery/images/9/95/Joker_Up_B_SSBU.gif",
+          "sourceFormat": "gif",
+          "mediaType": "animation",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceProvider": "smashwiki",
+          "sourcePageUrl": "https://www.ssbwiki.com/File:Joker_Up_B_SSBU.gif",
+          "sourceAttribution": "SmashWiki SSBU explicit residual mapping; Grappling Hook up-special animation",
+          "sourceQuality": 90
         }
       ]
     },

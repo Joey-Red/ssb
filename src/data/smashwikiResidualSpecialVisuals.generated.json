@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "targetCount": 4,
+  "recoveredSourceLessMoves": 4,
+  "recovered": [
+    {
+      "fighterId": "ganondorf",
+      "moveId": "side-b-air-success-flame-choke-air-success",
+      "files": [
+        "File:GanondorfSSpecialAerialSSBU.gif",
+        "File:GanondorfFlameChokeSuccessSSBU.gif"
+      ]
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "down-b-rebel-s-guard",
+      "files": [
+        "File:Joker Down B SSBU.gif"
+      ]
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "up-b-grappling-hook",
+      "files": [
+        "File:Joker Up B SSBU.gif"
+      ]
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "up-b-arsene-wings-of-rebellion",
+      "files": [
+        "File:Joker Up B 2 SSBU.gif"
+      ]
+    }
+  ]
+}

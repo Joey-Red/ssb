@@ -1,13 +1,13 @@
 # Visual Coverage Audit
 
 - Frame-data moves: **3588**
-- Moves with discovered source visuals: **2735**
-- Moves with any source/reviewed visual: **2735**
+- Moves with discovered source visuals: **2739**
+- Moves with any source/reviewed visual: **2739**
 - Reviewed local captures: **0**
-- Moves with no visual: **853**
-- Source variants: **3560**
-- Resolved source/reviewed variants: **2852**
-- Unresolved source variants: **708**
+- Moves with no visual: **849**
+- Source variants: **3565**
+- Resolved source/reviewed variants: **2853**
+- Unresolved source variants: **712**
 - Total unresolved move/variant blockers: **1561**
 - Fighters with blockers: **89**
 
@@ -497,7 +497,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ganondorf Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ganondorf Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ganondorf Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ganondorf Side B, Air Success (Flame Choke, Air Success)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ganondorf Down B (Wizard's Foot)**
   - `GanondorfWizardsFootG` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 60-frame fighter action
 - **Ganondorf Down B, Air (Wizard's Foot, Air)**
@@ -507,6 +506,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ganondorf Pummel**
   - `GanondorfPummelSSBU` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
 - **Ganondorf Side B, Air (Flame Choke, Air)**
+  - `GanondorfSSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+- **Ganondorf Side B, Air Success (Flame Choke, Air Success)**
+  - `GanondorfFlameChokeSuccessSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `GanondorfSSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Ganondorf Up B (Dark Dive)**
   - `GanondorfUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -724,15 +726,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Joker Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Air, Grappling Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Joker Down B (Rebel's Guard)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Joker Up B (Grappling Hook)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Joker Up B, Arsene (Wings of Rebellion)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Down B, Arsene (Tetrakarn/Makarakarn)**
   - `JokerTetrakarnMakarakarnSSBU` — fighter-action / short-or-misaligned-source: source has 56 images / 7280 ms and cannot prove the complete 57-frame fighter action
 - **Joker Gun Special, Spiral (From Air Only)**
   - `JokerGunUpArsene` — fighter-action / short-or-misaligned-source: source has 48 images / 6240 ms and cannot prove the complete 69-frame fighter action
 - **Joker Gun, Spiral (From Air Only)**
   - `JokerGunUp` — fighter-action / short-or-misaligned-source: source has 48 images / 6240 ms and cannot prove the complete 69-frame fighter action
+- **Joker Up B (Grappling Hook)**
+  - `Joker Up B SSBU` — fighter-action / short-or-misaligned-source: source has 50 images / 2000 ms and cannot prove the complete 59-frame fighter action
+- **Joker Up B, Arsene (Wings of Rebellion)**
+  - `Joker Up B 2 SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## kazuya
 

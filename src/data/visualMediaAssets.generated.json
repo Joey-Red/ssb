@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "generatedAt": "2026-08-25T22:52:30Z",
+  "generatedAt": "2026-08-25T23:47:10Z",
   "moves": {
     "banjo-and-kazooie:back-air": {
       "variants": [
@@ -376090,6 +376090,214 @@
           "timelineTotalFrames": 49,
           "mappingMethod": "one-source-image-per-game-frame",
           "timelineBasis": "documented-total-frames"
+        }
+      ]
+    },
+    "joker:up-b-grappling-hook": {
+      "variants": [
+        {
+          "id": "smashwiki-residual-joker-up-b-ssbu",
+          "label": "Joker Up B SSBU",
+          "sha256": "85517f5b0f1cf5ca9a47a042fb755140215731681865fd2f83bda93a9798fa1f",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceFormat": "gif",
+          "interactionEvidence": "embedded-source",
+          "sourceFrameCount": 50,
+          "sourceDurationMs": 2000,
+          "sourceLoop": 0,
+          "animationSrc": "media/move-animations/joker/up-b-grappling-hook/smashwiki-residual-joker-up-b-ssbu.webp",
+          "spriteSheet": {
+            "src": "media/frame-sheets/joker/up-b-grappling-hook/smashwiki-residual-joker-up-b-ssbu.webp",
+            "frameWidth": 300,
+            "frameHeight": 169,
+            "columns": 6,
+            "frameCount": 7,
+            "frameNumbers": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26
+            ]
+          },
+          "coverage": "partial",
+          "coverageReason": "source has 50 images / 2000 ms and cannot prove the complete 59-frame fighter action"
+        }
+      ]
+    },
+    "ganondorf:side-b-air-success-flame-choke-air-success": {
+      "variants": [
+        {
+          "id": "smashwiki-residual-ganondorfsspecialaerialssbu",
+          "label": "GanondorfSSpecialAerialSSBU",
+          "sha256": "a24fab77d705ad69fc9bb1995f9242e1372a8ab0c28eb71381acee9c1c5b6811",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceFormat": "gif",
+          "interactionEvidence": "embedded-source",
+          "sourceFrameCount": 57,
+          "sourceDurationMs": 7410,
+          "sourceLoop": 0,
+          "animationSrc": "media/move-animations/ganondorf/side-b-air-success-flame-choke-air-success/smashwiki-residual-ganondorfsspecialaerialssbu.webp",
+          "spriteSheet": {
+            "src": "media/frame-sheets/ganondorf/side-b-air-success-flame-choke-air-success/smashwiki-residual-ganondorfsspecialaerialssbu.webp",
+            "frameWidth": 300,
+            "frameHeight": 129,
+            "columns": 6,
+            "frameCount": 1,
+            "frameNumbers": [
+              1
+            ]
+          },
+          "coverage": "untimed-animation",
+          "coverageReason": "fighter action has no documented Total Frames value for an exact complete mapping"
+        },
+        {
+          "id": "smashwiki-residual-ganondorfflamechokesuccessssbu",
+          "label": "GanondorfFlameChokeSuccessSSBU",
+          "sha256": "adce5c30c6bd84d418784e592c02d3e2ea922deb99290fca5c598ab0c70efd03",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceFormat": "gif",
+          "interactionEvidence": "embedded-source",
+          "sourceFrameCount": 57,
+          "sourceDurationMs": 7410,
+          "sourceLoop": 0,
+          "animationSrc": "media/move-animations/ganondorf/side-b-air-success-flame-choke-air-success/smashwiki-residual-ganondorfflamechokesuccessssbu.webp",
+          "spriteSheet": {
+            "src": "media/frame-sheets/ganondorf/side-b-air-success-flame-choke-air-success/smashwiki-residual-ganondorfflamechokesuccessssbu.webp",
+            "frameWidth": 300,
+            "frameHeight": 264,
+            "columns": 6,
+            "frameCount": 1,
+            "frameNumbers": [
+              1
+            ]
+          },
+          "coverage": "untimed-animation",
+          "coverageReason": "fighter action has no documented Total Frames value for an exact complete mapping"
+        }
+      ]
+    },
+    "joker:down-b-rebel-s-guard": {
+      "variants": [
+        {
+          "id": "smashwiki-residual-joker-down-b-ssbu",
+          "label": "Joker Down B SSBU",
+          "sha256": "96e953797b65604c4f4e9381f974de248e28ec3059327483881107a90cba142b",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceFormat": "gif",
+          "interactionEvidence": "embedded-source",
+          "sourceFrameCount": 62,
+          "sourceDurationMs": 2480,
+          "sourceLoop": 0,
+          "animationSrc": "media/move-animations/joker/down-b-rebel-s-guard/smashwiki-residual-joker-down-b-ssbu.webp",
+          "spriteSheet": {
+            "src": "media/frame-sheets/joker/down-b-rebel-s-guard/smashwiki-residual-joker-down-b-ssbu.webp",
+            "frameWidth": 300,
+            "frameHeight": 169,
+            "columns": 6,
+            "frameCount": 52,
+            "frameNumbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52
+            ]
+          },
+          "coverage": "full",
+          "coverageReason": "fighter-action source covers frames 1-52 via one-source-image-per-game-frame",
+          "timelineTotalFrames": 52,
+          "mappingMethod": "one-source-image-per-game-frame",
+          "timelineBasis": "documented-total-frames"
+        }
+      ]
+    },
+    "joker:up-b-arsene-wings-of-rebellion": {
+      "variants": [
+        {
+          "id": "smashwiki-residual-joker-up-b-2-ssbu",
+          "label": "Joker Up B 2 SSBU",
+          "sha256": "fb91c462ed1159ee21766507348f7398621bee24e22d5859beae5a28dec22e8e",
+          "timelineClass": "fighter-action",
+          "timingBasis": "parent-action",
+          "sourceFormat": "gif",
+          "interactionEvidence": "embedded-source",
+          "sourceFrameCount": 78,
+          "sourceDurationMs": 3120,
+          "sourceLoop": 0,
+          "animationSrc": "media/move-animations/joker/up-b-arsene-wings-of-rebellion/smashwiki-residual-joker-up-b-2-ssbu.webp",
+          "spriteSheet": {
+            "src": "media/frame-sheets/joker/up-b-arsene-wings-of-rebellion/smashwiki-residual-joker-up-b-2-ssbu.webp",
+            "frameWidth": 300,
+            "frameHeight": 169,
+            "columns": 6,
+            "frameCount": 8,
+            "frameNumbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ]
+          },
+          "coverage": "untimed-animation",
+          "coverageReason": "fighter action has no documented Total Frames value for an exact complete mapping"
         }
       ]
     }

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "fallbackCount": 853,
+  "fallbackCount": 849,
   "categoryCounts": {
     "defense": 799,
     "grab": 6,
     "ground": 2,
     "misc": 36,
-    "special": 10
+    "special": 6
   },
   "policy": {
     "sourceEvidence": false,
@@ -1946,16 +1946,6 @@
       "replacementQueueKey": "ganondorf:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "ganondorf",
-      "moveId": "side-b-air-success-flame-choke-air-success",
-      "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ganondorf:side-b-air-success-flame-choke-air-success:manual-full-move"
-    },
-    {
       "fighterId": "greninja",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Greninja Air Dodge, Diagonally Down",
@@ -2994,36 +2984,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "joker:air-grappling-attack:manual-full-move"
-    },
-    {
-      "fighterId": "joker",
-      "moveId": "down-b-rebel-s-guard",
-      "moveLabel": "Joker Down B (Rebel's Guard)",
-      "category": "special",
-      "timelineTotalFrames": 52,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "joker:down-b-rebel-s-guard:manual-full-move"
-    },
-    {
-      "fighterId": "joker",
-      "moveId": "up-b-grappling-hook",
-      "moveLabel": "Joker Up B (Grappling Hook)",
-      "category": "special",
-      "timelineTotalFrames": 59,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "joker:up-b-grappling-hook:manual-full-move"
-    },
-    {
-      "fighterId": "joker",
-      "moveId": "up-b-arsene-wings-of-rebellion",
-      "moveLabel": "Joker Up B, Arsene (Wings of Rebellion)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "joker:up-b-arsene-wings-of-rebellion:manual-full-move"
     },
     {
       "fighterId": "kazuya",

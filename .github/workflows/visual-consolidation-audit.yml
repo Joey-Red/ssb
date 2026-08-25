@@ -1,0 +1,145 @@
+name: Visual residual completion
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+    paths:
+      - 'scripts/discover-smashwiki-residual-special-visuals.py'
+      - 'scripts/vendor-residual-special-visuals.py'
+      - '.github/workflows/visual-consolidation-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  residual:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-media.txt
+      - name: Install media tooling
+        run: pip install -r scripts/requirements-media.txt
+      - name: Detect committed residual output
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report_path = Path('src/data/smashwikiResidualSpecialVisuals.generated.json')
+          committed = False
+          if report_path.exists():
+              report = json.loads(report_path.read_text())
+              sources = json.loads(Path('src/data/visualMediaSources.json').read_text())
+              residual_moves = {
+                  (move['fighterId'], move['moveId'])
+                  for move in sources.get('moves', [])
+                  if any(str(v.get('id', '')).startswith('smashwiki-residual-') for v in move.get('variants', []))
+              }
+              expected = {
+                  ('ganondorf', 'side-b-air-success-flame-choke-air-success'),
+                  ('joker', 'down-b-rebel-s-guard'),
+                  ('joker', 'up-b-grappling-hook'),
+                  ('joker', 'up-b-arsene-wings-of-rebellion'),
+              }
+              committed = report.get('recoveredSourceLessMoves') == 4 and expected.issubset(residual_moves)
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as fh:
+              fh.write(f"RESIDUAL_ALREADY_COMMITTED={'true' if committed else 'false'}\n")
+          print(f'residual output already committed: {committed}')
+          PY
+      - name: Audit current baseline
+        run: |
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/audit-before-residual.json
+      - name: Recover verified residual specials
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
+        run: |
+          python scripts/discover-smashwiki-residual-special-visuals.py
+          python scripts/audit-visual-coverage.py
+      - name: Verify residual state
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          before = json.loads(Path('/tmp/audit-before-residual.json').read_text())
+          after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
+          residual = json.loads(Path('src/data/smashwikiResidualSpecialVisuals.generated.json').read_text())
+          already = os.environ.get('RESIDUAL_ALREADY_COMMITTED') == 'true'
+          recovered_now = before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual']
+          summary = {
+              'alreadyCommitted': already,
+              'sourceLessBeforeResidual': before['movesWithoutSourceVisual'],
+              'sourceLessAfterResidual': after['movesWithoutSourceVisual'],
+              'residualSpecialRecoveredThisRun': recovered_now,
+              'residualReportedRecoveredMoves': residual['recoveredSourceLessMoves'],
+              'remainingCategoryCounts': after['missingMoveCategories'],
+          }
+          print(json.dumps(summary, indent=2))
+          Path('visual-consolidation-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          if residual['recoveredSourceLessMoves'] != 4:
+              raise SystemExit('residual report must retain exactly four verified recoveries')
+          if already:
+              if after['movesWithoutSourceVisual'] != 849:
+                  raise SystemExit('committed residual output must retain 849 source-less moves')
+          elif recovered_now != 4:
+              raise SystemExit('expected exactly four newly verified residual special recoveries')
+          PY
+      - name: Vendor only residual special media
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
+        run: python scripts/vendor-residual-special-visuals.py
+      - name: Rebuild runtime indexes and truthful coverage reports
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
+        run: |
+          python scripts/build-runtime-visual-index.py
+          python scripts/audit-visual-coverage.py
+          python scripts/build-visual-capture-queue.py
+          python scripts/build-visual-completion-summary.py
+          python scripts/build-synthetic-visual-fallbacks.py
+      - name: Commit targeted generated output
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A public/media public/data/visual-media \
+            src/data/visualMediaSources.json \
+            src/data/smashwikiResidualSpecialVisuals.generated.json \
+            src/data/visualMediaAssets.generated.json \
+            src/data/visualMediaCoverage.generated.json \
+            src/data/visualCoverageAudit.generated.json \
+            src/data/visualCaptureQueue.generated.json \
+            src/data/visualSyntheticFallbacks.generated.json \
+            docs/VISUAL_COVERAGE_AUDIT.generated.md \
+            docs/VISUAL_COMPLETION_SUMMARY.generated.md
+          if git diff --cached --quiet; then
+            echo 'Residual visual outputs are already current.'
+            exit 0
+          fi
+          git commit -m 'chore: vendor residual special visuals'
+          git pull --rebase origin "$branch"
+          git push origin HEAD:"$branch"
+      - name: Upload residual completion audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-residual-completion
+          path: |
+            visual-consolidation-summary.json
+            src/data/smashwikiResidualSpecialVisuals.generated.json
+            src/data/visualCoverageAudit.generated.json
+            src/data/visualMediaCoverage.generated.json
+            docs/VISUAL_COMPLETION_SUMMARY.generated.md
+          retention-days: 7
