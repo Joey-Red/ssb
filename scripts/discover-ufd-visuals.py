@@ -25,7 +25,7 @@ FRAME_DATA = ROOT / "src/data/frameData.generated.json"
 OUTPUT = ROOT / "src/data/visualMediaSources.json"
 MAX_WORKERS = 6
 TIMEOUT = 45
-MEDIA_EXTENSIONS = {".gif", ".png", ".webp", ".jpg", ".jpeg"}
+MEDIA_EXTENSIONS = {".gif", ".png", ".webp", ".jpg", ".jpeg", ".apng"}
 
 # UFD's Pit page currently links its aerial Guardian Orbitars image to a dead
 # dark_pit path. The ground variant remains valid, so omit only the dead URL
@@ -33,6 +33,18 @@ MEDIA_EXTENSIONS = {".gif", ".png", ".webp", ".jpg", ".jpeg"}
 BROKEN_MEDIA_URLS = {
     "https://ultimateframedata.com/hitboxes/dark_pit/PitGuardianOrbitarsAerial.gif",
 }
+
+PROJECTILE_WORDS = {
+    "arrow", "axe", "banana", "beam", "bell", "bomb", "boomerang", "book",
+    "c4", "cannonball", "chakram", "cherry", "cross", "egg", "fireball",
+    "fruit", "galaxian", "gordo", "grenade", "hydrant", "key", "melon",
+    "metalblade", "mechakoopa", "missile", "needle", "orange", "pellet",
+    "projectile", "soccerball", "spring", "strawberry", "thunderjolt",
+    "turnip", "watershuriken", "gyro", "ptooie", "rear egg", "holy water",
+}
+EFFECT_WORDS = {"burst", "boom", "detonate", "explosion", "explode", "vortex"}
+CHARGE_WORDS = {"charge", "charged", "charging", "full charge", "max", "maximum", "minimum", "partial charge"}
+STATE_WORDS = {"idle", "drive", "travel", "flying", "falling", "loop", "rapid"}
 
 
 def normalized(value: str) -> str:
@@ -53,15 +65,7 @@ def extension(url: str) -> str:
 
 
 def unique_visual_id(record: dict[str, Any], url: str) -> str:
-    """Return a deterministic ID even when UFD reuses one stem across formats.
-
-    UFD occasionally publishes a static PNG and animated GIF with the same
-    filename stem (for example Diddy Kong's Banana). Keeping both under the
-    same ID makes the runtime variant selector ambiguous and can cause one
-    source form to overwrite the other. Preserve the first canonical stem and
-    suffix later collisions with their media extension, then a numeric suffix
-    only if UFD somehow repeats that combination as well.
-    """
+    """Return a deterministic ID even when UFD reuses one stem across formats."""
     base = visual_id(url)
     used = {str(variant.get("id", "")) for variant in record.get("variants", [])}
     if base not in used:
@@ -86,16 +90,10 @@ def positive_frame(value: str | None) -> int | None:
 
 def active_span(active: str | None, startup: int | None, total: str | None) -> tuple[int, int] | None:
     if active:
-        # Keep discovery semantics identical to src/lib/frameData.ts:
-        # the first positive integer is the first active frame and the largest
-        # positive integer is the final documented active frame. This preserves
-        # UFD forms such as 6—9(10—25) and multi-hit/rehit notation consistently.
         values = [int(value) for value in re.findall(r"\d+", active)]
         values = [value for value in values if value > 0]
         if values:
             return values[0], max(values)
-    # Throws/pummels and some specials expose a visual but no conventional
-    # active-window field. Keep a short impact study window around startup.
     if startup and startup > 0:
         total_value = positive_frame(total)
         end = startup + 7
@@ -161,6 +159,36 @@ def media_url(anchor: Any, page_url: str) -> str | None:
     return None
 
 
+def timeline_class(fighter_id: str, move_name: str, label: str) -> str:
+    """Classify what the source depicts without asserting unsupported timing.
+
+    This classification only chooses which timeline owns the visual. It does not
+    make a source exact. Exactness is decided later by the vendor from documented
+    game timing and encoded source timing.
+    """
+    label_text = normalized(label)
+    combined = normalized(f"{move_name} {label}")
+    words = set(combined.split())
+
+    if "landing" in words or label_text.endswith(" landing"):
+        return "landing"
+    if fighter_id == "rosalina-and-luma" and "luma" in words:
+        return "companion-action"
+    if "bulletarts" in label_text.replace(" ", ""):
+        return "effect"
+    if any(word in combined for word in EFFECT_WORDS):
+        return "effect"
+    if any(word.replace(" ", "") in label_text.replace(" ", "") for word in PROJECTILE_WORDS):
+        return "projectile"
+    if any(word in combined for word in CHARGE_WORDS):
+        return "charge-state"
+    if any(word in combined for word in STATE_WORDS):
+        return "loop-state"
+    if "swap" in combined or "transform" in combined:
+        return "transition"
+    return "fighter-action"
+
+
 def discover_fighter(entry: dict[str, str], fighter_data: dict[str, Any]) -> tuple[str, list[dict[str, Any]], dict[str, int]]:
     fighter_id = entry["fighterId"]
     page_url = f"https://ultimateframedata.com/{entry['ufdSlug']}"
@@ -201,21 +229,23 @@ def discover_fighter(entry: dict[str, str], fighter_data: dict[str, Any]) -> tup
             "startupFrame": move.get("startupFrame"),
             "active": move.get("active"),
             "activeSpan": list(active_span(move.get("active"), move.get("startupFrame"), move.get("totalFrames")) or []),
+            "landingLag": positive_frame(move.get("landingLag")),
             "variants": [],
         })
         if any(variant["downloadUrl"] == url for variant in record["variants"]):
             continue
         identifier = unique_visual_id(record, url)
-        # Landing animations use their own landing-state timeline and cannot be
-        # truthfully indexed against the aerial attack's active game frames.
-        # Preserve them as local static references until a separate landing
-        # timeline is modeled instead of assigning misleading game-frame numbers.
-        is_landing_reference = "landing" in identifier
+        label = Path(urlparse(url).path).stem
+        timeline = timeline_class(fighter_id, move["name"], label)
+        ext = extension(url)
         record["variants"].append({
             "id": identifier,
-            "label": Path(urlparse(url).path).stem,
+            "label": label,
             "downloadUrl": url,
-            "mediaType": "gif" if extension(url) == ".gif" and not is_landing_reference else "image",
+            "sourceFormat": ext.lstrip("."),
+            "mediaType": "animation" if ext in {".gif", ".apng"} else "image",
+            "timelineClass": timeline,
+            "timingBasis": "parent-action" if timeline == "fighter-action" else "independent-source",
         })
 
     ordered = []
@@ -270,14 +300,21 @@ def main() -> int:
     if duplicate_variant_ids:
         raise SystemExit("duplicate visual variant ids remain: " + ", ".join(duplicate_variant_ids))
 
+    timeline_counts: dict[str, int] = {}
+    for move in moves:
+        for variant in move["variants"]:
+            timeline = variant["timelineClass"]
+            timeline_counts[timeline] = timeline_counts.get(timeline, 0) + 1
+
     output = {
-        "version": 2,
+        "version": 3,
         "source": "Ultimate Frame Data",
         "generatedBy": "scripts/discover-ufd-visuals.py",
         "fightersScanned": len(entries),
         "fightersWithVisuals": mapped_fighters,
         "mappedMoves": len(moves),
         "mappedVariants": mapped_variants,
+        "timelineCounts": dict(sorted(timeline_counts.items())),
         "moves": moves,
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
