@@ -1,14 +1,30 @@
 # Visual Coverage Audit
 
-- Variants: **3075**
-- Resolved: **2531**
-- Unresolved: **544**
-- Fighters with blockers: **86**
+- Frame-data moves: **3588**
+- Moves with discovered source visuals: **2580**
+- Moves with any source/reviewed visual: **2580**
+- Reviewed local captures: **0**
+- Moves with no visual: **1008**
+- Source variants: **3075**
+- Resolved source/reviewed variants: **2531**
+- Unresolved source variants: **544**
+- Total unresolved move/variant blockers: **1552**
+- Fighters with blockers: **89**
 
-This file is generated. A listed item is a source/timing blocker, not permission to invent a mapping.
+This file is generated. A listed item is a source/timing blocker, not permission to invent a mapping or image.
 
 ## banjo-and-kazooie
 
+- **Banjo_and_kazooie Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Banjo_and_kazooie Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Banjo_and_kazooie Breegull Blaster**
   - `BanjoKazooieBreegullBlaster1-6` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `BanjoKazooieBreegullBlaster13` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
@@ -22,6 +38,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## bayonetta
 
+- **Bayonetta Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bayonetta Up B (Witch Twist)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bayonetta After Burner Kick, Down**
   - `BayonettaAfterburnerKickLanding` — fighter-action / short-or-misaligned-source: source has 20 images / 2600 ms and cannot prove the complete 43-frame fighter action
 - **Bayonetta Back Air**
@@ -66,6 +93,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## bowser
 
+- **Bowser Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser Neutral B (Fire Breath)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser Down Air**
   - `BowserDAirLanding` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 77-frame fighter action
 - **Bowser Pummel**
@@ -75,6 +112,20 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## bowser-jr
 
+- **Bowser_jr Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Neutral Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Abandon Ship Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Dash Attack** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Bowser_jr Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Abandon Ship (Hammer)**
   - `BowserJrAbandonShipHammer` — fighter-action / short-or-misaligned-source: source has 38 images / 5070 ms and cannot prove the complete 39-frame fighter action
 - **Bowser_jr Down Air**
@@ -96,6 +147,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## byleth
 
+- **Byleth Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Byleth Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Byleth Down Smash**
   - `BylethDSmash` — fighter-action / short-or-misaligned-source: source has 73 images / 9620 ms and cannot prove the complete 74-frame fighter action
 - **Byleth Neutral Air**
@@ -107,6 +167,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## captain-falcon
 
+- **Captain_falcon Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Captain_falcon Neutral B (Falcon Punch)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Captain_falcon Down B (Falcon Kick)**
   - `CaptainFalconFalconKickG` — fighter-action / short-or-misaligned-source: source has 36 images / 4680 ms and cannot prove the complete 68-frame fighter action
 - **Captain_falcon Down B, Air (Falcon Kick, Air)**
@@ -123,6 +193,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## charizard
 
+- **Pt_charizard Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Down B (Pokemon Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_charizard Neutral B (Flamethrower)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_charizard Down Air**
   - `charitardDAir` — fighter-action / short-or-misaligned-source: source has 49 images / 6630 ms and cannot prove the complete 51-frame fighter action
 - **Pt_charizard Forward Tilt**
@@ -140,6 +221,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## chrom
 
+- **Chrom Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Chrom Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Chrom Forward Smash**
   - `ChromFSmash` — fighter-action / short-or-misaligned-source: source has 51 images / 6630 ms and cannot prove the complete 53-frame fighter action
 - **Chrom Neutral B (Flare Blade)**
@@ -153,6 +243,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## cloud
 
+- **Cloud Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Cloud Down B (Limit Charge)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Cloud Climhazzard, Followup**
   - `CloudClimhazzardFall` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `CloudClimhazzardLanding` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -169,6 +269,20 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## corrin
 
+- **Corrin Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Dragon Fang Shot (chomp)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Dragon Lunge, Pin Cancel** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Dragon Lunge, Pin Jump** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Neutral B (Dragon Fang Shot)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Corrin Side B (Dragon Lunge, Air)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Corrin Counter Surge, Attack**
   - `CorrinCounterSurgeHit` — fighter-action / short-or-misaligned-source: source has 62 images / 8580 ms and cannot prove the complete 66-frame fighter action
 - **Corrin Down Air**
@@ -190,6 +304,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## daisy
 
+- **Daisy Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Toad, Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Daisy Side B, Air (daisy Bomber, Air)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Daisy Pummel**
   - `DaisyPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Daisy Up B (daisy Parasol)**
@@ -198,6 +324,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## dark-pit
 
+- **Dark_pit Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_pit Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dark_pit Pummel**
   - `DarkPitPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Dark_pit Side B (Electroshock Arm)**
@@ -209,6 +344,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## dark-samus
 
+- **Dark_samus Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dark_samus Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dark_samus Down B (Bomb)**
   - `DarkSamusBombExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Dark_samus Pummel**
@@ -222,6 +366,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## diddy-kong
 
+- **Diddy_kong Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Monkey Flip, Grab Jump** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Diddy_kong Neutral B (Peanut Popgun)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Diddy_kong Pummel**
   - `DiddyKongPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Diddy_kong Rocketbarrel Boost, Explosion**
@@ -230,8 +385,32 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `DiddyKongRocketBarrels` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `DiddyKongRocketBarrels` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 
+## donkey-kong
+
+- **Donkey_kong Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Donkey_kong Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+
 ## dr-mario
 
+- **Dr_mario Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Dr_mario Jab 1** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Neutral B (Megavitamin Pill)**
   - `DrMarioMegavitamin` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Dr_mario Pummel**
@@ -241,6 +420,22 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## duck-hunt
 
+- **Duck_hunt Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Wild Gunman, Black suit** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Wild Gunman, Leader in brown coat** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Wild Gunman, Short cowboy** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Wild Gunman, Sombrero guy** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Wild Gunman, Tall cowboy** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Down B (Wild Gunman)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Duck_hunt Up B (Duck Jump)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Duck_hunt Clay Shooting, Detonate**
   - `DuckHuntClayShootingBurst` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Duck_hunt Neutral B (Trick Shot)**
@@ -254,6 +449,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## falco
 
+- **Falco Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Falco Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Falco Forward Air**
   - `FalcoFAirLanding` — fighter-action / short-or-misaligned-source: source has 15 images / 1950 ms and cannot prove the complete 49-frame fighter action
 - **Falco Pummel**
@@ -264,6 +469,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## fox
 
+- **Fox Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Fox Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Fox Down Air**
   - `FoxDAirLanding` — fighter-action / short-or-misaligned-source: source has 17 images / 2210 ms and cannot prove the complete 49-frame fighter action
 - **Fox Down B (Reflector)**
@@ -280,6 +494,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## ganondorf
 
+- **Ganondorf Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ganondorf Side B, Air Success (Flame Choke, Air Success)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ganondorf Down B (Wizard's Foot)**
   - `GanondorfWizardsFootG` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 60-frame fighter action
 - **Ganondorf Down B, Air (Wizard's Foot, Air)**
@@ -294,6 +518,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## greninja
 
+- **Greninja Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Greninja Down B, Attack (Substitute, Attack)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Greninja Pummel**
   - `GreninjaPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 18-frame fighter action
 - **Greninja Side B (Shadow Sneak)**
@@ -304,6 +538,30 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## hero
 
+- **Hero Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Acceleratle** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Bang** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Bounce** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Heal** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Hocus Pocus** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Oomph** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Psych Up** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Sizz** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Snooze** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Whack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Zoom** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Down B (Menu/Select)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Neutral B (Frizz/Frizzle/Kafrizz)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Side B, (Zap/Zapple/Kazap)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Hero Up B (Woosh/Swoosh/Kaswoosh)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Hero Hatchet Man**
   - `HeroHatchetMan` — fighter-action / short-or-misaligned-source: source has 87 images / 11310 ms and cannot prove the complete 88-frame fighter action
 - **Hero Kaclang**
@@ -317,6 +575,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## ice-climbers
 
+- **Ice_climbers Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ice_climbers Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ice_climbers Dash Grab**
   - `PopoDashGrab` — fighter-action / short-or-misaligned-source: source has 45 images / 6090 ms and cannot prove the complete 47-frame fighter action
 - **Ice_climbers Grab**
@@ -330,6 +597,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## ike
 
+- **Ike Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Neutral B (Eruption)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ike Up B (Aether)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ike Counter, Attack**
   - `IkeCounterHit` — fighter-action / short-or-misaligned-source: source has 41 images / 5690 ms and cannot prove the complete 43-frame fighter action
 - **Ike Down B (Counter)**
@@ -342,6 +620,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## incineroar
 
+- **Incineroar Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Incineroar Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Incineroar Forward Air**
   - `IncineroarFAir` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 44-frame fighter action
 - **Incineroar Pummel**
@@ -349,6 +638,19 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## inkling
 
+- **Inkling Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Dash Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Pivot Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Inkling Neutral B (Splattershot)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Inkling Pummel**
   - `InklingPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Inkling Side B (Splat Roller)**
@@ -358,8 +660,36 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Inkling Up B (Super Jump)**
   - `InklingSuperJump` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
+## isabelle
+
+- **Isabelle Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Pocket, Throw** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Fishing Rod, Reel In** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Down B (Lloid Trap)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Isabelle Side B (Fishing Rod)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+
 ## ivysaur
 
+- **Pt_ivysaur Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Down B (Pokemon Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_ivysaur Up B (Vinewhip)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_ivysaur Backward Throw**
   - `IvysaurBThrow` — fighter-action / short-or-misaligned-source: source has 34 images / 4420 ms and cannot prove the complete 35-frame fighter action
 - **Pt_ivysaur Forward Tilt**
@@ -369,6 +699,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## jigglypuff
 
+- **Jigglypuff Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Jigglypuff Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Jigglypuff Grab**
   - `JigglypuffGrab` — fighter-action / short-or-misaligned-source: source has 29 images / 4130 ms and cannot prove the complete 32-frame fighter action
 - **Jigglypuff Neutral B (Rollout)**
@@ -379,6 +718,20 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## joker
 
+- **Joker Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Air, Grappling Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Down B (Rebel's Guard)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Up B (Grappling Hook)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Joker Up B, Arsene (Wings of Rebellion)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Down B, Arsene (Tetrakarn/Makarakarn)**
   - `JokerTetrakarn_Makarakarn` — fighter-action / short-or-misaligned-source: source has 56 images / 7280 ms and cannot prove the complete 57-frame fighter action
 - **Joker Gun Special, Spiral (From Air Only)**
@@ -390,6 +743,20 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## kazuya
 
+- **Kazuya Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Up-Forward Tilt (Roundhouse to Triple Spin Kicks...)** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Devil Blaster, Air** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Rage Drive (Input)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Rage Drive (Non Input)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kazuya Down B (Heaven's Door)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kazuya Down Air**
   - `Shoto4DAirLanding` — fighter-action / short-or-misaligned-source: source has 36 images / 4680 ms and cannot prove the complete 57-frame fighter action
 - **Kazuya Electric Wind God Fist**
@@ -403,6 +770,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## ken
 
+- **Ken Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ken Focus Attack, Dash Cancel** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ken Forward Air**
   - `KenFAir` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 36-frame fighter action
 - **Ken Pummel**
@@ -424,6 +801,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## king-dedede
 
+- **King_dedede Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_dedede Inhale, Spit** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_dedede Dash Grab**
   - `KingDededeDashGrab` — fighter-action / short-or-misaligned-source: source has 46 images / 6100 ms and cannot prove the complete 47-frame fighter action
 - **King_dedede Forward Smash**
@@ -441,6 +828,19 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## king-k-rool
 
+- **King_k_rool Back Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Blunderbuss, Second Shot** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Neutral B (Blunderbuss Kannonball)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **King_k_rool Side B (Crownerang)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_k_rool Blunderbuss, Vacuum**
   - `KingKRoolBlunderbuss` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **King_k_rool Pummel**
@@ -450,6 +850,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## kirby
 
+- **Kirby Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Kirby Inhale, Copy/Spit** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kirby Down Air**
   - `KirbyDAirLanding` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 54-frame fighter action
 - **Kirby Down B (Stone)**
@@ -475,6 +885,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## link
 
+- **Link Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Link Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Link Backward Throw**
   - `LinkBThrow` — fighter-action / short-or-misaligned-source: source has 34 images / 4420 ms and cannot prove the complete 38-frame fighter action
 - **Link Down B (Remote Bomb, Detonate)**
@@ -492,6 +911,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## little-mac
 
+- **Little_mac Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Little_mac Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Little_mac Forward Smash**
   - `LittleMacFSmashUp` — fighter-action / short-or-misaligned-source: source has 42 images / 5590 ms and cannot prove the complete 43-frame fighter action
 - **Little_mac K.O. Punch**
@@ -506,6 +934,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## lucario
 
+- **Lucario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Aura Sphere, Full Charge** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucario Neutral B (Aura Sphere)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucario Double Team, Counterattack**
   - `LucarioDoubleTeamHit` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 47-frame fighter action
 - **Lucario Pummel**
@@ -516,6 +955,19 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## lucas
 
+- **Lucas Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucas Up B (PK Thunder)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Neutral B (PK Freeze)**
   - `LucasPKFreeze` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Lucas Pummel**
@@ -525,6 +977,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## lucina
 
+- **Lucina Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Lucina Neutral B (Shieldbreaker)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucina Down Throw**
   - `LucinaDThrow` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 46-frame fighter action
 - **Lucina Forward Throw**
@@ -537,6 +999,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## luigi
 
+- **Luigi Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Luigi Down B (Luigi Cyclone)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Luigi Pummel**
   - `LuigiPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Luigi Up B (Super Jump Punch, Air)**
@@ -548,6 +1020,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mario
 
+- **Mario Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Jab 1** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mario Down B, Fully Charged (F.L.U.D.D.)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Down Air**
   - `MarioDAirLanding` — fighter-action / short-or-misaligned-source: source has 15 images / 1950 ms and cannot prove the complete 37-frame fighter action
 - **Mario Down B (F.L.U.D.D.)**
@@ -559,6 +1043,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## marth
 
+- **Marth Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Marth Neutral B (Shield Breaker)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Marth Down Throw**
   - `MarthDThrow` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 46-frame fighter action
 - **Marth Forward Throw**
@@ -571,6 +1065,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mega-man
 
+- **Mega_man Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mega_man Up B (Rush Coil)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mega_man Dash Grab**
   - `MegaManDashGrab` — fighter-action / short-or-misaligned-source: source has 42 images / 5820 ms and cannot prove the complete 45-frame fighter action
 - **Mega_man Grab**
@@ -584,6 +1090,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## meta-knight
 
+- **Meta_knight Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Dimensional Cape, Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Meta_knight Down B (Dimensional Cape)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Meta_knight Dash Grab**
   - `MetaKnightDashGrab` — fighter-action / short-or-misaligned-source: source has 40 images / 5680 ms and cannot prove the complete 44-frame fighter action
 - **Meta_knight Grab**
@@ -602,6 +1119,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mewtwo
 
+- **Mewtwo Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Shadow Ball, Fully Charged** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Neutral B (Shadow Ball)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mewtwo Up B (Teleport)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mewtwo Forward Air**
   - `MewtwoFAir` — fighter-action / short-or-misaligned-source: source has 38 images / 5060 ms and cannot prove the complete 39-frame fighter action
 - **Mewtwo Pummel**
@@ -609,6 +1138,21 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mii-brawler
 
+- **Mii_brawler Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Counter Throw, Activated** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Flashing Mach Punch** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Head-On Assault, Air** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_brawler Shot Put** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Burning Dropkick**
   - `MiiBrawlerBurningDropkick` — fighter-action / short-or-misaligned-source: source has 60 images / 7800 ms and cannot prove the complete 68-frame fighter action
 - **Mii_brawler Feint Jump, Kick**
@@ -635,6 +1179,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mii-gunner
 
+- **Mii_gunner Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Arm Rocket** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_gunner Grenade Launch** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_gunner Bomb Drop**
   - `MiiGunnerBombDropExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Mii_gunner Cannon Jump Kick**
@@ -652,6 +1207,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mii-swordfighter
 
+- **Mii_swordfighter Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mii_swordfighter Gale Stab (Charge)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Airborne Assault**
   - `MiiSwordfighterAirborneAssault` — fighter-action / short-or-misaligned-source: source has 40 images / 5200 ms and cannot prove the complete 104-frame fighter action
   - `MiiSwordfighterAirborneAssaultHit` — fighter-action / short-or-misaligned-source: source has 50 images / 6500 ms and cannot prove the complete 104-frame fighter action
@@ -679,6 +1245,22 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## min-min
 
+- **Minmin Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Forward Smash, Dragon (Laser)** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Forward Smash, Power Dragon (Laser)** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Jab 1** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Jab 2** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Down B (Arms Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Up B (Arms Hook)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Minmin Up B (Arms Jump)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Minmin Down Air**
   - `MinMinDAirLanding` — fighter-action / short-or-misaligned-source: source has 25 images / 3250 ms and cannot prove the complete 54-frame fighter action
 - **Minmin Forward Smash, Megawatt**
@@ -702,6 +1284,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mr-game-and-watch
 
+- **Mr_game_and_watch Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mr_game_and_watch Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mr_game_and_watch Back Air**
   - `MrGame_WatchBair` — fighter-action / short-or-misaligned-source: source has 18 images / 5070 ms and cannot prove the complete 39-frame fighter action
   - `MrGame_WatchBairLanding` — fighter-action / short-or-misaligned-source: source has 7 images / 2340 ms and cannot prove the complete 39-frame fighter action
@@ -768,6 +1359,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mythra
 
+- **Mythra Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Chroma Dust** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Neutral B (Lightning Buster)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Side B (Photon Edge)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mythra Jab 3**
   - `MythraJab3` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 29-frame fighter action
 - **Mythra Neutral Air**
@@ -780,6 +1383,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## ness
 
+- **Ness Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Side B (PK Fire)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ness Up B (PK Thunder)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ness Down B (PSI Magnet)**
   - `NessPSIMagnet` — fighter-action / short-or-misaligned-source: source has 19 images / 2600 ms and cannot prove the complete 24-frame fighter action
   - `NessPSIMagnetA` — fighter-action / short-or-misaligned-source: source has 20 images / 2600 ms and cannot prove the complete 24-frame fighter action
@@ -793,6 +1407,28 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## olimar
 
+- **Olimar Back Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Dash Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Pivot Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Purple Grabs** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Red/Blue/Yellow Grabs** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Up Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Neutral B (Pikmin Pluck)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Up B (Winged Pikmin)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Olimar Grab Range Comparison**
   - `OlimarGrab` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Olimar Pummel**
@@ -800,6 +1436,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## pac-man
 
+- **Pac_man Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pac_man Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pac_man Neutral B (Bonus Fruit, Throw)**
   - `PacManApple` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Pac_man Pummel**
@@ -810,6 +1457,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## palutena
 
+- **Palutena Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Palutena Up B (Warp)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Palutena Dash Attack**
   - `PalutenaDashAttack` — fighter-action / short-or-misaligned-source: source has 37 images / 4810 ms and cannot prove the complete 40-frame fighter action
 - **Palutena Pummel**
@@ -819,6 +1476,19 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## peach
 
+- **Peach Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Toad, Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Neutral B (Toad)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Peach Side B, Air (Peach Bomber, Air)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Peach Pummel**
   - `PeachPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Peach Up B (Peach Parasol)**
@@ -827,6 +1497,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## pichu
 
+- **Pichu Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pichu Up B (Agility)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pichu Down Air**
   - `PichuDAirLanding` — fighter-action / short-or-misaligned-source: source has 22 images / 2860 ms and cannot prove the complete 47-frame fighter action
 - **Pichu Down B (Thunder)**
@@ -838,6 +1520,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## pikachu
 
+- **Pikachu Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pikachu Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pikachu Back Air**
   - `PikachuBAirLanding` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 43-frame fighter action
 - **Pikachu Down Air**
@@ -855,6 +1546,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## piranha-plant
 
+- **Piranha_plant Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Piranha_plant Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Piranha_plant Down B (Long Stem Strike)**
   - `PiranhaPlantLong-StemStrike` — fighter-action / short-or-misaligned-source: source has 24 images / 3120 ms and cannot prove the complete 39-frame fighter action
 - **Piranha_plant Footstool Attack**
@@ -866,6 +1566,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## pit
 
+- **Pit Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pit Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pit Pummel**
   - `PitPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Pit Side B (Upperdash Arm)**
@@ -877,6 +1586,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## pyra
 
+- **Pyra Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pyra Neutral B (Flame Nova)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pyra Dash Attack**
   - `PyraDashAttack` — fighter-action / short-or-misaligned-source: source has 51 images / 6760 ms and cannot prove the complete 52-frame fighter action
 - **Pyra Down Air**
@@ -896,6 +1615,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## richter
 
+- **Richter Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Richter Whip Dangle** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Richter Down Air**
   - `RichterDAir` — fighter-action / short-or-misaligned-source: source has 45 images / 6240 ms and cannot prove the complete 48-frame fighter action
 - **Richter Down B (Holy Water)**
@@ -909,8 +1638,34 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Richter Up B (Uppercut)**
   - `RichterUppercut` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
+## ridley
+
+- **Ridley Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Space Pirate Rush, Manual/Ledge/Air Release** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ridley Up B (Wing Blitz)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+
 ## rob
 
+- **Rob Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Side B (Arm Rotor)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rob Side B (Arm Rotor, Mashing)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rob Dash Grab**
   - `ROBDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 5830 ms and cannot prove the complete 45-frame fighter action
 - **Rob Down Throw**
@@ -922,6 +1677,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## robin
 
+- **Robin Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Robin Neutral B (Thunder/Elthunder/Arcthunder)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Robin Pummel**
   - `RobinPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 21-frame fighter action
 - **Robin Side B (Arcfire)**
@@ -933,11 +1698,30 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## rosalina-and-luma
 
+- **Rosalina_and_luma Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Rosalina_and_luma Up B (Launch Star)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rosalina_and_luma Pummel**
   - `RosalinaPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 
 ## roy
 
+- **Roy Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Roy Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Roy Backward Throw**
   - `RoyBThrow` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 44-frame fighter action
 - **Roy Double-Edge Dance, Hit 3 Down**
@@ -958,6 +1742,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## ryu
 
+- **Ryu Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Focus Attack, Dash Cancel** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Ryu Side B (Tatsumaki Senpukyaku)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ryu Forward Air**
   - `RyuFAir` — fighter-action / short-or-misaligned-source: source has 34 images / 4660 ms and cannot prove the complete 36-frame fighter action
 - **Ryu Pummel**
@@ -977,6 +1772,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## samus
 
+- **Samus Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Samus Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Samus Down B (Bomb)**
   - `SamusBombExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Samus Pummel**
@@ -990,6 +1794,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## sephiroth
 
+- **Sephiroth Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sephiroth Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sephiroth Down Air**
   - `SephirothDAirLanding` — fighter-action / short-or-misaligned-source: source has 26 images / 3380 ms and cannot prove the complete 61-frame fighter action
 - **Sephiroth Down B (Scintilla, Miss)**
@@ -1006,6 +1819,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## sheik
 
+- **Sheik Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sheik Needle Storm, Full Charge** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sheik Dash Grab**
   - `SheikDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 5710 ms and cannot prove the complete 44-frame fighter action
 - **Sheik Down Air**
@@ -1027,6 +1850,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## shulk
 
+- **Shulk Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Shulk Down B (Vision)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Shulk Air Slash 2**
   - `ShulkAirSlash2` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Shulk Neutral B (Monado Arts)**
@@ -1039,6 +1872,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## simon
 
+- **Simon Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Simon Whip Dangle** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Simon Down Air**
   - `SimonDAir` — fighter-action / short-or-misaligned-source: source has 45 images / 6240 ms and cannot prove the complete 48-frame fighter action
 - **Simon Down B (Holy Water)**
@@ -1054,6 +1897,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## snake
 
+- **Snake Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Grenade (Neutral Throw, Smash Throw, Underhand Throw)** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Snake Side B (Nikita)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Snake C4 Detonate/Explosion**
   - `C4 Explosion (Snake for Scale)` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Snake Forward Throw**
@@ -1070,6 +1924,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## sonic
 
+- **Sonic Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sonic Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sonic Dash Grab**
   - `SonicDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 6070 ms and cannot prove the complete 47-frame fighter action
 - **Sonic Grab**
@@ -1089,6 +1953,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## sora
 
+- **Sora Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora FTilt 1 > FTilt 2 Combo** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Neutral B (Blizzaga)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Sora Side B (Sonic Blade)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sora Down Air**
   - `SoraDAirLanding` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 57-frame fighter action
 - **Sora Pummel**
@@ -1098,6 +1974,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## squirtle
 
+- **Pt_squirtle Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Down B (Pokemon Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Pt_squirtle Neutral B (Watergun)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_squirtle Back Air**
   - `SquirtleBAirLanding` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 35-frame fighter action
 - **Pt_squirtle Pummel**
@@ -1109,6 +1997,28 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## steve
 
+- **Steve Back Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Neutral Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Dash Attack** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Jab / Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Summon Crafting Table** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Sword Back Air (Short Hop Macro BAir)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Sword Forward Air (Short Hop Macro FAir)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Down B (TNT)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Neutral B (Mine)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Dash Grab**
   - `SteveDashGrab` — fighter-action / short-or-misaligned-source: source has 48 images / 8060 ms and cannot prove the complete 62-frame fighter action
 - **Steve Down Air**
@@ -1142,6 +2052,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## terry
 
+- **Terry Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Burning Knuckle, Input** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Forward B (Burning Knuckle)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Terry Down B (Power Dunk)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Terry Back B (Crack Shoot)**
   - `TerryCrackShootStrong` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 46-frame fighter action
   - `TerryCrackShootWeak` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 46-frame fighter action
@@ -1162,6 +2084,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## toon-link
 
+- **Toon_link Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Toon_link Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Toon_link Back Air**
   - `ToonLinkBAir` — fighter-action / short-or-misaligned-source: source has 28 images / 4550 ms and cannot prove the complete 35-frame fighter action
 - **Toon_link Down Air**
@@ -1177,6 +2108,21 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## villager
 
+- **Villager Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Pocket, Throw** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Rapid Jab** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Rapid Jab Finisher** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Timber Tree Grow/Fall** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Down B (Timber Plant, Timber Water)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Villager Side B (Lloid Rocket)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Villager Neutral B (Pocket)**
   - `VillagerPocket` — fighter-action / short-or-misaligned-source: source has 35 images / 6500 ms and cannot prove the complete 50-frame fighter action
 - **Villager Pummel**
@@ -1186,6 +2132,25 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## wario
 
+- **Wario Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Neutral Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Jab** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Up Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wario Neutral B (Chomp)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Down B (Wario Waft)**
   - `WarioWarioWaftFull` — fighter-action / short-or-misaligned-source: source has 62 images / 8190 ms and cannot prove the complete 79-frame fighter action
   - `WarioWarioWaftHalf` — fighter-action / short-or-misaligned-source: source has 52 images / 7020 ms and cannot prove the complete 79-frame fighter action
@@ -1199,11 +2164,30 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## wii-fit-trainer
 
+- **Wii_fit_trainer Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Down B (Deep Breathing)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wii_fit_trainer Pummel**
   - `WiiFitTrainerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 
 ## wolf
 
+- **Wolf Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wolf Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wolf Dash Grab**
   - `WolfDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 5710 ms and cannot prove the complete 44-frame fighter action
 - **Wolf Down B (Reflector)**
@@ -1223,6 +2207,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## yoshi
 
+- **Yoshi Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Yoshi Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Yoshi Down Air**
   - `YoshiDAirLanding` — fighter-action / short-or-misaligned-source: source has 17 images / 2210 ms and cannot prove the complete 56-frame fighter action
 - **Yoshi Pummel**
@@ -1232,6 +2225,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## young-link
 
+- **Young_link Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Young_link Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Young_link Pummel**
   - `YoungLinkPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Young_link Side B (Boomerang)**
@@ -1241,6 +2243,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## zelda
 
+- **Zelda Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Down B (Phantom Slash)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zelda Side B (Din's Fire)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Zelda Jab**
   - `ZeldaJab` — fighter-action / short-or-misaligned-source: source has 23 images / 2990 ms and cannot prove the complete 24-frame fighter action
 - **Zelda Pummel**
@@ -1250,6 +2263,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## zero-suit-samus
 
+- **Zero_suit_samus Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Zero_suit_samus Flip Jump, Kick** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Zero_suit_samus Down Air**
   - `ZeroSuitSamusDAirLanding` — fighter-action / short-or-misaligned-source: source has 24 images / 3120 ms and cannot prove the complete 67-frame fighter action
 - **Zero_suit_samus Pummel**

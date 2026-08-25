@@ -10,9 +10,9 @@
     "charge-state": 49,
     "companion-action": 21,
     "effect": 55,
-    "fighter-action": 2666,
+    "fighter-action": 2665,
     "loop-state": 110,
-    "projectile": 172,
+    "projectile": 173,
     "transition": 2
   },
   "moves": [
@@ -6604,8 +6604,8 @@
           "downloadUrl": "https://ultimateframedata.com/hitboxes/pikachu/PikachuThunder.gif",
           "sourceFormat": "gif",
           "mediaType": "animation",
-          "timelineClass": "fighter-action",
-          "timingBasis": "parent-action"
+          "timelineClass": "projectile",
+          "timingBasis": "independent-source"
         },
         {
           "id": "pikachuthunderhit",

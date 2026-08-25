@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T14:11:45Z",
+  "generatedAt": "2026-08-25T15:00:43Z",
   "mappedMoves": 2580,
   "variantCount": 3075,
   "resolvedVariants": 2531,
   "unresolvedVariants": 544,
   "coverageCounts": {
     "exact-static": 62,
-    "full": 2156,
+    "full": 2155,
     "partial": 356,
-    "source-timed": 313,
+    "source-timed": 314,
     "static": 82,
     "untimed-animation": 106
   },
@@ -17,9 +17,9 @@
     "charge-state": 49,
     "companion-action": 21,
     "effect": 55,
-    "fighter-action": 2666,
+    "fighter-action": 2665,
     "loop-state": 110,
-    "projectile": 172,
+    "projectile": 173,
     "transition": 2
   },
   "blockerCounts": {
@@ -27,8 +27,8 @@
     "short-or-misaligned-source": 356,
     "static-source-needs-motion": 82
   },
-  "fullExactVariants": 2156,
-  "sourceTimedVariants": 313,
+  "fullExactVariants": 2155,
+  "sourceTimedVariants": 314,
   "exactStaticVariants": 62,
   "partialExactVariants": 356,
   "untimedAnimatedVariants": 106,
