@@ -1,0 +1,96 @@
+name: Visual source discovery audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - 'scripts/discover-ufd-visuals.py'
+      - 'scripts/discover-external-visuals.py'
+      - 'scripts/discover-smashwiki-filename-visuals.py'
+      - 'scripts/discover-smashwiki-separated-prefix-visuals.py'
+      - 'scripts/discover-smashwiki-pokemon-trainer-visuals.py'
+      - 'scripts/discover-smashwiki-curated-move-aliases.py'
+      - 'scripts/audit-visual-coverage.py'
+      - 'src/data/frameData.generated.json'
+      - '.github/workflows/visual-discovery-audit.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-discovery-audit-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-media.txt
+      - name: Install discovery tooling
+        run: pip install -r scripts/requirements-media.txt
+      - name: Build fresh UFD baseline
+        run: |
+          python scripts/discover-ufd-visuals.py
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/visual-audit-before.json
+      - name: Recover all source-backed visuals
+        run: |
+          python scripts/discover-external-visuals.py
+          python scripts/discover-smashwiki-filename-visuals.py
+          python scripts/discover-smashwiki-separated-prefix-visuals.py
+          python scripts/discover-smashwiki-pokemon-trainer-visuals.py
+          python scripts/discover-smashwiki-curated-move-aliases.py
+          python scripts/audit-visual-coverage.py
+      - name: Write measurable recovery summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          before = json.loads(Path('/tmp/visual-audit-before.json').read_text())
+          after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
+          external = json.loads(Path('src/data/externalVisualSources.generated.json').read_text())
+          filename = json.loads(Path('src/data/smashwikiFilenameVisuals.generated.json').read_text())
+          separated = json.loads(Path('src/data/smashwikiSeparatedPrefixVisuals.generated.json').read_text())
+          pokemon = json.loads(Path('src/data/smashwikiPokemonTrainerVisuals.generated.json').read_text())
+          curated = json.loads(Path('src/data/smashwikiCuratedMoveAliases.generated.json').read_text())
+          remaining = Counter(row['category'] for row in after['movesWithoutVisuals'])
+          summary = {
+              'sourceLessBeforeRecovery': before['movesWithoutSourceVisual'],
+              'sourceLessAfterRecovery': after['movesWithoutSourceVisual'],
+              'sourceLessMovesRecoveredThisPass': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
+              'mappedSourceVisualMovesAfterRecovery': after['mappedSourceVisualMoves'],
+              'externalTableParserAddedMoves': external['addedMoves'],
+              'filenameSweepRecoveredMoves': filename['recoveredSourceLessMoves'],
+              'separatedPrefixRecoveredMoves': separated['recoveredSourceLessMoves'],
+              'pokemonTrainerAliasRecoveredMoves': pokemon['recoveredSourceLessMoves'],
+              'curatedAliasRecoveredMoves': curated['recoveredSourceLessMoves'],
+              'curatedAliasAddedVariants': curated['addedVariants'],
+              'remainingSourceLessByCategory': dict(sorted(remaining.items())),
+          }
+          Path('visual-discovery-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary, indent=2))
+          PY
+      - name: Upload discovery audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-discovery-audit
+          path: |
+            visual-discovery-summary.json
+            src/data/smashwikiCuratedMoveAliases.generated.json
+            src/data/visualCoverageAudit.generated.json
+          retention-days: 7
