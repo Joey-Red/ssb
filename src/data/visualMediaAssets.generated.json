@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T12:12:35Z",
+  "generatedAt": "2026-08-25T12:37:45Z",
   "moves": {
     "mario:jab-2": {
       "variants": [
@@ -53160,20 +53160,20 @@
         {
           "id": "mrgame-watchchef",
           "label": "MrGame_WatchChef",
-          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
-          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
-          "sourceFrameCount": 1,
-          "coverage": "static",
-          "coverageReason": "source is a static or separately timed reference"
-        },
-        {
-          "id": "mrgame-watchchef",
-          "label": "MrGame_WatchChef",
           "sha256": "2a3412cb9551d9ee0fdda9c7dfcb8931f62060a818dbe0251a6fb6a16e8ebb2f",
           "animationSrc": "media/move-animations/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
           "sourceFrameCount": 4,
           "coverage": "partial",
           "coverageReason": "source animation has 4 images for a 54-frame move"
+        },
+        {
+          "id": "mrgame-watchchef-png",
+          "label": "MrGame_WatchChef",
+          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
+          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef-png.webp",
+          "sourceFrameCount": 1,
+          "coverage": "static",
+          "coverageReason": "source is a static or separately timed reference"
         }
       ]
     },
@@ -71418,15 +71418,6 @@
         {
           "id": "diddykongrocketbarrels",
           "label": "DiddyKongRocketBarrels",
-          "sha256": "48b9c1fcac36e70d11729762e47bea31ebd3cbd8b9c461e2cb1c9ad547e741d3",
-          "imageSrc": "media/hitboxes/diddy-kong/up-b-rocketbarrel-boost/diddykongrocketbarrels.webp",
-          "sourceFrameCount": 1,
-          "coverage": "static",
-          "coverageReason": "source is a static or separately timed reference"
-        },
-        {
-          "id": "diddykongrocketbarrels",
-          "label": "DiddyKongRocketBarrels",
           "sha256": "5d69e1cfd295bf54ab1955da93b592e63fadf96a21e53b768c82c3c7fc498316",
           "spriteSheet": {
             "src": "media/frame-sheets/diddy-kong/up-b-rocketbarrel-boost/diddykongrocketbarrels.webp",
@@ -71469,6 +71460,15 @@
           "sourceFrameCount": 61,
           "coverage": "untimed-animation",
           "coverageReason": "move has no documented Total Frames value for a complete exact mapping"
+        },
+        {
+          "id": "diddykongrocketbarrels-png",
+          "label": "DiddyKongRocketBarrels",
+          "sha256": "48b9c1fcac36e70d11729762e47bea31ebd3cbd8b9c461e2cb1c9ad547e741d3",
+          "imageSrc": "media/hitboxes/diddy-kong/up-b-rocketbarrel-boost/diddykongrocketbarrels-png.webp",
+          "sourceFrameCount": 1,
+          "coverage": "static",
+          "coverageReason": "source is a static or separately timed reference"
         }
       ]
     },
@@ -71497,11 +71497,11 @@
           "coverageReason": "source is a static or separately timed reference"
         },
         {
-          "id": "diddykongbanana",
+          "id": "diddykongbanana-gif",
           "label": "DiddyKongBanana",
           "sha256": "08f2ff50ac53f005768d78795322101f5e58e824758d49313b7e5bdc393afa71",
           "spriteSheet": {
-            "src": "media/frame-sheets/diddy-kong/down-b-banana-peel/diddykongbanana.webp",
+            "src": "media/frame-sheets/diddy-kong/down-b-banana-peel/diddykongbanana-gif.webp",
             "frameWidth": 300,
             "frameHeight": 293,
             "columns": 6,
@@ -71510,7 +71510,7 @@
               20
             ]
           },
-          "animationSrc": "media/move-animations/diddy-kong/down-b-banana-peel/diddykongbanana.webp",
+          "animationSrc": "media/move-animations/diddy-kong/down-b-banana-peel/diddykongbanana-gif.webp",
           "sourceFrameCount": 26,
           "coverage": "partial",
           "coverageReason": "source animation has 26 images for a 39-frame move"
@@ -133791,6 +133791,61 @@
     "isabelle:dash-attack": {
       "variants": [
         {
+          "id": "isabelledashattack",
+          "label": "IsabelleDashAttack",
+          "sha256": "ead3ccc5705f6646c90297a03eb25a01a7f01b48b7ec71bff179f59582651eda",
+          "spriteSheet": {
+            "src": "media/frame-sheets/isabelle/dash-attack/isabelledashattack.webp",
+            "frameWidth": 300,
+            "frameHeight": 152,
+            "columns": 6,
+            "frameCount": 39,
+            "frameNumbers": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ]
+          },
+          "sourceFrameCount": 39,
+          "coverage": "full"
+        },
+        {
           "id": "isabelledashattackoffledge",
           "label": "IsabelleDashAttackOffLedge",
           "sha256": "47950e620307d4c66a1799a4694b47c349f4d2a804aab3d049cd2e036f5cb2b3",
@@ -133846,68 +133901,13 @@
           "coverage": "full"
         },
         {
-          "id": "isabelledashattack",
+          "id": "isabelledashattack-png",
           "label": "IsabelleDashAttack",
           "sha256": "a8b7831c5f3d91732e5d402d0489c26c416b8f72d3aaaa3a4585fb32b87e0927",
-          "imageSrc": "media/hitboxes/isabelle/dash-attack/isabelledashattack.webp",
+          "imageSrc": "media/hitboxes/isabelle/dash-attack/isabelledashattack-png.webp",
           "sourceFrameCount": 1,
           "coverage": "static",
           "coverageReason": "source is a static or separately timed reference"
-        },
-        {
-          "id": "isabelledashattack",
-          "label": "IsabelleDashAttack",
-          "sha256": "ead3ccc5705f6646c90297a03eb25a01a7f01b48b7ec71bff179f59582651eda",
-          "spriteSheet": {
-            "src": "media/frame-sheets/isabelle/dash-attack/isabelledashattack.webp",
-            "frameWidth": 300,
-            "frameHeight": 152,
-            "columns": 6,
-            "frameCount": 39,
-            "frameNumbers": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              32,
-              33,
-              34,
-              35,
-              36,
-              37,
-              38,
-              39
-            ]
-          },
-          "sourceFrameCount": 39,
-          "coverage": "full"
         }
       ]
     },
@@ -148954,15 +148954,6 @@
         {
           "id": "bylethfailnaughtmax",
           "label": "BylethFailnaughtMax",
-          "sha256": "76c8d52e93754b1be5a6e69295a27a8eec24a78ece6feb00314dcf5e08b88b88",
-          "imageSrc": "media/hitboxes/byleth/neutral-b-failnaught/bylethfailnaughtmax.webp",
-          "sourceFrameCount": 1,
-          "coverage": "static",
-          "coverageReason": "source is a static or separately timed reference"
-        },
-        {
-          "id": "bylethfailnaughtmax",
-          "label": "BylethFailnaughtMax",
           "sha256": "6f438b8f30816023cdab37ffb9d9e61ce18a393bb7541eea1c6614f9fa8f2349",
           "spriteSheet": {
             "src": "media/frame-sheets/byleth/neutral-b-failnaught/bylethfailnaughtmax.webp",
@@ -149055,6 +149046,15 @@
           },
           "sourceFrameCount": 160,
           "coverage": "full"
+        },
+        {
+          "id": "bylethfailnaughtmax-png",
+          "label": "BylethFailnaughtMax",
+          "sha256": "76c8d52e93754b1be5a6e69295a27a8eec24a78ece6feb00314dcf5e08b88b88",
+          "imageSrc": "media/hitboxes/byleth/neutral-b-failnaught/bylethfailnaughtmax-png.webp",
+          "sourceFrameCount": 1,
+          "coverage": "static",
+          "coverageReason": "source is a static or separately timed reference"
         }
       ]
     },
