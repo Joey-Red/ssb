@@ -5,6 +5,7 @@ on:
     types: [opened, reopened, synchronize]
     paths:
       - 'scripts/discover-smashwiki-shorthand-visuals.py'
+      - 'scripts/discover-smashwiki-curated-gap-visuals.py'
       - '.github/workflows/visual-discovery-followup.yml'
   workflow_dispatch:
 
@@ -38,10 +39,15 @@ jobs:
           python scripts/discover-external-visuals.py
           python scripts/discover-smashwiki-filename-visuals.py
           python scripts/audit-visual-coverage.py
-          cp src/data/visualCoverageAudit.generated.json /tmp/audit-before-shorthand.json
+          cp src/data/visualCoverageAudit.generated.json /tmp/audit-before-followup.json
       - name: Recover shorthand animations
         run: |
           python scripts/discover-smashwiki-shorthand-visuals.py
+          python scripts/audit-visual-coverage.py
+          cp src/data/visualCoverageAudit.generated.json /tmp/audit-after-shorthand.json
+      - name: Recover verified curated gaps
+        run: |
+          python scripts/discover-smashwiki-curated-gap-visuals.py
           python scripts/audit-visual-coverage.py
       - name: Write recovery delta
         shell: bash
@@ -51,23 +57,29 @@ jobs:
           from pathlib import Path
 
           ufd = json.loads(Path('/tmp/audit-ufd.json').read_text())
-          before = json.loads(Path('/tmp/audit-before-shorthand.json').read_text())
+          before = json.loads(Path('/tmp/audit-before-followup.json').read_text())
+          shorthand_after = json.loads(Path('/tmp/audit-after-shorthand.json').read_text())
           after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
           shorthand = json.loads(Path('src/data/smashwikiShorthandVisuals.generated.json').read_text())
+          curated = json.loads(Path('src/data/smashwikiCuratedGapVisuals.generated.json').read_text())
           summary = {
               'ufdSourceLessMoves': ufd['movesWithoutSourceVisual'],
-              'sourceLessBeforeShorthand': before['movesWithoutSourceVisual'],
-              'sourceLessAfterShorthand': after['movesWithoutSourceVisual'],
+              'sourceLessBeforeFollowup': before['movesWithoutSourceVisual'],
+              'sourceLessAfterShorthand': shorthand_after['movesWithoutSourceVisual'],
+              'sourceLessAfterCurated': after['movesWithoutSourceVisual'],
               'existingExternalRecovery': ufd['movesWithoutSourceVisual'] - before['movesWithoutSourceVisual'],
-              'shorthandRecoveredMoves': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
+              'shorthandRecoveredMoves': before['movesWithoutSourceVisual'] - shorthand_after['movesWithoutSourceVisual'],
+              'curatedRecoveredMoves': shorthand_after['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
+              'totalFollowupRecoveredMoves': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
               'shorthandReportedRecoveredMoves': shorthand['recoveredSourceLessMoves'],
-              'mappedSourceVisualMovesAfterShorthand': after['mappedSourceVisualMoves'],
+              'curatedReportedRecoveredMoves': curated['recoveredSourceLessMoves'],
+              'mappedSourceVisualMovesAfterFollowup': after['mappedSourceVisualMoves'],
               'remainingCategoryCounts': after['missingMoveCategories'],
           }
           Path('visual-discovery-followup-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
           print(json.dumps(summary, indent=2))
-          if summary['shorthandRecoveredMoves'] <= 0:
-              raise SystemExit('shorthand discovery recovered no additional source-less moves')
+          if summary['totalFollowupRecoveredMoves'] <= 0:
+              raise SystemExit('follow-up discovery recovered no additional source-less moves')
           PY
       - name: Upload follow-up audit
         uses: actions/upload-artifact@v4
@@ -76,5 +88,6 @@ jobs:
           path: |
             visual-discovery-followup-summary.json
             src/data/smashwikiShorthandVisuals.generated.json
+            src/data/smashwikiCuratedGapVisuals.generated.json
             src/data/visualCoverageAudit.generated.json
           retention-days: 7
