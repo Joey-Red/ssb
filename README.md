@@ -26,7 +26,7 @@ A mobile-first, frontend-only Super Smash Bros. Ultimate training companion for 
 - Maintenance tooling scans all 89 UFD fighter pages and maps locally stageable hitbox media to the committed move IDs. The current generated set contains 2,580 mapped moves and 3,075 valid source variants.
 - Runtime visual media is entirely same-origin: source images are vendored into the repository and converted to compact active/impact-frame sheets or local static references. The deployed app does not hotlink UFD media.
 - Visual metadata is split into one cacheable JSON index per fighter, so opening one character does not download the full-roster visual manifest.
-- Exact source images are mapped to documented game-frame numbers. Missing source imagery is shown as missing rather than duplicated, interpolated, or fabricated.
+- Source images are assigned documented game-frame numbers only when the source animation actually contains images overlapping the documented active/impact window. Short or alternate animations that cannot be aligned honestly remain untimed local static references instead of receiving invented frame numbers.
 - Matchup/DI practice lab that surfaces training focuses without pretending a universal matchup chart or DI answer exists.
 - Cross-roster frame tools for side-by-side moves, OOS startup references, and fast-move discovery.
 - Frame-literacy glossary using standard SSBU frames only.
@@ -41,10 +41,10 @@ Visual move data is separate from numeric frame data. A `VisualMoveMedia` entry 
 - documented game-frame timing;
 - exact locally staged source frames;
 - one or more source variants for angled/alternate visualizations;
-- a local static reference when UFD provides an image instead of an animation;
+- a local static reference when UFD provides an image or when an animation cannot be honestly aligned to documented game frames;
 - optional hitbox circles/regions when separately reviewed overlay geometry exists.
 
-The frame player never invents an image or collision region. Compact sprite sheets contain only exact source images selected for the move's active/impact study span, and each cell records the game-frame number it represents. Startup and recovery timing remains seekable even when no corresponding source image was staged.
+The frame player never invents an image, collision region, or game-frame mapping. Compact sprite sheets contain only source images that overlap the move's documented active/impact study span, and each sheet cell records the game-frame number it represents. Source animations with no honest overlap are kept as untimed static references. Startup and recovery timing remains seekable even when no corresponding source image was staged.
 
 Visual discovery uses the same first-positive/maximum-positive frame semantics as the runtime timing helpers, and staged frame numbers are clamped to documented Total Frames. This keeps complex multi-hit and parenthetical UFD notation consistent between maintenance data, tests, and the player.
 
