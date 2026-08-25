@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 """Vendor truthful full-motion runtime visuals for SSBU move study.
 
-The maintenance pipeline stages UFD media locally and keeps two timing domains
-separate:
-
-* fighter-action sources may be mapped to documented game frames only when the
-  source contains every frame directly or its encoded display durations account
-  for the documented 60 FPS action duration;
-* landing/projectile/effect/charge/loop/companion/transition sources own an
-  independent timeline and are never forced onto the parent action's Total Frames.
+The maintenance pipeline stages source media locally and keeps timing domains
+separate. Normal fighter actions may be mapped to documented game frames only
+when source imagery/timing or a reviewed provenance override proves the mapping.
+Landing/projectile/effect/charge/loop/companion/transition sources own their own
+truthful timeline instead of inheriting the parent move's Total Frames.
 
 No missing bitmap, game frame, hitbox, or timing value is synthesized.
 """
@@ -30,6 +27,7 @@ from PIL import Image, ImageSequence
 ROOT = Path(__file__).resolve().parents[1]
 BASE_SCRIPT = ROOT / "scripts/vendor-static-assets.py"
 COVERAGE_PATH = ROOT / "src/data/visualMediaCoverage.generated.json"
+OVERRIDES_PATH = ROOT / "src/data/visualTimelineOverrides.json"
 ANIMATION_DIR_RELATIVE = Path("media/move-animations")
 
 spec = importlib.util.spec_from_file_location("ssb_vendor_static_assets", BASE_SCRIPT)
@@ -43,6 +41,18 @@ ANIMATED_WEBP_QUALITY = 68
 GAME_FRAME_MS = 1000.0 / 60.0
 DURATION_TOLERANCE_MS = 25.0
 RESOLVED_COVERAGE = {"full", "source-timed", "exact-static"}
+
+
+def load_overrides() -> dict[str, dict[str, Any]]:
+    if not OVERRIDES_PATH.exists():
+        return {}
+    payload = json.loads(OVERRIDES_PATH.read_text(encoding="utf-8"))
+    if payload.get("version") != 1 or not isinstance(payload.get("entries"), dict):
+        raise RuntimeError("visual timeline overrides must use schema version 1")
+    return payload["entries"]
+
+
+OVERRIDES = load_overrides()
 
 
 def source_animation(data: bytes) -> tuple[list[Image.Image], list[int], int]:
@@ -61,9 +71,7 @@ def source_animation(data: bytes) -> tuple[list[Image.Image], list[int], int]:
     return frames, durations, loop
 
 
-def save_animated_reference(
-    frames: list[Image.Image], durations: list[int], loop: int, output: Path,
-) -> None:
+def save_animated_reference(frames: list[Image.Image], durations: list[int], loop: int, output: Path) -> None:
     resized, _, _ = base.resized_frames(frames)
     if len(durations) != len(resized):
         durations = [17] * len(resized)
@@ -90,6 +98,20 @@ def documented_landing(move: dict[str, Any]) -> int | None:
     return int(value) if isinstance(value, int) and value > 0 else None
 
 
+def variant_key(move: dict[str, Any], variant: dict[str, Any]) -> str:
+    return f"{move['fighterId']}:{move['moveId']}:{base.safe_name(variant['id'])}"
+
+
+def reviewed_override(move: dict[str, Any], variant: dict[str, Any]) -> dict[str, Any] | None:
+    value = OVERRIDES.get(variant_key(move, variant))
+    if value is None:
+        return None
+    for required in ("provenanceNote", "sourceUrl"):
+        if not str(value.get(required, "")).strip():
+            raise RuntimeError(f"reviewed override {variant_key(move, variant)} is missing {required}")
+    return value
+
+
 def active_frame_numbers(move: dict[str, Any], source_count: int) -> list[int]:
     span = move.get("activeSpan") or []
     if len(span) == 2:
@@ -106,9 +128,9 @@ def frame_cells_from_durations(durations: list[int], total_frames: int, *, requi
     """Map 60 FPS frame centers to encoded source-image display intervals.
 
     Reusing one source image for several game frames is allowed only because the
-    source itself says that image is held for that duration. For documented game
-    timelines, encoded duration must match the action duration within a tight
-    quantization tolerance. Independent source timelines do not make that claim.
+    source itself says that image is held for that duration. For a documented
+    game timeline, total encoded duration must also match the documented action
+    duration within quantization tolerance.
     """
     if not durations or total_frames <= 0:
         return None
@@ -141,9 +163,7 @@ def source_timeline_frames(durations: list[int]) -> int:
     return max(1, round(sum(durations) / GAME_FRAME_MS))
 
 
-def mapped_sheet(
-    frames: list[Image.Image], game_cells: list[int], output: Path,
-) -> dict[str, Any]:
+def mapped_sheet(frames: list[Image.Image], game_cells: list[int], output: Path) -> dict[str, Any]:
     """Pack only source cells actually used and store a compact game-frame map."""
     used_source_cells: list[int] = []
     for cell in game_cells:
@@ -157,8 +177,13 @@ def mapped_sheet(
     return sheet
 
 
-def target_for_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[int | None, str | None]:
-    timeline = variant.get("timelineClass", "fighter-action")
+def target_for_variant(move: dict[str, Any], variant: dict[str, Any], override: dict[str, Any] | None) -> tuple[int | None, str | None]:
+    if override:
+        override_total = override.get("totalFrames")
+        if isinstance(override_total, int) and override_total > 0:
+            return override_total, "reviewed-provenance-override"
+
+    timeline = str((override or {}).get("timelineClass") or variant.get("timelineClass", "fighter-action"))
     if timeline == "fighter-action":
         total = documented_total(move)
         return total, "documented-total-frames" if total is not None else None
@@ -183,43 +208,74 @@ def exact_animation_timeline(
     return mapped_sheet(frames, game_cells, output), "encoded-duration-60fps"
 
 
+def static_result(
+    move: dict[str, Any], variant: dict[str, Any], data: bytes, result: dict[str, Any], timeline_class: str,
+) -> tuple[str, dict[str, Any]]:
+    fighter_id = move["fighterId"]
+    move_id = move["moveId"]
+    variant_id = result["id"]
+    relative = f"media/hitboxes/{fighter_id}/{move_id}/{variant_id}.webp"
+    base.save_static_reference(data, base.PUBLIC / relative)
+    result.update({"imageSrc": relative, "sourceFrameCount": 1, "sourceDurationMs": None})
+    if timeline_class in {"projectile", "charge-state"}:
+        result.update({
+            "coverage": "exact-static",
+            "coverageReason": f"independent {timeline_class} source is a truthful static visual state",
+            "timelineTotalFrames": 1,
+            "mappingMethod": "single-source-state",
+            "timelineBasis": "source-state",
+        })
+    else:
+        result.update({
+            "coverage": "static",
+            "coverageReason": f"{timeline_class} source is static and does not prove a complete moving timeline",
+        })
+    return f"{fighter_id}:{move_id}", result
+
+
 def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str, dict[str, Any]]:
     fighter_id = move["fighterId"]
     move_id = move["moveId"]
     variant_id = base.safe_name(variant["id"])
-    timeline_class = variant.get("timelineClass", "fighter-action")
+    override = reviewed_override(move, variant)
+    timeline_class = str((override or {}).get("timelineClass") or variant.get("timelineClass", "fighter-action"))
     data = base.fetch_bytes(variant["downloadUrl"], referer=move["sourceUrl"])
     result: dict[str, Any] = {
         "id": variant_id,
         "label": variant.get("label") or variant_id,
         "sha256": hashlib.sha256(data).hexdigest(),
         "timelineClass": timeline_class,
-        "timingBasis": variant.get("timingBasis", "parent-action" if timeline_class == "fighter-action" else "independent-source"),
+        "timingBasis": "parent-action" if timeline_class == "fighter-action" else "independent-source",
         "sourceFormat": variant.get("sourceFormat"),
+        "interactionEvidence": "embedded-source",
     }
+    if override:
+        result["reviewedOverride"] = {
+            "sourceUrl": override["sourceUrl"],
+            "provenanceNote": override["provenanceNote"],
+        }
 
-    if variant["mediaType"] == "image":
-        relative = f"media/hitboxes/{fighter_id}/{move_id}/{variant_id}.webp"
-        base.save_static_reference(data, base.PUBLIC / relative)
-        result.update({"imageSrc": relative, "sourceFrameCount": 1, "sourceDurationMs": None})
-        if timeline_class in {"projectile", "charge-state"}:
-            result.update({
-                "coverage": "exact-static",
-                "coverageReason": f"independent {timeline_class} source is a truthful static visual state",
-                "timelineTotalFrames": 1,
-                "mappingMethod": "single-source-state",
-            })
-        else:
-            result.update({
-                "coverage": "static",
-                "coverageReason": f"{timeline_class} source is static and does not prove a complete moving timeline",
-            })
-        return f"{fighter_id}:{move_id}", result
+    # UFD currently mostly serves GIF/PNG, but WebP may itself be animated. Do
+    # not classify it from the extension alone: inspect it and keep animation
+    # semantics whenever Pillow reports multiple source images.
+    all_frames: list[Image.Image] | None = None
+    durations: list[int] | None = None
+    loop = 0
+    is_animation = variant.get("mediaType") == "animation"
+    if not is_animation and variant.get("sourceFormat") == "webp":
+        probed_frames, probed_durations, probed_loop = source_animation(data)
+        if len(probed_frames) > 1:
+            is_animation = True
+            all_frames, durations, loop = probed_frames, probed_durations, probed_loop
 
-    all_frames, durations, loop = source_animation(data)
+    if not is_animation:
+        return static_result(move, variant, data, result, timeline_class)
+
+    if all_frames is None or durations is None:
+        all_frames, durations, loop = source_animation(data)
     source_count = len(all_frames)
     source_duration_ms = sum(durations)
-    target, target_basis = target_for_variant(move, variant)
+    target, target_basis = target_for_variant(move, variant, override)
     result.update({
         "sourceFrameCount": source_count,
         "sourceDurationMs": source_duration_ms,
@@ -243,6 +299,25 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
                 "timelineBasis": target_basis,
             })
             return f"{fighter_id}:{move_id}", result
+
+    # A reviewed source may establish that the represented action has no single
+    # fixed end frame (loops, travel states, conditional specials). In that case
+    # the complete encoded source sequence is truthful as its own timeline and
+    # must not be mislabeled as a missing Total Frames value.
+    if override and override.get("timingMode") == "source-timed":
+        source_frames = source_timeline_frames(durations)
+        game_cells = frame_cells_from_durations(durations, source_frames, require_duration_match=False)
+        if game_cells:
+            sheet = mapped_sheet(all_frames, game_cells, base.PUBLIC / relative)
+            result["spriteSheet"] = {"src": relative, **sheet}
+        result.update({
+            "coverage": "source-timed",
+            "coverageReason": "reviewed provenance establishes a variable/indefinite action; timeline follows encoded source duration",
+            "timelineTotalFrames": source_frames,
+            "mappingMethod": "source-duration-60fps",
+            "timelineBasis": "reviewed-variable-action-source-duration",
+        })
+        return f"{fighter_id}:{move_id}", result
 
     if timeline_class != "fighter-action":
         source_frames = source_timeline_frames(durations)
@@ -273,9 +348,7 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
         result["coverageReason"] = "fighter action has no documented Total Frames value for an exact complete mapping"
     else:
         result["coverage"] = "partial"
-        result["coverageReason"] = (
-            f"source has {source_count} images / {source_duration_ms} ms and cannot prove the complete {total}-frame fighter action"
-        )
+        result["coverageReason"] = f"source has {source_count} images / {source_duration_ms} ms and cannot prove the complete {total}-frame fighter action"
     return f"{fighter_id}:{move_id}", result
 
 
@@ -431,6 +504,7 @@ def main() -> int:
         "sourceTimedVariantCount": report["sourceTimedVariants"],
         "exactStaticVariantCount": report["exactStaticVariants"],
         "visualCoverageGapCount": report["gapCount"],
+        "reviewedOverrideCount": len(OVERRIDES),
         "fightersScanned": source_manifest.get("fightersScanned", 0),
         "mediaBytes": media_size,
     }, indent=2) + "\n", encoding="utf-8")
