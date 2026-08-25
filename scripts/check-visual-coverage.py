@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the generated visual-coverage release invariant."""
+"""Validate generated visual-coverage accounting and the true zero-gap invariant."""
 from __future__ import annotations
 
 import argparse
@@ -8,11 +8,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "src/data/visualMediaCoverage.generated.json"
+AUDIT = ROOT / "src/data/visualCoverageAudit.generated.json"
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--strict", action="store_true", help="fail unless unresolvedVariants is exactly zero")
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="fail unless both unresolved source variants and source-less frame-data moves are exactly zero",
+    )
     args = parser.parse_args()
 
     report = json.loads(REPORT.read_text(encoding="utf-8"))
@@ -28,6 +33,7 @@ def main() -> int:
         raise SystemExit(f"coverage accounting mismatch: {resolved} + {unresolved} != {variant_count}")
     if len(gaps) != unresolved:
         raise SystemExit(f"coverage gap list mismatch: {len(gaps)} != {unresolved}")
+
     duplicate_keys = []
     seen: set[str] = set()
     for gap in gaps:
@@ -40,10 +46,39 @@ def main() -> int:
     if duplicate_keys:
         raise SystemExit("duplicate coverage blockers: " + ", ".join(sorted(set(duplicate_keys))))
 
-    print(f"visual coverage: {resolved}/{variant_count} resolved; {unresolved} unresolved")
-    if args.strict and unresolved != 0:
+    audit = json.loads(AUDIT.read_text(encoding="utf-8"))
+    if audit.get("version") != 2:
+        raise SystemExit("visual coverage audit must be version 2")
+    audit_unresolved_variants = int(audit.get("unresolvedVariants", -1))
+    source_less_moves = int(audit.get("movesWithoutSourceVisual", -1))
+    unresolved_total = int(audit.get("unresolvedTotal", -1))
+    if audit_unresolved_variants != unresolved:
+        raise SystemExit(
+            "audit/source report mismatch: "
+            f"{audit_unresolved_variants} audit variants != {unresolved} source-report variants"
+        )
+    if source_less_moves < 0 or unresolved_total < 0:
+        raise SystemExit("visual coverage audit has invalid unresolved counts")
+    if unresolved + source_less_moves != unresolved_total:
+        raise SystemExit(
+            "audit total mismatch: "
+            f"{unresolved} variants + {source_less_moves} source-less moves != {unresolved_total}"
+        )
+
+    print(
+        f"visual coverage: {resolved}/{variant_count} source variants resolved; "
+        f"{source_less_moves} frame-data moves have no real visual; "
+        f"{unresolved_total} total blockers"
+    )
+    if args.strict and unresolved_total != 0:
         blockers = report.get("blockerCounts", {})
-        raise SystemExit(f"100% visual coverage required; {unresolved} variants remain: {blockers}")
+        missing_categories = audit.get("missingMoveCategories", {})
+        raise SystemExit(
+            "100% source-backed visual coverage required; "
+            f"{unresolved_total} blockers remain "
+            f"({unresolved} unresolved variants: {blockers}; "
+            f"{source_less_moves} source-less moves: {missing_categories})"
+        )
     return 0
 
 
