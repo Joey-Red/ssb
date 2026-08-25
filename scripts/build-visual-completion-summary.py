@@ -9,22 +9,32 @@ ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / "src/data/visualCoverageAudit.generated.json"
 TIMING = ROOT / "src/data/rubenTimingOverrides.generated.json"
 EXTERNAL = ROOT / "src/data/externalVisualSources.generated.json"
+ARCHIVE = ROOT / "src/data/ultimateHitboxesArchive.generated.json"
 CAPTURE = ROOT / "src/data/visualCaptureQueue.generated.json"
 OUT = ROOT / "docs/VISUAL_COMPLETION_SUMMARY.generated.md"
 
 
+def load_optional(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload if isinstance(payload, dict) else {}
+
+
 def main() -> int:
     audit = json.loads(AUDIT.read_text(encoding="utf-8"))
-    timing = json.loads(TIMING.read_text(encoding="utf-8")) if TIMING.exists() else {}
-    external = json.loads(EXTERNAL.read_text(encoding="utf-8")) if EXTERNAL.exists() else {}
-    capture = json.loads(CAPTURE.read_text(encoding="utf-8")) if CAPTURE.exists() else {}
+    timing = load_optional(TIMING)
+    external = load_optional(EXTERNAL)
+    archive = load_optional(ARCHIVE)
+    capture = load_optional(CAPTURE)
 
     missing_categories = audit.get("missingMoveCategories", {})
     blockers = audit.get("blockerCounts", {})
+    capture_count = capture.get("jobCount", len(capture.get("jobs", [])))
     lines = [
         "# Visual Completion Summary",
         "",
-        "This file is generated after public-source discovery, game-data timing resolution, media vendoring, historical-source selection, and the strict coverage audit.",
+        "This file is generated after public-source discovery, game-data timing resolution, media vendoring, historical-source selection, preserved exact-frame archive integration, and the strict coverage audit.",
         "",
         f"- Frame-data move rows: **{audit.get('totalFrameDataMoves', 0)}**",
         f"- Move rows with real source/reviewed visuals: **{audit.get('mappedVisualMoves', 0)}**",
@@ -36,7 +46,9 @@ def main() -> int:
         f"- Ruben timing gaps resolved automatically: **{timing.get('resolvedTimingGaps', 0)} / {timing.get('targetTimingGaps', 0)}**",
         f"- External candidates accepted this pass: **{external.get('acceptedCandidates', 0)}**",
         f"- Previously source-less moves gaining external candidates: **{external.get('addedMoves', 0)}**",
-        f"- Deterministic capture queue entries: **{capture.get('queueCount', len(capture.get('queue', [])) if isinstance(capture, dict) else 0)}**",
+        f"- Exact Ultimate Hitboxes archive variants integrated: **{archive.get('integratedExactVariants', 0)}**",
+        f"- Archive-backed source-less moves closed: **{archive.get('sourceLessMovesAdded', 0)}**",
+        f"- Deterministic capture queue entries: **{capture_count}**",
         "",
         "## Remaining variant blockers",
         "",
@@ -61,7 +73,10 @@ def main() -> int:
         "Synthetic timing schematics are excluded from every count above. A blocker reaches zero only through source-backed media, reviewed deterministic capture, or provenance-backed timing evidence.",
     ])
     OUT.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
-    print(f"completion summary: {audit.get('unresolvedTotal', 0)} real blockers remain")
+    print(
+        f"completion summary: {audit.get('unresolvedTotal', 0)} real blockers remain; "
+        f"capture queue={capture_count}"
+    )
     return 0
 
 
