@@ -31,38 +31,76 @@ jobs:
           cache-dependency-path: scripts/requirements-media.txt
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
-      - name: Confirm PR19 source-backed baseline
+      - name: Detect committed residual output
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report_path = Path('src/data/smashwikiResidualSpecialVisuals.generated.json')
+          committed = False
+          if report_path.exists():
+              report = json.loads(report_path.read_text())
+              sources = json.loads(Path('src/data/visualMediaSources.json').read_text())
+              residual_moves = {
+                  (move['fighterId'], move['moveId'])
+                  for move in sources.get('moves', [])
+                  if any(str(v.get('id', '')).startswith('smashwiki-residual-') for v in move.get('variants', []))
+              }
+              expected = {
+                  ('ganondorf', 'side-b-air-success-flame-choke-air-success'),
+                  ('joker', 'down-b-rebel-s-guard'),
+                  ('joker', 'up-b-grappling-hook'),
+                  ('joker', 'up-b-arsene-wings-of-rebellion'),
+              }
+              committed = report.get('recoveredSourceLessMoves') == 4 and expected.issubset(residual_moves)
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as fh:
+              fh.write(f"RESIDUAL_ALREADY_COMMITTED={'true' if committed else 'false'}\n")
+          print(f'residual output already committed: {committed}')
+          PY
+      - name: Audit current baseline
         run: |
           python scripts/audit-visual-coverage.py
           cp src/data/visualCoverageAudit.generated.json /tmp/audit-before-residual.json
       - name: Recover verified residual specials
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
         run: |
           python scripts/discover-smashwiki-residual-special-visuals.py
           python scripts/audit-visual-coverage.py
-      - name: Verify exactly four unique recoveries
+      - name: Verify residual state
         shell: bash
         run: |
           python - <<'PY'
-          import json
+          import json, os
           from pathlib import Path
           before = json.loads(Path('/tmp/audit-before-residual.json').read_text())
           after = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
           residual = json.loads(Path('src/data/smashwikiResidualSpecialVisuals.generated.json').read_text())
+          already = os.environ.get('RESIDUAL_ALREADY_COMMITTED') == 'true'
+          recovered_now = before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual']
           summary = {
+              'alreadyCommitted': already,
               'sourceLessBeforeResidual': before['movesWithoutSourceVisual'],
               'sourceLessAfterResidual': after['movesWithoutSourceVisual'],
-              'residualSpecialRecoveredMoves': before['movesWithoutSourceVisual'] - after['movesWithoutSourceVisual'],
+              'residualSpecialRecoveredThisRun': recovered_now,
               'residualReportedRecoveredMoves': residual['recoveredSourceLessMoves'],
               'remainingCategoryCounts': after['missingMoveCategories'],
           }
           print(json.dumps(summary, indent=2))
           Path('visual-consolidation-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
-          if summary['residualSpecialRecoveredMoves'] != 4 or summary['residualReportedRecoveredMoves'] != 4:
-              raise SystemExit('expected exactly four verified residual special recoveries')
+          if residual['recoveredSourceLessMoves'] != 4:
+              raise SystemExit('residual report must retain exactly four verified recoveries')
+          if already:
+              if after['movesWithoutSourceVisual'] != 849:
+                  raise SystemExit('committed residual output must retain 849 source-less moves')
+          elif recovered_now != 4:
+              raise SystemExit('expected exactly four newly verified residual special recoveries')
           PY
       - name: Vendor only residual special media
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
         run: python scripts/vendor-residual-special-visuals.py
       - name: Rebuild runtime indexes and truthful coverage reports
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
         run: |
           python scripts/build-runtime-visual-index.py
           python scripts/audit-visual-coverage.py
@@ -70,6 +108,7 @@ jobs:
           python scripts/build-visual-completion-summary.py
           python scripts/build-synthetic-visual-fallbacks.py
       - name: Commit targeted generated output
+        if: env.RESIDUAL_ALREADY_COMMITTED != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -104,5 +143,3 @@ jobs:
             src/data/visualMediaCoverage.generated.json
             docs/VISUAL_COMPLETION_SUMMARY.generated.md
           retention-days: 7
-
-# Restacked on the merged PR19 release; changes here intentionally trigger exact-head validation.
