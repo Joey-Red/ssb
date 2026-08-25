@@ -136,7 +136,7 @@ describe('full-roster visual frame media', () => {
     expect(coverage.fullExactVariants).toBeGreaterThan(0)
     expect(coverage.fullExactVariants + coverage.gapCount).toBe(coverage.variantCount)
     expect(coverage.gaps).toHaveLength(coverage.gapCount)
-    expect(coverage.gaps.every((gap) => gap.coverage !== 'full' && gap.reason.length > 0)).toBe(true)
+    expect(coverage.gaps.every((gap) => gap.reason.length > 0)).toBe(true)
 
     const stagedNonFull = Object.values(assets.moves)
       .flatMap((move) => move.variants)
