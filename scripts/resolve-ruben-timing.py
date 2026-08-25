@@ -69,12 +69,12 @@ def ordinary_motion_kind(move: dict[str, Any]) -> str | None:
         "jab 2": "attack_12", "neutral attack 2": "attack_12",
         "jab 3": "attack_13", "neutral attack 3": "attack_13",
         "dash attack": "attack_dash",
-        "forward tilt": "attack_s3_s", "f tilt": "attack_s3_s",
-        "up tilt": "attack_hi3", "u tilt": "attack_hi3",
-        "down tilt": "attack_lw3", "d tilt": "attack_lw3",
-        "forward smash": "attack_s4_s", "f smash": "attack_s4_s",
-        "up smash": "attack_hi4", "u smash": "attack_hi4",
-        "down smash": "attack_lw4", "d smash": "attack_lw4",
+        "forward tilt": "attack_s3_s", "f tilt": "attack_s3_s", "ftilt": "attack_s3_s",
+        "up tilt": "attack_hi3", "u tilt": "attack_hi3", "utilt": "attack_hi3",
+        "down tilt": "attack_lw3", "d tilt": "attack_lw3", "dtilt": "attack_lw3",
+        "forward smash": "attack_s4_s", "f smash": "attack_s4_s", "fsmash": "attack_s4_s",
+        "up smash": "attack_hi4", "u smash": "attack_hi4", "usmash": "attack_hi4",
+        "down smash": "attack_lw4", "d smash": "attack_lw4", "dsmash": "attack_lw4",
         "neutral air": "attack_air_n", "neutral aerial": "attack_air_n", "nair": "attack_air_n",
         "forward air": "attack_air_f", "forward aerial": "attack_air_f", "fair": "attack_air_f",
         "back air": "attack_air_b", "back aerial": "attack_air_b", "bair": "attack_air_b",
@@ -83,8 +83,10 @@ def ordinary_motion_kind(move: dict[str, Any]) -> str | None:
         "grab": "catch", "standing grab": "catch",
         "dash grab": "catch_dash", "pivot grab": "catch_turn",
         "pummel": "catch_attack",
-        "forward throw": "throw_f", "back throw": "throw_b",
-        "up throw": "throw_hi", "down throw": "throw_lw",
+        "forward throw": "throw_f", "fthrow": "throw_f",
+        "back throw": "throw_b", "bthrow": "throw_b",
+        "up throw": "throw_hi", "uthrow": "throw_hi",
+        "down throw": "throw_lw", "dthrow": "throw_lw",
         "ledge attack": "cliff_attack_quick", "edge attack": "cliff_attack_quick",
         "trip attack": "slip_attack",
         "getup attack face up": "down_attack_u",
@@ -94,7 +96,6 @@ def ordinary_motion_kind(move: dict[str, Any]) -> str | None:
     }
     if name in aliases:
         return aliases[name]
-    # Accept common UFD prefixes while refusing rapid-jab/charge/state variants.
     for alias, motion in sorted(aliases.items(), key=lambda item: len(item[0]), reverse=True):
         if name.startswith(alias + " ") and not any(token in name for token in ("rapid", "charge", "charged", "late")):
             return motion
@@ -151,10 +152,22 @@ def fighter_directory(fighter_id: str, fighter: dict[str, Any], directories: dic
 
 
 def motion_table(payload: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    motions = payload.get("Motions") or payload.get("motions") or []
+    """Flatten Ruben's article-keyed motion lists into motion-kind lookup."""
+    root = payload.get("Motions") or payload.get("motions") or {}
+    rows: list[dict[str, Any]] = []
+    if isinstance(root, dict):
+        for values in root.values():
+            if isinstance(values, list):
+                rows.extend(item for item in values if isinstance(item, dict))
+    elif isinstance(root, list):
+        rows.extend(item for item in root if isinstance(item, dict))
+
     result: dict[str, dict[str, Any]] = {}
-    for motion in motions:
+    for motion in rows:
         kind = str(motion.get("MotionKind") or motion.get("motionKind") or "").lower()
+        if not kind:
+            game_hash = str(motion.get("GameHash") or motion.get("gameHash") or "").lower()
+            kind = game_hash.removeprefix("game_")
         if kind:
             result[kind] = motion
     return result
@@ -201,7 +214,6 @@ def candidate_total(move: dict[str, Any], motions: dict[str, dict[str, Any]]) ->
         air_kind = f"special_air_{axis}"
         ground = cancel_frame(motions, ground_kind)
         air = cancel_frame(motions, air_kind)
-        # Only accept a base special when ground and air independently agree.
         if ground and air and ground == air:
             return ground - 1, f"{ground_kind}+{air_kind}"
     return None, None
@@ -271,7 +283,7 @@ def main() -> int:
                 "timelineClass": "fighter-action",
                 "sourceUrl": page_url,
                 "provenanceNote": (
-                    f"SSBU {PATCH} Ruben_dal motion data: {motion_basis} CancelFrame encodes FAF; "
+                    f"SSBU {PATCH} Ruben_dal motion data: {motion_basis} CancelFrame is exposed as FAF by the source viewer; "
                     f"Total Frames derived as CancelFrame - 1. This fighter passed {validation_matches} exact "
                     "known-total checks with zero mismatches. Base specials additionally require identical grounded/air CancelFrame."
                 ),
