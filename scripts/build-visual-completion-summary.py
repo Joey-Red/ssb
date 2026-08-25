@@ -34,7 +34,7 @@ def main() -> int:
     lines = [
         "# Visual Completion Summary",
         "",
-        "This file is generated after public-source discovery, game-data timing resolution, media vendoring, historical-source selection, preserved exact-frame archive integration, and the strict coverage audit.",
+        "This file is generated after public-source discovery, game-data timing resolution, media vendoring, historical-source selection, reference-only archive corroboration, and the strict coverage audit.",
         "",
         f"- Frame-data move rows: **{audit.get('totalFrameDataMoves', 0)}**",
         f"- Move rows with real source/reviewed visuals: **{audit.get('mappedVisualMoves', 0)}**",
@@ -46,8 +46,10 @@ def main() -> int:
         f"- Ruben timing gaps resolved automatically: **{timing.get('resolvedTimingGaps', 0)} / {timing.get('targetTimingGaps', 0)}**",
         f"- External candidates accepted this pass: **{external.get('acceptedCandidates', 0)}**",
         f"- Previously source-less moves gaining external candidates: **{external.get('addedMoves', 0)}**",
-        f"- Exact Ultimate Hitboxes archive variants integrated: **{archive.get('integratedExactVariants', 0)}**",
-        f"- Archive-backed source-less moves closed: **{archive.get('sourceLessMovesAdded', 0)}**",
+        f"- Ultimate Hitboxes metadata corroborations: **{archive.get('metadataCorroborations', 0)}**",
+        f"- Ultimate Hitboxes metadata disagreements retained for review: **{archive.get('metadataDisagreements', 0)}**",
+        f"- Runtime assets imported from that unlicensed archive: **{archive.get('runtimeAssetsImported', 0)}**",
+        f"- Coverage blockers closed by reference-only archive metadata: **{archive.get('coverageBlockersResolved', 0)}**",
         f"- Deterministic capture queue entries: **{capture_count}**",
         "",
         "## Remaining variant blockers",
@@ -70,7 +72,7 @@ def main() -> int:
         "",
         "## Completion rule",
         "",
-        "Synthetic timing schematics are excluded from every count above. A blocker reaches zero only through source-backed media, reviewed deterministic capture, or provenance-backed timing evidence.",
+        "Synthetic timing schematics and reference-only archive metadata are excluded from source-backed completion. A blocker reaches zero only through redistributable source-backed media, reviewed deterministic capture, or provenance-backed timing evidence appropriate to that blocker.",
     ])
     OUT.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
     print(
