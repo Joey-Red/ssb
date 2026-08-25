@@ -98,6 +98,23 @@ def documented_landing(move: dict[str, Any]) -> int | None:
     return int(value) if isinstance(value, int) and value > 0 else None
 
 
+def parent_interaction_outlives_action(move: dict[str, Any], total: int | None) -> tuple[bool, int | None]:
+    """Return whether documented interaction persists beyond fighter Total Frames.
+
+    UFD rows can include a projectile/object/effect active span that remains live
+    after the fighter's own action has ended. A complete fighter animation is
+    still useful in that case, but it must not be labeled complete *move*
+    interaction coverage unless the lingering entity has its own proven source.
+    """
+    if total is None:
+        return False, None
+    span = move.get("activeSpan") or []
+    if len(span) != 2:
+        return False, None
+    last_active = int(span[1])
+    return last_active > total, last_active
+
+
 def variant_key(move: dict[str, Any], variant: dict[str, Any]) -> str:
     return f"{move['fighterId']}:{move['moveId']}:{base.safe_name(variant['id'])}"
 
@@ -276,6 +293,7 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
     source_count = len(all_frames)
     source_duration_ms = sum(durations)
     target, target_basis = target_for_variant(move, variant, override)
+    interaction_outlives_action, last_active = parent_interaction_outlives_action(move, target)
     result.update({
         "sourceFrameCount": source_count,
         "sourceDurationMs": source_duration_ms,
@@ -287,7 +305,13 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
     result["animationSrc"] = animation_relative
 
     relative = f"media/frame-sheets/{fighter_id}/{move_id}/{variant_id}.webp"
-    if target is not None:
+    # A fighter animation can be complete through Total Frames while a spawned
+    # projectile/object/effect remains active afterward. In that case the visual
+    # is useful full-motion fighter footage, but it is not complete move
+    # interaction coverage. Refuse the "full" label until the lingering entity
+    # has its own proven independent timeline.
+    can_claim_full = not (timeline_class == "fighter-action" and interaction_outlives_action)
+    if target is not None and can_claim_full:
         sheet, method = exact_animation_timeline(all_frames, durations, target, base.PUBLIC / relative)
         if sheet is not None and method is not None:
             result.update({
@@ -334,8 +358,10 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
         })
         return f"{fighter_id}:{move_id}", result
 
-    # A normal fighter action that cannot prove the full documented timeline
-    # keeps only conservative exact/impact mapping plus the moving fallback.
+    # A normal fighter action that cannot prove the complete move interaction
+    # timeline keeps only conservative exact/impact mapping plus the moving
+    # fallback. This includes complete fighter animations whose spawned object
+    # remains active after the fighter action itself ends.
     frame_numbers = active_frame_numbers(move, source_count)
     if frame_numbers:
         selected = [all_frames[number - 1] for number in frame_numbers]
@@ -346,6 +372,12 @@ def process_variant(move: dict[str, Any], variant: dict[str, Any]) -> tuple[str,
     if total is None:
         result["coverage"] = "untimed-animation"
         result["coverageReason"] = "fighter action has no documented Total Frames value for an exact complete mapping"
+    elif interaction_outlives_action and last_active is not None:
+        result["coverage"] = "partial"
+        result["coverageReason"] = (
+            f"fighter-action source can cover the {total}-frame parent action, but documented interaction remains active "
+            f"through frame {last_active}; complete move coverage requires a proven independent projectile/effect/object timeline"
+        )
     else:
         result["coverage"] = "partial"
         result["coverageReason"] = f"source has {source_count} images / {source_duration_ms} ms and cannot prove the complete {total}-frame fighter action"
