@@ -3,7 +3,7 @@ name: Vendor static visual assets
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
     paths:
       - 'scripts/discover-ufd-visuals.py'
       - 'scripts/vendor-static-assets.py'
