@@ -215,8 +215,8 @@ export interface VisualMediaVariant {
   timelineBasis?: string
   mappingMethod?: string
   sourceFormat?: string
-  /** Collision visualization is baked into the source media or separately reviewed. */
-  interactionEvidence?: 'embedded-source' | 'reviewed-overlay'
+  /** Collision visualization comes from staged source media, reviewed overlay metadata, or a reviewed local frame capture. */
+  interactionEvidence?: 'embedded-source' | 'reviewed-overlay' | 'reviewed-capture'
   reviewedOverride?: {
     sourceUrl: string
     provenanceNote: string
