@@ -1,0 +1,820 @@
+{
+  "version": 1,
+  "source": "rubendal/ssbu patch 13.0.1",
+  "policy": "generated game-data timing evidence only; manual reviewed overrides take precedence",
+  "targetTimingGaps": 126,
+  "resolvedTimingGaps": 0,
+  "entries": {},
+  "diagnostics": {
+    "bowser": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=51 documented=40",
+        "down-smash:attack_lw4 ruben=71 documented=72",
+        "pummel:catch_attack ruben=7 documented=21",
+        "neutral-air-dodge:attack_air_n ruben=47 documented=46"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Bowser"
+    },
+    "bowser-jr": {
+      "status": "validation-failed",
+      "validationMatches": 11,
+      "validationMismatches": [
+        "up-smash:attack_hi4 ruben=54 documented=53",
+        "down-smash:attack_lw4 ruben=64 documented=59",
+        "down-air:attack_air_lw ruben=69 documented=56",
+        "neutral-air-dodge:attack_air_n ruben=43 documented=48"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 4,
+      "rubenDirectory": "Bowser Jr"
+    },
+    "captain-falcon": {
+      "status": "validation-failed",
+      "validationMatches": 19,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=31 documented=29",
+        "up-tilt:attack_hi3 ruben=39 documented=36",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=39 documented=42"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Captain Falcon"
+    },
+    "charizard": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "down-tilt:attack_lw3 ruben=32 documented=30",
+        "up-smash:attack_hi4 ruben=48 documented=46",
+        "down-air:attack_air_lw ruben=50 documented=51",
+        "pummel:catch_attack ruben=7 documented=21",
+        "neutral-air-dodge:attack_air_n ruben=39 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Charizard"
+    },
+    "chrom": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "forward-smash:attack_s4_s ruben=54 documented=53",
+        "forward-air:attack_air_f ruben=33 documented=29",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=44"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 4,
+      "rubenDirectory": "Chrom"
+    },
+    "cloud": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "up-smash:attack_hi4 ruben=48 documented=45",
+        "neutral-air:attack_air_n ruben=41 documented=38",
+        "back-air:attack_air_b ruben=41 documented=42",
+        "pummel:catch_attack ruben=6 documented=18",
+        "neutral-air-dodge:attack_air_n ruben=41 documented=47"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 4,
+      "rubenDirectory": "Cloud"
+    },
+    "corrin": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=37 documented=34"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Corrin"
+    },
+    "daisy": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "neutral-air-dodge:attack_air_n ruben=48 documented=61"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Daisy"
+    },
+    "dark-samus": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "neutral-air-dodge:attack_air_n ruben=45 documented=56"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Dark Samus"
+    },
+    "diddy-kong": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "dash-attack:attack_dash ruben=42 documented=40",
+        "down-smash:attack_lw4 ruben=52 documented=50",
+        "up-air:attack_air_hi ruben=35 documented=36",
+        "down-air:attack_air_lw ruben=48 documented=46",
+        "pummel:catch_attack ruben=6 documented=16",
+        "up-throw:throw_hi ruben=27 documented=26",
+        "neutral-air-dodge:attack_air_n ruben=48 documented=44"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Diddy Kong"
+    },
+    "dr-mario": {
+      "status": "validation-failed",
+      "validationMatches": 19,
+      "validationMismatches": [
+        "up-air:attack_air_hi ruben=31 documented=30",
+        "down-air:attack_air_lw ruben=44 documented=42",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=52"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Dr. Mario"
+    },
+    "ganondorf": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=94 documented=95",
+        "neutral-air:attack_air_n ruben=44 documented=40",
+        "pummel:catch_attack ruben=7 documented=21",
+        "neutral-air-dodge:attack_air_n ruben=44 documented=46"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Ganondorf"
+    },
+    "greninja": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=38 documented=32",
+        "dash-attack:attack_dash ruben=30 documented=28",
+        "pummel:catch_attack ruben=7 documented=18",
+        "down-throw:throw_lw ruben=42 documented=37",
+        "neutral-air-dodge:attack_air_n ruben=52 documented=41"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Greninja"
+    },
+    "hero": {
+      "status": "validation-failed",
+      "validationMatches": 20,
+      "validationMismatches": [
+        "forward-tilt-1:attack_s3_s ruben=34 documented=36",
+        "forward-tilt-2:attack_s3_s ruben=34 documented=47",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=50"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Hero"
+    },
+    "ice-climbers": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=32 documented=29",
+        "dash-attack:attack_dash ruben=41 documented=39",
+        "grab:catch ruben=29 documented=39",
+        "dash-grab:catch_dash ruben=38 documented=47",
+        "pivot-grab:catch_turn ruben=39 documented=40",
+        "pummel:catch_attack ruben=6 documented=16",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=58"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Ice Climbers"
+    },
+    "ike": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=44 documented=41",
+        "dash-attack:attack_dash ruben=50 documented=47",
+        "pummel:catch_attack ruben=6 documented=20",
+        "forward-throw:throw_f ruben=33 documented=32",
+        "neutral-air-dodge:attack_air_n ruben=59 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Ike"
+    },
+    "inkling": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=32 documented=29",
+        "neutral-air:attack_air_n ruben=32 documented=31",
+        "pummel:catch_attack ruben=6 documented=18",
+        "neutral-air-dodge:attack_air_n ruben=32 documented=50"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Inkling"
+    },
+    "isabelle": {
+      "status": "validation-failed",
+      "validationMatches": 8,
+      "validationMismatches": [
+        "dash-attack:attack_dash ruben=41 documented=39",
+        "up-smash:attack_hi4 ruben=50 documented=45",
+        "down-air:attack_air_lw ruben=45 documented=42",
+        "neutral-air-dodge:attack_air_n ruben=33 documented=58"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Isabelle"
+    },
+    "ken": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "forward-air:attack_air_f ruben=34 documented=36",
+        "pummel:catch_attack ruben=6 documented=16",
+        "neutral-air-dodge:attack_air_n ruben=27 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 6,
+      "rubenDirectory": "Ken"
+    },
+    "king-dedede": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "grab:catch ruben=36 documented=39",
+        "dash-grab:catch_dash ruben=46 documented=47",
+        "pummel:catch_attack ruben=7 documented=21",
+        "neutral-air-dodge:attack_air_n ruben=39 documented=43"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "King Dedede"
+    },
+    "king-k-rool": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "dash-attack:attack_dash ruben=63 documented=60",
+        "back-air:attack_air_b ruben=59 documented=49",
+        "up-throw:throw_hi ruben=84 documented=103",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=46"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "King K. Rool"
+    },
+    "kirby": {
+      "status": "validation-failed",
+      "validationMatches": 13,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=15 documented=14",
+        "up-smash:attack_hi4 ruben=47 documented=45",
+        "down-smash:attack_lw4 ruben=53 documented=50",
+        "neutral-air:attack_air_n ruben=54 documented=52",
+        "up-air:attack_air_hi ruben=37 documented=35",
+        "grab:catch ruben=33 documented=34",
+        "pummel:catch_attack ruben=5 documented=15",
+        "up-throw:throw_hi ruben=79 documented=86",
+        "neutral-air-dodge:attack_air_n ruben=54 documented=62"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Kirby"
+    },
+    "link": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=24 documented=23",
+        "jab-2:attack_12 ruben=24 documented=25",
+        "down-tilt:attack_lw3 ruben=33 documented=30",
+        "forward-smash-1:attack_s4_s ruben=48 documented=50",
+        "forward-smash-2:attack_s4_s ruben=48 documented=60",
+        "down-smash:attack_lw4 ruben=51 documented=56",
+        "forward-air:attack_air_f ruben=49 documented=51",
+        "pummel:catch_attack ruben=6 documented=18",
+        "neutral-air-dodge:attack_air_n ruben=38 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Link"
+    },
+    "little-mac": {
+      "status": "validation-failed",
+      "validationMatches": 17,
+      "validationMismatches": [
+        "jab-2:attack_12 ruben=21 documented=16",
+        "pummel:catch_attack ruben=5 documented=15",
+        "neutral-air-dodge:attack_air_n ruben=15 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Little Mac"
+    },
+    "lucario": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=31 documented=24",
+        "jab-2:attack_12 ruben=32 documented=26",
+        "jab-3:attack_13 ruben=38 documented=35",
+        "down-tilt:attack_lw3 ruben=22 documented=20",
+        "down-smash:attack_lw4 ruben=54 documented=51",
+        "back-air:attack_air_b ruben=48 documented=49",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=42 documented=48"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Lucario"
+    },
+    "lucas": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "dash-attack:attack_dash ruben=41 documented=37",
+        "up-air:attack_air_hi ruben=36 documented=31",
+        "neutral-air-dodge:attack_air_n ruben=44 documented=56"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Lucas"
+    },
+    "lucina": {
+      "status": "validation-failed",
+      "validationMatches": 17,
+      "validationMismatches": [
+        "down-smash:attack_lw4 ruben=54 documented=55",
+        "pummel:catch_attack ruben=6 documented=19",
+        "forward-throw:throw_f ruben=31 documented=34",
+        "down-throw:throw_lw ruben=42 documented=46",
+        "neutral-air-dodge:attack_air_n ruben=49 documented=52"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Lucina"
+    },
+    "luigi": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "neutral-air-dodge:attack_air_n ruben=44 documented=57"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Luigi"
+    },
+    "mario": {
+      "status": "validation-failed",
+      "validationMatches": 20,
+      "validationMismatches": [
+        "up-air:attack_air_hi ruben=31 documented=30",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=52"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Mario"
+    },
+    "marth": {
+      "status": "validation-failed",
+      "validationMatches": 17,
+      "validationMismatches": [
+        "down-smash:attack_lw4 ruben=54 documented=55",
+        "pummel:catch_attack ruben=6 documented=19",
+        "forward-throw:throw_f ruben=31 documented=34",
+        "down-throw:throw_lw ruben=42 documented=46",
+        "neutral-air-dodge:attack_air_n ruben=49 documented=52"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Marth"
+    },
+    "mii-brawler": {
+      "status": "validation-failed",
+      "validationMatches": 20,
+      "validationMismatches": [
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=40"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 8,
+      "rubenDirectory": "Mii Brawler"
+    },
+    "mii-gunner": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=36 documented=33",
+        "forward-air:attack_air_f ruben=41 documented=43",
+        "up-air:attack_air_hi ruben=61 documented=59",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=41 documented=52"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Mii Gunner"
+    },
+    "mii-swordfighter": {
+      "status": "validation-failed",
+      "validationMatches": 17,
+      "validationMismatches": [
+        "dash-attack:attack_dash ruben=45 documented=41",
+        "neutral-air:attack_air_n ruben=49 documented=48",
+        "forward-air:attack_air_f ruben=46 documented=49",
+        "pummel:catch_attack ruben=6 documented=19",
+        "down-throw:throw_lw ruben=33 documented=32",
+        "neutral-air-dodge:attack_air_n ruben=49 documented=50"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Mii Swordfighter"
+    },
+    "mr-game-and-watch": {
+      "status": "validation-failed",
+      "validationMatches": 9,
+      "validationMismatches": [
+        "dash-attack:attack_dash ruben=37 documented=38",
+        "down-smash:attack_lw4 ruben=33 documented=37",
+        "grab:catch ruben=29 documented=34",
+        "dash-grab:catch_dash ruben=40 documented=42",
+        "pivot-grab:catch_turn ruben=36 documented=37",
+        "pummel:catch_attack ruben=6 documented=19"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Mr. Game & Watch"
+    },
+    "mythra": {
+      "status": "validation-failed",
+      "validationMatches": 3,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=21 documented=20",
+        "jab-2:attack_12 ruben=31 documented=30",
+        "jab-3:attack_13 ruben=35 documented=29",
+        "forward-tilt:attack_s3_s ruben=36 documented=25",
+        "up-tilt:attack_hi3 ruben=35 documented=26",
+        "down-tilt:attack_lw3 ruben=27 documented=20",
+        "dash-attack:attack_dash ruben=49 documented=39",
+        "forward-smash:attack_s4_s ruben=63 documented=49",
+        "up-smash:attack_hi4 ruben=63 documented=52",
+        "down-smash:attack_lw4 ruben=55 documented=44",
+        "neutral-air:attack_air_n ruben=48 documented=50",
+        "forward-air:attack_air_f ruben=45 documented=37",
+        "back-air:attack_air_b ruben=43 documented=33",
+        "up-air:attack_air_hi ruben=45 documented=30",
+        "down-air:attack_air_lw ruben=47 documented=40",
+        "dash-grab:catch_dash ruben=44 documented=43",
+        "pivot-grab:catch_turn ruben=39 documented=38",
+        "pummel:catch_attack ruben=6 documented=19",
+        "down-throw:throw_lw ruben=45 documented=48",
+        "neutral-air-dodge:attack_air_n ruben=48 documented=44"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Mythra"
+    },
+    "ness": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=31 documented=28",
+        "up-air:attack_air_hi ruben=36 documented=33",
+        "down-air:attack_air_lw ruben=54 documented=52",
+        "pummel:catch_attack ruben=6 documented=19",
+        "down-throw:throw_lw ruben=49 documented=50",
+        "neutral-air-dodge:attack_air_n ruben=35 documented=59"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Ness"
+    },
+    "pac-man": {
+      "status": "validation-failed",
+      "validationMatches": 20,
+      "validationMismatches": [
+        "pummel:catch_attack ruben=6 documented=19",
+        "up-throw:throw_hi ruben=40 documented=37",
+        "neutral-air-dodge:attack_air_n ruben=51 documented=55"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "PAC-MAN"
+    },
+    "peach": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "neutral-air-dodge:attack_air_n ruben=48 documented=61"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Peach"
+    },
+    "piranha-plant": {
+      "status": "validation-failed",
+      "validationMatches": 17,
+      "validationMismatches": [
+        "forward-tilt-2:attack_s3_s ruben=27 documented=31",
+        "up-tilt:attack_hi3 ruben=28 documented=26",
+        "forward-smash:attack_s4_s ruben=57 documented=51",
+        "down-smash:attack_lw4 ruben=47 documented=43",
+        "forward-air:attack_air_f ruben=47 documented=44",
+        "neutral-air-dodge:attack_air_n ruben=47 documented=42"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Piranha Plant"
+    },
+    "pyra": {
+      "status": "validation-failed",
+      "validationMatches": 7,
+      "validationMismatches": [
+        "forward-tilt:attack_s3_s ruben=35 documented=37",
+        "up-tilt:attack_hi3 ruben=37 documented=39",
+        "down-tilt:attack_lw3 ruben=27 documented=26",
+        "dash-attack:attack_dash ruben=49 documented=52",
+        "forward-smash:attack_s4_s ruben=65 documented=67",
+        "up-smash:attack_hi4 ruben=63 documented=66",
+        "down-smash:attack_lw4 ruben=55 documented=47",
+        "neutral-air:attack_air_n ruben=51 documented=56",
+        "forward-air:attack_air_f ruben=45 documented=48",
+        "back-air:attack_air_b ruben=47 documented=49",
+        "up-air:attack_air_hi ruben=55 documented=57",
+        "down-air:attack_air_lw ruben=63 documented=65",
+        "grab:catch ruben=36 documented=37",
+        "pummel:catch_attack ruben=6 documented=19",
+        "down-throw:throw_lw ruben=45 documented=48",
+        "neutral-air-dodge:attack_air_n ruben=51 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Pyra"
+    },
+    "richter": {
+      "status": "validation-failed",
+      "validationMatches": 5,
+      "validationMismatches": [
+        "down-tilt-2:attack_lw3 ruben=44 documented=57",
+        "down-air:attack_air_lw ruben=51 documented=48",
+        "pummel:catch_attack ruben=6 documented=18",
+        "down-throw:throw_lw ruben=39 documented=48"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Richter"
+    },
+    "robin": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "down-smash:attack_lw4 ruben=63 documented=56",
+        "neutral-air:attack_air_n ruben=49 documented=47",
+        "pummel:catch_attack ruben=6 documented=21",
+        "neutral-air-dodge:attack_air_n ruben=49 documented=51"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Robin"
+    },
+    "roy": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "forward-smash:attack_s4_s ruben=54 documented=53",
+        "forward-air:attack_air_f ruben=33 documented=29",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=45 documented=44"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Roy"
+    },
+    "ryu": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "forward-air:attack_air_f ruben=34 documented=36",
+        "pummel:catch_attack ruben=6 documented=16",
+        "neutral-air-dodge:attack_air_n ruben=35 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 7,
+      "rubenDirectory": "Ryu"
+    },
+    "samus": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "neutral-air-dodge:attack_air_n ruben=45 documented=56"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Samus"
+    },
+    "shulk": {
+      "status": "validation-failed",
+      "validationMatches": 19,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=47 documented=39",
+        "dash-attack:attack_dash ruben=47 documented=40",
+        "pummel:catch_attack ruben=6 documented=15",
+        "neutral-air-dodge:attack_air_n ruben=59 documented=49"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Shulk"
+    },
+    "simon": {
+      "status": "validation-failed",
+      "validationMatches": 5,
+      "validationMismatches": [
+        "down-tilt-2:attack_lw3 ruben=44 documented=57",
+        "down-air:attack_air_lw ruben=51 documented=48",
+        "pummel:catch_attack ruben=6 documented=18",
+        "down-throw:throw_lw ruben=39 documented=48"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Simon"
+    },
+    "sonic": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=39 documented=35",
+        "dash-attack:attack_dash ruben=45 documented=49",
+        "up-smash:attack_hi4 ruben=65 documented=61",
+        "grab:catch ruben=31 documented=37",
+        "dash-grab:catch_dash ruben=39 documented=47",
+        "pivot-grab:catch_turn ruben=36 documented=39",
+        "pummel:catch_attack ruben=6 documented=19",
+        "neutral-air-dodge:attack_air_n ruben=49 documented=50"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Sonic"
+    },
+    "sora": {
+      "status": "validation-failed",
+      "validationMatches": 14,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=39 documented=36",
+        "ftilt-1-ftilt-2-combo:attack_s3_s ruben=41 documented=40",
+        "forward-tilt-3:attack_s3_s ruben=41 documented=45",
+        "down-tilt:attack_lw3 ruben=32 documented=31",
+        "forward-smash:attack_s4_s ruben=54 documented=52",
+        "up-smash:attack_hi4 ruben=53 documented=52",
+        "neutral-air-2:attack_air_n ruben=41 documented=33",
+        "forward-air:attack_air_f ruben=41 documented=43",
+        "forward-air-2:attack_air_f ruben=41 documented=33",
+        "grab:catch ruben=37 documented=35",
+        "dash-grab:catch_dash ruben=44 documented=41",
+        "pivot-grab:catch_turn ruben=39 documented=37",
+        "pummel:catch_attack ruben=6 documented=18",
+        "down-throw:throw_lw ruben=43 documented=39",
+        "neutral-air-dodge:attack_air_n ruben=41 documented=54"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Sora"
+    },
+    "squirtle": {
+      "status": "validation-failed",
+      "validationMatches": 18,
+      "validationMismatches": [
+        "forward-smash:attack_s4_s ruben=59 documented=49",
+        "down-smash:attack_lw4 ruben=51 documented=41",
+        "neutral-air:attack_air_n ruben=47 documented=41",
+        "pummel:catch_attack ruben=5 documented=15",
+        "neutral-air-dodge:attack_air_n ruben=47 documented=53"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 2,
+      "rubenDirectory": "Squirtle"
+    },
+    "steve": {
+      "status": "validation-failed",
+      "validationMatches": 5,
+      "validationMismatches": [
+        "up-tilt:attack_hi3 ruben=18 documented=16",
+        "forward-smash:attack_s4_s ruben=41 documented=43",
+        "pummel:catch_attack ruben=6 documented=20",
+        "neutral-air-dodge:attack_air_n ruben=17 documented=54"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 4,
+      "rubenDirectory": "Steve"
+    },
+    "terry": {
+      "status": "validation-failed",
+      "validationMatches": 13,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=15 documented=13",
+        "forward-tilt:attack_s3_s ruben=29 documented=27",
+        "down-tilt:attack_lw3 ruben=19 documented=16",
+        "forward-smash:attack_s4_s ruben=45 documented=50",
+        "up-smash:attack_hi4 ruben=39 documented=41",
+        "down-smash:attack_lw4 ruben=38 documented=40",
+        "forward-air:attack_air_f ruben=37 documented=39",
+        "pummel:catch_attack ruben=6 documented=16",
+        "forward-throw:throw_f ruben=49 documented=40",
+        "neutral-air-dodge:attack_air_n ruben=33 documented=51"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Terry"
+    },
+    "toon-link": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=19 documented=18",
+        "dash-attack:attack_dash ruben=42 documented=28",
+        "down-smash:attack_lw4 ruben=49 documented=46",
+        "back-air:attack_air_b ruben=24 documented=35",
+        "pummel:catch_attack ruben=6 documented=16",
+        "forward-throw:throw_f ruben=40 documented=39",
+        "neutral-air-dodge:attack_air_n ruben=41 documented=56"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Toon Link"
+    },
+    "wario": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "neutral-air:attack_air_n ruben=49 documented=45",
+        "grab:catch ruben=34 documented=35",
+        "dash-grab:catch_dash ruben=42 documented=43",
+        "pummel:catch_attack ruben=7 documented=21",
+        "up-throw:throw_hi ruben=44 documented=43",
+        "neutral-air-dodge:attack_air_n ruben=49 documented=50"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Wario"
+    },
+    "wolf": {
+      "status": "validation-failed",
+      "validationMatches": 15,
+      "validationMismatches": [
+        "forward-smash:attack_s4_s ruben=45 documented=41",
+        "down-smash:attack_lw4 ruben=34 documented=43",
+        "dash-grab:catch_dash ruben=39 documented=44",
+        "pivot-grab:catch_turn ruben=35 documented=39",
+        "pummel:catch_attack ruben=6 documented=19",
+        "up-throw:throw_hi ruben=49 documented=45",
+        "down-throw:throw_lw ruben=50 documented=40",
+        "neutral-air-dodge:attack_air_n ruben=42 documented=44"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Wolf"
+    },
+    "young-link": {
+      "status": "validation-failed",
+      "validationMatches": 16,
+      "validationMismatches": [
+        "jab-1:attack_11 ruben=19 documented=17",
+        "down-tilt:attack_lw3 ruben=31 documented=25",
+        "forward-smash-2:attack_s4_s ruben=47 documented=49",
+        "up-smash:attack_hi4 ruben=68 documented=69",
+        "forward-air:attack_air_f ruben=46 documented=40",
+        "grab:catch ruben=52 documented=51",
+        "pummel:catch_attack ruben=6 documented=18",
+        "neutral-air-dodge:attack_air_n ruben=35 documented=45"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 1,
+      "rubenDirectory": "Young Link"
+    },
+    "zero-suit-samus": {
+      "status": "validation-failed",
+      "validationMatches": 13,
+      "validationMismatches": [
+        "back-air:attack_air_b ruben=39 documented=40",
+        "pummel:catch_attack ruben=6 documented=19"
+      ],
+      "resolvedTimingGaps": 0,
+      "skippedTimingGaps": 3,
+      "rubenDirectory": "Zero Suit Samus"
+    }
+  }
+}
