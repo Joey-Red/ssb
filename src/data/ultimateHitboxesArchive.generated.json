@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-25T20:07:45Z",
+  "generatedAt": "2026-08-25T21:22:00Z",
   "provider": "ultimate-hitboxes-metadata-reference",
   "originalRepository": "RSN-Bran/ultimate-hitboxes",
   "preservedRepository": "joaorb64/ultimate-hitboxes",
@@ -9,9 +9,9 @@
   "redistributionStatus": "reference-only; no redistribution license is recorded for the preserved rendered-frame repository",
   "runtimeAssetsImported": 0,
   "coverageBlockersResolved": 0,
-  "unresolvedMovesConsidered": 1440,
+  "unresolvedMovesConsidered": 1265,
   "metadataCorroborations": 0,
-  "metadataDisagreements": 164,
+  "metadataDisagreements": 100,
   "unmatchedFighters": [
     "banjo-and-kazooie",
     "mr-game-and-watch",
@@ -21,22 +21,7 @@
   "disagreements": [
     {
       "fighterId": "bayonetta",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "bayonetta",
-      "moveId": "down-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "bayonetta",
       "moveId": "neutral-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "bayonetta",
-      "moveId": "side-b-heel-slide",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -45,48 +30,13 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "bayonetta",
-      "moveId": "up-b-witch-twist",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "bowser",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "bowser-jr",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "bowser-jr",
       "moveId": "down-b-mechakoopa",
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "bowser-jr",
-      "moveId": "forward-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "byleth",
-      "moveId": "neutral-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "byleth",
-      "moveId": "side-b-areadbhar",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "captain-falcon",
       "moveId": "down-b-falcon-kick",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "captain-falcon",
-      "moveId": "neutral-b-falcon-punch",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -97,11 +47,6 @@
     {
       "fighterId": "charizard",
       "moveId": "forward-tilt",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "chrom",
-      "moveId": "neutral-b-flare-blade",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -121,21 +66,11 @@
     },
     {
       "fighterId": "corrin",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "corrin",
       "moveId": "down-b-counter-surge",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "corrin",
-      "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "daisy",
       "moveId": "forward-smash",
       "reason": "ambiguous-archive-move-match"
     },
@@ -171,27 +106,12 @@
     },
     {
       "fighterId": "falco",
-      "moveId": "forward-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "falco",
       "moveId": "side-b-falco-phantasm",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "fox",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "fox",
       "moveId": "down-b-reflector",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "fox",
-      "moveId": "forward-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -207,11 +127,6 @@
     {
       "fighterId": "ike",
       "moveId": "down-b-counter",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "ike",
-      "moveId": "neutral-b-eruption",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -235,16 +150,6 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "joker",
-      "moveId": "forward-tilt",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "kazuya",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "kazuya",
       "moveId": "down-b-heaven-s-door",
       "reason": "ambiguous-archive-move-match"
@@ -252,16 +157,6 @@
     {
       "fighterId": "kazuya",
       "moveId": "gates-of-hell-gates-of-hell-success",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "kazuya",
-      "moveId": "rage-drive-input",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "kazuya",
-      "moveId": "up-forward-tilt-roundhouse-to-triple-spin-kicks",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -291,22 +186,12 @@
     },
     {
       "fighterId": "kirby",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "kirby",
       "moveId": "down-b-stone",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "kirby",
       "moveId": "neutral-b-inhale",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "little-mac",
-      "moveId": "forward-smash",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -325,28 +210,8 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "luigi",
-      "moveId": "down-b-luigi-cyclone",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mario",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "marth",
       "moveId": "up-b-dolphin-slash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mega-man",
-      "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "meta-knight",
-      "moveId": "down-b-dimensional-cape",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -357,16 +222,6 @@
     {
       "fighterId": "mii-brawler",
       "moveId": "flashing-mach-punch",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "moveId": "forward-tilt",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -401,17 +256,7 @@
     },
     {
       "fighterId": "mii-swordfighter",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mii-swordfighter",
       "moveId": "stone-scabbard",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "min-min",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -466,17 +311,7 @@
     },
     {
       "fighterId": "mythra",
-      "moveId": "neutral-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mythra",
       "moveId": "neutral-b-lightning-buster",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "mythra",
-      "moveId": "side-b-photon-edge",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -485,38 +320,8 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "ness",
-      "moveId": "side-b-pk-fire",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "back-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "down-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "forward-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "olimar",
       "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "up-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -526,42 +331,12 @@
     },
     {
       "fighterId": "pac-man",
-      "moveId": "forward-tilt",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pac-man",
       "moveId": "neutral-b-bonus-fruit-throw",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "peach",
-      "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "peach",
       "moveId": "up-b-peach-parasol",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pichu",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pichu",
-      "moveId": "down-b-thunder",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pikachu",
-      "moveId": "back-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pikachu",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -572,11 +347,6 @@
     {
       "fighterId": "pit",
       "moveId": "side-b-upperdash-arm",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pyra",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -595,18 +365,8 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "ridley",
-      "moveId": "up-b-wing-blitz",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "rob",
       "moveId": "side-b-arm-rotor",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "roy",
-      "moveId": "neutral-b-flare-blade",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -636,17 +396,7 @@
     },
     {
       "fighterId": "sephiroth",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "sephiroth",
       "moveId": "side-b-shadow-flare",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "sheik",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -655,33 +405,8 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "shulk",
-      "moveId": "down-b-vision",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "simon",
       "moveId": "down-b-holy-water",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "snake",
-      "moveId": "side-b-nikita",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "snake",
-      "moveId": "up-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "sonic",
-      "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "sora",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -701,16 +426,6 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "back-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "dash-attack",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "steve",
       "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
@@ -726,27 +441,12 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "forward-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "steve",
       "moveId": "forward-smash",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "steve",
-      "moveId": "jab-forward-tilt",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "steve",
       "moveId": "side-b-minecart",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "up-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -775,11 +475,6 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "toon-link",
-      "moveId": "down-air",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "villager",
       "moveId": "side-b-lloid-rocket",
       "reason": "ambiguous-archive-move-match"
@@ -791,22 +486,12 @@
     },
     {
       "fighterId": "wario",
-      "moveId": "forward-tilt",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "wario",
       "moveId": "neutral-b-chomp",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "wolf",
       "moveId": "down-b-reflector",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "yoshi",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -827,11 +512,6 @@
     {
       "fighterId": "zelda",
       "moveId": "up-b-farore-s-wind",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "zero-suit-samus",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
