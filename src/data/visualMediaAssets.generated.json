@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-08-25T00:53:54Z",
+  "generatedAt": "2026-08-25T01:06:19Z",
   "moves": {
     "mario:jab-2": {
       "variants": [
@@ -430,27 +430,8 @@
           "id": "mariodairlanding",
           "label": "MarioDAirLanding",
           "sha256": "b6f9ca301888787a351c8c6838b9c7e97daf7bb2d5408341355fb52d89169f8f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mario/down-air/mariodairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 292,
-            "columns": 6,
-            "frameCount": 11,
-            "frameNumbers": [
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ]
-          },
-          "sourceFrameCount": 15
+          "imageSrc": "media/hitboxes/mario/down-air/mariodairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -4897,18 +4878,8 @@
           "id": "yoshidairlanding",
           "label": "YoshiDAirLanding",
           "sha256": "0eb3e037099ae47971dab664894da4678d9b235eebb3b4e53eb367b20da634af",
-          "spriteSheet": {
-            "src": "media/frame-sheets/yoshi/down-air/yoshidairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 230,
-            "columns": 6,
-            "frameCount": 2,
-            "frameNumbers": [
-              16,
-              17
-            ]
-          },
-          "sourceFrameCount": 17
+          "imageSrc": "media/hitboxes/yoshi/down-air/yoshidairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -5763,17 +5734,8 @@
           "id": "kirbydairlanding",
           "label": "KirbyDAirLanding",
           "sha256": "c1cc66c12d463ab76a21d4a6d21c115074fd77c9b738eb53483cbed0ffa1cd47",
-          "spriteSheet": {
-            "src": "media/frame-sheets/kirby/down-air/kirbydairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 222,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              16
-            ]
-          },
-          "sourceFrameCount": 16
+          "imageSrc": "media/hitboxes/kirby/down-air/kirbydairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -5978,24 +5940,8 @@
           "id": "kirbyfinalcutterlanding",
           "label": "KirbyFinalCutterLanding",
           "sha256": "01845205215f72e7c5ab939674e5983db578d1d98dca8641abaa2c5985938e3c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/kirby/up-b-final-cutter/kirbyfinalcutterlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 96,
-            "columns": 6,
-            "frameCount": 8,
-            "frameNumbers": [
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30
-            ]
-          },
-          "sourceFrameCount": 30
+          "imageSrc": "media/hitboxes/kirby/up-b-final-cutter/kirbyfinalcutterlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -6575,28 +6521,8 @@
           "id": "foxfairlanding",
           "label": "FoxFAirLanding",
           "sha256": "e63ff81862e7210ea9476f849e5cec8d7f4bab3f3acff0bde50db8a8abc4bde5",
-          "spriteSheet": {
-            "src": "media/frame-sheets/fox/forward-air/foxfairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 220,
-            "columns": 6,
-            "frameCount": 12,
-            "frameNumbers": [
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18
-            ]
-          },
-          "sourceFrameCount": 18
+          "imageSrc": "media/hitboxes/fox/forward-air/foxfairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -6686,29 +6612,8 @@
           "id": "foxdairlanding",
           "label": "FoxDAirLanding",
           "sha256": "07bd3b41163c50c2493830a41c6dd749796e6cbd53d833dc7554507f8fbe0e9a",
-          "spriteSheet": {
-            "src": "media/frame-sheets/fox/down-air/foxdairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 13,
-            "frameNumbers": [
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17
-            ]
-          },
-          "sourceFrameCount": 17
+          "imageSrc": "media/hitboxes/fox/down-air/foxdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -7438,31 +7343,8 @@
           "id": "pikachubairlanding",
           "label": "PikachuBAirLanding",
           "sha256": "a10a3e13933a2322ddfb8002281e3df6303ccede09f1f600966806d20455262e",
-          "spriteSheet": {
-            "src": "media/frame-sheets/pikachu/back-air/pikachubairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 269,
-            "columns": 6,
-            "frameCount": 15,
-            "frameNumbers": [
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18
-            ]
-          },
-          "sourceFrameCount": 18
+          "imageSrc": "media/hitboxes/pikachu/back-air/pikachubairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -7524,25 +7406,8 @@
           "id": "pikachudairlanding",
           "label": "PikachuDAirLanding",
           "sha256": "13897346d795913549eaf60e091cd67633e14061cc28fd4eed705845193febb2",
-          "spriteSheet": {
-            "src": "media/frame-sheets/pikachu/down-air/pikachudairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 201,
-            "columns": 6,
-            "frameCount": 9,
-            "frameNumbers": [
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22
-            ]
-          },
-          "sourceFrameCount": 22
+          "imageSrc": "media/hitboxes/pikachu/down-air/pikachudairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -10529,30 +10394,8 @@
           "id": "captainfalconfalconkickalanding",
           "label": "CaptainFalconFalconKickALanding",
           "sha256": "b9ecb1f2dab3ced9bcb44f59ab82fee389485c624c2a2b749bec12b457cbb908",
-          "spriteSheet": {
-            "src": "media/frame-sheets/captain-falcon/down-b-air-falcon-kick-air/captainfalconfalconkickalanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 271,
-            "columns": 6,
-            "frameCount": 14,
-            "frameNumbers": [
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27
-            ]
-          },
-          "sourceFrameCount": 35
+          "imageSrc": "media/hitboxes/captain-falcon/down-b-air-falcon-kick-air/captainfalconfalconkickalanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -13435,35 +13278,8 @@
           "id": "bowserdairlanding",
           "label": "BowserDAirLanding",
           "sha256": "16d2c58d1d8ed3d67b8383bc74b26c242f83eaed66ef66150f1bbc94a0aed51f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bowser/down-air/bowserdairlanding.webp",
-            "frameWidth": 297,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 19,
-            "frameNumbers": [
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              32,
-              33,
-              34,
-              35
-            ]
-          },
-          "sourceFrameCount": 35
+          "imageSrc": "media/hitboxes/bowser/down-air/bowserdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -13696,17 +13512,8 @@
           "id": "bowserbowserbomblanding",
           "label": "BowserBowserBombLanding",
           "sha256": "87745411f322cb91f68f426f95b40bf9ec1d35296e96d7b2044734230b1c27a6",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bowser/down-b-air-bowser-bomb-air/bowserbowserbomblanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 296,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              31
-            ]
-          },
-          "sourceFrameCount": 55
+          "imageSrc": "media/hitboxes/bowser/down-b-air-bowser-bomb-air/bowserbowserbomblanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -15676,24 +15483,8 @@
           "id": "sheikdairlanding",
           "label": "SheikDAirLanding",
           "sha256": "575a241d6e966d5b14f56935d38069cfe0b80468d1c9d5fd3dc8e304b288d6cc",
-          "spriteSheet": {
-            "src": "media/frame-sheets/sheik/down-air/sheikdairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 218,
-            "columns": 6,
-            "frameCount": 8,
-            "frameNumbers": [
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22
-            ]
-          },
-          "sourceFrameCount": 22
+          "imageSrc": "media/hitboxes/sheik/down-air/sheikdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -17954,25 +17745,8 @@
           "id": "pichudairlanding",
           "label": "PichuDAirLanding",
           "sha256": "833feaac465808f19583ee2ceabaeb62146c7010a1404953022002418a6097b5",
-          "spriteSheet": {
-            "src": "media/frame-sheets/pichu/down-air/pichudairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 238,
-            "columns": 6,
-            "frameCount": 9,
-            "frameNumbers": [
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22
-            ]
-          },
-          "sourceFrameCount": 22
+          "imageSrc": "media/hitboxes/pichu/down-air/pichudairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -18809,25 +18583,8 @@
           "id": "falcofairlanding",
           "label": "FalcoFAirLanding",
           "sha256": "f9be1af1d5f07bcb83fe5e9f4af728ad99ef751c835f3159f6e41c77b90c763b",
-          "spriteSheet": {
-            "src": "media/frame-sheets/falco/forward-air/falcofairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 174,
-            "columns": 6,
-            "frameCount": 9,
-            "frameNumbers": [
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ]
-          },
-          "sourceFrameCount": 15
+          "imageSrc": "media/hitboxes/falco/forward-air/falcofairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -25170,43 +24927,8 @@
           "id": "chromsoaringslashlanding",
           "label": "ChromSoaringSlashLanding",
           "sha256": "0d891210c8d4a1fb37346553bd53fd7c5ceb904098706ecb8b7ec73e7a76e94f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/chrom/up-b-soaring-slash/chromsoaringslashlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 252,
-            "columns": 6,
-            "frameCount": 27,
-            "frameNumbers": [
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              32,
-              33,
-              34,
-              35,
-              36
-            ]
-          },
-          "sourceFrameCount": 36
+          "imageSrc": "media/hitboxes/chrom/up-b-soaring-slash/chromsoaringslashlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -25735,17 +25457,8 @@
           "id": "mrgame-watchbairlanding",
           "label": "MrGame_WatchBairLanding",
           "sha256": "dc21b7b836f4572aff1419b05e4f432d81669676c975e88fa7c9c386934cfd94",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/back-air/mrgame-watchbairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 142,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              7
-            ]
-          },
-          "sourceFrameCount": 7
+          "imageSrc": "media/hitboxes/mr-game-and-watch/back-air/mrgame-watchbairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -25792,23 +25505,20 @@
           "id": "mrgame-watchdairlanding",
           "label": "MrGame_WatchDairLanding",
           "sha256": "69581ee87b60369bfd3c98eb18c420a39b83cd60a9dbd483ecf41bd7761787a1",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mr-game-and-watch/down-air/mrgame-watchdairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 188,
-            "columns": 6,
-            "frameCount": 2,
-            "frameNumbers": [
-              12,
-              13
-            ]
-          },
-          "sourceFrameCount": 13
+          "imageSrc": "media/hitboxes/mr-game-and-watch/down-air/mrgame-watchdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
     "mr-game-and-watch:neutral-b-chef": {
       "variants": [
+        {
+          "id": "mrgame-watchchef",
+          "label": "MrGame_WatchChef",
+          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
+          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
+          "sourceFrameCount": 1
+        },
         {
           "id": "mrgame-watchchef",
           "label": "MrGame_WatchChef",
@@ -25824,13 +25534,6 @@
             ]
           },
           "sourceFrameCount": 4
-        },
-        {
-          "id": "mrgame-watchchef",
-          "label": "MrGame_WatchChef",
-          "sha256": "db0b5f4369257225484f2d109bf90c5e473d3e9cdb8cafcd05032c02e21bcc7d",
-          "imageSrc": "media/hitboxes/mr-game-and-watch/neutral-b-chef/mrgame-watchchef.webp",
-          "sourceFrameCount": 1
         }
       ]
     },
@@ -29462,27 +29165,8 @@
           "id": "zerosuitsamusdairlanding",
           "label": "ZeroSuitSamusDAirLanding",
           "sha256": "781362fb13f23218915b806c642fb4a3af8cdacd2c563a9af9499adf71a7d588",
-          "spriteSheet": {
-            "src": "media/frame-sheets/zero-suit-samus/down-air/zerosuitsamusdairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 263,
-            "columns": 6,
-            "frameCount": 11,
-            "frameNumbers": [
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24
-            ]
-          },
-          "sourceFrameCount": 24
+          "imageSrc": "media/hitboxes/zero-suit-samus/down-air/zerosuitsamusdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -32445,28 +32129,8 @@
           "id": "squirtlebairlanding",
           "label": "SquirtleBAirLanding",
           "sha256": "c031e6c8accb86f1e451918532c27eaba90e40c7dfc62ef2ad715bbb787079fb",
-          "spriteSheet": {
-            "src": "media/frame-sheets/squirtle/back-air/squirtlebairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 245,
-            "columns": 6,
-            "frameCount": 12,
-            "frameNumbers": [
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16
-            ]
-          },
-          "sourceFrameCount": 18
+          "imageSrc": "media/hitboxes/squirtle/back-air/squirtlebairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -37290,17 +36954,8 @@
           "id": "kingdededesuperdededejumplanding",
           "label": "KingDededeSuperDededeJumpLanding",
           "sha256": "cb6d1f0a48c0d9dd9d5fbeb2552904e89c801b20412237ab3162301c0f012c2c",
-          "spriteSheet": {
-            "src": "media/frame-sheets/king-dedede/up-b-super-dedede-jump/kingdededesuperdededejumplanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 247,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              59
-            ]
-          },
-          "sourceFrameCount": 59
+          "imageSrc": "media/hitboxes/king-dedede/up-b-super-dedede-jump/kingdededesuperdededejumplanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -40145,23 +39800,8 @@
           "id": "toonlinkdairlanding",
           "label": "ToonLinkDAirLanding",
           "sha256": "8424b10fb90075a3ee68875aabe1455acf550c0cce4cbfd0c716c2f761d8a8f0",
-          "spriteSheet": {
-            "src": "media/frame-sheets/toon-link/down-air/toonlinkdairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 208,
-            "columns": 6,
-            "frameCount": 7,
-            "frameNumbers": [
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23
-            ]
-          },
-          "sourceFrameCount": 23
+          "imageSrc": "media/hitboxes/toon-link/down-air/toonlinkdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -47564,22 +47204,8 @@
           "id": "miibrawlersoaringaxekicklanding",
           "label": "MiiBrawlerSoaringAxeKickLanding",
           "sha256": "254ca3fb9e5ec3fa14689792dc8466948aeff162175faea81192d083c3613d7a",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mii-brawler/soaring-axe-kick/miibrawlersoaringaxekicklanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 241,
-            "columns": 6,
-            "frameCount": 6,
-            "frameNumbers": [
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ]
-          },
-          "sourceFrameCount": 29
+          "imageSrc": "media/hitboxes/mii-brawler/soaring-axe-kick/miibrawlersoaringaxekicklanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -47764,24 +47390,8 @@
           "id": "miibrawlerhead-onassaultlanding",
           "label": "MiiBrawlerHead-OnAssaultLanding",
           "sha256": "4df62c4396dbde52035e29264f2f4249054d7ecc664f6d7aaeb1d6fbc73f217f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mii-brawler/head-on-assault/miibrawlerhead-onassaultlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 249,
-            "columns": 6,
-            "frameCount": 8,
-            "frameNumbers": [
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15
-            ]
-          },
-          "sourceFrameCount": 58
+          "imageSrc": "media/hitboxes/mii-brawler/head-on-assault/miibrawlerhead-onassaultlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -48522,21 +48132,8 @@
           "id": "miiswordfighterdairlanding",
           "label": "MiiSwordfighterDAirLanding",
           "sha256": "98d6526fbff988fe3a3f398fbc445cf6653562f77308a93d5d79e8d747b289cf",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mii-swordfighter/down-air/miiswordfighterdairlanding.webp",
-            "frameWidth": 297,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 5,
-            "frameNumbers": [
-              14,
-              15,
-              16,
-              17,
-              18
-            ]
-          },
-          "sourceFrameCount": 18
+          "imageSrc": "media/hitboxes/mii-swordfighter/down-air/miiswordfighterdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -48901,24 +48498,8 @@
           "id": "miiswordfighterstonescabbardlanding",
           "label": "MiiSwordfighterStoneScabbardLanding",
           "sha256": "290d98acb4952bd49ee654f0e2a51fa3f92cc7019dd1285558ebcbfdba81f862",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mii-swordfighter/stone-scabbard/miiswordfighterstonescabbardlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 233,
-            "columns": 6,
-            "frameCount": 8,
-            "frameNumbers": [
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20
-            ]
-          },
-          "sourceFrameCount": 44
+          "imageSrc": "media/hitboxes/mii-swordfighter/stone-scabbard/miiswordfighterstonescabbardlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -49249,32 +48830,8 @@
           "id": "miiswordfighterpowerthrustalanding",
           "label": "MiiSwordfighterPowerThrustALanding",
           "sha256": "833e2de374e83a1ea715aa12851d2c92c11371585f33aebe4d5a85306676c76d",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mii-swordfighter/power-thrust-air/miiswordfighterpowerthrustalanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 258,
-            "columns": 6,
-            "frameCount": 16,
-            "frameNumbers": [
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29
-            ]
-          },
-          "sourceFrameCount": 39
+          "imageSrc": "media/hitboxes/mii-swordfighter/power-thrust-air/miiswordfighterpowerthrustalanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -54762,17 +54319,8 @@
           "id": "bowserjrdairlanding",
           "label": "BowserJrDAirLanding",
           "sha256": "85db4c90766d1c3182fda675f5e174d2c37548d54bf7b2ecd3b7cdd9adc6cb4d",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bowser-jr/down-air/bowserjrdairlanding.webp",
-            "frameWidth": 275,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              15
-            ]
-          },
-          "sourceFrameCount": 15
+          "imageSrc": "media/hitboxes/bowser-jr/down-air/bowserjrdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -59705,17 +59253,8 @@
           "id": "cloudclimhazzardlanding",
           "label": "CloudClimhazzardLanding",
           "sha256": "f4e3de96a7ee2f2b060a627f34d31a9b2b2663c1d87d2437a5ea97329abbd56f",
-          "spriteSheet": {
-            "src": "media/frame-sheets/cloud/climhazzard-followup/cloudclimhazzardlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 247,
-            "columns": 6,
-            "frameCount": 1,
-            "frameNumbers": [
-              12
-            ]
-          },
-          "sourceFrameCount": 26
+          "imageSrc": "media/hitboxes/cloud/climhazzard-followup/cloudclimhazzardlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -60446,31 +59985,8 @@
           "id": "corrindairlanding",
           "label": "CorrinDAirLanding",
           "sha256": "2e0d8a8668438b6695a78c521704feed99d67c95ae5279690741a6a320f1f104",
-          "spriteSheet": {
-            "src": "media/frame-sheets/corrin/down-air/corrindairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 290,
-            "columns": 6,
-            "frameCount": 15,
-            "frameNumbers": [
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26
-            ]
-          },
-          "sourceFrameCount": 26
+          "imageSrc": "media/hitboxes/corrin/down-air/corrindairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -61598,29 +61114,8 @@
           "id": "bayonettadairlanding",
           "label": "BayonettaDAirLanding",
           "sha256": "19fab03a48c93deb613def8938f8b86477e910824b187ed009c46542b3f0e2fb",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bayonetta/down-air/bayonettadairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 221,
-            "columns": 6,
-            "frameCount": 13,
-            "frameNumbers": [
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30
-            ]
-          },
-          "sourceFrameCount": 30
+          "imageSrc": "media/hitboxes/bayonetta/down-air/bayonettadairlanding.webp",
+          "sourceFrameCount": 1
         },
         {
           "id": "bayonettadairlandingbulletarts",
@@ -61973,29 +61468,8 @@
           "id": "bayonettaafterburnerkicklanding",
           "label": "BayonettaAfterburnerKickLanding",
           "sha256": "42be5e0e94a3f56ddedf7406a914fdef337190d34b6929d121d8a0c1b1bfc93d",
-          "spriteSheet": {
-            "src": "media/frame-sheets/bayonetta/after-burner-kick-down/bayonettaafterburnerkicklanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 191,
-            "columns": 6,
-            "frameCount": 13,
-            "frameNumbers": [
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20
-            ]
-          },
-          "sourceFrameCount": 20
+          "imageSrc": "media/hitboxes/bayonetta/after-burner-kick-down/bayonettaafterburnerkicklanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -67877,44 +67351,8 @@
           "id": "incineroarcrosschoplanding",
           "label": "IncineroarCrossChopLanding",
           "sha256": "42178be5f2798b86fe299aa8e7a7995f124bb9015f5124af3283b2cf9849c66e",
-          "spriteSheet": {
-            "src": "media/frame-sheets/incineroar/up-b-cross-chop/incineroarcrosschoplanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 276,
-            "columns": 6,
-            "frameCount": 28,
-            "frameNumbers": [
-              11,
-              12,
-              13,
-              14,
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              32,
-              33,
-              34,
-              35,
-              36,
-              37,
-              38
-            ]
-          },
-          "sourceFrameCount": 39
+          "imageSrc": "media/hitboxes/incineroar/up-b-cross-chop/incineroarcrosschoplanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -73655,24 +73093,8 @@
           "id": "bylethnairlanding",
           "label": "BylethNAirLanding",
           "sha256": "ebed62632527a33b336b94d9c07997c4fb178751797389ac211e05881b0f3e69",
-          "spriteSheet": {
-            "src": "media/frame-sheets/byleth/neutral-air/bylethnairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 209,
-            "columns": 6,
-            "frameCount": 8,
-            "frameNumbers": [
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              12,
-              13
-            ]
-          },
-          "sourceFrameCount": 13
+          "imageSrc": "media/hitboxes/byleth/neutral-air/bylethnairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -74966,27 +74388,8 @@
           "id": "minmindairlanding",
           "label": "MinMinDAirLanding",
           "sha256": "7c2d52332101792736cbe79287ff4492c5c7b37e38b1a0244b6b78f35f3c0896",
-          "spriteSheet": {
-            "src": "media/frame-sheets/min-min/down-air/minmindairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 223,
-            "columns": 6,
-            "frameCount": 11,
-            "frameNumbers": [
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25
-            ]
-          },
-          "sourceFrameCount": 25
+          "imageSrc": "media/hitboxes/min-min/down-air/minmindairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -76261,24 +75664,8 @@
           "id": "sephirothdairlanding",
           "label": "SephirothDAirLanding",
           "sha256": "8755fd1f56ad54952c30c4021b9c9768d2d2d82894bfc4e0580614fe1822e844",
-          "spriteSheet": {
-            "src": "media/frame-sheets/sephiroth/down-air/sephirothdairlanding.webp",
-            "frameWidth": 153,
-            "frameHeight": 300,
-            "columns": 6,
-            "frameCount": 8,
-            "frameNumbers": [
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26
-            ]
-          },
-          "sourceFrameCount": 26
+          "imageSrc": "media/hitboxes/sephiroth/down-air/sephirothdairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -78088,22 +77475,8 @@
           "id": "mythranairlanding",
           "label": "MythraNAirLanding",
           "sha256": "377da33144cc3fd6e4c01516e223c539c6fa768723d5ce24a864bd8ca5818534",
-          "spriteSheet": {
-            "src": "media/frame-sheets/mythra/neutral-air/mythranairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 298,
-            "columns": 6,
-            "frameCount": 6,
-            "frameNumbers": [
-              8,
-              9,
-              10,
-              11,
-              12,
-              13
-            ]
-          },
-          "sourceFrameCount": 13
+          "imageSrc": "media/hitboxes/mythra/neutral-air/mythranairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -79470,36 +78843,8 @@
           "id": "shoto4dairlanding",
           "label": "Shoto4DAirLanding",
           "sha256": "006ae5e0abb3ea0e6b1147e7d96d95e02ea2d7836249bb321aafcfa657db21d1",
-          "spriteSheet": {
-            "src": "media/frame-sheets/kazuya/down-air/shoto4dairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 262,
-            "columns": 6,
-            "frameCount": 20,
-            "frameNumbers": [
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              32,
-              33,
-              34,
-              35,
-              36
-            ]
-          },
-          "sourceFrameCount": 36
+          "imageSrc": "media/hitboxes/kazuya/down-air/shoto4dairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
@@ -80590,30 +79935,8 @@
           "id": "soradairlanding",
           "label": "SoraDAirLanding",
           "sha256": "db5b397ee2ca9764718a2b16ed9da34c293570ca4dec33d7e11dbc5d78be035b",
-          "spriteSheet": {
-            "src": "media/frame-sheets/sora/down-air/soradairlanding.webp",
-            "frameWidth": 300,
-            "frameHeight": 245,
-            "columns": 6,
-            "frameCount": 14,
-            "frameNumbers": [
-              15,
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              24,
-              25,
-              26,
-              27,
-              28
-            ]
-          },
-          "sourceFrameCount": 28
+          "imageSrc": "media/hitboxes/sora/down-air/soradairlanding.webp",
+          "sourceFrameCount": 1
         }
       ]
     },
