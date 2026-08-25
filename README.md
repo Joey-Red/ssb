@@ -46,6 +46,8 @@ Visual move data is separate from numeric frame data. A `VisualMoveMedia` entry 
 
 The frame player never invents an image or collision region. Compact sprite sheets contain only exact source images selected for the move's active/impact study span, and each cell records the game-frame number it represents. Startup and recovery timing remains seekable even when no corresponding source image was staged.
 
+Visual discovery uses the same first-positive/maximum-positive frame semantics as the runtime timing helpers, and staged frame numbers are clamped to documented Total Frames. This keeps complex multi-hit and parenthetical UFD notation consistent between maintenance data, tests, and the player.
+
 The maintenance discovery step uses a browser-compatible HTTP fingerprint because ordinary hosted-runner requests to UFD are rejected. That networking exists only in the asset-refresh workflow; the production application remains same-origin and works from committed static assets.
 
 ## Frame-data provenance
