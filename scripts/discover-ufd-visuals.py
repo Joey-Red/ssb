@@ -52,24 +52,28 @@ def extension(url: str) -> str:
     return Path(urlparse(url).path).suffix.lower()
 
 
+def positive_frame(value: str | None) -> int | None:
+    match = re.search(r"\d+", value or "")
+    if not match:
+        return None
+    parsed = int(match.group())
+    return parsed if parsed > 0 else None
+
+
 def active_span(active: str | None, startup: int | None, total: str | None) -> tuple[int, int] | None:
     if active:
-        # UFD uses parentheses for later/late hit windows on many moves (for
-        # example Mario Dash Attack 6—9(10—25)). Preserve every documented
-        # absolute frame number and let the vendor clamp only to Total Frames.
-        cleaned = re.sub(r"\b\d+\s*x\b", "", active, flags=re.IGNORECASE)
-        values = [int(value) for value in re.findall(r"\d+", cleaned)]
+        # Keep discovery semantics identical to src/lib/frameData.ts:
+        # the first positive integer is the first active frame and the largest
+        # positive integer is the final documented active frame. This preserves
+        # UFD forms such as 6—9(10—25) and multi-hit/rehit notation consistently.
+        values = [int(value) for value in re.findall(r"\d+", active)]
+        values = [value for value in values if value > 0]
         if values:
-            lo, hi = min(values), max(values)
-            if lo > 0 and hi >= lo:
-                return lo, hi
+            return values[0], max(values)
     # Throws/pummels and some specials expose a visual but no conventional
     # active-window field. Keep a short impact study window around startup.
     if startup and startup > 0:
-        total_value = None
-        if total:
-            match = re.search(r"\d+", total)
-            total_value = int(match.group()) if match else None
+        total_value = positive_frame(total)
         end = startup + 7
         if total_value:
             end = min(end, total_value)
@@ -164,13 +168,12 @@ def discover_fighter(entry: dict[str, str], fighter_data: dict[str, Any]) -> tup
             unmatched += 1
             continue
         key = move["id"]
-        total_match = re.search(r"\d+", move["totalFrames"] or "")
         record = by_move.setdefault(key, {
             "fighterId": fighter_id,
             "moveId": move["id"],
             "label": f"{fighter_data['name']} {move['name']}",
             "sourceUrl": page_url,
-            "totalFrames": int(total_match.group()) if total_match else None,
+            "totalFrames": positive_frame(move.get("totalFrames")),
             "startupFrame": move.get("startupFrame"),
             "active": move.get("active"),
             "activeSpan": list(active_span(move.get("active"), move.get("startupFrame"), move.get("totalFrames")) or []),
