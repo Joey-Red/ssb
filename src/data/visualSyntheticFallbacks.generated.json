@@ -1,13 +1,12 @@
 {
   "version": 1,
-  "fallbackCount": 977,
+  "fallbackCount": 853,
   "categoryCounts": {
-    "aerial": 21,
-    "defense": 803,
-    "grab": 11,
-    "ground": 38,
-    "misc": 49,
-    "special": 55
+    "defense": 799,
+    "grab": 6,
+    "ground": 2,
+    "misc": 36,
+    "special": 10
   },
   "policy": {
     "sourceEvidence": false,
@@ -16,16 +15,6 @@
     "mustBeReplacedBy": "verified external source or reviewed deterministic local capture"
   },
   "fallbacks": [
-    {
-      "fighterId": "banjo-and-kazooie",
-      "moveId": "down-air",
-      "moveLabel": "Banjo_and_kazooie Down Air",
-      "category": "aerial",
-      "timelineTotalFrames": 56,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "banjo-and-kazooie:down-air:manual-full-move"
-    },
     {
       "fighterId": "banjo-and-kazooie",
       "moveId": "air-dodge-diagonally-down",
@@ -207,26 +196,6 @@
       "replacementQueueKey": "bayonetta:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "bayonetta",
-      "moveId": "down-smash",
-      "moveLabel": "Bayonetta Down Smash",
-      "category": "ground",
-      "timelineTotalFrames": 65,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bayonetta:down-smash:manual-full-move"
-    },
-    {
-      "fighterId": "bayonetta",
-      "moveId": "up-b-witch-twist",
-      "moveLabel": "Bayonetta Up B (Witch Twist)",
-      "category": "special",
-      "timelineTotalFrames": 31,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bayonetta:up-b-witch-twist:manual-full-move"
-    },
-    {
       "fighterId": "bowser",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Bowser Air Dodge, Diagonally Down",
@@ -315,36 +284,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "bowser:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "bowser",
-      "moveId": "neutral-b-fire-breath",
-      "moveLabel": "Bowser Neutral B (Fire Breath)",
-      "category": "special",
-      "timelineTotalFrames": 77,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bowser:neutral-b-fire-breath:manual-full-move"
-    },
-    {
-      "fighterId": "bowser-jr",
-      "moveId": "forward-air",
-      "moveLabel": "Bowser_jr Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 43,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bowser-jr:forward-air:manual-full-move"
-    },
-    {
-      "fighterId": "bowser-jr",
-      "moveId": "neutral-air",
-      "moveLabel": "Bowser_jr Neutral Air",
-      "category": "aerial",
-      "timelineTotalFrames": 43,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bowser-jr:neutral-air:manual-full-move"
     },
     {
       "fighterId": "bowser-jr",
@@ -445,26 +384,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "bowser-jr:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "bowser-jr",
-      "moveId": "dash-attack",
-      "moveLabel": "Bowser_jr Dash Attack",
-      "category": "ground",
-      "timelineTotalFrames": 47,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bowser-jr:dash-attack:manual-full-move"
-    },
-    {
-      "fighterId": "bowser-jr",
-      "moveId": "down-tilt",
-      "moveLabel": "Bowser_jr Down Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 40,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "bowser-jr:down-tilt:manual-full-move"
     },
     {
       "fighterId": "byleth",
@@ -647,16 +566,6 @@
       "replacementQueueKey": "captain-falcon:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "captain-falcon",
-      "moveId": "neutral-b-falcon-punch",
-      "moveLabel": "Captain_falcon Neutral B (Falcon Punch)",
-      "category": "special",
-      "timelineTotalFrames": 117,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "captain-falcon:neutral-b-falcon-punch:manual-full-move"
-    },
-    {
       "fighterId": "charizard",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Pt_charizard Air Dodge, Diagonally Down",
@@ -745,26 +654,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "charizard:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "charizard",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_charizard Down B (Pokemon Change)",
-      "category": "special",
-      "timelineTotalFrames": 39,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "charizard:down-b-pokemon-change:manual-full-move"
-    },
-    {
-      "fighterId": "charizard",
-      "moveId": "neutral-b-flamethrower",
-      "moveLabel": "Pt_charizard Neutral B (Flamethrower)",
-      "category": "special",
-      "timelineTotalFrames": 70,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "charizard:neutral-b-flamethrower:manual-full-move"
     },
     {
       "fighterId": "chrom",
@@ -947,16 +836,6 @@
       "replacementQueueKey": "cloud:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "cloud",
-      "moveId": "down-b-limit-charge",
-      "moveLabel": "Cloud Down B (Limit Charge)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "cloud:down-b-limit-charge:manual-full-move"
-    },
-    {
       "fighterId": "corrin",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Corrin Air Dodge, Diagonally Down",
@@ -1078,16 +957,6 @@
     },
     {
       "fighterId": "corrin",
-      "moveId": "neutral-b-dragon-fang-shot",
-      "moveLabel": "Corrin Neutral B (Dragon Fang Shot)",
-      "category": "special",
-      "timelineTotalFrames": 95,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "corrin:neutral-b-dragon-fang-shot:manual-full-move"
-    },
-    {
-      "fighterId": "corrin",
       "moveId": "side-b-dragon-lunge-air",
       "moveLabel": "Corrin Side B (Dragon Lunge, Air)",
       "category": "special",
@@ -1185,16 +1054,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "daisy:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "daisy",
-      "moveId": "forward-smash",
-      "moveLabel": "Daisy Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 45,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "daisy:forward-smash:manual-full-move"
     },
     {
       "fighterId": "daisy",
@@ -1498,16 +1357,6 @@
     },
     {
       "fighterId": "donkey-kong",
-      "moveId": "down-air",
-      "moveLabel": "Donkey_kong Down Air",
-      "category": "aerial",
-      "timelineTotalFrames": 54,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "donkey-kong:down-air:manual-full-move"
-    },
-    {
-      "fighterId": "donkey-kong",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Donkey_kong Air Dodge, Diagonally Down",
       "category": "defense",
@@ -1598,16 +1447,6 @@
     },
     {
       "fighterId": "dr-mario",
-      "moveId": "forward-air",
-      "moveLabel": "Dr_mario Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 59,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "dr-mario:forward-air:manual-full-move"
-    },
-    {
-      "fighterId": "dr-mario",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Dr_mario Air Dodge, Diagonally Down",
       "category": "defense",
@@ -1695,16 +1534,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "dr-mario:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "dr-mario",
-      "moveId": "jab-1",
-      "moveLabel": "Dr_mario Jab 1",
-      "category": "ground",
-      "timelineTotalFrames": 19,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "dr-mario:jab-1:manual-full-move"
     },
     {
       "fighterId": "duck-hunt",
@@ -1847,26 +1676,6 @@
       "replacementQueueKey": "duck-hunt:wild-gunman-tall-cowboy:manual-full-move"
     },
     {
-      "fighterId": "duck-hunt",
-      "moveId": "down-b-wild-gunman",
-      "moveLabel": "Duck_hunt Down B (Wild Gunman)",
-      "category": "special",
-      "timelineTotalFrames": 41,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "duck-hunt:down-b-wild-gunman:manual-full-move"
-    },
-    {
-      "fighterId": "duck-hunt",
-      "moveId": "up-b-duck-jump",
-      "moveLabel": "Duck_hunt Up B (Duck Jump)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "duck-hunt:up-b-duck-jump:manual-full-move"
-    },
-    {
       "fighterId": "falco",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Falco Air Dodge, Diagonally Down",
@@ -1955,16 +1764,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "falco:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "falco",
-      "moveId": "forward-smash",
-      "moveLabel": "Falco Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 48,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "falco:forward-smash:manual-full-move"
     },
     {
       "fighterId": "fox",
@@ -2247,16 +2046,6 @@
       "replacementQueueKey": "greninja:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "greninja",
-      "moveId": "down-b-attack-substitute-attack",
-      "moveLabel": "Greninja Down B, Attack (Substitute, Attack)",
-      "category": "special",
-      "timelineTotalFrames": 63,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "greninja:down-b-attack-substitute-attack:manual-full-move"
-    },
-    {
       "fighterId": "hero",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Hero Air Dodge, Diagonally Down",
@@ -2457,36 +2246,6 @@
       "replacementQueueKey": "hero:zoom:manual-full-move"
     },
     {
-      "fighterId": "hero",
-      "moveId": "down-b-menu-select",
-      "moveLabel": "Hero Down B (Menu/Select)",
-      "category": "special",
-      "timelineTotalFrames": 19,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "hero:down-b-menu-select:manual-full-move"
-    },
-    {
-      "fighterId": "hero",
-      "moveId": "neutral-b-frizz-frizzle-kafrizz",
-      "moveLabel": "Hero Neutral B (Frizz/Frizzle/Kafrizz)",
-      "category": "special",
-      "timelineTotalFrames": 67,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "hero:neutral-b-frizz-frizzle-kafrizz:manual-full-move"
-    },
-    {
-      "fighterId": "hero",
-      "moveId": "up-b-woosh-swoosh-kaswoosh",
-      "moveLabel": "Hero Up B (Woosh/Swoosh/Kaswoosh)",
-      "category": "special",
-      "timelineTotalFrames": 89,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "hero:up-b-woosh-swoosh-kaswoosh:manual-full-move"
-    },
-    {
       "fighterId": "ice-climbers",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Ice_climbers Air Dodge, Diagonally Down",
@@ -2667,16 +2426,6 @@
       "replacementQueueKey": "ike:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "ike",
-      "moveId": "neutral-b-eruption",
-      "moveLabel": "Ike Neutral B (Eruption)",
-      "category": "special",
-      "timelineTotalFrames": 287,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ike:neutral-b-eruption:manual-full-move"
-    },
-    {
       "fighterId": "incineroar",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Incineroar Air Dodge, Diagonally Down",
@@ -2767,36 +2516,6 @@
       "replacementQueueKey": "incineroar:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "incineroar",
-      "moveId": "down-tilt",
-      "moveLabel": "Incineroar Down Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 29,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "incineroar:down-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "incineroar",
-      "moveId": "forward-smash",
-      "moveLabel": "Incineroar Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 51,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "incineroar:forward-smash:manual-full-move"
-    },
-    {
-      "fighterId": "inkling",
-      "moveId": "down-air",
-      "moveLabel": "Inkling Down Air",
-      "category": "aerial",
-      "timelineTotalFrames": 61,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "inkling:down-air:manual-full-move"
-    },
-    {
       "fighterId": "inkling",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Inkling Air Dodge, Diagonally Down",
@@ -2885,36 +2604,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "inkling:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "inkling",
-      "moveId": "dash-grab",
-      "moveLabel": "Inkling Dash Grab",
-      "category": "grab",
-      "timelineTotalFrames": 41,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "inkling:dash-grab:manual-full-move"
-    },
-    {
-      "fighterId": "inkling",
-      "moveId": "pivot-grab",
-      "moveLabel": "Inkling Pivot Grab",
-      "category": "grab",
-      "timelineTotalFrames": 37,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "inkling:pivot-grab:manual-full-move"
-    },
-    {
-      "fighterId": "inkling",
-      "moveId": "neutral-b-splattershot",
-      "moveLabel": "Inkling Neutral B (Splattershot)",
-      "category": "special",
-      "timelineTotalFrames": 36,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "inkling:neutral-b-splattershot:manual-full-move"
     },
     {
       "fighterId": "isabelle",
@@ -3117,36 +2806,6 @@
       "replacementQueueKey": "ivysaur:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "ivysaur",
-      "moveId": "down-smash",
-      "moveLabel": "Pt_ivysaur Down Smash",
-      "category": "ground",
-      "timelineTotalFrames": 45,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ivysaur:down-smash:manual-full-move"
-    },
-    {
-      "fighterId": "ivysaur",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_ivysaur Down B (Pokemon Change)",
-      "category": "special",
-      "timelineTotalFrames": 39,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ivysaur:down-b-pokemon-change:manual-full-move"
-    },
-    {
-      "fighterId": "ivysaur",
-      "moveId": "up-b-vinewhip",
-      "moveLabel": "Pt_ivysaur Up B (Vinewhip)",
-      "category": "special",
-      "timelineTotalFrames": 47,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ivysaur:up-b-vinewhip:manual-full-move"
-    },
-    {
       "fighterId": "jigglypuff",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Jigglypuff Air Dodge, Diagonally Down",
@@ -3328,16 +2987,6 @@
     },
     {
       "fighterId": "joker",
-      "moveId": "forward-tilt",
-      "moveLabel": "Joker Forward Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 34,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "joker:forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "joker",
       "moveId": "air-grappling-attack",
       "moveLabel": "Joker Air, Grappling Attack",
       "category": "misc",
@@ -3468,16 +3117,6 @@
     },
     {
       "fighterId": "kazuya",
-      "moveId": "up-forward-tilt-roundhouse-to-triple-spin-kicks",
-      "moveLabel": "Kazuya Up-Forward Tilt (Roundhouse to Triple Spin Kicks...)",
-      "category": "ground",
-      "timelineTotalFrames": 100,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "kazuya:up-forward-tilt-roundhouse-to-triple-spin-kicks:manual-full-move"
-    },
-    {
-      "fighterId": "kazuya",
       "moveId": "devil-blaster-air",
       "moveLabel": "Kazuya Devil Blaster, Air",
       "category": "misc",
@@ -3485,36 +3124,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "kazuya:devil-blaster-air:manual-full-move"
-    },
-    {
-      "fighterId": "kazuya",
-      "moveId": "rage-drive-input",
-      "moveLabel": "Kazuya Rage Drive (Input)",
-      "category": "misc",
-      "timelineTotalFrames": 54,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "kazuya:rage-drive-input:manual-full-move"
-    },
-    {
-      "fighterId": "kazuya",
-      "moveId": "rage-drive-non-input",
-      "moveLabel": "Kazuya Rage Drive (Non Input)",
-      "category": "misc",
-      "timelineTotalFrames": 57,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "kazuya:rage-drive-non-input:manual-full-move"
-    },
-    {
-      "fighterId": "kazuya",
-      "moveId": "down-b-heaven-s-door",
-      "moveLabel": "Kazuya Down B (Heaven's Door)",
-      "category": "special",
-      "timelineTotalFrames": 59,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "kazuya:down-b-heaven-s-door:manual-full-move"
     },
     {
       "fighterId": "ken",
@@ -3715,16 +3324,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "king-dedede:inhale-spit:manual-full-move"
-    },
-    {
-      "fighterId": "king-k-rool",
-      "moveId": "back-air",
-      "moveLabel": "King_k_rool Back Air",
-      "category": "aerial",
-      "timelineTotalFrames": 49,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "king-k-rool:back-air:manual-full-move"
     },
     {
       "fighterId": "king-k-rool",
@@ -4207,36 +3806,6 @@
       "replacementQueueKey": "lucario:aura-sphere-full-charge:manual-full-move"
     },
     {
-      "fighterId": "lucario",
-      "moveId": "neutral-b-aura-sphere",
-      "moveLabel": "Lucario Neutral B (Aura Sphere)",
-      "category": "special",
-      "timelineTotalFrames": 43,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "lucario:neutral-b-aura-sphere:manual-full-move"
-    },
-    {
-      "fighterId": "lucas",
-      "moveId": "forward-air",
-      "moveLabel": "Lucas Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 41,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "lucas:forward-air:manual-full-move"
-    },
-    {
-      "fighterId": "lucas",
-      "moveId": "up-air",
-      "moveLabel": "Lucas Up Air",
-      "category": "aerial",
-      "timelineTotalFrames": 31,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "lucas:up-air:manual-full-move"
-    },
-    {
       "fighterId": "lucas",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Lucas Air Dodge, Diagonally Down",
@@ -4325,16 +3894,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "lucas:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "lucas",
-      "moveId": "down-tilt",
-      "moveLabel": "Lucas Down Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 15,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "lucas:down-tilt:manual-full-move"
     },
     {
       "fighterId": "lucina",
@@ -4517,26 +4076,6 @@
       "replacementQueueKey": "luigi:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "luigi",
-      "moveId": "down-b-luigi-cyclone",
-      "moveLabel": "Luigi Down B (Luigi Cyclone)",
-      "category": "special",
-      "timelineTotalFrames": 85,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "luigi:down-b-luigi-cyclone:manual-full-move"
-    },
-    {
-      "fighterId": "mario",
-      "moveId": "forward-air",
-      "moveLabel": "Mario Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 59,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mario:forward-air:manual-full-move"
-    },
-    {
       "fighterId": "mario",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Mario Air Dodge, Diagonally Down",
@@ -4625,16 +4164,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "mario:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "mario",
-      "moveId": "jab-1",
-      "moveLabel": "Mario Jab 1",
-      "category": "ground",
-      "timelineTotalFrames": 19,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mario:jab-1:manual-full-move"
     },
     {
       "fighterId": "mario",
@@ -4828,16 +4357,6 @@
     },
     {
       "fighterId": "mega-man",
-      "moveId": "forward-smash",
-      "moveLabel": "Mega_man Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 54,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mega-man:forward-smash:manual-full-move"
-    },
-    {
-      "fighterId": "mega-man",
       "moveId": "forward-tilt",
       "moveLabel": "Mega_man Forward Tilt",
       "category": "ground",
@@ -4845,16 +4364,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "mega-man:forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "mega-man",
-      "moveId": "up-b-rush-coil",
-      "moveLabel": "Mega_man Up B (Rush Coil)",
-      "category": "special",
-      "timelineTotalFrames": 41,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mega-man:up-b-rush-coil:manual-full-move"
     },
     {
       "fighterId": "meta-knight",
@@ -4945,26 +4454,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "meta-knight:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "meta-knight",
-      "moveId": "dimensional-cape-attack",
-      "moveLabel": "Meta_knight Dimensional Cape, Attack",
-      "category": "misc",
-      "timelineTotalFrames": 92,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "meta-knight:dimensional-cape-attack:manual-full-move"
-    },
-    {
-      "fighterId": "meta-knight",
-      "moveId": "down-b-dimensional-cape",
-      "moveLabel": "Meta_knight Down B (Dimensional Cape)",
-      "category": "special",
-      "timelineTotalFrames": 57,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "meta-knight:down-b-dimensional-cape:manual-full-move"
     },
     {
       "fighterId": "mewtwo",
@@ -5067,26 +4556,6 @@
       "replacementQueueKey": "mewtwo:shadow-ball-fully-charged:manual-full-move"
     },
     {
-      "fighterId": "mewtwo",
-      "moveId": "neutral-b-shadow-ball",
-      "moveLabel": "Mewtwo Neutral B (Shadow Ball)",
-      "category": "special",
-      "timelineTotalFrames": 27,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mewtwo:neutral-b-shadow-ball:manual-full-move"
-    },
-    {
-      "fighterId": "mewtwo",
-      "moveId": "up-b-teleport",
-      "moveLabel": "Mewtwo Up B (Teleport)",
-      "category": "special",
-      "timelineTotalFrames": 44,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mewtwo:up-b-teleport:manual-full-move"
-    },
-    {
       "fighterId": "mii-brawler",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Mii_brawler Air Dodge, Diagonally Down",
@@ -5178,46 +4647,6 @@
     },
     {
       "fighterId": "mii-brawler",
-      "moveId": "counter-throw-activated",
-      "moveLabel": "Mii_brawler Counter Throw, Activated",
-      "category": "grab",
-      "timelineTotalFrames": 46,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-brawler:counter-throw-activated:manual-full-move"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "moveId": "forward-smash",
-      "moveLabel": "Mii_brawler Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 67,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-brawler:forward-smash:manual-full-move"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "moveId": "forward-tilt",
-      "moveLabel": "Mii_brawler Forward Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 27,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-brawler:forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "mii-brawler",
-      "moveId": "flashing-mach-punch",
-      "moveLabel": "Mii_brawler Flashing Mach Punch",
-      "category": "misc",
-      "timelineTotalFrames": 93,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-brawler:flashing-mach-punch:manual-full-move"
-    },
-    {
-      "fighterId": "mii-brawler",
       "moveId": "head-on-assault-air",
       "moveLabel": "Mii_brawler Head-On Assault, Air",
       "category": "misc",
@@ -5288,46 +4717,6 @@
     },
     {
       "fighterId": "mii-gunner",
-      "moveId": "backward-roll",
-      "moveLabel": "Mii_gunner Backward Roll",
-      "category": "defense",
-      "timelineTotalFrames": 34,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-gunner:backward-roll:manual-full-move"
-    },
-    {
-      "fighterId": "mii-gunner",
-      "moveId": "forward-roll",
-      "moveLabel": "Mii_gunner Forward Roll",
-      "category": "defense",
-      "timelineTotalFrames": 29,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-gunner:forward-roll:manual-full-move"
-    },
-    {
-      "fighterId": "mii-gunner",
-      "moveId": "neutral-air-dodge",
-      "moveLabel": "Mii_gunner Neutral Air Dodge",
-      "category": "defense",
-      "timelineTotalFrames": 52,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-gunner:neutral-air-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "mii-gunner",
-      "moveId": "spot-dodge",
-      "moveLabel": "Mii_gunner Spot Dodge",
-      "category": "defense",
-      "timelineTotalFrames": 25,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-gunner:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "mii-gunner",
       "moveId": "arm-rocket",
       "moveLabel": "Mii_gunner Arm Rocket",
       "category": "misc",
@@ -5335,26 +4724,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "mii-gunner:arm-rocket:manual-full-move"
-    },
-    {
-      "fighterId": "mii-gunner",
-      "moveId": "grenade-launch",
-      "moveLabel": "Mii_gunner Grenade Launch",
-      "category": "misc",
-      "timelineTotalFrames": 53,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-gunner:grenade-launch:manual-full-move"
-    },
-    {
-      "fighterId": "mii-swordfighter",
-      "moveId": "forward-air",
-      "moveLabel": "Mii_swordfighter Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 49,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-swordfighter:forward-air:manual-full-move"
     },
     {
       "fighterId": "mii-swordfighter",
@@ -5447,16 +4816,6 @@
       "replacementQueueKey": "mii-swordfighter:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "mii-swordfighter",
-      "moveId": "gale-stab-charge",
-      "moveLabel": "Mii_swordfighter Gale Stab (Charge)",
-      "category": "misc",
-      "timelineTotalFrames": 72,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-swordfighter:gale-stab-charge:manual-full-move"
-    },
-    {
       "fighterId": "min-min",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Minmin Air Dodge, Diagonally Down",
@@ -5545,36 +4904,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "min-min:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "min-min",
-      "moveId": "jab-2",
-      "moveLabel": "Minmin Jab 2",
-      "category": "ground",
-      "timelineTotalFrames": 31,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "min-min:jab-2:manual-full-move"
-    },
-    {
-      "fighterId": "min-min",
-      "moveId": "down-b-arms-change",
-      "moveLabel": "Minmin Down B (Arms Change)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "min-min:down-b-arms-change:manual-full-move"
-    },
-    {
-      "fighterId": "min-min",
-      "moveId": "up-b-arms-hook",
-      "moveLabel": "Minmin Up B (Arms Hook)",
-      "category": "special",
-      "timelineTotalFrames": 54,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "min-min:up-b-arms-hook:manual-full-move"
     },
     {
       "fighterId": "min-min",
@@ -5767,26 +5096,6 @@
       "replacementQueueKey": "mythra:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "mythra",
-      "moveId": "chroma-dust",
-      "moveLabel": "Mythra Chroma Dust",
-      "category": "misc",
-      "timelineTotalFrames": 60,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mythra:chroma-dust:manual-full-move"
-    },
-    {
-      "fighterId": "mythra",
-      "moveId": "side-b-photon-edge",
-      "moveLabel": "Mythra Side B (Photon Edge)",
-      "category": "special",
-      "timelineTotalFrames": 100,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mythra:side-b-photon-edge:manual-full-move"
-    },
-    {
       "fighterId": "ness",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Ness Air Dodge, Diagonally Down",
@@ -5875,56 +5184,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "ness:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "ness",
-      "moveId": "side-b-pk-fire",
-      "moveLabel": "Ness Side B (PK Fire)",
-      "category": "special",
-      "timelineTotalFrames": 55,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ness:side-b-pk-fire:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "back-air",
-      "moveLabel": "Olimar Back Air",
-      "category": "aerial",
-      "timelineTotalFrames": 48,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:back-air:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "down-air",
-      "moveLabel": "Olimar Down Air",
-      "category": "aerial",
-      "timelineTotalFrames": 51,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:down-air:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "forward-air",
-      "moveLabel": "Olimar Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 42,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:forward-air:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "up-air",
-      "moveLabel": "Olimar Up Air",
-      "category": "aerial",
-      "timelineTotalFrames": 34,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:up-air:manual-full-move"
     },
     {
       "fighterId": "olimar",
@@ -6037,56 +5296,6 @@
       "replacementQueueKey": "olimar:pivot-grab:manual-full-move"
     },
     {
-      "fighterId": "olimar",
-      "moveId": "purple-grabs",
-      "moveLabel": "Olimar Purple Grabs",
-      "category": "grab",
-      "timelineTotalFrames": 56,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:purple-grabs:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "red-blue-yellow-grabs",
-      "moveLabel": "Olimar Red/Blue/Yellow Grabs",
-      "category": "grab",
-      "timelineTotalFrames": 56,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:red-blue-yellow-grabs:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "down-smash",
-      "moveLabel": "Olimar Down Smash",
-      "category": "ground",
-      "timelineTotalFrames": 38,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:down-smash:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "neutral-b-pikmin-pluck",
-      "moveLabel": "Olimar Neutral B (Pikmin Pluck)",
-      "category": "special",
-      "timelineTotalFrames": 8,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:neutral-b-pikmin-pluck:manual-full-move"
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "up-b-winged-pikmin",
-      "moveLabel": "Olimar Up B (Winged Pikmin)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "olimar:up-b-winged-pikmin:manual-full-move"
-    },
-    {
       "fighterId": "pac-man",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Pac_man Air Dodge, Diagonally Down",
@@ -6177,26 +5386,6 @@
       "replacementQueueKey": "pac-man:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "pac-man",
-      "moveId": "forward-tilt",
-      "moveLabel": "Pac_man Forward Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 30,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "pac-man:forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "pac-man",
-      "moveId": "up-tilt",
-      "moveLabel": "Pac_man Up Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 24,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "pac-man:up-tilt:manual-full-move"
-    },
-    {
       "fighterId": "palutena",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Palutena Air Dodge, Diagonally Down",
@@ -6285,16 +5474,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "palutena:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "palutena",
-      "moveId": "up-b-warp",
-      "moveLabel": "Palutena Up B (Warp)",
-      "category": "special",
-      "timelineTotalFrames": 67,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "palutena:up-b-warp:manual-full-move"
     },
     {
       "fighterId": "peach",
@@ -6388,16 +5567,6 @@
     },
     {
       "fighterId": "peach",
-      "moveId": "forward-smash",
-      "moveLabel": "Peach Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 45,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "peach:forward-smash:manual-full-move"
-    },
-    {
-      "fighterId": "peach",
       "moveId": "toad-attack",
       "moveLabel": "Peach Toad, Attack",
       "category": "misc",
@@ -6405,16 +5574,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "peach:toad-attack:manual-full-move"
-    },
-    {
-      "fighterId": "peach",
-      "moveId": "neutral-b-toad",
-      "moveLabel": "Peach Neutral B (Toad)",
-      "category": "special",
-      "timelineTotalFrames": 62,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "peach:neutral-b-toad:manual-full-move"
     },
     {
       "fighterId": "peach",
@@ -6515,36 +5674,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "pichu:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "pichu",
-      "moveId": "down-tilt",
-      "moveLabel": "Pichu Down Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 18,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "pichu:down-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "pichu",
-      "moveId": "up-tilt",
-      "moveLabel": "Pichu Up Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 23,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "pichu:up-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "pichu",
-      "moveId": "up-b-agility",
-      "moveLabel": "Pichu Up B (Agility)",
-      "category": "special",
-      "timelineTotalFrames": 70,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "pichu:up-b-agility:manual-full-move"
     },
     {
       "fighterId": "pikachu",
@@ -7097,26 +6226,6 @@
       "replacementQueueKey": "ridley:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "ridley",
-      "moveId": "down-smash",
-      "moveLabel": "Ridley Down Smash",
-      "category": "ground",
-      "timelineTotalFrames": 57,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ridley:down-smash:manual-full-move"
-    },
-    {
-      "fighterId": "ridley",
-      "moveId": "up-b-wing-blitz",
-      "moveLabel": "Ridley Up B (Wing Blitz)",
-      "category": "special",
-      "timelineTotalFrames": 59,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ridley:up-b-wing-blitz:manual-full-move"
-    },
-    {
       "fighterId": "rob",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Rob Air Dodge, Diagonally Down",
@@ -7205,16 +6314,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "rob:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "rob",
-      "moveId": "side-b-arm-rotor",
-      "moveLabel": "Rob Side B (Arm Rotor)",
-      "category": "special",
-      "timelineTotalFrames": 85,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "rob:side-b-arm-rotor:manual-full-move"
     },
     {
       "fighterId": "rob",
@@ -7407,16 +6506,6 @@
       "replacementQueueKey": "rosalina-and-luma:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "rosalina-and-luma",
-      "moveId": "up-b-launch-star",
-      "moveLabel": "Rosalina_and_luma Up B (Launch Star)",
-      "category": "special",
-      "timelineTotalFrames": 1,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "rosalina-and-luma:up-b-launch-star:manual-full-move"
-    },
-    {
       "fighterId": "roy",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Roy Air Dodge, Diagonally Down",
@@ -7605,16 +6694,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "ryu:focus-attack-dash-cancel:manual-full-move"
-    },
-    {
-      "fighterId": "ryu",
-      "moveId": "side-b-tatsumaki-senpukyaku",
-      "moveLabel": "Ryu Side B (Tatsumaki Senpukyaku)",
-      "category": "special",
-      "timelineTotalFrames": 90,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "ryu:side-b-tatsumaki-senpukyaku:manual-full-move"
     },
     {
       "fighterId": "samus",
@@ -7987,16 +7066,6 @@
       "replacementQueueKey": "shulk:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "shulk",
-      "moveId": "down-b-vision",
-      "moveLabel": "Shulk Down B (Vision)",
-      "category": "special",
-      "timelineTotalFrames": 69,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "shulk:down-b-vision:manual-full-move"
-    },
-    {
       "fighterId": "simon",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Simon Air Dodge, Diagonally Down",
@@ -8187,16 +7256,6 @@
       "replacementQueueKey": "snake:grenade-neutral-throw-smash-throw-underhand-throw:manual-full-move"
     },
     {
-      "fighterId": "snake",
-      "moveId": "side-b-nikita",
-      "moveLabel": "Snake Side B (Nikita)",
-      "category": "special",
-      "timelineTotalFrames": 41,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "snake:side-b-nikita:manual-full-move"
-    },
-    {
       "fighterId": "sonic",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Sonic Air Dodge, Diagonally Down",
@@ -8285,16 +7344,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "sonic:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "sonic",
-      "moveId": "forward-smash",
-      "moveLabel": "Sonic Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 47,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "sonic:forward-smash:manual-full-move"
     },
     {
       "fighterId": "sora",
@@ -8387,26 +7436,6 @@
       "replacementQueueKey": "sora:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "sora",
-      "moveId": "ftilt-1-ftilt-2-combo",
-      "moveLabel": "Sora FTilt 1 > FTilt 2 Combo",
-      "category": "ground",
-      "timelineTotalFrames": 40,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "sora:ftilt-1-ftilt-2-combo:manual-full-move"
-    },
-    {
-      "fighterId": "sora",
-      "moveId": "neutral-b-blizzaga",
-      "moveLabel": "Sora Neutral B (Blizzaga)",
-      "category": "special",
-      "timelineTotalFrames": 55,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "sora:neutral-b-blizzaga:manual-full-move"
-    },
-    {
       "fighterId": "squirtle",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Pt_squirtle Air Dodge, Diagonally Down",
@@ -8495,66 +7524,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "squirtle:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "squirtle",
-      "moveId": "forward-tilt",
-      "moveLabel": "Pt_squirtle Forward Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 17,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "squirtle:forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "squirtle",
-      "moveId": "down-b-pokemon-change",
-      "moveLabel": "Pt_squirtle Down B (Pokemon Change)",
-      "category": "special",
-      "timelineTotalFrames": 39,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "squirtle:down-b-pokemon-change:manual-full-move"
-    },
-    {
-      "fighterId": "squirtle",
-      "moveId": "neutral-b-watergun",
-      "moveLabel": "Pt_squirtle Neutral B (Watergun)",
-      "category": "special",
-      "timelineTotalFrames": 63,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "squirtle:neutral-b-watergun:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "back-air",
-      "moveLabel": "Steve Back Air",
-      "category": "aerial",
-      "timelineTotalFrames": 47,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:back-air:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "forward-air",
-      "moveLabel": "Steve Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 31,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:forward-air:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "up-air",
-      "moveLabel": "Steve Up Air",
-      "category": "aerial",
-      "timelineTotalFrames": 13,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:up-air:manual-full-move"
     },
     {
       "fighterId": "steve",
@@ -8648,26 +7617,6 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "dash-attack",
-      "moveLabel": "Steve Dash Attack",
-      "category": "ground",
-      "timelineTotalFrames": 31,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:dash-attack:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "jab-forward-tilt",
-      "moveLabel": "Steve Jab / Forward Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 16,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:jab-forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
       "moveId": "summon-crafting-table",
       "moveLabel": "Steve Summon Crafting Table",
       "category": "misc",
@@ -8675,36 +7624,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "steve:summon-crafting-table:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "sword-back-air-short-hop-macro-bair",
-      "moveLabel": "Steve Sword Back Air (Short Hop Macro BAir)",
-      "category": "misc",
-      "timelineTotalFrames": 16,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:sword-back-air-short-hop-macro-bair:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "sword-forward-air-short-hop-macro-fair",
-      "moveLabel": "Steve Sword Forward Air (Short Hop Macro FAir)",
-      "category": "misc",
-      "timelineTotalFrames": 16,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:sword-forward-air-short-hop-macro-fair:manual-full-move"
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "neutral-b-mine",
-      "moveLabel": "Steve Neutral B (Mine)",
-      "category": "special",
-      "timelineTotalFrames": 56,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "steve:neutral-b-mine:manual-full-move"
     },
     {
       "fighterId": "terry",
@@ -8795,26 +7714,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "terry:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "terry",
-      "moveId": "burning-knuckle-input",
-      "moveLabel": "Terry Burning Knuckle, Input",
-      "category": "misc",
-      "timelineTotalFrames": 69,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "terry:burning-knuckle-input:manual-full-move"
-    },
-    {
-      "fighterId": "terry",
-      "moveId": "forward-b-burning-knuckle",
-      "moveLabel": "Terry Forward B (Burning Knuckle)",
-      "category": "misc",
-      "timelineTotalFrames": 69,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "terry:forward-b-burning-knuckle:manual-full-move"
     },
     {
       "fighterId": "toon-link",
@@ -9017,66 +7916,6 @@
       "replacementQueueKey": "villager:rapid-jab:manual-full-move"
     },
     {
-      "fighterId": "villager",
-      "moveId": "rapid-jab-finisher",
-      "moveLabel": "Villager Rapid Jab Finisher",
-      "category": "ground",
-      "timelineTotalFrames": 38,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "villager:rapid-jab-finisher:manual-full-move"
-    },
-    {
-      "fighterId": "villager",
-      "moveId": "timber-tree-grow-fall",
-      "moveLabel": "Villager Timber Tree Grow/Fall",
-      "category": "misc",
-      "timelineTotalFrames": 46,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "villager:timber-tree-grow-fall:manual-full-move"
-    },
-    {
-      "fighterId": "villager",
-      "moveId": "down-b-timber-plant-timber-water",
-      "moveLabel": "Villager Down B (Timber Plant, Timber Water)",
-      "category": "special",
-      "timelineTotalFrames": 49,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "villager:down-b-timber-plant-timber-water:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "forward-air",
-      "moveLabel": "Wario Forward Air",
-      "category": "aerial",
-      "timelineTotalFrames": 37,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:forward-air:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "neutral-air",
-      "moveLabel": "Wario Neutral Air",
-      "category": "aerial",
-      "timelineTotalFrames": 45,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:neutral-air:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "up-air",
-      "moveLabel": "Wario Up Air",
-      "category": "aerial",
-      "timelineTotalFrames": 46,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:up-air:manual-full-move"
-    },
-    {
       "fighterId": "wario",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Wario Air Dodge, Diagonally Down",
@@ -9167,66 +8006,6 @@
       "replacementQueueKey": "wario:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "wario",
-      "moveId": "down-tilt",
-      "moveLabel": "Wario Down Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 17,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:down-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "forward-smash",
-      "moveLabel": "Wario Forward Smash",
-      "category": "ground",
-      "timelineTotalFrames": 65,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:forward-smash:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "forward-tilt",
-      "moveLabel": "Wario Forward Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 39,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:forward-tilt:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "jab",
-      "moveLabel": "Wario Jab",
-      "category": "ground",
-      "timelineTotalFrames": 27,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:jab:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "up-smash",
-      "moveLabel": "Wario Up Smash",
-      "category": "ground",
-      "timelineTotalFrames": 57,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:up-smash:manual-full-move"
-    },
-    {
-      "fighterId": "wario",
-      "moveId": "up-tilt",
-      "moveLabel": "Wario Up Tilt",
-      "category": "ground",
-      "timelineTotalFrames": 27,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wario:up-tilt:manual-full-move"
-    },
-    {
       "fighterId": "wii-fit-trainer",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Wii_fit_trainer Air Dodge, Diagonally Down",
@@ -9315,16 +8094,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "wii-fit-trainer:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "wii-fit-trainer",
-      "moveId": "down-b-deep-breathing",
-      "moveLabel": "Wii_fit_trainer Down B (Deep Breathing)",
-      "category": "special",
-      "timelineTotalFrames": 39,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "wii-fit-trainer:down-b-deep-breathing:manual-full-move"
     },
     {
       "fighterId": "wolf",
@@ -9775,16 +8544,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "zero-suit-samus:spot-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "zero-suit-samus",
-      "moveId": "flip-jump-kick",
-      "moveLabel": "Zero_suit_samus Flip Jump, Kick",
-      "category": "misc",
-      "timelineTotalFrames": 59,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "zero-suit-samus:flip-jump-kick:manual-full-move"
     }
   ]
 }

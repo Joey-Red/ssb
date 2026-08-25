@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "registryEntries": 8,
+  "recoveredSourceLessMoves": 5,
+  "accepted": [
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "down-b-wild-gunman",
+      "moveName": "Down B (Wild Gunman)",
+      "fileTitle": "File:Duck Hunt Down B SSBU.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Duck_Hunt_Down_B_SSBU.gif",
+      "verification": "SmashWiki Duck Hunt SSBU media labels this animation as Down B"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "up-b-duck-jump",
+      "moveName": "Up B (Duck Jump)",
+      "fileTitle": "File:Duck Hunt Up B SSBU.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Duck_Hunt_Up_B_SSBU.gif",
+      "verification": "SmashWiki file describes Duck Hunt's up special in Ultimate"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "up-b-rush-coil",
+      "moveName": "Up B (Rush Coil)",
+      "fileTitle": "File:Mega Man Up B SSBU.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Mega_Man_Up_B_SSBU.gif",
+      "verification": "SmashWiki Mega Man SSBU media labels this animation as Up B"
+    },
+    {
+      "fighterId": "min-min",
+      "moveId": "down-b-arms-change",
+      "moveName": "Down B (Arms Change)",
+      "fileTitle": "File:Min Min Down B SSBU.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Min_Min_Down_B_SSBU.gif",
+      "verification": "SmashWiki Min Min SSBU media labels this animation as Down B"
+    },
+    {
+      "fighterId": "wii-fit-trainer",
+      "moveId": "down-b-deep-breathing",
+      "moveName": "Down B (Deep Breathing)",
+      "fileTitle": "File:Wii Fit Trainer Down B SSBU.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Wii_Fit_Trainer_Down_B_SSBU.gif",
+      "verification": "SmashWiki Wii Fit Trainer SSBU media labels this animation as Down B"
+    }
+  ],
+  "skipped": [
+    {
+      "fighterId": "kazuya",
+      "moveId": "down-b-heaven-s-door",
+      "reason": "move already has a discovered source visual"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "side-b-arm-rotor",
+      "reason": "move already has a discovered source visual"
+    },
+    {
+      "fighterId": "ryu",
+      "moveId": "side-b-tatsumaki-senpukyaku",
+      "reason": "move already has a discovered source visual"
+    }
+  ]
+}

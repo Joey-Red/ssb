@@ -2,7 +2,7 @@
   "version": 1,
   "source": "rubendal/ssbu patch 13.0.1",
   "policy": "generated game-data timing evidence only; manual reviewed overrides take precedence",
-  "targetTimingGaps": 126,
+  "targetTimingGaps": 160,
   "resolvedTimingGaps": 0,
   "entries": {},
   "diagnostics": {
@@ -16,7 +16,7 @@
         "neutral-air-dodge:attack_air_n ruben=47 documented=46"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Bowser"
     },
     "bowser-jr": {
@@ -29,7 +29,7 @@
         "neutral-air-dodge:attack_air_n ruben=43 documented=48"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 4,
+      "skippedTimingGaps": 5,
       "rubenDirectory": "Bowser Jr"
     },
     "captain-falcon": {
@@ -42,7 +42,7 @@
         "neutral-air-dodge:attack_air_n ruben=39 documented=42"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 3,
       "rubenDirectory": "Captain Falcon"
     },
     "charizard": {
@@ -83,7 +83,7 @@
         "neutral-air-dodge:attack_air_n ruben=41 documented=47"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 4,
+      "skippedTimingGaps": 5,
       "rubenDirectory": "Cloud"
     },
     "corrin": {
@@ -93,7 +93,7 @@
         "forward-tilt:attack_s3_s ruben=37 documented=34"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 4,
       "rubenDirectory": "Corrin"
     },
     "daisy": {
@@ -113,7 +113,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=56"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 3,
       "rubenDirectory": "Dark Samus"
     },
     "diddy-kong": {
@@ -142,7 +142,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=52"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Dr. Mario"
     },
     "ganondorf": {
@@ -155,7 +155,7 @@
         "neutral-air-dodge:attack_air_n ruben=44 documented=46"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 4,
       "rubenDirectory": "Ganondorf"
     },
     "greninja": {
@@ -169,7 +169,7 @@
         "neutral-air-dodge:attack_air_n ruben=52 documented=41"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Greninja"
     },
     "hero": {
@@ -181,7 +181,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=50"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 3,
       "rubenDirectory": "Hero"
     },
     "ice-climbers": {
@@ -197,7 +197,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=58"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Ice Climbers"
     },
     "ike": {
@@ -224,7 +224,7 @@
         "neutral-air-dodge:attack_air_n ruben=32 documented=50"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Inkling"
     },
     "isabelle": {
@@ -275,7 +275,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=46"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 3,
+      "skippedTimingGaps": 5,
       "rubenDirectory": "King K. Rool"
     },
     "kirby": {
@@ -311,7 +311,7 @@
         "neutral-air-dodge:attack_air_n ruben=38 documented=49"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Link"
     },
     "little-mac": {
@@ -323,7 +323,7 @@
         "neutral-air-dodge:attack_air_n ruben=15 documented=49"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Little Mac"
     },
     "lucario": {
@@ -388,7 +388,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=52"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Mario"
     },
     "marth": {
@@ -457,7 +457,7 @@
         "pummel:catch_attack ruben=6 documented=19"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Mr. Game & Watch"
     },
     "mythra": {
@@ -538,7 +538,7 @@
         "neutral-air-dodge:attack_air_n ruben=47 documented=42"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 4,
       "rubenDirectory": "Piranha Plant"
     },
     "pyra": {
@@ -563,7 +563,7 @@
         "neutral-air-dodge:attack_air_n ruben=51 documented=49"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Pyra"
     },
     "richter": {
@@ -576,7 +576,7 @@
         "down-throw:throw_lw ruben=39 documented=48"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Richter"
     },
     "robin": {
@@ -589,7 +589,7 @@
         "neutral-air-dodge:attack_air_n ruben=49 documented=51"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 3,
       "rubenDirectory": "Robin"
     },
     "roy": {
@@ -624,7 +624,7 @@
         "neutral-air-dodge:attack_air_n ruben=45 documented=56"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 3,
       "rubenDirectory": "Samus"
     },
     "shulk": {
@@ -637,7 +637,7 @@
         "neutral-air-dodge:attack_air_n ruben=59 documented=49"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 2,
+      "skippedTimingGaps": 3,
       "rubenDirectory": "Shulk"
     },
     "simon": {
@@ -650,7 +650,7 @@
         "down-throw:throw_lw ruben=39 documented=48"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Simon"
     },
     "sonic": {
@@ -691,7 +691,7 @@
         "neutral-air-dodge:attack_air_n ruben=41 documented=54"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Sora"
     },
     "squirtle": {
@@ -718,7 +718,7 @@
         "neutral-air-dodge:attack_air_n ruben=17 documented=54"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 4,
+      "skippedTimingGaps": 5,
       "rubenDirectory": "Steve"
     },
     "terry": {
@@ -737,7 +737,7 @@
         "neutral-air-dodge:attack_air_n ruben=33 documented=51"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Terry"
     },
     "toon-link": {
@@ -768,7 +768,7 @@
         "neutral-air-dodge:attack_air_n ruben=49 documented=50"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Wario"
     },
     "wolf": {
@@ -785,7 +785,7 @@
         "neutral-air-dodge:attack_air_n ruben=42 documented=44"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Wolf"
     },
     "young-link": {
@@ -802,7 +802,7 @@
         "neutral-air-dodge:attack_air_n ruben=35 documented=45"
       ],
       "resolvedTimingGaps": 0,
-      "skippedTimingGaps": 1,
+      "skippedTimingGaps": 2,
       "rubenDirectory": "Young Link"
     },
     "zero-suit-samus": {

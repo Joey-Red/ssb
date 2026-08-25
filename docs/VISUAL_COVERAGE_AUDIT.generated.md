@@ -1,21 +1,20 @@
 # Visual Coverage Audit
 
 - Frame-data moves: **3588**
-- Moves with discovered source visuals: **2611**
-- Moves with any source/reviewed visual: **2611**
+- Moves with discovered source visuals: **2735**
+- Moves with any source/reviewed visual: **2735**
 - Reviewed local captures: **0**
-- Moves with no visual: **977**
-- Source variants: **3478**
-- Resolved source/reviewed variants: **2628**
-- Unresolved source variants: **850**
-- Total unresolved move/variant blockers: **1827**
+- Moves with no visual: **853**
+- Source variants: **3560**
+- Resolved source/reviewed variants: **2852**
+- Unresolved source variants: **708**
+- Total unresolved move/variant blockers: **1561**
 - Fighters with blockers: **89**
 
 This file is generated. A listed item is a source/timing blocker, not permission to invent a mapping or image.
 
 ## banjo-and-kazooie
 
-- **Banjo_and_kazooie Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Banjo_and_kazooie Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Banjo_and_kazooie Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Banjo_and_kazooie Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -29,14 +28,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `BanjoKazooieBreegullBlaster1-6` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `BanjoKazooieBreegullBlaster13` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `BanjoKazooieBreegullBlaster7-12` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+- **Banjo_and_kazooie Down Air**
+  - `Banjo_KazooieDAirLanding` — fighter-action / short-or-misaligned-source: source has 27 images / 3510 ms and cannot prove the complete 56-frame fighter action
 - **Banjo_and_kazooie Down B (Rear Egg)**
   - `Banjo&KazooieRearEggExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BanjoKazooieRearEggExplode` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
-- **Banjo_and_kazooie Pummel**
-  - `Banjo_KazooiePummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Banjo_and_kazooie Side B (Wonderwing)**
   - `Banjo&KazooieWonderwingSSBU` — fighter-action / short-or-misaligned-source: source has 53 images / 6837 ms and cannot prove the complete 82-frame fighter action
-  - `Banjo_KazooieWonderwing` — fighter-action / short-or-misaligned-source: source has 53 images / 6890 ms and cannot prove the complete 82-frame fighter action
 
 ## bayonetta
 
@@ -49,8 +47,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Bayonetta Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bayonetta Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bayonetta Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bayonetta Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bayonetta Up B (Witch Twist)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bayonetta After Burner Kick, Down**
   - `BayonettaAfterburnerKickLanding` — fighter-action / short-or-misaligned-source: source has 20 images / 2600 ms and cannot prove the complete 43-frame fighter action
 - **Bayonetta Back Air**
@@ -62,9 +58,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `BayonettaDashAttackBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaDashAttackBulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Bayonetta Down Air**
-  - `BayonettaDAirLanding` — fighter-action / short-or-misaligned-source: source has 30 images / 3900 ms and cannot prove the complete 52-frame fighter action
   - `BayonettaDAirLandingBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaDAirLandingBulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
+- **Bayonetta Down Smash**
+  - `BayonettaDSmashStomp` — fighter-action / short-or-misaligned-source: source has 51 images / 8750 ms and cannot prove the complete 65-frame fighter action
 - **Bayonetta Forward Air 1**
   - `BayonettaFAir1BulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaFAir1BulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -72,7 +69,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `BayonettaFAir2BulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaFAir2BulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Bayonetta Forward Smash**
-  - `BayonettaFSmash` — fighter-action / short-or-misaligned-source: source has 56 images / 8530 ms and cannot prove the complete 66-frame fighter action
   - `BayonettaFSmashBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaFSmashBulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Bayonetta Forward Tilt 1**
@@ -90,13 +86,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Bayonetta Jab 2**
   - `BayonettaJab2BulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaJab2BulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
-- **Bayonetta Jab 3**
-  - `BayonettaJab3` — fighter-action / short-or-misaligned-source: source has 35 images / 5030 ms and cannot prove the complete 39-frame fighter action
 - **Bayonetta Neutral Air**
-  - `BayonettaNAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 66; complete move coverage requires a proven independent projectile/effect/object timeline
   - `BayonettaNAirSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 66; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Bayonetta Pummel**
-  - `BayonettaPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 25-frame fighter action
   - `BayonettaPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 25-frame fighter action
 - **Bayonetta Rapid Jab Finisher**
   - `BayonettaJabRapidFinisherBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -104,12 +96,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Bayonetta Side B (Heel Slide)**
   - `BayonettaHeelSlideBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaHeelSlideBulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
-  - `BayonettaHeelSlideEnd` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 66-frame fighter action
 - **Bayonetta Up Air**
-  - `BayonettaUAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 29-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline
   - `BayonettaUAirSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 29-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline
-- **Bayonetta Up Smash**
-  - `BayonettaUSmash` — fighter-action / short-or-misaligned-source: source has 49 images / 8240 ms and cannot prove the complete 64-frame fighter action
 - **Bayonetta Up Tilt**
   - `BayonettaUTiltBulletArts` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BayonettaUTiltBulletArtsSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -125,20 +113,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Bowser Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bowser Neutral B (Fire Breath)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bowser Down Air**
-  - `BowserDAirLanding` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 77-frame fighter action
+- **Bowser Neutral B (Fire Breath)**
+  - `Bowser_Neutral_B_SSBU` — fighter-action / short-or-misaligned-source: source has 59 images / 2360 ms and cannot prove the complete 77-frame fighter action
 - **Bowser Pummel**
-  - `BowserPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
   - `BowserPummelSSBU` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
 - **Bowser Up B, Air (Whirling Fortress, Air)**
-  - `BowserWhirlingFortressA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `BowserWhirlingFortressAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## bowser-jr
 
-- **Bowser_jr Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bowser_jr Neutral Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Abandon Ship Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -149,29 +132,21 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Bowser_jr Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bowser_jr Dash Attack** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Bowser_jr Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Bowser_jr Abandon Ship (Hammer)**
   - `BowserJrAbandonShipHammer` — fighter-action / short-or-misaligned-source: source has 38 images / 5070 ms and cannot prove the complete 39-frame fighter action
-- **Bowser_jr Down Air**
-  - `BowserJrDAirLanding` — fighter-action / short-or-misaligned-source: source has 15 images / 1950 ms and cannot prove the complete 56-frame fighter action
 - **Bowser_jr Down B (Mechakoopa)**
   - `BowserJrDSpecialExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BowserJrDSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 48 images / 1440 ms and cannot prove the complete 67-frame fighter action
   - `BowserJrMechakoopaExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
-- **Bowser_jr Down Smash**
-  - `BowserJrDSmash` — fighter-action / short-or-misaligned-source: source has 56 images / 7280 ms and cannot prove the complete 59-frame fighter action
+- **Bowser_jr Forward Air**
+  - `BowserJrFAirLanding` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 43-frame fighter action
 - **Bowser_jr Neutral B (Clown Cannon)**
-  - `BowserJrClownCannon` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 72-frame fighter action
   - `BowserJrNSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 18 images / 2322 ms and cannot prove the complete 72-frame fighter action
-- **Bowser_jr Pummel**
-  - `BowserJrPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Bowser_jr Side B (Clown Kart Dash)**
   - `BowserJrClownKartDashA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `BowserJrClownKartDashG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `BowserJrSSpecialDashSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Bowser_jr Up B (Abandon Ship)**
-  - `BowserJrAbandonShip` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `BowserJrAbandonShipExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BowserJrAbandonShipExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `BowserJrAbandonShipHammerSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -188,15 +163,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Byleth Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Byleth Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Byleth Down Smash**
-  - `BylethDSmash` — fighter-action / short-or-misaligned-source: source has 73 images / 9620 ms and cannot prove the complete 74-frame fighter action
   - `BylethDSmashSSBU` — fighter-action / short-or-misaligned-source: source has 73 images / 9620 ms and cannot prove the complete 74-frame fighter action
-- **Byleth Neutral Air**
-  - `BylethNAirLanding` — fighter-action / short-or-misaligned-source: source has 13 images / 1690 ms and cannot prove the complete 51-frame fighter action
 - **Byleth Pummel**
-  - `BylethPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 22-frame fighter action
   - `BylethPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 22-frame fighter action
-- **Byleth Side B (Areadbhar)**
-  - `BylethAreadbharAerial` — fighter-action / short-or-misaligned-source: source has 61 images / 7930 ms and cannot prove the complete 65-frame fighter action
 
 ## captain-falcon
 
@@ -209,7 +178,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Captain_falcon Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Captain_falcon Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Captain_falcon Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Captain_falcon Neutral B (Falcon Punch)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Captain_falcon Down B (Falcon Kick)**
   - `CaptainFalconFalconKickG` — fighter-action / short-or-misaligned-source: source has 36 images / 4680 ms and cannot prove the complete 68-frame fighter action
 - **Captain_falcon Down B, Air (Falcon Kick, Air)**
@@ -217,14 +185,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `CaptainFalconFalconKickALanding` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 56-frame fighter action
   - `CaptainFalconFalconKickAerialSSBU` — fighter-action / short-or-misaligned-source: source has 27 images / 3483 ms and cannot prove the complete 56-frame fighter action
 - **Captain_falcon Down Throw**
-  - `CaptainFalconDThrow` — fighter-action / short-or-misaligned-source: source has 33 images / 4290 ms and cannot prove the complete 39-frame fighter action
   - `CaptainFalconDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 33 images / 4290 ms and cannot prove the complete 39-frame fighter action
 - **Captain_falcon Pummel**
-  - `CaptainFalconPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `CaptainFalconPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Captain_falcon Up B (Falcon Dive)**
-  - `CaptainFalconFalconDiveA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `CaptainFalconFalconDiveG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `CaptainFalconFalconDiveCatch` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `CaptainFalconFalconDiveSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## charizard
@@ -238,14 +203,14 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pt_charizard Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_charizard Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_charizard Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_charizard Down B (Pokemon Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_charizard Neutral B (Flamethrower)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_charizard Down Air**
   - `charitardDAir` — fighter-action / short-or-misaligned-source: source has 49 images / 6630 ms and cannot prove the complete 51-frame fighter action
 - **Pt_charizard Forward Tilt**
   - `charitardFTilt` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 37-frame fighter action
   - `charitardFTiltDown` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 37-frame fighter action
   - `charitardFTiltUp` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 37-frame fighter action
+- **Pt_charizard Neutral B (Flamethrower)**
+  - `Charizard_Neutral_B_SSBU` — fighter-action / short-or-misaligned-source: source has 43 images / 1720 ms and cannot prove the complete 70-frame fighter action
 - **Pt_charizard Pummel**
   - `charitardPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
 - **Pt_charizard Side B (Flare Blitz)**
@@ -266,12 +231,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Chrom Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Chrom Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Chrom Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Chrom Forward Smash**
-  - `ChromFSmash` — fighter-action / short-or-misaligned-source: source has 51 images / 6630 ms and cannot prove the complete 53-frame fighter action
-- **Chrom Neutral B (Flare Blade)**
-  - `ChromFlareBlade` — fighter-action / short-or-misaligned-source: source has 33 images / 4290 ms and cannot prove the complete 44-frame fighter action
 - **Chrom Pummel**
-  - `ChromPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `ChromPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 19-frame fighter action
 - **Chrom Up B (Soaring Slash)**
   - `ChromSoaringSlash` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -290,20 +250,14 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Cloud Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Cloud Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Cloud Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Cloud Down B (Limit Charge)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Cloud Climhazzard, Followup**
   - `CloudClimhazzardFall` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `CloudClimhazzardLanding` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Cloud Down B (Finishing Touch)**
   - `CloudFinishingTouchG` — fighter-action / short-or-misaligned-source: source has 83 images / 10790 ms and cannot prove the complete 84-frame fighter action
-- **Cloud Forward Smash**
-  - `CloudFSmash` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 66-frame fighter action
 - **Cloud Limit Climhazzard**
   - `CloudClimhazzardLimit` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-- **Cloud Pummel**
-  - `CloudPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Cloud Up B (Climhazzard)**
-  - `CloudClimhazzard` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `CloudClimhazzardSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## corrin
@@ -320,14 +274,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Corrin Dragon Fang Shot (chomp)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Corrin Dragon Lunge, Pin Cancel** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Corrin Dragon Lunge, Pin Jump** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Corrin Neutral B (Dragon Fang Shot)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Corrin Side B (Dragon Lunge, Air)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Corrin Counter Surge, Attack**
   - `CorrinCounterSurgeHit` — fighter-action / short-or-misaligned-source: source has 62 images / 8580 ms and cannot prove the complete 66-frame fighter action
-- **Corrin Down Air**
-  - `CorrinDAirLanding` — fighter-action / short-or-misaligned-source: source has 26 images / 3380 ms and cannot prove the complete 51-frame fighter action
 - **Corrin Down B (Counter Surge)**
-  - `CorrinCounterSurge` — fighter-action / short-or-misaligned-source: source has 64 images / 8560 ms and cannot prove the complete 66-frame fighter action
   - `CorrinDSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 64 images / 8560 ms and cannot prove the complete 66-frame fighter action
 - **Corrin Dragon Lunge, Back Kick**
   - `CorrinDragonLungeKickBack` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 60-frame fighter action
@@ -336,13 +286,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Corrin Forward Smash**
   - `CorrinFSmash` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `CorrinFSmashSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+- **Corrin Neutral B (Dragon Fang Shot)**
+  - `Corrin_Neutral_B_SSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 61-frame parent action, but documented interaction remains active through frame 71; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Corrin Pummel**
-  - `CorrinPummel` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `CorrinPummelSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Corrin Side B (Dragon Lunge, Pin)**
   - `CorrinDragonLunge` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Corrin Up B (Dragon Ascent)**
-  - `CorrinDragonAscent` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `CorrinUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## daisy
@@ -356,11 +306,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Daisy Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Daisy Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Daisy Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Daisy Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Daisy Toad, Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Daisy Side B, Air (daisy Bomber, Air)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Daisy Pummel**
-  - `DaisyPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `DaisyPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Daisy Up B (daisy Parasol)**
   - `DaisyDaisyParasol` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -379,7 +327,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Dark_pit Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dark_pit Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dark_pit Pummel**
-  - `DarkPitPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `DarkPitPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Dark_pit Side B (Electroshock Arm)**
   - `DarkPitElectroshockArmHitG` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 79-frame fighter action
@@ -405,15 +352,12 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `DarkSamusDSpecialExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `DarkSamusDSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Dark_samus Pummel**
-  - `DarkSamusPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `DarkSamusPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Dark_samus Up B (Screw Attack)**
   - `DarkSamusScrewAttackG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Dark_samus Up B, Air (Screw Attack, Air)**
-  - `DarkSamusScrewAttackA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `DarkSamusUSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Dark_samus Up Throw**
-  - `DarkSamusUThrow` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 41-frame fighter action
   - `DarkSamusUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 41-frame fighter action
 
 ## diddy-kong
@@ -431,7 +375,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Diddy_kong Neutral B (Peanut Popgun)**
   - `DiddyKongNSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 2 images / 2000 ms and cannot prove the complete 48-frame fighter action
 - **Diddy_kong Pummel**
-  - `DiddyKongPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
   - `DiddyKongPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Diddy_kong Rocketbarrel Boost, Explosion**
   - `DiddyKongRocketBarrelsExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -443,7 +386,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## donkey-kong
 
-- **Donkey_kong Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Donkey_kong Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Donkey_kong Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Donkey_kong Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -456,7 +398,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## dr-mario
 
-- **Dr_mario Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -466,15 +407,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Dr_mario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Dr_mario Jab 1** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Dr_mario Neutral B (Megavitamin Pill)**
   - `Dr.MarioMegavitaminsSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `DrMarioMegavitamin` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
-- **Dr_mario Pummel**
-  - `DrMarioPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Dr_mario Up B (Super Jump Punch)**
   - `Dr.MarioSuperJumpPunchSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `DrMarioSuperJumpPunch` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## duck-hunt
 
@@ -492,8 +429,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Duck_hunt Wild Gunman, Short cowboy** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Duck_hunt Wild Gunman, Sombrero guy** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Duck_hunt Wild Gunman, Tall cowboy** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Duck_hunt Down B (Wild Gunman)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Duck_hunt Up B (Duck Jump)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Duck_hunt Clay Shooting, Detonate**
   - `DuckHuntClayShootingBurst` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Duck_hunt Neutral B (Trick Shot)**
@@ -503,12 +438,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `DuckHuntTrickShotFly` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `DuckHuntTrickShotStand` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Duck_hunt Pummel**
-  - `DuckHuntPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `DuckHuntPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Duck_hunt Side B (Clay Shooting)**
   - `DuckHuntClayShooting` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `DuckHuntSSpecialBurstSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `DuckHuntSSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+- **Duck_hunt Up B (Duck Jump)**
+  - `Duck Hunt Up B SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## falco
 
@@ -521,11 +457,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Falco Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Falco Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Falco Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Falco Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Falco Forward Air**
-  - `FalcoFAirLanding` — fighter-action / short-or-misaligned-source: source has 15 images / 1950 ms and cannot prove the complete 49-frame fighter action
 - **Falco Pummel**
-  - `FalcoPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `FalcoPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Falco Side B (Falco Phantasm)**
   - `FalcoFalcoPhantasmA` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
@@ -543,22 +475,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Fox Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Fox Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Fox Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Fox Down Air**
-  - `FoxDAirLanding` — fighter-action / short-or-misaligned-source: source has 17 images / 2210 ms and cannot prove the complete 49-frame fighter action
 - **Fox Down B (Reflector)**
   - `FoxDSpecialStartupSSBU` — fighter-action / short-or-misaligned-source: source has 3 images / 387 ms and cannot prove the complete 36-frame fighter action
   - `FoxReflector` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 36-frame fighter action
   - `FoxReflectorStart` — fighter-action / short-or-misaligned-source: source has 3 images / 390 ms and cannot prove the complete 36-frame fighter action
-- **Fox Forward Air**
-  - `FoxFAirLanding` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 43-frame fighter action
 - **Fox Pummel**
-  - `FoxPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 15-frame fighter action
   - `FoxPummelSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 645 ms and cannot prove the complete 15-frame fighter action
 - **Fox Side B (Fox Illusion)**
-  - `FoxFoxIllusion` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `FoxSSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 20 images / 340 ms and cannot prove the complete 55-frame fighter action
 - **Fox Up B (Fire Fox)**
-  - `FoxFireFox` — fighter-action / short-or-misaligned-source: source has 87 images / 11310 ms and cannot prove the complete 91-frame fighter action
   - `FoxUSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 87 images / 11310 ms and cannot prove the complete 91-frame fighter action
 
 ## ganondorf
@@ -580,13 +505,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `GanondorfWizardsFootA` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 57-frame fighter action
   - `GanondorfWizardsFootALand` — fighter-action / short-or-misaligned-source: source has 44 images / 5720 ms and cannot prove the complete 57-frame fighter action
 - **Ganondorf Pummel**
-  - `GanondorfPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
   - `GanondorfPummelSSBU` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
 - **Ganondorf Side B, Air (Flame Choke, Air)**
-  - `GanondorfFlameChokeA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `GanondorfSSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Ganondorf Up B (Dark Dive)**
-  - `GanondorfDarkDive1` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `GanondorfUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## greninja
@@ -600,15 +522,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Greninja Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Greninja Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Greninja Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Greninja Down B, Attack (Substitute, Attack)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Greninja Pummel**
-  - `GreninjaPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 18-frame fighter action
+- **Greninja Down B, Attack (Substitute, Attack)**
+  - `GreninjaSubstituteHitDiagonalDown` — fighter-action / short-or-misaligned-source: source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action
+  - `GreninjaSubstituteHitDiagonalUp` — fighter-action / short-or-misaligned-source: source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action
+  - `GreninjaSubstituteHitDown` — fighter-action / short-or-misaligned-source: source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action
+  - `GreninjaSubstituteHitSide` — fighter-action / short-or-misaligned-source: source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action
+  - `GreninjaSubstituteHitUp` — fighter-action / short-or-misaligned-source: source has 19 images / 2470 ms and cannot prove the complete 63-frame fighter action
 - **Greninja Side B (Shadow Sneak)**
   - `GreninjaSSpecialForwardAttackSSBU` — fighter-action / short-or-misaligned-source: source has 46 images / 5934 ms and cannot prove the complete 63-frame fighter action
   - `GreninjaShadowSneakB` — fighter-action / short-or-misaligned-source: source has 45 images / 5970 ms and cannot prove the complete 63-frame fighter action
   - `GreninjaShadowSneakF` — fighter-action / short-or-misaligned-source: source has 46 images / 5980 ms and cannot prove the complete 63-frame fighter action
 - **Greninja Up B (Hydro Pump)**
-  - `GreninjaHydroPump` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `GreninjaUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## hero
@@ -633,22 +557,26 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Hero Snooze** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Hero Whack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Hero Zoom** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Hero Down B (Menu/Select)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Hero Neutral B (Frizz/Frizzle/Kafrizz)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Hero Up B (Woosh/Swoosh/Kaswoosh)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Hero Hatchet Man**
   - `HeroHatchetMan` — fighter-action / short-or-misaligned-source: source has 87 images / 11310 ms and cannot prove the complete 88-frame fighter action
 - **Hero Kaclang**
   - `HeroKaclang` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Hero Kamikazee**
   - `Kamikazee` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+- **Hero Neutral B (Frizz/Frizzle/Kafrizz)**
+  - `Hero_Neutral_B_2_SSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 43-frame parent action, but documented interaction remains active through frame 73; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Hero Pummel**
-  - `HeroPummel` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `HeroPummelSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Hero Side B, (Zap/Zapple/Kazap)**
+  - `HeroKazap` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `HeroZap` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `HeroZapNoMana` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline
   - `HeroZapSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `HeroZapple` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 30-frame parent action, but documented interaction remains active through frame 83; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Hero Thwack**
   - `Thwack` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+- **Hero Up B (Woosh/Swoosh/Kaswoosh)**
+  - `Hero_Up_B_2_SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## ice-climbers
 
@@ -661,18 +589,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ice_climbers Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ice_climbers Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ice_climbers Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ice_climbers Dash Grab**
-  - `PopoDashGrab` — fighter-action / short-or-misaligned-source: source has 45 images / 6090 ms and cannot prove the complete 47-frame fighter action
-- **Ice_climbers Grab**
-  - `PopoGrab` — fighter-action / short-or-misaligned-source: source has 33 images / 5010 ms and cannot prove the complete 39-frame fighter action
 - **Ice_climbers Neutral B (Ice Shot)**
   - `IceClimbersIceShot` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `IceClimbersNSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
-- **Ice_climbers Pummel**
-  - `PopoPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Ice_climbers Up B (Belay)**
   - `IceClimbersUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `NanaBelay` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## ike
 
@@ -685,19 +606,23 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ike Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ike Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ike Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ike Neutral B (Eruption)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ike Counter, Attack**
   - `IkeCounterHit` — fighter-action / short-or-misaligned-source: source has 41 images / 5690 ms and cannot prove the complete 43-frame fighter action
 - **Ike Down B (Counter)**
-  - `IkeCounter` — fighter-action / short-or-misaligned-source: source has 70 images / 9460 ms and cannot prove the complete 73-frame fighter action
   - `IkeCounterSSBU` — fighter-action / short-or-misaligned-source: source has 70 images / 9460 ms and cannot prove the complete 73-frame fighter action
-- **Ike Pummel**
-  - `IkePummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 20-frame fighter action
+- **Ike Neutral B (Eruption)**
+  - `IkeEruption` — fighter-action / short-or-misaligned-source: source has 59 images / 7670 ms and cannot prove the complete 78-frame fighter action
+  - `IkeEruptionMid` — fighter-action / short-or-misaligned-source: source has 59 images / 7670 ms and cannot prove the complete 78-frame fighter action
 - **Ike Side B (Quickdraw)**
   - `IkeQuickDraw` — fighter-action / short-or-misaligned-source: source has 34 images / 4420 ms and cannot prove the complete 53-frame fighter action
   - `IkeQuickDrawDash` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 53-frame fighter action
 - **Ike Up B (Aether)**
+  - `IkeAetherA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `IkeAetherFall` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `IkeAetherG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `IkeAetherGroundedSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `IkeAetherLanding` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `IkeAetherSword` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## incineroar
 
@@ -710,17 +635,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Incineroar Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Incineroar Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Incineroar Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Incineroar Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Incineroar Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Incineroar Forward Air**
-  - `IncineroarFAir` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 44-frame fighter action
 - **Incineroar Pummel**
-  - `IncineroarPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 20-frame fighter action
   - `IncineroarPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 20-frame fighter action
 
 ## inkling
 
-- **Inkling Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Inkling Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Inkling Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Inkling Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -730,18 +649,12 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Inkling Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Inkling Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Inkling Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Inkling Dash Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Inkling Pivot Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Inkling Neutral B (Splattershot)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Inkling Pummel**
-  - `InklingPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Inkling Side B (Splat Roller)**
   - `InklingSSpecialGroundedInkSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `InklingSplatRollerA` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `InklingSplatRollerG` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `InklingSplatRollerNoInk` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Inkling Up B (Super Jump)**
-  - `InklingSuperJump` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `InklingUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## isabelle
@@ -758,6 +671,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Isabelle Pocket, Throw** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Isabelle Fishing Rod, Reel In** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Isabelle Down B (Lloid Trap)**
+  - `IsabelleLloidTrapBurst` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `IsabelleLloidTrapExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Isabelle Side B (Fishing Rod)**
   - `Fishing Rod - Down Throw` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -773,9 +687,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pt_ivysaur Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_ivysaur Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_ivysaur Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_ivysaur Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_ivysaur Down B (Pokemon Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_ivysaur Up B (Vinewhip)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_ivysaur Backward Throw**
   - `IvysaurBThrow` — fighter-action / short-or-misaligned-source: source has 34 images / 4420 ms and cannot prove the complete 35-frame fighter action
 - **Pt_ivysaur Forward Tilt**
@@ -794,14 +705,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Jigglypuff Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Jigglypuff Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Jigglypuff Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Jigglypuff Grab**
-  - `JigglypuffGrab` — fighter-action / short-or-misaligned-source: source has 29 images / 4130 ms and cannot prove the complete 32-frame fighter action
 - **Jigglypuff Neutral B (Rollout)**
   - `JigglypuffRolloutA` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `JigglypuffRolloutG` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `Rollout` — fighter-action / short-or-misaligned-source: source has 61 images / 3660 ms and cannot prove the complete 67-frame fighter action
 - **Jigglypuff Pummel**
-  - `JigglypuffPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `Pummel` — fighter-action / short-or-misaligned-source: source has 18 images / 1080 ms and cannot prove the complete 19-frame fighter action
 
 ## joker
@@ -815,20 +723,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Joker Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Joker Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Air, Grappling Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Down B (Rebel's Guard)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Up B (Grappling Hook)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Up B, Arsene (Wings of Rebellion)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Joker Down B, Arsene (Tetrakarn/Makarakarn)**
   - `JokerTetrakarnMakarakarnSSBU` — fighter-action / short-or-misaligned-source: source has 56 images / 7280 ms and cannot prove the complete 57-frame fighter action
-  - `JokerTetrakarn_Makarakarn` — fighter-action / short-or-misaligned-source: source has 56 images / 7280 ms and cannot prove the complete 57-frame fighter action
 - **Joker Gun Special, Spiral (From Air Only)**
   - `JokerGunUpArsene` — fighter-action / short-or-misaligned-source: source has 48 images / 6240 ms and cannot prove the complete 69-frame fighter action
 - **Joker Gun, Spiral (From Air Only)**
   - `JokerGunUp` — fighter-action / short-or-misaligned-source: source has 48 images / 6240 ms and cannot prove the complete 69-frame fighter action
-- **Joker Pummel**
-  - `JokerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 
 ## kazuya
 
@@ -841,23 +745,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Kazuya Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kazuya Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kazuya Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Kazuya Up-Forward Tilt (Roundhouse to Triple Spin Kicks...)** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kazuya Devil Blaster, Air** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Kazuya Rage Drive (Input)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Kazuya Rage Drive (Non Input)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Kazuya Down B (Heaven's Door)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Kazuya Down Air**
-  - `Shoto4DAirLanding` — fighter-action / short-or-misaligned-source: source has 36 images / 4680 ms and cannot prove the complete 57-frame fighter action
+- **Kazuya Down B (Heaven's Door)**
+  - `Shoto4HeavensDoorGround` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 49-frame fighter action
 - **Kazuya Electric Wind God Fist**
   - `Shoto4ElectricWindGodFist` — fighter-action / short-or-misaligned-source: source has 31 images / 4030 ms and cannot prove the complete 35-frame fighter action
 - **Kazuya Gates of Hell (Gates of Hell, Success)**
   - `Shoto4GatesOfHellGrab` — fighter-action / short-or-misaligned-source: source has 32 images / 4680 ms and cannot prove the complete 36-frame fighter action
 - **Kazuya Jab 7**
   - `KazuyaJab7SSBU` — fighter-action / short-or-misaligned-source: source has 41 images / 5330 ms and cannot prove the complete 42-frame fighter action
-  - `Shoto4Jab7` — fighter-action / short-or-misaligned-source: source has 41 images / 5330 ms and cannot prove the complete 42-frame fighter action
 - **Kazuya Pummel**
   - `KazuyaPummelSSBU` — fighter-action / short-or-misaligned-source: source has 17 images / 2210 ms and cannot prove the complete 33-frame fighter action
-  - `Shoto4Pummel` — fighter-action / short-or-misaligned-source: source has 17 images / 2210 ms and cannot prove the complete 33-frame fighter action
 
 ## ken
 
@@ -871,10 +769,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ken Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ken Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ken Focus Attack, Dash Cancel** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ken Forward Air**
-  - `KenFAir` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 36-frame fighter action
 - **Ken Pummel**
-  - `KenPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
   - `KenPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Ken Side B (Tatsumaki Senpukyaku)**
   - `KenTatsumakiSenpukyakuStart` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 39; complete move coverage requires a proven independent projectile/effect/object timeline
@@ -903,12 +798,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **King_dedede Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_dedede Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_dedede Inhale, Spit** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **King_dedede Dash Grab**
-  - `KingDededeDashGrab` — fighter-action / short-or-misaligned-source: source has 46 images / 6100 ms and cannot prove the complete 47-frame fighter action
-- **King_dedede Forward Smash**
-  - `KingDededeFSmash` — fighter-action / short-or-misaligned-source: source has 76 images / 10010 ms and cannot prove the complete 77-frame fighter action
-- **King_dedede Grab**
-  - `KingDededeGrab` — fighter-action / short-or-misaligned-source: source has 36 images / 5040 ms and cannot prove the complete 39-frame fighter action
 - **King_dedede Neutral B (Inhale)**
   - `KingDededeInhale` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 74-frame fighter action
   - `KingDededeInhaleSSBU` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 74-frame fighter action
@@ -916,12 +805,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **King_dedede Pummel**
   - `KingDededePummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
 - **King_dedede Up B (Super Dedede Jump)**
-  - `KingDededeSuperDededeJump` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `KingDededeSuperDededeJumpLanding` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `KingDededeSuperDededeJumpSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## king-k-rool
 
-- **King_k_rool Back Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_k_rool Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_k_rool Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **King_k_rool Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -935,14 +823,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **King_k_rool Blunderbuss, Vacuum**
   - `KingKRoolBlunderbuss` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **King_k_rool Neutral B (Blunderbuss Kannonball)**
+  - `KingKRoolBlunderbussKannonballDetection` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 65-frame parent action, but documented interaction remains active through frame 150; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `KingKRoolKannonball` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `KingKRoolNSpecialVacuumSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 65-frame parent action, but documented interaction remains active through frame 150; complete move coverage requires a proven independent projectile/effect/object timeline
 - **King_k_rool Pummel**
-  - `KingKRoolPummel` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `KingKRoolPummelSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **King_k_rool Side B (Crownerang)**
+  - `KingKRoolCrownerang` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 63-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `KingKRoolCrownerangThrow` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 63-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `KingKRoolCrownerangThrown` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `KingKRoolSSpecialSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 63-frame parent action, but documented interaction remains active through frame 65; complete move coverage requires a proven independent projectile/effect/object timeline
 - **King_k_rool Up B (Propellerpack)**
-  - `KingKRoolPropellerpack` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `KingKRoolUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## kirby
@@ -957,14 +848,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Kirby Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kirby Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Kirby Inhale, Copy/Spit** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Kirby Down Air**
-  - `KirbyDAirLanding` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 54-frame fighter action
 - **Kirby Down B (Stone)**
   - `KirbyStone` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Kirby Down B, Air (Stone, Air)**
   - `KirbyStoneLanding` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Kirby Down Throw**
-  - `KirbyDThrow` — fighter-action / short-or-misaligned-source: source has 79 images / 10270 ms and cannot prove the complete 87-frame fighter action
   - `KirbyDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 79 images / 10191 ms and cannot prove the complete 87-frame fighter action
 - **Kirby Hammer (Air)**
   - `KirbyHammerFlipA` — fighter-action / short-or-misaligned-source: source has 54 images / 7020 ms and cannot prove the complete 71-frame fighter action
@@ -972,16 +860,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `KirbyInhale` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 67-frame fighter action
   - `KirbyInhaleStar` — fighter-action / short-or-misaligned-source: source has 10 images / 1300 ms and cannot prove the complete 67-frame fighter action
   - `KirbyNSpecialStartupSSBU` — fighter-action / short-or-misaligned-source: source has 10 images / 1290 ms and cannot prove the complete 67-frame fighter action
-- **Kirby Pummel**
-  - `KirbyPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 15-frame fighter action
-- **Kirby Side B (Hammer)**
-  - `KirbyHammerFlipG` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 54-frame fighter action
 - **Kirby Up B (Final Cutter)**
   - `KirbyFinalCutter` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `KirbyFinalCutterLanding` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `KirbyUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Kirby Up Throw**
-  - `KirbyUThrow` — fighter-action / short-or-misaligned-source: source has 49 images / 10740 ms and cannot prove the complete 86-frame fighter action
   - `KirbyUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 49 images / 10692 ms and cannot prove the complete 86-frame fighter action
 
 ## link
@@ -999,19 +882,14 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `LinkBThrow` — fighter-action / short-or-misaligned-source: source has 34 images / 4420 ms and cannot prove the complete 38-frame fighter action
 - **Link Down B (Remote Bomb, Detonate)**
   - `LinkBombExplode` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
-- **Link Down Smash**
-  - `LinkDSmash` — fighter-action / short-or-misaligned-source: source has 55 images / 7280 ms and cannot prove the complete 56-frame fighter action
 - **Link Forward Air**
-  - `LinkFAir` — fighter-action / short-or-misaligned-source: source has 50 images / 6620 ms and cannot prove the complete 51-frame fighter action
   - `LinkFAirSSBU` — fighter-action / short-or-misaligned-source: source has 50 images / 6620 ms and cannot prove the complete 51-frame fighter action
 - **Link Pummel**
-  - `LinkPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
   - `LinkPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Link Side B (Boomerang)**
   - `LinkBoomerang` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `LinkSSpecialSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Link Up B, Air (Spin Attack, Air)**
-  - `LinkSpinAttackA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `LinkUSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## little-mac
@@ -1025,17 +903,12 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Little_mac Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Little_mac Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Little_mac Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Little_mac Forward Smash**
-  - `LittleMacFSmashUp` — fighter-action / short-or-misaligned-source: source has 42 images / 5590 ms and cannot prove the complete 43-frame fighter action
 - **Little_mac K.O. Punch**
   - `LittleMacKOPunchA` — fighter-action / short-or-misaligned-source: source has 75 images / 9750 ms and cannot prove the complete 76-frame fighter action
-- **Little_mac Pummel**
-  - `LittleMacPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 15-frame fighter action
 - **Little_mac Slip Counter, Counterattack**
   - `LittleMacSlipCounterHitA` — fighter-action / short-or-misaligned-source: source has 47 images / 6110 ms and cannot prove the complete 49-frame fighter action
   - `LittleMacSlipCounterHitG` — fighter-action / short-or-misaligned-source: source has 47 images / 6110 ms and cannot prove the complete 49-frame fighter action
 - **Little_mac Up B (Rising Uppercut)**
-  - `LittleMacRisingUppercut` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `LittleMacUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## lucario
@@ -1050,11 +923,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Lucario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucario Aura Sphere, Full Charge** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Lucario Neutral B (Aura Sphere)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucario Double Team, Counterattack**
   - `LucarioDoubleTeamHit` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 47-frame fighter action
 - **Lucario Pummel**
-  - `LucarioPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `LucarioPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Lucario Up B (Extreme Speed)**
   - `LucarioExtremeSpeedA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1063,8 +934,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## lucas
 
-- **Lucas Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Lucas Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -1074,12 +943,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Lucas Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Lucas Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucas Neutral B (PK Freeze)**
   - `LucasNSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `LucasPKFreeze` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Lucas Pummel**
-  - `LucasPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `LucasPummelSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 19-frame fighter action
 - **Lucas Side B (PK Fire)**
   - `LucasPKFireBurst` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -1099,13 +966,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Lucina Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucina Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Lucina Down Throw**
-  - `LucinaDThrow` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 46-frame fighter action
   - `LucinaDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 46-frame fighter action
 - **Lucina Forward Throw**
-  - `LucinaFThrow` — fighter-action / short-or-misaligned-source: source has 31 images / 4030 ms and cannot prove the complete 34-frame fighter action
   - `LucinaFThrowSSBU` — fighter-action / short-or-misaligned-source: source has 31 images / 4030 ms and cannot prove the complete 34-frame fighter action
-- **Lucina Pummel**
-  - `LucinaPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
+- **Lucina Neutral B (Shieldbreaker)**
+  - `LucinaShieldbreaker` — fighter-action / short-or-misaligned-source: source has 32 images / 4160 ms and cannot prove the complete 50-frame fighter action
+  - `LucinaShieldbreakerDown` — fighter-action / short-or-misaligned-source: source has 32 images / 4160 ms and cannot prove the complete 50-frame fighter action
+  - `LucinaShieldbreakerUp` — fighter-action / short-or-misaligned-source: source has 32 images / 4160 ms and cannot prove the complete 50-frame fighter action
 - **Lucina Up B (Dolphin Slash)**
   - `LucinaDolphinSlashA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `LucinaDolphinSlashG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1122,9 +989,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Luigi Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Luigi Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Luigi Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Luigi Down B (Luigi Cyclone)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Luigi Pummel**
-  - `LuigiPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `LuigiPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Luigi Up B (Super Jump Punch, Air)**
   - `LuigiSuperJumpPunchA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1135,7 +1000,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## mario
 
-- **Mario Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -1145,16 +1009,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mario Jab 1** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mario Down B, Fully Charged (F.L.U.D.D.)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mario Down Air**
-  - `MarioDAirLanding` — fighter-action / short-or-misaligned-source: source has 15 images / 1950 ms and cannot prove the complete 37-frame fighter action
 - **Mario Down B (F.L.U.D.D.)**
   - `MarioFLUDD` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
-- **Mario Pummel**
-  - `MarioPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Mario Up B (Super Jump Punch)**
-  - `MarioSuperJumpPunch` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `MarioSuperJumpPunchSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## marth
@@ -1169,13 +1027,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Marth Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Marth Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Marth Down Throw**
-  - `MarthDThrow` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 46-frame fighter action
   - `MarthDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 46-frame fighter action
 - **Marth Forward Throw**
-  - `MarthFThrow` — fighter-action / short-or-misaligned-source: source has 31 images / 4030 ms and cannot prove the complete 34-frame fighter action
   - `MarthFThrowSSBU` — fighter-action / short-or-misaligned-source: source has 31 images / 4030 ms and cannot prove the complete 34-frame fighter action
-- **Marth Pummel**
-  - `MarthPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
+- **Marth Neutral B (Shield Breaker)**
+  - `MarthShieldbreaker` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 50-frame fighter action
+  - `MarthShieldbreakerDown` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 50-frame fighter action
+  - `MarthShieldbreakerUp` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 50-frame fighter action
 - **Marth Up B (Dolphin Slash)**
   - `MarthDolphinSlashA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `MarthDolphinSlashG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1192,31 +1050,22 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mega_man Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mega_man Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mega_man Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mega_man Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mega_man Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mega_man Up B (Rush Coil)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mega_man Dash Grab**
-  - `MegaManDashGrab` — fighter-action / short-or-misaligned-source: source has 42 images / 5820 ms and cannot prove the complete 45-frame fighter action
   - `MegaManDashGrabSSBU` — fighter-action / short-or-misaligned-source: source has 42 images / 5820 ms and cannot prove the complete 45-frame fighter action
 - **Mega_man Grab**
-  - `MegaManGrab` — fighter-action / short-or-misaligned-source: source has 35 images / 4790 ms and cannot prove the complete 37-frame fighter action
   - `MegaManGrabSSBU` — fighter-action / short-or-misaligned-source: source has 35 images / 4790 ms and cannot prove the complete 37-frame fighter action
 - **Mega_man Jab**
-  - `MegaManJab` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 35-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline
   - `MegaManJabSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 35-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mega_man Leaf Shield, Throw**
   - `MegaManLeafShieldFly` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 55-frame fighter action
 - **Mega_man Neutral Air**
-  - `MegaManNAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 33-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline
   - `MegaManNAirSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 33-frame parent action, but documented interaction remains active through frame 54; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mega_man Pummel**
-  - `MegaManPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `MegaManPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Mega_man Up Air**
-  - `MegaManUAir` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 53-frame parent action, but documented interaction remains active through frame 61; complete move coverage requires a proven independent projectile/effect/object timeline
   - `MegaManUAirSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 53-frame parent action, but documented interaction remains active through frame 61; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mega_man Up Tilt**
-  - `MegaManUTilt` — fighter-action / short-or-misaligned-source: source has 52 images / 6760 ms and cannot prove the complete 70-frame fighter action
   - `MegaManUTiltSSBU` — fighter-action / short-or-misaligned-source: source has 52 images / 6708 ms and cannot prove the complete 70-frame fighter action
 
 ## meta-knight
@@ -1230,25 +1079,20 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Meta_knight Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Meta_knight Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Meta_knight Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Meta_knight Dimensional Cape, Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Meta_knight Down B (Dimensional Cape)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Meta_knight Dash Grab**
-  - `MetaKnightDashGrab` — fighter-action / short-or-misaligned-source: source has 40 images / 5680 ms and cannot prove the complete 44-frame fighter action
-- **Meta_knight Grab**
-  - `MetaKnightGrab` — fighter-action / short-or-misaligned-source: source has 32 images / 4640 ms and cannot prove the complete 36-frame fighter action
-- **Meta_knight Neutral B (Mach Tornado)**
-  - `MetaKnightMachTornado` — fighter-action / short-or-misaligned-source: source has 6 images / 360 ms and cannot prove the complete 104-frame fighter action
-- **Meta_knight Pivot Grab**
-  - `MetaKnightPivotGrab` — fighter-action / short-or-misaligned-source: source has 37 images / 5050 ms and cannot prove the complete 39-frame fighter action
+- **Meta_knight Dimensional Cape, Attack**
+  - `MetaKnightDimensionalCapeA` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action
+  - `MetaKnightDimensionalCapeAB` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action
+  - `MetaKnightDimensionalCapeAF` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action
+  - `MetaKnightDimensionalCapeG` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action
+  - `MetaKnightDimensionalCapeGB` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action
+  - `MetaKnightDimensionalCapeGF` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 92-frame fighter action
 - **Meta_knight Pummel**
-  - `MetaKnightPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 15-frame fighter action
   - `MetaKnightPummelSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 15-frame fighter action
 - **Meta_knight Side B (Drill Rush)**
   - `MetaKnightDrillRush` — fighter-action / short-or-misaligned-source: source has 69 images / 8970 ms and cannot prove the complete 98-frame fighter action
   - `MetaKnightDrillRushEnd` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 98-frame fighter action
   - `MetaKnightSSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 69 images / 8901 ms and cannot prove the complete 98-frame fighter action
 - **Meta_knight Up Throw**
-  - `MetaKnightUThrow` — fighter-action / short-or-misaligned-source: source has 46 images / 9850 ms and cannot prove the complete 77-frame fighter action
   - `MetaKnightUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 46 images / 9850 ms and cannot prove the complete 77-frame fighter action
 
 ## mewtwo
@@ -1263,12 +1107,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mewtwo Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mewtwo Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mewtwo Shadow Ball, Fully Charged** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mewtwo Neutral B (Shadow Ball)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mewtwo Up B (Teleport)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mewtwo Forward Air**
-  - `MewtwoFAir` — fighter-action / short-or-misaligned-source: source has 38 images / 5060 ms and cannot prove the complete 39-frame fighter action
-- **Mewtwo Pummel**
-  - `MewtwoPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 
 ## mii-brawler
 
@@ -1281,20 +1119,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_brawler Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_brawler Counter Throw, Activated** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_brawler Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_brawler Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_brawler Flashing Mach Punch** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Head-On Assault, Air** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Shot Put** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_brawler Burning Dropkick**
   - `MiiBrawlerBurningDropkick` — fighter-action / short-or-misaligned-source: source has 60 images / 7800 ms and cannot prove the complete 68-frame fighter action
 - **Mii_brawler Exploding Side Kick**
-  - `MiiBrawlerExplodingSideKick` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 79-frame parent action, but documented interaction remains active through frame 81; complete move coverage requires a proven independent projectile/effect/object timeline
   - `MiiBrawlerOnslaughtAerialSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 79-frame parent action, but documented interaction remains active through frame 81; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Mii_brawler Feint Jump, Kick**
   - `MiiBrawlerFeintJumpAutoKick` — fighter-action / short-or-misaligned-source: source has 26 images / 3380 ms and cannot prove the complete 52-frame fighter action
   - `MiiBrawlerFeintJumpKick` — fighter-action / short-or-misaligned-source: source has 46 images / 6760 ms and cannot prove the complete 52-frame fighter action
+- **Mii_brawler Flashing Mach Punch**
+  - `MiiBrawlerFlashingMachPunchMiss` — fighter-action / short-or-misaligned-source: source has 54 images / 7020 ms and cannot prove the complete 93-frame fighter action
 - **Mii_brawler Head-On Assault**
   - `MiiBrawlerHead-OnAssault` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `MiiBrawlerHead-OnAssaultFall` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1307,8 +1142,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_brawler Onslaught, Air**
   - `MiiBrawlerOnslaughtA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `MiiBrawlerOnslaughtHitA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-- **Mii_brawler Pummel**
-  - `MiiBrawlerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Mii_brawler Suplex, Grab**
   - `MiiBrawlerSuplexA` — fighter-action / short-or-misaligned-source: source has 48 images / 6240 ms and cannot prove the complete 51-frame fighter action
 - **Mii_brawler Suplex, Success**
@@ -1323,12 +1156,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_gunner Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_gunner Air Dodge, Left/Right** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_gunner Air Dodge, Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_gunner Backward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_gunner Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_gunner Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_gunner Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_gunner Arm Rocket** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_gunner Grenade Launch** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_gunner Bomb Drop**
   - `MiiGunnerBombDropExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Mii_gunner Cannon Jump Kick**
@@ -1338,17 +1166,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MiiGunnerEchoReflector` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 38-frame fighter action
   - `MiiGunnerEchoReflectorStart` — fighter-action / short-or-misaligned-source: source has 3 images / 390 ms and cannot prove the complete 38-frame fighter action
 - **Mii_gunner Forward Air**
-  - `MiiGunnerFAir` — fighter-action / short-or-misaligned-source: source has 41 images / 5590 ms and cannot prove the complete 43-frame fighter action
   - `MiiGunnerFAirSSBU` — fighter-action / short-or-misaligned-source: source has 41 images / 5590 ms and cannot prove the complete 43-frame fighter action
+- **Mii_gunner Grenade Launch**
+  - `MiiGunnerGrenadeLauncherExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Mii_gunner Lunar Launch**
   - `MiiGunnerLunarLaunch` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Mii_gunner Pummel**
-  - `MiiGunnerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `MiiGunnerPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 
 ## mii-swordfighter
 
-- **Mii_swordfighter Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -1358,7 +1185,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_swordfighter Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mii_swordfighter Gale Stab (Charge)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mii_swordfighter Airborne Assault**
   - `MiiSwordfighterAirborneAssault` — fighter-action / short-or-misaligned-source: source has 40 images / 5200 ms and cannot prove the complete 104-frame fighter action
   - `MiiSwordfighterAirborneAssaultHit` — fighter-action / short-or-misaligned-source: source has 50 images / 6500 ms and cannot prove the complete 104-frame fighter action
@@ -1367,8 +1193,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_swordfighter Blurring Blade**
   - `MiiSwordfighterBlurringBladeA` — fighter-action / short-or-misaligned-source: source has 73 images / 9490 ms and cannot prove the complete 84-frame fighter action
   - `MiiSwordfighterBlurringBladeG` — fighter-action / short-or-misaligned-source: source has 73 images / 9490 ms and cannot prove the complete 84-frame fighter action
-- **Mii_swordfighter Down Air**
-  - `MiiSwordfighterDAirLanding` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 58-frame fighter action
 - **Mii_swordfighter Hero's Spin (Air)**
   - `MiiSwordfighterHerosSpinA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Mii_swordfighter Power Thrust**
@@ -1376,8 +1200,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mii_swordfighter Power Thrust (Air)**
   - `MiiSwordfighterPowerThrustA` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 58-frame fighter action
   - `MiiSwordfighterPowerThrustALanding` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 58-frame fighter action
-- **Mii_swordfighter Pummel**
-  - `MiiSwordfighterPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Mii_swordfighter Reversal Slash**
   - `MiiSwordfighterReversalSlash` — fighter-action / short-or-misaligned-source: source has 33 images / 4680 ms and cannot prove the complete 36-frame fighter action
 - **Mii_swordfighter Stone Scabbard**
@@ -1395,21 +1217,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Minmin Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Minmin Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Minmin Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Minmin Jab 2** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Minmin Down B (Arms Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Minmin Up B (Arms Hook)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Minmin Up B (Arms Jump)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Minmin Down Air**
-  - `MinMinDAirLanding` — fighter-action / short-or-misaligned-source: source has 25 images / 3250 ms and cannot prove the complete 54-frame fighter action
 - **Minmin Forward Smash, Dragon (Laser)**
+  - `MinMinDragonAerialSmash` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action
+  - `MinMinDragonFSmash` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action
   - `MinMinFSmashDragonSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action
 - **Minmin Forward Smash, Megawatt**
-  - `MinMinMegawattAerialSmash` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 75-frame fighter action
   - `MinMinSSpecialSmashMegawattSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 75-frame fighter action
 - **Minmin Forward Smash, Power Dragon (Laser)**
   - `MinMinFairBAirSmashPowerDragonSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action
+  - `MinMinPowerDragonAerialSmash` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action
+  - `MinMinPowerDragonFSmash` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 65-frame fighter action
 - **Minmin Forward Smash, Ramram**
-  - `MinMinRamRamAerialSmash` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 57-frame fighter action
   - `MinMinSSpecialSmashRamramSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 5000 ms and cannot prove the complete 57-frame fighter action
 - **Minmin Forward Tilt, Dragon**
   - `MinMinDragonAerialTilt` — fighter-action / short-or-misaligned-source: source has 3 images / 3000 ms and cannot prove the complete 58-frame fighter action
@@ -1426,6 +1245,7 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MinMinRamRamAerialTilt` — fighter-action / short-or-misaligned-source: source has 4 images / 4000 ms and cannot prove the complete 51-frame fighter action
   - `MinMinRamRamJab` — fighter-action / short-or-misaligned-source: source has 4 images / 4000 ms and cannot prove the complete 51-frame fighter action
 - **Minmin Jab 1**
+  - `MinMinJab1` — fighter-action / short-or-misaligned-source: source has 23 images / 2990 ms and cannot prove the complete 24-frame fighter action
   - `MinMinJab1SSBU` — fighter-action / short-or-misaligned-source: source has 23 images / 2990 ms and cannot prove the complete 24-frame fighter action
 - **Minmin Pummel**
   - `MinMinPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
@@ -1449,10 +1269,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MrGame_WatchBThrow` — fighter-action / short-or-misaligned-source: source has 10 images / 5200 ms and cannot prove the complete 40-frame fighter action
 - **Mr_game_and_watch Dash Attack**
   - `MrGame&WatchDashAttackSSBU` — fighter-action / short-or-misaligned-source: source has 9 images / 4934 ms and cannot prove the complete 38-frame fighter action
-  - `MrGame_WatchDashAttack` — fighter-action / short-or-misaligned-source: source has 9 images / 4940 ms and cannot prove the complete 38-frame fighter action
 - **Mr_game_and_watch Dash Grab**
   - `MrGame&WatchDashGrabSSBU` — fighter-action / short-or-misaligned-source: source has 31 images / 5431 ms and cannot prove the complete 42-frame fighter action
-  - `MrGame_WatchDashGrab` — fighter-action / short-or-misaligned-source: source has 31 images / 5460 ms and cannot prove the complete 42-frame fighter action
 - **Mr_game_and_watch Down Air**
   - `MrGame&WatchDAirSSBU` — fighter-action / short-or-misaligned-source: source has 13 images / 6360 ms and cannot prove the complete 49-frame fighter action
   - `MrGame_WatchDair` — fighter-action / short-or-misaligned-source: source has 13 images / 6370 ms and cannot prove the complete 49-frame fighter action
@@ -1462,34 +1280,24 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MrGame_WatchOilPanic` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Mr_game_and_watch Down Smash**
   - `MrGame&WatchDSmashSSBU` — fighter-action / short-or-misaligned-source: source has 3 images / 4810 ms and cannot prove the complete 37-frame fighter action
-  - `MrGame_WatchDSmash` — fighter-action / short-or-misaligned-source: source has 3 images / 4810 ms and cannot prove the complete 37-frame fighter action
 - **Mr_game_and_watch Down Throw**
   - `MrGame&WatchDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 11 images / 6370 ms and cannot prove the complete 49-frame fighter action
-  - `MrGame_WatchDThrow` — fighter-action / short-or-misaligned-source: source has 11 images / 6370 ms and cannot prove the complete 49-frame fighter action
 - **Mr_game_and_watch Down Tilt**
   - `MrGame&WatchDTiltSSBU` — fighter-action / short-or-misaligned-source: source has 23 images / 5441 ms and cannot prove the complete 42-frame fighter action
-  - `MrGame_WatchDTilt` — fighter-action / short-or-misaligned-source: source has 23 images / 5460 ms and cannot prove the complete 42-frame fighter action
 - **Mr_game_and_watch Forward Air**
   - `MrGame&WatchFAirSSBU` — fighter-action / short-or-misaligned-source: source has 37 images / 6074 ms and cannot prove the complete 47-frame fighter action
-  - `MrGame_WatchFAir` — fighter-action / short-or-misaligned-source: source has 37 images / 6110 ms and cannot prove the complete 47-frame fighter action
 - **Mr_game_and_watch Forward Smash**
   - `MrGame&WatchFSmashSSBU` — fighter-action / short-or-misaligned-source: source has 4 images / 5458 ms and cannot prove the complete 42-frame fighter action
-  - `MrGame_WatchFSmash` — fighter-action / short-or-misaligned-source: source has 4 images / 5460 ms and cannot prove the complete 42-frame fighter action
 - **Mr_game_and_watch Forward Throw**
   - `MrGame&WatchFThrowUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 10 images / 5193 ms and cannot prove the complete 40-frame fighter action
-  - `MrGame_WatchFThrow` — fighter-action / short-or-misaligned-source: source has 10 images / 5200 ms and cannot prove the complete 40-frame fighter action
 - **Mr_game_and_watch Forward Tilt**
   - `MrGame&WatchFTiltSSBU` — fighter-action / short-or-misaligned-source: source has 4 images / 4809 ms and cannot prove the complete 37-frame fighter action
-  - `MrGame_WatchFTilt` — fighter-action / short-or-misaligned-source: source has 4 images / 4810 ms and cannot prove the complete 37-frame fighter action
 - **Mr_game_and_watch Grab**
   - `MrGame&WatchGrabSSBU` — fighter-action / short-or-misaligned-source: source has 19 images / 4420 ms and cannot prove the complete 34-frame fighter action
-  - `MrGame_WatchGrab` — fighter-action / short-or-misaligned-source: source has 19 images / 4420 ms and cannot prove the complete 34-frame fighter action
 - **Mr_game_and_watch Jab**
   - `MrGame&WatchJabSSBU` — fighter-action / short-or-misaligned-source: source has 3 images / 1949 ms and cannot prove the complete 15-frame fighter action
-  - `MrGame_WatchJab` — fighter-action / short-or-misaligned-source: source has 3 images / 1950 ms and cannot prove the complete 15-frame fighter action
 - **Mr_game_and_watch Neutral Air**
   - `MrGame&WatchNAirSSBU` — fighter-action / short-or-misaligned-source: source has 9 images / 5453 ms and cannot prove the complete 42-frame fighter action
-  - `MrGame_WatchNAir` — fighter-action / short-or-misaligned-source: source has 9 images / 5460 ms and cannot prove the complete 42-frame fighter action
 - **Mr_game_and_watch Neutral B (Chef)**
   - `MrGame&WatchNSpecialPanSSBU` — fighter-action / short-or-misaligned-source: source has 4 images / 7020 ms and cannot prove the complete 54-frame fighter action
   - `MrGame_WatchChef` — fighter-action / short-or-misaligned-source: source has 4 images / 7020 ms and cannot prove the complete 54-frame fighter action
@@ -1498,10 +1306,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MrGame_WatchOilPanic` — fighter-action / short-or-misaligned-source: source has 5 images / 6370 ms and cannot prove the complete 49-frame fighter action
 - **Mr_game_and_watch Pivot Grab**
   - `MrGame&WatchPivotGrabSSBU` — fighter-action / short-or-misaligned-source: source has 9 images / 4803 ms and cannot prove the complete 37-frame fighter action
-  - `MrGame_WatchPivotGrab` — fighter-action / short-or-misaligned-source: source has 9 images / 4810 ms and cannot prove the complete 37-frame fighter action
 - **Mr_game_and_watch Pummel**
   - `MrGame&WatchPummelSSBU` — fighter-action / short-or-misaligned-source: source has 3 images / 777 ms and cannot prove the complete 19-frame fighter action
-  - `MrGameWatchPummel` — fighter-action / short-or-misaligned-source: source has 3 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Mr_game_and_watch Side B (Judge)**
   - `MrGame&WatchSSpecial1SSBU` — fighter-action / short-or-misaligned-source: source has 4 images / 6368 ms and cannot prove the complete 49-frame fighter action
   - `MrGame_WatchJudge1` — fighter-action / short-or-misaligned-source: source has 4 images / 6370 ms and cannot prove the complete 49-frame fighter action
@@ -1515,19 +1321,14 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `MrGame_WatchJudge9` — fighter-action / short-or-misaligned-source: source has 4 images / 6370 ms and cannot prove the complete 49-frame fighter action
 - **Mr_game_and_watch Up Air**
   - `MrGame&WatchUAirSSBU` — fighter-action / short-or-misaligned-source: source has 8 images / 5457 ms and cannot prove the complete 42-frame fighter action
-  - `MrGame_WatchUAir` — fighter-action / short-or-misaligned-source: source has 8 images / 5460 ms and cannot prove the complete 42-frame fighter action
 - **Mr_game_and_watch Up B (Fire)**
   - `MrGame&WatchUSpecialGroundedSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `MrGame_WatchFireA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Mr_game_and_watch Up Smash**
   - `MrGame&WatchUSmashSSBU` — fighter-action / short-or-misaligned-source: source has 8 images / 4934 ms and cannot prove the complete 38-frame fighter action
-  - `MrGame_WatchUSmash` — fighter-action / short-or-misaligned-source: source has 8 images / 4940 ms and cannot prove the complete 38-frame fighter action
 - **Mr_game_and_watch Up Throw**
   - `MrGame&WatchUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 10 images / 5193 ms and cannot prove the complete 40-frame fighter action
-  - `MrGameWatchUThrow` — fighter-action / short-or-misaligned-source: source has 10 images / 5200 ms and cannot prove the complete 40-frame fighter action
 - **Mr_game_and_watch Up Tilt**
   - `MrGame&WatchUTiltSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 4290 ms and cannot prove the complete 33-frame fighter action
-  - `MrGame_WatchUTilt` — fighter-action / short-or-misaligned-source: source has 5 images / 4290 ms and cannot prove the complete 33-frame fighter action
 
 ## mythra
 
@@ -1540,18 +1341,19 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Mythra Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mythra Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Mythra Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mythra Chroma Dust** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Mythra Side B (Photon Edge)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Mythra Chroma Dust**
+  - `MythraChromaDustInterpolated` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `MythraUpSpecial` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Mythra Jab 3**
-  - `MythraJab3` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 29-frame fighter action
   - `MythraJab3SSBU` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 29-frame fighter action
-- **Mythra Neutral Air**
-  - `MythraNAirLanding` — fighter-action / short-or-misaligned-source: source has 13 images / 1690 ms and cannot prove the complete 50-frame fighter action
 - **Mythra Neutral B (Lightning Buster)**
+  - `MythraLightningBuster` — fighter-action / short-or-misaligned-source: source has 63 images / 8190 ms and cannot prove the complete 67-frame fighter action
+  - `MythraLightningBusterAerial` — fighter-action / short-or-misaligned-source: source has 63 images / 8190 ms and cannot prove the complete 67-frame fighter action
   - `MythraNSpecial1SSBU` — fighter-action / short-or-misaligned-source: source has 63 images / 8190 ms and cannot prove the complete 67-frame fighter action
 - **Mythra Pummel**
-  - `MythraPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `MythraPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
+- **Mythra Side B (Photon Edge)**
+  - `MythraPhotonEdge2` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 100-frame fighter action
 - **Mythra Up B (Ray of Punishment)**
   - `MythraRayOfPunishment` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `MythraUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1568,29 +1370,23 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ness Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ness Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ness Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ness Side B (PK Fire)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ness Down B (PSI Magnet)**
   - `NessDSpecialGroundedSSBU` — fighter-action / short-or-misaligned-source: source has 20 images / 2600 ms and cannot prove the complete 24-frame fighter action
   - `NessPSIMagnet` — fighter-action / short-or-misaligned-source: source has 19 images / 2600 ms and cannot prove the complete 24-frame fighter action
   - `NessPSIMagnetA` — fighter-action / short-or-misaligned-source: source has 20 images / 2600 ms and cannot prove the complete 24-frame fighter action
   - `NessPSIMagnetEnd` — fighter-action / short-or-misaligned-source: source has 9 images / 1170 ms and cannot prove the complete 24-frame fighter action
-- **Ness Down Throw**
-  - `NessDThrow` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 50-frame fighter action
 - **Ness Neutral B (PK Flash)**
   - `NessPKFlash` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `NessPKFlashSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Ness Pummel**
-  - `NessPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `NessPummelSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 19-frame fighter action
+- **Ness Side B (PK Fire)**
+  - `NessPKFirePillar` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Ness Up B (PK Thunder)**
   - `NessUSpecialSelfHitSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## olimar
 
-- **Olimar Back Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Down Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Olimar Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Olimar Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Olimar Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -1602,19 +1398,19 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Olimar Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Olimar Dash Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Olimar Pivot Grab** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Purple Grabs** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Red/Blue/Yellow Grabs** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Neutral B (Pikmin Pluck)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Olimar Up B (Winged Pikmin)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Olimar Down Smash**
+  - `OLIMARANDHISTWOBIGNUTS` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Olimar Forward Smash**
+  - `OlimarFSmash` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `RedPikminFSmashSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Olimar Grab Range Comparison**
   - `OlimarGrab` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Olimar Pummel**
-  - `OlimarPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
   - `OlimarPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 16-frame fighter action
+- **Olimar Up B (Winged Pikmin)**
+  - `Olimar_Up_B_SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Olimar Up Smash**
+  - `OlimarUSmash` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `RedPikminUSmashSSBU` — fighter-action / short-or-misaligned-source: source has 37 images / 5024 ms and cannot prove the complete 39-frame fighter action
 
 ## pac-man
@@ -1628,13 +1424,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pac_man Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pac_man Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pac_man Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pac_man Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pac_man Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pac_man Neutral B (Bonus Fruit, Throw)**
   - `PacManApple` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `PacManNSpecialAppleSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Pac_man Pummel**
-  - `PacManPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `PacManPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Pac_man Up B (Pac-Jump)**
   - `PacManPacJump` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1652,13 +1445,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Palutena Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Palutena Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Palutena Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Palutena Up B (Warp)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Palutena Dash Attack**
-  - `PalutenaDashAttack` — fighter-action / short-or-misaligned-source: source has 37 images / 4810 ms and cannot prove the complete 40-frame fighter action
-- **Palutena Pummel**
-  - `PalutenaPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
-- **Palutena Side B (Explosive Flame)**
-  - `PalutenaExplosiveFlame` — fighter-action / short-or-misaligned-source: source has 69 images / 9210 ms and cannot prove the complete 71-frame fighter action
+- **Palutena Up B (Warp)**
+  - `Palutena_Up_B_SSBU` — fighter-action / short-or-misaligned-source: source has 54 images / 2160 ms and cannot prove the complete 67-frame fighter action
 
 ## peach
 
@@ -1671,12 +1459,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Peach Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Peach Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Peach Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Peach Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Peach Toad, Attack** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Peach Neutral B (Toad)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Peach Side B, Air (Peach Bomber, Air)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Peach Pummel**
-  - `PeachPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `PeachPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Peach Up B (Peach Parasol)**
   - `PeachPeachParasol` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -1694,18 +1479,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pichu Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pichu Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pichu Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pichu Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pichu Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pichu Up B (Agility)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pichu Down Air**
-  - `PichuDAirLanding` — fighter-action / short-or-misaligned-source: source has 22 images / 2860 ms and cannot prove the complete 47-frame fighter action
-- **Pichu Down B (Thunder)**
-  - `PichuThunderHit` — fighter-action / short-or-misaligned-source: source has 66 images / 8580 ms and cannot prove the complete 86-frame fighter action
-- **Pichu Pummel**
-  - `PichuPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 18-frame fighter action
 - **Pichu Side B (Skull Bash)**
   - `PichuSideSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 39 images / 5031 ms and cannot prove the complete 96-frame fighter action
-  - `PichuSkullBash` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 96-frame fighter action
 
 ## pikachu
 
@@ -1718,22 +1493,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pikachu Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pikachu Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pikachu Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pikachu Back Air**
-  - `PikachuBAirLanding` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 43-frame fighter action
-- **Pikachu Down Air**
-  - `PikachuDAirLanding` — fighter-action / short-or-misaligned-source: source has 22 images / 2860 ms and cannot prove the complete 47-frame fighter action
 - **Pikachu Down B (Thunder)**
   - `PikachuDSpecialMissSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 86-frame parent action, but documented interaction remains active through frame 93; complete move coverage requires a proven independent projectile/effect/object timeline
-  - `PikachuThunderHit` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 86-frame parent action, but documented interaction remains active through frame 93; complete move coverage requires a proven independent projectile/effect/object timeline
-- **Pikachu Down Throw**
-  - `PikachuDThrow` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 51-frame fighter action
-- **Pikachu Pummel**
-  - `PikachuPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 16-frame fighter action
 - **Pikachu Side B (Skull Bash)**
   - `PikachuSSpecialHitSSBU` — fighter-action / short-or-misaligned-source: source has 91 images / 6370 ms and cannot prove the complete 96-frame fighter action
-  - `PikachuSkullBash` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 96-frame fighter action
 - **Pikachu Up B (Quick Attack)**
-  - `PikachuQuickAttack` — fighter-action / short-or-misaligned-source: source has 5 images / 4130 ms and cannot prove the complete 52-frame fighter action
   - `PikachuQuickAttackSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 52-frame fighter action
 
 ## piranha-plant
@@ -1749,15 +1513,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Piranha_plant Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Piranha_plant Down B (Long Stem Strike)**
   - `Long Stem Strike` — fighter-action / short-or-misaligned-source: source has 25 images / 1500 ms and cannot prove the complete 39-frame fighter action
-  - `PiranhaPlantLong-StemStrike` — fighter-action / short-or-misaligned-source: source has 24 images / 3120 ms and cannot prove the complete 39-frame fighter action
 - **Piranha_plant Footstool Attack**
   - `Footstool Attack` — fighter-action / short-or-misaligned-source: source has 18 images / 1080 ms and cannot prove the complete 22-frame fighter action
-  - `PiranhaPlantFootstoolAttack` — fighter-action / short-or-misaligned-source: source has 11 images / 1430 ms and cannot prove the complete 22-frame fighter action
 - **Piranha_plant Pummel**
-  - `PiranhaPlantPummel` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `Pummel` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Piranha_plant Up B (Piranhacopter)**
-  - `PiranhaPlantPiranhacopter` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `Piranhacopter` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## pit
@@ -1772,12 +1532,9 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pit Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pit Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pit Pummel**
-  - `PitPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `PitPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Pit Side B (Upperdash Arm)**
   - `PitUpperdashArmHitG` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 79-frame fighter action
-- **Pit Side B, Air (Upperdash Arm, Air)**
-  - `PitUpperdashArmHitA` — fighter-action / short-or-misaligned-source: source has 57 images / 7410 ms and cannot prove the complete 104-frame fighter action
 - **Pit Up B (Power of Flight)**
   - `PitUSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `PitUpBLedge` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
@@ -1794,29 +1551,21 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pyra Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pyra Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pyra Dash Attack**
-  - `PyraDashAttack` — fighter-action / short-or-misaligned-source: source has 51 images / 6760 ms and cannot prove the complete 52-frame fighter action
   - `PyraDashAttackSSBU` — fighter-action / short-or-misaligned-source: source has 50 images / 6710 ms and cannot prove the complete 52-frame fighter action
-- **Pyra Down Air**
-  - `PyraDAir` — fighter-action / short-or-misaligned-source: source has 64 images / 8450 ms and cannot prove the complete 65-frame fighter action
 - **Pyra Forward Tilt**
-  - `PyraFTilt` — fighter-action / short-or-misaligned-source: source has 36 images / 4810 ms and cannot prove the complete 37-frame fighter action
   - `PyraFTiltSSBU` — fighter-action / short-or-misaligned-source: source has 36 images / 4810 ms and cannot prove the complete 37-frame fighter action
 - **Pyra Neutral Air**
-  - `PyraNAir` — fighter-action / short-or-misaligned-source: source has 55 images / 7150 ms and cannot prove the complete 56-frame fighter action
   - `PyraNAirSSBU` — fighter-action / short-or-misaligned-source: source has 55 images / 7095 ms and cannot prove the complete 56-frame fighter action
 - **Pyra Neutral B (Flame Nova)**
+  - `PyraFlameNova1` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 58-frame fighter action
   - `PyraNSpecial1SSBU` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 58-frame fighter action
 - **Pyra Pummel**
-  - `PyraPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `PyraPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Pyra Up Air**
-  - `PyraUAir` — fighter-action / short-or-misaligned-source: source has 56 images / 7410 ms and cannot prove the complete 57-frame fighter action
   - `PyraUAirSSBU` — fighter-action / short-or-misaligned-source: source has 56 images / 7354 ms and cannot prove the complete 57-frame fighter action
 - **Pyra Up B (Prominence Revolt)**
-  - `PyraProminenceRevolt` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `PyraUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Pyra Up Tilt**
-  - `PyraUTiltInterpolated` — fighter-action / short-or-misaligned-source: source has 38 images / 5070 ms and cannot prove the complete 39-frame fighter action
   - `PyraUTiltSSBU` — fighter-action / short-or-misaligned-source: source has 38 images / 5032 ms and cannot prove the complete 39-frame fighter action
 
 ## richter
@@ -1830,23 +1579,17 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Richter Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Richter Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Richter Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Richter Down Air**
-  - `RichterDAir` — fighter-action / short-or-misaligned-source: source has 45 images / 6240 ms and cannot prove the complete 48-frame fighter action
 - **Richter Down B (Holy Water)**
   - `DSpecial` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `SimonDSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Richter Down Throw**
-  - `RichterDThrow` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 48-frame fighter action
   - `RichterDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 48-frame fighter action
 - **Richter Down Tilt 2**
-  - `RichterDTilt2` — fighter-action / short-or-misaligned-source: source has 44 images / 5720 ms and cannot prove the complete 57-frame fighter action
   - `RichterDTilt2SSBU` — fighter-action / short-or-misaligned-source: source has 44 images / 5676 ms and cannot prove the complete 57-frame fighter action
-- **Richter Pummel**
-  - `RichterPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Richter Up B (Uppercut)**
   - `RichterUpSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `RichterUppercut` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Richter Whip Dangle**
+  - `RichterWhipDangleThingy` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `SimonWhipDangleSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 
 ## ridley
@@ -1861,8 +1604,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ridley Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ridley Space Pirate Rush, Manual/Ledge/Air Release** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ridley Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ridley Down Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ridley Up B (Wing Blitz)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 
 ## rob
 
@@ -1875,18 +1616,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Rob Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rob Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rob Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Rob Side B (Arm Rotor)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rob Side B (Arm Rotor, Mashing)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Rob Dash Grab**
-  - `ROBDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 5830 ms and cannot prove the complete 45-frame fighter action
 - **Rob Down Throw**
-  - `ROBDThrow` — fighter-action / short-or-misaligned-source: source has 68 images / 9680 ms and cannot prove the complete 75-frame fighter action
   - `ROBDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 68 images / 9680 ms and cannot prove the complete 75-frame fighter action
-- **Rob Grab**
-  - `ROBGrab` — fighter-action / short-or-misaligned-source: source has 33 images / 4770 ms and cannot prove the complete 37-frame fighter action
 - **Rob Pummel**
-  - `ROBPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 18-frame fighter action
   - `ROBPummelSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 645 ms and cannot prove the complete 18-frame fighter action
+- **Rob Side B (Arm Rotor)**
+  - `ROBArmRotorNew` — fighter-action / short-or-misaligned-source: source has 84 images / 11050 ms and cannot prove the complete 85-frame fighter action
 
 ## robin
 
@@ -1900,14 +1636,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Robin Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Robin Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Robin Neutral B (Thunder/Elthunder/Arcthunder)**
+  - `RobinArcthunder` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `RobinElthunder` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `RobinThunder` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline
   - `RobinThunderSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 32-frame parent action, but documented interaction remains active through frame 79; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Robin Pummel**
-  - `RobinPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 21-frame fighter action
   - `RobinPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 21-frame fighter action
 - **Robin Thrown Items**
   - `RobinLevinSword` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Robin Up B (Elwind)**
-  - `RobinElwind` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `RobinElwindSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## rosalina-and-luma
@@ -1921,10 +1658,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Rosalina_and_luma Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rosalina_and_luma Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rosalina_and_luma Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Rosalina_and_luma Up B (Launch Star)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Rosalina_and_luma Pummel**
   - `Rosalina&LumaPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
-  - `RosalinaPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
+- **Rosalina_and_luma Up B (Launch Star)**
+  - `Rosalina_Up_B_SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## roy
 
@@ -1942,22 +1679,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Roy Double-Edge Dance, Hit 3 Down**
   - `RoyDoubleEdgedDance3Down` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 44-frame fighter action
 - **Roy Down Throw**
-  - `RoyDThrow` — fighter-action / short-or-misaligned-source: source has 40 images / 5200 ms and cannot prove the complete 41-frame fighter action
   - `RoyDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 40 images / 5200 ms and cannot prove the complete 41-frame fighter action
 - **Roy Forward Throw**
-  - `RoyFThrow` — fighter-action / short-or-misaligned-source: source has 30 images / 3900 ms and cannot prove the complete 31-frame fighter action
   - `RoyFThrowSSBU` — fighter-action / short-or-misaligned-source: source has 30 images / 3900 ms and cannot prove the complete 31-frame fighter action
-- **Roy Neutral B (Flare Blade)**
-  - `RoyFlareBlade` — fighter-action / short-or-misaligned-source: source has 33 images / 4290 ms and cannot prove the complete 44-frame fighter action
 - **Roy Pummel**
-  - `RoyPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `RoyPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Roy Up B (Blazer)**
   - `RoyBlazerA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `RoyBlazerG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `RoyBlazerGroundedSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Roy Up Throw**
-  - `RoyUThrow` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 44-frame fighter action
   - `RoyUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 43 images / 5590 ms and cannot prove the complete 44-frame fighter action
 
 ## ryu
@@ -1972,12 +1703,13 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Ryu Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ryu Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Ryu Focus Attack, Dash Cancel** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ryu Side B (Tatsumaki Senpukyaku)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Ryu Forward Air**
-  - `RyuFAir` — fighter-action / short-or-misaligned-source: source has 34 images / 4660 ms and cannot prove the complete 36-frame fighter action
 - **Ryu Pummel**
-  - `RyuPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
   - `RyuPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
+- **Ryu Side B (Tatsumaki Senpukyaku)**
+  - `RyuTatsumakiSenpukyakuHeavyGrounded` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 58-frame fighter action
+  - `RyuTatsumakiSenpukyakuLightGrounded` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 58-frame fighter action
+  - `RyuTatsumakiSenpukyakuMediumGrounded` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 58-frame fighter action
+  - `RyuTatsumakiSenpukyakuStart` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 58-frame fighter action
 - **Ryu Side B, Air (Tatsumaki Senpukyaku, Air)**
   - `RyuTatsumakiSenpukyakuHeavyAerial` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 79-frame fighter action
   - `RyuTatsumakiSenpukyakuLightAerial` — fighter-action / short-or-misaligned-source: source has 16 images / 2080 ms and cannot prove the complete 79-frame fighter action
@@ -2008,15 +1740,12 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `SamusDSpecialExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `SamusDSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Samus Pummel**
-  - `SamusPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `SamusPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Samus Up B (Screw Attack)**
   - `SamusScrewAttackG` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Samus Up B, Air (Screw Attack, Air)**
-  - `SamusScrewAttackA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `SamusUSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Samus Up Throw**
-  - `SamusUThrow` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 41-frame fighter action
   - `SamusUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 41-frame fighter action
 
 ## sephiroth
@@ -2030,8 +1759,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Sephiroth Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sephiroth Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sephiroth Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Sephiroth Down Air**
-  - `SephirothDAirLanding` — fighter-action / short-or-misaligned-source: source has 26 images / 3380 ms and cannot prove the complete 61-frame fighter action
 - **Sephiroth Down B (Scintilla, Miss)**
   - `SephirothScintillaMiss` — fighter-action / short-or-misaligned-source: source has 85 images / 11180 ms and cannot prove the complete 86-frame fighter action
 - **Sephiroth Down B (Scintilla, Success)**
@@ -2039,7 +1766,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Sephiroth Megaflare**
   - `SephirothMegaflare` — fighter-action / short-or-misaligned-source: source has 72 images / 9490 ms and cannot prove the complete 73-frame fighter action
 - **Sephiroth Pummel**
-  - `SephirothPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `SephirothPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Sephiroth Side B (Shadow Flare)**
   - `SephirothSSpecialMinSSBU` — fighter-action / short-or-misaligned-source: source has 31 images / 4030 ms and cannot prove the complete 38-frame fighter action
@@ -2059,20 +1785,12 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Sheik Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sheik Needle Storm, Full Charge** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sheik Dash Grab**
-  - `SheikDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 5710 ms and cannot prove the complete 44-frame fighter action
   - `SheikDashGrabSSBU` — fighter-action / short-or-misaligned-source: source has 43 images / 5710 ms and cannot prove the complete 44-frame fighter action
-- **Sheik Down Air**
-  - `SheikDAirLanding` — fighter-action / short-or-misaligned-source: source has 22 images / 2860 ms and cannot prove the complete 54-frame fighter action
 - **Sheik Down B (Bouncing Fish)**
-  - `SheikBouncingFish` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 63-frame fighter action
   - `SheikDSpecialSSBU` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 63-frame fighter action
-- **Sheik Grab**
-  - `SheikGrab` — fighter-action / short-or-misaligned-source: source has 35 images / 4680 ms and cannot prove the complete 36-frame fighter action
 - **Sheik Pivot Grab**
-  - `SheikPivotGrab` — fighter-action / short-or-misaligned-source: source has 38 images / 5060 ms and cannot prove the complete 39-frame fighter action
   - `SheikPivotGrabSSBU` — fighter-action / short-or-misaligned-source: source has 38 images / 5060 ms and cannot prove the complete 39-frame fighter action
 - **Sheik Pummel**
-  - `SheikPummel` — fighter-action / short-or-misaligned-source: source has 5 images / 650 ms and cannot prove the complete 15-frame fighter action
   - `SheikPummelSSBU` — fighter-action / short-or-misaligned-source: source has 5 images / 645 ms and cannot prove the complete 15-frame fighter action
 - **Sheik Side B (Burst Grenade)**
   - `SheikBurstGrenadeThrown` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -2094,16 +1812,15 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Shulk Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Shulk Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Shulk Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Shulk Down B (Vision)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Shulk Air Slash 2**
   - `ShulkAirSlash2` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+- **Shulk Down B (Vision)**
+  - `ShulkVisionBack` — fighter-action / short-or-misaligned-source: source has 56 images / 7280 ms and cannot prove the complete 69-frame fighter action
+  - `ShulkVisionForward` — fighter-action / short-or-misaligned-source: source has 50 images / 6500 ms and cannot prove the complete 69-frame fighter action
 - **Shulk Neutral B (Monado Arts)**
   - `monado` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `monadodir` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
-- **Shulk Pummel**
-  - `ShulkPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 15-frame fighter action
 - **Shulk Up B (Air Slash)**
-  - `ShulkAirSlash1` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `ShulkUSpecial1SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## simon
@@ -2118,25 +1835,21 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Simon Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Simon Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Simon Down Air**
-  - `SimonDAir` — fighter-action / short-or-misaligned-source: source has 45 images / 6240 ms and cannot prove the complete 48-frame fighter action
   - `SimonDAirSSBU` — fighter-action / short-or-misaligned-source: source has 45 images / 6240 ms and cannot prove the complete 48-frame fighter action
 - **Simon Down B (Holy Water)**
   - `DSpecial` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `SimonDSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Simon Down Throw**
-  - `SimonDThrow` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 48-frame fighter action
   - `SimonDThrowSSBU` — fighter-action / short-or-misaligned-source: source has 39 images / 5070 ms and cannot prove the complete 48-frame fighter action
 - **Simon Down Tilt 2**
-  - `SimonDTilt2` — fighter-action / short-or-misaligned-source: source has 44 images / 5720 ms and cannot prove the complete 57-frame fighter action
   - `SimonDTilt2SSBU` — fighter-action / short-or-misaligned-source: source has 44 images / 5676 ms and cannot prove the complete 57-frame fighter action
 - **Simon Pummel**
-  - `SimonPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
   - `SimonPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 18-frame fighter action
 - **Simon Up B (Uppercut)**
   - `SimonUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `SimonUppercut` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Simon Whip Dangle**
   - `SimonWhipDangleSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+  - `SimonWhipDangleThingy` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 
 ## snake
 
@@ -2150,25 +1863,25 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Snake Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Snake Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Snake Grenade (Neutral Throw, Smash Throw, Underhand Throw)** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Snake Side B (Nikita)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Snake C4 Detonate/Explosion**
   - `C4 Explosion (Snake for Scale)` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Snake Forward Throw**
-  - `SnakeFThrow` — fighter-action / short-or-misaligned-source: source has 30 images / 3900 ms and cannot prove the complete 39-frame fighter action
   - `SnakeFThrowSSBU` — fighter-action / short-or-misaligned-source: source has 30 images / 3900 ms and cannot prove the complete 39-frame fighter action
 - **Snake Pivot Grab**
-  - `SnakePivotGrab` — fighter-action / short-or-misaligned-source: source has 31 images / 4750 ms and cannot prove the complete 37-frame fighter action
   - `SnakePivotGrabSSBU` — fighter-action / short-or-misaligned-source: source has 31 images / 4750 ms and cannot prove the complete 37-frame fighter action
 - **Snake Pummel**
-  - `SnakePummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `SnakePummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
+- **Snake Side B (Nikita)**
+  - `Nikita Explosion (Strong)` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
+  - `Nikita Explosion (Weak)` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
+  - `Nikita Hurtbox (Weak)` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+  - `NikitaSearch` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Snake Up B (Cypher)**
   - `SnakeCypher` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `SnakeCypherSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Snake Up Smash**
   - `SnakeUSmashExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `SnakeUSmashMortarExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
-  - `SnakeUSmashSearch` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 
 ## sonic
 
@@ -2181,21 +1894,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Sonic Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sonic Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sonic Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Sonic Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sonic Dash Grab**
-  - `SonicDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 6070 ms and cannot prove the complete 47-frame fighter action
   - `SonicDashGrabSSBU` — fighter-action / short-or-misaligned-source: source has 43 images / 6070 ms and cannot prove the complete 47-frame fighter action
 - **Sonic Grab**
-  - `SonicGrab` — fighter-action / short-or-misaligned-source: source has 32 images / 4760 ms and cannot prove the complete 37-frame fighter action
   - `SonicGrabSSBU` — fighter-action / short-or-misaligned-source: source has 32 images / 4760 ms and cannot prove the complete 37-frame fighter action
 - **Sonic Neutral B (Homing Attack)**
   - `SonicHomingAttack` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `SonicNSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Sonic Pivot Grab**
-  - `SonicPivotGrab` — fighter-action / short-or-misaligned-source: source has 37 images / 5050 ms and cannot prove the complete 39-frame fighter action
   - `SonicPivotGrabSSBU` — fighter-action / short-or-misaligned-source: source has 37 images / 5050 ms and cannot prove the complete 39-frame fighter action
 - **Sonic Pummel**
-  - `SonicPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `SonicPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Sonic Side B (Spin Dash)**
   - `SonicSSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
@@ -2216,17 +1924,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Sora Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sora Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Sora Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Sora FTilt 1 > FTilt 2 Combo** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Sora Neutral B (Blizzaga)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Sora Down Air**
-  - `SoraDAirLanding` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 57-frame fighter action
+- **Sora FTilt 1 > FTilt 2 Combo**
+  - `SoraFTilt2` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 40-frame fighter action
 - **Sora Pummel**
-  - `SoraPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
   - `SoraPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Sora Side B (Sonic Blade)**
+  - `SoraSonicBlade1` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action
   - `SoraSonicBlade1SSBU` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action
+  - `SoraSonicBlade2` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action
+  - `SoraSonicBlade3` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 48-frame fighter action
 - **Sora Up B (Aerial Sweep)**
-  - `SoraAerialSweep` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `SoraAerialSweepSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## squirtle
@@ -2240,9 +1947,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Pt_squirtle Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_squirtle Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_squirtle Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_squirtle Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_squirtle Down B (Pokemon Change)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Pt_squirtle Neutral B (Watergun)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Pt_squirtle Back Air**
   - `SquirtleBAirLanding` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 35-frame fighter action
 - **Pt_squirtle Pummel**
@@ -2254,9 +1958,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 
 ## steve
 
-- **Steve Back Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -2266,14 +1967,10 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Steve Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Dash Attack** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Jab / Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Steve Summon Crafting Table** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Sword Back Air (Short Hop Macro BAir)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Sword Forward Air (Short Hop Macro FAir)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Steve Neutral B (Mine)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Steve Dash Attack**
+  - `SteveDashAttackGold` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 31-frame fighter action
 - **Steve Dash Grab**
-  - `SteveDashGrab` — fighter-action / short-or-misaligned-source: source has 48 images / 8060 ms and cannot prove the complete 62-frame fighter action
   - `SteveDashGrabSSBU` — fighter-action / short-or-misaligned-source: source has 48 images / 8013 ms and cannot prove the complete 62-frame fighter action
 - **Steve Down Air**
   - `SteveDAirAnvil` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
@@ -2281,6 +1978,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `SteveDair` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Steve Down B (TNT)**
   - `SteveDSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `SteveTNT` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `SteveTNTPressurePlate` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Steve Down Smash**
   - `SteveDSmash` — fighter-action / short-or-misaligned-source: source has 50 images / 6630 ms and cannot prove the complete 51-frame fighter action
   - `SteveDSmashGravity` — fighter-action / short-or-misaligned-source: source has 50 images / 6630 ms and cannot prove the complete 51-frame fighter action
@@ -2290,38 +1989,49 @@ This file is generated. A listed item is a source/timing blocker, not permission
   - `SteveDTiltGravity` — fighter-action / short-or-misaligned-source: source has 37 images / 6760 ms and cannot prove the complete 52-frame fighter action
   - `SteveDTiltSSBU` — fighter-action / short-or-misaligned-source: source has 28 images / 6760 ms and cannot prove the complete 52-frame fighter action
 - **Steve Forward Smash**
+  - `SteveFSmashGold` — fighter-action / short-or-misaligned-source: source has 35 images / 4550 ms and cannot prove the complete 43-frame fighter action
+  - `SteveFSmashPunch` — fighter-action / short-or-misaligned-source: source has 42 images / 5590 ms and cannot prove the complete 43-frame fighter action
   - `SteveFSmashPunchSSBU` — fighter-action / short-or-misaligned-source: source has 42 images / 5548 ms and cannot prove the complete 43-frame fighter action
 - **Steve Forward Throw**
-  - `SteveFThrow` — fighter-action / short-or-misaligned-source: source has 36 images / 6370 ms and cannot prove the complete 49-frame fighter action
   - `SteveFThrowSSBU` — fighter-action / short-or-misaligned-source: source has 36 images / 6370 ms and cannot prove the complete 49-frame fighter action
 - **Steve Grab**
-  - `SteveGrab` — fighter-action / short-or-misaligned-source: source has 51 images / 7280 ms and cannot prove the complete 56-frame fighter action
   - `SteveGrabSSBU` — fighter-action / short-or-misaligned-source: source has 51 images / 7280 ms and cannot prove the complete 56-frame fighter action
+- **Steve Jab / Forward Tilt**
+  - `SteveJabFTiltGold` — fighter-action / short-or-misaligned-source: source has 14 images / 1820 ms and cannot prove the complete 16-frame fighter action
 - **Steve Neutral Air**
+  - `SteveNAirGold` — fighter-action / short-or-misaligned-source: source has 12 images / 1820 ms and cannot prove the complete 17-frame fighter action
+  - `SteveNAirPunch` — fighter-action / short-or-misaligned-source: source has 14 images / 2080 ms and cannot prove the complete 17-frame fighter action
   - `SteveNAirPunchSSBU` — fighter-action / short-or-misaligned-source: source has 14 images / 2080 ms and cannot prove the complete 17-frame fighter action
+  - `SteveNAirWoodStoneIronDiamond` — fighter-action / short-or-misaligned-source: source has 14 images / 2080 ms and cannot prove the complete 17-frame fighter action
+- **Steve Neutral B (Mine)**
+  - `Steve_Neutral_B_2_SSBU` — fighter-action / short-or-misaligned-source: source has 25 images / 1000 ms and cannot prove the complete 45-frame fighter action
 - **Steve Pivot Grab**
-  - `StevePivotGrab` — fighter-action / short-or-misaligned-source: source has 50 images / 7670 ms and cannot prove the complete 59-frame fighter action
   - `StevePivotGrabSSBU` — fighter-action / short-or-misaligned-source: source has 50 images / 7670 ms and cannot prove the complete 59-frame fighter action
 - **Steve Place Block**
   - `SteveBlock` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Steve Pummel**
-  - `StevePummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 20-frame fighter action
   - `StevePummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 20-frame fighter action
 - **Steve Side B (Minecart)**
   - `SteveMinecartFree` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `SteveMinecartRide` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `SteveSSpecialFreeSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+- **Steve Sword Back Air (Short Hop Macro BAir)**
+  - `SteveBAirSwordGold` — fighter-action / short-or-misaligned-source: source has 14 images / 1820 ms and cannot prove the complete 16-frame fighter action
+- **Steve Sword Forward Air (Short Hop Macro FAir)**
+  - `SteveFAirSwordGold` — fighter-action / short-or-misaligned-source: source has 14 images / 1820 ms and cannot prove the complete 16-frame fighter action
+- **Steve Up Air**
+  - `SteveUAirGold` — fighter-action / short-or-misaligned-source: source has 11 images / 1430 ms and cannot prove the complete 13-frame fighter action
 - **Steve Up B (Elytra)**
-  - `SteveElytra` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `SteveUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Steve Up Smash**
-  - `SteveUSmash` — fighter-action / short-or-misaligned-source: source has 34 images / 9880 ms and cannot prove the complete 76-frame fighter action
   - `SteveUSmashSSBU` — fighter-action / short-or-misaligned-source: source has 34 images / 9880 ms and cannot prove the complete 76-frame fighter action
 - **Steve Up Throw**
-  - `SteveUThrow` — fighter-action / short-or-misaligned-source: source has 38 images / 6110 ms and cannot prove the complete 47-frame fighter action
   - `SteveUThrowSSBU` — fighter-action / short-or-misaligned-source: source has 38 images / 6110 ms and cannot prove the complete 47-frame fighter action
 - **Steve Up Tilt**
+  - `SteveUTiltGold` — fighter-action / short-or-misaligned-source: source has 12 images / 1560 ms and cannot prove the complete 16-frame fighter action
+  - `SteveUTiltPunch` — fighter-action / short-or-misaligned-source: source has 14 images / 2080 ms and cannot prove the complete 16-frame fighter action
   - `SteveUTiltPunchSSBU` — fighter-action / short-or-misaligned-source: source has 14 images / 2080 ms and cannot prove the complete 16-frame fighter action
+  - `SteveUTiltWoodStoneIronDiamond` — fighter-action / short-or-misaligned-source: source has 14 images / 2080 ms and cannot prove the complete 16-frame fighter action
 
 ## terry
 
@@ -2334,29 +2044,31 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Terry Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Terry Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Terry Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Terry Burning Knuckle, Input** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Terry Forward B (Burning Knuckle)** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Terry Back B (Crack Shoot)**
   - `TerryCrackShootStrong` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 46-frame fighter action
   - `TerryCrackShootWeak` — fighter-action / short-or-misaligned-source: source has 45 images / 5850 ms and cannot prove the complete 46-frame fighter action
+- **Terry Burning Knuckle, Input**
+  - `TerryBurningKnuckleAirStrongInput` — fighter-action / short-or-misaligned-source: source has 50 images / 6500 ms and cannot prove the complete 60-frame fighter action
+  - `TerryBurningKnuckleAirWeakInput` — fighter-action / short-or-misaligned-source: source has 46 images / 5980 ms and cannot prove the complete 60-frame fighter action
 - **Terry Buster Wolf**
   - `TerryBusterWolf` — fighter-action / short-or-misaligned-source: source has 64 images / 8440 ms and cannot prove the complete 65-frame fighter action
 - **Terry Down B (Power Dunk)**
   - `TerryDSpecialUpWeakSSBU` — fighter-action / short-or-misaligned-source: source has 21 images / 2709 ms and cannot prove the complete 54-frame fighter action
-- **Terry Forward Air**
-  - `TerryFAir` — fighter-action / short-or-misaligned-source: source has 38 images / 5060 ms and cannot prove the complete 39-frame fighter action
-- **Terry Forward Smash**
-  - `TerryFSmash` — fighter-action / short-or-misaligned-source: source has 49 images / 6490 ms and cannot prove the complete 50-frame fighter action
-- **Terry Jab 2**
-  - `TerryJab2` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 24-frame fighter action
+  - `TerryPowerDunkRiseStrong` — fighter-action / short-or-misaligned-source: source has 27 images / 3510 ms and cannot prove the complete 54-frame fighter action
+  - `TerryPowerDunkRiseStrongInput` — fighter-action / short-or-misaligned-source: source has 27 images / 3510 ms and cannot prove the complete 54-frame fighter action
+  - `TerryPowerDunkRiseWeak` — fighter-action / short-or-misaligned-source: source has 21 images / 2730 ms and cannot prove the complete 54-frame fighter action
+  - `TerryPowerDunkRiseWeakInput` — fighter-action / short-or-misaligned-source: source has 21 images / 2730 ms and cannot prove the complete 54-frame fighter action
+  - `TerryPowerDunkSpike` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 54-frame fighter action
+  - `TerryPowerDunkStrong` — fighter-action / short-or-misaligned-source: source has 42 images / 5460 ms and cannot prove the complete 54-frame fighter action
+  - `TerryPowerDunkWeak` — fighter-action / short-or-misaligned-source: source has 41 images / 5330 ms and cannot prove the complete 54-frame fighter action
+- **Terry Forward B (Burning Knuckle)**
+  - `TerryBurningKnuckleAirStrong` — fighter-action / short-or-misaligned-source: source has 50 images / 6500 ms and cannot prove the complete 60-frame fighter action
+  - `TerryBurningKnuckleAirWeak` — fighter-action / short-or-misaligned-source: source has 46 images / 5980 ms and cannot prove the complete 60-frame fighter action
 - **Terry Jab 3**
-  - `TerryJab3` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 33-frame fighter action
   - `TerryJab3SSBU` — fighter-action / short-or-misaligned-source: source has 29 images / 3770 ms and cannot prove the complete 33-frame fighter action
 - **Terry Pummel**
-  - `TerryPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
   - `TerryPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Terry Up B (Rising Tackle)**
-  - `TerryRisingTackle` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `TerryUSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## toon-link
@@ -2370,16 +2082,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Toon_link Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Toon_link Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Toon_link Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Toon_link Back Air**
-  - `ToonLinkBAir` — fighter-action / short-or-misaligned-source: source has 28 images / 4550 ms and cannot prove the complete 35-frame fighter action
-- **Toon_link Down Air**
-  - `ToonLinkDAirLanding` — fighter-action / short-or-misaligned-source: source has 23 images / 2990 ms and cannot prove the complete 79-frame fighter action
 - **Toon_link Down B (Bomb Pull)**
   - `ToonLinkBombBoom` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `ToonLinkDSpecialExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `ToonLinkDSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Toon_link Pummel**
-  - `ToonLinkPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
   - `ToonLinkPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 16-frame fighter action
 - **Toon_link Side B (Boomerang)**
   - `ToonLinkBoomerang` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -2400,33 +2107,33 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Villager Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Villager Pocket, Throw** — `grab` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Villager Rapid Jab** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Villager Rapid Jab Finisher** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Villager Timber Tree Grow/Fall** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Villager Down B (Timber Plant, Timber Water)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Villager Dash Attack**
-  - `VillagerDashAttack` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `VillagerDashAttackOffLedge` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline
   - `VillagerDashAttackSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 42-frame parent action, but documented interaction remains active through frame 68; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Villager Forward Smash**
-  - `VillagerFSmash` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 49-frame parent action, but documented interaction remains active through frame 144; complete move coverage requires a proven independent projectile/effect/object timeline
   - `VillagerFSmashSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 49-frame parent action, but documented interaction remains active through frame 144; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Villager Neutral B (Pocket)**
-  - `VillagerPocket` — fighter-action / short-or-misaligned-source: source has 35 images / 6500 ms and cannot prove the complete 50-frame fighter action
   - `VillagerPocketSSBU` — fighter-action / short-or-misaligned-source: source has 35 images / 6500 ms and cannot prove the complete 50-frame fighter action
 - **Villager Pummel**
-  - `VillagerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `VillagerPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 19-frame fighter action
 - **Villager Side B (Lloid Rocket)**
+  - `VillagerLloidRocketExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
+  - `VillagerLloidRocketFall` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+  - `VillagerLloidRocketFly` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+  - `VillagerLloidRocketWallExplosion` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `VillagerSSpecialExplosionSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `VillagerSSpecialFlySSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+- **Villager Timber Tree Grow/Fall**
+  - `VillagerTimberFall` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `VillagerTimberGrowth` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
+  - `VillagerWoodSpawn` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+  - `VillagerWoodThrown` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Villager Up B (Balloon Trip)**
   - `VillagerBalloonHurtbox` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
   - `VillagerUSpecialBalloonHurtboxSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 
 ## wario
 
-- **Wario Forward Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Neutral Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Up Air** — `aerial` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Air Dodge, Diagonally Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Air Dodge, Diagonally Up** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Air Dodge, Down** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
@@ -2436,26 +2143,18 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Wario Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Down Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Forward Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Forward Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Jab** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Up Smash** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wario Up Tilt** — `ground` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wario Down B (Wario Waft)**
   - `WarioWarioWaftFull` — fighter-action / short-or-misaligned-source: source has 62 images / 8190 ms and cannot prove the complete 79-frame fighter action
   - `WarioWarioWaftHalf` — fighter-action / short-or-misaligned-source: source has 52 images / 7020 ms and cannot prove the complete 79-frame fighter action
   - `WarioWarioWaftLow` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 79-frame fighter action
   - `WarioWarioWaftLowSSBU` — fighter-action / short-or-misaligned-source: source has 64 images / 8320 ms and cannot prove the complete 79-frame fighter action
-- **Wario Down Throw**
-  - `WarioDThrow` — fighter-action / short-or-misaligned-source: source has 53 images / 6890 ms and cannot prove the complete 54-frame fighter action
 - **Wario Neutral B (Chomp)**
+  - `WarioChomp` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 41-frame parent action, but documented interaction remains active through frame 64; complete move coverage requires a proven independent projectile/effect/object timeline
+  - `WarioChompBite` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 41-frame parent action, but documented interaction remains active through frame 64; complete move coverage requires a proven independent projectile/effect/object timeline
   - `WarioChompSSBU` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 41-frame parent action, but documented interaction remains active through frame 64; complete move coverage requires a proven independent projectile/effect/object timeline
 - **Wario Pummel**
-  - `WarioPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
   - `WarioPummelSSBU` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 21-frame fighter action
 - **Wario Up B (Corkscrew)**
-  - `WarioCorkscrew` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `WarioCorkscrewSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## wii-fit-trainer
@@ -2469,7 +2168,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Wii_fit_trainer Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wii_fit_trainer Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wii_fit_trainer Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Wii_fit_trainer Down B (Deep Breathing)** — `special` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
+- **Wii_fit_trainer Down B (Deep Breathing)**
+  - `Wii Fit Trainer Down B SSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 - **Wii_fit_trainer Pummel**
   - `WiiFitTrainerPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 
@@ -2485,27 +2185,20 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Wolf Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wolf Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Wolf Dash Grab**
-  - `WolfDashGrab` — fighter-action / short-or-misaligned-source: source has 43 images / 5710 ms and cannot prove the complete 44-frame fighter action
   - `WolfDashGrabSSBU` — fighter-action / short-or-misaligned-source: source has 43 images / 5668 ms and cannot prove the complete 44-frame fighter action
 - **Wolf Down B (Reflector)**
   - `WolfDSpecialStartSSBU` — fighter-action / short-or-misaligned-source: source has 8 images / 1032 ms and cannot prove the complete 30-frame fighter action
   - `WolfReflector` — fighter-action / short-or-misaligned-source: source has 28 images / 3640 ms and cannot prove the complete 30-frame fighter action
   - `WolfReflectorHit` — fighter-action / short-or-misaligned-source: source has 18 images / 2340 ms and cannot prove the complete 30-frame fighter action
   - `WolfReflectorStart` — fighter-action / short-or-misaligned-source: source has 8 images / 1040 ms and cannot prove the complete 30-frame fighter action
-- **Wolf Down Smash**
-  - `WolfDSmash` — fighter-action / short-or-misaligned-source: source has 40 images / 5590 ms and cannot prove the complete 43-frame fighter action
 - **Wolf Forward Smash**
-  - `WolfFSmash` — fighter-action / short-or-misaligned-source: source has 40 images / 5320 ms and cannot prove the complete 41-frame fighter action
   - `WolfFSmashSSBU` — fighter-action / short-or-misaligned-source: source has 40 images / 5281 ms and cannot prove the complete 41-frame fighter action
 - **Wolf Pivot Grab**
-  - `WolfPivotGrab` — fighter-action / short-or-misaligned-source: source has 37 images / 5050 ms and cannot prove the complete 39-frame fighter action
   - `WolfPivotGrabSSBU` — fighter-action / short-or-misaligned-source: source has 37 images / 5015 ms and cannot prove the complete 39-frame fighter action
 - **Wolf Pummel**
-  - `WolfPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
   - `WolfPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 19-frame fighter action
 - **Wolf Side B (Wolf Flash)**
   - `WolfSSpecialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
-  - `WolfWolfFlash` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## yoshi
 
@@ -2518,10 +2211,6 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Yoshi Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Yoshi Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Yoshi Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Yoshi Down Air**
-  - `YoshiDAirLanding` — fighter-action / short-or-misaligned-source: source has 17 images / 2210 ms and cannot prove the complete 56-frame fighter action
-- **Yoshi Pummel**
-  - `YoshiPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Yoshi Up B (Egg Throw)**
   - `YoshiEggThrowBurst` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `YoshiUSpecialBurstSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
@@ -2539,13 +2228,11 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Young_link Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Young_link Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Young_link Pummel**
-  - `YoungLinkPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
   - `YoungLinkPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 18-frame fighter action
 - **Young_link Side B (Boomerang)**
   - `YoungLinkBoomerang` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
   - `YoungLinkSSpecialSSBU` — effect / static-source-needs-motion: effect source is static and does not prove a complete moving timeline
 - **Young_link Up B, Air (Spin Attack, Air)**
-  - `YoungLinkSpinAttackA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `YoungLinkUSpecialAerialSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
 
 ## zelda
@@ -2560,15 +2247,16 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Zelda Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Zelda Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Zelda Down B (Phantom Slash)**
+  - `PhantomKick` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 66-frame fighter action
+  - `PhantomPunch` — fighter-action / short-or-misaligned-source: source has 59 images / 7670 ms and cannot prove the complete 66-frame fighter action
+  - `PhantomSwing1` — fighter-action / short-or-misaligned-source: source has 65 images / 8450 ms and cannot prove the complete 66-frame fighter action
   - `ZeldaDSpecialKickSSBU` — fighter-action / short-or-misaligned-source: source has 49 images / 6370 ms and cannot prove the complete 66-frame fighter action
-- **Zelda Jab**
-  - `ZeldaJab` — fighter-action / short-or-misaligned-source: source has 23 images / 2990 ms and cannot prove the complete 24-frame fighter action
-- **Zelda Pummel**
-  - `ZeldaPummel` — fighter-action / short-or-misaligned-source: source has 7 images / 910 ms and cannot prove the complete 20-frame fighter action
+  - `ZeldaPhantomHurtbox` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Zelda Side B (Din's Fire)**
+  - `ZeldaDinsFire` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
+  - `ZeldaDinsFireMin` — fighter-action / short-or-misaligned-source: fighter-action source can cover the 69-frame parent action, but documented interaction remains active through frame 75; complete move coverage requires a proven independent projectile/effect/object timeline
   - `ZeldaSSpecialSSBU` — fighter-action / static-source-needs-motion: fighter-action source is static and does not prove a complete moving timeline
 - **Zelda Up B (Farore's Wind)**
-  - `ZeldaFaroresWindG` — fighter-action / short-or-misaligned-source: source has 63 images / 10190 ms and cannot prove the complete 75-frame fighter action
   - `ZeldaUSpecialGroundedSSBU` — fighter-action / short-or-misaligned-source: source has 63 images / 10190 ms and cannot prove the complete 75-frame fighter action
 
 ## zero-suit-samus
@@ -2582,12 +2270,8 @@ This file is generated. A listed item is a source/timing blocker, not permission
 - **Zero_suit_samus Forward Roll** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Zero_suit_samus Neutral Air Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
 - **Zero_suit_samus Spot Dodge** — `defense` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Zero_suit_samus Flip Jump, Kick** — `misc` / no-source-visual: frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery
-- **Zero_suit_samus Down Air**
-  - `ZeroSuitSamusDAirLanding` — fighter-action / short-or-misaligned-source: source has 24 images / 3120 ms and cannot prove the complete 67-frame fighter action
 - **Zero_suit_samus Pummel**
   - `ZSSPummelSSBU` — fighter-action / short-or-misaligned-source: source has 6 images / 774 ms and cannot prove the complete 19-frame fighter action
-  - `ZeroSuitSamusPummel` — fighter-action / short-or-misaligned-source: source has 6 images / 780 ms and cannot prove the complete 19-frame fighter action
 - **Zero_suit_samus Up B (Boost Kick)**
   - `ZSSUSpecialGroundedSSBU` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping
   - `ZeroSuitSamusBoostKickA` — fighter-action / missing-documented-timing: fighter action has no documented Total Frames value for an exact complete mapping

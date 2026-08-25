@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "checkedCurrentSmashWikiAnimations": 253,
-  "selectedHistoricalRevisions": 58,
+  "checkedCurrentSmashWikiAnimations": 312,
+  "selectedHistoricalRevisions": 56,
   "policy": "historical revision is selected only when current source is short and history reaches documented Total Frames",
   "warnings": [],
   "selected": [
@@ -332,19 +332,6 @@
     },
     {
       "fighterId": "lucina",
-      "moveId": "neutral-b-shieldbreaker",
-      "variantId": "smashwiki-lucinanspecialssbu",
-      "fileTitle": "File:LucinaNSpecialSSBU.gif",
-      "targetFrames": 50,
-      "currentFrameCount": 32,
-      "historicalFrameCount": 52,
-      "currentUrl": "https://ssb.wiki.gallery/images/1/15/LucinaNSpecialSSBU.gif",
-      "selectedUrl": "https://ssb.wiki.gallery/images/archive/1/15/20200117223053%21LucinaNSpecialSSBU.gif",
-      "revisionTimestamp": "2019-10-28T20:24:26Z",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:LucinaNSpecialSSBU.gif"
-    },
-    {
-      "fighterId": "lucina",
       "moveId": "pummel",
       "variantId": "smashwiki-lucinapummelssbu",
       "fileTitle": "File:LucinaPummelSSBU.gif",
@@ -368,19 +355,6 @@
       "selectedUrl": "https://ssb.wiki.gallery/images/archive/d/de/20191216173601%21MarioPummelSSBU.gif",
       "revisionTimestamp": "2019-08-21T01:44:07Z",
       "sourcePageUrl": "https://www.ssbwiki.com/File:MarioPummelSSBU.gif"
-    },
-    {
-      "fighterId": "marth",
-      "moveId": "neutral-b-shield-breaker",
-      "variantId": "smashwiki-marthnspecialssbu",
-      "fileTitle": "File:MarthNSpecialSSBU.gif",
-      "targetFrames": 50,
-      "currentFrameCount": 32,
-      "historicalFrameCount": 79,
-      "currentUrl": "https://ssb.wiki.gallery/images/1/1f/MarthNSpecialSSBU.gif",
-      "selectedUrl": "https://ssb.wiki.gallery/images/archive/1/1f/20200117221300%21MarthNSpecialSSBU.gif",
-      "revisionTimestamp": "2019-10-28T20:01:42Z",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:MarthNSpecialSSBU.gif"
     },
     {
       "fighterId": "marth",
