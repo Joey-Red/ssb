@@ -1,24 +1,24 @@
 {
   "version": 2,
   "totalFrameDataMoves": 3588,
-  "mappedSourceVisualMoves": 2735,
-  "mappedVisualMoves": 2735,
+  "mappedSourceVisualMoves": 2739,
+  "mappedVisualMoves": 2739,
   "reviewedCaptureCount": 0,
-  "movesWithoutSourceVisual": 853,
+  "movesWithoutSourceVisual": 849,
   "missingMoveCategories": {
     "defense": 799,
     "grab": 6,
     "ground": 2,
     "misc": 36,
-    "special": 10
+    "special": 6
   },
-  "variantCount": 3560,
-  "resolvedVariants": 2852,
-  "unresolvedVariants": 708,
+  "variantCount": 3565,
+  "resolvedVariants": 2853,
+  "unresolvedVariants": 712,
   "unresolvedTotal": 1561,
   "blockerCounts": {
-    "missing-documented-timing": 142,
-    "short-or-misaligned-source": 404,
+    "missing-documented-timing": 145,
+    "short-or-misaligned-source": 405,
     "static-source-needs-motion": 162
   },
   "fightersWithBlockers": 89,
@@ -5426,19 +5426,18 @@
       ]
     },
     "ganondorf": {
-      "unresolvedVariants": 7,
-      "movesWithoutSourceVisual": 10,
-      "totalBlockers": 17,
+      "unresolvedVariants": 9,
+      "movesWithoutSourceVisual": 9,
+      "totalBlockers": 18,
       "blockers": {
-        "missing-documented-timing": 2,
+        "missing-documented-timing": 4,
         "short-or-misaligned-source": 5
       },
       "timelines": {
-        "fighter-action": 7
+        "fighter-action": 9
       },
       "missingMoveCategories": {
-        "defense": 9,
-        "special": 1
+        "defense": 9
       },
       "variants": [
         {
@@ -5535,6 +5534,38 @@
           "sourceDurationMs": 7410,
           "totalFrames": null,
           "landingLag": 29,
+          "sourceUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif"
+        },
+        {
+          "fighterId": "ganondorf",
+          "moveId": "side-b-air-success-flame-choke-air-success",
+          "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
+          "variantId": "smashwiki-residual-ganondorfflamechokesuccessssbu",
+          "variantLabel": "GanondorfFlameChokeSuccessSSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 57,
+          "sourceDurationMs": 7410,
+          "totalFrames": null,
+          "landingLag": 30,
+          "sourceUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif"
+        },
+        {
+          "fighterId": "ganondorf",
+          "moveId": "side-b-air-success-flame-choke-air-success",
+          "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
+          "variantId": "smashwiki-residual-ganondorfsspecialaerialssbu",
+          "variantLabel": "GanondorfSSpecialAerialSSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 57,
+          "sourceDurationMs": 7410,
+          "totalFrames": null,
+          "landingLag": 30,
           "sourceUrl": "https://www.ssbwiki.com/File:GanondorfSSpecialAerialSSBU.gif"
         },
         {
@@ -5686,21 +5717,6 @@
           "active": null,
           "totalFrames": "23/28",
           "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/ganondorf",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "ganondorf",
-          "fighterName": "Ganondorf",
-          "moveId": "side-b-air-success-flame-choke-air-success",
-          "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
-          "moveName": "Side B, Air Success (Flame Choke, Air Success)",
-          "category": "special",
-          "startup": null,
-          "active": "1 (Landing)",
-          "totalFrames": null,
-          "landingLag": "30",
           "sourceUrl": "https://ultimateframedata.com/ganondorf",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -8124,19 +8140,19 @@
       ]
     },
     "joker": {
-      "unresolvedVariants": 3,
-      "movesWithoutSourceVisual": 13,
-      "totalBlockers": 16,
+      "unresolvedVariants": 5,
+      "movesWithoutSourceVisual": 10,
+      "totalBlockers": 15,
       "blockers": {
-        "short-or-misaligned-source": 3
+        "missing-documented-timing": 1,
+        "short-or-misaligned-source": 4
       },
       "timelines": {
-        "fighter-action": 3
+        "fighter-action": 5
       },
       "missingMoveCategories": {
         "defense": 9,
-        "misc": 1,
-        "special": 3
+        "misc": 1
       },
       "variants": [
         {
@@ -8186,6 +8202,38 @@
           "totalFrames": 69,
           "landingLag": 20,
           "sourceUrl": "https://ultimateframedata.com/joker"
+        },
+        {
+          "fighterId": "joker",
+          "moveId": "up-b-grappling-hook",
+          "moveLabel": "Joker Up B (Grappling Hook)",
+          "variantId": "smashwiki-residual-joker-up-b-ssbu",
+          "variantLabel": "Joker Up B SSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "partial",
+          "blockerClass": "short-or-misaligned-source",
+          "reason": "source has 50 images / 2000 ms and cannot prove the complete 59-frame fighter action",
+          "sourceFrameCount": 50,
+          "sourceDurationMs": 2000,
+          "totalFrames": 59,
+          "landingLag": null,
+          "sourceUrl": "https://www.ssbwiki.com/File:Joker_Up_B_SSBU.gif"
+        },
+        {
+          "fighterId": "joker",
+          "moveId": "up-b-arsene-wings-of-rebellion",
+          "moveLabel": "Joker Up B, Arsene (Wings of Rebellion)",
+          "variantId": "smashwiki-residual-joker-up-b-2-ssbu",
+          "variantLabel": "Joker Up B 2 SSBU",
+          "timelineClass": "fighter-action",
+          "coverage": "untimed-animation",
+          "blockerClass": "missing-documented-timing",
+          "reason": "fighter action has no documented Total Frames value for an exact complete mapping",
+          "sourceFrameCount": 78,
+          "sourceDurationMs": 3120,
+          "totalFrames": null,
+          "landingLag": 30,
+          "sourceUrl": "https://www.ssbwiki.com/File:Joker_Up_B_2_SSBU.gif"
         }
       ],
       "movesWithoutVisuals": [
@@ -8335,51 +8383,6 @@
           "active": "5",
           "totalFrames": "28",
           "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/joker",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "joker",
-          "fighterName": "Joker",
-          "moveId": "down-b-rebel-s-guard",
-          "moveLabel": "Joker Down B (Rebel's Guard)",
-          "moveName": "Down B (Rebel's Guard)",
-          "category": "special",
-          "startup": "3 (Start of Block)",
-          "active": null,
-          "totalFrames": "52",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/joker",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "joker",
-          "fighterName": "Joker",
-          "moveId": "up-b-grappling-hook",
-          "moveLabel": "Joker Up B (Grappling Hook)",
-          "moveName": "Up B (Grappling Hook)",
-          "category": "special",
-          "startup": "20",
-          "active": "20\u201426",
-          "totalFrames": "59/44",
-          "landingLag": null,
-          "sourceUrl": "https://ultimateframedata.com/joker",
-          "blockerClass": "no-source-visual",
-          "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-        },
-        {
-          "fighterId": "joker",
-          "fighterName": "Joker",
-          "moveId": "up-b-arsene-wings-of-rebellion",
-          "moveLabel": "Joker Up B, Arsene (Wings of Rebellion)",
-          "moveName": "Up B, Arsene (Wings of Rebellion)",
-          "category": "special",
-          "startup": "**",
-          "active": "**",
-          "totalFrames": "**",
-          "landingLag": "30",
           "sourceUrl": "https://ultimateframedata.com/joker",
           "blockerClass": "no-source-visual",
           "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
@@ -28778,21 +28781,6 @@
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
     },
     {
-      "fighterId": "ganondorf",
-      "fighterName": "Ganondorf",
-      "moveId": "side-b-air-success-flame-choke-air-success",
-      "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
-      "moveName": "Side B, Air Success (Flame Choke, Air Success)",
-      "category": "special",
-      "startup": null,
-      "active": "1 (Landing)",
-      "totalFrames": null,
-      "landingLag": "30",
-      "sourceUrl": "https://ultimateframedata.com/ganondorf",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
       "fighterId": "greninja",
       "fighterName": "Greninja",
       "moveId": "air-dodge-diagonally-down",
@@ -30348,51 +30336,6 @@
       "active": "5",
       "totalFrames": "28",
       "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/joker",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "joker",
-      "fighterName": "Joker",
-      "moveId": "down-b-rebel-s-guard",
-      "moveLabel": "Joker Down B (Rebel's Guard)",
-      "moveName": "Down B (Rebel's Guard)",
-      "category": "special",
-      "startup": "3 (Start of Block)",
-      "active": null,
-      "totalFrames": "52",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/joker",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "joker",
-      "fighterName": "Joker",
-      "moveId": "up-b-grappling-hook",
-      "moveLabel": "Joker Up B (Grappling Hook)",
-      "moveName": "Up B (Grappling Hook)",
-      "category": "special",
-      "startup": "20",
-      "active": "20\u201426",
-      "totalFrames": "59/44",
-      "landingLag": null,
-      "sourceUrl": "https://ultimateframedata.com/joker",
-      "blockerClass": "no-source-visual",
-      "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"
-    },
-    {
-      "fighterId": "joker",
-      "fighterName": "Joker",
-      "moveId": "up-b-arsene-wings-of-rebellion",
-      "moveLabel": "Joker Up B, Arsene (Wings of Rebellion)",
-      "moveName": "Up B, Arsene (Wings of Rebellion)",
-      "category": "special",
-      "startup": "**",
-      "active": "**",
-      "totalFrames": "**",
-      "landingLag": "30",
       "sourceUrl": "https://ultimateframedata.com/joker",
       "blockerClass": "no-source-visual",
       "reason": "frame-data move has no discovered or reviewed visual source; capture/research is required rather than inventing imagery"

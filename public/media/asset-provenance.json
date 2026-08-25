@@ -358,13 +358,13 @@
       "thumbSource": "https://www.smashbros.com/assets_v2/img/fighter/thumb_v/sora.png"
     }
   },
-  "visualMoveCount": 2735,
-  "visualVariantCount": 3560,
-  "fullExactVariantCount": 2360,
+  "visualMoveCount": 2739,
+  "visualVariantCount": 3565,
+  "fullExactVariantCount": 2361,
   "sourceTimedVariantCount": 418,
   "exactStaticVariantCount": 74,
-  "visualCoverageGapCount": 708,
+  "visualCoverageGapCount": 712,
   "reviewedOverrideCount": 0,
   "fightersScanned": 89,
-  "mediaBytes": 531445964
+  "mediaBytes": 534083320
 }
