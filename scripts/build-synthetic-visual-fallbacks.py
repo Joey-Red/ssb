@@ -23,8 +23,10 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / "src/data/visualCoverageAudit.generated.json"
 FRAME_DATA = ROOT / "src/data/frameData.generated.json"
+DEFENSE_TIMING = ROOT / "src/data/visualDefenseTiming.generated.json"
 RUNTIME_DIR = ROOT / "public/data/visual-media"
 OUTPUT = ROOT / "src/data/visualSyntheticFallbacks.generated.json"
+DEFENSE_TIMING_BUILDER = ROOT / "scripts/build-defense-timing-evidence.py"
 PHASE_SHEET_BUILDER = ROOT / "scripts/build-synthetic-phase-sheets.py"
 
 
@@ -38,13 +40,10 @@ def timeline_total(move: dict[str, Any]) -> int:
         return max(totals)
     active = numbers(move.get("active"))
     startup = numbers(move.get("startup"))
-    notes = numbers(move.get("notes"))
     if active:
         return max(active)
     if startup:
         return max(startup)
-    if notes:
-        return max(notes)
     return 1
 
 
@@ -55,20 +54,15 @@ def active_span(move: dict[str, Any]) -> tuple[int | None, int | None]:
     return None, None
 
 
-def intangible_span(move: dict[str, Any]) -> tuple[int | None, int | None]:
-    text = str(move.get("notes") or "")
-    match = re.search(
-        r"intangible(?:\s+on)?\s+frames?\s*(\d+)\s*(?:-|–|—|to)\s*(\d+)",
-        text,
-        flags=re.IGNORECASE,
-    )
-    if match:
-        return int(match.group(1)), int(match.group(2))
-    single = re.search(r"intangible(?:\s+on)?\s+frame\s*(\d+)", text, flags=re.IGNORECASE)
-    if single:
-        value = int(single.group(1))
-        return value, value
-    return None, None
+def evidence_span(defense_timing: dict[str, Any], fighter_id: str, move_id: str) -> tuple[int | None, int | None]:
+    entry = defense_timing.get("entries", {}).get(f"{fighter_id}:{move_id}")
+    if not isinstance(entry, dict):
+        return None, None
+    start = entry.get("startFrame")
+    end = entry.get("endFrame")
+    if not isinstance(start, int) or not isinstance(end, int) or start <= 0 or end < start:
+        raise SystemExit(f"invalid structured intangibility evidence for {fighter_id}:{move_id}")
+    return start, end
 
 
 def phase_for(
@@ -94,10 +88,18 @@ def phase_for(
 
 
 def main() -> int:
+    # Keep structured defense timing fresh wherever synthetic runtime visuals are
+    # rebuilt. This is build-time maintenance only; the deployed site stays fully
+    # same-origin and never calls UFD or its maintenance mirror at runtime.
+    subprocess.run([sys.executable, str(DEFENSE_TIMING_BUILDER)], check=True)
+
     audit = json.loads(AUDIT.read_text(encoding="utf-8"))
     frame_data = json.loads(FRAME_DATA.read_text(encoding="utf-8"))
+    defense_timing = json.loads(DEFENSE_TIMING.read_text(encoding="utf-8"))
     if audit.get("version") != 2:
         raise SystemExit("visual coverage audit must be version 2")
+    if defense_timing.get("version") != 1:
+        raise SystemExit("defense timing evidence must be version 1")
 
     grouped_missing: dict[str, list[dict[str, Any]]] = {}
     for row in audit.get("movesWithoutVisuals", []):
@@ -127,8 +129,13 @@ def main() -> int:
                 raise SystemExit(f"frame data missing move {fighter_id}:{move_id}")
             total = timeline_total(move)
             active_start, active_end = active_span(move)
-            intangible_start, intangible_end = intangible_span(move)
+            intangible_start, intangible_end = evidence_span(defense_timing, fighter_id, move_id)
             if intangible_start is not None and intangible_end is not None:
+                if intangible_end > total:
+                    raise SystemExit(
+                        f"intangibility exceeds documented total frames for {fighter_id}:{move_id}: "
+                        f"{intangible_start}-{intangible_end} > {total}"
+                    )
                 defense_with_intangibility += 1
             frames = []
             for frame in range(1, total + 1):
@@ -159,7 +166,7 @@ def main() -> int:
                     "timelineClass": "fighter-action",
                     "timelineTotalFrames": total,
                     "timingBasis": "parent-action",
-                    "timelineBasis": "documented-frame-data-illustration",
+                    "timelineBasis": "documented-frame-data-and-structured-ufd-defense-timing-illustration",
                     "mappingMethod": "synthetic-phase-schematic-not-source-evidence",
                     "sourceFormat": "synthetic-illustrative",
                 }],
@@ -190,22 +197,24 @@ def main() -> int:
         "categoryCounts": dict(sorted(category_counts.items())),
         "phaseFrameCounts": dict(sorted(phase_counts.items())),
         "defenseRowsWithDocumentedIntangibility": defense_with_intangibility,
+        "defenseTimingRegistryRows": int(defense_timing.get("documentedIntangibilityRows") or 0),
         "policy": {
             "sourceEvidence": False,
             "eligibleForExactCoverage": False,
             "purpose": "complete local frame-by-frame visual-player coverage while preserving the distinction between sourced gameplay media and documented timing schematics",
             "mustBeReplacedByForSourceCoverage": "verified external source or reviewed deterministic local capture",
+            "defenseTimingSource": "structured UFD facts extracted at build time; no source prose bundled and no runtime network dependency",
         },
         "fallbacks": generated,
     }
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(
         f"synthetic timing fallbacks: {len(generated)} source-less moves; "
-        f"{defense_with_intangibility} rows use documented intangible timing"
+        f"{defense_with_intangibility} schematic rows use documented intangible timing"
     )
 
-    # Every caller of this builder gets the same local seekable schematic assets;
-    # future vendor refreshes therefore cannot silently regress to blank/static cards.
+    # Every caller gets the same local seekable schematic assets; future vendor
+    # refreshes therefore cannot silently regress to blank/static cards.
     subprocess.run([sys.executable, str(PHASE_SHEET_BUILDER)], check=True)
     return 0
 
