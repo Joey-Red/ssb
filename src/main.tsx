@@ -12,6 +12,7 @@ import './festival-component-fixes.css'
 import './festival-surfaces.css'
 import './frame-media.css'
 import './local-media.css'
+import './components/ProLabView.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

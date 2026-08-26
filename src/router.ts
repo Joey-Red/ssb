@@ -7,6 +7,7 @@ export type AppRoute =
   | { page: 'practice'; slug: string }
   | { page: 'drills' }
   | { page: 'tools' }
+  | { page: 'pro-lab'; slug?: string }
   | { page: 'about' }
   | { page: 'not-found' }
 
@@ -24,7 +25,10 @@ export function parseRoute(hash: string): AppRoute {
   if (normalized === '/' || normalized === '') return { page: 'roster' }
   if (normalized === '/drills') return { page: 'drills' }
   if (normalized === '/tools') return { page: 'tools' }
+  if (normalized === '/pro-lab') return { page: 'pro-lab' }
   if (normalized === '/about') return { page: 'about' }
+  const proLabMatch = normalized.match(/^\/pro-lab\/([a-z0-9-]+)$/)
+  if (proLabMatch?.[1]) return { page: 'pro-lab', slug: proLabMatch[1] }
   const movesMatch = normalized.match(/^\/fighter\/([a-z0-9-]+)\/moves$/)
   if (movesMatch?.[1]) return { page: 'moves', slug: movesMatch[1] }
   const fighterMatch = normalized.match(/^\/fighter\/([a-z0-9-]+)$/)

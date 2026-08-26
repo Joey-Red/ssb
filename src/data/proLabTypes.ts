@@ -88,12 +88,28 @@ export interface DecisionGameState {
   resources?: readonly string[]
 }
 
+export type ProFrameMetric = 'startup' | 'active' | 'totalFrames' | 'faf' | 'landingLag' | 'onShield'
+
+/**
+ * A reviewed moment can point at an existing move row when a numeric property
+ * actually matters to the teaching point. The reference never stores a copied
+ * number: the live Pro Lab resolves values from the committed frame snapshot.
+ */
+export interface ProFrameDataReference {
+  fighterId: string
+  moveId?: string
+  moveName: string
+  metrics: readonly ProFrameMetric[]
+  note?: string
+}
+
 export interface ProDecisionMoment {
   id: string
   vodId: string
   game: number
   timestampSeconds: number
   fighterId: string
+  opponentFighterId?: string
   context: DecisionContext
   state: DecisionGameState
   chosenOption: string
@@ -103,6 +119,7 @@ export interface ProDecisionMoment {
   evidenceClass: DecisionEvidenceClass
   confidence: number
   teachingTags: readonly string[]
+  frameDataReferences?: readonly ProFrameDataReference[]
   reviewerNote?: string
 }
 
@@ -136,4 +153,168 @@ export interface ProPatternSummary {
   evidenceMomentIds: readonly string[]
   statement: string
   confidence: number
+}
+
+export type ProLessonTopic =
+  | 'top-player-priorities'
+  | 'neutral'
+  | 'advantage'
+  | 'disadvantage'
+  | 'ledgetrapping'
+  | 'recovery'
+  | 'stock-closing'
+  | 'adaptations'
+  | 'beginner-vs-pro'
+
+export interface ProLessonClaim {
+  id: string
+  fighterId: string
+  topic: ProLessonTopic
+  statement: string
+  evidenceMomentIds: readonly string[]
+  evidenceVodIds: readonly string[]
+  playerIds: readonly string[]
+  confidence: number
+  teachingTags: readonly string[]
+}
+
+export interface ProCharacterLesson {
+  fighterId: string
+  status: 'evidence-pending' | 'evidence-building' | 'ready'
+  claims: readonly ProLessonClaim[]
+  playerIds: readonly string[]
+  vodIds: readonly string[]
+  evidenceMomentIds: readonly string[]
+}
+
+export interface ProDecisionExercise {
+  id: string
+  momentId: string
+  vodId: string
+  fighterId: string
+  opponentFighterId?: string
+  game: number
+  timestampSeconds: number
+  context: DecisionContext
+  prompt: string
+  state: DecisionGameState
+  options: readonly string[]
+  actualOption: string
+  observableOutcome: string
+  explanation?: string
+  evidenceClass: DecisionEvidenceClass
+  confidence: number
+  frameDataReferences: readonly ProFrameDataReference[]
+}
+
+export interface ProResolvedFrameMetric {
+  key: ProFrameMetric
+  label: string
+  value: string | null
+}
+
+export interface ProResolvedFrameReference {
+  fighterId: string
+  moveId: string
+  moveName: string
+  sourceUrl: string
+  metrics: readonly ProResolvedFrameMetric[]
+  note?: string
+}
+
+export interface ProPracticeDrillSeed {
+  fighterId: string
+  title: string
+  setup: string
+  route: readonly string[]
+  percent: number | null
+  targetReps: number
+  notes: string
+  teachingObjective: string
+  evidenceMomentId: string
+  vodId: string
+}
+
+export interface ProMatchupPattern {
+  id: string
+  fighterId: string
+  opponentFighterId: string
+  context: DecisionContext
+  teachingTag: string
+  occurrenceCount: number
+  vodCount: number
+  playerIds: readonly string[]
+  evidenceMomentIds: readonly string[]
+  statement: string
+  confidence: number
+}
+
+export interface ProPlayerStyleSignal {
+  teachingTag: string
+  context: DecisionContext
+  occurrenceCount: number
+  vodCount: number
+  evidenceMomentIds: readonly string[]
+  confidence: number
+}
+
+export interface ProPlayerComparison {
+  fighterId: string
+  playerIds: readonly string[]
+  sharedSignals: readonly string[]
+  playerSignals: Readonly<Record<string, readonly ProPlayerStyleSignal[]>>
+  evidenceMomentIds: readonly string[]
+  status: 'evidence-building' | 'ready'
+}
+
+export type ProEvidenceEra = 'current' | 'recent' | 'legacy'
+
+export interface ProTemporalEvidence {
+  vodId: string
+  era: ProEvidenceEra
+  eventDate: string
+  gameVersion: ProVodRecord['gameVersion']
+  playerStatus: ProPlayerStatus
+  reasons: readonly string[]
+}
+
+export type ProMaintenanceSeverity = 'info' | 'warning' | 'error'
+
+export interface ProMaintenanceFinding {
+  code: string
+  severity: ProMaintenanceSeverity
+  message: string
+  ids: readonly string[]
+}
+
+export interface ProMaintenanceReport {
+  referenceDate: string
+  findings: readonly ProMaintenanceFinding[]
+  duplicateLearningRecords: readonly string[]
+  malformedUrls: readonly string[]
+  staleVodIds: readonly string[]
+  fightersWithoutCatalogedVods: readonly string[]
+  externalLinkHealth: 'maintenance-workflow-required'
+}
+
+export type ProCoverageState =
+  | 'research-queued'
+  | 'representative-seeded'
+  | 'cataloged'
+  | 'evidence-building'
+  | 'teaching-ready'
+
+export interface ProFighterCoverage {
+  fighterId: string
+  state: ProCoverageState
+  representativeCount: number
+  activeRepresentativeCount: number
+  vodCount: number
+  currentVodCount: number
+  reviewedMomentCount: number
+  lessonClaimCount: number
+  decisionExerciseCount: number
+  matchupPatternCount: number
+  comparisonReady: boolean
+  notes: readonly string[]
 }
