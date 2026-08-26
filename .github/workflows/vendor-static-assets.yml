@@ -21,6 +21,10 @@ on:
       - 'scripts/vendor-static-assets.py'
       - 'scripts/vendor-full-motion-assets.py'
       - 'scripts/build-runtime-visual-index.py'
+      - 'scripts/build-related-source-runtime-fallbacks.py'
+      - 'scripts/build-synthetic-visual-fallbacks.py'
+      - 'scripts/build-synthetic-phase-sheets.py'
+      - 'scripts/audit-runtime-visual-completion.py'
       - 'scripts/audit-visual-coverage.py'
       - 'scripts/build-visual-capture-queue.py'
       - 'scripts/build-visual-completion-summary.py'
@@ -166,6 +170,8 @@ jobs:
         run: python scripts/build-visual-capture-queue.py
       - name: Build completion summary
         run: python scripts/build-visual-completion-summary.py
+      - name: Build related-source runtime fallbacks
+        run: python scripts/build-related-source-runtime-fallbacks.py
       - name: Build illustrative source-less fallbacks
         run: python scripts/build-synthetic-visual-fallbacks.py
       - name: Verify complete same-origin runtime
@@ -191,6 +197,7 @@ jobs:
             src/data/visualCoverageAudit.generated.json \
             src/data/visualCaptureQueue.generated.json \
             src/data/visualDefenseTiming.generated.json \
+            src/data/visualRelatedSourceFallbacks.generated.json \
             src/data/visualSyntheticFallbacks.generated.json \
             src/data/runtimeVisualCompletion.generated.json \
             docs/RUNTIME_VISUAL_COMPLETION.generated.md \
