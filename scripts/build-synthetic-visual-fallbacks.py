@@ -14,6 +14,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -23,6 +25,7 @@ AUDIT = ROOT / "src/data/visualCoverageAudit.generated.json"
 FRAME_DATA = ROOT / "src/data/frameData.generated.json"
 RUNTIME_DIR = ROOT / "public/data/visual-media"
 OUTPUT = ROOT / "src/data/visualSyntheticFallbacks.generated.json"
+PHASE_SHEET_BUILDER = ROOT / "scripts/build-synthetic-phase-sheets.py"
 
 
 def numbers(value: Any) -> list[int]:
@@ -200,6 +203,10 @@ def main() -> int:
         f"synthetic timing fallbacks: {len(generated)} source-less moves; "
         f"{defense_with_intangibility} rows use documented intangible timing"
     )
+
+    # Every caller of this builder gets the same local seekable schematic assets;
+    # future vendor refreshes therefore cannot silently regress to blank/static cards.
+    subprocess.run([sys.executable, str(PHASE_SHEET_BUILDER)], check=True)
     return 0
 
 
