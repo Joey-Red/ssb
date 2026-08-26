@@ -42,8 +42,21 @@ describe('Pro Lab foundation', () => {
     }
   })
 
+  it('retains the expanded current representative corpus', () => {
+    expect(proPlayerRepresentatives.length).toBeGreaterThanOrEqual(26)
+    const seededFighters = proFighterResearchRegistry.filter((entry) => entry.representativeIds.length > 0)
+    expect(seededFighters.length).toBeGreaterThanOrEqual(26)
+
+    const currentResearchPlayers = ['acola', 'doramigi', 'hurt', 'sonix', 'zomba', 'miya', 'peabnut', 'mkleo', 'asimo', 'raru']
+    for (const playerId of currentResearchPlayers) {
+      const player = proPlayerRepresentatives.find((entry) => entry.id === playerId)
+      expect(player, playerId).toBeTruthy()
+      expect(player?.sourceUrls.some((url) => url.includes('UltRank_Half_Year_2026')), playerId).toBe(true)
+    }
+  })
+
   it('keeps pilot VOD records source-backed and internally resolvable', () => {
-    expect(proVodCatalog.length).toBeGreaterThanOrEqual(8)
+    expect(proVodCatalog.length).toBeGreaterThanOrEqual(15)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(proVodCatalog.length)
 
     for (const vod of proVodCatalog) {
@@ -60,6 +73,13 @@ describe('Pro Lab foundation', () => {
       expect(vod.analysisStatus).toBe('review-queued')
       if (vod.videoProvider === 'youtube') expect(vod.videoId).toBeTruthy()
     }
+  })
+
+  it('keeps a meaningful current-season VOD queue without fabricating review state', () => {
+    const currentSeason = proVodCatalog.filter((vod) => vod.date.startsWith('2026-'))
+    expect(currentSeason.length).toBeGreaterThanOrEqual(5)
+    expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
+    expect(new Set(currentSeason.flatMap((vod) => vod.playerFighterIds)).size).toBeGreaterThanOrEqual(4)
   })
 
   it('covers every pilot fighter with at least one competitive VOD', () => {
