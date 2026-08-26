@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -34,6 +35,35 @@ if spec is None or spec.loader is None:
 short = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(short)
 ext = short.ext
+
+SPECIAL_CODES: tuple[tuple[str, str], ...] = (
+    ("nspecial", "neutral special"),
+    ("sspecial", "side special"),
+    ("uspecial", "up special"),
+    ("dspecial", "down special"),
+)
+
+
+def expanded_move_label(title: str, prefixes: list[str]) -> str | None:
+    expanded = short.expanded_move_label(title, prefixes)
+    if expanded is not None:
+        return expanded
+
+    # SmashWiki also uses compact N/S/U/D-Special filenames such as
+    # DaisySSpecialSSBU.png. Expand those names for matching, but still match
+    # against the complete move list so a generic special can never be silently
+    # reassigned to a missing aerial/charged substate.
+    stem = short.compact(Path(title).stem)
+    for prefix in prefixes:
+        prefix_compact = short.compact(prefix)
+        if not stem.startswith(prefix_compact):
+            continue
+        tail = stem[len(prefix_compact):]
+        tail = re.sub(r"ssbu.*$", "", tail)
+        for code, label in SPECIAL_CODES:
+            if tail.startswith(code):
+                return label
+    return None
 
 
 def candidate_for_image(
@@ -54,7 +84,7 @@ def candidate_for_image(
     if suffix != ".png":
         return None
 
-    expanded = short.expanded_move_label(title, prefixes)
+    expanded = expanded_move_label(title, prefixes)
     if expanded is None:
         return None
 
