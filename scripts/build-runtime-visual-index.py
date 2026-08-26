@@ -4,6 +4,11 @@
 Reviewed local captures can replace a discovered source variant or supply a move
 that has no discovered source visual. Capture assets are persistent, provenance-
 backed same-origin sprite sheets; they are never synthesized by this builder.
+
+Unresolved animated variants may also carry a ``sourcePlaybackSheet`` generated
+from their locally vendored source media. That display-only sheet is converted
+into an independent runtime ``source-animation`` timeline here, leaving the
+staged factual timeline/coverage metadata untouched for auditing.
 """
 from __future__ import annotations
 
@@ -58,6 +63,30 @@ def reviewed_variant(variant_id: str, label: str, override: dict[str, Any]) -> d
     }
 
 
+def runtime_variant(staged_variant: dict[str, Any]) -> dict[str, Any]:
+    """Return a runtime copy, optionally using a display-only source timeline."""
+    variant = dict(staged_variant)
+    playback_sheet = variant.pop("sourcePlaybackSheet", None)
+    playback_count = variant.pop("sourcePlaybackFrameCount", None)
+    original_timeline = variant.pop("sourcePlaybackOfTimelineClass", None)
+    playback_method = variant.pop("sourcePlaybackMappingMethod", None)
+    if not isinstance(playback_sheet, dict) or not isinstance(playback_count, int) or playback_count <= 0:
+        return variant
+
+    # The original animation stays archived on disk and in staged factual asset
+    # metadata. Runtime uses the compact seekable sheet instead of browser GIF
+    # autoplay so the normal player controls work consistently.
+    variant.pop("animationSrc", None)
+    variant["spriteSheet"] = playback_sheet
+    variant["timelineClass"] = "source-animation"
+    variant["timingBasis"] = "independent-source"
+    variant["timelineTotalFrames"] = playback_count
+    variant["timelineBasis"] = "decoded-source-image-sequence-display-only"
+    variant["mappingMethod"] = playback_method or "one-decoded-source-image-per-source-frame-display-only"
+    variant["sourcePlaybackOfTimelineClass"] = original_timeline or staged_variant.get("timelineClass") or "fighter-action"
+    return variant
+
+
 def main() -> int:
     source = json.loads(SOURCES.read_text(encoding="utf-8"))
     assets = json.loads(ASSETS.read_text(encoding="utf-8"))
@@ -78,7 +107,7 @@ def main() -> int:
             raise SystemExit(f"missing staged runtime visual variants for {key}")
         variants: list[dict[str, Any]] = []
         for staged_variant in staged["variants"]:
-            variant = dict(staged_variant)
+            variant = runtime_variant(staged_variant)
             override_key = f"{key}:{variant['id']}"
             override = overrides.get("entries", {}).get(override_key)
             if isinstance(override, dict) and isinstance(override.get("reviewedCapture"), dict):
