@@ -40,6 +40,8 @@ type AssetVariant = {
   mappingMethod?: string
   interactionEvidence?: 'embedded-source' | 'reviewed-overlay'
   spriteSheet?: { src: string; frameCount: number; frameNumbers?: number[]; gameFrameCells?: number[] }
+  sourcePlaybackSheet?: { src: string; frameCount: number; frameNumbers?: number[]; gameFrameCells?: number[] }
+  sourcePlaybackFrameCount?: number
 }
 type AssetManifest = { version: 3; moves: Record<string, { variants: AssetVariant[] }> }
 type CoverageReport = {
@@ -117,6 +119,11 @@ describe('full-roster visual frame media', () => {
           expect(variant.animationSrc).not.toMatch(/^https?:\/\//)
           expect(existsSync(publicFile(variant.animationSrc)), `${key}/${variant.id} animation`).toBe(true)
         }
+        if (variant.sourcePlaybackSheet) {
+          expect(variant.sourcePlaybackSheet.src).not.toMatch(/^https?:\/\//)
+          expect(existsSync(publicFile(variant.sourcePlaybackSheet.src)), `${key}/${variant.id} source playback sheet`).toBe(true)
+          expect(variant.sourcePlaybackFrameCount).toBe(variant.sourcePlaybackSheet.frameCount)
+        }
         if (variant.spriteSheet) {
           const sheet = variant.spriteSheet
           expect(sheet.src).not.toMatch(/^https?:\/\//)
@@ -133,7 +140,7 @@ describe('full-roster visual frame media', () => {
         }
 
         if (sourceVariant?.mediaType === 'animation') {
-          expect(variant.animationSrc, `${key}/${variant.id} animation source must remain locally playable`).toBeDefined()
+          expect(variant.animationSrc, `${key}/${variant.id} animation source must remain locally archived`).toBeDefined()
         }
 
         if (variant.coverage === 'full') {
@@ -180,11 +187,12 @@ describe('full-roster visual frame media', () => {
     expect(stagedUnresolved).toHaveLength(coverage.unresolvedVariants)
   })
 
-  it('splits runtime metadata into one local index per fighter without treating synthetic fallbacks as collision evidence', () => {
+  it('splits runtime metadata into one local index per fighter and distinguishes real runtime aliases from synthetic fallbacks', () => {
     const dir = join(root, 'public/data/visual-media')
     expect(readdirSync(dir).filter((name) => name.endsWith('.json'))).toHaveLength(89)
     let moveCount = 0
     let syntheticVariantCount = 0
+    let relatedSourceMoveCount = 0
     for (const fighter of roster) {
       const payload = runtimeIndex(fighter.id)
       expect(payload.version).toBe(1)
@@ -192,6 +200,7 @@ describe('full-roster visual frame media', () => {
       expect(payload.moves.length).toBeGreaterThan(0)
       expect(new Set(payload.moves.map((move) => move.moveId)).size).toBe(payload.moves.length)
       for (const move of payload.moves) {
+        let relatedSourceMove = false
         for (const variant of move.variants ?? []) {
           if (variant.sourceFormat === 'synthetic-illustrative') {
             syntheticVariantCount += 1
@@ -199,13 +208,20 @@ describe('full-roster visual frame media', () => {
             expect(variant.mappingMethod).toBe('synthetic-phase-schematic-not-source-evidence')
           } else {
             expect(variant.interactionEvidence, `${fighter.id}:${move.moveId}/${variant.id} runtime collision provenance`).toBeTruthy()
+            if (variant.mappingMethod === 'runtime-related-source-alias-not-coverage-evidence') {
+              relatedSourceMove = true
+              expect(variant.coverage).toBe('partial')
+              expect(variant.timingBasis).toBe('independent-source')
+            }
           }
         }
+        if (relatedSourceMove) relatedSourceMoveCount += 1
       }
       moveCount += payload.moves.length
     }
     expect(moveCount).toBeGreaterThanOrEqual(source.mappedMoves)
     expect(moveCount).toBeLessThanOrEqual(3588)
-    expect(syntheticVariantCount).toBe(moveCount - source.mappedMoves)
+    expect(relatedSourceMoveCount).toBeGreaterThan(0)
+    expect(syntheticVariantCount + relatedSourceMoveCount).toBe(moveCount - source.mappedMoves)
   })
 })
