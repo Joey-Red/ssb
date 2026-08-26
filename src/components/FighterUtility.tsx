@@ -38,6 +38,10 @@ export function FighterUtility({ fighterId, fighterSlug, fighterName, totalSteps
         <span aria-hidden="true">▶</span>
         Practice mode
       </a>
+      <a className="fighter-utility__pro-lab" href={hrefFor(`/pro-lab/${fighterSlug}`)}>
+        <span aria-hidden="true">◆</span>
+        Pro Lab VOD study
+      </a>
       <span className="fighter-utility__progress" aria-live="polite">
         {completed}/{totalSteps} drills complete
       </span>

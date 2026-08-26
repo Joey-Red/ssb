@@ -22,9 +22,11 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
             ? 'Custom Drills'
             : route.page === 'tools'
               ? 'Frame Tools'
-              : route.page === 'about'
-                ? 'About'
-                : 'Not found'
+              : route.page === 'pro-lab'
+                ? 'Pro Lab'
+                : route.page === 'about'
+                  ? 'About'
+                  : 'Not found'
 
   const subtitle = route.page === 'roster'
     ? 'Choose your fighter · train with intent'
@@ -38,7 +40,9 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
             ? 'Build and track your rep queue'
             : route.page === 'tools'
               ? 'Compare moves and OOS startup'
-              : 'Frame-literate training notes'
+              : route.page === 'pro-lab'
+                ? 'Tournament evidence · decisions · drills'
+                : 'Frame-literate training notes'
 
   const alternateTheme = theme === 'festival' ? 'Arena' : 'Festival'
   const guideActive = route.page === 'fighter' || route.page === 'moves'
@@ -58,6 +62,7 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
           <a className={route.page === 'practice' ? 'is-active' : ''} href={hrefFor('/practice/mario')}><span aria-hidden="true">▶</span><strong>Practice</strong></a>
           <a className={route.page === 'drills' ? 'is-active' : ''} href={hrefFor('/drills')}><span aria-hidden="true">✓</span><strong>Custom drills</strong></a>
           <a className={route.page === 'tools' ? 'is-active' : ''} href={hrefFor('/tools')}><span aria-hidden="true">⌁</span><strong>Frame tools</strong></a>
+          <a className={route.page === 'pro-lab' ? 'is-active' : ''} href={hrefFor('/pro-lab')}><span aria-hidden="true">◆</span><strong>Pro Lab</strong></a>
           <a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>How to read it</strong></a>
         </nav>
         <div className="sidebar-footer"><span className="health-dot" aria-hidden="true"/><strong>Static & local-first</strong><p>No server, login, telemetry, or automatic third-party asset requests.</p></div>
@@ -81,6 +86,7 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
         <a className={route.page === 'practice' ? 'is-active' : ''} href={hrefFor('/practice/mario')}><span aria-hidden="true">▶</span><strong>Practice</strong></a>
         <a className={route.page === 'drills' ? 'is-active' : ''} href={hrefFor('/drills')}><span aria-hidden="true">✓</span><strong>Drills</strong></a>
         <a className={route.page === 'tools' ? 'is-active' : ''} href={hrefFor('/tools')}><span aria-hidden="true">⌁</span><strong>Tools</strong></a>
+        <a className={route.page === 'pro-lab' ? 'is-active' : ''} href={hrefFor('/pro-lab')}><span aria-hidden="true">◆</span><strong>Pro Lab</strong></a>
         <a className={route.page === 'about' ? 'is-active' : ''} href={hrefFor('/about')}><span aria-hidden="true">?</span><strong>About</strong></a>
       </nav>
     </div>
