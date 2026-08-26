@@ -6,7 +6,10 @@ on:
     branches: [main]
     paths:
       - 'scripts/build-local-source-players.py'
+      - 'scripts/apply-local-source-players-to-runtime.py'
       - 'scripts/build-related-source-runtime-fallbacks.py'
+      - 'src/data/visualMedia.test.ts'
+      - 'src/types.ts'
       - '.github/workflows/local-source-player.yml'
   workflow_dispatch:
 
@@ -34,11 +37,14 @@ jobs:
       - name: Install media tooling
         run: pip install -r scripts/requirements-media.txt
 
-      - name: Build seekable local source timelines
+      - name: Build seekable local source sheets
         run: python scripts/build-local-source-players.py
 
-      - name: Rebuild source-backed runtime indexes
+      - name: Rebuild authoritative runtime indexes
         run: python scripts/build-runtime-visual-index.py
+
+      - name: Apply source-animation players to runtime copies
+        run: python scripts/apply-local-source-players-to-runtime.py
 
       - name: Add related-source runtime fallbacks
         run: python scripts/build-related-source-runtime-fallbacks.py
@@ -68,10 +74,12 @@ jobs:
           }
           print(json.dumps(summary, indent=2))
           Path('local-source-player-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
-          if source['playerCount'] < 400:
-              raise SystemExit('unexpectedly low seekable source-player coverage')
+          if source['playerCount'] != 550:
+              raise SystemExit(f"expected 550 locally seekable unresolved animations, found {source['playerCount']}")
           if related['fallbackCount'] < 1:
               raise SystemExit('expected at least one related-source runtime fallback')
+          if audit['movesWithoutSourceVisual'] != 849 or audit['unresolvedVariants'] != 712:
+              raise SystemExit('runtime fallback generation must not mutate factual audit counts')
           PY
 
       - name: Setup Node
