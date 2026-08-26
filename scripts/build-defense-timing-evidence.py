@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Extract structured UFD dodge/roll intangibility from the maintenance mirror.
+"""Extract structured UFD dodge/roll timing from the maintenance mirror.
 
 The project intentionally does not bundle source-site prose in frameData. This
 builder keeps that rule intact by extracting only the factual intangibility span
-needed by timing-only defense schematics. UFD remains the canonical source shown
-to users; TheFakeNatty/smash-data is only the same maintenance transport already
-used by refresh-frame-data.py.
+and total-frame value needed by timing-only defense schematics. UFD remains the
+canonical source shown to users; TheFakeNatty/smash-data is only the same
+maintenance transport already used by refresh-frame-data.py.
 """
 from __future__ import annotations
 
@@ -34,6 +34,15 @@ def slugify(value: str) -> str:
     normalized = value.lower().replace("&", " and ")
     normalized = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
     return normalized or "move"
+
+
+def positive_numbers(value: str | None) -> list[int]:
+    return [int(item) for item in re.findall(r"\d+", str(value or "")) if int(item) > 0]
+
+
+def parse_total_frames(value: str | None) -> int | None:
+    values = positive_numbers(value)
+    return max(values) if values else None
 
 
 def parse_intangibility(notes: str | None) -> tuple[int, int] | None:
@@ -74,14 +83,19 @@ def fetch_one(entry: dict[str, str], canonical_base: str) -> tuple[str, list[dic
         if not span:
             continue
         start, end = span
+        total = parse_total_frames(row.get("total_frames"))
         if start <= 0 or end < start:
             raise RuntimeError(f"invalid intangibility span {start}-{end} for {fighter_id}:{name}")
+        if total is not None and end > total:
+            raise RuntimeError(f"intangibility span {start}-{end} exceeds total {total} for {fighter_id}:{name}")
         rows.append({
             "fighterId": fighter_id,
             "moveId": slugify(name),
             "moveName": name,
             "startFrame": start,
             "endFrame": end,
+            "totalFrames": total,
+            "totalFramesRaw": " ".join(str(row.get("total_frames") or "").split()) or None,
             "canonicalSourceUrl": f"{canonical_base}/{ufd_slug}",
             "transportUrl": url,
         })
@@ -123,13 +137,18 @@ def main() -> int:
             continue
         key = f"{pair[0]}:{pair[1]}"
         prior = by_key.get(key)
-        if prior and (prior["startFrame"], prior["endFrame"]) != (row["startFrame"], row["endFrame"]):
+        if prior and (
+            prior["startFrame"], prior["endFrame"], prior.get("totalFrames")
+        ) != (
+            row["startFrame"], row["endFrame"], row.get("totalFrames")
+        ):
             raise SystemExit(f"conflicting defense timing evidence for {key}")
         by_key[key] = row
 
     if len(by_key) < 750:
         raise SystemExit(f"unexpectedly low defense intangibility coverage: {len(by_key)}")
 
+    rows_with_total = sum(1 for row in by_key.values() if isinstance(row.get("totalFrames"), int))
     payload = {
         "version": 1,
         "canonicalSource": "Ultimate Frame Data",
@@ -137,6 +156,7 @@ def main() -> int:
         "maintenanceTransport": MIRROR_REPO,
         "frameDataDefenseRows": len(frame_defense),
         "documentedIntangibilityRows": len(by_key),
+        "documentedTotalFrameRows": rows_with_total,
         "ignoredMirrorRowsNotInFrameData": ignored_not_in_frame_data,
         "policy": {
             "structuredFactsOnly": True,
@@ -148,7 +168,8 @@ def main() -> int:
     }
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(
-        f"defense timing evidence: {len(by_key)}/{len(frame_defense)} defense rows with documented intangibility"
+        f"defense timing evidence: {len(by_key)}/{len(frame_defense)} defense rows with documented intangibility; "
+        f"{rows_with_total} also carry structured total-frame timing"
     )
     return 0
 
