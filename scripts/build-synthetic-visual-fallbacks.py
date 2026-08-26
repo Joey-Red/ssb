@@ -2,8 +2,8 @@
 """Give every still-source-less frame-data move an illustrative runtime timeline.
 
 This is deliberately NOT an exact-coverage generator. It creates frame-by-frame
-phase metadata that lets the existing viewer show the official fighter render,
-frame number, and startup/active/recovery state instead of a blank visual card.
+phase metadata that lets the existing viewer show documented startup, active,
+intangible, recovery, or other timing instead of a blank visual card.
 No character pose, hitbox, hurtbox, or collision geometry is invented.
 
 Synthetic timing schematics are written only to runtime fighter indexes and a
@@ -35,10 +35,13 @@ def timeline_total(move: dict[str, Any]) -> int:
         return max(totals)
     active = numbers(move.get("active"))
     startup = numbers(move.get("startup"))
+    notes = numbers(move.get("notes"))
     if active:
         return max(active)
     if startup:
         return max(startup)
+    if notes:
+        return max(notes)
     return 1
 
 
@@ -49,12 +52,40 @@ def active_span(move: dict[str, Any]) -> tuple[int | None, int | None]:
     return None, None
 
 
-def phase_for(frame: int, start: int | None, end: int | None) -> str:
-    if start is None or end is None:
+def intangible_span(move: dict[str, Any]) -> tuple[int | None, int | None]:
+    text = str(move.get("notes") or "")
+    match = re.search(
+        r"intangible(?:\s+on)?\s+frames?\s*(\d+)\s*(?:-|–|—|to)\s*(\d+)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        return int(match.group(1)), int(match.group(2))
+    single = re.search(r"intangible(?:\s+on)?\s+frame\s*(\d+)", text, flags=re.IGNORECASE)
+    if single:
+        value = int(single.group(1))
+        return value, value
+    return None, None
+
+
+def phase_for(
+    frame: int,
+    active_start: int | None,
+    active_end: int | None,
+    intangible_start: int | None,
+    intangible_end: int | None,
+) -> str:
+    if intangible_start is not None and intangible_end is not None:
+        if frame < intangible_start:
+            return "startup"
+        if frame <= intangible_end:
+            return "intangible"
+        return "recovery"
+    if active_start is None or active_end is None:
         return "other"
-    if frame < start:
+    if frame < active_start:
         return "startup"
-    if frame <= end:
+    if frame <= active_end:
         return "active"
     return "recovery"
 
@@ -71,6 +102,8 @@ def main() -> int:
 
     generated: list[dict[str, Any]] = []
     category_counts: Counter[str] = Counter()
+    phase_counts: Counter[str] = Counter()
+    defense_with_intangibility = 0
     for fighter_id, missing in sorted(grouped_missing.items()):
         runtime_path = RUNTIME_DIR / f"{fighter_id}.json"
         if not runtime_path.exists():
@@ -91,13 +124,21 @@ def main() -> int:
                 raise SystemExit(f"frame data missing move {fighter_id}:{move_id}")
             total = timeline_total(move)
             active_start, active_end = active_span(move)
+            intangible_start, intangible_end = intangible_span(move)
+            if intangible_start is not None and intangible_end is not None:
+                defense_with_intangibility += 1
             frames = []
             for frame in range(1, total + 1):
-                phase = phase_for(frame, active_start, active_end)
+                phase = phase_for(frame, active_start, active_end, intangible_start, intangible_end)
+                phase_counts[phase] += 1
+                if phase == "intangible":
+                    caption = "Illustrative timing schematic — UFD documents this frame inside the move's intangible span; fighter pose is not source-backed."
+                else:
+                    caption = "Illustrative timing schematic only — fighter pose and collision geometry are not source-backed for this frame."
                 frames.append({
                     "frame": frame,
                     "phase": phase,
-                    "caption": "Illustrative timing schematic only — fighter pose and collision geometry are not source-backed for this frame.",
+                    "caption": caption,
                 })
             record = {
                 "id": f"{fighter_id}-{move_id}-synthetic-timing",
@@ -111,7 +152,7 @@ def main() -> int:
                     "id": "illustrative-timing-schematic",
                     "label": "Illustrative timing schematic",
                     "coverage": "static",
-                    "coverageReason": "No verified moving source is available yet. This generated fallback shows documented timing phases with the official fighter render only; it does not invent poses or hitboxes and is excluded from exact coverage.",
+                    "coverageReason": "No verified moving source is available. This generated fallback visualizes documented timing phases with a locally vendored fighter render; it does not invent gameplay poses or hitboxes and is excluded from exact coverage.",
                     "timelineClass": "fighter-action",
                     "timelineTotalFrames": total,
                     "timingBasis": "parent-action",
@@ -130,6 +171,8 @@ def main() -> int:
                 "moveLabel": record["label"],
                 "category": category,
                 "timelineTotalFrames": total,
+                "intangibleStart": intangible_start,
+                "intangibleEnd": intangible_end,
                 "sourceEvidence": False,
                 "eligibleForExactCoverage": False,
                 "replacementQueueKey": f"{fighter_id}:{move_id}:manual-full-move",
@@ -139,19 +182,24 @@ def main() -> int:
         runtime_path.write_text(json.dumps(runtime, separators=(",", ":")) + "\n", encoding="utf-8")
 
     payload = {
-        "version": 1,
+        "version": 2,
         "fallbackCount": len(generated),
         "categoryCounts": dict(sorted(category_counts.items())),
+        "phaseFrameCounts": dict(sorted(phase_counts.items())),
+        "defenseRowsWithDocumentedIntangibility": defense_with_intangibility,
         "policy": {
             "sourceEvidence": False,
             "eligibleForExactCoverage": False,
-            "purpose": "temporary frame-by-frame timing visualization while verified source/capture work remains queued",
-            "mustBeReplacedBy": "verified external source or reviewed deterministic local capture",
+            "purpose": "complete local frame-by-frame visual-player coverage while preserving the distinction between sourced gameplay media and documented timing schematics",
+            "mustBeReplacedByForSourceCoverage": "verified external source or reviewed deterministic local capture",
         },
         "fallbacks": generated,
     }
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print(f"synthetic timing fallbacks: {len(generated)} source-less moves now have illustrative runtime timelines")
+    print(
+        f"synthetic timing fallbacks: {len(generated)} source-less moves; "
+        f"{defense_with_intangibility} rows use documented intangible timing"
+    )
     return 0
 
 
