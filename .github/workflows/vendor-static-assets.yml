@@ -30,6 +30,7 @@ on:
       - 'scripts/build-synthetic-phase-sheets.py'
       - 'scripts/audit-runtime-visual-completion.py'
       - 'scripts/audit-visual-coverage.py'
+      - 'scripts/finalize-visual-evidence-audit.py'
       - 'scripts/build-visual-capture-queue.py'
       - 'scripts/build-visual-completion-summary.py'
       - 'scripts/check-visual-coverage.py'
@@ -191,18 +192,22 @@ jobs:
         run: git checkout -- src/data/visualTimelineOverrides.json
       - name: Build per-fighter runtime visual indexes
         run: python scripts/build-runtime-visual-index.py
-      - name: Audit source-backed visual coverage
+      - name: Audit action-specific source visual coverage
         run: python scripts/audit-visual-coverage.py
-      - name: Build deterministic capture queue
+      - name: Build deterministic action-specific upgrade queue
         run: python scripts/build-visual-capture-queue.py
-      - name: Build completion summary
-        run: python scripts/build-visual-completion-summary.py
       - name: Build related-source runtime fallbacks
         run: python scripts/build-related-source-runtime-fallbacks.py
       - name: Build illustrative source-less fallbacks
         run: python scripts/build-synthetic-visual-fallbacks.py
       - name: Verify complete same-origin runtime
         run: python scripts/audit-runtime-visual-completion.py
+      - name: Finalize zero-gap evidence visual audit
+        run: python scripts/finalize-visual-evidence-audit.py
+      - name: Verify zero-gap evidence coverage
+        run: python scripts/check-visual-coverage.py
+      - name: Build completion summary
+        run: python scripts/build-visual-completion-summary.py
       - name: Commit discovered and vendored media
         shell: bash
         run: |
