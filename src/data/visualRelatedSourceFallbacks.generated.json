@@ -1,0 +1,198 @@
+{
+  "version": 1,
+  "fallbackCount": 15,
+  "categoryCounts": {
+    "grab": 1,
+    "ground": 1,
+    "misc": 7,
+    "special": 6
+  },
+  "policy": {
+    "runtimeOnly": true,
+    "sourceEvidenceForTarget": false,
+    "eligibleForExactCoverage": false,
+    "runtimeAssets": "same-origin existing vendored source media"
+  },
+  "fallbacks": [
+    {
+      "fighterId": "corrin",
+      "moveId": "dragon-lunge-pin-cancel",
+      "moveLabel": "Corrin Dragon Lunge, Pin Cancel",
+      "category": "misc",
+      "relatedSourceMoveId": "side-b-dragon-lunge-pin",
+      "relatedSourceLabel": "Corrin Side B (Dragon Lunge, Pin)",
+      "score": 83,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "dragon-lunge-pin-jump",
+      "moveLabel": "Corrin Dragon Lunge, Pin Jump",
+      "category": "misc",
+      "relatedSourceMoveId": "side-b-dragon-lunge-pin",
+      "relatedSourceLabel": "Corrin Side B (Dragon Lunge, Pin)",
+      "score": 83,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "side-b-dragon-lunge-air",
+      "moveLabel": "Corrin Side B (Dragon Lunge, Air)",
+      "category": "special",
+      "relatedSourceMoveId": "side-b-dragon-lunge-pin",
+      "relatedSourceLabel": "Corrin Side B (Dragon Lunge, Pin)",
+      "score": 91,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "daisy",
+      "moveId": "side-b-air-daisy-bomber-air",
+      "moveLabel": "Daisy Side B, Air (daisy Bomber, Air)",
+      "category": "special",
+      "relatedSourceMoveId": "side-b-daisy-bomber",
+      "relatedSourceLabel": "Daisy Side B (daisy Bomber)",
+      "score": 115,
+      "variantCount": 2,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "diddy-kong",
+      "moveId": "monkey-flip-grab-jump",
+      "moveLabel": "Diddy_kong Monkey Flip, Grab Jump",
+      "category": "grab",
+      "relatedSourceMoveId": "monkey-flip-grab-success",
+      "relatedSourceLabel": "Diddy_kong Monkey Flip, Grab Success",
+      "score": 81,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "kazuya",
+      "moveId": "devil-blaster-air",
+      "moveLabel": "Kazuya Devil Blaster, Air",
+      "category": "misc",
+      "relatedSourceMoveId": "neutral-b-devil-blaster",
+      "relatedSourceLabel": "Kazuya Neutral B (Devil Blaster)",
+      "score": 78,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "lucario",
+      "moveId": "aura-sphere-full-charge",
+      "moveLabel": "Lucario Aura Sphere, Full Charge",
+      "category": "misc",
+      "relatedSourceMoveId": "neutral-b-aura-sphere",
+      "relatedSourceLabel": "Lucario Neutral B (Aura Sphere)",
+      "score": 78,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "mario",
+      "moveId": "down-b-fully-charged-f-l-u-d-d",
+      "moveLabel": "Mario Down B, Fully Charged (F.L.U.D.D.)",
+      "category": "special",
+      "relatedSourceMoveId": "down-b-f-l-u-d-d",
+      "relatedSourceLabel": "Mario Down B (F.L.U.D.D.)",
+      "score": 88,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "mewtwo",
+      "moveId": "shadow-ball-fully-charged",
+      "moveLabel": "Mewtwo Shadow Ball, Fully Charged",
+      "category": "misc",
+      "relatedSourceMoveId": "neutral-b-shadow-ball",
+      "relatedSourceLabel": "Mewtwo Neutral B (Shadow Ball)",
+      "score": 78,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "head-on-assault-air",
+      "moveLabel": "Mii_brawler Head-On Assault, Air",
+      "category": "misc",
+      "relatedSourceMoveId": "head-on-assault",
+      "relatedSourceLabel": "Mii_brawler Head-On Assault",
+      "score": 81,
+      "variantCount": 3,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "min-min",
+      "moveId": "up-b-arms-jump",
+      "moveLabel": "Minmin Up B (Arms Jump)",
+      "category": "special",
+      "relatedSourceMoveId": "up-b-arms-hook",
+      "relatedSourceLabel": "Minmin Up B (Arms Hook)",
+      "score": 86,
+      "variantCount": 4,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "peach",
+      "moveId": "side-b-air-peach-bomber-air",
+      "moveLabel": "Peach Side B, Air (Peach Bomber, Air)",
+      "category": "special",
+      "relatedSourceMoveId": "side-b-peach-bomber",
+      "relatedSourceLabel": "Peach Side B (Peach Bomber)",
+      "score": 115,
+      "variantCount": 2,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "side-b-arm-rotor-mashing",
+      "moveLabel": "Rob Side B (Arm Rotor, Mashing)",
+      "category": "special",
+      "relatedSourceMoveId": "side-b-arm-rotor",
+      "relatedSourceLabel": "Rob Side B (Arm Rotor)",
+      "score": 93,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "needle-storm-full-charge",
+      "moveLabel": "Sheik Needle Storm, Full Charge",
+      "category": "misc",
+      "relatedSourceMoveId": "neutral-b-needle-storm",
+      "relatedSourceLabel": "Sheik Neutral B (Needle Storm)",
+      "score": 78,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "rapid-jab",
+      "moveLabel": "Villager Rapid Jab",
+      "category": "ground",
+      "relatedSourceMoveId": "rapid-jab-finisher",
+      "relatedSourceLabel": "Villager Rapid Jab Finisher",
+      "score": 76,
+      "variantCount": 2,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    }
+  ]
+}
