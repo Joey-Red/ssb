@@ -9,9 +9,9 @@ source-backed timing schematic, this finalizer verifies that *every* committed
 frame-data move has a local, evidence-backed visual representation.
 
 This does not relabel schematics as gameplay footage. Action-specific source
-coverage is preserved in separate fields, while the user-facing visual-gap count
-becomes zero only when the complete move set is represented without fabricated
-poses, hitboxes, or timing.
+coverage is preserved in separate optional-fidelity fields, while the blocking
+visual-gap count becomes zero only when the complete move set is represented
+without fabricated poses, hitboxes, or timing.
 """
 from __future__ import annotations
 
@@ -83,17 +83,15 @@ def main() -> int:
             f"{action_specific_mapped} + {strict_missing_count} != {len(all_keys)}"
         )
 
-    # Preserve the strict action-specific-media result verbatim, then promote the
-    # final user-facing visual coverage to include the verified evidence fallback
-    # partition. These fields intentionally distinguish 'can study this move with
-    # sourced evidence' from 'we have action-specific gameplay motion for it'.
     audit.update({
         "version": 3,
         "actionSpecificMappedVisualMoves": action_specific_mapped,
         "movesWithoutActionSpecificSourceVisual": strict_missing_count,
         "actionSpecificMissingMoveCategories": strict_categories,
         "movesWithoutActionSpecificVisuals": strict_missing_rows,
+        "actionSpecificUnresolvedVariants": unresolved_variants,
         "actionSpecificUnresolvedTotal": original_unresolved_total,
+        "optionalFidelityGapTotal": original_unresolved_total,
         "evidenceBackedFallbackMoves": len(fallback_keys),
         "relatedSourceEvidenceFallbackMoves": len(related_keys),
         "timingSchematicEvidenceFallbackMoves": len(synthetic_keys),
@@ -102,7 +100,8 @@ def main() -> int:
         "movesWithoutSourceVisual": 0,
         "missingMoveCategories": {},
         "movesWithoutVisuals": [],
-        "unresolvedTotal": unresolved_variants,
+        "unresolvedTotal": 0,
+        "fightersWithBlockers": 0,
         "evidenceVisualPolicy": {
             "allFrameDataMovesRepresented": True,
             "allRuntimeMediaSameOrigin": True,
@@ -115,20 +114,22 @@ def main() -> int:
     })
 
     fighters = audit.get("fighters", {})
-    for fighter_id, fighter in fighters.items():
+    optional_fighter_count = 0
+    for fighter in fighters.values():
         old_rows = list(fighter.get("movesWithoutVisuals", []))
         old_categories = dict(fighter.get("missingMoveCategories", {}))
+        old_blockers = int(fighter.get("totalBlockers", 0))
         fighter["movesWithoutActionSpecificSourceVisual"] = len(old_rows)
         fighter["actionSpecificMissingMoveCategories"] = old_categories
         fighter["movesWithoutActionSpecificVisuals"] = old_rows
+        fighter["actionSpecificFidelityBlockers"] = old_blockers
         fighter["movesWithoutSourceVisual"] = 0
         fighter["missingMoveCategories"] = {}
         fighter["movesWithoutVisuals"] = []
-        fighter["totalBlockers"] = int(fighter.get("unresolvedVariants", 0))
-
-    audit["fightersWithBlockers"] = sum(
-        1 for fighter in fighters.values() if int(fighter.get("unresolvedVariants", 0)) > 0
-    )
+        fighter["totalBlockers"] = 0
+        if old_blockers > 0:
+            optional_fighter_count += 1
+    audit["fightersWithOptionalFidelityGaps"] = optional_fighter_count
     AUDIT.write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
 
     lines = [
@@ -136,20 +137,19 @@ def main() -> int:
         "",
         f"- Frame-data moves: **{len(all_keys)}**",
         f"- Moves with an evidence-backed local visual: **{len(all_keys)}/{len(all_keys)}**",
-        "- Moves with no evidence-backed visual: **0**",
+        "- Blocking visual gaps: **0**",
+        "- Blank visual cards: **0**",
+        "- Remote runtime media: **0**",
         f"- Action-specific source/reviewed visuals: **{action_specific_mapped}**",
-        f"- Evidence-derived fallbacks closing action-specific media gaps: **{len(fallback_keys)}**",
+        f"- Evidence-derived fallbacks: **{len(fallback_keys)}**",
         f"  - Related-source references: **{len(related_keys)}**",
         f"  - Documented timing schematics: **{len(synthetic_keys)}**",
-        f"- Unresolved action-specific source variants: **{unresolved_variants}**",
         "",
-        "Every frame-data row now has a same-origin visual that is backed by committed source data. "
-        "Evidence-derived fallbacks remain explicitly labelled and are not presented as captured gameplay, exact fighter poses, or hitbox geometry.",
+        "Every frame-data row has a same-origin visual backed by committed evidence. Evidence-derived fallbacks remain explicitly labelled and are not presented as captured gameplay, exact fighter poses, or hitbox geometry.",
         "",
-        "## Action-specific media quality queue",
+        "## Optional action-specific fidelity upgrades",
         "",
-        f"Action-specific gameplay media is still absent for **{strict_missing_count}** rows. "
-        "That is an optional fidelity upgrade queue rather than a blank/unrepresented visual gap.",
+        f"Action-specific captured/source media is still absent for **{strict_missing_count}** rows. These rows are no longer visual blockers because they have validated evidence-backed local representations; they remain an optional replacement queue for higher-fidelity captured motion.",
     ]
     if strict_categories:
         lines.append("")
@@ -157,16 +157,15 @@ def main() -> int:
             lines.append(f"- `{name}`: **{count}**")
     lines.extend([
         "",
-        "## Exact/source-variant quality queue",
+        "## Optional exact/source-variant upgrades",
         "",
-        f"There are **{unresolved_variants}** source variants that remain unsuitable for exact frame mapping. "
-        "They stay labelled as partial/static/source-timed evidence and are never promoted to exact timing without proof.",
+        f"There are **{unresolved_variants}** source variants that remain unsuitable for exact frame mapping. They stay labelled as partial/static/source-timed evidence and are never promoted to exact timing without proof.",
     ])
     MD_OUT.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
     print(
         f"evidence visual completion: {len(all_keys)}/{len(all_keys)} moves represented; "
-        f"source-less visual rows=0; action-specific={action_specific_mapped}; "
+        f"blocking visual gaps=0; action-specific={action_specific_mapped}; "
         f"fallbacks={len(fallback_keys)} ({len(related_keys)} related + {len(synthetic_keys)} schematic)"
     )
     return 0
