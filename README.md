@@ -1,12 +1,12 @@
-# SSBU Training Festival
+# Smash Forge
 
 [![Build and deploy GitHub Pages](https://github.com/Joey-Red/ssb/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/Joey-Red/ssb/actions/workflows/deploy-pages.yml)
 
-A mobile-first, frontend-only Super Smash Bros. Ultimate training companion for GitHub Pages. No server, database, account, analytics, telemetry, or runtime API is required.
+Smash Forge is a mobile-first, frontend-only Super Smash Bros. Ultimate training companion for GitHub Pages. No server, database, account, analytics, telemetry, or runtime API is required.
 
 ## Visual identity
 
-- **Festival is the first-run default:** brighter game-like surfaces, bold outlines, playful red/blue/yellow/green accents, much larger branding, and stronger fighter/page hierarchy.
+- **Festival is the first-run default theme:** brighter game-like surfaces, bold outlines, playful red/blue/yellow/green accents, much larger branding, and stronger fighter/page hierarchy.
 - **Arena remains built in:** the original matte dark interface is available from the top-bar theme toggle.
 - Theme preference is browser-local and is applied before first paint so returning Arena users do not see a Festival flash.
 - Festival layouts have dedicated phone, tablet/desktop, 2K, and ultrawide treatments instead of simply scaling one fixed desktop design.
