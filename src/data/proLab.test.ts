@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { buildSetBreakdown, extractProPatterns, isCatalogQuality, isTeachingEligibleMoment } from '../lib/proLab'
 import { roster } from './roster'
 import { nextProMetaResearchTargets2026, proMetaRepresentation2026 } from './proLabResearchPriorities'
-import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueue'
+import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueueAll'
 import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
-import { getProVodsForFighter, proVodCatalog } from './proLabVods'
+import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
 
 const observedMoment = (
   id: string,
@@ -77,8 +77,8 @@ describe('Pro Lab foundation', () => {
     }
   })
 
-  it('keeps pilot VOD records source-backed and internally resolvable', () => {
-    expect(proVodCatalog.length).toBeGreaterThanOrEqual(15)
+  it('keeps VOD records source-backed and internally resolvable', () => {
+    expect(proVodCatalog.length).toBeGreaterThanOrEqual(18)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(proVodCatalog.length)
 
     for (const vod of proVodCatalog) {
@@ -99,9 +99,9 @@ describe('Pro Lab foundation', () => {
 
   it('keeps a meaningful current-season VOD queue without fabricating review state', () => {
     const currentSeason = proVodCatalog.filter((vod) => vod.date.startsWith('2026-'))
-    expect(currentSeason.length).toBeGreaterThanOrEqual(5)
+    expect(currentSeason.length).toBeGreaterThanOrEqual(8)
     expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
-    expect(new Set(currentSeason.flatMap((vod) => vod.playerFighterIds)).size).toBeGreaterThanOrEqual(4)
+    expect(new Set(currentSeason.flatMap((vod) => vod.playerFighterIds)).size).toBeGreaterThanOrEqual(7)
   })
 
   it('maintains source-backed footage coordinates as review targets, not tactical claims', () => {
