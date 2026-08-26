@@ -1,0 +1,122 @@
+name: Local source visual players
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+    paths:
+      - 'scripts/build-local-source-players.py'
+      - 'scripts/build-related-source-runtime-fallbacks.py'
+      - '.github/workflows/local-source-player.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-source-players:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-media.txt
+
+      - name: Install media tooling
+        run: pip install -r scripts/requirements-media.txt
+
+      - name: Build seekable local source timelines
+        run: python scripts/build-local-source-players.py
+
+      - name: Rebuild source-backed runtime indexes
+        run: python scripts/build-runtime-visual-index.py
+
+      - name: Add related-source runtime fallbacks
+        run: python scripts/build-related-source-runtime-fallbacks.py
+
+      - name: Fill only still-uncovered runtime rows with timing schematics
+        run: python scripts/build-synthetic-visual-fallbacks.py
+
+      - name: Confirm factual audit remains unchanged
+        run: python scripts/audit-visual-coverage.py
+
+      - name: Verify fallback output
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          source = json.loads(Path('src/data/visualSourcePlayers.generated.json').read_text())
+          related = json.loads(Path('src/data/visualRelatedSourceFallbacks.generated.json').read_text())
+          synthetic = json.loads(Path('src/data/visualSyntheticFallbacks.generated.json').read_text())
+          audit = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
+          summary = {
+              'seekableLocalSourcePlayers': source['playerCount'],
+              'relatedSourceMoveFallbacks': related['fallbackCount'],
+              'remainingTimingOnlyRuntimeFallbacks': synthetic['fallbackCount'],
+              'factualSourceLessMoves': audit['movesWithoutSourceVisual'],
+              'factualUnresolvedVariants': audit['unresolvedVariants'],
+          }
+          print(json.dumps(summary, indent=2))
+          Path('local-source-player-summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          if source['playerCount'] < 400:
+              raise SystemExit('unexpectedly low seekable source-player coverage')
+          if related['fallbackCount'] < 1:
+              raise SystemExit('expected at least one related-source runtime fallback')
+          PY
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Quality gate
+        run: npm run check
+
+      - name: Commit generated local assets and runtime indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A \
+            public/media/source-frame-sheets \
+            public/data/visual-media \
+            src/data/visualMediaAssets.generated.json \
+            src/data/visualSourcePlayers.generated.json \
+            src/data/visualRelatedSourceFallbacks.generated.json \
+            src/data/visualSyntheticFallbacks.generated.json \
+            src/data/visualCoverageAudit.generated.json \
+            docs/VISUAL_COVERAGE_AUDIT.generated.md
+          if git diff --cached --quiet; then
+            echo 'Local source-player outputs are already current.'
+            exit 0
+          fi
+          git commit -m 'chore: vendor seekable local source-player assets'
+          git pull --rebase origin "$branch"
+          git push origin HEAD:"$branch"
+
+      - name: Upload source-player audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-source-player-audit
+          path: |
+            local-source-player-summary.json
+            src/data/visualSourcePlayers.generated.json
+            src/data/visualRelatedSourceFallbacks.generated.json
+            src/data/visualSyntheticFallbacks.generated.json
+          retention-days: 7
