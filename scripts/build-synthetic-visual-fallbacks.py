@@ -54,15 +54,20 @@ def active_span(move: dict[str, Any]) -> tuple[int | None, int | None]:
     return None, None
 
 
-def evidence_span(defense_timing: dict[str, Any], fighter_id: str, move_id: str) -> tuple[int | None, int | None]:
+def defense_evidence(
+    defense_timing: dict[str, Any], fighter_id: str, move_id: str
+) -> tuple[int | None, int | None, int | None]:
     entry = defense_timing.get("entries", {}).get(f"{fighter_id}:{move_id}")
     if not isinstance(entry, dict):
-        return None, None
+        return None, None, None
     start = entry.get("startFrame")
     end = entry.get("endFrame")
+    total = entry.get("totalFrames")
     if not isinstance(start, int) or not isinstance(end, int) or start <= 0 or end < start:
         raise SystemExit(f"invalid structured intangibility evidence for {fighter_id}:{move_id}")
-    return start, end
+    if total is not None and (not isinstance(total, int) or total <= 0 or end > total):
+        raise SystemExit(f"invalid structured total-frame evidence for {fighter_id}:{move_id}")
+    return start, end, total
 
 
 def phase_for(
@@ -109,6 +114,7 @@ def main() -> int:
     category_counts: Counter[str] = Counter()
     phase_counts: Counter[str] = Counter()
     defense_with_intangibility = 0
+    defense_using_registry_total = 0
     for fighter_id, missing in sorted(grouped_missing.items()):
         runtime_path = RUNTIME_DIR / f"{fighter_id}.json"
         if not runtime_path.exists():
@@ -127,15 +133,15 @@ def main() -> int:
             move = frame_moves.get(move_id)
             if not move:
                 raise SystemExit(f"frame data missing move {fighter_id}:{move_id}")
-            total = timeline_total(move)
+            frame_total = timeline_total(move)
             active_start, active_end = active_span(move)
-            intangible_start, intangible_end = evidence_span(defense_timing, fighter_id, move_id)
+            intangible_start, intangible_end, evidence_total = defense_evidence(defense_timing, fighter_id, move_id)
+            total = max(frame_total, evidence_total or 0, intangible_end or 0)
+            if total <= 0:
+                total = 1
+            if evidence_total is not None and evidence_total > frame_total:
+                defense_using_registry_total += 1
             if intangible_start is not None and intangible_end is not None:
-                if intangible_end > total:
-                    raise SystemExit(
-                        f"intangibility exceeds documented total frames for {fighter_id}:{move_id}: "
-                        f"{intangible_start}-{intangible_end} > {total}"
-                    )
                 defense_with_intangibility += 1
             frames = []
             for frame in range(1, total + 1):
@@ -181,6 +187,8 @@ def main() -> int:
                 "moveLabel": record["label"],
                 "category": category,
                 "timelineTotalFrames": total,
+                "frameDataTimelineTotalFrames": frame_total,
+                "defenseRegistryTotalFrames": evidence_total,
                 "intangibleStart": intangible_start,
                 "intangibleEnd": intangible_end,
                 "sourceEvidence": False,
@@ -197,6 +205,7 @@ def main() -> int:
         "categoryCounts": dict(sorted(category_counts.items())),
         "phaseFrameCounts": dict(sorted(phase_counts.items())),
         "defenseRowsWithDocumentedIntangibility": defense_with_intangibility,
+        "defenseRowsUsingRegistryTotalFrames": defense_using_registry_total,
         "defenseTimingRegistryRows": int(defense_timing.get("documentedIntangibilityRows") or 0),
         "policy": {
             "sourceEvidence": False,
@@ -210,7 +219,8 @@ def main() -> int:
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(
         f"synthetic timing fallbacks: {len(generated)} source-less moves; "
-        f"{defense_with_intangibility} schematic rows use documented intangible timing"
+        f"{defense_with_intangibility} schematic rows use documented intangible timing; "
+        f"{defense_using_registry_total} rows use the structured defense total-frame value"
     )
 
     # Every caller gets the same local seekable schematic assets; future vendor
