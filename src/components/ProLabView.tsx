@@ -14,8 +14,9 @@ import {
   proTemporalEvidence,
   proVodCatalog,
 } from '../data/proLab'
-import type { ProFrameDataReference, ProPlayerRepresentative } from '../data/proLabTypes'
+import type { ProFrameDataReference, ProPlayerRepresentative, ProVodRecord } from '../data/proLabTypes'
 import { fighterBySlug, roster } from '../data/roster'
+import type { FighterManifestEntry } from '../types'
 import { buildPracticeDrillFromMoment, resolveFrameDataReference } from '../lib/proLabRelease'
 import { addCustomDrill } from '../lib/storage'
 import { useFrameDataIndex } from '../lib/useFrameData'
@@ -23,7 +24,7 @@ import { hrefFor } from '../router'
 import { FighterPicture } from './FighterPicture'
 
 const playerById = new Map<string, ProPlayerRepresentative>(proPlayerRepresentatives.map((player) => [player.id, player]))
-const fighterById = new Map(roster.map((fighter) => [fighter.id, fighter]))
+const fighterById = new Map<string, FighterManifestEntry>(roster.map((fighter) => [fighter.id, fighter]))
 const temporalByVod = new Map(proTemporalEvidence.map((entry) => [entry.vodId, entry]))
 const breakdownByVod = new Map(proSetBreakdowns.map((entry) => [entry.vodId, entry]))
 const coverageLabels = {
@@ -39,7 +40,7 @@ const topicLabels = {
 } as const
 const confidenceLabel = (value: number) => `${Math.round(value * 100)}% confidence`
 
-export function ProLabView({ slug }: { slug?: string }) {
+export function ProLabView({ slug }: { slug?: string | undefined }) {
   const initial = slug ? fighterBySlug.get(slug) : undefined
   const [fighterId, setFighterId] = useState(initial?.id ?? 'pyra')
   const [coverageSearch, setCoverageSearch] = useState('')
@@ -61,7 +62,7 @@ export function ProLabView({ slug }: { slug?: string }) {
   const coverage = proRosterCoverage.find((entry) => entry.fighterId === fighter.id)
   const research = proFighterResearchRegistry.find((entry) => entry.fighterId === fighter.id)
   const representatives = (research?.representativeIds ?? []).map((id) => playerById.get(id)).filter((player): player is ProPlayerRepresentative => player !== undefined)
-  const vods = proVodCatalog.filter((vod) => (vod.playerFighterIds as readonly string[]).includes(fighter.id))
+  const vods: readonly ProVodRecord[] = proVodCatalog.filter((vod) => (vod.playerFighterIds as readonly string[]).includes(fighter.id))
   const lesson = proCharacterLessons.find((entry) => entry.fighterId === fighter.id)
   const exercises = proDecisionExercises.filter((entry) => entry.fighterId === fighter.id)
   const exercise = exercises[exerciseIndex % Math.max(1, exercises.length)]
