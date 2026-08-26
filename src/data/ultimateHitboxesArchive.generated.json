@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-26T15:25:42Z",
+  "generatedAt": "2026-08-26T20:19:11Z",
   "provider": "ultimate-hitboxes-metadata-reference",
   "originalRepository": "RSN-Bran/ultimate-hitboxes",
   "preservedRepository": "joaorb64/ultimate-hitboxes",
@@ -9,9 +9,9 @@
   "redistributionStatus": "reference-only; no redistribution license is recorded for the preserved rendered-frame repository",
   "runtimeAssetsImported": 0,
   "coverageBlockersResolved": 0,
-  "unresolvedMovesConsidered": 1316,
+  "unresolvedMovesConsidered": 1253,
   "metadataCorroborations": 0,
-  "metadataDisagreements": 109,
+  "metadataDisagreements": 108,
   "unmatchedFighters": [
     "banjo-and-kazooie",
     "mr-game-and-watch",
@@ -21,12 +21,12 @@
   "disagreements": [
     {
       "fighterId": "bayonetta",
-      "moveId": "neutral-air",
+      "moveId": "down-smash",
       "reason": "ambiguous-archive-move-match"
     },
     {
       "fighterId": "bayonetta",
-      "moveId": "side-b-heel-slide",
+      "moveId": "neutral-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -37,11 +37,6 @@
     {
       "fighterId": "bowser-jr",
       "moveId": "down-b-mechakoopa",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "byleth",
-      "moveId": "side-b-areadbhar",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -57,11 +52,6 @@
     {
       "fighterId": "charizard",
       "moveId": "forward-tilt",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "chrom",
-      "moveId": "neutral-b-flare-blade",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -216,11 +206,6 @@
     },
     {
       "fighterId": "little-mac",
-      "moveId": "forward-smash",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "little-mac",
       "moveId": "k-o-punch",
       "reason": "ambiguous-archive-move-match"
     },
@@ -340,8 +325,23 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
+      "fighterId": "mythra",
+      "moveId": "side-b-photon-edge",
+      "reason": "ambiguous-archive-move-match"
+    },
+    {
       "fighterId": "ness",
       "moveId": "down-b-psi-magnet",
+      "reason": "ambiguous-archive-move-match"
+    },
+    {
+      "fighterId": "ness",
+      "moveId": "side-b-pk-fire",
+      "reason": "ambiguous-archive-move-match"
+    },
+    {
+      "fighterId": "olimar",
+      "moveId": "down-smash",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -365,11 +365,6 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "pichu",
-      "moveId": "down-b-thunder",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
       "fighterId": "pikachu",
       "moveId": "down-b-thunder",
       "reason": "ambiguous-archive-move-match"
@@ -377,11 +372,6 @@
     {
       "fighterId": "pit",
       "moveId": "side-b-upperdash-arm",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "pyra",
-      "moveId": "down-air",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -402,11 +392,6 @@
     {
       "fighterId": "rob",
       "moveId": "side-b-arm-rotor",
-      "reason": "ambiguous-archive-move-match"
-    },
-    {
-      "fighterId": "roy",
-      "moveId": "neutral-b-flare-blade",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -460,13 +445,13 @@
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "snake",
-      "moveId": "up-smash",
+      "fighterId": "sora",
+      "moveId": "side-b-sonic-blade",
       "reason": "ambiguous-archive-move-match"
     },
     {
-      "fighterId": "sora",
-      "moveId": "side-b-sonic-blade",
+      "fighterId": "steve",
+      "moveId": "dash-attack",
       "reason": "ambiguous-archive-move-match"
     },
     {
@@ -491,7 +476,17 @@
     },
     {
       "fighterId": "steve",
+      "moveId": "jab-forward-tilt",
+      "reason": "ambiguous-archive-move-match"
+    },
+    {
+      "fighterId": "steve",
       "moveId": "side-b-minecart",
+      "reason": "ambiguous-archive-move-match"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "up-air",
       "reason": "ambiguous-archive-move-match"
     },
     {

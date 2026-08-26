@@ -1,25 +1,20 @@
 # Visual Coverage Audit
 
 - Frame-data moves: **3588**
-- Moves with an evidence-backed same-origin visual: **3588/3588**
+- Moves with an evidence-backed local visual: **3588/3588**
 - Blocking visual gaps: **0**
 - Blank visual cards: **0**
 - Remote runtime media: **0**
 - Action-specific source/reviewed visuals: **2739**
-- Evidence-derived fallback visuals: **849**
+- Evidence-derived fallbacks: **849**
   - Related-source references: **16**
   - Documented timing schematics: **833**
-- Blocking move/variant gaps: **0**
 
-Every committed frame-data row now has a local visual representation backed by committed evidence. The fallback layer does not invent gameplay poses, hitbox geometry, or undocumented timing.
-
-## Evidence policy
-
-Related-source references remain labelled as related references and are not exact target-state evidence. Timing schematics are driven by committed SSBU frame data and structured UFD defense timing where available; they are not presented as captured gameplay or exact fighter-pose imagery. Exact frame claims remain restricted to source/reviewed media that passes the existing timing gate.
+Every frame-data row has a same-origin visual backed by committed evidence. Evidence-derived fallbacks remain explicitly labelled and are not presented as captured gameplay, exact fighter poses, or hitbox geometry.
 
 ## Optional action-specific fidelity upgrades
 
-The old source-only audit counted rows without action-specific captured/source media as blocking visual gaps. Those rows now have evidence-backed local visuals and therefore do not block visual completion. Replacing them with action-specific captured motion remains an optional fidelity upgrade:
+Action-specific captured/source media is still absent for **849** rows. These rows are no longer visual blockers because they have validated evidence-backed local representations; they remain an optional replacement queue for higher-fidelity captured motion.
 
 - `defense`: **796**
 - `misc`: **35**
@@ -29,10 +24,4 @@ The old source-only audit counted rows without action-specific captured/source m
 
 ## Optional exact/source-variant upgrades
 
-The source library also retains **904** variants that are useful references but are not suitable for exact frame mapping. They remain explicitly non-exact:
-
-- `short-or-misaligned-source`: **616**
-- `missing-documented-timing`: **173**
-- `static-source-needs-motion`: **115**
-
-These fidelity queues are preserved so future source/capture improvements can replace conservative fallbacks without ever fabricating evidence. They are not blank/unrepresented visual blockers.
+There are **662** source variants that remain unsuitable for exact frame mapping. They stay labelled as partial/static/source-timed evidence and are never promoted to exact timing without proof.
