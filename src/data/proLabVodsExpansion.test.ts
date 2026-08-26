@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
+import { proMaintenanceReport } from './proLab'
 import { roster } from './roster'
+import type { ProVodRecord } from './proLabTypes'
 import { proVodCatalog2026Batch1 } from './proLabVods2026Batch1'
 import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
 
@@ -32,9 +34,15 @@ describe('Pro Lab extensive VOD library', () => {
   })
 
   it('retains distinct navigation coordinates for full-stream set records', () => {
-    const streamSets = proVodCatalog2026Batch1.filter((vod) => vod.videoId === 'mVflVyrWS5Y')
+    const batch: readonly ProVodRecord[] = proVodCatalog2026Batch1
+    const streamSets = batch.filter((vod) => vod.videoId === 'mVflVyrWS5Y')
     expect(streamSets).toHaveLength(12)
     expect(streamSets.every((vod) => vod.startSeconds !== undefined)).toBe(true)
     expect(new Set(streamSets.map((vod) => vod.startSeconds)).size).toBe(streamSets.length)
+  })
+
+  it('keeps long-stream set records distinct in the production audit', () => {
+    expect(proMaintenanceReport.duplicateLearningRecords).toHaveLength(0)
+    expect(proMaintenanceReport.malformedUrls).toHaveLength(0)
   })
 })
