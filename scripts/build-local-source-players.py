@@ -53,7 +53,7 @@ def build_source_player(
     variant: dict[str, Any],
 ) -> dict[str, Any] | None:
     coverage = str(variant.get("coverage") or "")
-    animation_src = str(variant.get("animationSrc") or "")
+    animation_src = str(variant.get("sourceAnimationArchiveSrc") or variant.get("animationSrc") or "")
     if coverage not in TARGET_COVERAGE or not animation_src:
         return None
 
@@ -73,7 +73,11 @@ def build_source_player(
 
     # Keep the factual blocker class exactly as-is. Only the display timeline is
     # independent now, so the UI never labels these source frames as SSBU frames.
-    original_timeline = str(variant.get("timelineClass") or "fighter-action")
+    original_timeline = str(
+        variant.get("sourcePlaybackOfTimelineClass")
+        or variant.get("timelineClass")
+        or "fighter-action"
+    )
     original_reason = str(variant.get("coverageReason") or "exact game-frame mapping unavailable")
     variant.update({
         "spriteSheet": {"src": relative, **sheet},
@@ -83,10 +87,12 @@ def build_source_player(
         "timelineBasis": "encoded-source-duration-display-only",
         "mappingMethod": "source-duration-60fps-display-only",
         "sourcePlaybackOfTimelineClass": original_timeline,
+        "sourceAnimationArchiveSrc": animation_src,
         "coverageReason": original_reason,
     })
-    # The seekable sheet replaces the browser-autoplay image path in runtime
-    # data. The original animated WebP remains vendored on disk/provenance-backed.
+    # The seekable sheet replaces browser-autoplay in runtime data. The original
+    # animated WebP remains locally vendored and is retained above as a rebuild
+    # source so this post-process is deterministic/idempotent on bot reruns.
     variant.pop("animationSrc", None)
     return {
         "fighterId": fighter_id,
