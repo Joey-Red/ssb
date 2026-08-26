@@ -100,7 +100,7 @@ export interface ProFrameDataReference {
   moveId?: string
   moveName: string
   metrics: readonly ProFrameMetric[]
-  note?: string
+  note?: string | undefined
 }
 
 export interface ProDecisionMoment {
@@ -109,18 +109,18 @@ export interface ProDecisionMoment {
   game: number
   timestampSeconds: number
   fighterId: string
-  opponentFighterId?: string
+  opponentFighterId?: string | undefined
   context: DecisionContext
   state: DecisionGameState
   chosenOption: string
   observableOutcome: string
-  interpretation?: string
-  plausibleAlternatives?: readonly string[]
+  interpretation?: string | undefined
+  plausibleAlternatives?: readonly string[] | undefined
   evidenceClass: DecisionEvidenceClass
   confidence: number
   teachingTags: readonly string[]
-  frameDataReferences?: readonly ProFrameDataReference[]
-  reviewerNote?: string
+  frameDataReferences?: readonly ProFrameDataReference[] | undefined
+  reviewerNote?: string | undefined
 }
 
 export interface ProSetPhaseSummary {
@@ -192,7 +192,7 @@ export interface ProDecisionExercise {
   momentId: string
   vodId: string
   fighterId: string
-  opponentFighterId?: string
+  opponentFighterId?: string | undefined
   game: number
   timestampSeconds: number
   context: DecisionContext
@@ -201,7 +201,7 @@ export interface ProDecisionExercise {
   options: readonly string[]
   actualOption: string
   observableOutcome: string
-  explanation?: string
+  explanation?: string | undefined
   evidenceClass: DecisionEvidenceClass
   confidence: number
   frameDataReferences: readonly ProFrameDataReference[]
@@ -219,7 +219,7 @@ export interface ProResolvedFrameReference {
   moveName: string
   sourceUrl: string
   metrics: readonly ProResolvedFrameMetric[]
-  note?: string
+  note?: string | undefined
 }
 
 export interface ProPracticeDrillSeed {
