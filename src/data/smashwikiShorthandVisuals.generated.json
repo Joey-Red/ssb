@@ -1,8 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "sourceLessTargets": 891,
+  "ssbuAnimatedCategoryFiles": 5204,
   "filesScanned": 18678,
-  "recoveredSourceLessMoves": 6,
+  "recoveredSourceLessMoves": 7,
   "warnings": [],
   "accepted": [
     {
@@ -20,7 +21,7 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Charizard_Down_B_SSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
     {
@@ -38,7 +39,7 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Charizard_Neutral_B_SSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
     {
@@ -56,7 +57,7 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Ivysaur_Down_B_SSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
     {
@@ -74,7 +75,25 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Ivysaur_Up_B_SSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "mii-swordfighter",
+      "moveId": "spot-dodge",
+      "matchLabel": "MiiSwordfighterSpotdodgeSSBU.gif",
+      "expandedLabel": "spot dodge",
+      "matchScore": 1010,
+      "id": "smashwiki-shorthand-miiswordfighterspotdodgessbu",
+      "label": "MiiSwordfighterSpotdodgeSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/69/MiiSwordfighterSpotdodgeSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MiiSwordfighterSpotdodgeSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
     {
@@ -92,7 +111,7 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Squirtle_Down_B_SSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
     {
@@ -110,7 +129,7 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Squirtle_Neutral_B_SSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+      "sourceAttribution": "SmashWiki SSBU shorthand animation; game identity verified by filename or Category:Animated images (SSBU); preserve file-page provenance and revision history",
       "sourceQuality": 90
     }
   ]

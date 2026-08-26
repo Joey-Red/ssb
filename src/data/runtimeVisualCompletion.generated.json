@@ -7,14 +7,13 @@
   "blankVisualMoves": 0,
   "remoteRuntimeMedia": 0,
   "sourceMappedMoves": 2739,
-  "relatedSourceFallbackMoves": 15,
-  "schematicFallbackMoves": 834,
-  "schematicMovesWithDocumentedIntangibleFrames": 792,
+  "relatedSourceFallbackMoves": 16,
+  "schematicFallbackMoves": 833,
+  "schematicMovesWithDocumentedIntangibleFrames": 789,
   "runtimeModeMoveCounts": {
-    "related-source": 15,
-    "schematic": 834,
-    "source-animation": 370,
-    "source-backed": 2441
+    "related-source": 16,
+    "schematic": 833,
+    "source-backed": 2739
   },
   "policy": {
     "allRuntimeMediaSameOrigin": true,

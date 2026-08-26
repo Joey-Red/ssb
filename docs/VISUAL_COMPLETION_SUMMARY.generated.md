@@ -5,31 +5,31 @@ This file is generated after public-source discovery, game-data timing resolutio
 - Frame-data move rows: **3588**
 - Move rows with real source/reviewed visuals: **2739**
 - Move rows still requiring a real visual source/capture: **849**
-- Real source variants: **3565**
-- Resolved real variants: **2853**
-- Unresolved real variants: **712**
-- Total real move/variant blockers: **1561**
-- Ruben timing gaps resolved automatically: **0 / 160**
-- External candidates accepted this pass: **450**
+- Real source variants: **3743**
+- Resolved real variants: **2839**
+- Unresolved real variants: **904**
+- Total real move/variant blockers: **1753**
+- Ruben timing gaps resolved automatically: **0 / 145**
+- External candidates accepted this pass: **371**
 - Previously source-less moves gaining external candidates: **13**
 - Ultimate Hitboxes metadata corroborations: **0**
-- Ultimate Hitboxes metadata disagreements retained for review: **110**
+- Ultimate Hitboxes metadata disagreements retained for review: **109**
 - Runtime assets imported from that unlicensed archive: **0**
 - Coverage blockers closed by reference-only archive metadata: **0**
-- Deterministic capture queue entries: **1561**
+- Deterministic capture queue entries: **1753**
 
 ## Remaining variant blockers
 
-- `short-or-misaligned-source`: **405**
-- `static-source-needs-motion`: **162**
-- `missing-documented-timing`: **145**
+- `short-or-misaligned-source`: **616**
+- `missing-documented-timing`: **173**
+- `static-source-needs-motion`: **115**
 
 ## Remaining move rows with no real visual
 
-- `defense`: **799**
-- `misc`: **36**
+- `defense`: **796**
+- `misc`: **35**
+- `special`: **10**
 - `grab`: **6**
-- `special`: **6**
 - `ground`: **2**
 
 ## Completion rule

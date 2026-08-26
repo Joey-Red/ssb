@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "category": "Category:Animated images (SSBU)",
+  "categoryFiles": 5204,
+  "sourceLessTargets": 891,
+  "strongFilenameCandidates": 35,
+  "recoveredSourceLessMoves": 1,
+  "unavailableCandidates": [],
+  "accepted": [
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "shot-put",
+      "fileTitle": "File:MiiBrawlerShotPutSSBU.gif",
+      "matchLabel": "Mii Brawler Shot Put SSBU",
+      "matchScore": 508,
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MiiBrawlerShotPutSSBU.gif",
+      "sourceFormat": "gif"
+    }
+  ],
+  "policy": "category confirms SSBU animation identity; conservative filename matching identifies the move; vendor still proves timing"
+}

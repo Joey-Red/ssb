@@ -1,7 +1,9 @@
 {
   "version": 1,
   "registryEntries": 8,
-  "recoveredSourceLessMoves": 5,
+  "dodgeCategory": "Category:Dodges (SSBU)",
+  "dodgeCategoryPages": 11,
+  "recoveredSourceLessMoves": 7,
   "accepted": [
     {
       "fighterId": "duck-hunt",
@@ -42,6 +44,24 @@
       "fileTitle": "File:Wii Fit Trainer Down B SSBU.gif",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Wii_Fit_Trainer_Down_B_SSBU.gif",
       "verification": "SmashWiki Wii Fit Trainer SSBU media labels this animation as Down B"
+    },
+    {
+      "fighterId": "lucario",
+      "moveId": "neutral-air-dodge",
+      "moveName": "Neutral Air Dodge",
+      "pageTitle": "Lucario (SSBU)/Air dodge",
+      "fileTitle": "File:LucarioAirdodgeN.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:LucarioAirdodgeN.gif",
+      "verification": "SmashWiki page is explicitly categorized as an SSBU dodge and names this fighter/action"
+    },
+    {
+      "fighterId": "lucario",
+      "moveId": "spot-dodge",
+      "moveName": "Spot Dodge",
+      "pageTitle": "Lucario (SSBU)/Spot dodge",
+      "fileTitle": "File:LucarioSpotdodge.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:LucarioSpotdodge.gif",
+      "verification": "SmashWiki page is explicitly categorized as an SSBU dodge and names this fighter/action"
     }
   ],
   "skipped": [
@@ -58,6 +78,42 @@
     {
       "fighterId": "ryu",
       "moveId": "side-b-tatsumaki-senpukyaku",
+      "reason": "move already has a discovered source visual"
+    },
+    {
+      "pageTitle": "Lucario (SSBU)/Back roll",
+      "reason": "no unique animated file matching the page action"
+    },
+    {
+      "pageTitle": "Lucario (SSBU)/Forward roll",
+      "reason": "no unique animated file matching the page action"
+    },
+    {
+      "pageTitle": "Mii Brawler (SSBU)/Forward roll",
+      "reason": "no unique animated file matching the page action"
+    },
+    {
+      "pageTitle": "Mii Gunner (SSBU)/Back roll",
+      "reason": "move already has a discovered source visual"
+    },
+    {
+      "pageTitle": "Mii Gunner (SSBU)/Forward roll",
+      "reason": "move already has a discovered source visual"
+    },
+    {
+      "pageTitle": "Mii Gunner (SSBU)/Spot dodge",
+      "reason": "move already has a discovered source visual"
+    },
+    {
+      "pageTitle": "Mii Swordfighter (SSBU)/Back roll",
+      "reason": "no unique animated file matching the page action"
+    },
+    {
+      "pageTitle": "Mii Swordfighter (SSBU)/Forward roll",
+      "reason": "no unique animated file matching the page action"
+    },
+    {
+      "pageTitle": "Mii Swordfighter (SSBU)/Spot dodge",
       "reason": "move already has a discovered source visual"
     }
   ]
