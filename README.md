@@ -23,7 +23,8 @@ A mobile-first, frontend-only Super Smash Bros. Ultimate training companion for 
 - Custom drill queue with fighter/percent setup, action routes, notes, target reps, progress, reset, and completed-drill cleanup.
 - Full-roster move timing snapshot with searchable per-fighter tables, raw multi-hit/range notation, autocancel windows where available, and explicit separation of Total Frames from FAF.
 - Frame timelines plus a visual move player with previous/next frame, 60 FPS play/pause, direct seek, keyboard stepping, active-span looping, speed controls, phase readout, and source-variant selection.
-- Maintenance tooling scans all 89 UFD fighter pages and maps locally stageable hitbox media to the committed move IDs. The current generated set contains 2,580 mapped moves and 3,075 valid source variants.
+- UFD-style All Move Playbacks pages provide a dense, searchable, auto-playing move gallery for every fighter with large-display scaling and quick fighter navigation.
+- The current visual audit covers all 3,588 frame-data rows with 3,588/3,588 same-origin evidence-backed visuals and 0 blocking visual gaps. Action-specific gameplay/source media is available for 2,739 rows; conservative related-source or documented timing-schematic fallbacks remain explicitly labelled for the rest.
 - Runtime visual media is entirely same-origin: source images are vendored into the repository and converted to compact active/impact-frame sheets or local static references. The deployed app does not hotlink UFD media.
 - Visual metadata is split into one cacheable JSON index per fighter, so opening one character does not download the full-roster visual manifest.
 - Source images are assigned documented game-frame numbers only when the source animation actually contains images overlapping the documented active/impact window. Short or alternate animations that cannot be aligned honestly remain untimed local static references instead of receiving invented frame numbers.
