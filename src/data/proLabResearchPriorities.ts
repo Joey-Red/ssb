@@ -1,4 +1,4 @@
-import { proFighterResearchRegistry } from './proLabRoster'
+import { proFighterResearchRegistry } from './proLabRosterAll'
 
 export interface ProMetaRepresentationEntry {
   readonly rank: number
