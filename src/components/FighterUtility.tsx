@@ -30,6 +30,10 @@ export function FighterUtility({ fighterId, fighterSlug, fighterName, totalSteps
         <span aria-hidden="true">{favorite ? '★' : '☆'}</span>
         {favorite ? 'Favorite' : 'Add favorite'}
       </button>
+      <a className="fighter-utility__moves" href={hrefFor(`/fighter/${fighterSlug}/moves`)}>
+        <span aria-hidden="true">▦</span>
+        All move playbacks
+      </a>
       <a className="fighter-utility__practice" href={hrefFor(`/practice/${fighterSlug}`)}>
         <span aria-hidden="true">▶</span>
         Practice mode
