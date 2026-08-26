@@ -92,10 +92,7 @@ export const proPlayerRepresentatives = [
     region: 'Japan',
     status: 'active',
     characterRoles: [{ fighterId: 'bowser', role: 'main' }],
-    sourceUrls: [
-      'https://liquipedia.net/smash/Hero_%28Japanese_player%29',
-      'https://www.ssbwiki.com/Smasher://',
-    ],
+    sourceUrls: ['https://liquipedia.net/smash/Hero_%28Japanese_player%29'],
     note: 'Japanese Bowser specialist widely documented as a leading Bowser representative.',
   },
   {
