@@ -238,7 +238,10 @@ export const proVodCatalog = [
 export const proVodById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
 export function getProVodsForFighter(fighterId: string) {
-  return proVodCatalog.filter((vod) => vod.playerFighterIds.includes(fighterId))
+  return proVodCatalog.filter((vod) => {
+    const fighterIds: readonly string[] = vod.playerFighterIds
+    return fighterIds.includes(fighterId)
+  })
 }
 
 export function getProVodsForPlayer(playerId: string) {
