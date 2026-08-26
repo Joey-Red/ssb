@@ -47,6 +47,14 @@ export function ProLabView({ slug }: { slug?: string }) {
   const [choice, setChoice] = useState<string | null>(null)
   const [revealed, setRevealed] = useState(false)
   const [drillAdded, setDrillAdded] = useState(false)
+  const filteredCoverage = useMemo(() => {
+    const query = coverageSearch.trim().toLowerCase()
+    if (!query) return proRosterCoverage
+    return proRosterCoverage.filter((entry) => {
+      const name = fighterById.get(entry.fighterId)?.name.toLowerCase() ?? ''
+      return name.includes(query) || entry.fighterId.includes(query) || coverageLabels[entry.state].toLowerCase().includes(query)
+    })
+  }, [coverageSearch])
 
   const fighter = fighterById.get(fighterId) ?? roster[0]
   if (!fighter) return null
@@ -59,14 +67,6 @@ export function ProLabView({ slug }: { slug?: string }) {
   const exercise = exercises[exerciseIndex % Math.max(1, exercises.length)]
   const matchupPatterns = proMatchupPatterns.filter((entry) => entry.fighterId === fighter.id)
   const comparison = proPlayerComparisons.find((entry) => entry.fighterId === fighter.id)
-  const filteredCoverage = useMemo(() => {
-    const query = coverageSearch.trim().toLowerCase()
-    if (!query) return proRosterCoverage
-    return proRosterCoverage.filter((entry) => {
-      const name = fighterById.get(entry.fighterId)?.name.toLowerCase() ?? ''
-      return name.includes(query) || entry.fighterId.includes(query) || coverageLabels[entry.state].toLowerCase().includes(query)
-    })
-  }, [coverageSearch])
 
   const chooseFighter = (id: string) => {
     const next = fighterById.get(id)
