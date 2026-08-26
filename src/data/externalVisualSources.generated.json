@@ -1,34 +1,17 @@
 {
   "version": 1,
-  "targetMoveCount": 1312,
-  "rawCandidates": 577,
-  "acceptedCandidates": 371,
+  "targetMoveCount": 1368,
+  "rawCandidates": 636,
+  "acceptedCandidates": 433,
   "addedMoves": 13,
-  "addedVariants": 371,
-  "supersededUnresolvedReferences": 161,
+  "addedVariants": 433,
+  "supersededUnresolvedReferences": 390,
   "providerCounts": {
-    "cross-mod-hitbox-viewer": 7,
-    "smashwiki": 364
+    "cross-mod-hitbox-viewer": 8,
+    "smashwiki": 425
   },
   "warnings": [],
   "accepted": [
-    {
-      "fighterId": "banjo-and-kazooie",
-      "moveId": "down-air",
-      "matchLabel": "Down aerial",
-      "matchScore": 1008,
-      "id": "smashwiki-banjo-26kazooiedairssbu",
-      "label": "Banjo&KazooieDAirSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/0/0c/Banjo%26KazooieDAirSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:Banjo%26KazooieDAirSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
     {
       "fighterId": "banjo-and-kazooie",
       "moveId": "down-b-rear-egg",
@@ -60,6 +43,23 @@
       "timingBasis": "independent-source",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:Banjo%26KazooieRearEggSSBU.png",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "banjo-and-kazooie",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-banjo-26kazooiepummelssbu",
+      "label": "Banjo&KazooiePummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/0/01/Banjo%26KazooiePummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Banjo%26KazooiePummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -179,40 +179,6 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaDAirSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "bayonetta",
-      "moveId": "down-smash",
-      "matchLabel": "Down smash (bullet arts)",
-      "matchScore": 710,
-      "id": "smashwiki-bayonettadsmashbulletartsssbu",
-      "label": "BayonettaDSmashBulletArtsSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/4/48/BayonettaDSmashBulletArtsSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "effect",
-      "timingBasis": "independent-source",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaDSmashBulletArtsSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "bayonetta",
-      "moveId": "down-smash",
-      "matchLabel": "Down smash",
-      "matchScore": 1010,
-      "id": "smashwiki-bayonettadsmashssbu",
-      "label": "BayonettaDSmashSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/3/32/BayonettaDSmashSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaDSmashSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -490,6 +456,40 @@
     },
     {
       "fighterId": "bayonetta",
+      "moveId": "jab-3",
+      "matchLabel": "Neutral attack 3 (bullet arts)",
+      "matchScore": 705,
+      "id": "smashwiki-bayonettajab3bulletartsssbu",
+      "label": "BayonettaJab3BulletArtsSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/79/BayonettaJab3BulletArtsSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "effect",
+      "timingBasis": "independent-source",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaJab3BulletArtsSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "jab-3",
+      "matchLabel": "Neutral attack 3",
+      "matchScore": 1005,
+      "id": "smashwiki-bayonettajab3ssbu",
+      "label": "BayonettaJab3SSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/9/95/BayonettaJab3SSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaJab3SSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "bayonetta",
       "moveId": "neutral-air",
       "matchLabel": "Neutral aerial",
       "matchScore": 1011,
@@ -626,6 +626,40 @@
     },
     {
       "fighterId": "bayonetta",
+      "moveId": "up-smash",
+      "matchLabel": "Up smash (bullet arts)",
+      "matchScore": 708,
+      "id": "smashwiki-bayonettausmashbulletartsssbu",
+      "label": "BayonettaUSmashBulletArtsSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/2/2f/BayonettaUSmashBulletArtsSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "effect",
+      "timingBasis": "independent-source",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaUSmashBulletArtsSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "up-smash",
+      "matchLabel": "Up smash",
+      "matchScore": 1008,
+      "id": "smashwiki-bayonettausmashssbu",
+      "label": "BayonettaUSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/d/de/BayonettaUSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BayonettaUSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "bayonetta",
       "moveId": "up-tilt",
       "matchLabel": "Up tilt (bullet arts)",
       "matchScore": 707,
@@ -728,18 +762,18 @@
     },
     {
       "fighterId": "bowser-jr",
-      "moveId": "forward-air",
-      "matchLabel": "Forward aerial",
-      "matchScore": 1011,
-      "id": "smashwiki-bowserjrfairssbu",
-      "label": "BowserJrFAirSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/9/9c/BowserJrFAirSSBU.gif",
+      "moveId": "down-smash",
+      "matchLabel": "Down smash",
+      "matchScore": 1010,
+      "id": "smashwiki-bowserjrdsmashssbu",
+      "label": "BowserJrDSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/0/0b/BowserJrDSmashSSBU.gif",
       "sourceFormat": "gif",
       "mediaType": "animation",
       "timelineClass": "fighter-action",
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:BowserJrFAirSSBU.gif",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BowserJrDSmashSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -757,6 +791,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:BowserJrNSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-bowserjrpummelssbu",
+      "label": "BowserJrPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/69/BowserJrPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BowserJrPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -863,6 +914,23 @@
       "sourceQuality": 90
     },
     {
+      "fighterId": "byleth",
+      "moveId": "side-b-areadbhar",
+      "matchLabel": "Side special grounded",
+      "matchScore": 706,
+      "id": "smashwiki-bylethsspecialgroundedssbu",
+      "label": "BylethSSpecialGroundedSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/c/c8/BylethSSpecialGroundedSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:BylethSSpecialGroundedSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
       "fighterId": "captain-falcon",
       "moveId": "down-b-air-falcon-kick-air",
       "matchLabel": "Down special (air)",
@@ -932,6 +1000,57 @@
     },
     {
       "fighterId": "chrom",
+      "moveId": "forward-smash",
+      "matchLabel": "Forward smash",
+      "matchScore": 1013,
+      "id": "smashwiki-chromfsmashssbu",
+      "label": "ChromFSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/8/89/ChromFSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ChromFSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "neutral-b-flare-blade",
+      "matchLabel": "Neutral special (max charge)",
+      "matchScore": 709,
+      "id": "smashwiki-chromnspecialmaxssbu",
+      "label": "ChromNSpecialMaxSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/9/97/ChromNSpecialMaxSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "charge-state",
+      "timingBasis": "independent-source",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ChromNSpecialMaxSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "neutral-b-flare-blade",
+      "matchLabel": "Neutral special",
+      "matchScore": 1009,
+      "id": "smashwiki-chromnspecialssbu",
+      "label": "ChromNSpecialSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/4/45/ChromNSpecialSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ChromNSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "chrom",
       "moveId": "pummel",
       "matchLabel": "Pummel",
       "matchScore": 1006,
@@ -995,6 +1114,40 @@
       "timingBasis": "independent-source",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:CloudFinishingTouchSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "forward-smash",
+      "matchLabel": "Forward smash",
+      "matchScore": 1013,
+      "id": "smashwiki-cloudfsmashssbu",
+      "label": "CloudFSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/77/CloudFSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:CloudFSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-cloudpummelssbu",
+      "label": "CloudPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/f/f3/CloudPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:CloudPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -1391,6 +1544,23 @@
     },
     {
       "fighterId": "dr-mario",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-dr-mariopummelssbu",
+      "label": "Dr.MarioPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/0/00/Dr.MarioPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:Dr.MarioPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "dr-mario",
       "moveId": "up-b-super-jump-punch",
       "matchLabel": "Up special",
       "matchScore": 1004,
@@ -1663,6 +1833,23 @@
     },
     {
       "fighterId": "greninja",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-greninjapummelssbu",
+      "label": "GreninjaPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/4/4c/GreninjaPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:GreninjaPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "greninja",
       "moveId": "side-b-shadow-sneak",
       "matchLabel": "Side special (forward attack)",
       "matchScore": 706,
@@ -1765,6 +1952,40 @@
     },
     {
       "fighterId": "ice-climbers",
+      "moveId": "dash-grab",
+      "matchLabel": "Dash grab",
+      "matchScore": 1009,
+      "id": "smashwiki-iceclimbersdashgrabssbu",
+      "label": "IceClimbersDashGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/a/ac/IceClimbersDashGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:IceClimbersDashGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "grab",
+      "matchLabel": "Standing grab",
+      "matchScore": 1004,
+      "id": "smashwiki-iceclimbersgrabssbu",
+      "label": "IceClimbersGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/5/50/IceClimbersGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:IceClimbersGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ice-climbers",
       "moveId": "neutral-b-ice-shot",
       "matchLabel": "Neutral special",
       "matchScore": 1009,
@@ -1777,6 +1998,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:IceClimbersNSpecialSSBU.png",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-iceclimberspummelssbu",
+      "label": "IceClimbersPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/7c/IceClimbersPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:IceClimbersPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -1833,6 +2071,23 @@
     },
     {
       "fighterId": "ike",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-ikepummelssbu",
+      "label": "IkePummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/6f/IkePummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:IkePummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ike",
       "moveId": "side-b-quickdraw",
       "matchLabel": "Side special",
       "matchScore": 1006,
@@ -1884,6 +2139,23 @@
     },
     {
       "fighterId": "incineroar",
+      "moveId": "forward-air",
+      "matchLabel": "Forward aerial",
+      "matchScore": 1011,
+      "id": "smashwiki-incineroarfairssbu",
+      "label": "IncineroarFAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/1/14/IncineroarFAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:IncineroarFAirSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "incineroar",
       "moveId": "pummel",
       "matchLabel": "Pummel",
       "matchScore": 1006,
@@ -1896,6 +2168,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:IncineroarPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "inkling",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-inklingpummelssbu",
+      "label": "InklingPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/e/ee/InklingPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:InklingPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2003,6 +2292,23 @@
     },
     {
       "fighterId": "jigglypuff",
+      "moveId": "grab",
+      "matchLabel": "Grab",
+      "matchScore": 1004,
+      "id": "crossmod-grab",
+      "label": "Grab",
+      "downloadUrl": "https://raw.githubusercontent.com/drakeirving/ult-hitbox-viewer/master/data/Jigglypuff/video/gif/Grab.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "cross-mod-hitbox-viewer",
+      "sourcePageUrl": "https://github.com/drakeirving/ult-hitbox-viewer/blob/master/data/Jigglypuff/video/gif/Grab.gif",
+      "sourceAttribution": "Ultimate Hitbox Viewer / EyeDonutz Cross Mod render archive",
+      "sourceQuality": 100
+    },
+    {
+      "fighterId": "jigglypuff",
       "moveId": "neutral-b-rollout",
       "matchLabel": "Rollout",
       "matchScore": 1007,
@@ -2053,6 +2359,23 @@
       "sourceQuality": 90
     },
     {
+      "fighterId": "joker",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-jokerpummelssbu",
+      "label": "JokerPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/9/96/JokerPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:JokerPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
       "fighterId": "kazuya",
       "moveId": "jab-7",
       "matchLabel": "Neutral attack 7",
@@ -2088,6 +2411,23 @@
     },
     {
       "fighterId": "ken",
+      "moveId": "forward-air",
+      "matchLabel": "Forward aerial",
+      "matchScore": 1011,
+      "id": "smashwiki-kenfairssbu",
+      "label": "KenFAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/c/cf/KenFAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KenFAirSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ken",
       "moveId": "pummel",
       "matchLabel": "Pummel",
       "matchScore": 1006,
@@ -2100,6 +2440,57 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:KenPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "dash-grab",
+      "matchLabel": "Dash grab",
+      "matchScore": 1009,
+      "id": "smashwiki-kingdedededashgrabssbu",
+      "label": "KingDededeDashGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/8/81/KingDededeDashGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KingDededeDashGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "forward-smash",
+      "matchLabel": "Forward smash",
+      "matchScore": 1013,
+      "id": "smashwiki-kingdededefsmashssbu",
+      "label": "KingDededeFSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/3/3d/KingDededeFSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KingDededeFSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "grab",
+      "matchLabel": "Standing grab",
+      "matchScore": 1004,
+      "id": "smashwiki-kingdededegrabssbu",
+      "label": "KingDededeGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/0/07/KingDededeGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KingDededeGrabSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2258,6 +2649,57 @@
     },
     {
       "fighterId": "kirby",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-kirbypummelssbu",
+      "label": "KirbyPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/8/81/KirbyPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KirbyPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "side-b-hammer",
+      "matchLabel": "Side special grounded fully charged",
+      "matchScore": 706,
+      "id": "smashwiki-kirbysspecialgroundedfullychargedssbu",
+      "label": "KirbySSpecialGroundedFullyChargedSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/b/bb/KirbySSpecialGroundedFullyChargedSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "charge-state",
+      "timingBasis": "independent-source",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KirbySSpecialGroundedFullyChargedSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "side-b-hammer",
+      "matchLabel": "Side special grounded",
+      "matchScore": 706,
+      "id": "smashwiki-kirbysspecialgroundedssbu",
+      "label": "KirbySSpecialGroundedSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/c/ce/KirbySSpecialGroundedSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:KirbySSpecialGroundedSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "kirby",
       "moveId": "up-b-final-cutter",
       "matchLabel": "Up special",
       "matchScore": 1004,
@@ -2287,6 +2729,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:KirbyUThrowSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "link",
+      "moveId": "down-smash",
+      "matchLabel": "Down smash",
+      "matchScore": 1010,
+      "id": "smashwiki-linkdsmashssbu",
+      "label": "LinkDSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/a/ac/LinkDSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:LinkDSmashSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2355,6 +2814,40 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:LinkUSpecialAerialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "forward-smash",
+      "matchLabel": "Forward smash",
+      "matchScore": 1013,
+      "id": "smashwiki-littlemacfsmashssbu",
+      "label": "LittleMacFSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/6b/LittleMacFSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:LittleMacFSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-littlemacpummelssbu",
+      "label": "LittleMacPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/0/00/LittleMacPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:LittleMacPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2547,6 +3040,23 @@
     },
     {
       "fighterId": "lucina",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-lucinapummelssbu",
+      "label": "LucinaPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/6e/LucinaPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:LucinaPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "lucina",
       "moveId": "up-b-dolphin-slash",
       "matchLabel": "Up special (grounded)",
       "matchScore": 704,
@@ -2576,6 +3086,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:LuigiPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "mario",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-mariopummelssbu",
+      "label": "MarioPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/d/de/MarioPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MarioPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2644,6 +3171,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:MarthNSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "marth",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-marthpummelssbu",
+      "label": "MarthPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/d/d3/MarthPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MarthPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2785,6 +3329,23 @@
     },
     {
       "fighterId": "meta-knight",
+      "moveId": "dash-grab",
+      "matchLabel": "Dash grab",
+      "matchScore": 1009,
+      "id": "smashwiki-metaknightdashgrabssbu",
+      "label": "MetaKnightDashGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/3/39/MetaKnightDashGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MetaKnightDashGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "meta-knight",
       "moveId": "down-b-dimensional-cape",
       "matchLabel": "Down special (ground, stationary)",
       "matchScore": 706,
@@ -2797,6 +3358,57 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:MetaKnightDSpecialGroundSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "grab",
+      "matchLabel": "Standing grab",
+      "matchScore": 1004,
+      "id": "smashwiki-metaknightgrabssbu",
+      "label": "MetaKnightGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/e/e3/MetaKnightGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MetaKnightGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "neutral-b-mach-tornado",
+      "matchLabel": "Neutral special",
+      "matchScore": 1009,
+      "id": "smashwiki-metaknightnspecialssbu",
+      "label": "MetaKnightNSpecialSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/3/3c/MetaKnightNSpecialSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MetaKnightNSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "pivot-grab",
+      "matchLabel": "Pivot grab",
+      "matchScore": 1010,
+      "id": "smashwiki-metaknightpivotgrabssbu",
+      "label": "MetaKnightPivotGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/5/52/MetaKnightPivotGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MetaKnightPivotGrabSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2852,6 +3464,40 @@
       "sourceQuality": 90
     },
     {
+      "fighterId": "mewtwo",
+      "moveId": "forward-air",
+      "matchLabel": "Forward aerial",
+      "matchScore": 1011,
+      "id": "smashwiki-mewtwofairssbu",
+      "label": "MewtwoFAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/d/dd/MewtwoFAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MewtwoFAirSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "mewtwo",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-mewtwopummelssbu",
+      "label": "MewtwoPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/2/29/MewtwoPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MewtwoPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
       "fighterId": "mii-brawler",
       "moveId": "exploding-side-kick",
       "matchLabel": "Side special 1 aerial",
@@ -2865,6 +3511,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:MiiBrawlerOnslaughtAerialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-miibrawlerpummelssbu",
+      "label": "MiiBrawlerPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/7e/MiiBrawlerPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MiiBrawlerPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -2967,6 +3630,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:MiiGunnerSpotdodgeSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "mii-swordfighter",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-miiswordfighterpummelssbu",
+      "label": "MiiSwordfighterPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/9/91/MiiSwordfighterPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:MiiSwordfighterPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -3669,23 +4349,6 @@
     },
     {
       "fighterId": "mythra",
-      "moveId": "side-b-photon-edge",
-      "matchLabel": "Side special",
-      "matchScore": 1006,
-      "id": "smashwiki-mythrasspecialssbu",
-      "label": "MythraSSpecialSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/0/0e/MythraSSpecialSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:MythraSSpecialSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "mythra",
       "moveId": "up-b-ray-of-punishment",
       "matchLabel": "Up special",
       "matchScore": 1004,
@@ -3715,6 +4378,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:NessDSpecialGroundedSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ness",
+      "moveId": "down-throw",
+      "matchLabel": "Down throw",
+      "matchScore": 1010,
+      "id": "smashwiki-nessdthrowssbu",
+      "label": "NessDThrowSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/8/86/NessDThrowSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:NessDThrowSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -3754,23 +4434,6 @@
     },
     {
       "fighterId": "ness",
-      "moveId": "side-b-pk-fire",
-      "matchLabel": "Side special (ground)",
-      "matchScore": 706,
-      "id": "smashwiki-nesspkfiregssbu",
-      "label": "NessPKFireGSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/7/71/NessPKFireGSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:NessPKFireGSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "ness",
       "moveId": "up-b-pk-thunder",
       "matchLabel": "Up special pk thunder 2",
       "matchScore": 715,
@@ -3783,23 +4446,6 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:NessUSpecialSelfHitSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "olimar",
-      "moveId": "down-smash",
-      "matchLabel": "Down smash red pikmin",
-      "matchScore": 710,
-      "id": "smashwiki-redpikmindsmashssbu",
-      "label": "RedPikminDSmashSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/7/72/RedPikminDSmashSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:RedPikminDSmashSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -3923,6 +4569,57 @@
       "sourceQuality": 90
     },
     {
+      "fighterId": "palutena",
+      "moveId": "dash-attack",
+      "matchLabel": "Dash attack",
+      "matchScore": 1011,
+      "id": "smashwiki-palutenadashattackssbu",
+      "label": "PalutenaDashAttackSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/c/c8/PalutenaDashAttackSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PalutenaDashAttackSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-palutenapummelssbu",
+      "label": "PalutenaPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/6e/PalutenaPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PalutenaPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "side-b-explosive-flame",
+      "matchLabel": "Side special",
+      "matchScore": 1006,
+      "id": "smashwiki-palutenasspecialssbu",
+      "label": "PalutenaSSpecialSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/b/b2/PalutenaSSpecialSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PalutenaSSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
       "fighterId": "peach",
       "moveId": "neutral-b-toad",
       "matchLabel": "Neutral special",
@@ -3992,6 +4689,40 @@
     },
     {
       "fighterId": "pichu",
+      "moveId": "down-b-thunder",
+      "matchLabel": "Down special (projectile)",
+      "matchScore": 706,
+      "id": "smashwiki-pichuthunderssbu",
+      "label": "PichuThunderSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/8/86/PichuThunderSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PichuThunderSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "pichu",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-pichupummelssbu",
+      "label": "PichuPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/2/23/PichuPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PichuPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "pichu",
       "moveId": "side-b-skull-bash",
       "matchLabel": "Side special",
       "matchScore": 1006,
@@ -4021,6 +4752,40 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:PikachuDSpecialMissSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "down-throw",
+      "matchLabel": "Down throw",
+      "matchScore": 1010,
+      "id": "smashwiki-pikachudthrowssbu",
+      "label": "PikachuDThrowSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/2/25/PikachuDThrowSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PikachuDThrowSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-pikachupummelssbu",
+      "label": "PikachuPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/1/1e/PikachuPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PikachuPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -4145,6 +4910,23 @@
     },
     {
       "fighterId": "pit",
+      "moveId": "side-b-air-upperdash-arm-air",
+      "matchLabel": "Side special air",
+      "matchScore": 1010,
+      "id": "smashwiki-pitsspecialaerialssbu",
+      "label": "PitSSpecialAerialSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/7c/PitSSpecialAerialSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PitSSpecialAerialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "pit",
       "moveId": "up-b-power-of-flight",
       "matchLabel": "Up special",
       "matchScore": 1004,
@@ -4174,6 +4956,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:PyraDashAttackSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "down-air",
+      "matchLabel": "Down aerial",
+      "matchScore": 1008,
+      "id": "smashwiki-pyradairssbu",
+      "label": "PyraDAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/4/43/PyraDAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:PyraDAirSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -4298,6 +5097,23 @@
     },
     {
       "fighterId": "richter",
+      "moveId": "down-air",
+      "matchLabel": "Down aerial",
+      "matchScore": 1008,
+      "id": "smashwiki-richterdairssbu",
+      "label": "RichterDairSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/76/RichterDairSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:RichterDairSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "richter",
       "moveId": "down-b-holy-water",
       "matchLabel": "Down special burst",
       "matchScore": 706,
@@ -4366,6 +5182,23 @@
     },
     {
       "fighterId": "richter",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-richterpummelssbu",
+      "label": "RichterPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/2/21/RichterPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:RichterPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "richter",
       "moveId": "up-b-uppercut",
       "matchLabel": "Up special",
       "matchScore": 1004,
@@ -4400,6 +5233,23 @@
     },
     {
       "fighterId": "rob",
+      "moveId": "dash-grab",
+      "matchLabel": "Dash grab",
+      "matchScore": 1009,
+      "id": "smashwiki-robdashgrabssbu",
+      "label": "ROBDashGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/1/1d/ROBDashGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ROBDashGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "rob",
       "moveId": "down-throw",
       "matchLabel": "Down throw",
       "matchScore": 1010,
@@ -4412,6 +5262,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:ROBDThrowSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "grab",
+      "matchLabel": "Standing grab",
+      "matchScore": 1004,
+      "id": "smashwiki-robgrabssbu",
+      "label": "ROBGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/3/30/ROBGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ROBGrabSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -4553,6 +5420,40 @@
     },
     {
       "fighterId": "roy",
+      "moveId": "neutral-b-flare-blade",
+      "matchLabel": "Neutral special (fully charged)",
+      "matchScore": 709,
+      "id": "smashwiki-royflareblademaxssbu",
+      "label": "RoyFlareBladeMaxSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/8/80/RoyFlareBladeMaxSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "charge-state",
+      "timingBasis": "independent-source",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:RoyFlareBladeMaxSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "neutral-b-flare-blade",
+      "matchLabel": "Neutral special",
+      "matchScore": 1009,
+      "id": "smashwiki-roynspecialssbu",
+      "label": "RoyNSpecialSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/74/RoyNSpecialSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:RoyNSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "roy",
       "moveId": "pummel",
       "matchLabel": "Pummel",
       "matchScore": 1006,
@@ -4599,6 +5500,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:RoyUThrowSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "ryu",
+      "moveId": "forward-air",
+      "matchLabel": "Forward aerial",
+      "matchScore": 1011,
+      "id": "smashwiki-ryufairssbu",
+      "label": "RyuFAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/1/16/RyuFAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:RyuFAirSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -4808,6 +5726,23 @@
     },
     {
       "fighterId": "sheik",
+      "moveId": "grab",
+      "matchLabel": "Standing grab",
+      "matchScore": 1004,
+      "id": "smashwiki-sheikgrabssbu",
+      "label": "SheikGrabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/b/b2/SheikGrabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:SheikGrabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "sheik",
       "moveId": "pivot-grab",
       "matchLabel": "Pivot grab",
       "matchScore": 1010,
@@ -4888,6 +5823,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:ShulkDSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "shulk",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-shulkpummelssbu",
+      "label": "ShulkPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/e/e5/ShulkPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ShulkPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -5318,23 +6270,6 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "dash-attack",
-      "matchLabel": "Dash attack (punch)",
-      "matchScore": 711,
-      "id": "smashwiki-stevedashattackpunchssbu",
-      "label": "SteveDashAttackPunchSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/a/ad/SteveDashAttackPunchSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:SteveDashAttackPunchSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "steve",
       "moveId": "dash-grab",
       "matchLabel": "Dash grab",
       "matchScore": 1009,
@@ -5488,23 +6423,6 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "jab-forward-tilt",
-      "matchLabel": "Neutral attack Forward tilt (punch)",
-      "matchScore": 716,
-      "id": "smashwiki-stevejabftiltpunchssbu",
-      "label": "SteveJabFTiltPunchSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/7/73/SteveJabFTiltPunchSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:SteveJabFTiltPunchSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "steve",
       "moveId": "neutral-air",
       "matchLabel": "Neutral aerial (punch)",
       "matchScore": 711,
@@ -5568,23 +6486,6 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:SteveSSpecialFreeSSBU.gif",
-      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
-      "sourceQuality": 90
-    },
-    {
-      "fighterId": "steve",
-      "moveId": "up-air",
-      "matchLabel": "Up aerial (punch)",
-      "matchScore": 706,
-      "id": "smashwiki-steveuairpunchssbu",
-      "label": "SteveUAirPunchSSBU",
-      "downloadUrl": "https://ssb.wiki.gallery/images/5/55/SteveUAirPunchSSBU.gif",
-      "sourceFormat": "gif",
-      "mediaType": "animation",
-      "timelineClass": "fighter-action",
-      "timingBasis": "parent-action",
-      "sourceProvider": "smashwiki",
-      "sourcePageUrl": "https://www.ssbwiki.com/File:SteveUAirPunchSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -5675,6 +6576,57 @@
     },
     {
       "fighterId": "terry",
+      "moveId": "forward-air",
+      "matchLabel": "Forward aerial",
+      "matchScore": 1011,
+      "id": "smashwiki-terryfairssbu",
+      "label": "TerryFAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/f/f6/TerryFAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:TerryFAirSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "forward-smash",
+      "matchLabel": "Forward smash",
+      "matchScore": 1013,
+      "id": "smashwiki-terryfsmashssbu",
+      "label": "TerryFSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/4/43/TerryFSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:TerryFSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "jab-2",
+      "matchLabel": "Neutral attack 2",
+      "matchScore": 1005,
+      "id": "smashwiki-terryjab2ssbu",
+      "label": "TerryJab2SSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/60/TerryJab2SSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:TerryJab2SSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "terry",
       "moveId": "jab-3",
       "matchLabel": "Neutral attack 3",
       "matchScore": 1005,
@@ -5721,6 +6673,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:TerryUSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "toon-link",
+      "moveId": "back-air",
+      "matchLabel": "Back aerial",
+      "matchScore": 1008,
+      "id": "smashwiki-toonlinkbairssbu",
+      "label": "ToonLinkBAirSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/4/41/ToonLinkBAirSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ToonLinkBAirSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -5981,6 +6950,23 @@
     },
     {
       "fighterId": "wario",
+      "moveId": "down-throw",
+      "matchLabel": "Down throw",
+      "matchScore": 1010,
+      "id": "smashwiki-wariodthrowssbu",
+      "label": "WarioDThrowSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/3/32/WarioDThrowSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:WarioDThrowSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "wario",
       "moveId": "neutral-b-chomp",
       "matchLabel": "Neutral special",
       "matchScore": 1009,
@@ -6083,6 +7069,23 @@
     },
     {
       "fighterId": "wolf",
+      "moveId": "down-smash",
+      "matchLabel": "Down smash",
+      "matchScore": 1010,
+      "id": "smashwiki-wolfdsmashssbu",
+      "label": "WolfDSmashSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/7/7b/WolfDSmashSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:WolfDSmashSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "wolf",
       "moveId": "forward-smash",
       "matchLabel": "Forward smash",
       "matchScore": 1013,
@@ -6146,6 +7149,23 @@
       "timingBasis": "parent-action",
       "sourceProvider": "smashwiki",
       "sourcePageUrl": "https://www.ssbwiki.com/File:WolfSSpecialSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "yoshi",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-yoshipummelssbu",
+      "label": "YoshiPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/b/bf/YoshiPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:YoshiPummelSSBU.gif",
       "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
       "sourceQuality": 90
     },
@@ -6253,6 +7273,40 @@
     },
     {
       "fighterId": "zelda",
+      "moveId": "jab",
+      "matchLabel": "Neutral attack 1",
+      "matchScore": 703,
+      "id": "smashwiki-zeldajabssbu",
+      "label": "ZeldaJabSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/d/db/ZeldaJabSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ZeldaJabSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "pummel",
+      "matchLabel": "Pummel",
+      "matchScore": 1006,
+      "id": "smashwiki-zeldapummelssbu",
+      "label": "ZeldaPummelSSBU",
+      "downloadUrl": "https://ssb.wiki.gallery/images/6/6b/ZeldaPummelSSBU.gif",
+      "sourceFormat": "gif",
+      "mediaType": "animation",
+      "timelineClass": "fighter-action",
+      "timingBasis": "parent-action",
+      "sourceProvider": "smashwiki",
+      "sourcePageUrl": "https://www.ssbwiki.com/File:ZeldaPummelSSBU.gif",
+      "sourceAttribution": "SmashWiki SSBU hitbox repository; preserve file-page provenance and revision history",
+      "sourceQuality": 90
+    },
+    {
+      "fighterId": "zelda",
       "moveId": "side-b-din-s-fire",
       "matchLabel": "Side special",
       "matchScore": 1006,
@@ -6323,21 +7377,87 @@
   "superseded": [
     {
       "fighterId": "banjo-and-kazooie",
-      "moveId": "down-air",
-      "variantId": "banjo-kazooiedairlanding",
-      "supersededBy": "smashwiki-banjo-26kazooiedairssbu"
+      "moveId": "pummel",
+      "variantId": "banjo-kazooiepummel",
+      "supersededBy": "smashwiki-banjo-26kazooiepummelssbu"
+    },
+    {
+      "fighterId": "banjo-and-kazooie",
+      "moveId": "side-b-wonderwing",
+      "variantId": "banjo-kazooiewonderwing",
+      "supersededBy": "smashwiki-banjo-26kazooiewonderwingssbu"
     },
     {
       "fighterId": "bayonetta",
-      "moveId": "down-smash",
-      "variantId": "bayonettadsmashstomp",
-      "supersededBy": "smashwiki-bayonettadsmashssbu"
+      "moveId": "forward-smash",
+      "variantId": "bayonettafsmash",
+      "supersededBy": "smashwiki-bayonettafsmashssbu"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "jab-3",
+      "variantId": "bayonettajab3",
+      "supersededBy": "smashwiki-bayonettajab3ssbu"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "neutral-air",
+      "variantId": "bayonettanair",
+      "supersededBy": "smashwiki-bayonettanairssbu"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "pummel",
+      "variantId": "bayonettapummel",
+      "supersededBy": "smashwiki-bayonettapummelssbu"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "side-b-heel-slide",
+      "variantId": "bayonettaheelslideend",
+      "supersededBy": "smashwiki-bayonettaheelslidessbu"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "up-air",
+      "variantId": "bayonettauair",
+      "supersededBy": "smashwiki-bayonettauairssbu"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "up-smash",
+      "variantId": "bayonettausmash",
+      "supersededBy": "smashwiki-bayonettausmashssbu"
+    },
+    {
+      "fighterId": "bowser",
+      "moveId": "pummel",
+      "variantId": "bowserpummel",
+      "supersededBy": "smashwiki-bowserpummelssbu"
+    },
+    {
+      "fighterId": "bowser",
+      "moveId": "up-b-air-whirling-fortress-air",
+      "variantId": "bowserwhirlingfortressa",
+      "supersededBy": "smashwiki-bowserwhirlingfortressaerialssbu"
     },
     {
       "fighterId": "bowser-jr",
-      "moveId": "forward-air",
-      "variantId": "bowserjrfairlanding",
-      "supersededBy": "smashwiki-bowserjrfairssbu"
+      "moveId": "down-smash",
+      "variantId": "bowserjrdsmash",
+      "supersededBy": "smashwiki-bowserjrdsmashssbu"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "neutral-b-clown-cannon",
+      "variantId": "bowserjrclowncannon",
+      "supersededBy": "smashwiki-bowserjrnspecialssbu"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "pummel",
+      "variantId": "bowserjrpummel",
+      "supersededBy": "smashwiki-bowserjrpummelssbu"
     },
     {
       "fighterId": "bowser-jr",
@@ -6352,6 +7472,30 @@
       "supersededBy": "smashwiki-bowserjrsspecialdashssbu"
     },
     {
+      "fighterId": "bowser-jr",
+      "moveId": "up-b-abandon-ship",
+      "variantId": "bowserjrabandonship",
+      "supersededBy": "smashwiki-bowserjrabandonshiphammerssbu"
+    },
+    {
+      "fighterId": "byleth",
+      "moveId": "down-smash",
+      "variantId": "bylethdsmash",
+      "supersededBy": "smashwiki-bylethdsmashssbu"
+    },
+    {
+      "fighterId": "byleth",
+      "moveId": "pummel",
+      "variantId": "bylethpummel",
+      "supersededBy": "smashwiki-bylethpummelssbu"
+    },
+    {
+      "fighterId": "byleth",
+      "moveId": "side-b-areadbhar",
+      "variantId": "bylethareadbharaerial",
+      "supersededBy": "smashwiki-bylethsspecialgroundedssbu"
+    },
+    {
       "fighterId": "captain-falcon",
       "moveId": "down-b-air-falcon-kick-air",
       "variantId": "captainfalconfalconkicka",
@@ -6359,15 +7503,45 @@
     },
     {
       "fighterId": "captain-falcon",
-      "moveId": "down-b-air-falcon-kick-air",
-      "variantId": "captainfalconfalconkickalanding",
-      "supersededBy": "smashwiki-captainfalconfalconkickaerialssbu"
+      "moveId": "down-throw",
+      "variantId": "captainfalcondthrow",
+      "supersededBy": "smashwiki-captainfalcondthrowssbu"
+    },
+    {
+      "fighterId": "captain-falcon",
+      "moveId": "pummel",
+      "variantId": "captainfalconpummel",
+      "supersededBy": "smashwiki-captainfalconpummelssbu"
     },
     {
       "fighterId": "captain-falcon",
       "moveId": "up-b-falcon-dive",
-      "variantId": "captainfalconfalcondivecatch",
+      "variantId": "captainfalconfalcondiveg",
       "supersededBy": "smashwiki-captainfalconfalcondivessbu"
+    },
+    {
+      "fighterId": "captain-falcon",
+      "moveId": "up-b-falcon-dive",
+      "variantId": "captainfalconfalcondivea",
+      "supersededBy": "smashwiki-captainfalconfalcondivessbu"
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "forward-smash",
+      "variantId": "chromfsmash",
+      "supersededBy": "smashwiki-chromfsmashssbu"
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "neutral-b-flare-blade",
+      "variantId": "chromflareblade",
+      "supersededBy": "smashwiki-chromnspecialssbu"
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "pummel",
+      "variantId": "chrompummel",
+      "supersededBy": "smashwiki-chrompummelssbu"
     },
     {
       "fighterId": "chrom",
@@ -6382,10 +7556,46 @@
       "supersededBy": "smashwiki-chromuspecialrisingssbu"
     },
     {
-      "fighterId": "chrom",
-      "moveId": "up-b-soaring-slash",
-      "variantId": "chromsoaringslashlanding",
-      "supersededBy": "smashwiki-chromuspecialrisingssbu"
+      "fighterId": "cloud",
+      "moveId": "forward-smash",
+      "variantId": "cloudfsmash",
+      "supersededBy": "smashwiki-cloudfsmashssbu"
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "pummel",
+      "variantId": "cloudpummel",
+      "supersededBy": "smashwiki-cloudpummelssbu"
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "up-b-climhazzard",
+      "variantId": "cloudclimhazzard",
+      "supersededBy": "smashwiki-cloudclimhazzardssbu"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "down-b-counter-surge",
+      "variantId": "corrincountersurge",
+      "supersededBy": "smashwiki-corrindspecialssbu"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "pummel",
+      "variantId": "corrinpummel",
+      "supersededBy": "smashwiki-corrinpummelssbu"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "up-b-dragon-ascent",
+      "variantId": "corrindragonascent",
+      "supersededBy": "smashwiki-corrinuspecialssbu"
+    },
+    {
+      "fighterId": "daisy",
+      "moveId": "pummel",
+      "variantId": "daisypummel",
+      "supersededBy": "smashwiki-daisypummelssbu"
     },
     {
       "fighterId": "daisy",
@@ -6400,6 +7610,36 @@
       "supersededBy": "smashwiki-daisyuspecialrisingssbu"
     },
     {
+      "fighterId": "dark-pit",
+      "moveId": "pummel",
+      "variantId": "darkpitpummel",
+      "supersededBy": "smashwiki-darkpitpummelssbu"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "pummel",
+      "variantId": "darksamuspummel",
+      "supersededBy": "smashwiki-darksamuspummelssbu"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "up-b-air-screw-attack-air",
+      "variantId": "darksamusscrewattacka",
+      "supersededBy": "smashwiki-darksamususpecialaerialssbu"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "up-throw",
+      "variantId": "darksamusuthrow",
+      "supersededBy": "smashwiki-darksamusuthrowssbu"
+    },
+    {
+      "fighterId": "diddy-kong",
+      "moveId": "pummel",
+      "variantId": "diddykongpummel",
+      "supersededBy": "smashwiki-diddykongpummelssbu"
+    },
+    {
       "fighterId": "diddy-kong",
       "moveId": "up-b-rocketbarrel-boost",
       "variantId": "diddykongrocketbarrels",
@@ -6410,6 +7650,30 @@
       "moveId": "up-b-rocketbarrel-boost",
       "variantId": "diddykongrocketbarrels-png",
       "supersededBy": "smashwiki-diddykonguspecialssbu"
+    },
+    {
+      "fighterId": "dr-mario",
+      "moveId": "pummel",
+      "variantId": "drmariopummel",
+      "supersededBy": "smashwiki-dr-mariopummelssbu"
+    },
+    {
+      "fighterId": "dr-mario",
+      "moveId": "up-b-super-jump-punch",
+      "variantId": "drmariosuperjumppunch",
+      "supersededBy": "smashwiki-dr-mariosuperjumppunchssbu"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "pummel",
+      "variantId": "duckhuntpummel",
+      "supersededBy": "smashwiki-duckhuntpummelssbu"
+    },
+    {
+      "fighterId": "falco",
+      "moveId": "pummel",
+      "variantId": "falcopummel",
+      "supersededBy": "smashwiki-falcopummelssbu"
     },
     {
       "fighterId": "fox",
@@ -6424,6 +7688,24 @@
       "supersededBy": "smashwiki-foxdspecialstartupssbu"
     },
     {
+      "fighterId": "fox",
+      "moveId": "pummel",
+      "variantId": "foxpummel",
+      "supersededBy": "smashwiki-foxpummelssbu"
+    },
+    {
+      "fighterId": "fox",
+      "moveId": "side-b-fox-illusion",
+      "variantId": "foxfoxillusion",
+      "supersededBy": "smashwiki-foxsspecialssbu"
+    },
+    {
+      "fighterId": "fox",
+      "moveId": "up-b-fire-fox",
+      "variantId": "foxfirefox",
+      "supersededBy": "smashwiki-foxuspecialssbu"
+    },
+    {
       "fighterId": "ganondorf",
       "moveId": "down-b-air-wizard-s-foot-air",
       "variantId": "ganondorfwizardsfoota",
@@ -6436,6 +7718,30 @@
       "supersededBy": "smashwiki-ganondorfdspecialaerialssbu"
     },
     {
+      "fighterId": "ganondorf",
+      "moveId": "pummel",
+      "variantId": "ganondorfpummel",
+      "supersededBy": "smashwiki-ganondorfpummelssbu"
+    },
+    {
+      "fighterId": "ganondorf",
+      "moveId": "side-b-air-flame-choke-air",
+      "variantId": "ganondorfflamechokea",
+      "supersededBy": "smashwiki-ganondorfsspecialaerialssbu"
+    },
+    {
+      "fighterId": "ganondorf",
+      "moveId": "up-b-dark-dive",
+      "variantId": "ganondorfdarkdive1",
+      "supersededBy": "smashwiki-ganondorfuspecialssbu"
+    },
+    {
+      "fighterId": "greninja",
+      "moveId": "pummel",
+      "variantId": "greninjapummel",
+      "supersededBy": "smashwiki-greninjapummelssbu"
+    },
+    {
       "fighterId": "greninja",
       "moveId": "side-b-shadow-sneak",
       "variantId": "greninjashadowsneakf",
@@ -6446,6 +7752,18 @@
       "moveId": "side-b-shadow-sneak",
       "variantId": "greninjashadowsneakb",
       "supersededBy": "smashwiki-greninjasspecialforwardattackssbu"
+    },
+    {
+      "fighterId": "greninja",
+      "moveId": "up-b-hydro-pump",
+      "variantId": "greninjahydropump",
+      "supersededBy": "smashwiki-greninjauspecialssbu"
+    },
+    {
+      "fighterId": "hero",
+      "moveId": "pummel",
+      "variantId": "heropummel",
+      "supersededBy": "smashwiki-heropummelssbu"
     },
     {
       "fighterId": "hero",
@@ -6470,6 +7788,42 @@
       "moveId": "side-b-zap-zapple-kazap",
       "variantId": "herokazap",
       "supersededBy": "smashwiki-herozapssbu"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "dash-grab",
+      "variantId": "popodashgrab",
+      "supersededBy": "smashwiki-iceclimbersdashgrabssbu"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "grab",
+      "variantId": "popograb",
+      "supersededBy": "smashwiki-iceclimbersgrabssbu"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "pummel",
+      "variantId": "popopummel",
+      "supersededBy": "smashwiki-iceclimberspummelssbu"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "up-b-belay",
+      "variantId": "nanabelay",
+      "supersededBy": "smashwiki-iceclimbersuspecialssbu"
+    },
+    {
+      "fighterId": "ike",
+      "moveId": "down-b-counter",
+      "variantId": "ikecounter",
+      "supersededBy": "smashwiki-ikecounterssbu"
+    },
+    {
+      "fighterId": "ike",
+      "moveId": "pummel",
+      "variantId": "ikepummel",
+      "supersededBy": "smashwiki-ikepummelssbu"
     },
     {
       "fighterId": "ike",
@@ -6504,14 +7858,38 @@
     {
       "fighterId": "ike",
       "moveId": "up-b-aether",
-      "variantId": "ikeaetherlanding",
+      "variantId": "ikeaethersword",
       "supersededBy": "smashwiki-ikeaethergroundedssbu"
     },
     {
-      "fighterId": "ike",
-      "moveId": "up-b-aether",
-      "variantId": "ikeaethersword",
-      "supersededBy": "smashwiki-ikeaethergroundedssbu"
+      "fighterId": "incineroar",
+      "moveId": "forward-air",
+      "variantId": "incineroarfair",
+      "supersededBy": "smashwiki-incineroarfairssbu"
+    },
+    {
+      "fighterId": "incineroar",
+      "moveId": "pummel",
+      "variantId": "incineroarpummel",
+      "supersededBy": "smashwiki-incineroarpummelssbu"
+    },
+    {
+      "fighterId": "inkling",
+      "moveId": "pummel",
+      "variantId": "inklingpummel",
+      "supersededBy": "smashwiki-inklingpummelssbu"
+    },
+    {
+      "fighterId": "inkling",
+      "moveId": "up-b-super-jump",
+      "variantId": "inklingsuperjump",
+      "supersededBy": "smashwiki-inklinguspecialssbu"
+    },
+    {
+      "fighterId": "jigglypuff",
+      "moveId": "grab",
+      "variantId": "jigglypuffgrab",
+      "supersededBy": "crossmod-grab"
     },
     {
       "fighterId": "jigglypuff",
@@ -6524,6 +7902,66 @@
       "moveId": "neutral-b-rollout",
       "variantId": "jigglypuffrollouta",
       "supersededBy": "crossmod-rollout"
+    },
+    {
+      "fighterId": "jigglypuff",
+      "moveId": "pummel",
+      "variantId": "jigglypuffpummel",
+      "supersededBy": "crossmod-pummel"
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "down-b-arsene-tetrakarn-makarakarn",
+      "variantId": "jokertetrakarn-makarakarn",
+      "supersededBy": "smashwiki-jokertetrakarnmakarakarnssbu"
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "pummel",
+      "variantId": "jokerpummel",
+      "supersededBy": "smashwiki-jokerpummelssbu"
+    },
+    {
+      "fighterId": "kazuya",
+      "moveId": "jab-7",
+      "variantId": "shoto4jab7",
+      "supersededBy": "smashwiki-kazuyajab7ssbu"
+    },
+    {
+      "fighterId": "kazuya",
+      "moveId": "pummel",
+      "variantId": "shoto4pummel",
+      "supersededBy": "smashwiki-kazuyapummelssbu"
+    },
+    {
+      "fighterId": "ken",
+      "moveId": "forward-air",
+      "variantId": "kenfair",
+      "supersededBy": "smashwiki-kenfairssbu"
+    },
+    {
+      "fighterId": "ken",
+      "moveId": "pummel",
+      "variantId": "kenpummel",
+      "supersededBy": "smashwiki-kenpummelssbu"
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "dash-grab",
+      "variantId": "kingdedededashgrab",
+      "supersededBy": "smashwiki-kingdedededashgrabssbu"
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "forward-smash",
+      "variantId": "kingdededefsmash",
+      "supersededBy": "smashwiki-kingdededefsmashssbu"
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "grab",
+      "variantId": "kingdededegrab",
+      "supersededBy": "smashwiki-kingdededegrabssbu"
     },
     {
       "fighterId": "king-dedede",
@@ -6540,7 +7978,7 @@
     {
       "fighterId": "king-dedede",
       "moveId": "up-b-super-dedede-jump",
-      "variantId": "kingdededesuperdededejumplanding",
+      "variantId": "kingdededesuperdededejump",
       "supersededBy": "smashwiki-kingdededesuperdededejumpssbu"
     },
     {
@@ -6554,6 +7992,12 @@
       "moveId": "neutral-b-blunderbuss-kannonball",
       "variantId": "kingkroolblunderbusskannonballdetection",
       "supersededBy": "smashwiki-kingkroolnspecialvacuumssbu"
+    },
+    {
+      "fighterId": "king-k-rool",
+      "moveId": "pummel",
+      "variantId": "kingkroolpummel",
+      "supersededBy": "smashwiki-kingkroolpummelssbu"
     },
     {
       "fighterId": "king-k-rool",
@@ -6574,6 +8018,18 @@
       "supersededBy": "smashwiki-kingkroolsspecialssbu"
     },
     {
+      "fighterId": "king-k-rool",
+      "moveId": "up-b-propellerpack",
+      "variantId": "kingkroolpropellerpack",
+      "supersededBy": "smashwiki-kingkrooluspecialssbu"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "down-throw",
+      "variantId": "kirbydthrow",
+      "supersededBy": "smashwiki-kirbydthrowssbu"
+    },
+    {
       "fighterId": "kirby",
       "moveId": "neutral-b-inhale",
       "variantId": "kirbyinhalestar",
@@ -6587,15 +8043,75 @@
     },
     {
       "fighterId": "kirby",
+      "moveId": "pummel",
+      "variantId": "kirbypummel",
+      "supersededBy": "smashwiki-kirbypummelssbu"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "side-b-hammer",
+      "variantId": "kirbyhammerflipg",
+      "supersededBy": "smashwiki-kirbysspecialgroundedssbu"
+    },
+    {
+      "fighterId": "kirby",
       "moveId": "up-b-final-cutter",
       "variantId": "kirbyfinalcutter",
       "supersededBy": "smashwiki-kirbyuspecialssbu"
     },
     {
       "fighterId": "kirby",
-      "moveId": "up-b-final-cutter",
-      "variantId": "kirbyfinalcutterlanding",
-      "supersededBy": "smashwiki-kirbyuspecialssbu"
+      "moveId": "up-throw",
+      "variantId": "kirbyuthrow",
+      "supersededBy": "smashwiki-kirbyuthrowssbu"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "down-smash",
+      "variantId": "linkdsmash",
+      "supersededBy": "smashwiki-linkdsmashssbu"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "forward-air",
+      "variantId": "linkfair",
+      "supersededBy": "smashwiki-linkfairssbu"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "pummel",
+      "variantId": "linkpummel",
+      "supersededBy": "smashwiki-linkpummelssbu"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "up-b-air-spin-attack-air",
+      "variantId": "linkspinattacka",
+      "supersededBy": "smashwiki-linkuspecialaerialssbu"
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "forward-smash",
+      "variantId": "littlemacfsmashup",
+      "supersededBy": "smashwiki-littlemacfsmashssbu"
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "pummel",
+      "variantId": "littlemacpummel",
+      "supersededBy": "smashwiki-littlemacpummelssbu"
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "up-b-rising-uppercut",
+      "variantId": "littlemacrisinguppercut",
+      "supersededBy": "smashwiki-littlemacuspecialssbu"
+    },
+    {
+      "fighterId": "lucario",
+      "moveId": "pummel",
+      "variantId": "lucariopummel",
+      "supersededBy": "smashwiki-lucariopummelssbu"
     },
     {
       "fighterId": "lucario",
@@ -6608,6 +8124,24 @@
       "moveId": "up-b-extreme-speed",
       "variantId": "lucarioextremespeeda",
       "supersededBy": "smashwiki-lucarioextremespeedgroundedssbu"
+    },
+    {
+      "fighterId": "lucas",
+      "moveId": "pummel",
+      "variantId": "lucaspummel",
+      "supersededBy": "smashwiki-lucaspummelssbu"
+    },
+    {
+      "fighterId": "lucina",
+      "moveId": "down-throw",
+      "variantId": "lucinadthrow",
+      "supersededBy": "smashwiki-lucinadthrowssbu"
+    },
+    {
+      "fighterId": "lucina",
+      "moveId": "forward-throw",
+      "variantId": "lucinafthrow",
+      "supersededBy": "smashwiki-lucinafthrowssbu"
     },
     {
       "fighterId": "lucina",
@@ -6629,6 +8163,12 @@
     },
     {
       "fighterId": "lucina",
+      "moveId": "pummel",
+      "variantId": "lucinapummel",
+      "supersededBy": "smashwiki-lucinapummelssbu"
+    },
+    {
+      "fighterId": "lucina",
       "moveId": "up-b-dolphin-slash",
       "variantId": "lucinadolphinslashg",
       "supersededBy": "smashwiki-lucinadolphinslashgroundedssbu"
@@ -6638,6 +8178,36 @@
       "moveId": "up-b-dolphin-slash",
       "variantId": "lucinadolphinslasha",
       "supersededBy": "smashwiki-lucinadolphinslashgroundedssbu"
+    },
+    {
+      "fighterId": "luigi",
+      "moveId": "pummel",
+      "variantId": "luigipummel",
+      "supersededBy": "smashwiki-luigipummelssbu"
+    },
+    {
+      "fighterId": "mario",
+      "moveId": "pummel",
+      "variantId": "mariopummel",
+      "supersededBy": "smashwiki-mariopummelssbu"
+    },
+    {
+      "fighterId": "mario",
+      "moveId": "up-b-super-jump-punch",
+      "variantId": "mariosuperjumppunch",
+      "supersededBy": "smashwiki-mariosuperjumppunchssbu"
+    },
+    {
+      "fighterId": "marth",
+      "moveId": "down-throw",
+      "variantId": "marthdthrow",
+      "supersededBy": "smashwiki-marthdthrowssbu"
+    },
+    {
+      "fighterId": "marth",
+      "moveId": "forward-throw",
+      "variantId": "marthfthrow",
+      "supersededBy": "smashwiki-marthfthrowssbu"
     },
     {
       "fighterId": "marth",
@@ -6659,6 +8229,12 @@
     },
     {
       "fighterId": "marth",
+      "moveId": "pummel",
+      "variantId": "marthpummel",
+      "supersededBy": "smashwiki-marthpummelssbu"
+    },
+    {
+      "fighterId": "marth",
       "moveId": "up-b-dolphin-slash",
       "variantId": "marthdolphinslashg",
       "supersededBy": "smashwiki-marthdolphinslashgroundedssbu"
@@ -6668,6 +8244,78 @@
       "moveId": "up-b-dolphin-slash",
       "variantId": "marthdolphinslasha",
       "supersededBy": "smashwiki-marthdolphinslashgroundedssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "dash-grab",
+      "variantId": "megamandashgrab",
+      "supersededBy": "smashwiki-megamandashgrabssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "grab",
+      "variantId": "megamangrab",
+      "supersededBy": "smashwiki-megamangrabssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "jab",
+      "variantId": "megamanjab",
+      "supersededBy": "smashwiki-megamanjabssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "neutral-air",
+      "variantId": "megamannair",
+      "supersededBy": "smashwiki-megamannairssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "pummel",
+      "variantId": "megamanpummel",
+      "supersededBy": "smashwiki-megamanpummelssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "up-air",
+      "variantId": "megamanuair",
+      "supersededBy": "smashwiki-megamanuairssbu"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "up-tilt",
+      "variantId": "megamanutilt",
+      "supersededBy": "smashwiki-megamanutiltssbu"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "dash-grab",
+      "variantId": "metaknightdashgrab",
+      "supersededBy": "smashwiki-metaknightdashgrabssbu"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "grab",
+      "variantId": "metaknightgrab",
+      "supersededBy": "smashwiki-metaknightgrabssbu"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "neutral-b-mach-tornado",
+      "variantId": "metaknightmachtornado",
+      "supersededBy": "smashwiki-metaknightnspecialssbu"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "pivot-grab",
+      "variantId": "metaknightpivotgrab",
+      "supersededBy": "smashwiki-metaknightpivotgrabssbu"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "pummel",
+      "variantId": "metaknightpummel",
+      "supersededBy": "smashwiki-metaknightpummelssbu"
     },
     {
       "fighterId": "meta-knight",
@@ -6680,6 +8328,54 @@
       "moveId": "side-b-drill-rush",
       "variantId": "metaknightdrillrushend",
       "supersededBy": "smashwiki-metaknightsspecialssbu"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "up-throw",
+      "variantId": "metaknightuthrow",
+      "supersededBy": "smashwiki-metaknightuthrowssbu"
+    },
+    {
+      "fighterId": "mewtwo",
+      "moveId": "forward-air",
+      "variantId": "mewtwofair",
+      "supersededBy": "smashwiki-mewtwofairssbu"
+    },
+    {
+      "fighterId": "mewtwo",
+      "moveId": "pummel",
+      "variantId": "mewtwopummel",
+      "supersededBy": "smashwiki-mewtwopummelssbu"
+    },
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "exploding-side-kick",
+      "variantId": "miibrawlerexplodingsidekick",
+      "supersededBy": "smashwiki-miibrawleronslaughtaerialssbu"
+    },
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "pummel",
+      "variantId": "miibrawlerpummel",
+      "supersededBy": "smashwiki-miibrawlerpummelssbu"
+    },
+    {
+      "fighterId": "mii-gunner",
+      "moveId": "forward-air",
+      "variantId": "miigunnerfair",
+      "supersededBy": "smashwiki-miigunnerfairssbu"
+    },
+    {
+      "fighterId": "mii-gunner",
+      "moveId": "pummel",
+      "variantId": "miigunnerpummel",
+      "supersededBy": "smashwiki-miigunnerpummelssbu"
+    },
+    {
+      "fighterId": "mii-swordfighter",
+      "moveId": "pummel",
+      "variantId": "miiswordfighterpummel",
+      "supersededBy": "smashwiki-miiswordfighterpummelssbu"
     },
     {
       "fighterId": "min-min",
@@ -6695,6 +8391,12 @@
     },
     {
       "fighterId": "min-min",
+      "moveId": "forward-smash-megawatt",
+      "variantId": "minminmegawattaerialsmash",
+      "supersededBy": "smashwiki-minminsspecialsmashmegawattssbu"
+    },
+    {
+      "fighterId": "min-min",
       "moveId": "forward-smash-power-dragon-laser",
       "variantId": "minminpowerdragonfsmash",
       "supersededBy": "smashwiki-minminfairbairsmashpowerdragonssbu"
@@ -6704,6 +8406,12 @@
       "moveId": "forward-smash-power-dragon-laser",
       "variantId": "minminpowerdragonaerialsmash",
       "supersededBy": "smashwiki-minminfairbairsmashpowerdragonssbu"
+    },
+    {
+      "fighterId": "min-min",
+      "moveId": "forward-smash-ramram",
+      "variantId": "minminramramaerialsmash",
+      "supersededBy": "smashwiki-minminsspecialsmashramramssbu"
     },
     {
       "fighterId": "min-min",
@@ -6730,12 +8438,6 @@
       "supersededBy": "smashwiki-minminjabftiltpowerdragonssbu"
     },
     {
-      "fighterId": "min-min",
-      "moveId": "jab-1",
-      "variantId": "minminjab1",
-      "supersededBy": "smashwiki-minminjab1ssbu"
-    },
-    {
       "fighterId": "mr-game-and-watch",
       "moveId": "back-air",
       "variantId": "mrgame-watchbair",
@@ -6743,9 +8445,15 @@
     },
     {
       "fighterId": "mr-game-and-watch",
-      "moveId": "back-air",
-      "variantId": "mrgame-watchbairlanding",
-      "supersededBy": "smashwiki-mrgame-26watchbairssbu"
+      "moveId": "dash-attack",
+      "variantId": "mrgame-watchdashattack",
+      "supersededBy": "smashwiki-mrgame-26watchdashattackssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "dash-grab",
+      "variantId": "mrgame-watchdashgrab",
+      "supersededBy": "smashwiki-mrgame-26watchdashgrabssbu"
     },
     {
       "fighterId": "mr-game-and-watch",
@@ -6755,9 +8463,63 @@
     },
     {
       "fighterId": "mr-game-and-watch",
-      "moveId": "down-air",
-      "variantId": "mrgame-watchdairlanding",
-      "supersededBy": "smashwiki-mrgame-26watchdairssbu"
+      "moveId": "down-smash",
+      "variantId": "mrgame-watchdsmash",
+      "supersededBy": "smashwiki-mrgame-26watchdsmashssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-throw",
+      "variantId": "mrgame-watchdthrow",
+      "supersededBy": "smashwiki-mrgame-26watchdthrowssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-tilt",
+      "variantId": "mrgame-watchdtilt",
+      "supersededBy": "smashwiki-mrgame-26watchdtiltssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-air",
+      "variantId": "mrgame-watchfair",
+      "supersededBy": "smashwiki-mrgame-26watchfairssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-smash",
+      "variantId": "mrgame-watchfsmash",
+      "supersededBy": "smashwiki-mrgame-26watchfsmashssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-throw",
+      "variantId": "mrgame-watchfthrow",
+      "supersededBy": "smashwiki-mrgame-26watchfthrowuthrowssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-tilt",
+      "variantId": "mrgame-watchftilt",
+      "supersededBy": "smashwiki-mrgame-26watchftiltssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "grab",
+      "variantId": "mrgame-watchgrab",
+      "supersededBy": "smashwiki-mrgame-26watchgrabssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "jab",
+      "variantId": "mrgame-watchjab",
+      "supersededBy": "smashwiki-mrgame-26watchjabssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "neutral-air",
+      "variantId": "mrgame-watchnair",
+      "supersededBy": "smashwiki-mrgame-26watchnairssbu"
     },
     {
       "fighterId": "mr-game-and-watch",
@@ -6770,6 +8532,18 @@
       "moveId": "neutral-b-chef",
       "variantId": "mrgame-watchchef-png",
       "supersededBy": "smashwiki-mrgame-26watchnspecialpanssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "pivot-grab",
+      "variantId": "mrgame-watchpivotgrab",
+      "supersededBy": "smashwiki-mrgame-26watchpivotgrabssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "pummel",
+      "variantId": "mrgamewatchpummel",
+      "supersededBy": "smashwiki-mrgame-26watchpummelssbu"
     },
     {
       "fighterId": "mr-game-and-watch",
@@ -6826,6 +8600,42 @@
       "supersededBy": "smashwiki-mrgame-26watchsspecial1ssbu"
     },
     {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-air",
+      "variantId": "mrgame-watchuair",
+      "supersededBy": "smashwiki-mrgame-26watchuairssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-b-fire",
+      "variantId": "mrgame-watchfirea",
+      "supersededBy": "smashwiki-mrgame-26watchuspecialgroundedssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-smash",
+      "variantId": "mrgame-watchusmash",
+      "supersededBy": "smashwiki-mrgame-26watchusmashssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-throw",
+      "variantId": "mrgamewatchuthrow",
+      "supersededBy": "smashwiki-mrgame-26watchuthrowssbu"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-tilt",
+      "variantId": "mrgame-watchutilt",
+      "supersededBy": "smashwiki-mrgame-26watchutiltssbu"
+    },
+    {
+      "fighterId": "mythra",
+      "moveId": "jab-3",
+      "variantId": "mythrajab3",
+      "supersededBy": "smashwiki-mythrajab3ssbu"
+    },
+    {
       "fighterId": "mythra",
       "moveId": "neutral-b-lightning-buster",
       "variantId": "mythralightningbuster",
@@ -6839,9 +8649,9 @@
     },
     {
       "fighterId": "mythra",
-      "moveId": "side-b-photon-edge",
-      "variantId": "mythraphotonedge2",
-      "supersededBy": "smashwiki-mythrasspecialssbu"
+      "moveId": "pummel",
+      "variantId": "mythrapummel",
+      "supersededBy": "smashwiki-mythrapummelssbu"
     },
     {
       "fighterId": "mythra",
@@ -6875,21 +8685,27 @@
     },
     {
       "fighterId": "ness",
-      "moveId": "side-b-pk-fire",
-      "variantId": "nesspkfirepillar",
-      "supersededBy": "smashwiki-nesspkfiregssbu"
+      "moveId": "down-throw",
+      "variantId": "nessdthrow",
+      "supersededBy": "smashwiki-nessdthrowssbu"
+    },
+    {
+      "fighterId": "ness",
+      "moveId": "pummel",
+      "variantId": "nesspummel",
+      "supersededBy": "smashwiki-nesspummelssbu"
     },
     {
       "fighterId": "olimar",
-      "moveId": "down-smash",
-      "variantId": "olimarandhistwobignuts",
-      "supersededBy": "smashwiki-redpikmindsmashssbu"
+      "moveId": "pummel",
+      "variantId": "olimarpummel",
+      "supersededBy": "smashwiki-olimarpummelssbu"
     },
     {
-      "fighterId": "olimar",
-      "moveId": "up-smash",
-      "variantId": "olimarusmash",
-      "supersededBy": "smashwiki-redpikminusmashssbu"
+      "fighterId": "pac-man",
+      "moveId": "pummel",
+      "variantId": "pacmanpummel",
+      "supersededBy": "smashwiki-pacmanpummelssbu"
     },
     {
       "fighterId": "pac-man",
@@ -6904,6 +8720,30 @@
       "supersededBy": "smashwiki-pacmanuspecialssbu"
     },
     {
+      "fighterId": "palutena",
+      "moveId": "dash-attack",
+      "variantId": "palutenadashattack",
+      "supersededBy": "smashwiki-palutenadashattackssbu"
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "pummel",
+      "variantId": "palutenapummel",
+      "supersededBy": "smashwiki-palutenapummelssbu"
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "side-b-explosive-flame",
+      "variantId": "palutenaexplosiveflame",
+      "supersededBy": "smashwiki-palutenasspecialssbu"
+    },
+    {
+      "fighterId": "peach",
+      "moveId": "pummel",
+      "variantId": "peachpummel",
+      "supersededBy": "smashwiki-peachpummelssbu"
+    },
+    {
       "fighterId": "peach",
       "moveId": "up-b-peach-parasol",
       "variantId": "peachpeachparasol",
@@ -6916,10 +8756,190 @@
       "supersededBy": "smashwiki-peachuspecialrisingssbu"
     },
     {
+      "fighterId": "pichu",
+      "moveId": "down-b-thunder",
+      "variantId": "pichuthunderhit",
+      "supersededBy": "smashwiki-pichuthunderssbu"
+    },
+    {
+      "fighterId": "pichu",
+      "moveId": "pummel",
+      "variantId": "pichupummel",
+      "supersededBy": "smashwiki-pichupummelssbu"
+    },
+    {
+      "fighterId": "pichu",
+      "moveId": "side-b-skull-bash",
+      "variantId": "pichuskullbash",
+      "supersededBy": "smashwiki-pichusidespecialssbu"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "down-b-thunder",
+      "variantId": "pikachuthunderhit",
+      "supersededBy": "smashwiki-pikachudspecialmissssbu"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "down-throw",
+      "variantId": "pikachudthrow",
+      "supersededBy": "smashwiki-pikachudthrowssbu"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "pummel",
+      "variantId": "pikachupummel",
+      "supersededBy": "smashwiki-pikachupummelssbu"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "side-b-skull-bash",
+      "variantId": "pikachuskullbash",
+      "supersededBy": "smashwiki-pikachusspecialhitssbu"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "up-b-quick-attack",
+      "variantId": "pikachuquickattack",
+      "supersededBy": "smashwiki-pikachuquickattackssbu"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "down-b-long-stem-strike",
+      "variantId": "piranhaplantlong-stemstrike",
+      "supersededBy": "crossmod-long-20stem-20strike"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "footstool-attack",
+      "variantId": "piranhaplantfootstoolattack",
+      "supersededBy": "crossmod-footstool-20attack"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "pummel",
+      "variantId": "piranhaplantpummel",
+      "supersededBy": "crossmod-pummel"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "up-b-piranhacopter",
+      "variantId": "piranhaplantpiranhacopter",
+      "supersededBy": "crossmod-piranhacopter"
+    },
+    {
+      "fighterId": "pit",
+      "moveId": "pummel",
+      "variantId": "pitpummel",
+      "supersededBy": "smashwiki-pitpummelssbu"
+    },
+    {
+      "fighterId": "pit",
+      "moveId": "side-b-air-upperdash-arm-air",
+      "variantId": "pitupperdasharmhita",
+      "supersededBy": "smashwiki-pitsspecialaerialssbu"
+    },
+    {
       "fighterId": "pyra",
-      "moveId": "neutral-b-flame-nova",
-      "variantId": "pyraflamenova1",
-      "supersededBy": "smashwiki-pyranspecial1ssbu"
+      "moveId": "dash-attack",
+      "variantId": "pyradashattack",
+      "supersededBy": "smashwiki-pyradashattackssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "down-air",
+      "variantId": "pyradair",
+      "supersededBy": "smashwiki-pyradairssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "forward-tilt",
+      "variantId": "pyraftilt",
+      "supersededBy": "smashwiki-pyraftiltssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "neutral-air",
+      "variantId": "pyranair",
+      "supersededBy": "smashwiki-pyranairssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "pummel",
+      "variantId": "pyrapummel",
+      "supersededBy": "smashwiki-pyrapummelssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "up-air",
+      "variantId": "pyrauair",
+      "supersededBy": "smashwiki-pyrauairssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "up-b-prominence-revolt",
+      "variantId": "pyraprominencerevolt",
+      "supersededBy": "smashwiki-pyrauspecialssbu"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "up-tilt",
+      "variantId": "pyrautiltinterpolated",
+      "supersededBy": "smashwiki-pyrautiltssbu"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "down-air",
+      "variantId": "richterdair",
+      "supersededBy": "smashwiki-richterdairssbu"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "down-throw",
+      "variantId": "richterdthrow",
+      "supersededBy": "smashwiki-richterdthrowssbu"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "down-tilt-2",
+      "variantId": "richterdtilt2",
+      "supersededBy": "smashwiki-richterdtilt2ssbu"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "pummel",
+      "variantId": "richterpummel",
+      "supersededBy": "smashwiki-richterpummelssbu"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "up-b-uppercut",
+      "variantId": "richteruppercut",
+      "supersededBy": "smashwiki-richterupspecialaerialssbu"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "dash-grab",
+      "variantId": "robdashgrab",
+      "supersededBy": "smashwiki-robdashgrabssbu"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "down-throw",
+      "variantId": "robdthrow",
+      "supersededBy": "smashwiki-robdthrowssbu"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "grab",
+      "variantId": "robgrab",
+      "supersededBy": "smashwiki-robgrabssbu"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "pummel",
+      "variantId": "robpummel",
+      "supersededBy": "smashwiki-robpummelssbu"
     },
     {
       "fighterId": "robin",
@@ -6940,6 +8960,48 @@
       "supersededBy": "smashwiki-robinthunderssbu"
     },
     {
+      "fighterId": "robin",
+      "moveId": "pummel",
+      "variantId": "robinpummel",
+      "supersededBy": "smashwiki-robinpummelssbu"
+    },
+    {
+      "fighterId": "robin",
+      "moveId": "up-b-elwind",
+      "variantId": "robinelwind",
+      "supersededBy": "smashwiki-robinelwindssbu"
+    },
+    {
+      "fighterId": "rosalina-and-luma",
+      "moveId": "pummel",
+      "variantId": "rosalinapummel",
+      "supersededBy": "smashwiki-rosalina-26lumapummelssbu"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "down-throw",
+      "variantId": "roydthrow",
+      "supersededBy": "smashwiki-roydthrowssbu"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "forward-throw",
+      "variantId": "royfthrow",
+      "supersededBy": "smashwiki-royfthrowssbu"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "neutral-b-flare-blade",
+      "variantId": "royflareblade",
+      "supersededBy": "smashwiki-roynspecialssbu"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "pummel",
+      "variantId": "roypummel",
+      "supersededBy": "smashwiki-roypummelssbu"
+    },
+    {
       "fighterId": "roy",
       "moveId": "up-b-blazer",
       "variantId": "royblazerg",
@@ -6950,6 +9012,24 @@
       "moveId": "up-b-blazer",
       "variantId": "royblazera",
       "supersededBy": "smashwiki-royblazergroundedssbu"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "up-throw",
+      "variantId": "royuthrow",
+      "supersededBy": "smashwiki-royuthrowssbu"
+    },
+    {
+      "fighterId": "ryu",
+      "moveId": "forward-air",
+      "variantId": "ryufair",
+      "supersededBy": "smashwiki-ryufairssbu"
+    },
+    {
+      "fighterId": "ryu",
+      "moveId": "pummel",
+      "variantId": "ryupummel",
+      "supersededBy": "smashwiki-ryupummelssbu"
     },
     {
       "fighterId": "ryu",
@@ -6970,6 +9050,30 @@
       "supersededBy": "smashwiki-ryuuspecialmiddlessbu"
     },
     {
+      "fighterId": "samus",
+      "moveId": "pummel",
+      "variantId": "samuspummel",
+      "supersededBy": "smashwiki-samuspummelssbu"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "up-b-air-screw-attack-air",
+      "variantId": "samusscrewattacka",
+      "supersededBy": "smashwiki-samususpecialaerialssbu"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "up-throw",
+      "variantId": "samusuthrow",
+      "supersededBy": "smashwiki-samusuthrowssbu"
+    },
+    {
+      "fighterId": "sephiroth",
+      "moveId": "pummel",
+      "variantId": "sephirothpummel",
+      "supersededBy": "smashwiki-sephirothpummelssbu"
+    },
+    {
       "fighterId": "sephiroth",
       "moveId": "side-b-shadow-flare",
       "variantId": "sephirothshadowflaremin",
@@ -6980,6 +9084,36 @@
       "moveId": "side-b-shadow-flare",
       "variantId": "sephirothshadowflareamin",
       "supersededBy": "smashwiki-sephirothsspecialminssbu"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "dash-grab",
+      "variantId": "sheikdashgrab",
+      "supersededBy": "smashwiki-sheikdashgrabssbu"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "down-b-bouncing-fish",
+      "variantId": "sheikbouncingfish",
+      "supersededBy": "smashwiki-sheikdspecialssbu"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "grab",
+      "variantId": "sheikgrab",
+      "supersededBy": "smashwiki-sheikgrabssbu"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "pivot-grab",
+      "variantId": "sheikpivotgrab",
+      "supersededBy": "smashwiki-sheikpivotgrabssbu"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "pummel",
+      "variantId": "sheikpummel",
+      "supersededBy": "smashwiki-sheikpummelssbu"
     },
     {
       "fighterId": "sheik",
@@ -7006,6 +9140,96 @@
       "supersededBy": "smashwiki-shulkdspecialssbu"
     },
     {
+      "fighterId": "shulk",
+      "moveId": "pummel",
+      "variantId": "shulkpummel",
+      "supersededBy": "smashwiki-shulkpummelssbu"
+    },
+    {
+      "fighterId": "shulk",
+      "moveId": "up-b-air-slash",
+      "variantId": "shulkairslash1",
+      "supersededBy": "smashwiki-shulkuspecial1ssbu"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "down-air",
+      "variantId": "simondair",
+      "supersededBy": "smashwiki-simondairssbu"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "down-throw",
+      "variantId": "simondthrow",
+      "supersededBy": "smashwiki-simondthrowssbu"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "down-tilt-2",
+      "variantId": "simondtilt2",
+      "supersededBy": "smashwiki-simondtilt2ssbu"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "pummel",
+      "variantId": "simonpummel",
+      "supersededBy": "smashwiki-simonpummelssbu"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "up-b-uppercut",
+      "variantId": "simonuppercut",
+      "supersededBy": "smashwiki-simonuspecialssbu"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "forward-throw",
+      "variantId": "snakefthrow",
+      "supersededBy": "smashwiki-snakefthrowssbu"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "pivot-grab",
+      "variantId": "snakepivotgrab",
+      "supersededBy": "smashwiki-snakepivotgrabssbu"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "pummel",
+      "variantId": "snakepummel",
+      "supersededBy": "smashwiki-snakepummelssbu"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "up-smash",
+      "variantId": "snakeusmashsearch",
+      "supersededBy": "smashwiki-snakeusmashssbu"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "dash-grab",
+      "variantId": "sonicdashgrab",
+      "supersededBy": "smashwiki-sonicdashgrabssbu"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "grab",
+      "variantId": "sonicgrab",
+      "supersededBy": "smashwiki-sonicgrabssbu"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "pivot-grab",
+      "variantId": "sonicpivotgrab",
+      "supersededBy": "smashwiki-sonicpivotgrabssbu"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "pummel",
+      "variantId": "sonicpummel",
+      "supersededBy": "smashwiki-sonicpummelssbu"
+    },
+    {
       "fighterId": "sonic",
       "moveId": "side-b-spin-dash",
       "variantId": "sonicspindash",
@@ -7022,6 +9246,12 @@
       "moveId": "side-b-spin-dash",
       "variantId": "sonicspindashhop",
       "supersededBy": "smashwiki-sonicsspecialaerialssbu"
+    },
+    {
+      "fighterId": "sora",
+      "moveId": "pummel",
+      "variantId": "sorapummel",
+      "supersededBy": "smashwiki-sorapummelssbu"
     },
     {
       "fighterId": "sora",
@@ -7042,10 +9272,16 @@
       "supersededBy": "smashwiki-sorasonicblade1ssbu"
     },
     {
+      "fighterId": "sora",
+      "moveId": "up-b-aerial-sweep",
+      "variantId": "soraaerialsweep",
+      "supersededBy": "smashwiki-soraaerialsweepssbu"
+    },
+    {
       "fighterId": "steve",
-      "moveId": "dash-attack",
-      "variantId": "stevedashattackgold",
-      "supersededBy": "smashwiki-stevedashattackpunchssbu"
+      "moveId": "dash-grab",
+      "variantId": "stevedashgrab",
+      "supersededBy": "smashwiki-stevedashgrabssbu"
     },
     {
       "fighterId": "steve",
@@ -7097,9 +9333,15 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "jab-forward-tilt",
-      "variantId": "stevejabftiltgold",
-      "supersededBy": "smashwiki-stevejabftiltpunchssbu"
+      "moveId": "forward-throw",
+      "variantId": "stevefthrow",
+      "supersededBy": "smashwiki-stevefthrowssbu"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "grab",
+      "variantId": "stevegrab",
+      "supersededBy": "smashwiki-stevegrabssbu"
     },
     {
       "fighterId": "steve",
@@ -7121,6 +9363,18 @@
     },
     {
       "fighterId": "steve",
+      "moveId": "pivot-grab",
+      "variantId": "stevepivotgrab",
+      "supersededBy": "smashwiki-stevepivotgrabssbu"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "pummel",
+      "variantId": "stevepummel",
+      "supersededBy": "smashwiki-stevepummelssbu"
+    },
+    {
+      "fighterId": "steve",
       "moveId": "side-b-minecart",
       "variantId": "steveminecartride",
       "supersededBy": "smashwiki-stevesspecialfreessbu"
@@ -7133,9 +9387,21 @@
     },
     {
       "fighterId": "steve",
-      "moveId": "up-air",
-      "variantId": "steveuairgold",
-      "supersededBy": "smashwiki-steveuairpunchssbu"
+      "moveId": "up-b-elytra",
+      "variantId": "steveelytra",
+      "supersededBy": "smashwiki-steveuspecialssbu"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "up-smash",
+      "variantId": "steveusmash",
+      "supersededBy": "smashwiki-steveusmashssbu"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "up-throw",
+      "variantId": "steveuthrow",
+      "supersededBy": "smashwiki-steveuthrowssbu"
     },
     {
       "fighterId": "steve",
@@ -7198,10 +9464,76 @@
       "supersededBy": "smashwiki-terrydspecialupweakssbu"
     },
     {
+      "fighterId": "terry",
+      "moveId": "forward-air",
+      "variantId": "terryfair",
+      "supersededBy": "smashwiki-terryfairssbu"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "forward-smash",
+      "variantId": "terryfsmash",
+      "supersededBy": "smashwiki-terryfsmashssbu"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "jab-2",
+      "variantId": "terryjab2",
+      "supersededBy": "smashwiki-terryjab2ssbu"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "jab-3",
+      "variantId": "terryjab3",
+      "supersededBy": "smashwiki-terryjab3ssbu"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "pummel",
+      "variantId": "terrypummel",
+      "supersededBy": "smashwiki-terrypummelssbu"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "up-b-rising-tackle",
+      "variantId": "terryrisingtackle",
+      "supersededBy": "smashwiki-terryuspecialssbu"
+    },
+    {
+      "fighterId": "toon-link",
+      "moveId": "back-air",
+      "variantId": "toonlinkbair",
+      "supersededBy": "smashwiki-toonlinkbairssbu"
+    },
+    {
+      "fighterId": "toon-link",
+      "moveId": "pummel",
+      "variantId": "toonlinkpummel",
+      "supersededBy": "smashwiki-toonlinkpummelssbu"
+    },
+    {
       "fighterId": "villager",
       "moveId": "dash-attack",
-      "variantId": "villagerdashattackoffledge",
+      "variantId": "villagerdashattack",
       "supersededBy": "smashwiki-villagerdashattackssbu"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "forward-smash",
+      "variantId": "villagerfsmash",
+      "supersededBy": "smashwiki-villagerfsmashssbu"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "neutral-b-pocket",
+      "variantId": "villagerpocket",
+      "supersededBy": "smashwiki-villagerpocketssbu"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "pummel",
+      "variantId": "villagerpummel",
+      "supersededBy": "smashwiki-villagerpummelssbu"
     },
     {
       "fighterId": "wario",
@@ -7223,6 +9555,12 @@
     },
     {
       "fighterId": "wario",
+      "moveId": "down-throw",
+      "variantId": "wariodthrow",
+      "supersededBy": "smashwiki-wariodthrowssbu"
+    },
+    {
+      "fighterId": "wario",
       "moveId": "neutral-b-chomp",
       "variantId": "wariochomp",
       "supersededBy": "smashwiki-wariochompssbu"
@@ -7232,6 +9570,24 @@
       "moveId": "neutral-b-chomp",
       "variantId": "wariochompbite",
       "supersededBy": "smashwiki-wariochompssbu"
+    },
+    {
+      "fighterId": "wario",
+      "moveId": "pummel",
+      "variantId": "wariopummel",
+      "supersededBy": "smashwiki-wariopummelssbu"
+    },
+    {
+      "fighterId": "wario",
+      "moveId": "up-b-corkscrew",
+      "variantId": "wariocorkscrew",
+      "supersededBy": "smashwiki-wariocorkscrewssbu"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "dash-grab",
+      "variantId": "wolfdashgrab",
+      "supersededBy": "smashwiki-wolfdashgrabssbu"
     },
     {
       "fighterId": "wolf",
@@ -7250,6 +9606,54 @@
       "moveId": "down-b-reflector",
       "variantId": "wolfreflectorhit",
       "supersededBy": "smashwiki-wolfdspecialstartssbu"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "down-smash",
+      "variantId": "wolfdsmash",
+      "supersededBy": "smashwiki-wolfdsmashssbu"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "forward-smash",
+      "variantId": "wolffsmash",
+      "supersededBy": "smashwiki-wolffsmashssbu"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "pivot-grab",
+      "variantId": "wolfpivotgrab",
+      "supersededBy": "smashwiki-wolfpivotgrabssbu"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "pummel",
+      "variantId": "wolfpummel",
+      "supersededBy": "smashwiki-wolfpummelssbu"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "side-b-wolf-flash",
+      "variantId": "wolfwolfflash",
+      "supersededBy": "smashwiki-wolfsspecialssbu"
+    },
+    {
+      "fighterId": "yoshi",
+      "moveId": "pummel",
+      "variantId": "yoshipummel",
+      "supersededBy": "smashwiki-yoshipummelssbu"
+    },
+    {
+      "fighterId": "young-link",
+      "moveId": "pummel",
+      "variantId": "younglinkpummel",
+      "supersededBy": "smashwiki-younglinkpummelssbu"
+    },
+    {
+      "fighterId": "young-link",
+      "moveId": "up-b-air-spin-attack-air",
+      "variantId": "younglinkspinattacka",
+      "supersededBy": "smashwiki-younglinkuspecialaerialssbu"
     },
     {
       "fighterId": "zelda",
@@ -7276,6 +9680,30 @@
       "supersededBy": "smashwiki-zeldadspecialkickssbu"
     },
     {
+      "fighterId": "zelda",
+      "moveId": "jab",
+      "variantId": "zeldajab",
+      "supersededBy": "smashwiki-zeldajabssbu"
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "pummel",
+      "variantId": "zeldapummel",
+      "supersededBy": "smashwiki-zeldapummelssbu"
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "up-b-farore-s-wind",
+      "variantId": "zeldafaroreswindg",
+      "supersededBy": "smashwiki-zeldauspecialgroundedssbu"
+    },
+    {
+      "fighterId": "zero-suit-samus",
+      "moveId": "pummel",
+      "variantId": "zerosuitsamuspummel",
+      "supersededBy": "smashwiki-zsspummelssbu"
+    },
+    {
       "fighterId": "zero-suit-samus",
       "moveId": "up-b-boost-kick",
       "variantId": "zerosuitsamusboostkickg",
@@ -7288,112 +9716,1785 @@
       "supersededBy": "smashwiki-zssuspecialgroundedssbu"
     }
   ],
-  "removedSupersededReferences": 15,
-  "rejectedAmbiguousSupersessions": 146,
+  "removedSupersededReferences": 254,
+  "rejectedAmbiguousSupersessions": 136,
   "removed": [
     {
       "fighterId": "banjo-and-kazooie",
-      "moveId": "down-air",
-      "variantId": "banjo-kazooiedairlanding",
-      "supersededBy": "smashwiki-banjo-26kazooiedairssbu",
+      "moveId": "pummel",
+      "variantId": "banjo-kazooiepummel",
+      "supersededBy": "smashwiki-banjo-26kazooiepummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "banjo-and-kazooie",
+      "moveId": "side-b-wonderwing",
+      "variantId": "banjo-kazooiewonderwing",
+      "supersededBy": "smashwiki-banjo-26kazooiewonderwingssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "bayonetta",
-      "moveId": "down-smash",
-      "variantId": "bayonettadsmashstomp",
-      "supersededBy": "smashwiki-bayonettadsmashssbu",
+      "moveId": "forward-smash",
+      "variantId": "bayonettafsmash",
+      "supersededBy": "smashwiki-bayonettafsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "jab-3",
+      "variantId": "bayonettajab3",
+      "supersededBy": "smashwiki-bayonettajab3ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "neutral-air",
+      "variantId": "bayonettanair",
+      "supersededBy": "smashwiki-bayonettanairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "pummel",
+      "variantId": "bayonettapummel",
+      "supersededBy": "smashwiki-bayonettapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "side-b-heel-slide",
+      "variantId": "bayonettaheelslideend",
+      "supersededBy": "smashwiki-bayonettaheelslidessbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "up-air",
+      "variantId": "bayonettauair",
+      "supersededBy": "smashwiki-bayonettauairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "up-smash",
+      "variantId": "bayonettausmash",
+      "supersededBy": "smashwiki-bayonettausmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bowser",
+      "moveId": "pummel",
+      "variantId": "bowserpummel",
+      "supersededBy": "smashwiki-bowserpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bowser",
+      "moveId": "up-b-air-whirling-fortress-air",
+      "variantId": "bowserwhirlingfortressa",
+      "supersededBy": "smashwiki-bowserwhirlingfortressaerialssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "bowser-jr",
-      "moveId": "forward-air",
-      "variantId": "bowserjrfairlanding",
-      "supersededBy": "smashwiki-bowserjrfairssbu",
+      "moveId": "down-smash",
+      "variantId": "bowserjrdsmash",
+      "supersededBy": "smashwiki-bowserjrdsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "neutral-b-clown-cannon",
+      "variantId": "bowserjrclowncannon",
+      "supersededBy": "smashwiki-bowserjrnspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "pummel",
+      "variantId": "bowserjrpummel",
+      "supersededBy": "smashwiki-bowserjrpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "up-b-abandon-ship",
+      "variantId": "bowserjrabandonship",
+      "supersededBy": "smashwiki-bowserjrabandonshiphammerssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "byleth",
+      "moveId": "down-smash",
+      "variantId": "bylethdsmash",
+      "supersededBy": "smashwiki-bylethdsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "byleth",
+      "moveId": "pummel",
+      "variantId": "bylethpummel",
+      "supersededBy": "smashwiki-bylethpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "byleth",
+      "moveId": "side-b-areadbhar",
+      "variantId": "bylethareadbharaerial",
+      "supersededBy": "smashwiki-bylethsspecialgroundedssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "captain-falcon",
+      "moveId": "down-b-air-falcon-kick-air",
+      "variantId": "captainfalconfalconkicka",
+      "supersededBy": "smashwiki-captainfalconfalconkickaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "captain-falcon",
+      "moveId": "down-throw",
+      "variantId": "captainfalcondthrow",
+      "supersededBy": "smashwiki-captainfalcondthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "captain-falcon",
+      "moveId": "pummel",
+      "variantId": "captainfalconpummel",
+      "supersededBy": "smashwiki-captainfalconpummelssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "captain-falcon",
       "moveId": "up-b-falcon-dive",
-      "variantId": "captainfalconfalcondivecatch",
+      "variantId": "captainfalconfalcondiveg",
       "supersededBy": "smashwiki-captainfalconfalcondivessbu",
+      "basis": "variant-label-equivalence"
+    },
+    {
+      "fighterId": "captain-falcon",
+      "moveId": "up-b-falcon-dive",
+      "variantId": "captainfalconfalcondivea",
+      "supersededBy": "smashwiki-captainfalconfalcondivessbu",
+      "basis": "variant-label-equivalence"
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "forward-smash",
+      "variantId": "chromfsmash",
+      "supersededBy": "smashwiki-chromfsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "neutral-b-flare-blade",
+      "variantId": "chromflareblade",
+      "supersededBy": "smashwiki-chromnspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "chrom",
+      "moveId": "pummel",
+      "variantId": "chrompummel",
+      "supersededBy": "smashwiki-chrompummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "forward-smash",
+      "variantId": "cloudfsmash",
+      "supersededBy": "smashwiki-cloudfsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "pummel",
+      "variantId": "cloudpummel",
+      "supersededBy": "smashwiki-cloudpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "cloud",
+      "moveId": "up-b-climhazzard",
+      "variantId": "cloudclimhazzard",
+      "supersededBy": "smashwiki-cloudclimhazzardssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "down-b-counter-surge",
+      "variantId": "corrincountersurge",
+      "supersededBy": "smashwiki-corrindspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "pummel",
+      "variantId": "corrinpummel",
+      "supersededBy": "smashwiki-corrinpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "up-b-dragon-ascent",
+      "variantId": "corrindragonascent",
+      "supersededBy": "smashwiki-corrinuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "daisy",
+      "moveId": "pummel",
+      "variantId": "daisypummel",
+      "supersededBy": "smashwiki-daisypummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "dark-pit",
+      "moveId": "pummel",
+      "variantId": "darkpitpummel",
+      "supersededBy": "smashwiki-darkpitpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "pummel",
+      "variantId": "darksamuspummel",
+      "supersededBy": "smashwiki-darksamuspummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "up-b-air-screw-attack-air",
+      "variantId": "darksamusscrewattacka",
+      "supersededBy": "smashwiki-darksamususpecialaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "up-throw",
+      "variantId": "darksamusuthrow",
+      "supersededBy": "smashwiki-darksamusuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "diddy-kong",
+      "moveId": "pummel",
+      "variantId": "diddykongpummel",
+      "supersededBy": "smashwiki-diddykongpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "dr-mario",
+      "moveId": "pummel",
+      "variantId": "drmariopummel",
+      "supersededBy": "smashwiki-dr-mariopummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "dr-mario",
+      "moveId": "up-b-super-jump-punch",
+      "variantId": "drmariosuperjumppunch",
+      "supersededBy": "smashwiki-dr-mariosuperjumppunchssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "pummel",
+      "variantId": "duckhuntpummel",
+      "supersededBy": "smashwiki-duckhuntpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "falco",
+      "moveId": "pummel",
+      "variantId": "falcopummel",
+      "supersededBy": "smashwiki-falcopummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "fox",
+      "moveId": "pummel",
+      "variantId": "foxpummel",
+      "supersededBy": "smashwiki-foxpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "fox",
+      "moveId": "side-b-fox-illusion",
+      "variantId": "foxfoxillusion",
+      "supersededBy": "smashwiki-foxsspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "fox",
+      "moveId": "up-b-fire-fox",
+      "variantId": "foxfirefox",
+      "supersededBy": "smashwiki-foxuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ganondorf",
+      "moveId": "pummel",
+      "variantId": "ganondorfpummel",
+      "supersededBy": "smashwiki-ganondorfpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ganondorf",
+      "moveId": "side-b-air-flame-choke-air",
+      "variantId": "ganondorfflamechokea",
+      "supersededBy": "smashwiki-ganondorfsspecialaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ganondorf",
+      "moveId": "up-b-dark-dive",
+      "variantId": "ganondorfdarkdive1",
+      "supersededBy": "smashwiki-ganondorfuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "greninja",
+      "moveId": "pummel",
+      "variantId": "greninjapummel",
+      "supersededBy": "smashwiki-greninjapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "greninja",
+      "moveId": "up-b-hydro-pump",
+      "variantId": "greninjahydropump",
+      "supersededBy": "smashwiki-greninjauspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "hero",
+      "moveId": "pummel",
+      "variantId": "heropummel",
+      "supersededBy": "smashwiki-heropummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "dash-grab",
+      "variantId": "popodashgrab",
+      "supersededBy": "smashwiki-iceclimbersdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "grab",
+      "variantId": "popograb",
+      "supersededBy": "smashwiki-iceclimbersgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "pummel",
+      "variantId": "popopummel",
+      "supersededBy": "smashwiki-iceclimberspummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "up-b-belay",
+      "variantId": "nanabelay",
+      "supersededBy": "smashwiki-iceclimbersuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ike",
+      "moveId": "down-b-counter",
+      "variantId": "ikecounter",
+      "supersededBy": "smashwiki-ikecounterssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ike",
+      "moveId": "pummel",
+      "variantId": "ikepummel",
+      "supersededBy": "smashwiki-ikepummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "incineroar",
+      "moveId": "forward-air",
+      "variantId": "incineroarfair",
+      "supersededBy": "smashwiki-incineroarfairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "incineroar",
+      "moveId": "pummel",
+      "variantId": "incineroarpummel",
+      "supersededBy": "smashwiki-incineroarpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "inkling",
+      "moveId": "pummel",
+      "variantId": "inklingpummel",
+      "supersededBy": "smashwiki-inklingpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "inkling",
+      "moveId": "up-b-super-jump",
+      "variantId": "inklingsuperjump",
+      "supersededBy": "smashwiki-inklinguspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "jigglypuff",
+      "moveId": "grab",
+      "variantId": "jigglypuffgrab",
+      "supersededBy": "crossmod-grab",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "jigglypuff",
+      "moveId": "pummel",
+      "variantId": "jigglypuffpummel",
+      "supersededBy": "crossmod-pummel",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "down-b-arsene-tetrakarn-makarakarn",
+      "variantId": "jokertetrakarn-makarakarn",
+      "supersededBy": "smashwiki-jokertetrakarnmakarakarnssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "pummel",
+      "variantId": "jokerpummel",
+      "supersededBy": "smashwiki-jokerpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kazuya",
+      "moveId": "jab-7",
+      "variantId": "shoto4jab7",
+      "supersededBy": "smashwiki-kazuyajab7ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kazuya",
+      "moveId": "pummel",
+      "variantId": "shoto4pummel",
+      "supersededBy": "smashwiki-kazuyapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ken",
+      "moveId": "forward-air",
+      "variantId": "kenfair",
+      "supersededBy": "smashwiki-kenfairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ken",
+      "moveId": "pummel",
+      "variantId": "kenpummel",
+      "supersededBy": "smashwiki-kenpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "dash-grab",
+      "variantId": "kingdedededashgrab",
+      "supersededBy": "smashwiki-kingdedededashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "forward-smash",
+      "variantId": "kingdededefsmash",
+      "supersededBy": "smashwiki-kingdededefsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "king-dedede",
+      "moveId": "grab",
+      "variantId": "kingdededegrab",
+      "supersededBy": "smashwiki-kingdededegrabssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "king-dedede",
       "moveId": "up-b-super-dedede-jump",
-      "variantId": "kingdededesuperdededejumplanding",
+      "variantId": "kingdededesuperdededejump",
       "supersededBy": "smashwiki-kingdededesuperdededejumpssbu",
       "basis": "single-unresolved-variant"
     },
     {
+      "fighterId": "king-k-rool",
+      "moveId": "pummel",
+      "variantId": "kingkroolpummel",
+      "supersededBy": "smashwiki-kingkroolpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "king-k-rool",
+      "moveId": "up-b-propellerpack",
+      "variantId": "kingkroolpropellerpack",
+      "supersededBy": "smashwiki-kingkrooluspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "down-throw",
+      "variantId": "kirbydthrow",
+      "supersededBy": "smashwiki-kirbydthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "pummel",
+      "variantId": "kirbypummel",
+      "supersededBy": "smashwiki-kirbypummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "side-b-hammer",
+      "variantId": "kirbyhammerflipg",
+      "supersededBy": "smashwiki-kirbysspecialgroundedssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "up-b-final-cutter",
+      "variantId": "kirbyfinalcutter",
+      "supersededBy": "smashwiki-kirbyuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "kirby",
+      "moveId": "up-throw",
+      "variantId": "kirbyuthrow",
+      "supersededBy": "smashwiki-kirbyuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "down-smash",
+      "variantId": "linkdsmash",
+      "supersededBy": "smashwiki-linkdsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "forward-air",
+      "variantId": "linkfair",
+      "supersededBy": "smashwiki-linkfairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "pummel",
+      "variantId": "linkpummel",
+      "supersededBy": "smashwiki-linkpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "up-b-air-spin-attack-air",
+      "variantId": "linkspinattacka",
+      "supersededBy": "smashwiki-linkuspecialaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "forward-smash",
+      "variantId": "littlemacfsmashup",
+      "supersededBy": "smashwiki-littlemacfsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "pummel",
+      "variantId": "littlemacpummel",
+      "supersededBy": "smashwiki-littlemacpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "little-mac",
+      "moveId": "up-b-rising-uppercut",
+      "variantId": "littlemacrisinguppercut",
+      "supersededBy": "smashwiki-littlemacuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "lucario",
+      "moveId": "pummel",
+      "variantId": "lucariopummel",
+      "supersededBy": "smashwiki-lucariopummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "lucas",
+      "moveId": "pummel",
+      "variantId": "lucaspummel",
+      "supersededBy": "smashwiki-lucaspummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "lucina",
+      "moveId": "down-throw",
+      "variantId": "lucinadthrow",
+      "supersededBy": "smashwiki-lucinadthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "lucina",
+      "moveId": "forward-throw",
+      "variantId": "lucinafthrow",
+      "supersededBy": "smashwiki-lucinafthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "lucina",
+      "moveId": "pummel",
+      "variantId": "lucinapummel",
+      "supersededBy": "smashwiki-lucinapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "luigi",
+      "moveId": "pummel",
+      "variantId": "luigipummel",
+      "supersededBy": "smashwiki-luigipummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mario",
+      "moveId": "pummel",
+      "variantId": "mariopummel",
+      "supersededBy": "smashwiki-mariopummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mario",
+      "moveId": "up-b-super-jump-punch",
+      "variantId": "mariosuperjumppunch",
+      "supersededBy": "smashwiki-mariosuperjumppunchssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "marth",
+      "moveId": "down-throw",
+      "variantId": "marthdthrow",
+      "supersededBy": "smashwiki-marthdthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "marth",
+      "moveId": "forward-throw",
+      "variantId": "marthfthrow",
+      "supersededBy": "smashwiki-marthfthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "marth",
+      "moveId": "pummel",
+      "variantId": "marthpummel",
+      "supersededBy": "smashwiki-marthpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "dash-grab",
+      "variantId": "megamandashgrab",
+      "supersededBy": "smashwiki-megamandashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "grab",
+      "variantId": "megamangrab",
+      "supersededBy": "smashwiki-megamangrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "jab",
+      "variantId": "megamanjab",
+      "supersededBy": "smashwiki-megamanjabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "neutral-air",
+      "variantId": "megamannair",
+      "supersededBy": "smashwiki-megamannairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "pummel",
+      "variantId": "megamanpummel",
+      "supersededBy": "smashwiki-megamanpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "up-air",
+      "variantId": "megamanuair",
+      "supersededBy": "smashwiki-megamanuairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mega-man",
+      "moveId": "up-tilt",
+      "variantId": "megamanutilt",
+      "supersededBy": "smashwiki-megamanutiltssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "dash-grab",
+      "variantId": "metaknightdashgrab",
+      "supersededBy": "smashwiki-metaknightdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "grab",
+      "variantId": "metaknightgrab",
+      "supersededBy": "smashwiki-metaknightgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "neutral-b-mach-tornado",
+      "variantId": "metaknightmachtornado",
+      "supersededBy": "smashwiki-metaknightnspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "pivot-grab",
+      "variantId": "metaknightpivotgrab",
+      "supersededBy": "smashwiki-metaknightpivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "pummel",
+      "variantId": "metaknightpummel",
+      "supersededBy": "smashwiki-metaknightpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "meta-knight",
+      "moveId": "up-throw",
+      "variantId": "metaknightuthrow",
+      "supersededBy": "smashwiki-metaknightuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mewtwo",
+      "moveId": "forward-air",
+      "variantId": "mewtwofair",
+      "supersededBy": "smashwiki-mewtwofairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mewtwo",
+      "moveId": "pummel",
+      "variantId": "mewtwopummel",
+      "supersededBy": "smashwiki-mewtwopummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "exploding-side-kick",
+      "variantId": "miibrawlerexplodingsidekick",
+      "supersededBy": "smashwiki-miibrawleronslaughtaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mii-brawler",
+      "moveId": "pummel",
+      "variantId": "miibrawlerpummel",
+      "supersededBy": "smashwiki-miibrawlerpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mii-gunner",
+      "moveId": "forward-air",
+      "variantId": "miigunnerfair",
+      "supersededBy": "smashwiki-miigunnerfairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mii-gunner",
+      "moveId": "pummel",
+      "variantId": "miigunnerpummel",
+      "supersededBy": "smashwiki-miigunnerpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mii-swordfighter",
+      "moveId": "pummel",
+      "variantId": "miiswordfighterpummel",
+      "supersededBy": "smashwiki-miiswordfighterpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
       "fighterId": "min-min",
-      "moveId": "jab-1",
-      "variantId": "minminjab1",
-      "supersededBy": "smashwiki-minminjab1ssbu",
+      "moveId": "forward-smash-megawatt",
+      "variantId": "minminmegawattaerialsmash",
+      "supersededBy": "smashwiki-minminsspecialsmashmegawattssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "min-min",
+      "moveId": "forward-smash-ramram",
+      "variantId": "minminramramaerialsmash",
+      "supersededBy": "smashwiki-minminsspecialsmashramramssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "back-air",
+      "variantId": "mrgame-watchbair",
+      "supersededBy": "smashwiki-mrgame-26watchbairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "dash-attack",
+      "variantId": "mrgame-watchdashattack",
+      "supersededBy": "smashwiki-mrgame-26watchdashattackssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "dash-grab",
+      "variantId": "mrgame-watchdashgrab",
+      "supersededBy": "smashwiki-mrgame-26watchdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-air",
+      "variantId": "mrgame-watchdair",
+      "supersededBy": "smashwiki-mrgame-26watchdairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-smash",
+      "variantId": "mrgame-watchdsmash",
+      "supersededBy": "smashwiki-mrgame-26watchdsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-throw",
+      "variantId": "mrgame-watchdthrow",
+      "supersededBy": "smashwiki-mrgame-26watchdthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-tilt",
+      "variantId": "mrgame-watchdtilt",
+      "supersededBy": "smashwiki-mrgame-26watchdtiltssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-air",
+      "variantId": "mrgame-watchfair",
+      "supersededBy": "smashwiki-mrgame-26watchfairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-smash",
+      "variantId": "mrgame-watchfsmash",
+      "supersededBy": "smashwiki-mrgame-26watchfsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-throw",
+      "variantId": "mrgame-watchfthrow",
+      "supersededBy": "smashwiki-mrgame-26watchfthrowuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "forward-tilt",
+      "variantId": "mrgame-watchftilt",
+      "supersededBy": "smashwiki-mrgame-26watchftiltssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "grab",
+      "variantId": "mrgame-watchgrab",
+      "supersededBy": "smashwiki-mrgame-26watchgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "jab",
+      "variantId": "mrgame-watchjab",
+      "supersededBy": "smashwiki-mrgame-26watchjabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "neutral-air",
+      "variantId": "mrgame-watchnair",
+      "supersededBy": "smashwiki-mrgame-26watchnairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "pivot-grab",
+      "variantId": "mrgame-watchpivotgrab",
+      "supersededBy": "smashwiki-mrgame-26watchpivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "pummel",
+      "variantId": "mrgamewatchpummel",
+      "supersededBy": "smashwiki-mrgame-26watchpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-air",
+      "variantId": "mrgame-watchuair",
+      "supersededBy": "smashwiki-mrgame-26watchuairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-b-fire",
+      "variantId": "mrgame-watchfirea",
+      "supersededBy": "smashwiki-mrgame-26watchuspecialgroundedssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-smash",
+      "variantId": "mrgame-watchusmash",
+      "supersededBy": "smashwiki-mrgame-26watchusmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-throw",
+      "variantId": "mrgamewatchuthrow",
+      "supersededBy": "smashwiki-mrgame-26watchuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "up-tilt",
+      "variantId": "mrgame-watchutilt",
+      "supersededBy": "smashwiki-mrgame-26watchutiltssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "mythra",
-      "moveId": "side-b-photon-edge",
-      "variantId": "mythraphotonedge2",
-      "supersededBy": "smashwiki-mythrasspecialssbu",
+      "moveId": "jab-3",
+      "variantId": "mythrajab3",
+      "supersededBy": "smashwiki-mythrajab3ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "mythra",
+      "moveId": "pummel",
+      "variantId": "mythrapummel",
+      "supersededBy": "smashwiki-mythrapummelssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "ness",
-      "moveId": "side-b-pk-fire",
-      "variantId": "nesspkfirepillar",
-      "supersededBy": "smashwiki-nesspkfiregssbu",
+      "moveId": "down-throw",
+      "variantId": "nessdthrow",
+      "supersededBy": "smashwiki-nessdthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ness",
+      "moveId": "pummel",
+      "variantId": "nesspummel",
+      "supersededBy": "smashwiki-nesspummelssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "olimar",
-      "moveId": "down-smash",
-      "variantId": "olimarandhistwobignuts",
-      "supersededBy": "smashwiki-redpikmindsmashssbu",
+      "moveId": "pummel",
+      "variantId": "olimarpummel",
+      "supersededBy": "smashwiki-olimarpummelssbu",
       "basis": "single-unresolved-variant"
     },
     {
-      "fighterId": "olimar",
-      "moveId": "up-smash",
-      "variantId": "olimarusmash",
-      "supersededBy": "smashwiki-redpikminusmashssbu",
+      "fighterId": "pac-man",
+      "moveId": "pummel",
+      "variantId": "pacmanpummel",
+      "supersededBy": "smashwiki-pacmanpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "dash-attack",
+      "variantId": "palutenadashattack",
+      "supersededBy": "smashwiki-palutenadashattackssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "pummel",
+      "variantId": "palutenapummel",
+      "supersededBy": "smashwiki-palutenapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "palutena",
+      "moveId": "side-b-explosive-flame",
+      "variantId": "palutenaexplosiveflame",
+      "supersededBy": "smashwiki-palutenasspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "peach",
+      "moveId": "pummel",
+      "variantId": "peachpummel",
+      "supersededBy": "smashwiki-peachpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pichu",
+      "moveId": "down-b-thunder",
+      "variantId": "pichuthunderhit",
+      "supersededBy": "smashwiki-pichuthunderssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pichu",
+      "moveId": "pummel",
+      "variantId": "pichupummel",
+      "supersededBy": "smashwiki-pichupummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pichu",
+      "moveId": "side-b-skull-bash",
+      "variantId": "pichuskullbash",
+      "supersededBy": "smashwiki-pichusidespecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "down-b-thunder",
+      "variantId": "pikachuthunderhit",
+      "supersededBy": "smashwiki-pikachudspecialmissssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "down-throw",
+      "variantId": "pikachudthrow",
+      "supersededBy": "smashwiki-pikachudthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "pummel",
+      "variantId": "pikachupummel",
+      "supersededBy": "smashwiki-pikachupummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "side-b-skull-bash",
+      "variantId": "pikachuskullbash",
+      "supersededBy": "smashwiki-pikachusspecialhitssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pikachu",
+      "moveId": "up-b-quick-attack",
+      "variantId": "pikachuquickattack",
+      "supersededBy": "smashwiki-pikachuquickattackssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "down-b-long-stem-strike",
+      "variantId": "piranhaplantlong-stemstrike",
+      "supersededBy": "crossmod-long-20stem-20strike",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "footstool-attack",
+      "variantId": "piranhaplantfootstoolattack",
+      "supersededBy": "crossmod-footstool-20attack",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "pummel",
+      "variantId": "piranhaplantpummel",
+      "supersededBy": "crossmod-pummel",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "piranha-plant",
+      "moveId": "up-b-piranhacopter",
+      "variantId": "piranhaplantpiranhacopter",
+      "supersededBy": "crossmod-piranhacopter",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pit",
+      "moveId": "pummel",
+      "variantId": "pitpummel",
+      "supersededBy": "smashwiki-pitpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pit",
+      "moveId": "side-b-air-upperdash-arm-air",
+      "variantId": "pitupperdasharmhita",
+      "supersededBy": "smashwiki-pitsspecialaerialssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "pyra",
-      "moveId": "neutral-b-flame-nova",
-      "variantId": "pyraflamenova1",
-      "supersededBy": "smashwiki-pyranspecial1ssbu",
-      "basis": "single-unresolved-variant"
-    },
-    {
-      "fighterId": "steve",
       "moveId": "dash-attack",
-      "variantId": "stevedashattackgold",
-      "supersededBy": "smashwiki-stevedashattackpunchssbu",
+      "variantId": "pyradashattack",
+      "supersededBy": "smashwiki-pyradashattackssbu",
       "basis": "single-unresolved-variant"
     },
     {
-      "fighterId": "steve",
-      "moveId": "jab-forward-tilt",
-      "variantId": "stevejabftiltgold",
-      "supersededBy": "smashwiki-stevejabftiltpunchssbu",
+      "fighterId": "pyra",
+      "moveId": "down-air",
+      "variantId": "pyradair",
+      "supersededBy": "smashwiki-pyradairssbu",
       "basis": "single-unresolved-variant"
     },
     {
-      "fighterId": "steve",
+      "fighterId": "pyra",
+      "moveId": "forward-tilt",
+      "variantId": "pyraftilt",
+      "supersededBy": "smashwiki-pyraftiltssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "neutral-air",
+      "variantId": "pyranair",
+      "supersededBy": "smashwiki-pyranairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "pummel",
+      "variantId": "pyrapummel",
+      "supersededBy": "smashwiki-pyrapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pyra",
       "moveId": "up-air",
-      "variantId": "steveuairgold",
-      "supersededBy": "smashwiki-steveuairpunchssbu",
+      "variantId": "pyrauair",
+      "supersededBy": "smashwiki-pyrauairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "up-b-prominence-revolt",
+      "variantId": "pyraprominencerevolt",
+      "supersededBy": "smashwiki-pyrauspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "pyra",
+      "moveId": "up-tilt",
+      "variantId": "pyrautiltinterpolated",
+      "supersededBy": "smashwiki-pyrautiltssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "down-air",
+      "variantId": "richterdair",
+      "supersededBy": "smashwiki-richterdairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "down-throw",
+      "variantId": "richterdthrow",
+      "supersededBy": "smashwiki-richterdthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "down-tilt-2",
+      "variantId": "richterdtilt2",
+      "supersededBy": "smashwiki-richterdtilt2ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "pummel",
+      "variantId": "richterpummel",
+      "supersededBy": "smashwiki-richterpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "richter",
+      "moveId": "up-b-uppercut",
+      "variantId": "richteruppercut",
+      "supersededBy": "smashwiki-richterupspecialaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "dash-grab",
+      "variantId": "robdashgrab",
+      "supersededBy": "smashwiki-robdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "down-throw",
+      "variantId": "robdthrow",
+      "supersededBy": "smashwiki-robdthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "grab",
+      "variantId": "robgrab",
+      "supersededBy": "smashwiki-robgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "rob",
+      "moveId": "pummel",
+      "variantId": "robpummel",
+      "supersededBy": "smashwiki-robpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "robin",
+      "moveId": "pummel",
+      "variantId": "robinpummel",
+      "supersededBy": "smashwiki-robinpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "robin",
+      "moveId": "up-b-elwind",
+      "variantId": "robinelwind",
+      "supersededBy": "smashwiki-robinelwindssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "rosalina-and-luma",
+      "moveId": "pummel",
+      "variantId": "rosalinapummel",
+      "supersededBy": "smashwiki-rosalina-26lumapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "down-throw",
+      "variantId": "roydthrow",
+      "supersededBy": "smashwiki-roydthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "forward-throw",
+      "variantId": "royfthrow",
+      "supersededBy": "smashwiki-royfthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "neutral-b-flare-blade",
+      "variantId": "royflareblade",
+      "supersededBy": "smashwiki-roynspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "pummel",
+      "variantId": "roypummel",
+      "supersededBy": "smashwiki-roypummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "roy",
+      "moveId": "up-throw",
+      "variantId": "royuthrow",
+      "supersededBy": "smashwiki-royuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ryu",
+      "moveId": "forward-air",
+      "variantId": "ryufair",
+      "supersededBy": "smashwiki-ryufairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "ryu",
+      "moveId": "pummel",
+      "variantId": "ryupummel",
+      "supersededBy": "smashwiki-ryupummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "pummel",
+      "variantId": "samuspummel",
+      "supersededBy": "smashwiki-samuspummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "up-b-air-screw-attack-air",
+      "variantId": "samusscrewattacka",
+      "supersededBy": "smashwiki-samususpecialaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "up-throw",
+      "variantId": "samusuthrow",
+      "supersededBy": "smashwiki-samusuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sephiroth",
+      "moveId": "pummel",
+      "variantId": "sephirothpummel",
+      "supersededBy": "smashwiki-sephirothpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "dash-grab",
+      "variantId": "sheikdashgrab",
+      "supersededBy": "smashwiki-sheikdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "down-b-bouncing-fish",
+      "variantId": "sheikbouncingfish",
+      "supersededBy": "smashwiki-sheikdspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "grab",
+      "variantId": "sheikgrab",
+      "supersededBy": "smashwiki-sheikgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "pivot-grab",
+      "variantId": "sheikpivotgrab",
+      "supersededBy": "smashwiki-sheikpivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sheik",
+      "moveId": "pummel",
+      "variantId": "sheikpummel",
+      "supersededBy": "smashwiki-sheikpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "shulk",
+      "moveId": "pummel",
+      "variantId": "shulkpummel",
+      "supersededBy": "smashwiki-shulkpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "shulk",
+      "moveId": "up-b-air-slash",
+      "variantId": "shulkairslash1",
+      "supersededBy": "smashwiki-shulkuspecial1ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "down-air",
+      "variantId": "simondair",
+      "supersededBy": "smashwiki-simondairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "down-throw",
+      "variantId": "simondthrow",
+      "supersededBy": "smashwiki-simondthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "down-tilt-2",
+      "variantId": "simondtilt2",
+      "supersededBy": "smashwiki-simondtilt2ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "pummel",
+      "variantId": "simonpummel",
+      "supersededBy": "smashwiki-simonpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "simon",
+      "moveId": "up-b-uppercut",
+      "variantId": "simonuppercut",
+      "supersededBy": "smashwiki-simonuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "forward-throw",
+      "variantId": "snakefthrow",
+      "supersededBy": "smashwiki-snakefthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "pivot-grab",
+      "variantId": "snakepivotgrab",
+      "supersededBy": "smashwiki-snakepivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "pummel",
+      "variantId": "snakepummel",
+      "supersededBy": "smashwiki-snakepummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "up-smash",
+      "variantId": "snakeusmashsearch",
+      "supersededBy": "smashwiki-snakeusmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "dash-grab",
+      "variantId": "sonicdashgrab",
+      "supersededBy": "smashwiki-sonicdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "grab",
+      "variantId": "sonicgrab",
+      "supersededBy": "smashwiki-sonicgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "pivot-grab",
+      "variantId": "sonicpivotgrab",
+      "supersededBy": "smashwiki-sonicpivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "pummel",
+      "variantId": "sonicpummel",
+      "supersededBy": "smashwiki-sonicpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sora",
+      "moveId": "pummel",
+      "variantId": "sorapummel",
+      "supersededBy": "smashwiki-sorapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "sora",
+      "moveId": "up-b-aerial-sweep",
+      "variantId": "soraaerialsweep",
+      "supersededBy": "smashwiki-soraaerialsweepssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "dash-grab",
+      "variantId": "stevedashgrab",
+      "supersededBy": "smashwiki-stevedashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "forward-throw",
+      "variantId": "stevefthrow",
+      "supersededBy": "smashwiki-stevefthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "grab",
+      "variantId": "stevegrab",
+      "supersededBy": "smashwiki-stevegrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "pivot-grab",
+      "variantId": "stevepivotgrab",
+      "supersededBy": "smashwiki-stevepivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "pummel",
+      "variantId": "stevepummel",
+      "supersededBy": "smashwiki-stevepummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "up-b-elytra",
+      "variantId": "steveelytra",
+      "supersededBy": "smashwiki-steveuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "up-smash",
+      "variantId": "steveusmash",
+      "supersededBy": "smashwiki-steveusmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "up-throw",
+      "variantId": "steveuthrow",
+      "supersededBy": "smashwiki-steveuthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "forward-air",
+      "variantId": "terryfair",
+      "supersededBy": "smashwiki-terryfairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "forward-smash",
+      "variantId": "terryfsmash",
+      "supersededBy": "smashwiki-terryfsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "jab-2",
+      "variantId": "terryjab2",
+      "supersededBy": "smashwiki-terryjab2ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "jab-3",
+      "variantId": "terryjab3",
+      "supersededBy": "smashwiki-terryjab3ssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "pummel",
+      "variantId": "terrypummel",
+      "supersededBy": "smashwiki-terrypummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "terry",
+      "moveId": "up-b-rising-tackle",
+      "variantId": "terryrisingtackle",
+      "supersededBy": "smashwiki-terryuspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "toon-link",
+      "moveId": "back-air",
+      "variantId": "toonlinkbair",
+      "supersededBy": "smashwiki-toonlinkbairssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "toon-link",
+      "moveId": "pummel",
+      "variantId": "toonlinkpummel",
+      "supersededBy": "smashwiki-toonlinkpummelssbu",
       "basis": "single-unresolved-variant"
     },
     {
       "fighterId": "villager",
       "moveId": "dash-attack",
-      "variantId": "villagerdashattackoffledge",
+      "variantId": "villagerdashattack",
       "supersededBy": "smashwiki-villagerdashattackssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "forward-smash",
+      "variantId": "villagerfsmash",
+      "supersededBy": "smashwiki-villagerfsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "neutral-b-pocket",
+      "variantId": "villagerpocket",
+      "supersededBy": "smashwiki-villagerpocketssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "pummel",
+      "variantId": "villagerpummel",
+      "supersededBy": "smashwiki-villagerpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wario",
+      "moveId": "down-throw",
+      "variantId": "wariodthrow",
+      "supersededBy": "smashwiki-wariodthrowssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wario",
+      "moveId": "pummel",
+      "variantId": "wariopummel",
+      "supersededBy": "smashwiki-wariopummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wario",
+      "moveId": "up-b-corkscrew",
+      "variantId": "wariocorkscrew",
+      "supersededBy": "smashwiki-wariocorkscrewssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "dash-grab",
+      "variantId": "wolfdashgrab",
+      "supersededBy": "smashwiki-wolfdashgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "down-smash",
+      "variantId": "wolfdsmash",
+      "supersededBy": "smashwiki-wolfdsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "forward-smash",
+      "variantId": "wolffsmash",
+      "supersededBy": "smashwiki-wolffsmashssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "pivot-grab",
+      "variantId": "wolfpivotgrab",
+      "supersededBy": "smashwiki-wolfpivotgrabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "pummel",
+      "variantId": "wolfpummel",
+      "supersededBy": "smashwiki-wolfpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "wolf",
+      "moveId": "side-b-wolf-flash",
+      "variantId": "wolfwolfflash",
+      "supersededBy": "smashwiki-wolfsspecialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "yoshi",
+      "moveId": "pummel",
+      "variantId": "yoshipummel",
+      "supersededBy": "smashwiki-yoshipummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "young-link",
+      "moveId": "pummel",
+      "variantId": "younglinkpummel",
+      "supersededBy": "smashwiki-younglinkpummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "young-link",
+      "moveId": "up-b-air-spin-attack-air",
+      "variantId": "younglinkspinattacka",
+      "supersededBy": "smashwiki-younglinkuspecialaerialssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "jab",
+      "variantId": "zeldajab",
+      "supersededBy": "smashwiki-zeldajabssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "pummel",
+      "variantId": "zeldapummel",
+      "supersededBy": "smashwiki-zeldapummelssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "up-b-farore-s-wind",
+      "variantId": "zeldafaroreswindg",
+      "supersededBy": "smashwiki-zeldauspecialgroundedssbu",
+      "basis": "single-unresolved-variant"
+    },
+    {
+      "fighterId": "zero-suit-samus",
+      "moveId": "pummel",
+      "variantId": "zerosuitsamuspummel",
+      "supersededBy": "smashwiki-zsspummelssbu",
       "basis": "single-unresolved-variant"
     }
   ],
@@ -7413,20 +11514,6 @@
       "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
     },
     {
-      "fighterId": "captain-falcon",
-      "moveId": "down-b-air-falcon-kick-air",
-      "variantId": "captainfalconfalconkicka",
-      "candidateReplacement": "smashwiki-captainfalconfalconkickaerialssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "captain-falcon",
-      "moveId": "down-b-air-falcon-kick-air",
-      "variantId": "captainfalconfalconkickalanding",
-      "candidateReplacement": "smashwiki-captainfalconfalconkickaerialssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
       "fighterId": "chrom",
       "moveId": "up-b-soaring-slash",
       "variantId": "chromsoaringslash",
@@ -7437,13 +11524,6 @@
       "fighterId": "chrom",
       "moveId": "up-b-soaring-slash",
       "variantId": "chromsoaringslashdescent",
-      "candidateReplacement": "smashwiki-chromuspecialrisingssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "chrom",
-      "moveId": "up-b-soaring-slash",
-      "variantId": "chromsoaringslashlanding",
       "candidateReplacement": "smashwiki-chromuspecialrisingssbu",
       "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
     },
@@ -7583,13 +11663,6 @@
     {
       "fighterId": "ike",
       "moveId": "up-b-aether",
-      "variantId": "ikeaetherlanding",
-      "candidateReplacement": "smashwiki-ikeaethergroundedssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "ike",
-      "moveId": "up-b-aether",
       "variantId": "ikeaethersword",
       "candidateReplacement": "smashwiki-ikeaethergroundedssbu",
       "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
@@ -7669,20 +11742,6 @@
       "moveId": "neutral-b-inhale",
       "variantId": "kirbyinhale",
       "candidateReplacement": "smashwiki-kirbynspecialstartupssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "kirby",
-      "moveId": "up-b-final-cutter",
-      "variantId": "kirbyfinalcutter",
-      "candidateReplacement": "smashwiki-kirbyuspecialssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "kirby",
-      "moveId": "up-b-final-cutter",
-      "variantId": "kirbyfinalcutterlanding",
-      "candidateReplacement": "smashwiki-kirbyuspecialssbu",
       "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
     },
     {
@@ -7837,34 +11896,6 @@
       "moveId": "forward-tilt-power-dragon",
       "variantId": "minminpowerdragonaerialtilt",
       "candidateReplacement": "smashwiki-minminjabftiltpowerdragonssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "mr-game-and-watch",
-      "moveId": "back-air",
-      "variantId": "mrgame-watchbair",
-      "candidateReplacement": "smashwiki-mrgame-26watchbairssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "mr-game-and-watch",
-      "moveId": "back-air",
-      "variantId": "mrgame-watchbairlanding",
-      "candidateReplacement": "smashwiki-mrgame-26watchbairssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "mr-game-and-watch",
-      "moveId": "down-air",
-      "variantId": "mrgame-watchdair",
-      "candidateReplacement": "smashwiki-mrgame-26watchdairssbu",
-      "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
-    },
-    {
-      "fighterId": "mr-game-and-watch",
-      "moveId": "down-air",
-      "variantId": "mrgame-watchdairlanding",
-      "candidateReplacement": "smashwiki-mrgame-26watchdairssbu",
       "reason": "multiple unresolved variants share this timeline and the candidate is not variant-equivalent"
     },
     {
