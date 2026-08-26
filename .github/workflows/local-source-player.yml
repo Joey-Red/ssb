@@ -8,6 +8,9 @@ on:
       - 'scripts/build-local-source-players.py'
       - 'scripts/apply-local-source-players-to-runtime.py'
       - 'scripts/build-related-source-runtime-fallbacks.py'
+      - 'scripts/build-defense-timing-evidence.py'
+      - 'scripts/build-synthetic-visual-fallbacks.py'
+      - 'scripts/build-synthetic-phase-sheets.py'
       - 'src/data/visualMedia.test.ts'
       - 'src/types.ts'
       - '.github/workflows/local-source-player.yml'
@@ -53,7 +56,7 @@ jobs:
       - name: Add related-source runtime fallbacks
         run: python scripts/build-related-source-runtime-fallbacks.py
 
-      - name: Fill only still-uncovered runtime rows with timing schematics
+      - name: Fill only still-uncovered runtime rows with local timing schematics
         run: python scripts/build-synthetic-visual-fallbacks.py
 
       - name: Confirm factual audit remains unchanged
@@ -68,11 +71,14 @@ jobs:
           source = json.loads(Path('src/data/visualSourcePlayers.generated.json').read_text())
           related = json.loads(Path('src/data/visualRelatedSourceFallbacks.generated.json').read_text())
           synthetic = json.loads(Path('src/data/visualSyntheticFallbacks.generated.json').read_text())
+          defense = json.loads(Path('src/data/visualDefenseTiming.generated.json').read_text())
           audit = json.loads(Path('src/data/visualCoverageAudit.generated.json').read_text())
           summary = {
               'seekableLocalSourcePlayers': source['playerCount'],
               'relatedSourceMoveFallbacks': related['fallbackCount'],
               'remainingTimingOnlyRuntimeFallbacks': synthetic['fallbackCount'],
+              'schematicsWithDocumentedIntangibility': synthetic['defenseRowsWithDocumentedIntangibility'],
+              'defenseTimingRegistryRows': defense['documentedIntangibilityRows'],
               'factualSourceLessMoves': audit['movesWithoutSourceVisual'],
               'factualUnresolvedVariants': audit['unresolvedVariants'],
           }
@@ -82,6 +88,10 @@ jobs:
               raise SystemExit(f"expected 550 locally seekable unresolved animations, found {source['playerCount']}")
           if related['fallbackCount'] < 1:
               raise SystemExit('expected at least one related-source runtime fallback')
+          if defense['documentedIntangibilityRows'] < 750:
+              raise SystemExit('unexpectedly low structured UFD defense timing coverage')
+          if synthetic['defenseRowsWithDocumentedIntangibility'] < 750:
+              raise SystemExit('expected defense schematic rows to use structured intangibility timing')
           if audit['movesWithoutSourceVisual'] != 849 or audit['unresolvedVariants'] != 712:
               raise SystemExit('runtime fallback generation must not mutate factual audit counts')
           PY
@@ -108,10 +118,12 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A \
             public/media/source-frame-sheets \
+            public/media/synthetic-phase-sheets \
             public/data/visual-media \
             src/data/visualMediaAssets.generated.json \
             src/data/visualSourcePlayers.generated.json \
             src/data/visualRelatedSourceFallbacks.generated.json \
+            src/data/visualDefenseTiming.generated.json \
             src/data/visualSyntheticFallbacks.generated.json \
             src/data/visualCoverageAudit.generated.json \
             docs/VISUAL_COVERAGE_AUDIT.generated.md
@@ -137,5 +149,6 @@ jobs:
             local-source-player-summary.json
             src/data/visualSourcePlayers.generated.json
             src/data/visualRelatedSourceFallbacks.generated.json
+            src/data/visualDefenseTiming.generated.json
             src/data/visualSyntheticFallbacks.generated.json
           retention-days: 7

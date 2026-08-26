@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "fighters": 89,
+  "frameDataMoves": 3588,
+  "runtimeMoves": 3588,
+  "movesWithLocalPlayableVisual": 3588,
+  "blankVisualMoves": 0,
+  "remoteRuntimeMedia": 0,
+  "sourceMappedMoves": 2739,
+  "relatedSourceFallbackMoves": 15,
+  "schematicFallbackMoves": 834,
+  "schematicMovesWithDocumentedIntangibleFrames": 792,
+  "runtimeModeMoveCounts": {
+    "related-source": 15,
+    "schematic": 834,
+    "source-animation": 370,
+    "source-backed": 2441
+  },
+  "policy": {
+    "allRuntimeMediaSameOrigin": true,
+    "schematicIsSourceEvidence": false,
+    "relatedSourceIsTargetEvidence": false,
+    "factualCoverageAuditUnchanged": true
+  }
+}
