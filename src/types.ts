@@ -144,7 +144,7 @@ export interface MediaAsset {
   license?: string
 }
 
-export type VisualFramePhase = 'startup' | 'active' | 'recovery' | 'landing' | 'other'
+export type VisualFramePhase = 'startup' | 'active' | 'recovery' | 'landing' | 'intangible' | 'other'
 export type VisualRegionKind = 'strong' | 'weak' | 'grab' | 'hurtbox' | 'intangible'
 export type VisualTimelineClass =
   | 'fighter-action'
