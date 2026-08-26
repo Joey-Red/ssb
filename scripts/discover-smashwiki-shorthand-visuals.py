@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Recover source-less SSBU moves from conventional SmashWiki filename shorthands.
+"""Recover source-less SSBU moves from conservative SmashWiki filename shorthands.
 
-This is a conservative supplemental discovery pass. SmashWiki historically uses
-compact filenames such as SquirtleFTiltSSBU.gif that do not contain the words
-"forward tilt", so the general fuzzy matcher can miss them. This pass recognizes
-only established move-code shorthands and only adds animated media when the code
-maps unambiguously to a move that is still source-less in the freshly generated
-audit.
+SmashWiki historically uses compact filenames such as ``SquirtleFTiltSSBU.gif``
+and, for some newer uploads, names such as ``LucarioSpotdodge.gif`` that omit an
+``SSBU`` token entirely. The latter are still game-verifiable because SmashWiki
+places them in ``Category:Animated images (SSBU)``.
 
-Filename matching is discovery evidence only. Exact timing/coverage still has to
-be proven by the normal full-motion vendor; nothing here invents frames or timing.
+This pass therefore accepts an animated file only when either its filename says
+SSBU or the MediaWiki category explicitly certifies it as an Ultimate animation.
+It recognizes only established move-code shorthands and only adds media when the
+expanded label maps unambiguously to a move that is still source-less.
+
+Filename/category matching establishes source identity only. Exact game timing
+still has to pass the normal full-motion vendor; no frame mapping is invented.
 """
 from __future__ import annotations
 
@@ -35,9 +38,6 @@ sweep = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sweep)
 ext = sweep.ext
 
-# Current frame-data IDs for Pokemon Trainer's individual fighters differ from
-# older pt_* aliases used elsewhere in the project. Explicit canonical prefixes
-# prevent a zero-file scan for these three fighters.
 CURRENT_PREFIX_OVERRIDES = {
     "charizard": ["Charizard"],
     "ivysaur": ["Ivysaur"],
@@ -45,8 +45,33 @@ CURRENT_PREFIX_OVERRIDES = {
 }
 
 # Ordered longest/specific first. Values are labels understood by the existing
-# conservative move matcher. These are standard Smash filename abbreviations.
+# conservative move matcher. Defense mappings deliberately avoid ambiguous
+# abbreviations: a generic AirDodge file is neutral only, and a directional file
+# must state its direction in words before it can map to a directional row.
 SHORTHANDS: tuple[tuple[str, str], ...] = (
+    ("airdodgediagonallydown", "air dodge diagonally down"),
+    ("airdodgediagonaldown", "air dodge diagonally down"),
+    ("airdodgeleft/right", "air dodge left right"),
+    ("airdodgeleftright", "air dodge left right"),
+    ("airdodgediagonallyup", "air dodge diagonally up"),
+    ("airdodgediagonalup", "air dodge diagonally up"),
+    ("neutralairdodge", "neutral air dodge"),
+    ("airdodgedown", "air dodge down"),
+    ("airdodgeup", "air dodge up"),
+    ("airdodgen", "neutral air dodge"),
+    ("airdodge", "neutral air dodge"),
+    ("spotdodge", "spot dodge"),
+    ("forwardroll", "forward roll"),
+    ("backwardroll", "backward roll"),
+    ("backroll", "backward roll"),
+    ("getupattackfaceup", "getup attack face up"),
+    ("getupattackfacedown", "getup attack face down"),
+    ("floorattackfront", "getup attack face up"),
+    ("floorattackback", "getup attack face down"),
+    ("floorattacktrip", "trip attack"),
+    ("ledgeattack", "ledge attack"),
+    ("edgeattack", "ledge attack"),
+    ("tripattack", "trip attack"),
     ("rapidjabfinisher", "rapid jab finisher"),
     ("rapidjab", "rapid jab"),
     ("dashattack", "dash attack"),
@@ -65,6 +90,9 @@ SHORTHANDS: tuple[tuple[str, str], ...] = (
     ("sideb", "side b"),
     ("upb", "up b"),
     ("downb", "down b"),
+    ("jab1", "jab 1"),
+    ("jab2", "jab 2"),
+    ("jab3", "jab 3"),
     ("fsmash", "forward smash"),
     ("usmash", "up smash"),
     ("dsmash", "down smash"),
@@ -84,9 +112,37 @@ SHORTHANDS: tuple[tuple[str, str], ...] = (
     ("grab", "grab"),
 )
 
+SSBU_ANIMATED_CATEGORY = "Category:Animated images (SSBU)"
+
 
 def compact(value: str) -> str:
     return re.sub(r"[^a-z0-9]", "", value.lower())
+
+
+def ssbu_animated_titles() -> set[str]:
+    """Return file basenames explicitly categorized as Ultimate animations."""
+    titles: set[str] = set()
+    continuation: str | None = None
+    while True:
+        params: dict[str, Any] = {
+            "action": "query",
+            "format": "json",
+            "list": "categorymembers",
+            "cmtitle": SSBU_ANIMATED_CATEGORY,
+            "cmnamespace": 6,
+            "cmlimit": "max",
+        }
+        if continuation:
+            params["cmcontinue"] = continuation
+        payload = ext.http_get(ext.WIKI_API, **params).json()
+        for row in payload.get("query", {}).get("categorymembers", []):
+            title = str(row.get("title") or "")
+            if title.startswith("File:"):
+                titles.add(title.removeprefix("File:").lower())
+        continuation = payload.get("continue", {}).get("cmcontinue")
+        if not continuation:
+            break
+    return titles
 
 
 def scan_prefixes(fighter_id: str, fighter: dict[str, Any]) -> list[str]:
@@ -99,9 +155,14 @@ def scan_prefixes(fighter_id: str, fighter: dict[str, Any]) -> list[str]:
     return result
 
 
-def title_belongs_to_fighter(title: str, prefixes: list[str]) -> bool:
+def title_belongs_to_fighter(fighter_id: str, title: str, prefixes: list[str]) -> bool:
     stem = compact(Path(title).stem)
-    return any(stem.startswith(compact(prefix)) for prefix in prefixes)
+    if not any(stem.startswith(compact(prefix)) for prefix in prefixes):
+        return False
+    for excluded in sweep.FILENAME_EXCLUDED_PREFIXES.get(fighter_id, set()):
+        if stem.startswith(compact(excluded)):
+            return False
+    return True
 
 
 def expanded_move_label(title: str, prefixes: list[str]) -> str | None:
@@ -116,7 +177,7 @@ def expanded_move_label(title: str, prefixes: list[str]) -> str | None:
                 tails.append(tail)
     for tail in tails:
         for shorthand, label in SHORTHANDS:
-            if tail.startswith(shorthand):
+            if tail.startswith(compact(shorthand)):
                 return label
     return None
 
@@ -127,9 +188,11 @@ def candidate_for_image(
     image: dict[str, Any],
     target_ids: set[str],
     prefixes: list[str],
+    categorized_ssbu: set[str],
 ) -> dict[str, Any] | None:
     title = str(image.get("name") or "")
-    if "ssbu" not in title.lower() or not title_belongs_to_fighter(title, prefixes):
+    is_game_verified = "ssbu" in title.lower() or title.lower() in categorized_ssbu
+    if not is_game_verified or not title_belongs_to_fighter(fighter_id, title, prefixes):
         return None
     url = str(image.get("url") or "")
     suffix = Path(urlparse(url).path).suffix.lower()
@@ -162,7 +225,10 @@ def candidate_for_image(
         "timingBasis": "parent-action" if timeline == "fighter-action" else "independent-source",
         "sourceProvider": "smashwiki",
         "sourcePageUrl": str(image.get("descriptionurl") or f"{ext.WIKI_BASE}/File:{quote(title)}"),
-        "sourceAttribution": "SmashWiki SSBU shorthand filename animation; preserve file-page provenance and revision history",
+        "sourceAttribution": (
+            "SmashWiki SSBU shorthand animation; game identity verified by filename or "
+            "Category:Animated images (SSBU); preserve file-page provenance and revision history"
+        ),
         "sourceQuality": ext.SOURCE_PRIORITY["smashwiki"],
     }
 
@@ -177,6 +243,12 @@ def main() -> int:
     targets: dict[str, set[str]] = defaultdict(set)
     for move in audit.get("movesWithoutVisuals", []):
         targets[move["fighterId"]].add(move["moveId"])
+
+    categorized_ssbu = ssbu_animated_titles()
+    if len(categorized_ssbu) < 1000:
+        raise SystemExit(
+            f"SmashWiki Ultimate animated-media category unexpectedly small: {len(categorized_ssbu)} files"
+        )
 
     source_by_key = {(move["fighterId"], move["moveId"]): move for move in sources.get("moves", [])}
     accepted: list[dict[str, Any]] = []
@@ -214,7 +286,7 @@ def main() -> int:
                             continue
                         seen_titles.add(title)
                         candidate = candidate_for_image(
-                            fighter_id, fighter, image, targets[fighter_id], prefixes
+                            fighter_id, fighter, image, targets[fighter_id], prefixes, categorized_ssbu
                         )
                         if candidate is None:
                             continue
@@ -276,8 +348,9 @@ def main() -> int:
     SOURCES.write_text(json.dumps(sources, indent=2) + "\n", encoding="utf-8")
 
     report = {
-        "version": 1,
+        "version": 2,
         "sourceLessTargets": sum(len(ids) for ids in targets.values()),
+        "ssbuAnimatedCategoryFiles": len(categorized_ssbu),
         "filesScanned": files_scanned,
         "recoveredSourceLessMoves": len(accepted),
         "warnings": warnings,
@@ -286,7 +359,7 @@ def main() -> int:
     REPORT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(
         f"SmashWiki shorthand sweep recovered {len(accepted)} source-less moves "
-        f"from {files_scanned} file records"
+        f"from {files_scanned} file records; {len(categorized_ssbu)} category-verified SSBU animations"
     )
     return 0
 
