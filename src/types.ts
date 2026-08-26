@@ -155,6 +155,8 @@ export type VisualTimelineClass =
   | 'loop-state'
   | 'companion-action'
   | 'transition'
+  /** Display-only same-origin source sequence; its frame numbers are not SSBU game-frame claims. */
+  | 'source-animation'
 export type VisualMediaCoverage =
   | 'full'
   | 'source-timed'
@@ -215,6 +217,8 @@ export interface VisualMediaVariant {
   timelineBasis?: string
   mappingMethod?: string
   sourceFormat?: string
+  /** Original factual timeline represented when this runtime variant is shown as a display-only source animation. */
+  sourcePlaybackOfTimelineClass?: VisualTimelineClass
   /** Collision visualization comes from staged source media, reviewed overlay metadata, or a reviewed local frame capture. */
   interactionEvidence?: 'embedded-source' | 'reviewed-overlay' | 'reviewed-capture'
   reviewedOverride?: {
