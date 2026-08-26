@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { buildSetBreakdown, extractProPatterns, isCatalogQuality, isTeachingEligibleMoment } from '../lib/proLab'
 import { roster } from './roster'
-import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRoster'
+import { nextProMetaResearchTargets2026, proMetaRepresentation2026 } from './proLabResearchPriorities'
+import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueue'
+import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
 import { getProVodsForFighter, proVodCatalog } from './proLabVods'
 
@@ -43,11 +45,31 @@ describe('Pro Lab foundation', () => {
   })
 
   it('retains the expanded current representative corpus', () => {
-    expect(proPlayerRepresentatives.length).toBeGreaterThanOrEqual(26)
+    expect(proPlayerRepresentatives.length).toBeGreaterThanOrEqual(34)
+    expect(new Set(proPlayerRepresentatives.map((player) => player.id)).size).toBe(proPlayerRepresentatives.length)
     const seededFighters = proFighterResearchRegistry.filter((entry) => entry.representativeIds.length > 0)
-    expect(seededFighters.length).toBeGreaterThanOrEqual(26)
+    expect(seededFighters.length).toBeGreaterThanOrEqual(34)
 
-    const currentResearchPlayers = ['acola', 'doramigi', 'hurt', 'sonix', 'zomba', 'miya', 'peabnut', 'mkleo', 'asimo', 'raru']
+    const currentResearchPlayers = [
+      'acola',
+      'doramigi',
+      'hurt',
+      'sonix',
+      'zomba',
+      'miya',
+      'peabnut',
+      'mkleo',
+      'asimo',
+      'raru',
+      'syrup',
+      'masa',
+      'raflow',
+      'ouch',
+      'tea',
+      'karaage',
+      'snow-jp',
+      'raki',
+    ]
     for (const playerId of currentResearchPlayers) {
       const player = proPlayerRepresentatives.find((entry) => entry.id === playerId)
       expect(player, playerId).toBeTruthy()
@@ -80,6 +102,39 @@ describe('Pro Lab foundation', () => {
     expect(currentSeason.length).toBeGreaterThanOrEqual(5)
     expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
     expect(new Set(currentSeason.flatMap((vod) => vod.playerFighterIds)).size).toBeGreaterThanOrEqual(4)
+  })
+
+  it('maintains source-backed footage coordinates as review targets, not tactical claims', () => {
+    expect(proVodReviewQueue.length).toBeGreaterThan(proVodCatalog.length)
+    expect(proVodReviewQueueStats.pending).toBe(proVodReviewQueue.length)
+    expect(proVodReviewQueueStats.reviewed).toBe(0)
+    expect(new Set(proVodReviewQueue.map((target) => target.id)).size).toBe(proVodReviewQueue.length)
+
+    for (const target of proVodReviewQueue) {
+      expect(target.videoUrl.startsWith('https://')).toBe(true)
+      expect(target.sourceUrls.length).toBeGreaterThanOrEqual(2)
+      expect(target.fighterIds.every((fighterId) => rosterIds.has(fighterId))).toBe(true)
+      expect(target.status).not.toBe('reviewed')
+      if (target.setStartSeconds !== undefined) expect(target.setStartSeconds).toBeGreaterThanOrEqual(0)
+    }
+  })
+
+  it('uses current representation data to prioritize uncovered research', () => {
+    expect(proMetaRepresentation2026).toHaveLength(28)
+    expect(new Set(proMetaRepresentation2026.map((entry) => entry.rank)).size).toBe(28)
+    for (const entry of proMetaRepresentation2026) {
+      expect(entry.fighterIds.every((fighterId) => rosterIds.has(fighterId))).toBe(true)
+      expect(entry.representationPercent).toBeGreaterThan(0)
+      expect(entry.sourceUrl).toContain('UltRank_Half_Year_2026')
+    }
+
+    const remainingIds = new Set(nextProMetaResearchTargets2026.flatMap((entry) => entry.fighterIds))
+    for (const nowSeeded of ['kazuya', 'palutena', 'falco', 'mario', 'wolf', 'ness']) {
+      expect(remainingIds.has(nowSeeded), nowSeeded).toBe(false)
+    }
+    for (const expectedGap of ['mii-brawler', 'roy', 'greninja', 'donkey-kong', 'hero']) {
+      expect(remainingIds.has(expectedGap), expectedGap).toBe(true)
+    }
   })
 
   it('covers every pilot fighter with at least one competitive VOD', () => {
