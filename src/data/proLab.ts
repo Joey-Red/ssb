@@ -14,10 +14,10 @@ import {
   proMetaRepresentation2026,
   proMetaResearchPriorities2026,
 } from './proLabResearchPriorities'
-import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueue'
+import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueueAll'
 import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
-import { proVodCatalog } from './proLabVods'
+import { proVodCatalog } from './proLabVodsAll'
 
 /**
  * Tactical annotations stay empty until a reviewer has inspected the relevant
