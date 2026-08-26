@@ -1,6 +1,6 @@
 import { buildSetBreakdown, extractProPatterns } from '../lib/proLab'
+import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
 import {
-  auditProLabCatalog,
   buildCharacterLessons,
   buildDecisionExercises,
   buildPlayerComparisons,
@@ -68,7 +68,7 @@ export const proTemporalEvidence = buildTemporalEvidenceIndex(
   proLabReferenceDate,
 )
 
-export const proMaintenanceReport = auditProLabCatalog(
+export const proMaintenanceReport = auditExpandedProLabCatalog(
   proVodCatalog,
   roster.map((fighter) => fighter.id),
   proTemporalEvidence,
@@ -104,7 +104,7 @@ export const proLabReleaseStats = {
   matchupPatterns: proMatchupPatterns.length,
   playerComparisons: proPlayerComparisons.length,
   teachingReadyFighters: proRosterCoverage.filter((entry) => entry.state === 'teaching-ready').length,
-  catalogedFighters: proRosterCoverage.filter((entry) => entry.vodCount > 0).length,
+  catalogedFighters: roster.length - proMaintenanceReport.fightersWithoutCatalogedVods.length,
 } as const
 
 export {
