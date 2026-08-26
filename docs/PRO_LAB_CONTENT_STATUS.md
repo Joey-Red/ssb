@@ -9,7 +9,7 @@ Reference date: 2026-08-26
 - At least 39 fighter pages have a named representative candidate; supplemental character roles seed additional pages beyond that floor.
 - The top 28 characters / combined character groups in UltRank Half Year 2026 representation all have at least one provenance-backed representative candidate.
 - 37 tournament VOD learning records are cataloged, including 27 from the 2026 season.
-- 52 source-backed review targets are queued when cataloged VODs and KAGARIBI #15 final-day set-start coordinates are combined.
+- 36 distinct source-backed review units are queued. Duplicate learning views and alternate links to the same timestamped set are collapsed so one set does not inflate the review backlog.
 - KAGARIBI #15 final-day navigation coordinates cover the streamed top-bracket path from Winners Quarterfinals through Grand Finals.
 - Fighter VOD libraries now index both sides of a recorded matchup, so a verified set is discoverable from every confirmed character represented in that set rather than only from the primary study-player side.
 - The public VOD library now supports search plus tier, era, review-state, and sort controls so the interface can scale as the corpus grows into hundreds of sets.
