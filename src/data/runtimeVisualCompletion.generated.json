@@ -9,7 +9,7 @@
   "sourceMappedMoves": 2739,
   "relatedSourceFallbackMoves": 15,
   "schematicFallbackMoves": 834,
-  "schematicMovesWithDocumentedIntangibleFrames": 0,
+  "schematicMovesWithDocumentedIntangibleFrames": 792,
   "runtimeModeMoveCounts": {
     "related-source": 15,
     "schematic": 834,
