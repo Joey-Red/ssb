@@ -51,9 +51,9 @@ export function AppShell({ route, children }: { route: AppRoute; children: React
     <div className="app-shell">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <aside className="sidebar">
-        <a className="brand" href={hrefFor('/')} aria-label="SSBU Training Guide home">
+        <a className="brand" href={hrefFor('/')} aria-label="Smash Forge home">
           <span className="brand-mark" aria-hidden="true">S</span>
-          <span><strong>SSBU</strong><small>TRAINING FESTIVAL</small></span>
+          <span><strong>SSBU</strong><small>SMASH FORGE</small></span>
         </a>
         <p className="nav-label">Training menu</p>
         <nav className="side-nav" aria-label="Primary">
