@@ -11,6 +11,8 @@ on:
       - 'scripts/discover-smashwiki-filename-visuals.py'
       - 'scripts/discover-smashwiki-shorthand-visuals.py'
       - 'scripts/discover-smashwiki-curated-gap-visuals.py'
+      - 'scripts/discover-smashwiki-animated-png-visuals.py'
+      - 'scripts/classify-smashwiki-animated-containers.py'
       - 'scripts/reconcile-external-visuals.py'
       - 'scripts/normalize-visual-source-provenance.py'
       - 'scripts/resolve-ruben-timing.py'
@@ -71,6 +73,7 @@ jobs:
           python scripts/discover-smashwiki-filename-visuals.py
           python scripts/discover-smashwiki-shorthand-visuals.py
           python scripts/discover-smashwiki-curated-gap-visuals.py
+          python scripts/discover-smashwiki-animated-png-visuals.py
           python scripts/audit-visual-coverage.py
       - name: Write measurable discovery summary
         shell: bash
@@ -85,6 +88,7 @@ jobs:
           filename = json.loads(Path('src/data/smashwikiFilenameVisuals.generated.json').read_text())
           shorthand = json.loads(Path('src/data/smashwikiShorthandVisuals.generated.json').read_text())
           curated = json.loads(Path('src/data/smashwikiCuratedGapVisuals.generated.json').read_text())
+          animated_png = json.loads(Path('src/data/smashwikiAnimatedPngVisuals.generated.json').read_text())
           summary = {
               'sourceLessBeforeExternalDiscovery': before['movesWithoutSourceVisual'],
               'sourceLessAfterExternalDiscovery': after['movesWithoutSourceVisual'],
@@ -93,6 +97,8 @@ jobs:
               'filenameSweepRecoveredMoves': filename['recoveredSourceLessMoves'],
               'shorthandRecoveredMoves': shorthand['recoveredSourceLessMoves'],
               'curatedRecoveredMoves': curated['recoveredSourceLessMoves'],
+              'animatedPngRecoveredMoves': animated_png['recoveredSourceLessMoves'],
+              'animatedPngFilesSeen': animated_png['categoryAnimatedPngFilesSeen'],
               'filenameSweepFilesScanned': filename['filesScanned'],
               'mappedSourceVisualMovesAfterDiscovery': after['mappedSourceVisualMoves'],
           }
@@ -109,6 +115,7 @@ jobs:
             src/data/smashwikiFilenameVisuals.generated.json
             src/data/smashwikiShorthandVisuals.generated.json
             src/data/smashwikiCuratedGapVisuals.generated.json
+            src/data/smashwikiAnimatedPngVisuals.generated.json
             src/data/visualCoverageAudit.generated.json
           retention-days: 7
 
@@ -144,10 +151,14 @@ jobs:
         run: python scripts/discover-smashwiki-shorthand-visuals.py
       - name: Recover verified curated SmashWiki gaps
         run: python scripts/discover-smashwiki-curated-gap-visuals.py
+      - name: Recover category-verified SmashWiki animated PNGs
+        run: python scripts/discover-smashwiki-animated-png-visuals.py
       - name: Reconcile stronger external replacements
         run: python scripts/reconcile-external-visuals.py
       - name: Normalize multi-source provenance
         run: python scripts/normalize-visual-source-provenance.py
+      - name: Classify SmashWiki animated PNG containers
+        run: python scripts/classify-smashwiki-animated-containers.py
       - name: Resolve conservative Ruben timing evidence
         run: python scripts/resolve-ruben-timing.py
       - name: Apply generated timing evidence for vendoring
@@ -189,6 +200,8 @@ jobs:
             src/data/smashwikiFilenameVisuals.generated.json \
             src/data/smashwikiShorthandVisuals.generated.json \
             src/data/smashwikiCuratedGapVisuals.generated.json \
+            src/data/smashwikiAnimatedPngVisuals.generated.json \
+            src/data/smashwikiAnimatedContainers.generated.json \
             src/data/smashwikiHistoricalVisuals.generated.json \
             src/data/rubenTimingOverrides.generated.json \
             src/data/ultimateHitboxesArchive.generated.json \
