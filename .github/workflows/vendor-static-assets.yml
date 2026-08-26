@@ -24,14 +24,12 @@ on:
       - 'scripts/audit-visual-coverage.py'
       - 'scripts/build-visual-capture-queue.py'
       - 'scripts/build-visual-completion-summary.py'
-      - 'scripts/build-synthetic-visual-fallbacks.py'
       - 'scripts/check-visual-coverage.py'
       - 'scripts/import-visual-captures.py'
       - 'scripts/requirements-media.txt'
       - 'src/data/visualTimelineOverrides.json'
       - 'src/data/ufd-manifest.json'
       - 'src/data/frameData.generated.json'
-      - '.github/workflows/vendor-static-assets.yml'
 
 permissions:
   contents: write
@@ -120,6 +118,8 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
           fetch-depth: 0
+      - name: Record starting head
+        run: echo "START_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
@@ -168,6 +168,8 @@ jobs:
         run: python scripts/build-visual-completion-summary.py
       - name: Build illustrative source-less fallbacks
         run: python scripts/build-synthetic-visual-fallbacks.py
+      - name: Verify complete same-origin runtime
+        run: python scripts/audit-runtime-visual-completion.py
       - name: Commit discovered and vendored media
         shell: bash
         run: |
@@ -188,13 +190,21 @@ jobs:
             src/data/visualMediaCoverage.generated.json \
             src/data/visualCoverageAudit.generated.json \
             src/data/visualCaptureQueue.generated.json \
+            src/data/visualDefenseTiming.generated.json \
             src/data/visualSyntheticFallbacks.generated.json \
+            src/data/runtimeVisualCompletion.generated.json \
+            docs/RUNTIME_VISUAL_COMPLETION.generated.md \
             docs/VISUAL_COVERAGE_AUDIT.generated.md \
             docs/VISUAL_COMPLETION_SUMMARY.generated.md
           if git diff --cached --quiet; then
             echo 'Full-roster multi-source visual assets are already current.'
             exit 0
           fi
+          git fetch origin "$branch"
+          latest="$(git rev-parse "origin/$branch")"
+          if [ "$latest" != "$START_SHA" ]; then
+            echo "Branch moved from $START_SHA to $latest; refusing to rebase or push stale generated media."
+            exit 0
+          fi
           git commit -m 'chore: vendor multi-source full-motion visuals'
-          git pull --rebase origin "$branch"
           git push origin HEAD:"$branch"
