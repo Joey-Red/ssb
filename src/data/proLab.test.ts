@@ -45,10 +45,10 @@ describe('Pro Lab foundation', () => {
   })
 
   it('retains the expanded current representative corpus', () => {
-    expect(proPlayerRepresentatives.length).toBeGreaterThanOrEqual(34)
+    expect(proPlayerRepresentatives.length).toBeGreaterThanOrEqual(39)
     expect(new Set(proPlayerRepresentatives.map((player) => player.id)).size).toBe(proPlayerRepresentatives.length)
     const seededFighters = proFighterResearchRegistry.filter((entry) => entry.representativeIds.length > 0)
-    expect(seededFighters.length).toBeGreaterThanOrEqual(34)
+    expect(seededFighters.length).toBeGreaterThanOrEqual(39)
 
     const currentResearchPlayers = [
       'acola',
@@ -69,6 +69,11 @@ describe('Pro Lab foundation', () => {
       'karaage',
       'snow-jp',
       'raki',
+      'yopi',
+      'kola',
+      'tarik',
+      'mild-na-ho',
+      'akakikusu',
     ]
     for (const playerId of currentResearchPlayers) {
       const player = proPlayerRepresentatives.find((entry) => entry.id === playerId)
@@ -119,7 +124,7 @@ describe('Pro Lab foundation', () => {
     }
   })
 
-  it('uses current representation data to prioritize uncovered research', () => {
+  it('fully seeds representative research across the top-28 2026 meta representation table', () => {
     expect(proMetaRepresentation2026).toHaveLength(28)
     expect(new Set(proMetaRepresentation2026.map((entry) => entry.rank)).size).toBe(28)
     for (const entry of proMetaRepresentation2026) {
@@ -127,14 +132,7 @@ describe('Pro Lab foundation', () => {
       expect(entry.representationPercent).toBeGreaterThan(0)
       expect(entry.sourceUrl).toContain('UltRank_Half_Year_2026')
     }
-
-    const remainingIds = new Set(nextProMetaResearchTargets2026.flatMap((entry) => entry.fighterIds))
-    for (const nowSeeded of ['kazuya', 'palutena', 'falco', 'mario', 'wolf', 'ness']) {
-      expect(remainingIds.has(nowSeeded), nowSeeded).toBe(false)
-    }
-    for (const expectedGap of ['mii-brawler', 'roy', 'greninja', 'donkey-kong', 'hero']) {
-      expect(remainingIds.has(expectedGap), expectedGap).toBe(true)
-    }
+    expect(nextProMetaResearchTargets2026).toHaveLength(0)
   })
 
   it('covers every pilot fighter with at least one competitive VOD', () => {
