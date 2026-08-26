@@ -4,6 +4,7 @@ import { RosterView } from './components/RosterView'
 import { hrefFor, useRoute } from './router'
 
 const FighterView = lazy(() => import('./components/FighterView').then((module) => ({ default: module.FighterView })))
+const AllMovesView = lazy(() => import('./components/AllMovesView').then((module) => ({ default: module.AllMovesView })))
 const PracticeView = lazy(() => import('./components/PracticeView').then((module) => ({ default: module.PracticeView })))
 const DrillsView = lazy(() => import('./components/DrillsView').then((module) => ({ default: module.DrillsView })))
 const ToolsView = lazy(() => import('./components/ToolsView').then((module) => ({ default: module.ToolsView })))
@@ -42,6 +43,7 @@ export default function App() {
   let content
   if (route.page === 'roster') content = <RosterView />
   else if (route.page === 'fighter') content = <Suspense fallback={<RouteFallback />}><FighterView slug={route.slug} /></Suspense>
+  else if (route.page === 'moves') content = <Suspense fallback={<RouteFallback />}><AllMovesView slug={route.slug} /></Suspense>
   else if (route.page === 'practice') content = <Suspense fallback={<RouteFallback />}><PracticeView slug={route.slug} /></Suspense>
   else if (route.page === 'drills') content = <Suspense fallback={<RouteFallback />}><DrillsView /></Suspense>
   else if (route.page === 'tools') content = <Suspense fallback={<RouteFallback />}><ToolsView /></Suspense>
