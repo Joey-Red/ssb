@@ -1,5 +1,6 @@
 import { roster } from './roster'
 import { proLabPilotFighterIds, proPlayerRepresentatives as foundationalRepresentatives } from './proLabRoster'
+import { proPlayerRepresentatives2026Batch2 } from './proLabRoster2026Batch2'
 import { proMetaGapRepresentatives } from './proLabRosterMetaGaps'
 import { supplementalProPlayerRepresentatives } from './proLabRosterSupplemental'
 import type { ProFighterResearchEntry, ProPlayerRepresentative } from './proLabTypes'
@@ -8,6 +9,7 @@ export const proPlayerRepresentatives = [
   ...foundationalRepresentatives,
   ...supplementalProPlayerRepresentatives,
   ...proMetaGapRepresentatives,
+  ...proPlayerRepresentatives2026Batch2,
 ] as readonly ProPlayerRepresentative[]
 
 const representativesForFighter = (fighterId: string) =>
@@ -28,4 +30,9 @@ export const proFighterResearchRegistry: readonly ProFighterResearchEntry[] = ro
   }
 })
 
-export { proLabPilotFighterIds, proMetaGapRepresentatives, supplementalProPlayerRepresentatives }
+export {
+  proLabPilotFighterIds,
+  proMetaGapRepresentatives,
+  proPlayerRepresentatives2026Batch2,
+  supplementalProPlayerRepresentatives,
+}

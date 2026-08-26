@@ -1,4 +1,5 @@
 import { proVodCatalog2026Batch1 } from './proLabVods2026Batch1'
+import { proVodCatalog2026Batch2 } from './proLabVods2026Batch2'
 import { supplementalProVodCatalog } from './proLabVodsSupplemental'
 import { proVodCatalog as foundationalProVodCatalog } from './proLabVods'
 import type { ProVodRecord } from './proLabTypes'
@@ -7,6 +8,7 @@ export const proVodCatalog = [
   ...foundationalProVodCatalog,
   ...supplementalProVodCatalog,
   ...proVodCatalog2026Batch1,
+  ...proVodCatalog2026Batch2,
 ] as readonly ProVodRecord[]
 
 export const proVodById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
@@ -23,4 +25,4 @@ export function getProVodsForPlayer(playerId: string) {
   return proVodCatalog.filter((vod) => vod.playerId === playerId)
 }
 
-export { proVodCatalog2026Batch1, supplementalProVodCatalog }
+export { proVodCatalog2026Batch1, proVodCatalog2026Batch2, supplementalProVodCatalog }
