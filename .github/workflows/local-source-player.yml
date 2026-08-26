@@ -16,6 +16,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: local-source-player-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-source-players:
     runs-on: ubuntu-24.04
@@ -99,6 +103,7 @@ jobs:
         run: |
           set -euo pipefail
           branch="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          base_sha="$(git rev-parse HEAD)"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A \
@@ -115,7 +120,13 @@ jobs:
             exit 0
           fi
           git commit -m 'chore: vendor seekable local source-player assets'
-          git pull --rebase origin "$branch"
+          git fetch origin "$branch"
+          remote_sha="$(git rev-parse FETCH_HEAD)"
+          if [[ "$remote_sha" != "$base_sha" ]]; then
+            echo "Branch advanced during generation ($base_sha -> $remote_sha); refusing to rebase generated output."
+            echo 'A newer serialized workflow run will regenerate from the new branch head.'
+            exit 1
+          fi
           git push origin HEAD:"$branch"
 
       - name: Upload source-player audit
