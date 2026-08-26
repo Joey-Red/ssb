@@ -9,8 +9,14 @@ import {
   extractMatchupPatterns,
 } from '../lib/proLabRelease'
 import { roster } from './roster'
+import {
+  nextProMetaResearchTargets2026,
+  proMetaRepresentation2026,
+  proMetaResearchPriorities2026,
+} from './proLabResearchPriorities'
+import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueue'
+import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
-import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRoster'
 import { proVodCatalog } from './proLabVods'
 
 /**
@@ -85,8 +91,13 @@ export const proRosterCoverage = buildProRosterCoverage({
 export const proLabReleaseStats = {
   fighters: proRosterCoverage.length,
   representatives: proPlayerRepresentatives.length,
+  seededResearchFighters: proFighterResearchRegistry.filter((entry) => entry.status === 'seeded').length,
   vodLearningRecords: proVodCatalog.length,
   distinctVideos: new Set(proVodCatalog.map((vod) => vod.videoUrl)).size,
+  reviewTargets: proVodReviewQueueStats.totalTargets,
+  pendingReviewTargets: proVodReviewQueueStats.pending,
+  currentMetaResearchTargets: proMetaRepresentation2026.length,
+  currentMetaTargetsNeedingRepresentative: nextProMetaResearchTargets2026.length,
   reviewedMoments: proDecisionMoments.filter((moment) => moment.evidenceClass !== 'speculative' && moment.confidence >= 0.65).length,
   lessonClaims: proCharacterLessons.reduce((total, lesson) => total + lesson.claims.length, 0),
   decisionExercises: proDecisionExercises.length,
@@ -97,8 +108,13 @@ export const proLabReleaseStats = {
 } as const
 
 export {
+  nextProMetaResearchTargets2026,
   proFighterResearchRegistry,
   proLabPilotFighterIds,
+  proMetaRepresentation2026,
+  proMetaResearchPriorities2026,
   proPlayerRepresentatives,
   proVodCatalog,
+  proVodReviewQueue,
+  proVodReviewQueueStats,
 }
