@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -61,6 +62,14 @@ def category_file_titles() -> list[str]:
     return sorted(set(titles))
 
 
+def camel_words(filename: str) -> str:
+    """Expose CamelCase filename semantics without guessing abbreviations."""
+    stem = Path(filename).stem
+    stem = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", stem)
+    stem = re.sub(r"([A-Z])([A-Z][a-z])", r"\1 \2", stem)
+    return " ".join(stem.replace("_", " ").split())
+
+
 def strongest_match(
     title: str,
     fighter_id: str,
@@ -68,8 +77,9 @@ def strongest_match(
     prefixes: list[str],
 ) -> tuple[dict[str, Any] | None, int, str | None]:
     moves = list(fighter.get("moves", []))
-    labels = [Path(title.removeprefix("File:")).stem]
-    expanded = short.expanded_move_label(title.removeprefix("File:"), prefixes)
+    filename = title.removeprefix("File:")
+    labels = [Path(filename).stem, camel_words(filename)]
+    expanded = short.expanded_move_label(filename, prefixes)
     if expanded and expanded not in labels:
         labels.append(expanded)
 
@@ -77,7 +87,7 @@ def strongest_match(
     best_score = 0
     best_label: str | None = None
     tie = False
-    for label in labels:
+    for label in dict.fromkeys(labels):
         move, score = ext.match_move(label, moves)
         if move is None:
             continue
