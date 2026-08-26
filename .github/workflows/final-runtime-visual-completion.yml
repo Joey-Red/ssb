@@ -5,6 +5,7 @@ on:
     types: [opened, reopened, synchronize]
     branches: [main]
     paths:
+      - 'scripts/build-defense-timing-evidence.py'
       - 'scripts/build-synthetic-visual-fallbacks.py'
       - 'scripts/build-synthetic-phase-sheets.py'
       - 'scripts/audit-runtime-visual-completion.py'
@@ -84,6 +85,7 @@ jobs:
           git add -A \
             public/data/visual-media \
             public/media/synthetic-phase-sheets \
+            src/data/visualDefenseTiming.generated.json \
             src/data/visualSyntheticFallbacks.generated.json \
             src/data/runtimeVisualCompletion.generated.json \
             src/data/visualCoverageAudit.generated.json \
@@ -108,6 +110,7 @@ jobs:
           name: final-runtime-visual-completion
           path: |
             src/data/runtimeVisualCompletion.generated.json
+            src/data/visualDefenseTiming.generated.json
             src/data/visualSyntheticFallbacks.generated.json
             docs/RUNTIME_VISUAL_COMPLETION.generated.md
           retention-days: 14
