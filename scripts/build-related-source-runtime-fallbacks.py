@@ -4,7 +4,7 @@
 Some frame-data rows split a move into states that public visual sources expose
 only as a parent action (full charge, air version, success state, cancel, etc.).
 For study usability, this script may reuse an already-vendored same-fighter
-source animation/image when the normalized move family is clearly related.
+runtime visual when the normalized move family is clearly related.
 
 These aliases exist ONLY in public runtime indexes. They never enter
 visualMediaSources, the factual coverage audit, or the capture queue and thus
@@ -23,7 +23,6 @@ ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / "src/data/visualCoverageAudit.generated.json"
 FRAME_DATA = ROOT / "src/data/frameData.generated.json"
 SOURCES = ROOT / "src/data/visualMediaSources.json"
-ASSETS = ROOT / "src/data/visualMediaAssets.generated.json"
 RUNTIME_DIR = ROOT / "public/data/visual-media"
 REPORT = ROOT / "src/data/visualRelatedSourceFallbacks.generated.json"
 GAME_FRAME_MS = 1000.0 / 60.0
@@ -75,9 +74,6 @@ def relation_score(missing_name: str, candidate_name: str) -> int:
     if missing_button and candidate_button and missing_button != candidate_button:
         return -1
 
-    # Exact normalized move core is strongest. Subset matches cover states such
-    # as "fully charged", "air", "success", "cancel", or "mashing" without
-    # allowing an unrelated move from the same fighter.
     if missing == candidate:
         score = 100
     elif missing <= candidate or candidate <= missing:
@@ -91,7 +87,6 @@ def relation_score(missing_name: str, candidate_name: str) -> int:
 
     if missing_button and candidate_button and missing_button == candidate_button:
         score += 15
-    # Prefer a smaller semantic delta when several parent rows share keywords.
     score -= abs(len(missing) - len(candidate)) * 2
     return score
 
@@ -144,21 +139,12 @@ def main() -> int:
     audit = json.loads(AUDIT.read_text(encoding="utf-8"))
     frame_data = json.loads(FRAME_DATA.read_text(encoding="utf-8"))
     sources = json.loads(SOURCES.read_text(encoding="utf-8"))
-    assets = json.loads(ASSETS.read_text(encoding="utf-8"))
-    if audit.get("version") != 2 or sources.get("version") != 3 or assets.get("version") != 3:
-        raise SystemExit("visual audit/source/assets schema mismatch")
+    if audit.get("version") != 2 or sources.get("version") != 3:
+        raise SystemExit("visual audit/source schema mismatch")
 
-    source_by_fighter: dict[str, list[dict[str, Any]]] = {}
+    source_moves_by_fighter: dict[str, list[dict[str, Any]]] = {}
     for source_move in sources.get("moves", []):
-        key = f"{source_move['fighterId']}:{source_move['moveId']}"
-        staged = assets.get("moves", {}).get(key, {})
-        variants = [variant for variant in staged.get("variants", []) if usable_variant(variant)]
-        if not variants:
-            continue
-        source_by_fighter.setdefault(source_move["fighterId"], []).append({
-            "source": source_move,
-            "variants": variants,
-        })
+        source_moves_by_fighter.setdefault(source_move["fighterId"], []).append(source_move)
 
     generated: list[dict[str, Any]] = []
     category_counts: Counter[str] = Counter()
@@ -171,11 +157,22 @@ def main() -> int:
         if not runtime_path.exists():
             raise SystemExit(f"runtime visual index missing for {fighter_id}")
         runtime = json.loads(runtime_path.read_text(encoding="utf-8"))
-        runtime_ids = {move["moveId"] for move in runtime.get("moves", [])}
+        runtime_by_id = {move["moveId"]: move for move in runtime.get("moves", [])}
+        runtime_ids = set(runtime_by_id)
         fighter = frame_data.get("fighters", {}).get(fighter_id)
         if not fighter:
             raise SystemExit(f"frame data missing fighter {fighter_id}")
         frame_moves = {move["id"]: move for move in fighter.get("moves", [])}
+
+        candidates: list[dict[str, Any]] = []
+        for source_move in source_moves_by_fighter.get(fighter_id, []):
+            runtime_source = runtime_by_id.get(source_move["moveId"])
+            if not runtime_source:
+                continue
+            variants = [variant for variant in runtime_source.get("variants", []) if usable_variant(variant)]
+            if not variants:
+                continue
+            candidates.append({"source": source_move, "runtime": runtime_source, "variants": variants})
 
         for row in rows:
             move_id = row["moveId"]
@@ -191,8 +188,9 @@ def main() -> int:
                 continue
 
             scored: list[tuple[int, dict[str, Any]]] = []
-            for candidate in source_by_fighter.get(fighter_id, []):
-                score = relation_score(str(move.get("name") or move_id), str(candidate["source"].get("label") or ""))
+            for candidate in candidates:
+                source_label = str(candidate["source"].get("label") or candidate["runtime"].get("label") or "")
+                score = relation_score(str(move.get("name") or move_id), source_label)
                 if score >= 70:
                     scored.append((score, candidate))
             if not scored:
@@ -200,11 +198,10 @@ def main() -> int:
             scored.sort(key=lambda item: (-item[0], len(significant_tokens(str(item[1]["source"].get("label") or "")))))
             best_score, best = scored[0]
             if len(scored) > 1 and scored[1][0] == best_score:
-                # Ambiguous aliases are worse than no alias.
                 continue
 
             source_move = best["source"]
-            source_label = str(source_move.get("label") or source_move["moveId"])
+            source_label = str(source_move.get("label") or best["runtime"].get("label") or source_move["moveId"])
             variants = [fallback_variant(variant, source_label) for variant in best["variants"]]
             if not variants:
                 continue
