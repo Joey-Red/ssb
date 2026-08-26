@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Turn unresolved locally-vendored animations into seekable source timelines.
+"""Build seekable display sheets for unresolved locally-vendored animations.
 
-Exact SSBU-frame coverage stays governed by the existing coverage field. This
-post-process only changes how unresolved moving source media is presented: each
-actual decoded source image becomes one independent ``source-animation`` frame
-that the existing player can seek/play/pause. UFD GIF display delays are often
-intentionally slowed for viewing, so they are recorded for provenance but are
-not reused as if they were game timing. This never upgrades ``partial`` or
-``untimed-animation`` coverage and never creates a runtime network dependency.
+This post-process never changes a staged variant's factual coverage, source
+timeline class, timing basis, or exactness metadata. It adds a separate
+``sourcePlaybackSheet`` made from the decoded local source images. The runtime
+index builder may then expose that sheet as an independent ``source-animation``
+player while the authoritative asset/audit layer remains unchanged.
+
+One decoded source image becomes one source-player step. UFD GIF display delays
+are often intentionally slowed for human viewing, so they are retained only as
+source provenance and are never interpreted as SSBU game-frame timing.
 """
 from __future__ import annotations
 
@@ -54,51 +56,32 @@ def build_source_player(
     variant: dict[str, Any],
 ) -> dict[str, Any] | None:
     coverage = str(variant.get("coverage") or "")
-    animation_src = str(variant.get("sourceAnimationArchiveSrc") or variant.get("animationSrc") or "")
+    animation_src = str(variant.get("animationSrc") or "")
     if coverage not in TARGET_COVERAGE or not animation_src:
         return None
 
     data = safe_local(animation_src).read_bytes()
     frames, durations, _loop = vendor.source_animation(data)
-    source_timeline_frames = len(frames)
+    source_frame_count = len(frames)
     relative, output = source_sheet_path(fighter_id, move_id, str(variant["id"]))
-    sheet = vendor.base.make_sheet(
-        frames,
-        list(range(1, source_timeline_frames + 1)),
-        output,
-    )
+    sheet = vendor.base.make_sheet(frames, list(range(1, source_frame_count + 1)), output)
 
-    # Keep the factual blocker class exactly as-is. Only the display timeline is
-    # independent now, so the UI never labels these source frames as SSBU frames.
-    original_timeline = str(
-        variant.get("sourcePlaybackOfTimelineClass")
-        or variant.get("timelineClass")
-        or "fighter-action"
-    )
-    original_reason = str(variant.get("coverageReason") or "exact game-frame mapping unavailable")
-    variant.update({
-        "spriteSheet": {"src": relative, **sheet},
-        "timelineClass": "source-animation",
-        "timingBasis": "independent-source",
-        "timelineTotalFrames": source_timeline_frames,
-        "timelineBasis": "decoded-source-image-sequence-display-only",
-        "mappingMethod": "one-decoded-source-image-per-source-frame-display-only",
-        "sourcePlaybackOfTimelineClass": original_timeline,
-        "sourceAnimationArchiveSrc": animation_src,
-        "coverageReason": original_reason,
-    })
-    # The seekable sheet replaces browser-autoplay in runtime data. The original
-    # animated WebP remains locally vendored and is retained above as a rebuild
-    # source so this post-process is deterministic/idempotent on bot reruns.
-    variant.pop("animationSrc", None)
+    # Runtime-only presentation metadata. Do NOT overwrite spriteSheet,
+    # timelineClass, timingBasis, timelineTotalFrames, mappingMethod, or coverage:
+    # those fields describe the factual/exact mapping and are audit inputs.
+    variant["sourcePlaybackSheet"] = {"src": relative, **sheet}
+    variant["sourcePlaybackFrameCount"] = source_frame_count
+    variant["sourcePlaybackOfTimelineClass"] = str(variant.get("timelineClass") or "fighter-action")
+    variant["sourcePlaybackMappingMethod"] = "one-decoded-source-image-per-source-frame-display-only"
+
     return {
         "fighterId": fighter_id,
         "moveId": move_id,
         "variantId": variant["id"],
         "coverage": coverage,
-        "sourceFrames": source_timeline_frames,
+        "sourceFrames": source_frame_count,
         "sourceEncodedDurationMs": sum(durations),
-        "originalTimelineClass": original_timeline,
+        "originalTimelineClass": variant["sourcePlaybackOfTimelineClass"],
         "sheet": relative,
     }
 
@@ -116,6 +99,15 @@ def main() -> int:
     for key, move_assets in sorted(payload["moves"].items()):
         fighter_id, move_id = key.split(":", 1)
         for variant in move_assets.get("variants", []):
+            # Clear stale presentation metadata if this script is rerun after a
+            # coverage classification changed.
+            for field in (
+                "sourcePlaybackSheet",
+                "sourcePlaybackFrameCount",
+                "sourcePlaybackOfTimelineClass",
+                "sourcePlaybackMappingMethod",
+            ):
+                variant.pop(field, None)
             built = build_source_player(fighter_id, move_id, variant)
             if built is None:
                 continue
@@ -131,6 +123,7 @@ def main() -> int:
             "runtimeAssets": "same-origin locally vendored source media",
             "gameFrameExact": False,
             "changesCoverageAudit": False,
+            "changesFactualAssetTimeline": False,
             "timelineMeaning": "one player step equals one decoded source image; source GIF display delays are not SSBU timing evidence",
         },
         "players": generated,
