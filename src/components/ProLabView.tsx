@@ -10,11 +10,8 @@ import {
   proPlayerComparisons,
   proPlayerRepresentatives,
   proRosterCoverage,
-  proSetBreakdowns,
-  proTemporalEvidence,
-  proVodCatalog,
 } from '../data/proLab'
-import type { ProFrameDataReference, ProPlayerRepresentative, ProVodRecord } from '../data/proLabTypes'
+import type { ProFrameDataReference, ProPlayerRepresentative } from '../data/proLabTypes'
 import { fighterBySlug, roster } from '../data/roster'
 import type { FighterManifestEntry } from '../types'
 import { buildPracticeDrillFromMoment, resolveFrameDataReference } from '../lib/proLabRelease'
@@ -22,11 +19,10 @@ import { addCustomDrill } from '../lib/storage'
 import { useFrameDataIndex } from '../lib/useFrameData'
 import { hrefFor } from '../router'
 import { FighterPicture } from './FighterPicture'
+import { ProVodLibrary } from './ProVodLibrary'
 
 const playerById = new Map<string, ProPlayerRepresentative>(proPlayerRepresentatives.map((player) => [player.id, player]))
 const fighterById = new Map<string, FighterManifestEntry>(roster.map((fighter) => [fighter.id, fighter]))
-const temporalByVod = new Map(proTemporalEvidence.map((entry) => [entry.vodId, entry]))
-const breakdownByVod = new Map(proSetBreakdowns.map((entry) => [entry.vodId, entry]))
 const coverageLabels = {
   'research-queued': 'Research queued',
   'representative-seeded': 'Representative seeded',
@@ -62,7 +58,6 @@ export function ProLabView({ slug }: { slug?: string | undefined }) {
   const coverage = proRosterCoverage.find((entry) => entry.fighterId === fighter.id)
   const research = proFighterResearchRegistry.find((entry) => entry.fighterId === fighter.id)
   const representatives = (research?.representativeIds ?? []).map((id) => playerById.get(id)).filter((player): player is ProPlayerRepresentative => player !== undefined)
-  const vods: readonly ProVodRecord[] = proVodCatalog.filter((vod) => (vod.playerFighterIds as readonly string[]).includes(fighter.id))
   const lesson = proCharacterLessons.find((entry) => entry.fighterId === fighter.id)
   const exercises = proDecisionExercises.filter((entry) => entry.fighterId === fighter.id)
   const exercise = exercises[exerciseIndex % Math.max(1, exercises.length)]
@@ -92,13 +87,13 @@ export function ProLabView({ slug }: { slug?: string | undefined }) {
     <section className="panel pro-lab__picker"><div><p className="eyebrow">Fighter workspace</p><h2>{fighter.name} Pro Lab</h2></div><label><span>Fighter</span><select value={fighter.id} onChange={(event) => chooseFighter(event.target.value)}>{roster.map((entry) => <option key={entry.id} value={entry.id}>{entry.name}</option>)}</select></label></section>
 
     <section className="pro-lab__fighter-grid">
-      <article className="panel pro-lab__identity"><div className="pro-lab__portrait"><FighterPicture fighterId={fighter.id} name={fighter.name} series={fighter.series} /></div><div><p className="eyebrow">Evidence workspace</p><h2>{fighter.name}</h2><p>{fighter.series}</p><div className="pro-lab__status-row"><span className={`pro-lab__status pro-lab__status--${coverage?.state ?? 'research-queued'}`}>{coverageLabels[coverage?.state ?? 'research-queued']}</span><span>{coverage?.representativeCount ?? 0} reps</span><span>{coverage?.vodCount ?? 0} VODs</span><span>{coverage?.reviewedMomentCount ?? 0} reviewed</span></div><div className="pro-lab__actions"><a className="button-link" href={hrefFor(`/fighter/${fighter.slug}`)}>Fighter guide</a><a className="button-link" href={hrefFor(`/fighter/${fighter.slug}/moves`)}>Frame data</a></div></div></article>
+      <article className="panel pro-lab__identity"><div className="pro-lab__portrait"><FighterPicture fighterId={fighter.id} name={fighter.name} series={fighter.series} /></div><div><p className="eyebrow">Evidence workspace</p><h2>{fighter.name}</h2><p>{fighter.series}</p><div className="pro-lab__status-row"><span className={`pro-lab__status pro-lab__status--${coverage?.state ?? 'research-queued'}`}>{coverageLabels[coverage?.state ?? 'research-queued']}</span><span>{coverage?.representativeCount ?? 0} reps</span><span>{coverage?.vodCount ?? 0} primary-study VODs</span><span>{coverage?.reviewedMomentCount ?? 0} reviewed</span></div><div className="pro-lab__actions"><a className="button-link" href={hrefFor(`/fighter/${fighter.slug}`)}>Fighter guide</a><a className="button-link" href={hrefFor(`/fighter/${fighter.slug}/moves`)}>Frame data</a></div></div></article>
       <article className="panel pro-lab__gate"><p className="eyebrow">Evidence gate</p><h2>{lesson?.status === 'ready' ? 'Teaching evidence ready' : 'No invented coaching'}</h2><p>{lesson?.status === 'ready' ? 'Repeated reviewed evidence cleared the lesson threshold.' : 'Set metadata can prove who played and where; it cannot prove why a player chose an option.'}</p><ul>{(coverage?.notes ?? ['Coverage unavailable.']).map((note) => <li key={note}>{note}</li>)}</ul></article>
     </section>
 
     <section className="panel"><Heading eyebrow="Players" title="Representative study pool" meta={`${representatives.length} provenance-backed`} />{representatives.length ? <div className="pro-lab__card-grid">{representatives.map((player) => <article className="pro-lab__card" key={player.id}><div className="pro-lab__card-top"><h3>{player.tag}</h3><span>{player.status}</span></div><p>{player.country} · {player.region}</p><p>{player.note}</p><div className="pro-lab__link-row">{player.sourceUrls.map((url, index) => <a href={url} target="_blank" rel="noreferrer" key={url}>Source {index + 1}</a>)}</div></article>)}</div> : <EvidenceEmpty title="Representative research queued" text="No representative is assigned until the player/character relationship is provenance-backed." />}</section>
 
-    <section className="panel"><Heading eyebrow="Sets" title="Tournament VOD catalog" meta="Explicit external links only" />{vods.length ? <div className="pro-lab__vod-list">{vods.map((vod) => <article className="pro-lab__vod" key={vod.id}><div className="pro-lab__vod-main"><div className="pro-lab__card-top"><h3>{vod.title}</h3><span>{temporalByVod.get(vod.id)?.era ?? 'legacy'}</span></div><p>{vod.date} · {vod.round} · {vod.eventTier}</p><p>{vod.result ?? 'Result not asserted.'}</p><div className="pro-lab__status-row"><span>Quality {vod.quality.score}</span><span>{vod.analysisStatus}</span><span>Version {vod.gameVersion}</span><span>Breakdown {breakdownByVod.get(vod.id)?.status ?? 'queued'}</span></div></div><div className="pro-lab__vod-actions"><a className="button-link" href={vod.videoUrl} target="_blank" rel="noreferrer">Open VOD ↗</a><details><summary>Provenance</summary><div className="pro-lab__source-stack">{vod.sourceUrls.map((url) => <a href={url} target="_blank" rel="noreferrer" key={url}>{url}</a>)}</div></details></div></article>)}</div> : <EvidenceEmpty title="VOD research queued" text="This fighter has no catalog-quality set yet; the gap remains visible." />}</section>
+    <ProVodLibrary fighterId={fighter.id} />
 
     <section className="panel"><Heading eyebrow="Pattern lessons" title="Character lessons" meta={`${lesson?.claims.length ?? 0} evidence-backed`} />{lesson?.claims.length ? <div className="pro-lab__lesson-grid">{lesson.claims.map((claim) => <article className="pro-lab__lesson" key={claim.id}><span>{topicLabels[claim.topic]}</span><h3>{claim.statement}</h3><p>{confidenceLabel(claim.confidence)} · {claim.evidenceVodIds.length} sets · {claim.evidenceMomentIds.length} moments</p><details><summary>Evidence IDs</summary><code>{claim.evidenceMomentIds.join(', ')}</code></details></article>)}</div> : <EvidenceEmpty title="Lesson threshold not met" text="Character lessons require repeated reviewed decisions. Empty is correct until review produces qualifying evidence." />}</section>
 

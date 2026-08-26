@@ -16,16 +16,36 @@ export const catalogedProVodReviewTargets: readonly ProVodReviewTarget[] = proVo
   playerTags: [vod.playerId, vod.opponentTag],
   fighterIds: [...vod.playerFighterIds, ...vod.opponentFighterIds],
   videoUrl: vod.videoUrl,
+  ...(vod.startSeconds !== undefined ? { setStartSeconds: vod.startSeconds } : {}),
   priority: priorityForCatalogedVod(vod.date, vod.eventTier),
   status: 'vod-cataloged',
   sourceUrls: vod.sourceUrls,
   note: 'Catalog metadata is ready. Tactical claims, timestamps inside games, and player intent must be added only after direct footage review.',
 }))
 
-export const proVodReviewQueue: readonly ProVodReviewTarget[] = [
+const reviewIdentity = (target: ProVodReviewTarget) =>
+  target.vodId
+    ? `vod:${target.vodId}`
+    : `media:${target.videoUrl}|${target.setStartSeconds ?? 'full-set'}`
+
+const mediaIdentity = (target: ProVodReviewTarget) =>
+  `media:${target.videoUrl}|${target.setStartSeconds ?? 'full-set'}`
+
+const combinedTargets: readonly ProVodReviewTarget[] = [
   ...catalogedProVodReviewTargets,
   ...kagaribi15StreamReviewTargets,
 ]
+const seenVodIds = new Set<string>()
+const seenMedia = new Set<string>()
+
+export const proVodReviewQueue: readonly ProVodReviewTarget[] = combinedTargets.filter((target) => {
+  const media = mediaIdentity(target)
+  if (seenMedia.has(media)) return false
+  if (target.vodId && seenVodIds.has(target.vodId)) return false
+  seenMedia.add(media)
+  if (target.vodId) seenVodIds.add(target.vodId)
+  return true
+})
 
 export const proVodReviewQueueStats = {
   totalTargets: proVodReviewQueue.length,
@@ -34,4 +54,5 @@ export const proVodReviewQueueStats = {
   normal: proVodReviewQueue.filter((target) => target.priority === 'normal').length,
   reviewed: proVodReviewQueue.filter((target) => target.status === 'reviewed').length,
   pending: proVodReviewQueue.filter((target) => target.status !== 'reviewed').length,
+  identityCount: new Set(proVodReviewQueue.map(reviewIdentity)).size,
 } as const
