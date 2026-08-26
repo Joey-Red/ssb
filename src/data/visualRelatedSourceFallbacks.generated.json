@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "fallbackCount": 15,
+  "fallbackCount": 16,
   "categoryCounts": {
     "grab": 1,
     "ground": 1,
     "misc": 7,
-    "special": 6
+    "special": 7
   },
   "policy": {
     "runtimeOnly": true,
@@ -69,6 +69,18 @@
       "category": "grab",
       "relatedSourceMoveId": "monkey-flip-grab-success",
       "relatedSourceLabel": "Diddy_kong Monkey Flip, Grab Success",
+      "score": 81,
+      "variantCount": 1,
+      "sourceEvidenceForTarget": false,
+      "eligibleForExactCoverage": false
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "down-b-rebel-s-guard",
+      "moveLabel": "Joker Down B (Rebel's Guard)",
+      "category": "special",
+      "relatedSourceMoveId": "rebel-s-guard-counterattack",
+      "relatedSourceLabel": "Joker Rebel's Guard, Counterattack",
       "score": 81,
       "variantCount": 1,
       "sourceEvidenceForTarget": false,

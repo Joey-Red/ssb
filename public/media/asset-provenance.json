@@ -359,12 +359,12 @@
     }
   },
   "visualMoveCount": 2739,
-  "visualVariantCount": 3565,
-  "fullExactVariantCount": 2361,
-  "sourceTimedVariantCount": 418,
-  "exactStaticVariantCount": 74,
-  "visualCoverageGapCount": 712,
+  "visualVariantCount": 3743,
+  "fullExactVariantCount": 2318,
+  "sourceTimedVariantCount": 450,
+  "exactStaticVariantCount": 71,
+  "visualCoverageGapCount": 904,
   "reviewedOverrideCount": 0,
   "fightersScanned": 89,
-  "mediaBytes": 534083320
+  "mediaBytes": 577902058
 }

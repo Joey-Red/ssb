@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "category": "Category:Animated images (SSBU)",
+  "categoryFiles": 5204,
+  "smashwikiPngVariantsChecked": 66,
+  "promotedAnimatedPngVariants": 50,
+  "promoted": [
+    {
+      "fighterId": "banjo-and-kazooie",
+      "moveId": "down-b-rear-egg",
+      "variantId": "smashwiki-banjo-26kazooiereareggexplosionssbu",
+      "fileTitle": "banjo&kazooiereareggexplosionssbu.png"
+    },
+    {
+      "fighterId": "banjo-and-kazooie",
+      "moveId": "down-b-rear-egg",
+      "variantId": "smashwiki-banjo-26kazooiereareggssbu",
+      "fileTitle": "banjo&kazooiereareggssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "back-air",
+      "variantId": "smashwiki-bayonettabairbulletartsssbu",
+      "fileTitle": "bayonettabairbulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "dash-attack",
+      "variantId": "smashwiki-bayonettadashattackbulletartsssbu",
+      "fileTitle": "bayonettadashattackbulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "down-air",
+      "variantId": "smashwiki-bayonettadairlandingbulletartsssbu",
+      "fileTitle": "bayonettadairlandingbulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "forward-air-1",
+      "variantId": "smashwiki-bayonettafair1bulletartsssbu",
+      "fileTitle": "bayonettafair1bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "forward-air-2",
+      "variantId": "smashwiki-bayonettafair2bulletartsssbu",
+      "fileTitle": "bayonettafair2bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "forward-smash",
+      "variantId": "smashwiki-bayonettafsmashbulletartsssbu",
+      "fileTitle": "bayonettafsmashbulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "forward-tilt-1",
+      "variantId": "smashwiki-bayonettaftilt1bulletartsssbu",
+      "fileTitle": "bayonettaftilt1bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "forward-tilt-2",
+      "variantId": "smashwiki-bayonettaftilt2bulletartsssbu",
+      "fileTitle": "bayonettaftilt2bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "forward-tilt-3",
+      "variantId": "smashwiki-bayonettaftilt3bulletartsssbu",
+      "fileTitle": "bayonettaftilt3bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "jab-1",
+      "variantId": "smashwiki-bayonettajab1bulletartsssbu",
+      "fileTitle": "bayonettajab1bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "jab-2",
+      "variantId": "smashwiki-bayonettajab2bulletartsssbu",
+      "fileTitle": "bayonettajab2bulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "rapid-jab-finisher",
+      "variantId": "smashwiki-bayonettarapidjabfinisherbulletartsssbu",
+      "fileTitle": "bayonettarapidjabfinisherbulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "side-b-heel-slide",
+      "variantId": "smashwiki-bayonettaheelslidebulletartsssbu",
+      "fileTitle": "bayonettaheelslidebulletartsssbu.png"
+    },
+    {
+      "fighterId": "bayonetta",
+      "moveId": "up-tilt",
+      "variantId": "smashwiki-bayonettautiltbulletartsssbu",
+      "fileTitle": "bayonettautiltbulletartsssbu.png"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "down-b-mechakoopa",
+      "variantId": "smashwiki-bowserjrdspecialexplosionssbu",
+      "fileTitle": "bowserjrdspecialexplosionssbu.png"
+    },
+    {
+      "fighterId": "bowser-jr",
+      "moveId": "up-b-abandon-ship",
+      "variantId": "smashwiki-bowserjrabandonshipexplosionssbu",
+      "fileTitle": "bowserjrabandonshipexplosionssbu.png"
+    },
+    {
+      "fighterId": "corrin",
+      "moveId": "forward-smash",
+      "variantId": "smashwiki-corrinfsmashssbu",
+      "fileTitle": "corrinfsmashssbu.png"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "down-b-bomb",
+      "variantId": "smashwiki-darksamusdspecialexplosionssbu",
+      "fileTitle": "darksamusdspecialexplosionssbu.png"
+    },
+    {
+      "fighterId": "dark-samus",
+      "moveId": "down-b-bomb",
+      "variantId": "smashwiki-darksamusdspecialssbu",
+      "fileTitle": "darksamusdspecialssbu.png"
+    },
+    {
+      "fighterId": "diddy-kong",
+      "moveId": "up-b-rocketbarrel-boost",
+      "variantId": "smashwiki-diddykonguspecialexplosionssbu",
+      "fileTitle": "diddykonguspecialexplosionssbu.png"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "neutral-b-trick-shot",
+      "variantId": "smashwiki-duckhuntnspecialexplosionssbu",
+      "fileTitle": "duckhuntnspecialexplosionssbu.png"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "neutral-b-trick-shot",
+      "variantId": "smashwiki-duckhuntnspecialstandssbu",
+      "fileTitle": "duckhuntnspecialstandssbu.png"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "side-b-clay-shooting",
+      "variantId": "smashwiki-duckhuntsspecialburstssbu",
+      "fileTitle": "duckhuntsspecialburstssbu.png"
+    },
+    {
+      "fighterId": "duck-hunt",
+      "moveId": "side-b-clay-shooting",
+      "variantId": "smashwiki-duckhuntsspecialssbu",
+      "fileTitle": "duckhuntsspecialssbu.png"
+    },
+    {
+      "fighterId": "falco",
+      "moveId": "side-b-falco-phantasm",
+      "variantId": "smashwiki-falcosspecialgroundedssbu",
+      "fileTitle": "falcosspecialgroundedssbu.png"
+    },
+    {
+      "fighterId": "ice-climbers",
+      "moveId": "neutral-b-ice-shot",
+      "variantId": "smashwiki-iceclimbersnspecialssbu",
+      "fileTitle": "iceclimbersnspecialssbu.png"
+    },
+    {
+      "fighterId": "inkling",
+      "moveId": "side-b-splat-roller",
+      "variantId": "smashwiki-inklingsspecialgroundedinkssbu",
+      "fileTitle": "inklingsspecialgroundedinkssbu.png"
+    },
+    {
+      "fighterId": "link",
+      "moveId": "side-b-boomerang",
+      "variantId": "smashwiki-linksspecialssbu",
+      "fileTitle": "linksspecialssbu.png"
+    },
+    {
+      "fighterId": "lucas",
+      "moveId": "neutral-b-pk-freeze",
+      "variantId": "smashwiki-lucasnspecialssbu",
+      "fileTitle": "lucasnspecialssbu.png"
+    },
+    {
+      "fighterId": "lucas",
+      "moveId": "side-b-pk-fire",
+      "variantId": "smashwiki-lucassspecialburstssbu",
+      "fileTitle": "lucassspecialburstssbu.png"
+    },
+    {
+      "fighterId": "min-min",
+      "moveId": "forward-smash-power-dragon-laser",
+      "variantId": "smashwiki-minminfsmashpowerdragonbeamssbu",
+      "fileTitle": "minminfsmashpowerdragonbeamssbu.png"
+    },
+    {
+      "fighterId": "mr-game-and-watch",
+      "moveId": "down-b-oil-panic",
+      "variantId": "smashwiki-mrgame-26watchdspecialssbu",
+      "fileTitle": "mrgame&watchdspecialssbu.png"
+    },
+    {
+      "fighterId": "olimar",
+      "moveId": "forward-smash",
+      "variantId": "smashwiki-redpikminfsmashssbu",
+      "fileTitle": "redpikminfsmashssbu.png"
+    },
+    {
+      "fighterId": "pac-man",
+      "moveId": "neutral-b-bonus-fruit-throw",
+      "variantId": "smashwiki-pacmannspecialapplessbu",
+      "fileTitle": "pacmannspecialapplessbu.png"
+    },
+    {
+      "fighterId": "pac-man",
+      "moveId": "neutral-b-bonus-fruit-throw",
+      "variantId": "smashwiki-pacmannspecialcherryssbu",
+      "fileTitle": "pacmannspecialcherryssbu.png"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "down-b-bomb",
+      "variantId": "smashwiki-samusdspecialexplosionssbu",
+      "fileTitle": "samusdspecialexplosionssbu.png"
+    },
+    {
+      "fighterId": "samus",
+      "moveId": "down-b-bomb",
+      "variantId": "smashwiki-samusdspecialssbu",
+      "fileTitle": "samusdspecialssbu.png"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "side-b-nikita",
+      "variantId": "smashwiki-snakeremotemissilehurtboxweakssbu",
+      "fileTitle": "snakeremotemissilehurtboxweakssbu.png"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "up-b-cypher",
+      "variantId": "smashwiki-snakecypherssbu",
+      "fileTitle": "snakecypherssbu.png"
+    },
+    {
+      "fighterId": "snake",
+      "moveId": "up-smash",
+      "variantId": "smashwiki-snakeusmashmortarexplosionssbu",
+      "fileTitle": "snakeusmashmortarexplosionssbu.png"
+    },
+    {
+      "fighterId": "sonic",
+      "moveId": "neutral-b-homing-attack",
+      "variantId": "smashwiki-sonicnspecialssbu",
+      "fileTitle": "sonicnspecialssbu.png"
+    },
+    {
+      "fighterId": "steve",
+      "moveId": "down-air",
+      "variantId": "smashwiki-stevedairssbu",
+      "fileTitle": "stevedairssbu.png"
+    },
+    {
+      "fighterId": "toon-link",
+      "moveId": "side-b-boomerang",
+      "variantId": "smashwiki-toonlinksspecialssbu",
+      "fileTitle": "toonlinksspecialssbu.png"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "side-b-lloid-rocket",
+      "variantId": "smashwiki-villagersspecialexplosionssbu",
+      "fileTitle": "villagersspecialexplosionssbu.png"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "side-b-lloid-rocket",
+      "variantId": "smashwiki-villagersspecialflyssbu",
+      "fileTitle": "villagersspecialflyssbu.png"
+    },
+    {
+      "fighterId": "villager",
+      "moveId": "up-b-balloon-trip",
+      "variantId": "smashwiki-villageruspecialballoonhurtboxssbu",
+      "fileTitle": "villageruspecialballoonhurtboxssbu.png"
+    },
+    {
+      "fighterId": "young-link",
+      "moveId": "side-b-boomerang",
+      "variantId": "smashwiki-younglinksspecialssbu",
+      "fileTitle": "younglinksspecialssbu.png"
+    },
+    {
+      "fighterId": "zelda",
+      "moveId": "side-b-din-s-fire",
+      "variantId": "smashwiki-zeldasspecialssbu",
+      "fileTitle": "zeldasspecialssbu.png"
+    }
+  ],
+  "policy": "category metadata changes animation decoding only; it does not assert exact game-frame timing"
+}

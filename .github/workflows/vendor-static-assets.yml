@@ -2,6 +2,9 @@ name: Vendor static visual assets
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - source-visual-quality-completion
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
@@ -11,6 +14,10 @@ on:
       - 'scripts/discover-smashwiki-filename-visuals.py'
       - 'scripts/discover-smashwiki-shorthand-visuals.py'
       - 'scripts/discover-smashwiki-curated-gap-visuals.py'
+      - 'scripts/discover-smashwiki-animated-png-visuals.py'
+      - 'scripts/discover-smashwiki-category-filename-visuals.py'
+      - 'scripts/discover-smashwiki-hitbox-category-visuals.py'
+      - 'scripts/classify-smashwiki-animated-containers.py'
       - 'scripts/reconcile-external-visuals.py'
       - 'scripts/normalize-visual-source-provenance.py'
       - 'scripts/resolve-ruben-timing.py'
@@ -21,7 +28,12 @@ on:
       - 'scripts/vendor-static-assets.py'
       - 'scripts/vendor-full-motion-assets.py'
       - 'scripts/build-runtime-visual-index.py'
+      - 'scripts/build-related-source-runtime-fallbacks.py'
+      - 'scripts/build-synthetic-visual-fallbacks.py'
+      - 'scripts/build-synthetic-phase-sheets.py'
+      - 'scripts/audit-runtime-visual-completion.py'
       - 'scripts/audit-visual-coverage.py'
+      - 'scripts/finalize-visual-evidence-audit.py'
       - 'scripts/build-visual-capture-queue.py'
       - 'scripts/build-visual-completion-summary.py'
       - 'scripts/check-visual-coverage.py'
@@ -40,7 +52,7 @@ concurrency:
 
 jobs:
   discovery-audit:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -67,6 +79,9 @@ jobs:
           python scripts/discover-smashwiki-filename-visuals.py
           python scripts/discover-smashwiki-shorthand-visuals.py
           python scripts/discover-smashwiki-curated-gap-visuals.py
+          python scripts/discover-smashwiki-animated-png-visuals.py
+          python scripts/discover-smashwiki-category-filename-visuals.py
+          python scripts/discover-smashwiki-hitbox-category-visuals.py
           python scripts/audit-visual-coverage.py
       - name: Write measurable discovery summary
         shell: bash
@@ -81,6 +96,9 @@ jobs:
           filename = json.loads(Path('src/data/smashwikiFilenameVisuals.generated.json').read_text())
           shorthand = json.loads(Path('src/data/smashwikiShorthandVisuals.generated.json').read_text())
           curated = json.loads(Path('src/data/smashwikiCuratedGapVisuals.generated.json').read_text())
+          animated_png = json.loads(Path('src/data/smashwikiAnimatedPngVisuals.generated.json').read_text())
+          category_filename = json.loads(Path('src/data/smashwikiCategoryFilenameVisuals.generated.json').read_text())
+          hitbox_category = json.loads(Path('src/data/smashwikiHitboxCategoryVisuals.generated.json').read_text())
           summary = {
               'sourceLessBeforeExternalDiscovery': before['movesWithoutSourceVisual'],
               'sourceLessAfterExternalDiscovery': after['movesWithoutSourceVisual'],
@@ -89,6 +107,12 @@ jobs:
               'filenameSweepRecoveredMoves': filename['recoveredSourceLessMoves'],
               'shorthandRecoveredMoves': shorthand['recoveredSourceLessMoves'],
               'curatedRecoveredMoves': curated['recoveredSourceLessMoves'],
+              'animatedPngRecoveredMoves': animated_png['recoveredSourceLessMoves'],
+              'animatedPngFilesSeen': animated_png['categoryAnimatedPngFilesSeen'],
+              'categoryFilenameRecoveredMoves': category_filename['recoveredSourceLessMoves'],
+              'categoryFilenameStrongCandidates': category_filename['strongFilenameCandidates'],
+              'hitboxCategoryRecoveredMoves': hitbox_category['recoveredSourceLessMoves'],
+              'hitboxCategoryStrongCandidates': hitbox_category['strongCandidates'],
               'filenameSweepFilesScanned': filename['filesScanned'],
               'mappedSourceVisualMovesAfterDiscovery': after['mappedSourceVisualMoves'],
           }
@@ -105,11 +129,14 @@ jobs:
             src/data/smashwikiFilenameVisuals.generated.json
             src/data/smashwikiShorthandVisuals.generated.json
             src/data/smashwikiCuratedGapVisuals.generated.json
+            src/data/smashwikiAnimatedPngVisuals.generated.json
+            src/data/smashwikiCategoryFilenameVisuals.generated.json
+            src/data/smashwikiHitboxCategoryVisuals.generated.json
             src/data/visualCoverageAudit.generated.json
           retention-days: 7
 
   vendor:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 240
     steps:
@@ -140,10 +167,18 @@ jobs:
         run: python scripts/discover-smashwiki-shorthand-visuals.py
       - name: Recover verified curated SmashWiki gaps
         run: python scripts/discover-smashwiki-curated-gap-visuals.py
+      - name: Recover category-verified SmashWiki animated PNGs
+        run: python scripts/discover-smashwiki-animated-png-visuals.py
+      - name: Recover SmashWiki animated-category filename matches
+        run: python scripts/discover-smashwiki-category-filename-visuals.py
+      - name: Recover fighter-specific SmashWiki hitbox-category sources
+        run: python scripts/discover-smashwiki-hitbox-category-visuals.py
       - name: Reconcile stronger external replacements
         run: python scripts/reconcile-external-visuals.py
       - name: Normalize multi-source provenance
         run: python scripts/normalize-visual-source-provenance.py
+      - name: Classify SmashWiki animated PNG containers
+        run: python scripts/classify-smashwiki-animated-containers.py
       - name: Resolve conservative Ruben timing evidence
         run: python scripts/resolve-ruben-timing.py
       - name: Apply generated timing evidence for vendoring
@@ -160,16 +195,22 @@ jobs:
         run: git checkout -- src/data/visualTimelineOverrides.json
       - name: Build per-fighter runtime visual indexes
         run: python scripts/build-runtime-visual-index.py
-      - name: Audit source-backed visual coverage
+      - name: Audit action-specific source visual coverage
         run: python scripts/audit-visual-coverage.py
-      - name: Build deterministic capture queue
+      - name: Build deterministic action-specific upgrade queue
         run: python scripts/build-visual-capture-queue.py
-      - name: Build completion summary
-        run: python scripts/build-visual-completion-summary.py
+      - name: Build related-source runtime fallbacks
+        run: python scripts/build-related-source-runtime-fallbacks.py
       - name: Build illustrative source-less fallbacks
         run: python scripts/build-synthetic-visual-fallbacks.py
       - name: Verify complete same-origin runtime
         run: python scripts/audit-runtime-visual-completion.py
+      - name: Finalize zero-gap evidence visual audit
+        run: python scripts/finalize-visual-evidence-audit.py
+      - name: Verify zero-gap evidence coverage
+        run: python scripts/check-visual-coverage.py
+      - name: Build completion summary
+        run: python scripts/build-visual-completion-summary.py
       - name: Commit discovered and vendored media
         shell: bash
         run: |
@@ -183,6 +224,10 @@ jobs:
             src/data/smashwikiFilenameVisuals.generated.json \
             src/data/smashwikiShorthandVisuals.generated.json \
             src/data/smashwikiCuratedGapVisuals.generated.json \
+            src/data/smashwikiAnimatedPngVisuals.generated.json \
+            src/data/smashwikiCategoryFilenameVisuals.generated.json \
+            src/data/smashwikiHitboxCategoryVisuals.generated.json \
+            src/data/smashwikiAnimatedContainers.generated.json \
             src/data/smashwikiHistoricalVisuals.generated.json \
             src/data/rubenTimingOverrides.generated.json \
             src/data/ultimateHitboxesArchive.generated.json \
@@ -191,6 +236,7 @@ jobs:
             src/data/visualCoverageAudit.generated.json \
             src/data/visualCaptureQueue.generated.json \
             src/data/visualDefenseTiming.generated.json \
+            src/data/visualRelatedSourceFallbacks.generated.json \
             src/data/visualSyntheticFallbacks.generated.json \
             src/data/runtimeVisualCompletion.generated.json \
             docs/RUNTIME_VISUAL_COMPLETION.generated.md \

@@ -1,20 +1,21 @@
 {
   "version": 2,
-  "fallbackCount": 834,
+  "fallbackCount": 833,
   "categoryCounts": {
-    "defense": 799,
+    "defense": 796,
     "grab": 5,
     "ground": 1,
-    "misc": 29
+    "misc": 28,
+    "special": 3
   },
   "phaseFrameCounts": {
-    "active": 267,
-    "intangible": 14082,
-    "other": 914,
-    "recovery": 35009,
-    "startup": 1937
+    "active": 243,
+    "intangible": 14026,
+    "other": 915,
+    "recovery": 34998,
+    "startup": 1923
   },
-  "defenseRowsWithDocumentedIntangibility": 792,
+  "defenseRowsWithDocumentedIntangibility": 789,
   "defenseRowsUsingRegistryTotalFrames": 0,
   "defenseTimingRegistryRows": 797,
   "policy": {
@@ -2660,6 +2661,20 @@
       "replacementQueueKey": "ganondorf:spot-dodge:manual-full-move"
     },
     {
+      "fighterId": "ganondorf",
+      "moveId": "side-b-air-success-flame-choke-air-success",
+      "moveLabel": "Ganondorf Side B, Air Success (Flame Choke, Air Success)",
+      "category": "special",
+      "timelineTotalFrames": 1,
+      "frameDataTimelineTotalFrames": 1,
+      "defenseRegistryTotalFrames": null,
+      "intangibleStart": null,
+      "intangibleEnd": null,
+      "sourceEvidence": false,
+      "eligibleForExactCoverage": false,
+      "replacementQueueKey": "ganondorf:side-b-air-success-flame-choke-air-success:manual-full-move"
+    },
+    {
       "fighterId": "greninja",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Greninja Air Dodge, Diagonally Down",
@@ -4116,6 +4131,34 @@
       "replacementQueueKey": "joker:air-grappling-attack:manual-full-move"
     },
     {
+      "fighterId": "joker",
+      "moveId": "up-b-grappling-hook",
+      "moveLabel": "Joker Up B (Grappling Hook)",
+      "category": "special",
+      "timelineTotalFrames": 59,
+      "frameDataTimelineTotalFrames": 59,
+      "defenseRegistryTotalFrames": null,
+      "intangibleStart": null,
+      "intangibleEnd": null,
+      "sourceEvidence": false,
+      "eligibleForExactCoverage": false,
+      "replacementQueueKey": "joker:up-b-grappling-hook:manual-full-move"
+    },
+    {
+      "fighterId": "joker",
+      "moveId": "up-b-arsene-wings-of-rebellion",
+      "moveLabel": "Joker Up B, Arsene (Wings of Rebellion)",
+      "category": "special",
+      "timelineTotalFrames": 1,
+      "frameDataTimelineTotalFrames": 1,
+      "defenseRegistryTotalFrames": null,
+      "intangibleStart": null,
+      "intangibleEnd": null,
+      "sourceEvidence": false,
+      "eligibleForExactCoverage": false,
+      "replacementQueueKey": "joker:up-b-arsene-wings-of-rebellion:manual-full-move"
+    },
+    {
       "fighterId": "kazuya",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Kazuya Air Dodge, Diagonally Down",
@@ -5150,34 +5193,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "lucario:forward-roll:manual-full-move"
-    },
-    {
-      "fighterId": "lucario",
-      "moveId": "neutral-air-dodge",
-      "moveLabel": "Lucario Neutral Air Dodge",
-      "category": "defense",
-      "timelineTotalFrames": 48,
-      "frameDataTimelineTotalFrames": 48,
-      "defenseRegistryTotalFrames": 48,
-      "intangibleStart": 3,
-      "intangibleEnd": 28,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "lucario:neutral-air-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "lucario",
-      "moveId": "spot-dodge",
-      "moveLabel": "Lucario Spot Dodge",
-      "category": "defense",
-      "timelineTotalFrames": 25,
-      "frameDataTimelineTotalFrames": 25,
-      "defenseRegistryTotalFrames": 25,
-      "intangibleStart": 3,
-      "intangibleEnd": 17,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "lucario:spot-dodge:manual-full-move"
     },
     {
       "fighterId": "lucas",
@@ -6328,20 +6343,6 @@
       "replacementQueueKey": "mii-brawler:spot-dodge:manual-full-move"
     },
     {
-      "fighterId": "mii-brawler",
-      "moveId": "shot-put",
-      "moveLabel": "Mii_brawler Shot Put",
-      "category": "misc",
-      "timelineTotalFrames": 67,
-      "frameDataTimelineTotalFrames": 67,
-      "defenseRegistryTotalFrames": null,
-      "intangibleStart": null,
-      "intangibleEnd": null,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-brawler:shot-put:manual-full-move"
-    },
-    {
       "fighterId": "mii-gunner",
       "moveId": "air-dodge-diagonally-down",
       "moveLabel": "Mii_gunner Air Dodge, Diagonally Down",
@@ -6536,20 +6537,6 @@
       "sourceEvidence": false,
       "eligibleForExactCoverage": false,
       "replacementQueueKey": "mii-swordfighter:neutral-air-dodge:manual-full-move"
-    },
-    {
-      "fighterId": "mii-swordfighter",
-      "moveId": "spot-dodge",
-      "moveLabel": "Mii_swordfighter Spot Dodge",
-      "category": "defense",
-      "timelineTotalFrames": 25,
-      "frameDataTimelineTotalFrames": 25,
-      "defenseRegistryTotalFrames": 25,
-      "intangibleStart": 3,
-      "intangibleEnd": 17,
-      "sourceEvidence": false,
-      "eligibleForExactCoverage": false,
-      "replacementQueueKey": "mii-swordfighter:spot-dodge:manual-full-move"
     },
     {
       "fighterId": "min-min",
@@ -11705,5 +11692,5 @@
     }
   ],
   "localSchematicSheetCount": 89,
-  "seekableSchematicPlayers": 834
+  "seekableSchematicPlayers": 833
 }
