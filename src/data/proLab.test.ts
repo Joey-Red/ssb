@@ -26,8 +26,8 @@ const observedMoment = (
 })
 
 describe('Pro Lab foundation', () => {
-  const rosterIds = new Set(roster.map((fighter) => fighter.id))
-  const playerIds = new Set(proPlayerRepresentatives.map((player) => player.id))
+  const rosterIds = new Set<string>(roster.map((fighter) => fighter.id))
+  const playerIds = new Set<string>(proPlayerRepresentatives.map((player) => player.id))
 
   it('tracks research state for all 89 canonical fighter pages', () => {
     expect(proFighterResearchRegistry).toHaveLength(roster.length)
