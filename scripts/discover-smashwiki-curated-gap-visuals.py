@@ -1,21 +1,28 @@
 #!/usr/bin/env python3
-"""Recover verified source-less moves from exact SmashWiki SSBU file titles.
+"""Recover verified source-less moves from exact SmashWiki SSBU sources.
 
-These entries cover known public animations whose file/category semantics identify
-one specific frame-data move but whose filenames are not reliably discoverable by
-the generic table/prefix parsers (notably spaced multi-word fighter names).
+This pass has two conservative lanes:
 
-The registry only establishes that a real source visual exists. It does not assert
-an exact game-frame mapping; the full-motion vendor remains the timing gate.
+1. A tiny explicit registry for known move files whose file/category semantics
+   identify one specific frame-data move but whose names are not reliably found
+   by the generic discovery passes.
+2. SmashWiki's ``Dodges (SSBU)`` category. Category page titles directly state
+   fighter + action (Spot dodge, Forward roll, Back roll, or Air dodge), so they
+   can recover real defensive animations even when the media filename itself does
+   not contain the token ``SSBU`` (for example ``LucarioSpotdodge.gif``).
+
+Neither lane asserts exact game-frame timing merely because an animation exists.
+The full-motion vendor remains the timing gate and keeps the source provenance.
 """
 from __future__ import annotations
 
 import importlib.util
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 EXTERNAL_DISCOVERY = ROOT / "scripts/discover-external-visuals.py"
@@ -84,12 +91,191 @@ CURATED: tuple[dict[str, str], ...] = (
     },
 )
 
+DODGE_CATEGORY = "Category:Dodges (SSBU)"
+DODGE_PAGE_RE = re.compile(r"^(?P<fighter>.+?) \(SSBU\)/(?P<action>Spot dodge|Forward roll|Back roll|Air dodge)$", re.IGNORECASE)
+DODGE_ACTION_NAMES = {
+    "spot dodge": "Spot Dodge",
+    "forward roll": "Forward Roll",
+    "back roll": "Backward Roll",
+    # SmashWiki's undirected Air dodge page represents the neutral air dodge.
+    # Directional air dodges stay source-less unless a source explicitly names
+    # the represented direction.
+    "air dodge": "Neutral Air Dodge",
+}
+
 
 def exact_move(fighter: dict[str, Any], name: str) -> dict[str, Any] | None:
     matches = [move for move in fighter.get("moves", []) if str(move.get("name")) == name]
     if len(matches) != 1:
         return None
     return matches[0]
+
+
+def compact(value: object) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(value or "").lower())
+
+
+def dodge_category_pages() -> list[str]:
+    pages: list[str] = []
+    continuation: str | None = None
+    while True:
+        params: dict[str, Any] = {
+            "action": "query",
+            "format": "json",
+            "list": "categorymembers",
+            "cmtitle": DODGE_CATEGORY,
+            "cmnamespace": 0,
+            "cmlimit": "max",
+        }
+        if continuation:
+            params["cmcontinue"] = continuation
+        payload = ext.http_get(ext.WIKI_API, **params).json()
+        for row in payload.get("query", {}).get("categorymembers", []):
+            title = str(row.get("title") or "")
+            if title and DODGE_PAGE_RE.fullmatch(title):
+                pages.append(title)
+        continuation = payload.get("continue", {}).get("cmcontinue")
+        if not continuation:
+            break
+    return sorted(set(pages))
+
+
+def page_animated_files(page_title: str) -> list[tuple[str, dict[str, Any]]]:
+    payload = ext.http_get(
+        ext.WIKI_API,
+        action="parse",
+        page=page_title,
+        prop="images",
+        format="json",
+        redirects=1,
+    ).json()
+    names = [str(name) for name in payload.get("parse", {}).get("images", [])]
+    file_titles = [f"File:{name}" for name in names if Path(name).suffix.lower() in ext.ANIMATED_EXTENSIONS]
+    infos = ext.image_info(file_titles)
+    return sorted(infos.items(), key=lambda item: item[0])
+
+
+def fighter_id_for_wiki_name(frame_data: dict[str, Any], display_name: str) -> str | None:
+    wanted = compact(display_name)
+    matches: list[str] = []
+    for fighter_id, fighter in frame_data.get("fighters", {}).items():
+        candidates = {
+            compact(ext.wiki_display(fighter_id, fighter)),
+            compact(fighter.get("name")),
+            compact(fighter_id),
+        }
+        if wanted in candidates:
+            matches.append(fighter_id)
+    return matches[0] if len(matches) == 1 else None
+
+
+def choose_dodge_animation(
+    files: list[tuple[str, dict[str, Any]]],
+    fighter_name: str,
+    action: str,
+) -> tuple[str, dict[str, Any]] | None:
+    if not files:
+        return None
+    action_compact = compact(action).replace("backroll", "backroll").replace("forwardroll", "forwardroll")
+    fighter_compact = compact(fighter_name)
+
+    scored: list[tuple[int, str, dict[str, Any]]] = []
+    aliases = {
+        "spotdodge": ("spotdodge", "sdodge"),
+        "forwardroll": ("forwardroll", "froll"),
+        "backroll": ("backroll", "broll"),
+        "airdodge": ("airdodge", "adodge"),
+    }
+    wanted_aliases = aliases.get(action_compact, (action_compact,))
+    for title, info in files:
+        stem = compact(Path(title.removeprefix("File:")).stem)
+        score = 0
+        if fighter_compact and fighter_compact in stem:
+            score += 100
+        if any(alias in stem for alias in wanted_aliases):
+            score += 200
+        # The page itself is already authoritative for fighter/action, but when
+        # several animated files are embedded prefer the one whose filename also
+        # states the same semantics.
+        scored.append((score, title, info))
+    scored.sort(key=lambda row: (row[0], row[1]), reverse=True)
+    if not scored or scored[0][0] < 200:
+        return None
+    if len(scored) > 1 and scored[0][0] == scored[1][0]:
+        return None
+    return scored[0][1], scored[0][2]
+
+
+def recover_dodge_category(
+    frame_data: dict[str, Any],
+    sources: dict[str, Any],
+    source_less: set[tuple[str, str]],
+    source_by_key: dict[tuple[str, str], dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    accepted: list[dict[str, Any]] = []
+    skipped: list[dict[str, str]] = []
+
+    for page_title in dodge_category_pages():
+        match = DODGE_PAGE_RE.fullmatch(page_title)
+        if match is None:
+            continue
+        wiki_fighter = match.group("fighter")
+        action = match.group("action")
+        fighter_id = fighter_id_for_wiki_name(frame_data, wiki_fighter)
+        if fighter_id is None:
+            skipped.append({"pageTitle": page_title, "reason": "fighter page title did not map uniquely to roster"})
+            continue
+        fighter = frame_data["fighters"][fighter_id]
+        move_name = DODGE_ACTION_NAMES[action.lower()]
+        move = exact_move(fighter, move_name)
+        if move is None:
+            skipped.append({"pageTitle": page_title, "reason": f"no unique committed move named {move_name}"})
+            continue
+        key = (fighter_id, move["id"])
+        if key not in source_less or key in source_by_key:
+            skipped.append({"pageTitle": page_title, "reason": "move already has a discovered source visual"})
+            continue
+
+        picked = choose_dodge_animation(page_animated_files(page_title), wiki_fighter, action)
+        if picked is None:
+            skipped.append({"pageTitle": page_title, "reason": "no unique animated file matching the page action"})
+            continue
+        file_title, info = picked
+        url = str(info.get("url") or "")
+        suffix = Path(urlparse(url).path).suffix.lower()
+        if suffix not in ext.ANIMATED_EXTENSIONS:
+            continue
+
+        page_url = f"{ext.WIKI_BASE}/{quote(page_title.replace(' ', '_'), safe='()&._-/')}"
+        record = ext.frame_move_record(fighter_id, fighter, move, page_url)
+        label = Path(file_title.removeprefix("File:")).stem
+        variant = {
+            "id": f"smashwiki-dodge-{ext.ufd.visual_id(url)}",
+            "label": label,
+            "downloadUrl": url,
+            "sourceFormat": suffix.lstrip("."),
+            "mediaType": "animation",
+            "timelineClass": "fighter-action",
+            "timingBasis": "parent-action",
+            "sourceProvider": "smashwiki",
+            "sourcePageUrl": str(info.get("descriptionurl") or page_url),
+            "sourceAttribution": "SmashWiki Dodges (SSBU) category animation; preserve file-page provenance and revision history",
+            "sourceQuality": ext.SOURCE_PRIORITY["smashwiki"],
+        }
+        record["variants"].append(variant)
+        sources["moves"].append(record)
+        source_by_key[key] = record
+        accepted.append({
+            "fighterId": fighter_id,
+            "moveId": move["id"],
+            "moveName": move_name,
+            "pageTitle": page_title,
+            "fileTitle": file_title,
+            "sourcePageUrl": variant["sourcePageUrl"],
+            "verification": "SmashWiki page is explicitly categorized as an SSBU dodge and names this fighter/action",
+        })
+
+    return accepted, skipped
 
 
 def main() -> int:
@@ -188,6 +374,10 @@ def main() -> int:
             "verification": entry["verification"],
         })
 
+    dodge_accepted, dodge_skipped = recover_dodge_category(frame_data, sources, source_less, source_by_key)
+    accepted.extend(dodge_accepted)
+    skipped.extend(dodge_skipped)
+
     sources["moves"].sort(key=lambda move: (move["fighterId"], move["moveId"]))
     timeline_counts: dict[str, int] = defaultdict(int)
     for move in sources["moves"]:
@@ -203,6 +393,8 @@ def main() -> int:
     report = {
         "version": 1,
         "registryEntries": len(CURATED),
+        "dodgeCategory": DODGE_CATEGORY,
+        "dodgeCategoryPages": len(dodge_category_pages()),
         "recoveredSourceLessMoves": len(accepted),
         "accepted": accepted,
         "skipped": skipped,
@@ -210,7 +402,7 @@ def main() -> int:
     REPORT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(
         f"curated SmashWiki gap recovery: {len(accepted)} newly source-backed moves / "
-        f"{len(skipped)} already covered"
+        f"{len(skipped)} already covered or unavailable"
     )
     return 0
 
