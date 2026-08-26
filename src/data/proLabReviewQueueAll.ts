@@ -16,7 +16,7 @@ export const catalogedProVodReviewTargets: readonly ProVodReviewTarget[] = proVo
   playerTags: [vod.playerId, vod.opponentTag],
   fighterIds: [...vod.playerFighterIds, ...vod.opponentFighterIds],
   videoUrl: vod.videoUrl,
-  setStartSeconds: vod.startSeconds,
+  ...(vod.startSeconds !== undefined ? { setStartSeconds: vod.startSeconds } : {}),
   priority: priorityForCatalogedVod(vod.date, vod.eventTier),
   status: 'vod-cataloged',
   sourceUrls: vod.sourceUrls,
@@ -31,7 +31,10 @@ const reviewIdentity = (target: ProVodReviewTarget) =>
 const mediaIdentity = (target: ProVodReviewTarget) =>
   `media:${target.videoUrl}|${target.setStartSeconds ?? 'full-set'}`
 
-const combinedTargets = [...catalogedProVodReviewTargets, ...kagaribi15StreamReviewTargets]
+const combinedTargets: readonly ProVodReviewTarget[] = [
+  ...catalogedProVodReviewTargets,
+  ...kagaribi15StreamReviewTargets,
+]
 const seenVodIds = new Set<string>()
 const seenMedia = new Set<string>()
 
