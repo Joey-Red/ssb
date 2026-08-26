@@ -83,7 +83,7 @@ describe('Pro Lab foundation', () => {
   })
 
   it('keeps VOD records source-backed and internally resolvable', () => {
-    expect(proVodCatalog.length).toBeGreaterThanOrEqual(18)
+    expect(proVodCatalog.length).toBeGreaterThanOrEqual(37)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(proVodCatalog.length)
 
     for (const vod of proVodCatalog) {
@@ -104,16 +104,19 @@ describe('Pro Lab foundation', () => {
 
   it('keeps a meaningful current-season VOD queue without fabricating review state', () => {
     const currentSeason = proVodCatalog.filter((vod) => vod.date.startsWith('2026-'))
-    expect(currentSeason.length).toBeGreaterThanOrEqual(8)
+    expect(currentSeason.length).toBeGreaterThanOrEqual(27)
     expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
-    expect(new Set(currentSeason.flatMap((vod) => vod.playerFighterIds)).size).toBeGreaterThanOrEqual(7)
+    expect(new Set(currentSeason.flatMap((vod) => [...vod.playerFighterIds, ...vod.opponentFighterIds])).size).toBeGreaterThanOrEqual(15)
   })
 
-  it('maintains source-backed footage coordinates as review targets, not tactical claims', () => {
-    expect(proVodReviewQueue.length).toBeGreaterThan(proVodCatalog.length)
+  it('maintains source-backed footage coordinates as distinct review work, not tactical claims', () => {
+    expect(proVodReviewQueue.length).toBeGreaterThan(0)
+    expect(proVodReviewQueue.length).toBeLessThanOrEqual(proVodCatalog.length)
     expect(proVodReviewQueueStats.pending).toBe(proVodReviewQueue.length)
     expect(proVodReviewQueueStats.reviewed).toBe(0)
+    expect(proVodReviewQueueStats.identityCount).toBe(proVodReviewQueue.length)
     expect(new Set(proVodReviewQueue.map((target) => target.id)).size).toBe(proVodReviewQueue.length)
+    expect(new Set(proVodReviewQueue.map((target) => `${target.videoUrl}|${target.setStartSeconds ?? 'full-set'}`)).size).toBe(proVodReviewQueue.length)
 
     for (const target of proVodReviewQueue) {
       expect(target.videoUrl.startsWith('https://')).toBe(true)
