@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { buildSetBreakdown, extractProPatterns, isCatalogQuality, isTeachingEligibleMoment } from '../lib/proLab'
 import { roster } from './roster'
-import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRoster'
+import { nextProMetaResearchTargets2026, proMetaRepresentation2026 } from './proLabResearchPriorities'
+import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueueAll'
+import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
-import { getProVodsForFighter, proVodCatalog } from './proLabVods'
+import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
 
 const observedMoment = (
   id: string,
@@ -42,8 +44,46 @@ describe('Pro Lab foundation', () => {
     }
   })
 
-  it('keeps pilot VOD records source-backed and internally resolvable', () => {
-    expect(proVodCatalog.length).toBeGreaterThanOrEqual(8)
+  it('retains the expanded current representative corpus', () => {
+    expect(proPlayerRepresentatives.length).toBeGreaterThanOrEqual(39)
+    expect(new Set(proPlayerRepresentatives.map((player) => player.id)).size).toBe(proPlayerRepresentatives.length)
+    const seededFighters = proFighterResearchRegistry.filter((entry) => entry.representativeIds.length > 0)
+    expect(seededFighters.length).toBeGreaterThanOrEqual(39)
+
+    const currentResearchPlayers = [
+      'acola',
+      'doramigi',
+      'hurt',
+      'sonix',
+      'zomba',
+      'miya',
+      'peabnut',
+      'mkleo',
+      'asimo',
+      'raru',
+      'syrup',
+      'masa',
+      'raflow',
+      'ouch',
+      'tea',
+      'karaage',
+      'snow-jp',
+      'raki',
+      'yopi',
+      'kola',
+      'tarik',
+      'mild-na-ho',
+      'akakikusu',
+    ]
+    for (const playerId of currentResearchPlayers) {
+      const player = proPlayerRepresentatives.find((entry) => entry.id === playerId)
+      expect(player, playerId).toBeTruthy()
+      expect(player?.sourceUrls.some((url) => url.includes('UltRank_Half_Year_2026')), playerId).toBe(true)
+    }
+  })
+
+  it('keeps VOD records source-backed and internally resolvable', () => {
+    expect(proVodCatalog.length).toBeGreaterThanOrEqual(18)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(proVodCatalog.length)
 
     for (const vod of proVodCatalog) {
@@ -60,6 +100,39 @@ describe('Pro Lab foundation', () => {
       expect(vod.analysisStatus).toBe('review-queued')
       if (vod.videoProvider === 'youtube') expect(vod.videoId).toBeTruthy()
     }
+  })
+
+  it('keeps a meaningful current-season VOD queue without fabricating review state', () => {
+    const currentSeason = proVodCatalog.filter((vod) => vod.date.startsWith('2026-'))
+    expect(currentSeason.length).toBeGreaterThanOrEqual(8)
+    expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
+    expect(new Set(currentSeason.flatMap((vod) => vod.playerFighterIds)).size).toBeGreaterThanOrEqual(7)
+  })
+
+  it('maintains source-backed footage coordinates as review targets, not tactical claims', () => {
+    expect(proVodReviewQueue.length).toBeGreaterThan(proVodCatalog.length)
+    expect(proVodReviewQueueStats.pending).toBe(proVodReviewQueue.length)
+    expect(proVodReviewQueueStats.reviewed).toBe(0)
+    expect(new Set(proVodReviewQueue.map((target) => target.id)).size).toBe(proVodReviewQueue.length)
+
+    for (const target of proVodReviewQueue) {
+      expect(target.videoUrl.startsWith('https://')).toBe(true)
+      expect(target.sourceUrls.length).toBeGreaterThanOrEqual(2)
+      expect(target.fighterIds.every((fighterId) => rosterIds.has(fighterId))).toBe(true)
+      expect(target.status).not.toBe('reviewed')
+      if (target.setStartSeconds !== undefined) expect(target.setStartSeconds).toBeGreaterThanOrEqual(0)
+    }
+  })
+
+  it('fully seeds representative research across the top-28 2026 meta representation table', () => {
+    expect(proMetaRepresentation2026).toHaveLength(28)
+    expect(new Set(proMetaRepresentation2026.map((entry) => entry.rank)).size).toBe(28)
+    for (const entry of proMetaRepresentation2026) {
+      expect(entry.fighterIds.every((fighterId) => rosterIds.has(fighterId))).toBe(true)
+      expect(entry.representationPercent).toBeGreaterThan(0)
+      expect(entry.sourceUrl).toContain('UltRank_Half_Year_2026')
+    }
+    expect(nextProMetaResearchTargets2026).toHaveLength(0)
   })
 
   it('covers every pilot fighter with at least one competitive VOD', () => {
