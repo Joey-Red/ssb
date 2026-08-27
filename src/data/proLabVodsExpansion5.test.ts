@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { isCatalogQuality } from '../lib/proLab'
 import { roster } from './roster'
 import { proVodYoutubeResolutions2026Batch5 } from './proLabVodLinkResolutions2026Batch5'
+import { proVodYoutubeResolutionsBulk2 } from './proLabVodLinkResolutionsBulk2'
+import { proVodYoutubeResolutionsBulk3 } from './proLabVodLinkResolutionsBulk3'
 import { proVodLinkResolutionQueue, proVodReviewQueue } from './proLabReviewQueueAll'
 import { proFighterResearchRegistry, proPlayerRepresentatives } from './proLabRosterAll'
 import { proPlayerRepresentatives2026Batch5 } from './proLabRoster2026Batch5'
@@ -12,6 +14,11 @@ describe('Pro Lab large acquisition batch 5', () => {
   const rosterIds = new Set<string>(roster.map((fighter) => fighter.id))
   const playerIds = new Set<string>(proPlayerRepresentatives.map((player) => player.id))
   const batchIds = new Set<string>(proVodCatalog2026Batch5.map((vod) => vod.id))
+  const resolvedIds = new Set<string>([
+    ...Object.keys(proVodYoutubeResolutions2026Batch5),
+    ...Object.keys(proVodYoutubeResolutionsBulk2),
+    ...Object.keys(proVodYoutubeResolutionsBulk3),
+  ])
 
   it('adds 61 source-backed current-season set records in one pass', () => {
     expect(proVodCatalog2026Batch5).toHaveLength(61)
@@ -31,8 +38,15 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod.videoProvider).toBe('other')
       expect(vod.videoUrl).toContain('smash-tube.com')
       expect(vod.quality.visibleGameplay).toBe(false)
-      expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(true)
-      expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(false)
+      const isResolvedDownstream = resolvedIds.has(vod.id)
+      expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(!isResolvedDownstream)
+      if (isResolvedDownstream) {
+        const resolvedVod = proVodCatalog.find((entry) => entry.id === vod.id)
+        expect(resolvedVod?.linkKind, vod.id).toBe('direct-video')
+        expect(proVodReviewQueue.some((entry) => entry.videoUrl === resolvedVod?.videoUrl), vod.id).toBe(true)
+      } else {
+        expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(false)
+      }
     }
 
     for (const vod of direct) {
@@ -41,7 +55,7 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod.videoId).toBeTruthy()
       expect(vod.videoUrl).toBe(`https://www.youtube.com/watch?v=${vod.videoId}`)
       expect(vod.quality.visibleGameplay).toBe(true)
-      expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(true)
+      expect(proVodReviewQueue.some((entry) => entry.videoUrl === vod.videoUrl), vod.id).toBe(true)
     }
   })
 
@@ -56,7 +70,7 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod?.videoUrl).toBe(`https://www.youtube.com/watch?v=${youtubeId}`)
       expect(vod?.analysisStatus).toBe('review-queued')
       expect(proVodLinkResolutionQueue.some((entry) => entry.id === vodId), vodId).toBe(false)
-      expect(proVodReviewQueue.some((entry) => entry.vodId === vodId), vodId).toBe(true)
+      expect(proVodReviewQueue.some((entry) => entry.videoUrl === vod?.videoUrl), vodId).toBe(true)
     }
   })
 
