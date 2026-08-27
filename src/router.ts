@@ -8,6 +8,7 @@ export type AppRoute =
   | { page: 'drills' }
   | { page: 'tools' }
   | { page: 'pro-lab'; slug?: string }
+  | { page: 'pro-review'; vodId: string }
   | { page: 'about' }
   | { page: 'not-found' }
 
@@ -27,6 +28,14 @@ export function parseRoute(hash: string): AppRoute {
   if (normalized === '/tools') return { page: 'tools' }
   if (normalized === '/pro-lab') return { page: 'pro-lab' }
   if (normalized === '/about') return { page: 'about' }
+  const proReviewMatch = normalized.match(/^\/pro-lab\/review\/([^/]+)$/)
+  if (proReviewMatch?.[1]) {
+    try {
+      return { page: 'pro-review', vodId: decodeURIComponent(proReviewMatch[1]) }
+    } catch {
+      return { page: 'not-found' }
+    }
+  }
   const proLabMatch = normalized.match(/^\/pro-lab\/([a-z0-9-]+)$/)
   if (proLabMatch?.[1]) return { page: 'pro-lab', slug: proLabMatch[1] }
   const movesMatch = normalized.match(/^\/fighter\/([a-z0-9-]+)\/moves$/)
