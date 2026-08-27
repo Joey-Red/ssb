@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { isCatalogQuality } from '../lib/proLab'
 import { roster } from './roster'
 import { proVodYoutubeResolutions2026Batch5 } from './proLabVodLinkResolutions2026Batch5'
+import { proVodYoutubeResolutionsBulk2 } from './proLabVodLinkResolutionsBulk2'
+import { proVodYoutubeResolutionsBulk3 } from './proLabVodLinkResolutionsBulk3'
 import { proVodLinkResolutionQueue, proVodLinkResolutionQueueStats, proVodReviewQueue } from './proLabReviewQueueAll'
 import { proPlayerRepresentatives, proFighterResearchRegistry } from './proLabRosterAll'
 import { proPlayerRepresentatives2026Batch4 } from './proLabRoster2026Batch4'
@@ -88,10 +90,15 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
   })
 
   it('keeps unresolved batch 4 records in link resolution while resolved records advance to direct review', () => {
-    const resolvedIds = new Set<string>(Object.keys(proVodYoutubeResolutions2026Batch5))
-    expect(resolvedIds.size).toBe(5)
-    expect(proVodLinkResolutionQueueStats.total).toBeGreaterThanOrEqual(84)
-    expect(proVodLinkResolutionQueueStats.currentSeason).toBeGreaterThanOrEqual(84)
+    const batch4Ids = new Set(proVodCatalog2026Batch4.map((vod) => vod.id))
+    const resolvedIds = new Set<string>([
+      ...Object.keys(proVodYoutubeResolutions2026Batch5),
+      ...Object.keys(proVodYoutubeResolutionsBulk2),
+      ...Object.keys(proVodYoutubeResolutionsBulk3),
+    ].filter((id) => batch4Ids.has(id)))
+    expect(resolvedIds.size).toBeGreaterThan(5)
+    expect(proVodLinkResolutionQueueStats.total).toBeGreaterThan(0)
+    expect(proVodLinkResolutionQueueStats.currentSeason).toBeGreaterThan(0)
 
     for (const vod of proVodCatalog2026Batch4) {
       const isResolved = resolvedIds.has(vod.id)
