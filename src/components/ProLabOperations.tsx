@@ -9,7 +9,7 @@ import {
 } from '../data/proLab'
 import { roster } from '../data/roster'
 
-const fighterName = new Map(roster.map((fighter) => [fighter.id, fighter.name]))
+const fighterName = new Map<string, string>(roster.map((fighter) => [fighter.id, fighter.name]))
 const worksheetByVod = new Map(proAegisPilotWorksheets.map((worksheet) => [worksheet.vodId, worksheet]))
 const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) => fighterName.get(id) ?? id).join(' / ')
 
