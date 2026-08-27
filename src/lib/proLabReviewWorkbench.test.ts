@@ -95,8 +95,11 @@ describe('Pro Lab review workbench helpers', () => {
   })
 
   it('opens relative timestamps at the correct video coordinate', () => {
+    const vodWithoutEnd: ProVodRecord = { ...vod }
+    delete vodWithoutEnd.endSeconds
+
     expect(reviewPlaybackSeconds(vod, 84)).toBe(684)
     expect(reviewPlaybackSeconds(vod, 720)).toBe(720)
-    expect(reviewPlaybackSeconds({ ...vod, endSeconds: undefined }, 84)).toBe(84)
+    expect(reviewPlaybackSeconds(vodWithoutEnd, 84)).toBe(84)
   })
 })
