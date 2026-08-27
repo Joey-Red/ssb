@@ -29,11 +29,11 @@ describe('Pro Lab full-candidate and named-event remainder recovery batch', () =
     }
   })
 
-  it('preserves all 800 records while reducing source indexes from 79 to 69', () => {
+  it('preserves all 800 records while allowing later verified recovery', () => {
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(69)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(731)
+    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index').length).toBeLessThanOrEqual(69)
+    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index').length).toBeGreaterThanOrEqual(731)
   })
 
   it('does not infer tactical review completion from link recovery', () => {
