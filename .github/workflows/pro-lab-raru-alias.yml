@@ -1,4 +1,4 @@
-name: Pro Lab exact source-title recovery
+name: Pro Lab literal Japanese source recovery
 
 on:
   push:
@@ -16,53 +16,38 @@ jobs:
         with:
           python-version: '3.13'
       - run: python -m pip install -q -U yt-dlp
-      - name: Exact-title searches
+      - name: Literal source searches
         shell: bash
         run: |
           set -euo pipefail
           queries=(
-            'DELTA x Seibugeki Open Reno Miya Smash Ultimate'
-            'SMASHDOWN THE NEW CHALLENGERS Winners Finals Raflow Mezcaul'
-            'SMASHDOWN THE NEW CHALLENGERS Grand Finals Raflow Mezcaul'
-            'INNOSUMA GRAND II Winners Quarters Raru Shion'
-            'INNOSUMA GRAND II Losers Semis Raru Shion'
-            'INNOSUMA GRAND II Winners Semis Raru Saya'
-            'Ultimate Arena Smash Finale MkLeo MKBigBoss'
-            'Cavalier Clash 6 Winners Quarters Pharoah Glutonny'
-            'gamescom TOP 8 crêpe salée Glutonny'
-            'gamescom TOP 8 Glutonny Spargo'
-            "マエスマ'1on1#19 SF あしも ヤマナクション"
-            "マエスマ'1on1#19 R3 あしも えずす"
-            'Coinbox ShinyMark Sparg0 Grand Finals'
-            'KAGARIBI 10 KEN Umeki'
-            'KAGARIBI 5 Tea Sigma'
-            "マエスマ'HIT#144 WSF Hurt クレータ"
-            "マエスマ1on1#36 R1 Hurt れもぞねす"
-            'Maesuma TOP 14.5 Kaninabe Moneyright'
-            'Maesuma TOP 14.5 Kaninabe Yン Moneyright'
-            'Sumabato 27 Kaninabe Rarukun'
-            'スマバトSP27 かになべ らるくん'
-            'Maesuma 1on1 59 Hurt りょーるず'
-            "Maesuma 1on1 132 Yoshidora Johnny"
-            "Maesuma 1on1 132 Yoshidora かのん天地愛"
-            'Maesuma HIT 174 Hurt かにきん'
-            'Maesuma HIT 59 Raki Mark Grand Finals'
-            'Maesuma HIT 59 Raki Shion Winners Finals'
-            'Maesuma HIT 58 Raki Shion Grand Finals'
-            '桜梅桃李 第壱幕 Raki Rarukun Winners Semis'
-            '桜梅桃李 第壱幕 Raki Umeki Winners Quarters'
-            '桜梅桃李 第壱幕 Raki もえないごみ Winners Top 24'
-            '桜梅桃李 第壱幕 Raki Yoshidora Losers Quarters'
-            'EugeneBound Summers Toon Sonix Winners Top 8 Qualifier'
-            'UBC Weekly 200 GamingInAction Ouch Grand Finals'
-            'UBC Weekly 200 GamingInAction Ouch Winners Semis'
+            'DELTA×西武撃 TOP48 FENNEL Miya Reno セフィロス'
+            'INNOSUMA GRAND II Winners Quarters らる シオン'
+            'INNOSUMA GRAND II Losers Semis らる シオン'
+            'INNOSUMA GRAND II Winners Semis らる さや'
+            "マエスマ'1on1#19 R3 あしも いーじす"
+            '篝火#5 シグマ トゥーンリンク GRN てぃー パックマン'
+            'マエスマTOP#14.5 in 兵庫 WR5 かになべ マネーライト'
+            '第27回スマバトSP かになべ らるくん 敗者側7回戦'
+            '桜梅桃李 第壱幕 Winners Top 24 もえないごみ らき'
+            '桜梅桃李 第壱幕 Winners Semis らるくん らき'
+            '桜梅桃李 第壱幕 Winners Quarters うめき らき'
+            '桜梅桃李 第壱幕 Losers Quarters ヨシドラ らき'
+            "マエスマ'HIT#59 in 梅田 GF らき Mark"
+            "マエスマ'HIT#59 in 梅田 WF シオン らき"
+            "マエスマ'HIT#58 in 枚方 GF シオン らき"
+            "マエスマ'HIT Championship LTOP4 らき Hurt"
+            "マエスマ'HIT Championship Raki Hurt"
+            "マエスマ'1on1#132 R4 ヨシドラ ジョニー"
+            'Crown the Third Shuton Zomba Winners Final'
+            'Ultimate Arena Smash Finale MkLeo MKBigBoss singles'
           )
-          : > exact-results.txt
+          : > literal-results.txt
           for q in "${queries[@]}"; do
-            echo "===== $q =====" | tee -a exact-results.txt
-            yt-dlp --flat-playlist --playlist-end 12 --print '%(id)s | %(title)s | %(channel)s' "ytsearch12:$q" | tee -a exact-results.txt
+            echo "===== $q =====" | tee -a literal-results.txt
+            yt-dlp --flat-playlist --playlist-end 15 --print '%(id)s | %(title)s | %(channel)s' "ytsearch15:$q" | tee -a literal-results.txt
           done
       - uses: actions/upload-artifact@v4
         with:
-          name: pro-lab-exact-title-results
-          path: exact-results.txt
+          name: pro-lab-literal-source-results
+          path: literal-results.txt
