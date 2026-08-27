@@ -52,6 +52,29 @@ describe('buildProCoverageWorkQueue', () => {
     expect(queue[1]?.nextAction).toBe('maintain')
   })
 
+  it('keeps a current-era evidence deficit in the VOD acquisition phase', () => {
+    const evidence = Array.from({ length: 16 }, (_, index) =>
+      moment(`current-${index + 1}`, `current-vod-${(index % 8) + 1}`, 'current-gap'),
+    )
+    const queue = buildProCoverageWorkQueue([
+      coverage('current-gap', {
+        representativeCount: 2,
+        vodCount: 12,
+        currentVodCount: 2,
+        reviewedMomentCount: 16,
+        lessonClaimCount: 3,
+        decisionExerciseCount: 6,
+        matchupPatternCount: 2,
+        comparisonReady: true,
+        state: 'evidence-building',
+      }),
+    ], evidence)
+
+    expect(queue[0]?.vodGap).toBe(0)
+    expect(queue[0]?.currentVodGap).toBe(2)
+    expect(queue[0]?.nextAction).toBe('acquire-vods')
+  })
+
   it('counts reviewed sets from teaching-eligible evidence only', () => {
     const speculative: ProDecisionMoment = { ...moment('m3', 'v3', 'aegis'), evidenceClass: 'speculative', confidence: 0.2 }
     const queue = buildProCoverageWorkQueue([
