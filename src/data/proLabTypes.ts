@@ -271,18 +271,22 @@ export interface ProPlayerComparison {
   status: 'evidence-building' | 'ready'
 }
 
+export type ProEvidenceEra = 'current' | 'recent' | 'legacy'
+
 export interface ProTemporalEvidence {
   vodId: string
-  era: 'current' | 'recent' | 'legacy'
+  era: ProEvidenceEra
   eventDate: string
-  gameVersion: '13.0.1' | 'unknown'
+  gameVersion: ProVodRecord['gameVersion']
   playerStatus: ProPlayerStatus
   reasons: readonly string[]
 }
 
+export type ProMaintenanceSeverity = 'info' | 'warning' | 'error'
+
 export interface ProMaintenanceFinding {
   code: string
-  severity: 'info' | 'warning' | 'error'
+  severity: ProMaintenanceSeverity
   message: string
   ids: readonly string[]
 }
@@ -297,9 +301,16 @@ export interface ProMaintenanceReport {
   externalLinkHealth: 'maintenance-workflow-required'
 }
 
+export type ProCoverageState =
+  | 'research-queued'
+  | 'representative-seeded'
+  | 'cataloged'
+  | 'evidence-building'
+  | 'teaching-ready'
+
 export interface ProFighterCoverage {
   fighterId: string
-  state: 'research-queued' | 'representative-seeded' | 'cataloged' | 'evidence-building' | 'teaching-ready'
+  state: ProCoverageState
   representativeCount: number
   activeRepresentativeCount: number
   vodCount: number
