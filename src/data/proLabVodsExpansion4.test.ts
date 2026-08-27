@@ -14,7 +14,7 @@ import {
 import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
 
 describe('Pro Lab bulk VOD acquisition batch 4', () => {
-  const rosterIds = new Set(roster.map((fighter) => fighter.id))
+  const rosterIds = new Set<string>(roster.map((fighter) => fighter.id))
   const playerIds = new Set(proPlayerRepresentatives.map((player) => player.id))
 
   it('adds 89 source-indexed 2026 tournament sets in one acquisition pass', () => {
