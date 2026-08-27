@@ -99,7 +99,9 @@ async function getPlayerVods(playerId: number): Promise<{ vods: ArchiveVod[]; er
   const seen = new Set<string>()
   let expectedCount: number | null = null
 
-  for (let page = 0; page < 60; page += 1) {
+  // Smasharchives pagination is one-based. page=0 falls through to the API's
+  // latest-ten shortcut and makes a large player history appear to contain only 10 VODs.
+  for (let page = 1; page <= 60; page += 1) {
     const url = new URL('/vod/player', API)
     url.searchParams.set('playerId', String(playerId))
     url.searchParams.set('page', String(page))
