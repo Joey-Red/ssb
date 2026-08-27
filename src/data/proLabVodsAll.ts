@@ -4,6 +4,7 @@ import { applyProVodLinkResolutionBulk2 } from './proLabVodLinkResolutionsBulk2'
 import { applyProVodLinkResolutionBulk3 } from './proLabVodLinkResolutionsBulk3'
 import { applyProVodLinkResolutionBulk4 } from './proLabVodLinkResolutionsBulk4'
 import { applyProVodLinkResolutionBulk5 } from './proLabVodLinkResolutionsBulk5'
+import { applyProVodLinkResolutionBulk6 } from './proLabVodLinkResolutionsBulk6'
 import { proVodCatalog2026Batch1 } from './proLabVods2026Batch1'
 import { proVodCatalog2026Batch2 } from './proLabVods2026Batch2'
 import { proVodCatalog2026Batch3 } from './proLabVods2026Batch3'
@@ -41,11 +42,13 @@ const unresolvedCatalog = [
 ] as readonly ProVodRecord[]
 
 export const proVodCatalog = unresolvedCatalog.map((vod) =>
-  applyProVodLinkResolutionBulk5(
-    applyProVodLinkResolutionBulk4(
-      applyProVodLinkResolutionBulk3(
-        applyProVodLinkResolutionBulk2(
-          applyProVodLinkResolutionBulk1(applyProVodLinkResolution2026Batch5(vod)),
+  applyProVodLinkResolutionBulk6(
+    applyProVodLinkResolutionBulk5(
+      applyProVodLinkResolutionBulk4(
+        applyProVodLinkResolutionBulk3(
+          applyProVodLinkResolutionBulk2(
+            applyProVodLinkResolutionBulk1(applyProVodLinkResolution2026Batch5(vod)),
+          ),
         ),
       ),
     ),
