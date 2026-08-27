@@ -7,11 +7,11 @@ The controlling completion target is documented in `docs/PRO_LAB_LONG_TERM_PLAN.
 ## Current corpus
 
 - 89 canonical fighter pages remain represented by the Pro Lab research registry.
-- 44 provenance-backed player representatives are cataloged.
-- The representative pool now includes additional current samples for Hero, Ryu/Ken/Kazuya, Wolf, Captain Falcon, and Aegis through BeastModePaul, Jahzz0, Jakal, Fatality, and Cosmos.
+- 52 provenance-backed player representatives are cataloged.
+- The representative pool now includes dedicated current candidates for previously thin libraries such as Kirby, Little Mac, Piranha Plant, Meta Knight, Isabelle, Villager, Robin, and Chrom in addition to the broader meta-character pool.
 - The top 28 characters / combined character groups in UltRank Half Year 2026 representation all have at least one provenance-backed representative candidate.
-- 46 tournament VOD learning records are cataloged, including 36 from the 2026 season.
-- 45 distinct source-backed review units are queued. Duplicate learning views and alternate links to the same timestamped set are collapsed so one set does not inflate the review backlog.
+- 57 tournament VOD learning records are cataloged, including 47 from the 2026 season.
+- 56 distinct source-backed review units are queued. Duplicate learning views and alternate links to the same timestamped set are collapsed so one set does not inflate the review backlog.
 - KAGARIBI #15 final-day navigation coordinates cover the streamed top-bracket path from Winners Quarterfinals through Grand Finals.
 - Fighter VOD libraries index both sides of a recorded matchup, so a verified set is discoverable from every confirmed character represented in that set rather than only from the primary study-player side.
 - The public VOD library supports search plus tier, era, review-state, and sort controls so the interface can scale as the corpus grows into hundreds of sets.
@@ -34,15 +34,17 @@ The final five uncovered top-28 entries were closed with current source-backed r
 - Donkey Kong — Mild na H.O
 - Hero — Akakikusu
 
-Previously added 2026 coverage includes acola, Doramigi, Hurt, Sonix, Zomba, Miya, Peabnut, MkLeo, Asimo, Raru, Tweek, Yoshidora, ShinyMark, KEN, Glutonny, Sin, Syrup, MASA, Raflow, Ouch!?, Tea, Karaage, Snow, Raki, BeastModePaul, Jahzz0, Jakal, Fatality, and Cosmos.
+Previously added 2026 coverage includes acola, Doramigi, Hurt, Sonix, Zomba, Miya, Peabnut, MkLeo, Asimo, Raru, Tweek, Yoshidora, ShinyMark, KEN, Glutonny, Sin, Syrup, MASA, Raflow, Ouch!?, Tea, Karaage, Snow, Raki, BeastModePaul, Jahzz0, Jakal, Fatality, Cosmos, Kirb0, Peanut, Lucky (Minnesota), Tux, Furararamen, Kikuzakari, Peppino, and Lancelot.
 
 ## Latest VOD expansion
 
 The first extensive-library batch added 19 source-backed 2026 set records from KAGARIBI #15, LVL UP EXPO 2026, and Let's Make BIG Moves 2026.
 
-The second extensive-library batch adds 9 more source-backed MomoCon 2026 sets. It deepens current footage for Roy, Diddy Kong, Cloud, Hero, Fox, Ryu, Ken, Kazuya, Wolf, Pyra/Mythra, Captain Falcon, and Zero Suit Samus while adding several new representative/style samples.
+The second extensive-library batch added 9 source-backed MomoCon 2026 sets and broadened the representative pool.
 
-The new MomoCon records include Kola/Tweek, Kola/Sparg0, BeastModePaul/Light, Jahzz0/Kola, Jahzz0/Jakal, BeastModePaul/Kola, Cosmos/Jahzz0, Cosmos/Drevis, and Fatality/Jojo. Exact bracket round/result fields remain explicitly unknown where the VOD and tournament sources do not independently establish them.
+The third extensive-library batch adds 11 more source-backed records with an explicit thin-character bias. It adds current footage touching Kirby, Robin, Meta Knight, Little Mac, Piranha Plant, Isabelle, Villager, Chrom/Roy, and additional supporting matchups instead of repeatedly padding only the highest-representation characters.
+
+Five Maesuma'HIT #165 sets form the first multi-set Isabelle study run in the corpus, following Furararamen through Winners Quarterfinals, Winners Semifinals, Winners Finals, Losers Finals, and Grand Finals. Additional records come from No Tech Zone 2026, LVL UP EXPO 2026, and Let's Make BIG Moves 2026. Unknown tactical interpretation, player intent, and unverified bracket details remain explicitly unclaimed.
 
 ## Next content work
 
@@ -63,4 +65,6 @@ The highest-value remaining work is footage review plus continued full-roster ac
 - LVL UP EXPO 2026 tournament page: https://www.ssbwiki.com/Tournament:LVL_UP_EXPO_2026
 - Let's Make BIG Moves 2026 tournament page: https://www.ssbwiki.com/Tournament:Let%27s_Make_BIG_Moves_2026
 - MomoCon 2026 tournament page: https://liquipedia.net/smash/MomoCon/2026
+- No Tech Zone 2026 tournament page: https://www.ssbwiki.com/Tournament:No_Tech_Zone_2026
+- Maesuma'HIT #165 tournament page: https://www.start.gg/tournament/hit-165-maesuma-hit-165/details
 - Per-player source pages and tournament sources are retained directly on every representative and VOD record.
