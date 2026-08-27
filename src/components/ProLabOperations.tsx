@@ -74,7 +74,7 @@ export function ProLabOperations() {
           {worksheet && <p><strong>{formatFighters(worksheet.playerFighterIds)}</strong> vs. {formatFighters(worksheet.opponentFighterIds)}</p>}
           <p>{target.reasons.slice(0, 3).join(' · ')}</p>
           <p><strong>Gameplay observations pending.</strong> This worksheet contains navigation and confirmed catalog metadata only.</p>
-          <div className="pro-lab__link-row"><a href={reviewUrl} target="_blank" rel="noreferrer">Open VOD ↗</a></div>
+          <div className="pro-lab__link-row"><a href={reviewUrl} target="_blank" rel="noreferrer">Open VOD ↗</a><a href={hrefFor(`/pro-lab/review/${encodeURIComponent(target.vodId)}`)}>Review evidence →</a></div>
           {worksheet && <details><summary>Evidence-safe review checklist</summary><ul>{worksheet.checklist.map((item) => <li key={item}>{item}</li>)}</ul></details>}
           {submissionTemplate && <details><summary>Strict intake state</summary><p>Target: {submissionTemplate.targetStatus}. Current template contains {submissionTemplate.moments.length} gameplay observations and remains intentionally unvalidated until a reviewer adds direct evidence.</p></details>}
         </article>
