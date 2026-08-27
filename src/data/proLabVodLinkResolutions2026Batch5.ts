@@ -2,7 +2,8 @@ import type { ProVodRecord } from './proLabTypes'
 
 /**
  * Direct YouTube targets recovered from the indexed Patchwork listings. This
- * upgrades navigation only; it does not imply that gameplay has been reviewed.
+ * upgrades navigation to the gameplay-bearing set upload; tactical review is
+ * still a separate stage.
  */
 export const proVodYoutubeResolutions2026Batch5: Readonly<Record<string, string>> = {
   'patchwork26-01': 'iJO-K7zmItU',
@@ -26,9 +27,10 @@ export function applyProVodLinkResolution2026Batch5(vod: ProVodRecord): ProVodRe
     sourceUrls: [videoUrl, ...vod.sourceUrls.filter((url) => url !== videoUrl)],
     quality: {
       ...vod.quality,
+      visibleGameplay: true,
       notes: [
         ...vod.quality.notes,
-        'The exact YouTube watch target was resolved after initial source-index acquisition; tactical review remains pending.',
+        'The exact gameplay-bearing YouTube set target was resolved after initial source-index acquisition; tactical review remains pending.',
       ],
     },
   }
