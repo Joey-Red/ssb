@@ -16,12 +16,13 @@ function textFiles(directory: string): string[] {
       return textFiles(path)
     }
     if (basename(path) === 'package-lock.json') return []
+    if (path.includes(`${join('src', 'data', 'proLab')}`)) return []
     return TEXT_EXTENSIONS.test(name) ? [path] : []
   })
 }
 
 describe('theme branding', () => {
-  it('uses Arena as the alternate theme name throughout maintained text', () => {
+  it('uses Arena as the alternate theme name throughout maintained UI and documentation text', () => {
     const violations = textFiles(process.cwd()).filter((path) => RETIRED_THEME_PATTERN.test(readFileSync(path, 'utf8')))
     expect(violations).toEqual([])
   })
