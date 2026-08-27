@@ -82,16 +82,19 @@ function VodCard({ vod, fighterId }: { vod: ProVodRecord; fighterId: string }) {
   const selectedSide = vod.playerFighterIds.includes(fighterId) ? 'studied player' : 'opponent-side footage'
   const playbackUrl = withStartTime(vod.videoUrl, vod.startSeconds)
   const startLabel = vod.startSeconds === undefined ? null : formatTimestamp(vod.startSeconds)
+  const sourceIndexed = vod.linkKind === 'source-index'
+  const dateLabel = vod.datePrecision === 'event-anchor' ? `event date ${vod.date}` : vod.date
+  const actionLabel = sourceIndexed ? 'Find VOD ↗' : startLabel ? 'Open at set ↗' : 'Open VOD ↗'
 
   return <article className="pro-lab__vod">
     <div className="pro-lab__vod-main">
       <div className="pro-lab__card-top"><h3>{vod.title}</h3><span>{era}</span></div>
       <p className="pro-lab__vod-matchup"><strong>{player}</strong> · {playerCharacters || 'character unverified'} <span>vs.</span> <strong>{vod.opponentTag}</strong> · {opponentCharacters || 'character unverified'}</p>
-      <p>{vod.date} · {vod.round} · {vod.eventTier}{startLabel ? ` · starts ${startLabel}` : ''}</p>
+      <p>{dateLabel} · {vod.round} · {vod.eventTier}{startLabel ? ` · starts ${startLabel}` : ''}</p>
       <p>{vod.result ?? 'Result not asserted.'}</p>
-      <div className="pro-lab__status-row"><span>{selectedSide}</span><span>Quality {vod.quality.score}</span><span>{vod.analysisStatus}</span><span>Version {vod.gameVersion}</span><span>Breakdown {breakdownByVod.get(vod.id)?.status ?? 'queued'}</span></div>
+      <div className="pro-lab__status-row"><span>{selectedSide}</span>{sourceIndexed && <span>source index · direct link pending</span>}<span>Quality {vod.quality.score}</span><span>{vod.analysisStatus}</span><span>Version {vod.gameVersion}</span><span>Breakdown {breakdownByVod.get(vod.id)?.status ?? 'queued'}</span></div>
     </div>
-    <div className="pro-lab__vod-actions"><a className="button-link" href={playbackUrl} target="_blank" rel="noreferrer">{startLabel ? 'Open at set ↗' : 'Open VOD ↗'}</a><details><summary>Provenance</summary><div className="pro-lab__source-stack">{vod.sourceUrls.map((url) => <a href={url} target="_blank" rel="noreferrer" key={url}>{url}</a>)}</div></details></div>
+    <div className="pro-lab__vod-actions"><a className="button-link" href={playbackUrl} target="_blank" rel="noreferrer">{actionLabel}</a><details><summary>Provenance</summary><div className="pro-lab__source-stack">{vod.sourceUrls.map((url) => <a href={url} target="_blank" rel="noreferrer" key={url}>{url}</a>)}</div></details></div>
   </article>
 }
 
