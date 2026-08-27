@@ -9,6 +9,7 @@ const PracticeView = lazy(() => import('./components/PracticeView').then((module
 const DrillsView = lazy(() => import('./components/DrillsView').then((module) => ({ default: module.DrillsView })))
 const ToolsView = lazy(() => import('./components/ToolsView').then((module) => ({ default: module.ToolsView })))
 const ProLabView = lazy(() => import('./components/ProLabView').then((module) => ({ default: module.ProLabView })))
+const ProReviewWorkbench = lazy(() => import('./components/ProReviewWorkbench').then((module) => ({ default: module.ProReviewWorkbench })))
 
 const frameGlossary = [
   { id: 'startup', title: 'Startup', text: 'Frames before the relevant hitbox first becomes active. A frame-5 move can first hit on frame 5; frames 1–4 are startup.' },
@@ -49,6 +50,7 @@ export default function App() {
   else if (route.page === 'drills') content = <Suspense fallback={<RouteFallback />}><DrillsView /></Suspense>
   else if (route.page === 'tools') content = <Suspense fallback={<RouteFallback />}><ToolsView /></Suspense>
   else if (route.page === 'pro-lab') content = <Suspense fallback={<RouteFallback />}><ProLabView slug={route.slug} /></Suspense>
+  else if (route.page === 'pro-review') content = <Suspense fallback={<RouteFallback />}><ProReviewWorkbench vodId={route.vodId} /></Suspense>
   else if (route.page === 'about') content = <AboutView />
   else content = <section className="panel empty-state"><span className="empty-state__icon" aria-hidden="true">404</span><h1>Page not found</h1><p>This route is not part of the app.</p><a className="button-link" href={hrefFor('/')}>Return to roster</a></section>
   return <AppShell route={route}>{content}</AppShell>
