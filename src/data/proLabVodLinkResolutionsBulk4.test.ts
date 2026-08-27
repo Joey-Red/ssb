@@ -29,14 +29,15 @@ describe('Pro Lab bulk VOD link recovery 4', () => {
     }
   })
 
-  it('reduces the complete 800-record catalog to 120 unresolved source indexes', () => {
+  it('keeps the complete catalog internally consistent after later verified recovery batches', () => {
     const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
     const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(unresolved).toHaveLength(120)
-    expect(resolved).toHaveLength(680)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'direct-video')).toHaveLength(623)
+    expect(unresolved.length + resolved.length).toBe(800)
+    expect(unresolved.length).toBeLessThanOrEqual(120)
+    expect(resolved.length).toBeGreaterThanOrEqual(680)
+    expect(proVodCatalog.filter((vod) => vod.linkKind === 'direct-video').length).toBeGreaterThanOrEqual(623)
   })
 
   it('keeps tactical claims pending even after direct footage recovery', () => {
