@@ -7,21 +7,37 @@ const priorityForCatalogedVod = (date: string, eventTier: string): ProVodReviewP
   return 'normal'
 }
 
-export const catalogedProVodReviewTargets: readonly ProVodReviewTarget[] = proVodCatalog.map((vod) => ({
-  id: `review-${vod.id}`,
-  vodId: vod.id,
-  event: vod.event,
-  date: vod.date,
-  round: vod.round,
-  playerTags: [vod.playerId, vod.opponentTag],
-  fighterIds: [...vod.playerFighterIds, ...vod.opponentFighterIds],
-  videoUrl: vod.videoUrl,
-  ...(vod.startSeconds !== undefined ? { setStartSeconds: vod.startSeconds } : {}),
-  priority: priorityForCatalogedVod(vod.date, vod.eventTier),
-  status: 'vod-cataloged',
-  sourceUrls: vod.sourceUrls,
-  note: 'Catalog metadata is ready. Tactical claims, timestamps inside games, and player intent must be added only after direct footage review.',
-}))
+/**
+ * Source-index acquisitions are real set-discovery records, but they are not
+ * ready for direct gameplay review until the stable watch URL is resolved.
+ */
+export const proVodLinkResolutionQueue = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
+
+export const proVodLinkResolutionQueueStats = {
+  total: proVodLinkResolutionQueue.length,
+  currentSeason: proVodLinkResolutionQueue.filter((vod) => vod.date.startsWith('2026-')).length,
+  supermajor: proVodLinkResolutionQueue.filter((vod) => vod.eventTier === 'supermajor').length,
+  major: proVodLinkResolutionQueue.filter((vod) => vod.eventTier === 'major').length,
+  regional: proVodLinkResolutionQueue.filter((vod) => vod.eventTier === 'regional').length,
+} as const
+
+export const catalogedProVodReviewTargets: readonly ProVodReviewTarget[] = proVodCatalog
+  .filter((vod) => vod.linkKind !== 'source-index')
+  .map((vod) => ({
+    id: `review-${vod.id}`,
+    vodId: vod.id,
+    event: vod.event,
+    date: vod.date,
+    round: vod.round,
+    playerTags: [vod.playerId, vod.opponentTag],
+    fighterIds: [...vod.playerFighterIds, ...vod.opponentFighterIds],
+    videoUrl: vod.videoUrl,
+    ...(vod.startSeconds !== undefined ? { setStartSeconds: vod.startSeconds } : {}),
+    priority: priorityForCatalogedVod(vod.date, vod.eventTier),
+    status: 'vod-cataloged',
+    sourceUrls: vod.sourceUrls,
+    note: 'Direct VOD metadata is ready. Tactical claims, timestamps inside games, and player intent must be added only after direct footage review.',
+  }))
 
 const reviewIdentity = (target: ProVodReviewTarget) =>
   target.vodId
