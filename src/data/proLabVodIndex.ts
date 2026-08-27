@@ -79,9 +79,10 @@ export function buildIndexedTournamentVod(seed: IndexedTournamentVodSeed): ProVo
 
 /**
  * Builds a record after the exact YouTube watch target has been resolved from
- * the indexed set. Resolution is intentionally not treated as gameplay review:
- * the record enters the footage-review queue while readability, tactics, patch,
- * and player intent remain unclaimed.
+ * the indexed set. The resolved target is a gameplay-bearing full-set upload,
+ * but resolution is not tactical review: the record enters the footage-review
+ * queue while exact patch, tactical interpretation, and player intent remain
+ * unclaimed.
  */
 export function buildResolvedTournamentVod(seed: ResolvedTournamentVodSeed): ProVodRecord {
   const indexUrl = smashTubePairIndex(seed.searchPlayerTag, seed.searchOpponentTag)
@@ -111,15 +112,15 @@ export function buildResolvedTournamentVod(seed: ResolvedTournamentVodSeed): Pro
         competitionEnvironment: true,
         fullSet: true,
         officialOrTournamentChannel: false,
-        visibleGameplay: false,
+        visibleGameplay: true,
         patchKnown: false,
         strongOpposition: seed.strongOpposition ?? false,
         characterConfirmed: true,
         provenance: true,
       },
       [
-        'The exact YouTube watch target has been resolved from the source index.',
-        'Direct-link resolution is not gameplay review; readability, tactics, exact patch, and player intent remain unclaimed.',
+        'The exact YouTube watch target has been resolved from the source index and is a gameplay-bearing full-set upload.',
+        'Direct-link resolution is not tactical review; exact patch, teaching claims, and player intent remain unclaimed.',
         'The stored date remains an event-date anchor unless an exact set day is independently established.',
       ],
     ),
