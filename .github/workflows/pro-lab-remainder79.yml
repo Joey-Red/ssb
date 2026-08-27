@@ -18,6 +18,7 @@ jobs:
           sparse-checkout: |
             .github/workflows/pro-lab-remainder79.yml
             scripts/resolve-pro-lab-alias-retry.ts
+            scripts/dump-pro-lab-unresolved.ts
             src/data
             src/lib
             package.json
@@ -31,37 +32,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.13'
       - run: npm ci --no-audit --no-fund
-      - run: python -m pip install -q -U yt-dlp
-      - name: Restore resolver cache
-        uses: actions/cache@v4
-        with:
-          path: .cache/pro-lab-alias-retry
-          key: pro-lab-alias-retry-v1-${{ runner.os }}
-      - name: Expand diagnostic report
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('scripts/resolve-pro-lab-alias-retry.ts')
-          s = p.read_text()
-          s = s.replace(
-              "    opponentTag: record.opponentTag,\n    candidateCount: scored.length,",
-              "    opponentTag: record.opponentTag,\n    playerFighterIds: record.playerFighterIds,\n    round: record.round,\n    datePrecision: record.datePrecision,\n    candidateCount: scored.length,",
-          )
-          s = s.replace("    candidates: scored.slice(0, 12),", "    candidates: scored,")
-          p.write_text(s)
-          PY
-      - name: Resolve current remainder
-        env:
-          PRO_LAB_ALIAS_SEARCH_CONCURRENCY: '18'
-          PRO_LAB_ALIAS_SEARCH_LIMIT: '50'
-        run: ./node_modules/.bin/vite-node scripts/resolve-pro-lab-alias-retry.ts pro-lab-remainder79.json
-      - name: Report totals
-        run: jq '{unresolvedInput,searchJobs,pairCandidateVideos,suggestedCount,noCandidateCount,ambiguousCount,searchErrors}' pro-lab-remainder79.json
+      - name: Dump unresolved metadata
+        run: ./node_modules/.bin/vite-node scripts/dump-pro-lab-unresolved.ts pro-lab-unresolved.json
       - uses: actions/upload-artifact@v4
         with:
-          name: pro-lab-remainder79-full
-          path: pro-lab-remainder79.json
+          name: pro-lab-unresolved-metadata
+          path: pro-lab-unresolved.json
