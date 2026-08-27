@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { proVodCatalog } from '../data/proLab'
-import type { ProDecisionMoment } from '../data/proLabTypes'
+import type { DecisionGameState, ProDecisionMoment } from '../data/proLabTypes'
 import { fighterById, roster } from '../data/roster'
 import { validateProReviewSubmission } from '../lib/proLabReviewIntake'
 import {
@@ -22,6 +22,20 @@ const fighterIds = roster.map((fighter) => fighter.id)
 const storageKey = (vodId: string) => `smash-forge.pro-review.${vodId}`
 const splitComma = (value: string) => value.split(',').map((item) => item.trim()).filter(Boolean)
 const splitLines = (value: string) => value.split(/\r?\n/).map((item) => item.trim()).filter(Boolean)
+
+type NumericStateKey = 'playerStocks' | 'opponentStocks' | 'playerPercent' | 'opponentPercent'
+const withOptionalStateNumber = (state: DecisionGameState, key: NumericStateKey, raw: string): DecisionGameState => {
+  const next: DecisionGameState = { ...state }
+  if (raw === '') delete next[key]
+  else next[key] = Number(raw)
+  return next
+}
+const withOptionalStage = (state: DecisionGameState, raw: string): DecisionGameState => {
+  const next: DecisionGameState = { ...state }
+  if (raw === '') delete next.stage
+  else next.stage = raw
+  return next
+}
 
 const formatTime = (seconds: number) => {
   const total = Math.max(0, Math.floor(seconds))
@@ -161,11 +175,11 @@ export function ProReviewWorkbench({ vodId }: { vodId: string }) {
             <label><span>Opponent fighter</span><select value={moment.opponentFighterId ?? ''} onChange={(event) => updateMoment(index, { opponentFighterId: event.target.value || undefined })}><option value="">Unknown / not asserted</option>{opponentFighters.map((id) => <option value={id} key={id}>{fighterById.get(id)?.name ?? id}</option>)}</select></label>
             <label><span>Evidence class</span><select value={moment.evidenceClass} onChange={(event) => updateMoment(index, { evidenceClass: event.target.value as ProDecisionMoment['evidenceClass'] })}>{reviewEvidenceClasses.map((value) => <option value={value} key={value}>{value}</option>)}</select></label>
             <label><span>Confidence (0–1)</span><input type="number" min="0" max="1" step="0.05" value={moment.confidence} onChange={(event) => updateMoment(index, { confidence: Number(event.target.value) })} /></label>
-            <label><span>Player stocks</span><input type="number" min="0" max="3" step="1" value={moment.state.playerStocks ?? ''} onChange={(event) => updateMoment(index, { state: { ...moment.state, playerStocks: event.target.value === '' ? undefined : Number(event.target.value) } })} /></label>
-            <label><span>Opponent stocks</span><input type="number" min="0" max="3" step="1" value={moment.state.opponentStocks ?? ''} onChange={(event) => updateMoment(index, { state: { ...moment.state, opponentStocks: event.target.value === '' ? undefined : Number(event.target.value) } })} /></label>
-            <label><span>Player %</span><input type="number" min="0" step="0.1" value={moment.state.playerPercent ?? ''} onChange={(event) => updateMoment(index, { state: { ...moment.state, playerPercent: event.target.value === '' ? undefined : Number(event.target.value) } })} /></label>
-            <label><span>Opponent %</span><input type="number" min="0" step="0.1" value={moment.state.opponentPercent ?? ''} onChange={(event) => updateMoment(index, { state: { ...moment.state, opponentPercent: event.target.value === '' ? undefined : Number(event.target.value) } })} /></label>
-            <label><span>Stage</span><input value={moment.state.stage ?? ''} onChange={(event) => updateMoment(index, { state: { ...moment.state, stage: event.target.value || undefined } })} /></label>
+            <label><span>Player stocks</span><input type="number" min="0" max="3" step="1" value={moment.state.playerStocks ?? ''} onChange={(event) => updateMoment(index, { state: withOptionalStateNumber(moment.state, 'playerStocks', event.target.value) })} /></label>
+            <label><span>Opponent stocks</span><input type="number" min="0" max="3" step="1" value={moment.state.opponentStocks ?? ''} onChange={(event) => updateMoment(index, { state: withOptionalStateNumber(moment.state, 'opponentStocks', event.target.value) })} /></label>
+            <label><span>Player %</span><input type="number" min="0" step="0.1" value={moment.state.playerPercent ?? ''} onChange={(event) => updateMoment(index, { state: withOptionalStateNumber(moment.state, 'playerPercent', event.target.value) })} /></label>
+            <label><span>Opponent %</span><input type="number" min="0" step="0.1" value={moment.state.opponentPercent ?? ''} onChange={(event) => updateMoment(index, { state: withOptionalStateNumber(moment.state, 'opponentPercent', event.target.value) })} /></label>
+            <label><span>Stage</span><input value={moment.state.stage ?? ''} onChange={(event) => updateMoment(index, { state: withOptionalStage(moment.state, event.target.value) })} /></label>
             <label><span>Position</span><select value={moment.state.position ?? 'unknown'} onChange={(event) => updateMoment(index, { state: { ...moment.state, position: event.target.value as NonNullable<ProDecisionMoment['state']['position']> } })}><option value="unknown">unknown</option><option value="center">center</option><option value="corner">corner</option><option value="ledge">ledge</option><option value="offstage">offstage</option><option value="platform">platform</option></select></label>
             <label className="pro-review__wide"><span>Chosen option — observable action</span><textarea value={moment.chosenOption} onChange={(event) => updateMoment(index, { chosenOption: event.target.value })} placeholder="Describe the action actually chosen, without inventing intent." /></label>
             <label className="pro-review__wide"><span>Observable outcome</span><textarea value={moment.observableOutcome} onChange={(event) => updateMoment(index, { observableOutcome: event.target.value })} placeholder="What visibly happened after the choice?" /></label>
