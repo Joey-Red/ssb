@@ -30,7 +30,7 @@ describe('Pro Lab final 293-set acquisition', () => {
     expect(selectedIdentities.some((identity) => preFinalIdentities.has(identity))).toBe(false)
   })
 
-  it('keeps every selected record canonical and honestly unresolved', () => {
+  it('keeps every selected record canonical and honestly unresolved at acquisition time', () => {
     for (const vod of proVodCatalogFinal293) {
       expect(playerIds.has(vod.playerId), vod.id).toBe(true)
       expect(vod.playerFighterIds.length, vod.id).toBeGreaterThan(0)
@@ -51,17 +51,23 @@ describe('Pro Lab final 293-set acquisition', () => {
     }
   })
 
-  it('moves all 293 into link resolution without pretending they are review-ready', () => {
+  it('routes unresolved final records to link resolution and resolved records to review', () => {
     const finalIds = new Set(proVodCatalogFinal293.map((vod) => vod.id))
     const linkIds = new Set(proVodLinkResolutionQueue.map((vod) => vod.id))
     const reviewIds = new Set(proVodReviewQueue.map((target) => target.vodId).filter(Boolean))
-
-    expect(proVodLinkResolutionQueue).toHaveLength(728)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(72)
+    const productionById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
     for (const id of finalIds) {
-      expect(linkIds.has(id), id).toBe(true)
-      expect(reviewIds.has(id), id).toBe(false)
+      const productionVod = productionById.get(id)
+      expect(productionVod, id).toBeDefined()
+      if (productionVod?.linkKind === 'source-index') {
+        expect(linkIds.has(id), id).toBe(true)
+        expect(reviewIds.has(id), id).toBe(false)
+      } else {
+        expect(productionVod?.linkKind, id).toBe('direct-video')
+        expect(linkIds.has(id), id).toBe(false)
+        expect(reviewIds.has(id), id).toBe(true)
+      }
     }
   })
 
