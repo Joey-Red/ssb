@@ -40,7 +40,7 @@ export function buildHistoricalIndexedSet(seed: HistoricalIndexedSetSeed): ProVo
     eventTier: 'unknown',
     date: seed.sourceDateAnchor,
     datePrecision: 'event-anchor',
-    round: seed.sourceLabel,
+    round: `${seed.sourceLabel} · source ${seed.sourceDateAnchor}`,
     videoUrl: pairIndexUrl,
     videoProvider: 'other',
     linkKind: 'source-index',
@@ -61,6 +61,7 @@ export function buildHistoricalIndexedSet(seed: HistoricalIndexedSetSeed): ProVo
       [
         'This record comes from a public SSBU tournament-match video index; the exact YouTube watch target still needs resolution.',
         'The stored date is the public source-index date anchor and is not asserted as the exact tournament-set day when the older index entry does not prove that distinction.',
+        'The audit identity includes that source-date anchor so repeated tournament series or player pairs remain distinct without pretending the anchor is an exact event day.',
         'Target fighter labels are retained at set/index level only. Opponent character, per-game switching, tactical choices, and player intent remain unclaimed until direct footage review.',
         'Exact patch metadata remains unknown even when the footage is from the long-running final-balance-patch era.',
       ],
