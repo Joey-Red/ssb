@@ -1,6 +1,11 @@
 import { buildSetBreakdown, extractProPatterns } from '../lib/proLab'
 import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
 import {
+  buildAnnotationWorksheet,
+  buildPrimaryFighterReviewBatch,
+  summarizeFighterEvidenceProgress,
+} from '../lib/proLabAutomation'
+import {
   buildCharacterLessons,
   buildDecisionExercises,
   buildPlayerComparisons,
@@ -111,6 +116,26 @@ export const proAegisPilotReviewTargets = buildProReviewPlan(
   },
 )
 
+export const proAegisPilotReviewBatch = buildPrimaryFighterReviewBatch(
+  proAegisPilotReviewTargets,
+  proVodCatalog,
+  ['pyra', 'mythra'],
+  8,
+)
+
+const proVodByIdForReview = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
+export const proAegisPilotWorksheets = proAegisPilotReviewBatch.flatMap((target) => {
+  const vod = proVodByIdForReview.get(target.vodId)
+  return vod ? [buildAnnotationWorksheet(vod)] : []
+})
+
+export const proAegisPilotProgress = summarizeFighterEvidenceProgress(
+  ['pyra', 'mythra'],
+  proVodCatalog,
+  proDecisionMoments,
+  8,
+)
+
 export const proDecisionMomentValidation = validateDecisionMoments(
   proDecisionMoments,
   proVodCatalog,
@@ -133,6 +158,9 @@ export const proLabReleaseStats = {
   pendingReviewTargets: proVodReviewQueueStats.pending,
   rankedReviewTargets: proRankedVodReviewPlan.length,
   aegisPilotReviewTargets: proAegisPilotReviewTargets.length,
+  aegisPrimaryPilotTargets: proAegisPilotReviewBatch.length,
+  aegisPilotWorksheets: proAegisPilotWorksheets.length,
+  aegisPilotReviewedSets: proAegisPilotProgress.reviewedSetCount,
   currentMetaResearchTargets: proMetaRepresentation2026.length,
   currentMetaTargetsNeedingRepresentative: nextProMetaResearchTargets2026.length,
   reviewedMoments: proDecisionMoments.filter((moment) => moment.evidenceClass !== 'speculative' && moment.confidence >= 0.65).length,
