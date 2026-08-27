@@ -12,8 +12,8 @@ import {
 import { proVodCatalog } from './proLabVodsAll'
 
 describe('Pro Lab historical bulk acquisition batch 6', () => {
-  const rosterIds = new Set(roster.map((fighter) => fighter.id))
-  const playerIds = new Set(proPlayerRepresentatives.map((player) => player.id))
+  const rosterIds = new Set<string>(roster.map((fighter) => fighter.id))
+  const playerIds = new Set<string>(proPlayerRepresentatives.map((player) => player.id))
   const historicalIds = new Set(proVodCatalogHistoricalBatch6.map((vod) => vod.id))
 
   it('adds exactly 300 independently addressable historical set records', () => {
