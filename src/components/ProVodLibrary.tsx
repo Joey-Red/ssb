@@ -14,6 +14,7 @@ import {
   type ProVodLibraryStatusFilter,
   type ProVodLibraryTierFilter,
 } from '../lib/proLabVodLibrary'
+import { hrefFor } from '../router'
 import type { FighterManifestEntry } from '../types'
 
 const playerById = new Map<string, ProPlayerRepresentative>(proPlayerRepresentatives.map((player) => [player.id, player]))
@@ -122,7 +123,7 @@ function VodCard({ vod, fighterId }: { vod: ProVodRecord; fighterId: string }) {
       <p>{vod.result ?? 'Result not asserted.'}</p>
       <div className="pro-lab__status-row"><span>{selectedSide}</span><span>{reviewReady ? 'review ready' : sourceIndexed ? 'link recovery needed' : vod.analysisStatus === 'reviewed' ? 'review complete' : 'not reviewable'}</span><span>Quality {vod.quality.score}</span><span>{vod.analysisStatus}</span><span>Version {vod.gameVersion}</span><span>Breakdown {breakdownByVod.get(vod.id)?.status ?? 'queued'}</span></div>
     </div>
-    <div className="pro-lab__vod-actions"><a className="button-link" href={playbackUrl} target="_blank" rel="noreferrer">{actionLabel}</a><details><summary>Provenance</summary><div className="pro-lab__source-stack">{vod.sourceUrls.map((url) => <a href={url} target="_blank" rel="noreferrer" key={url}>{url}</a>)}</div></details></div>
+    <div className="pro-lab__vod-actions"><a className="button-link" href={playbackUrl} target="_blank" rel="noreferrer">{actionLabel}</a>{reviewReady && <a className="button-link" href={hrefFor(`/pro-lab/review/${encodeURIComponent(vod.id)}`)}>Review evidence</a>}<details><summary>Provenance</summary><div className="pro-lab__source-stack">{vod.sourceUrls.map((url) => <a href={url} target="_blank" rel="noreferrer" key={url}>{url}</a>)}</div></details></div>
   </article>
 }
 
