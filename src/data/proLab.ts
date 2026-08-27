@@ -5,6 +5,7 @@ import {
   buildPrimaryFighterReviewBatch,
   summarizeFighterEvidenceProgress,
 } from '../lib/proLabAutomation'
+import { buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
 import {
   buildCharacterLessons,
   buildDecisionExercises,
@@ -13,6 +14,7 @@ import {
   buildTemporalEvidenceIndex,
   extractMatchupPatterns,
 } from '../lib/proLabRelease'
+import { buildProReviewSubmissionTemplate } from '../lib/proLabReviewIntake'
 import {
   buildProReviewPlan,
   summarizeProCoverage,
@@ -100,6 +102,7 @@ export const proRosterCoverage = buildProRosterCoverage({
 })
 
 export const proCoverageSummary = summarizeProCoverage(proRosterCoverage)
+export const proCoverageWorkQueue = buildProCoverageWorkQueue(proRosterCoverage, proDecisionMoments)
 
 export const proRankedVodReviewPlan = buildProReviewPlan(
   proVodCatalog,
@@ -127,6 +130,11 @@ const proVodByIdForReview = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 export const proAegisPilotWorksheets = proAegisPilotReviewBatch.flatMap((target) => {
   const vod = proVodByIdForReview.get(target.vodId)
   return vod ? [buildAnnotationWorksheet(vod)] : []
+})
+
+export const proAegisPilotSubmissionTemplates = proAegisPilotReviewBatch.flatMap((target) => {
+  const vod = proVodByIdForReview.get(target.vodId)
+  return vod ? [buildProReviewSubmissionTemplate(vod)] : []
 })
 
 export const proAegisPilotProgress = summarizeFighterEvidenceProgress(
@@ -157,9 +165,11 @@ export const proLabReleaseStats = {
   reviewTargets: proVodReviewQueueStats.totalTargets,
   pendingReviewTargets: proVodReviewQueueStats.pending,
   rankedReviewTargets: proRankedVodReviewPlan.length,
+  coverageWorkItems: proCoverageWorkQueue.length,
   aegisPilotReviewTargets: proAegisPilotReviewTargets.length,
   aegisPrimaryPilotTargets: proAegisPilotReviewBatch.length,
   aegisPilotWorksheets: proAegisPilotWorksheets.length,
+  aegisPilotSubmissionTemplates: proAegisPilotSubmissionTemplates.length,
   aegisPilotReviewedSets: proAegisPilotProgress.reviewedSetCount,
   currentMetaResearchTargets: proMetaRepresentation2026.length,
   currentMetaTargetsNeedingRepresentative: nextProMetaResearchTargets2026.length,
