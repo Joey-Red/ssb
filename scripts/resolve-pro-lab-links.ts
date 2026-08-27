@@ -5,7 +5,7 @@ import type { ProVodRecord } from '../src/data/proLabTypes'
 
 const API = 'https://api.smasharchives.com'
 const outputPath = process.argv[2] ?? 'pro-lab-link-resolutions.json'
-const delayMs = Number(process.env.PRO_LAB_RESOLVER_DELAY_MS ?? 125)
+const delayMs = Number(process.env.PRO_LAB_RESOLVER_DELAY_MS ?? 175)
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 const normalize = (value: string) => value
@@ -66,22 +66,35 @@ const compatibleCharacter = (record: ProVodRecord, names: readonly ArchiveCharac
 }
 
 async function getJson<T>(url: URL): Promise<T> {
-  await sleep(delayMs)
-  const response = await fetch(url, { headers: { 'user-agent': 'Smash-Forge-Pro-Lab-Link-Resolver/1.0' } })
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`)
-  return response.json() as Promise<T>
+  let lastError: Error | null = null
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    await sleep(delayMs * attempt)
+    try {
+      const response = await fetch(url, { headers: { 'user-agent': 'Smash-Forge-Pro-Lab-Link-Resolver/1.0' } })
+      if (response.ok) return response.json() as Promise<T>
+      lastError = new Error(`${response.status} ${response.statusText}: ${url}`)
+      if (response.status < 500 && response.status !== 429) break
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error))
+    }
+  }
+  throw lastError ?? new Error(`Failed to fetch ${url}`)
 }
 
 async function findPlayer(tag: string): Promise<ArchivePlayer | null> {
   const url = new URL('/player/search', API)
   url.searchParams.set('name', tag)
-  const results = await getJson<ArchivePlayer[]>(url)
-  const exact = results.filter((candidate) => sameName(candidate.name, tag))
-  if (exact.length === 1) return exact[0]
-  return null
+  try {
+    const results = await getJson<ArchivePlayer[]>(url)
+    const exact = results.filter((candidate) => sameName(candidate.name, tag))
+    if (exact.length === 1) return exact[0]
+    return null
+  } catch {
+    return null
+  }
 }
 
-async function getPlayerVods(playerId: number): Promise<ArchiveVod[]> {
+async function getPlayerVods(playerId: number): Promise<{ vods: ArchiveVod[]; error?: string }> {
   const all: ArchiveVod[] = []
   const seen = new Set<string>()
   let expectedCount: number | null = null
@@ -90,7 +103,12 @@ async function getPlayerVods(playerId: number): Promise<ArchiveVod[]> {
     const url = new URL('/vod/player', API)
     url.searchParams.set('playerId', String(playerId))
     url.searchParams.set('page', String(page))
-    const result = await getJson<ArchiveVodList>(url)
+    let result: ArchiveVodList
+    try {
+      result = await getJson<ArchiveVodList>(url)
+    } catch (error) {
+      return { vods: all, error: error instanceof Error ? error.message : String(error) }
+    }
     if (expectedCount === null) expectedCount = result.count
     if (!result.items.length) break
 
@@ -103,7 +121,7 @@ async function getPlayerVods(playerId: number): Promise<ArchiveVod[]> {
     }
     if (!added || all.length >= (expectedCount ?? 0)) break
   }
-  return all
+  return { vods: all }
 }
 
 const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
@@ -134,7 +152,8 @@ for (const [playerId, records] of byPlayer) {
     continue
   }
 
-  const archiveVods = await getPlayerVods(archivePlayer.id)
+  const archiveResult = await getPlayerVods(archivePlayer.id)
+  const archiveVods = archiveResult.vods
   let resolvedForPlayer = 0
 
   for (const record of records) {
@@ -179,9 +198,10 @@ for (const [playerId, records] of byPlayer) {
     archivePlayerId: archivePlayer.id,
     unresolvedRecords: records.length,
     archiveVods: archiveVods.length,
+    archiveError: archiveResult.error ?? null,
     resolved: resolvedForPlayer,
   })
-  console.log(`${representative.tag}: ${resolvedForPlayer}/${records.length} resolved from ${archiveVods.length} archive VODs`)
+  console.log(`${representative.tag}: ${resolvedForPlayer}/${records.length} resolved from ${archiveVods.length} archive VODs${archiveResult.error ? ' (partial/error)' : ''}`)
 }
 
 const report = {
