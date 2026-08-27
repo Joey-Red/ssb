@@ -1,4 +1,4 @@
-name: Pro Lab final candidate identity audit
+name: Pro Lab final Moenai goma recovery
 
 on:
   push:
@@ -9,55 +9,15 @@ permissions:
   contents: read
 
 jobs:
-  audit:
+  resolve:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - run: python -m pip install -q -U yt-dlp
-      - name: Target exact remaining identities
+      - name: Exact corrected source title
         shell: bash
         run: |
           set -euo pipefail
-          queries=(
-            'KTP#13 GF Shion Hurt Smash'
-            'KTP#13 WSF Shion Hurt Smash'
-            "マエスマ'HIT#174 GF らき Hurt"
-            "マエスマ'HIT#174 LF Mark Hurt"
-            "マエスマ'HIT#174 WSF Hurt Mark"
-            'Dr Insanos Bonfire 3 Grand Finals Miya Hurt'
-            'Dr Insanos Bonfire 3 Winners Finals Miya Hurt'
-            'Cavalier Clash 7 Grand Finals Hurt Asimo'
-            'Cavalier Clash 7 Winners Finals Hurt Asimo'
-            '第65回スマバトSP Hurt MarK TOP24'
-            "マエスマ'1on1#35 SF きと Hurt"
-            "マエスマ'HIT Championship GF スノー Hurt"
-            '桜梅桃李 第壱幕 もえないゴミ らき'
-            '桜梅桃李 第壱幕 燃えないゴミ らき'
-            '桜梅桃李 第壱幕 Moenai Gomi Raki'
-            'Ultimate Arena Smash Finale MkLeo BigBoss 2025'
-          )
-          : > final-audit.txt
-          for q in "${queries[@]}"; do
-            echo "===== SEARCH $q =====" | tee -a final-audit.txt
-            yt-dlp --flat-playlist --playlist-end 15 --print '%(id)s | %(title)s | %(channel)s' "ytsearch15:$q" | tee -a final-audit.txt
-          done
-      - name: Resolve candidate titles with oEmbed
-        shell: python
-        run: |
-          import json, urllib.parse, urllib.request
-          ids='''MmSW6N5Ibx8 naRMxJ36Xug ZFtJJbhLy80 ESlMC4Dr9h8 xfeDPllxFRQ h9UnDUpYRIg 66oQv3clu9g FM9oeaXgBCU fEKfKIbWrDw 2dHt2_KNO-k 3eahnWdPcT0 2M6rlfA6Fc4 1CWKy4GH2-M TK2KIVcWffE hGZD6xoBgyA QkJkb8LGqqA w3V9dfNTWCQ CppO4ff7-Xc CZXLzfZ8G8Y iCENS1PZfVA cmm2QpCqZtg 1PasQmK_Hok _qjNpfr6pbo hherLTtM58g S-pxX5RFjnY OWpKraSbRzw NbN_vQ-wc2g oHdh-3jvzNw kE3KBUMm5ds AKmM1u1UNAQ 8qc05IIHNmw kCJAUfkGYDw TVik1mCdxVA fgR4NnAp8U8 SoM8Squ-dI8 hr9rxyHSJ60 Ah1z0GAz5Uw e1zyEYU_cGs wcj5D9_dhnM yy4QfEnxtZc t8dLMXuUrEU QR4UyJ3VQ2c VIF4anxkmVs pV5Sc9IhD-g 5Yk_ew0cDgo p2wUXl08SXk ST30eftHcQc Ce4LhoqS3AI wOxWKltyotI UiXJ1GJPU8c njRDAEVWMso dyExVTog7p4 iIJRIahyA6o 2Mzvzlah5x8'''.split()
-          with open('final-audit.txt','a',encoding='utf-8') as out:
-            out.write('\n===== OEMBED TITLES =====\n')
-            for vid in ids:
-              url='https://www.youtube.com/oembed?'+urllib.parse.urlencode({'url':f'https://www.youtube.com/watch?v={vid}','format':'json'})
-              try:
-                with urllib.request.urlopen(url,timeout=15) as r:data=json.load(r)
-                out.write(f"{vid} | {data.get('title')} | {data.get('author_name')}\n")
-              except Exception as e:
-                out.write(f'{vid} | ERROR {e}\n')
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pro-lab-final-candidate-audit
-          path: final-audit.txt
+          yt-dlp --flat-playlist --playlist-end 20 --print '%(id)s | %(title)s | %(channel)s' "ytsearch20:桜梅桃李 第壱幕 Winners Top 24 もえないごま リドリー らき スティーブ カズヤ"
