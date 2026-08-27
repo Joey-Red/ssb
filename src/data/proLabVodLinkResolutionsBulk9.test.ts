@@ -29,11 +29,11 @@ describe('Pro Lab exact-event and duplicate-upload recovery batch', () => {
     }
   })
 
-  it('preserves all 800 records while reducing source indexes from 86 to 79', () => {
+  it('preserves the 800-record corpus while allowing later verified recovery batches', () => {
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(79)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(721)
+    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index').length).toBeLessThanOrEqual(79)
+    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index').length).toBeGreaterThanOrEqual(721)
   })
 
   it('does not infer tactical review completion from link recovery', () => {
