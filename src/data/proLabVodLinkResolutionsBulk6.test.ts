@@ -29,11 +29,14 @@ describe('Pro Lab alias and Unicode VOD recovery batch', () => {
     }
   })
 
-  it('preserves all 800 records while reducing source-index records from 107 to 102', () => {
+  it('keeps all 800 records valid after later verified recovery batches', () => {
+    const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
+    const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(102)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(698)
+    expect(unresolved.length + resolved.length).toBe(800)
+    expect(unresolved.length).toBeLessThanOrEqual(102)
+    expect(resolved.length).toBeGreaterThanOrEqual(698)
   })
 
   it('does not infer tactical review completion from link recovery', () => {
