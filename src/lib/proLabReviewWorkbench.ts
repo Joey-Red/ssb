@@ -44,10 +44,49 @@ export const reviewEvidenceClasses: readonly DecisionEvidenceClass[] = [
   'speculative',
 ]
 
+const contextSet = new Set<string>(reviewContexts)
+const evidenceClassSet = new Set<string>(reviewEvidenceClasses)
+const positions = new Set(['center', 'corner', 'ledge', 'offstage', 'platform', 'unknown'])
+const frameMetrics = new Set(['startup', 'active', 'totalFrames', 'faf', 'landingLag', 'onShield'])
+const isRecord = (value: unknown): value is Record<string, unknown> => Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+const isOptionalString = (value: unknown) => value === undefined || typeof value === 'string'
+const isOptionalNumber = (value: unknown) => value === undefined || typeof value === 'number'
+const isStringArray = (value: unknown): value is string[] => Array.isArray(value) && value.every((item) => typeof item === 'string')
+
 const splitLines = (value: string) => value
   .split(/\r?\n/)
   .map((entry) => entry.trim())
   .filter(Boolean)
+
+const validImportedMoment = (value: unknown): value is ProDecisionMoment => {
+  if (!isRecord(value) || !isRecord(value.state)) return false
+  if (typeof value.id !== 'string' || typeof value.vodId !== 'string' || typeof value.fighterId !== 'string') return false
+  if (typeof value.game !== 'number' || typeof value.timestampSeconds !== 'number' || typeof value.confidence !== 'number') return false
+  if (typeof value.context !== 'string' || !contextSet.has(value.context)) return false
+  if (typeof value.chosenOption !== 'string' || typeof value.observableOutcome !== 'string') return false
+  if (typeof value.evidenceClass !== 'string' || !evidenceClassSet.has(value.evidenceClass)) return false
+  if (!isStringArray(value.teachingTags)) return false
+  if (!isOptionalString(value.opponentFighterId) || !isOptionalString(value.interpretation) || !isOptionalString(value.reviewerNote)) return false
+  if (value.plausibleAlternatives !== undefined && !isStringArray(value.plausibleAlternatives)) return false
+
+  const state = value.state
+  if (!isOptionalNumber(state.playerStocks) || !isOptionalNumber(state.opponentStocks)) return false
+  if (!isOptionalNumber(state.playerPercent) || !isOptionalNumber(state.opponentPercent)) return false
+  if (!isOptionalString(state.stage)) return false
+  if (state.position !== undefined && (typeof state.position !== 'string' || !positions.has(state.position))) return false
+  if (state.resources !== undefined && !isStringArray(state.resources)) return false
+
+  if (value.frameDataReferences !== undefined) {
+    if (!Array.isArray(value.frameDataReferences)) return false
+    for (const reference of value.frameDataReferences) {
+      if (!isRecord(reference)) return false
+      if (typeof reference.fighterId !== 'string' || typeof reference.moveName !== 'string') return false
+      if (!isOptionalString(reference.moveId) || !isOptionalString(reference.note)) return false
+      if (!Array.isArray(reference.metrics) || !reference.metrics.every((metric) => typeof metric === 'string' && frameMetrics.has(metric))) return false
+    }
+  }
+  return true
+}
 
 export function createProReviewWorkbenchDraft(vod: ProVodRecord): ProReviewWorkbenchDraft {
   return {
@@ -125,22 +164,22 @@ export function parseProReviewWorkbenchDraft(
     return { draft: null, errors: ['Draft JSON is not valid JSON.'] }
   }
 
-  if (!value || typeof value !== 'object' || Array.isArray(value)) {
-    return { draft: null, errors: ['Draft JSON must be an object.'] }
-  }
+  if (!isRecord(value)) return { draft: null, errors: ['Draft JSON must be an object.'] }
 
-  const candidate = value as Partial<ProReviewWorkbenchDraft>
-  if (candidate.version !== 1) errors.push('Unsupported review-draft version.')
-  if (typeof candidate.vodId !== 'string' || !candidate.vodId.trim()) errors.push('Draft must include a VOD id.')
-  if (expectedVodId && candidate.vodId !== expectedVodId) errors.push(`Draft belongs to ${candidate.vodId ?? 'another VOD'}, not ${expectedVodId}.`)
-  if (candidate.targetStatus !== 'annotated' && candidate.targetStatus !== 'reviewed') errors.push('Target status must be annotated or reviewed.')
-  if (!Array.isArray(candidate.moments)) errors.push('Draft moments must be an array.')
+  if (value.version !== 1) errors.push('Unsupported review-draft version.')
+  if (typeof value.vodId !== 'string' || !value.vodId.trim()) errors.push('Draft must include a VOD id.')
+  if (expectedVodId && value.vodId !== expectedVodId) errors.push(`Draft belongs to ${typeof value.vodId === 'string' ? value.vodId : 'another VOD'}, not ${expectedVodId}.`)
+  if (value.targetStatus !== 'annotated' && value.targetStatus !== 'reviewed') errors.push('Target status must be annotated or reviewed.')
+  if (!Array.isArray(value.moments)) errors.push('Draft moments must be an array.')
+  else value.moments.forEach((moment, index) => {
+    if (!validImportedMoment(moment)) errors.push(`Moment ${index + 1} has an invalid or incomplete structure.`)
+  })
   for (const field of ['thesis', 'recurringHabits', 'adaptationNotes', 'reviewerNotes'] as const) {
-    if (typeof candidate[field] !== 'string') errors.push(`${field} must be a string.`)
+    if (typeof value[field] !== 'string') errors.push(`${field} must be a string.`)
   }
 
   if (errors.length > 0) return { draft: null, errors }
-  return { draft: candidate as ProReviewWorkbenchDraft, errors: [] }
+  return { draft: value as unknown as ProReviewWorkbenchDraft, errors: [] }
 }
 
 /**
