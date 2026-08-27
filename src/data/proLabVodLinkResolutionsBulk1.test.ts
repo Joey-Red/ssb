@@ -6,14 +6,21 @@ const resolutionEntries = Object.entries(proVodYoutubeResolutionsBulk1)
 const catalogById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
 describe('Pro Lab bulk direct-link resolution', () => {
-  it('preserves the 800-set corpus while upgrading only known records', () => {
+  it('preserves the 800-record corpus while upgrading 41 verified links', () => {
     expect(proVodCatalog).toHaveLength(800)
+    expect(resolutionEntries).toHaveLength(41)
     for (const [vodId] of resolutionEntries) expect(catalogById.has(vodId), vodId).toBe(true)
   })
 
-  it('uses unique YouTube targets for independently indexed set records', () => {
-    const youtubeIds = resolutionEntries.map(([, youtubeId]) => youtubeId)
-    expect(new Set(youtubeIds).size).toBe(youtubeIds.length)
+  it('permits only the known reversed-orientation duplicate target', () => {
+    const byYoutubeId = new Map<string, string[]>()
+    for (const [vodId, youtubeId] of resolutionEntries) {
+      const ids = byYoutubeId.get(youtubeId) ?? []
+      ids.push(vodId)
+      byYoutubeId.set(youtubeId, ids)
+    }
+    const duplicates = [...byYoutubeId.entries()].filter(([, vodIds]) => vodIds.length > 1)
+    expect(duplicates).toEqual([['9L2FcAe0LIk', ['hist6-253', 'final293-b-028']]])
   })
 
   it('promotes resolved records to direct watch without inventing tactical review or patch state', () => {
@@ -35,6 +42,7 @@ describe('Pro Lab bulk direct-link resolution', () => {
     const direct = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
     expect(direct.length + unresolved.length).toBe(800)
-    expect(direct.length).toBeGreaterThanOrEqual(72 + resolutionEntries.length)
+    expect(unresolved).toHaveLength(687)
+    expect(direct).toHaveLength(113)
   })
 })
