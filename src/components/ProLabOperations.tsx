@@ -1,17 +1,22 @@
 import {
   proAegisPilotProgress,
   proAegisPilotReviewBatch,
+  proAegisPilotSubmissionTemplates,
   proAegisPilotWorksheets,
   proCoverageSummary,
+  proCoverageWorkQueue,
   proDecisionMomentValidation,
   proLabReleaseStats,
   proSetBreakdownValidation,
 } from '../data/proLab'
 import { roster } from '../data/roster'
+import { hrefFor } from '../router'
 
-const fighterName = new Map<string, string>(roster.map((fighter) => [fighter.id, fighter.name]))
+const fighterById = new Map(roster.map((fighter) => [fighter.id, fighter]))
 const worksheetByVod = new Map(proAegisPilotWorksheets.map((worksheet) => [worksheet.vodId, worksheet]))
-const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) => fighterName.get(id) ?? id).join(' / ')
+const submissionTemplateByVod = new Map(proAegisPilotSubmissionTemplates.map((submission) => [submission.vodId, submission]))
+const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) => fighterById.get(id)?.name ?? id).join(' / ')
+const actionLabel = (value: string) => value.replace(/-/g, ' ')
 
 export function ProLabOperations() {
   const validationErrors = proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length
@@ -36,14 +41,29 @@ export function ProLabOperations() {
       <article className="pro-lab__pattern">
         <strong>Roster pipeline</strong>
         <p>{proCoverageSummary.teachingReady} teaching ready · {proCoverageSummary.evidenceBuilding} evidence building · {proCoverageSummary.cataloged} cataloged · {proCoverageSummary.representativeSeeded} representative seeded · {proCoverageSummary.researchQueued} research queued</p>
-        <span>Next coverage targets: {proCoverageSummary.nextFighterIds.slice(0, 6).map((id) => fighterName.get(id) ?? id).join(' · ')}</span>
+        <span>Strict review intake is prepared for {proAegisPilotSubmissionTemplates.length} Aegis pilot sets; a template cannot validate until direct gameplay observations and an evidence-backed breakdown are added.</span>
       </article>
+    </div>
+
+    <div className="section-heading"><div><p className="eyebrow">Completion queue</p><h2>Highest Pro Lab content gaps</h2></div><span className="section-meta">12-set / 2-representative floors plus evidence depth</span></div>
+    <div className="pro-lab__card-grid">
+      {proCoverageWorkQueue.slice(0, 8).map((item) => {
+        const fighter = fighterById.get(item.fighterId)
+        return <article className="pro-lab__card" key={item.fighterId}>
+          <div className="pro-lab__card-top"><h3>#{item.rank} {fighter?.name ?? item.fighterId}</h3><span>{actionLabel(item.nextAction)}</span></div>
+          <p>{item.state.replace(/-/g, ' ')} · planning score {item.score}</p>
+          <p>{item.reasons.slice(0, 3).join(' · ')}</p>
+          <p>{item.reviewedSetCount} reviewed sets · {item.reviewedMomentGap} reviewed moments still needed for the planning floor.</p>
+          {fighter && <div className="pro-lab__link-row"><a href={hrefFor(`/pro-lab/${fighter.slug}`)}>Open fighter workspace →</a></div>}
+        </article>
+      })}
     </div>
 
     <div className="section-heading"><div><p className="eyebrow">Pilot review pack</p><h2>Primary-side Aegis footage</h2></div><span className="section-meta">{proAegisPilotReviewBatch.length} deterministic targets</span></div>
     <div className="pro-lab__card-grid">
       {proAegisPilotReviewBatch.map((target) => {
         const worksheet = worksheetByVod.get(target.vodId)
+        const submissionTemplate = submissionTemplateByVod.get(target.vodId)
         const reviewUrl = worksheet?.startSeconds === undefined
           ? target.videoUrl
           : `${target.videoUrl}${target.videoUrl.includes('?') ? '&' : '?'}t=${Math.floor(worksheet.startSeconds)}s`
@@ -55,6 +75,7 @@ export function ProLabOperations() {
           <p><strong>Gameplay observations pending.</strong> This worksheet contains navigation and confirmed catalog metadata only.</p>
           <div className="pro-lab__link-row"><a href={reviewUrl} target="_blank" rel="noreferrer">Open VOD ↗</a></div>
           {worksheet && <details><summary>Evidence-safe review checklist</summary><ul>{worksheet.checklist.map((item) => <li key={item}>{item}</li>)}</ul></details>}
+          {submissionTemplate && <details><summary>Strict intake state</summary><p>Target: {submissionTemplate.targetStatus}. Current template contains {submissionTemplate.moments.length} gameplay observations and remains intentionally unvalidated until a reviewer adds direct evidence.</p></details>}
         </article>
       })}
     </div>
