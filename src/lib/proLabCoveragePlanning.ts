@@ -75,6 +75,7 @@ const chooseNextAction = (
   coverage: ProFighterCoverage,
   representativeGap: number,
   vodGap: number,
+  currentVodGap: number,
   reviewedSetGap: number,
   reviewedMomentGap: number,
   lessonClaimGap: number,
@@ -82,9 +83,9 @@ const chooseNextAction = (
   matchupPatternGap: number,
   comparisonGap: number,
 ): ProCoverageNextAction => {
-  // Long-term execution order: build the VOD corpus first, then broaden
-  // representative coverage, then spend review effort on direct gameplay.
-  if (vodGap > 0) return 'acquire-vods'
+  // Long-term execution order: build the VOD corpus first, including enough
+  // current-era evidence, then broaden representatives, then review gameplay.
+  if (vodGap > 0 || currentVodGap > 0) return 'acquire-vods'
   if (representativeGap > 0) return 'acquire-representatives'
   if (reviewedSetGap > 0 || reviewedMomentGap > 0) return 'review-vods'
   if (lessonClaimGap > 0 || decisionExerciseGap > 0) return 'expand-teaching'
@@ -150,6 +151,7 @@ export function buildProCoverageWorkQueue(
         entry,
         representativeGap,
         vodGap,
+        currentVodGap,
         reviewedSetGap,
         reviewedMomentGap,
         lessonClaimGap,
