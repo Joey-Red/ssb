@@ -86,19 +86,17 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
     }
   })
 
-  it('keeps unresolved batch 4 records in link resolution while resolved records advance to direct review', () => {
-    expect(proVodLinkResolutionQueueStats.total).toBeGreaterThan(0)
+  it('advances every batch 4 source index to direct review after complete link recovery', () => {
+    expect(proVodLinkResolutionQueueStats.total).toBe(0)
 
     for (const sourceVod of proVodCatalog2026Batch4) {
       const finalVod = proVodCatalog.find((entry) => entry.id === sourceVod.id)
       expect(finalVod, sourceVod.id).toBeTruthy()
-      const isResolved = finalVod?.linkKind === 'direct-video'
-      expect(proVodLinkResolutionQueue.some((entry) => entry.id === sourceVod.id), sourceVod.id).toBe(!isResolved)
-      if (isResolved && finalVod) {
-        expect(finalVod.videoProvider, sourceVod.id).toBe('youtube')
+      expect(finalVod?.linkKind, sourceVod.id).toBe('direct-video')
+      expect(finalVod?.videoProvider, sourceVod.id).toBe('youtube')
+      expect(proVodLinkResolutionQueue.some((entry) => entry.id === sourceVod.id), sourceVod.id).toBe(false)
+      if (finalVod) {
         expect(proVodReviewQueue.some((target) => target.videoUrl === finalVod.videoUrl), sourceVod.id).toBe(true)
-      } else {
-        expect(proVodReviewQueue.some((target) => target.vodId === sourceVod.id), sourceVod.id).toBe(false)
       }
     }
   })
