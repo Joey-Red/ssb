@@ -2,11 +2,13 @@ import type { ProVodRecord } from './proLabTypes'
 import { proVodFinal293CandidatesA } from './proLabVodsFinal293CandidatesA'
 import { proVodFinal293CandidatesB } from './proLabVodsFinal293CandidatesB'
 import { proVodFinal293CandidatesC } from './proLabVodsFinal293CandidatesC'
+import { proVodFinal293CandidatesD } from './proLabVodsFinal293CandidatesD'
 
 export const proVodFinal293Candidates = [
   ...proVodFinal293CandidatesA,
   ...proVodFinal293CandidatesB,
   ...proVodFinal293CandidatesC,
+  ...proVodFinal293CandidatesD,
 ] as readonly ProVodRecord[]
 
 const normalizeOpponentTag = (tag: string) => tag.normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase('en-US')
