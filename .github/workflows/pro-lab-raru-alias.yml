@@ -1,4 +1,4 @@
-name: Pro Lab Raru and Japanese alias verification
+name: Pro Lab final alias date verification
 
 on:
   push:
@@ -15,66 +15,29 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
-      - run: python -m pip install -q -U yt-dlp
-      - name: Search missing exact aliases
-        shell: bash
-        run: |
-          set -euo pipefail
-          queries=(
-            'Sumabato SP65 Hurt Rarikkusu'
-            '第65回スマバトSP Hurt ラリックス'
-            'Kaninabe Rarukun 2022'
-            'かになべ らる 2022 スマブラ'
-            'Kaninabe Moneyright Maesuma 2023'
-            'Raki Moenai goma 2024 Smash'
-            'らき もえないごみ 2024 スマブラ'
-            'Raki Mark Kazuya 2024 Smash'
-            'らき マーク カズヤ 2024 スマブラ'
-            'Yoshidora Johnny 2026 tournament'
-            'ヨシドラ Johnny 2026 スマブラ'
-            'Yoshidora Kanon Tenchi Ai 2026'
-          )
-          : > verification.txt
-          for q in "${queries[@]}"; do
-            echo "===== SEARCH: $q =====" | tee -a verification.txt
-            yt-dlp --flat-playlist --playlist-end 15 --print '%(id)s | %(title)s' "ytsearch15:$q" | tee -a verification.txt
-          done
-      - name: Fetch exact YouTube publish dates
+      - name: Fetch exact publish dates
         shell: python
         run: |
           import json, re, urllib.request
-          ids = [
-            'BnVjI7sEQFo','5nqfoPejPuE','d1BgTyD8-JI','ylSZ8RwrV_o',
-            'z6DbvLovQgM','1Zh75-5H_wg','mt2agB7beRc','Tq0m4l_s9xY',
-            '9XxeAL4jIO8','tW1PI-481ko','kE3KBUMm5ds','lE6fe9E3KGY'
-          ]
+          ids=['uDZxY_0NpIQ','DjPfuhi2ZyY','7H4oES3_EMQ','iDgc_PiLALY']
           key='AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
           url=f'https://www.youtube.com/youtubei/v1/next?key={key}&prettyPrint=false'
           def walk(x):
-            if isinstance(x, dict):
+            if isinstance(x,dict):
               dt=x.get('dateText')
-              if isinstance(dt, dict) and isinstance(dt.get('simpleText'), str):
-                s=dt['simpleText']
-                if re.fullmatch(r'[A-Z][a-z]{2} \d{1,2}, \d{4}', s): return s
+              if isinstance(dt,dict):
+                s=dt.get('simpleText')
+                if isinstance(s,str) and re.fullmatch(r'[A-Z][a-z]{2} \d{1,2}, \d{4}',s): return s
               for v in x.values():
                 r=walk(v)
-                if r: return r
-            elif isinstance(x, list):
+                if r:return r
+            elif isinstance(x,list):
               for v in x:
                 r=walk(v)
-                if r: return r
+                if r:return r
             return None
-          with open('verification.txt','a',encoding='utf-8') as out:
-            out.write('\n===== DATES =====\n')
-            for vid in ids:
-              body=json.dumps({'context':{'client':{'clientName':'WEB','clientVersion':'2.20260820.01.00','hl':'en','gl':'US'}},'videoId':vid}).encode()
-              req=urllib.request.Request(url,data=body,headers={'content-type':'application/json','user-agent':'Mozilla/5.0'})
-              try:
-                with urllib.request.urlopen(req,timeout=20) as resp: data=json.load(resp)
-                out.write(f'{vid} | {walk(data)}\n')
-              except Exception as e:
-                out.write(f'{vid} | ERROR {e}\n')
-      - uses: actions/upload-artifact@v4
-        with:
-          name: pro-lab-raru-alias-verification
-          path: verification.txt
+          for vid in ids:
+            body=json.dumps({'context':{'client':{'clientName':'WEB','clientVersion':'2.20260820.01.00','hl':'en','gl':'US'}},'videoId':vid}).encode()
+            req=urllib.request.Request(url,data=body,headers={'content-type':'application/json','user-agent':'Mozilla/5.0'})
+            with urllib.request.urlopen(req,timeout=20) as resp:data=json.load(resp)
+            print(f'{vid} | {walk(data)}')
