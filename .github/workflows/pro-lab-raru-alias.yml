@@ -1,0 +1,57 @@
+name: Pro Lab Raru and Japanese alias recovery
+
+on:
+  push:
+    branches:
+      - pro-lab/resolver-v10-raru-alias
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -q -U yt-dlp
+      - name: Search targeted aliases
+        shell: bash
+        run: |
+          set -euo pipefail
+          queries=(
+            'Hurt Snake Raru Luigi 2026 Smash'
+            'Hurt Snake らる ルイージ 2026'
+            'Hurt Snake Crete 2026 Smash'
+            'Hurt Snake Rarikkusu Donkey Kong 2026'
+            'Hurt Snake ラリックス ドンキーコング 2026'
+            'Hurt Snake LemozonA 2025 Smash'
+            'Hurt Snake Kito 2025 Smash'
+            'Hurt Snake Yadon 2025 Smash'
+            'Hurt Snake ヤドン 2025'
+            'Hurt Snake Ryoruzu 2025 Smash'
+            'Kaninabe Fox Moneyright 2023 Smash'
+            'Kaninabe Fox Ynn 2023 Smash'
+            'Kaninabe Fox Yn 2023 Smash'
+            'Kaninabe Fox Tsuna 2022 Smash'
+            'Kaninabe Fox Toura 2022 Smash'
+            'Kaninabe Fox Raru 2022 Smash'
+            'Kaninabe Fox らる 2022'
+            'Raki Steve Raru 2024 Smash'
+            'Raki Steve らる 2024'
+            'Raki Steve Kazuya Moenai goma 2024'
+            'Raki Steve Kazuya もえないごみ 2024'
+            'Raki Kazuya Mark 2024 Smash'
+            'Yoshidora Yoshi Johnny 2026 Smash'
+            'Yoshidora Yoshi Kanon Tenchi Ai 2026 Smash'
+          )
+          : > alias-results.txt
+          for q in "${queries[@]}"; do
+            echo "===== $q =====" | tee -a alias-results.txt
+            yt-dlp --flat-playlist --playlist-end 12 --print '%(id)s | %(title)s' "ytsearch12:$q" | tee -a alias-results.txt
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pro-lab-raru-alias-results
+          path: alias-results.txt
