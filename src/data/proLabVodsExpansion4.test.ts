@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { isCatalogQuality } from '../lib/proLab'
 import { roster } from './roster'
+import { proVodYoutubeResolutions2026Batch5 } from './proLabVodLinkResolutions2026Batch5'
 import { proVodLinkResolutionQueue, proVodLinkResolutionQueueStats, proVodReviewQueue } from './proLabReviewQueueAll'
 import { proPlayerRepresentatives, proFighterResearchRegistry } from './proLabRosterAll'
 import { proPlayerRepresentatives2026Batch4 } from './proLabRoster2026Batch4'
@@ -28,7 +29,7 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(proVodCatalog.length)
   })
 
-  it('keeps every bulk record explicitly at source-index rather than faking a direct watch link', () => {
+  it('keeps every original bulk acquisition record honestly source-indexed at ingestion', () => {
     for (const vod of proVodCatalog2026Batch4) {
       expect(playerIds.has(vod.playerId), vod.id).toBe(true)
       expect(vod.linkKind).toBe('source-index')
@@ -64,7 +65,7 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
   })
 
   it('widens previously thin fighter libraries instead of only padding the deepest characters', () => {
-    const widened = [
+    const widened: readonly string[] = [
       'shulk',
       'wii-fit-trainer',
       'richter',
@@ -80,17 +81,22 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
       'captain-falcon',
       'terry',
     ]
+    const batch4Ids = new Set<string>(proVodCatalog2026Batch4.map((vod) => vod.id))
     for (const fighterId of widened) {
-      expect(getProVodsForFighter(fighterId).some((vod) => proVodCatalog2026Batch4.includes(vod)), fighterId).toBe(true)
+      expect(getProVodsForFighter(fighterId).some((vod) => batch4Ids.has(vod.id)), fighterId).toBe(true)
     }
   })
 
-  it('routes all 89 unresolved source indexes to link resolution, not direct footage review', () => {
-    expect(proVodLinkResolutionQueueStats.total).toBeGreaterThanOrEqual(89)
-    expect(proVodLinkResolutionQueueStats.currentSeason).toBeGreaterThanOrEqual(89)
+  it('keeps unresolved batch 4 records in link resolution while resolved records advance to direct review', () => {
+    const resolvedIds = new Set<string>(Object.keys(proVodYoutubeResolutions2026Batch5))
+    expect(resolvedIds.size).toBe(5)
+    expect(proVodLinkResolutionQueueStats.total).toBeGreaterThanOrEqual(84)
+    expect(proVodLinkResolutionQueueStats.currentSeason).toBeGreaterThanOrEqual(84)
+
     for (const vod of proVodCatalog2026Batch4) {
-      expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(true)
-      expect(proVodReviewQueue.some((target) => target.vodId === vod.id), vod.id).toBe(false)
+      const isResolved = resolvedIds.has(vod.id)
+      expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(!isResolved)
+      expect(proVodReviewQueue.some((target) => target.vodId === vod.id), vod.id).toBe(isResolved)
     }
   })
 })
