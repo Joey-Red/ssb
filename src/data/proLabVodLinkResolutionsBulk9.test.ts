@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest'
-import { proVodYoutubeResolutionsBulk8 } from './proLabVodLinkResolutionsBulk8'
+import { proVodYoutubeResolutionsBulk9 } from './proLabVodLinkResolutionsBulk9'
 import { proVodLinkResolutionQueue } from './proLabReviewQueueAll'
 import { proVodCatalog } from './proLabVodsAll'
 
-const entries = Object.entries(proVodYoutubeResolutionsBulk8)
+const entries = Object.entries(proVodYoutubeResolutionsBulk9)
 const catalogById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
-describe('Pro Lab zero-candidate recovery batch', () => {
-  it('contains exactly ten corroborated YouTube mappings', () => {
-    expect(entries).toHaveLength(10)
-    expect(new Set(entries.map(([vodId]) => vodId)).size).toBe(10)
+describe('Pro Lab exact-event and duplicate-upload recovery batch', () => {
+  it('contains exactly seven corroborated YouTube mappings', () => {
+    expect(entries).toHaveLength(7)
+    expect(new Set(entries.map(([vodId]) => vodId)).size).toBe(7)
     for (const [vodId, youtubeId] of entries) {
       expect(catalogById.has(vodId), vodId).toBe(true)
       expect(youtubeId, vodId).toMatch(/^[A-Za-z0-9_-]{11}$/)
@@ -29,20 +29,17 @@ describe('Pro Lab zero-candidate recovery batch', () => {
     }
   })
 
-  it('keeps all 800 records valid after later verified recovery batches', () => {
-    const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
-    const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
+  it('preserves all 800 records while reducing source indexes from 86 to 79', () => {
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(unresolved.length + resolved.length).toBe(800)
-    expect(unresolved.length).toBeLessThanOrEqual(86)
-    expect(resolved.length).toBeGreaterThanOrEqual(714)
+    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(79)
+    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(721)
   })
 
-  it('does not infer tactical review completion from direct-link recovery', () => {
+  it('does not infer tactical review completion from link recovery', () => {
     const mappedIds = new Set(entries.map(([vodId]) => vodId))
     const mapped = proVodCatalog.filter((vod) => mappedIds.has(vod.id))
-    expect(mapped).toHaveLength(10)
+    expect(mapped).toHaveLength(7)
     expect(mapped.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
     expect(mapped.some((vod) => vod.analysisStatus === 'annotated' || vod.analysisStatus === 'reviewed')).toBe(false)
   })
