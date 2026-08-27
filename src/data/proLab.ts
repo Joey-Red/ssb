@@ -8,6 +8,12 @@ import {
   buildTemporalEvidenceIndex,
   extractMatchupPatterns,
 } from '../lib/proLabRelease'
+import {
+  buildProReviewPlan,
+  summarizeProCoverage,
+  validateDecisionMoments,
+  validateSetBreakdowns,
+} from '../lib/proLabPhase2'
 import { roster } from './roster'
 import {
   nextProMetaResearchTargets2026,
@@ -20,18 +26,18 @@ import type { ProDecisionMoment } from './proLabTypes'
 import { proVodCatalog } from './proLabVodsAll'
 
 /**
- * Tactical annotations stay empty until a reviewer has inspected the relevant
- * gameplay. VOD metadata alone is not enough to invent a player's decisions,
+ * Tactical annotations stay empty until the gameplay has actually been
+ * inspected. VOD metadata alone is not enough to invent a player's decisions,
  * reasons, adaptation patterns, frame-data dependency, or matchup plan.
  *
- * M81-M90 consume this array through evidence-gated builders. As reviewed
- * annotations are added later, lessons, exercises, matchup patterns, player
- * comparisons, frame-data references, and drill actions become available
- * automatically without weakening the evidence policy.
+ * Phase 2 consumes this array through evidence-gated builders and validators.
+ * As reviewed annotations are added, lessons, exercises, matchup patterns,
+ * player comparisons, frame-data references, and drill actions become
+ * available automatically without weakening the evidence policy.
  */
 export const proDecisionMoments: readonly ProDecisionMoment[] = []
 
-export const proLabReferenceDate = '2026-08-26'
+export const proLabReferenceDate = '2026-08-27'
 
 export const proSetBreakdowns = proVodCatalog.map((vod) =>
   buildSetBreakdown(vod.id, proDecisionMoments),
@@ -88,6 +94,35 @@ export const proRosterCoverage = buildProRosterCoverage({
   comparisons: proPlayerComparisons,
 })
 
+export const proCoverageSummary = summarizeProCoverage(proRosterCoverage)
+
+export const proRankedVodReviewPlan = buildProReviewPlan(
+  proVodCatalog,
+  proRosterCoverage,
+)
+
+export const proAegisPilotReviewTargets = buildProReviewPlan(
+  proVodCatalog,
+  proRosterCoverage,
+  {
+    fighterFilter: ['pyra', 'mythra'],
+    focusFighterIds: ['pyra', 'mythra'],
+    limit: 12,
+  },
+)
+
+export const proDecisionMomentValidation = validateDecisionMoments(
+  proDecisionMoments,
+  proVodCatalog,
+  roster.map((fighter) => fighter.id),
+)
+
+export const proSetBreakdownValidation = validateSetBreakdowns(
+  proSetBreakdowns,
+  proDecisionMoments,
+  proVodCatalog,
+)
+
 export const proLabReleaseStats = {
   fighters: proRosterCoverage.length,
   representatives: proPlayerRepresentatives.length,
@@ -96,6 +131,8 @@ export const proLabReleaseStats = {
   distinctVideos: new Set(proVodCatalog.map((vod) => vod.videoUrl)).size,
   reviewTargets: proVodReviewQueueStats.totalTargets,
   pendingReviewTargets: proVodReviewQueueStats.pending,
+  rankedReviewTargets: proRankedVodReviewPlan.length,
+  aegisPilotReviewTargets: proAegisPilotReviewTargets.length,
   currentMetaResearchTargets: proMetaRepresentation2026.length,
   currentMetaTargetsNeedingRepresentative: nextProMetaResearchTargets2026.length,
   reviewedMoments: proDecisionMoments.filter((moment) => moment.evidenceClass !== 'speculative' && moment.confidence >= 0.65).length,
@@ -105,6 +142,8 @@ export const proLabReleaseStats = {
   playerComparisons: proPlayerComparisons.length,
   teachingReadyFighters: proRosterCoverage.filter((entry) => entry.state === 'teaching-ready').length,
   catalogedFighters: roster.length - proMaintenanceReport.fightersWithoutCatalogedVods.length,
+  phase2ValidationErrors: proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length,
+  phase2ValidationWarnings: proDecisionMomentValidation.warnings.length + proSetBreakdownValidation.warnings.length,
 } as const
 
 export {
