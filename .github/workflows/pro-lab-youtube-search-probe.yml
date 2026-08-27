@@ -1,0 +1,39 @@
+name: Pro Lab YouTube search probe
+
+on:
+  push:
+    branches:
+      - pro-lab/resolver-v2-bulk-350
+    paths:
+      - .github/workflows/pro-lab-youtube-search-probe.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install yt-dlp
+        run: python -m pip install -q -U yt-dlp
+      - name: Probe representative unresolved pairs
+        shell: bash
+        run: |
+          set +e
+          queries=(
+            'Hurt Snow Smash Ultimate 2026'
+            'Peabnut Light Smash Ultimate 2026'
+            'ShinyMark Sparg0 Smash Ultimate 2024'
+            'Sonix Tweek Smash Ultimate 2024'
+            'MuteAce Maister Smash Ultimate 2026'
+          )
+          i=0
+          for q in "${queries[@]}"; do
+            i=$((i+1))
+            echo "===== QUERY $i: $q ====="
+            yt-dlp --flat-playlist --playlist-end 10 --print '%(id)s | %(title)s | %(upload_date)s | %(channel)s' "ytsearch10:$q" 2>&1 | head -80
+          done
