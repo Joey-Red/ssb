@@ -51,10 +51,11 @@ describe('Pro Lab final 293-set acquisition', () => {
     }
   })
 
-  it('routes unresolved final records to link resolution and resolved records to review', () => {
+  it('routes unresolved final records to link resolution and resolved media to review', () => {
     const finalIds = new Set(proVodCatalogFinal293.map((vod) => vod.id))
     const linkIds = new Set(proVodLinkResolutionQueue.map((vod) => vod.id))
     const reviewIds = new Set(proVodReviewQueue.map((target) => target.vodId).filter(Boolean))
+    const reviewMedia = new Set(proVodReviewQueue.map((target) => target.videoUrl))
     const productionById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
     for (const id of finalIds) {
@@ -66,7 +67,7 @@ describe('Pro Lab final 293-set acquisition', () => {
       } else {
         expect(productionVod?.linkKind, id).toBe('direct-video')
         expect(linkIds.has(id), id).toBe(false)
-        expect(reviewIds.has(id), id).toBe(true)
+        expect(reviewIds.has(id) || reviewMedia.has(productionVod?.videoUrl ?? ''), id).toBe(true)
       }
     }
   })
