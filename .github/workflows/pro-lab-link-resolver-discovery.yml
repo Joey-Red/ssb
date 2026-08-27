@@ -9,20 +9,19 @@ permissions:
   contents: read
 
 jobs:
-  discover-api:
+  resolve:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe player lookup and VOD pages
-        shell: bash
-        run: |
-          set -u
-          for name in Sonix Hurt Peabnut ShinyMark; do
-            echo "===== PLAYER SEARCH: $name ====="
-            curl -L -sS --get --data-urlencode "name=$name" https://api.smasharchives.com/player/search
-            echo
-          done
-          echo '===== SONIX VODS PAGE 1 ====='
-          sonix_id=$(curl -L -sS --get --data-urlencode 'name=Sonix' https://api.smasharchives.com/player/search | python3 -c 'import json,sys; x=json.load(sys.stdin); print(x[0]["id"] if x else "")')
-          echo "SONIX_ID=$sonix_id"
-          curl -L -sS --get --data-urlencode "playerId=$sonix_id" --data-urlencode 'page=1' https://api.smasharchives.com/vod/player | head -c 40000
-          echo
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Resolve source indexes against Smasharchives
+        run: ./node_modules/.bin/vite-node scripts/resolve-pro-lab-links.ts pro-lab-link-resolutions.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pro-lab-link-resolutions
+          path: pro-lab-link-resolutions.json
+          if-no-files-found: error
