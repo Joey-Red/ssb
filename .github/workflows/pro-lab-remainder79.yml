@@ -41,6 +41,19 @@ jobs:
         with:
           path: .cache/pro-lab-alias-retry
           key: pro-lab-alias-retry-v1-${{ runner.os }}
+      - name: Expand diagnostic report
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/resolve-pro-lab-alias-retry.ts')
+          s = p.read_text()
+          s = s.replace(
+              "    opponentTag: record.opponentTag,\n    candidateCount: scored.length,",
+              "    opponentTag: record.opponentTag,\n    playerFighterIds: record.playerFighterIds,\n    round: record.round,\n    datePrecision: record.datePrecision,\n    candidateCount: scored.length,",
+          )
+          s = s.replace("    candidates: scored.slice(0, 12),", "    candidates: scored,")
+          p.write_text(s)
+          PY
       - name: Resolve current remainder
         env:
           PRO_LAB_ALIAS_SEARCH_CONCURRENCY: '18'
@@ -50,5 +63,5 @@ jobs:
         run: jq '{unresolvedInput,searchJobs,pairCandidateVideos,suggestedCount,noCandidateCount,ambiguousCount,searchErrors}' pro-lab-remainder79.json
       - uses: actions/upload-artifact@v4
         with:
-          name: pro-lab-remainder79
+          name: pro-lab-remainder79-full
           path: pro-lab-remainder79.json
