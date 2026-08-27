@@ -29,6 +29,8 @@ export interface ProFighterResearchEntry {
 
 export type ProVodEventTier = 'supermajor' | 'major' | 'regional' | 'invitational' | 'weekly' | 'unknown'
 export type ProVodAnalysisStatus = 'cataloged' | 'review-queued' | 'annotated' | 'reviewed'
+export type ProVodLinkKind = 'direct-video' | 'source-index'
+export type ProVodDatePrecision = 'exact' | 'event-anchor'
 
 export interface ProVodQuality {
   tournamentEnvironment: boolean
@@ -50,10 +52,12 @@ export interface ProVodRecord {
   event: string
   eventTier: ProVodEventTier
   date: string
+  datePrecision?: ProVodDatePrecision
   round: string
   videoUrl: string
   videoProvider: 'youtube' | 'other'
   videoId?: string
+  linkKind?: ProVodLinkKind
   startSeconds?: number
   endSeconds?: number
   gameVersion: '13.0.1' | 'unknown'
@@ -267,22 +271,18 @@ export interface ProPlayerComparison {
   status: 'evidence-building' | 'ready'
 }
 
-export type ProEvidenceEra = 'current' | 'recent' | 'legacy'
-
 export interface ProTemporalEvidence {
   vodId: string
-  era: ProEvidenceEra
+  era: 'current' | 'recent' | 'legacy'
   eventDate: string
-  gameVersion: ProVodRecord['gameVersion']
+  gameVersion: '13.0.1' | 'unknown'
   playerStatus: ProPlayerStatus
   reasons: readonly string[]
 }
 
-export type ProMaintenanceSeverity = 'info' | 'warning' | 'error'
-
 export interface ProMaintenanceFinding {
   code: string
-  severity: ProMaintenanceSeverity
+  severity: 'info' | 'warning' | 'error'
   message: string
   ids: readonly string[]
 }
@@ -297,16 +297,9 @@ export interface ProMaintenanceReport {
   externalLinkHealth: 'maintenance-workflow-required'
 }
 
-export type ProCoverageState =
-  | 'research-queued'
-  | 'representative-seeded'
-  | 'cataloged'
-  | 'evidence-building'
-  | 'teaching-ready'
-
 export interface ProFighterCoverage {
   fighterId: string
-  state: ProCoverageState
+  state: 'research-queued' | 'representative-seeded' | 'cataloged' | 'evidence-building' | 'teaching-ready'
   representativeCount: number
   activeRepresentativeCount: number
   vodCount: number
