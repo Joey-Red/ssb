@@ -1,0 +1,54 @@
+name: Pro Lab zero-candidate recovery
+
+on:
+  push:
+    branches:
+      - pro-lab/resolver-v7-zero-candidate
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sparse checkout resolver inputs
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            .github/workflows/pro-lab-zero-candidate.yml
+            scripts/resolve-pro-lab-zero-candidate.ts
+            src/data
+            src/lib
+            package.json
+            package-lock.json
+            tsconfig.json
+            tsconfig.app.json
+            tsconfig.node.json
+            vite.config.ts
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: npm ci --no-audit --no-fund
+      - run: python -m pip install -q -U yt-dlp
+      - name: Restore resolver cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/pro-lab-alias-retry
+          key: pro-lab-alias-retry-v1-${{ runner.os }}
+      - name: Resolve zero-candidate records
+        env:
+          PRO_LAB_ZERO_SEARCH_CONCURRENCY: '18'
+          PRO_LAB_ZERO_SEARCH_LIMIT: '40'
+        run: ./node_modules/.bin/vite-node scripts/resolve-pro-lab-zero-candidate.ts pro-lab-zero-candidate.json
+      - name: Report totals
+        run: jq '{targetRecords,searchJobs,candidateVideos,recoveredCount,stillZeroCount,errors}' pro-lab-zero-candidate.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pro-lab-zero-candidate
+          path: pro-lab-zero-candidate.json
