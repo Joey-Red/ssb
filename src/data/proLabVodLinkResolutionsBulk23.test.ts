@@ -35,9 +35,12 @@ describe('Pro Lab direct-link recovery batches 2 and 3', () => {
     }
   })
 
-  it('reduces the global unresolved catalog from 687 to 271 without changing corpus size', () => {
+  it('preserves the 800-record corpus as later recovery batches reduce the 271-record remainder', () => {
+    const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
+    const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     expect(proVodCatalog).toHaveLength(800)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(271)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(529)
+    expect(unresolved.length).toBeLessThanOrEqual(271)
+    expect(resolved.length).toBeGreaterThanOrEqual(529)
+    expect(unresolved.length + resolved.length).toBe(800)
   })
 })
