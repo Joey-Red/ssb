@@ -103,7 +103,13 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
     for (const vod of proVodCatalog2026Batch4) {
       const isResolved = resolvedIds.has(vod.id)
       expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(!isResolved)
-      expect(proVodReviewQueue.some((target) => target.vodId === vod.id), vod.id).toBe(isResolved)
+      if (isResolved) {
+        const resolvedVod = proVodCatalog.find((entry) => entry.id === vod.id)
+        expect(resolvedVod?.linkKind, vod.id).toBe('direct-video')
+        expect(proVodReviewQueue.some((target) => target.videoUrl === resolvedVod?.videoUrl), vod.id).toBe(true)
+      } else {
+        expect(proVodReviewQueue.some((target) => target.vodId === vod.id), vod.id).toBe(false)
+      }
     }
   })
 })
