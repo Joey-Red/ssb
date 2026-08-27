@@ -29,11 +29,14 @@ describe('Pro Lab zero-candidate recovery batch', () => {
     }
   })
 
-  it('preserves all 800 records while reducing source indexes from 96 to 86', () => {
+  it('keeps all 800 records valid after later verified recovery batches', () => {
+    const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
+    const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(86)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(714)
+    expect(unresolved.length + resolved.length).toBe(800)
+    expect(unresolved.length).toBeLessThanOrEqual(86)
+    expect(resolved.length).toBeGreaterThanOrEqual(714)
   })
 
   it('does not infer tactical review completion from direct-link recovery', () => {
