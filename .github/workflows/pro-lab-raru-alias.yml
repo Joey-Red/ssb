@@ -1,4 +1,4 @@
-name: Pro Lab final alias date verification
+name: Pro Lab exhaustive final remainder resolver
 
 on:
   push:
@@ -9,35 +9,263 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  resolve:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
-      - name: Fetch exact publish dates
+      - run: npm ci --no-audit --no-fund
+      - run: npm install --no-save tsx
+      - run: python -m pip install -q -U yt-dlp
+      - name: Dump current unresolved corpus
+        shell: bash
+        run: |
+          npx tsx -e "import {writeFileSync} from 'node:fs'; import {proVodCatalog} from './src/data/proLabVodsAll.ts'; const rows=proVodCatalog.filter(v=>v.linkKind==='source-index').map(v=>({id:v.id,title:v.title,event:v.event,round:v.round,date:v.date,datePrecision:v.datePrecision,eventTier:v.eventTier,playerId:v.playerId,playerFighterIds:v.playerFighterIds,opponentTag:v.opponentTag,opponentFighterIds:v.opponentFighterIds,sourceUrls:v.sourceUrls})); writeFileSync('pro-lab-final-unresolved.json', JSON.stringify(rows,null,2)); console.log('UNRESOLVED='+rows.length);"
+      - name: Exhaustive YouTube search and verification
         shell: python
         run: |
-          import json, re, urllib.request
-          ids=['uDZxY_0NpIQ','DjPfuhi2ZyY','7H4oES3_EMQ','iDgc_PiLALY']
-          key='AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
-          url=f'https://www.youtube.com/youtubei/v1/next?key={key}&prettyPrint=false'
-          def walk(x):
-            if isinstance(x,dict):
-              dt=x.get('dateText')
-              if isinstance(dt,dict):
-                s=dt.get('simpleText')
-                if isinstance(s,str) and re.fullmatch(r'[A-Z][a-z]{2} \d{1,2}, \d{4}',s): return s
-              for v in x.values():
-                r=walk(v)
-                if r:return r
-            elif isinstance(x,list):
-              for v in x:
-                r=walk(v)
-                if r:return r
-            return None
-          for vid in ids:
+          import concurrent.futures as cf
+          import datetime as dt
+          import json, re, subprocess, urllib.request, unicodedata, time
+          from pathlib import Path
+
+          rows=json.loads(Path('pro-lab-final-unresolved.json').read_text(encoding='utf-8'))
+          API_KEY='AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
+          NEXT_URL=f'https://www.youtube.com/youtubei/v1/next?key={API_KEY}&prettyPrint=false'
+          MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December']
+
+          aliases={
+            'rarukun':['raru','らる','らるくん','rarul'],
+            'raru':['rarukun','らる','らるくん','rarul'],
+            'rarikkusu':['ラリックス'],
+            'yadon':['ヤドン'],
+            'ynn':['yn'],
+            'yn':['ynn'],
+            'tsuna':['ツナ'],
+            'toura':['トウラ'],
+            'uraomote':['うらおもて'],
+            'kome':['コメ'],
+            'moenai goma':['もえないごみ','moenaigoma'],
+            'mark':['mark','マーク'],
+            'marK'.lower():['mark','マーク'],
+            'johnny':['ジョニー'],
+            'yoshidora':['ヨシドラ'],
+            'kanon tenchi ai':['かのん天地愛','かのん','天地愛'],
+            'moneyright':['money right'],
+            'ryoruzu':['りょーるず','りょーるず。'],
+            'kito':['きと'],
+            'lemozona':['lemozona'],
+            'crete':['クレタ'],
+            'shion':['シオン'],
+            'saya':['さや'],
+            'yamanaction':['ヤマナクション'],
+            'ezs':['えずす'],
+            'pharaoh':['ファラオ'],
+            'crêpe salée':['crepe salee','クレープサレ'],
+            'mkbigboss':['bigboss','mk bigboss'],
+            'zomba':['ゾンバ'],
+            'miya':['ミーヤー','ミヤ'],
+            'asimo':['あしも'],
+            'acola':['あcola','あこーら'],
+            'snow':['スノー'],
+            'yaura':['ヤウラ'],
+            'umeki':['うめき'],
+            'doramigi':['ドラ右'],
+            'shuton':['しゅーとん'],
+            'kaninabe':['かになべ'],
+            'raki':['らき'],
+            'hurt':['ハート'],
+          }
+
+          fighter_alias={
+            'snake':['snake','スネーク'], 'luigi':['luigi','ルイージ'], 'fox':['fox','フォックス'],
+            'steve':['steve','スティーブ'], 'kazuya':['kazuya','カズヤ'], 'yoshi':['yoshi','ヨッシー'],
+            'wario':['wario','ワリオ'], 'ryu':['ryu','リュウ'], 'pikachu':['pikachu','ピカチュウ'],
+            'olimar':['olimar','ピクミン','オリマー'], 'pyra':['pyra','homura','ホムラ'], 'mythra':['mythra','hikari','ヒカリ'],
+            'mega-man':['mega man','megaman','ロックマン'], 'palutena':['palutena','パルテナ'],
+            'sephiroth':['sephiroth','セフィロス'], 'min-min':['min min','minmin','ミェンミェン'],
+            'little-mac':['little mac','リトルマック'], 'daisy':['daisy','デイジー'], 'sonic':['sonic','ソニック'],
+            'wolf':['wolf','ウルフ'], 'mr-game-and-watch':['game & watch','game and watch','mr. game','ゲムヲ'],
+          }
+
+          bad_terms=['analysis','reaction','watch party','highlights','highlight','montage','guide','combo','interview','tier list','shorts']
+          stream_terms=['stream','配信','vod','day 1','day1','day 2','day2','top 8','top8']
+
+          def norm(s):
+            s=unicodedata.normalize('NFKD',s).casefold()
+            s=''.join(ch for ch in s if not unicodedata.combining(ch))
+            s=s.replace('$','s').replace('0','o')
+            return re.sub(r'[^0-9a-z\u3040-\u30ff\u4e00-\u9fff]+',' ',s).strip()
+
+          def variants(name):
+            out=[name]
+            out.extend(aliases.get(name.casefold(),[]))
+            return list(dict.fromkeys(out))
+
+          def name_in(title,name):
+            nt=norm(title)
+            for v in variants(name):
+              nv=norm(v)
+              if nv and (nv in nt or (' ' not in nv and re.search(r'(^| )'+re.escape(nv)+r'( |$)',nt))): return True
+            return False
+
+          def pair_from_title(row):
+            s=row['title'].split('—',1)[-1].strip()
+            if ' vs. ' in s:
+              a,b=s.split(' vs. ',1)
+              return a.strip(),b.strip()
+            return row['playerId'],row['opponentTag']
+
+          def queries_for(row):
+            a,b=pair_from_title(row)
+            y=int(row['date'][:4]); m=int(row['date'][5:7])
+            qs=[]
+            av=variants(a)[:4]; bv=variants(b)[:4]
+            for aa in av:
+              for bb in bv:
+                qs += [
+                  f'{aa} {bb} Smash Ultimate {y}',
+                  f'{aa} {bb} {MONTHS[m-1]} {y} SSBU',
+                  f'{bb} {aa} スマブラ {y}',
+                ]
+            if row['eventTier']!='unknown' or not row['event'].startswith('Smash Tube indexed'):
+              qs += [f"{row['event']} {a} {b} {row['round']}", f"{a} {b} {row['event']}"]
+            # Deep fallback without year for obscure pairs.
+            qs += [f'{a} {b} Smash Ultimate', f'{b} {a} SSBU']
+            return list(dict.fromkeys(qs))[:20]
+
+          def search(q):
+            try:
+              p=subprocess.run(['yt-dlp','--flat-playlist','--playlist-end','35','--print','%(id)s\t%(title)s\t%(channel)s',f'ytsearch35:{q}'],capture_output=True,text=True,timeout=45)
+              out=[]
+              for line in p.stdout.splitlines():
+                parts=line.split('\t',2)
+                if len(parts)>=2 and re.fullmatch(r'[A-Za-z0-9_-]{11}',parts[0]):
+                  out.append({'id':parts[0],'title':parts[1],'channel':parts[2] if len(parts)>2 else '', 'query':q})
+              return out
+            except Exception:
+              return []
+
+          def metadata(vid):
             body=json.dumps({'context':{'client':{'clientName':'WEB','clientVersion':'2.20260820.01.00','hl':'en','gl':'US'}},'videoId':vid}).encode()
-            req=urllib.request.Request(url,data=body,headers={'content-type':'application/json','user-agent':'Mozilla/5.0'})
-            with urllib.request.urlopen(req,timeout=20) as resp:data=json.load(resp)
-            print(f'{vid} | {walk(data)}')
+            req=urllib.request.Request(NEXT_URL,data=body,headers={'content-type':'application/json','user-agent':'Mozilla/5.0'})
+            try:
+              with urllib.request.urlopen(req,timeout=20) as resp: data=json.load(resp)
+            except Exception:
+              return {'date':None,'title':None,'channel':None}
+            found={'date':None,'title':None,'channel':None}
+            def walk(x):
+              if isinstance(x,dict):
+                if not found['date']:
+                  z=x.get('dateText')
+                  if isinstance(z,dict) and isinstance(z.get('simpleText'),str) and re.fullmatch(r'[A-Z][a-z]{2} \d{1,2}, \d{4}',z['simpleText']): found['date']=z['simpleText']
+                if not found['title'] and isinstance(x.get('title'),str): found['title']=x['title']
+                for v in x.values(): walk(v)
+              elif isinstance(x,list):
+                for v in x: walk(v)
+            walk(data)
+            return found
+
+          all_search=[]
+          jobs=[]
+          for row in rows:
+            for q in queries_for(row): jobs.append((row['id'],q))
+          print('SEARCH_JOBS',len(jobs))
+          with cf.ThreadPoolExecutor(max_workers=16) as ex:
+            futs={ex.submit(search,q):(rid,q) for rid,q in jobs}
+            for i,f in enumerate(cf.as_completed(futs),1):
+              rid,q=futs[f]
+              for c in f.result(): c['vodId']=rid; all_search.append(c)
+              if i%100==0: print('SEARCH_DONE',i)
+
+          by_row={r['id']:{} for r in rows}
+          for c in all_search:
+            row=next(r for r in rows if r['id']==c['vodId'])
+            a,b=pair_from_title(row)
+            if name_in(c['title'],a) and name_in(c['title'],b):
+              by_row[row['id']].setdefault(c['id'],c)
+          vids=sorted({vid for d in by_row.values() for vid in d})
+          print('PAIR_VIDEOS',len(vids))
+          meta={}
+          with cf.ThreadPoolExecutor(max_workers=24) as ex:
+            futs={ex.submit(metadata,v):v for v in vids}
+            for i,f in enumerate(cf.as_completed(futs),1):
+              meta[futs[f]]=f.result()
+              if i%100==0: print('META_DONE',i)
+
+          def parse_date(s):
+            if not s:return None
+            try:return dt.datetime.strptime(s,'%b %d, %Y').date()
+            except:return None
+          def fighter_match(row,title):
+            nt=norm(title)
+            fs=row.get('playerFighterIds') or []
+            if not fs:return 0
+            return max([1 if any(norm(a) in nt for a in fighter_alias.get(f,[f])) else 0 for f in fs] or [0])
+          def round_score(row,title):
+            rn=norm(row.get('round','')); tn=norm(title)
+            words=[]
+            for keys in [('grand final','gf'),('losers final','lf'),('winners final','wf'),('winners semi','wsf'),('losers semi','lsf'),('winners quarter','wqf'),('losers quarter','lqf'),('top 48','top 48'),('round 3','r3')]:
+              if keys[0] in rn: words=list(keys); break
+            return 1 if words and any(norm(w) in tn for w in words) else 0
+          def event_score(row,title):
+            if row['event'].startswith('Smash Tube indexed'):return 0
+            stop={'winners','winner','losers','loser','final','finals','semi','semis','quarter','quarters','round','top','the','new','challengers'}
+            toks=[t for t in norm(row['event']).split() if len(t)>=3 and t not in stop]
+            if not toks:return 0
+            tn=norm(title)
+            hit=sum(1 for t in toks if t in tn)
+            return hit/len(toks)
+
+          resolutions={}; details={}; unresolved=[]
+          for row in rows:
+            src=dt.date.fromisoformat(row['date'])
+            a,b=pair_from_title(row)
+            cands=[]
+            for vid,c in by_row[row['id']].items():
+              m=meta.get(vid,{})
+              pd=parse_date(m.get('date'))
+              days=abs((pd-src).days) if pd else 9999
+              title=m.get('title') or c['title']
+              bad=1 if any(t in norm(title) for t in bad_terms) else 0
+              stream=1 if any(t in norm(title) for t in stream_terms) else 0
+              fmatch=fighter_match(row,title)
+              esc=event_score(row,title); rsc=round_score(row,title)
+              cands.append({'id':vid,'title':title,'channel':c.get('channel',''),'publishedDate':pd.isoformat() if pd else None,'days':days,'fighterMatch':fmatch,'eventScore':esc,'roundScore':rsc,'bad':bad,'stream':stream})
+            named=row['eventTier']!='unknown' and not row['event'].startswith('Smash Tube indexed')
+            if named:
+              valid=[c for c in cands if c['bad']==0 and c['eventScore']>=0.5 and (c['roundScore'] or norm(row['round']) in norm(c['title'])) and (c['fighterMatch'] or not row.get('playerFighterIds'))]
+              valid.sort(key=lambda c:(-c['roundScore'],-c['eventScore'],-c['fighterMatch'],c['days'],c['stream'],c['id']))
+              tier='named-event-exact'
+            else:
+              direct=[c for c in cands if c['bad']==0 and (c['fighterMatch'] or not row.get('playerFighterIds'))]
+              # Canonical representative for the intentionally collapsed player+opponent+source-date identity.
+              exact=[c for c in direct if c['days']<=1]
+              near=[c for c in direct if c['days']<=14]
+              valid=exact or near or direct
+              valid.sort(key=lambda c:(c['stream'],c['days'],-c['fighterMatch'],c['id']))
+              tier='collapsed-identity-exact-date' if exact else ('collapsed-identity-near-date' if near else 'collapsed-identity-canonical-pair')
+            if valid:
+              pick=valid[0]
+              resolutions[row['id']]=pick['id']
+              details[row['id']]={'tier':tier,'pick':pick,'pair':[a,b],'sourceDate':row['date'],'candidateCount':len(cands)}
+            else:
+              unresolved.append({'id':row['id'],'title':row['title'],'date':row['date'],'candidates':sorted(cands,key=lambda c:(c['bad'],c['days'],c['stream']))[:20]})
+
+          report={'input':len(rows),'resolved':len(resolutions),'unresolved':len(unresolved),'resolutions':resolutions,'details':details,'remaining':unresolved}
+          Path('pro-lab-final-resolution-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          print('RESOLVED',len(resolutions),'UNRESOLVED',len(unresolved))
+          for u in unresolved: print('UNRESOLVED_ID',u['id'],u['title'])
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pro-lab-final-resolution-report
+          path: |
+            pro-lab-final-unresolved.json
+            pro-lab-final-resolution-report.json
