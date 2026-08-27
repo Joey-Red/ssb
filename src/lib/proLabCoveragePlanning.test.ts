@@ -37,14 +37,18 @@ const moment = (id: string, vodId: string, fighterId: string): ProDecisionMoment
 })
 
 describe('buildProCoverageWorkQueue', () => {
-  it('prioritizes missing representatives before later teaching gaps', () => {
+  it('follows VOD-first acquisition and leaves a genuinely complete fixture in maintenance', () => {
+    const betaEvidence = Array.from({ length: 16 }, (_, index) =>
+      moment(`beta-${index + 1}`, `beta-vod-${(index % 8) + 1}`, 'beta'),
+    )
     const queue = buildProCoverageWorkQueue([
       coverage('alpha', { representativeCount: 0, vodCount: 0, currentVodCount: 0, state: 'research-queued' }),
       coverage('beta', { representativeCount: 2, vodCount: 12, currentVodCount: 4, reviewedMomentCount: 16, lessonClaimCount: 3, decisionExerciseCount: 6, matchupPatternCount: 2, comparisonReady: true, state: 'teaching-ready' }),
-    ], [])
+    ], betaEvidence)
 
     expect(queue[0]?.fighterId).toBe('alpha')
-    expect(queue[0]?.nextAction).toBe('acquire-representatives')
+    expect(queue[0]?.nextAction).toBe('acquire-vods')
+    expect(queue[1]?.reviewedSetCount).toBe(8)
     expect(queue[1]?.nextAction).toBe('maintain')
   })
 
