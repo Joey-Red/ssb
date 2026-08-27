@@ -1,4 +1,4 @@
-name: Pro Lab Raru and Japanese alias recovery
+name: Pro Lab Raru and Japanese alias verification
 
 on:
   push:
@@ -9,49 +9,72 @@ permissions:
   contents: read
 
 jobs:
-  resolve:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - run: python -m pip install -q -U yt-dlp
-      - name: Search targeted aliases
+      - name: Search missing exact aliases
         shell: bash
         run: |
           set -euo pipefail
           queries=(
-            'Hurt Snake Raru Luigi 2026 Smash'
-            'Hurt Snake らる ルイージ 2026'
-            'Hurt Snake Crete 2026 Smash'
-            'Hurt Snake Rarikkusu Donkey Kong 2026'
-            'Hurt Snake ラリックス ドンキーコング 2026'
-            'Hurt Snake LemozonA 2025 Smash'
-            'Hurt Snake Kito 2025 Smash'
-            'Hurt Snake Yadon 2025 Smash'
-            'Hurt Snake ヤドン 2025'
-            'Hurt Snake Ryoruzu 2025 Smash'
-            'Kaninabe Fox Moneyright 2023 Smash'
-            'Kaninabe Fox Ynn 2023 Smash'
-            'Kaninabe Fox Yn 2023 Smash'
-            'Kaninabe Fox Tsuna 2022 Smash'
-            'Kaninabe Fox Toura 2022 Smash'
-            'Kaninabe Fox Raru 2022 Smash'
-            'Kaninabe Fox らる 2022'
-            'Raki Steve Raru 2024 Smash'
-            'Raki Steve らる 2024'
-            'Raki Steve Kazuya Moenai goma 2024'
-            'Raki Steve Kazuya もえないごみ 2024'
-            'Raki Kazuya Mark 2024 Smash'
-            'Yoshidora Yoshi Johnny 2026 Smash'
-            'Yoshidora Yoshi Kanon Tenchi Ai 2026 Smash'
+            'Sumabato SP65 Hurt Rarikkusu'
+            '第65回スマバトSP Hurt ラリックス'
+            'Kaninabe Rarukun 2022'
+            'かになべ らる 2022 スマブラ'
+            'Kaninabe Moneyright Maesuma 2023'
+            'Raki Moenai goma 2024 Smash'
+            'らき もえないごみ 2024 スマブラ'
+            'Raki Mark Kazuya 2024 Smash'
+            'らき マーク カズヤ 2024 スマブラ'
+            'Yoshidora Johnny 2026 tournament'
+            'ヨシドラ Johnny 2026 スマブラ'
+            'Yoshidora Kanon Tenchi Ai 2026'
           )
-          : > alias-results.txt
+          : > verification.txt
           for q in "${queries[@]}"; do
-            echo "===== $q =====" | tee -a alias-results.txt
-            yt-dlp --flat-playlist --playlist-end 12 --print '%(id)s | %(title)s' "ytsearch12:$q" | tee -a alias-results.txt
+            echo "===== SEARCH: $q =====" | tee -a verification.txt
+            yt-dlp --flat-playlist --playlist-end 15 --print '%(id)s | %(title)s' "ytsearch15:$q" | tee -a verification.txt
           done
+      - name: Fetch exact YouTube publish dates
+        shell: python
+        run: |
+          import json, re, urllib.request
+          ids = [
+            'BnVjI7sEQFo','5nqfoPejPuE','d1BgTyD8-JI','ylSZ8RwrV_o',
+            'z6DbvLovQgM','1Zh75-5H_wg','mt2agB7beRc','Tq0m4l_s9xY',
+            '9XxeAL4jIO8','tW1PI-481ko','kE3KBUMm5ds','lE6fe9E3KGY'
+          ]
+          key='AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
+          url=f'https://www.youtube.com/youtubei/v1/next?key={key}&prettyPrint=false'
+          def walk(x):
+            if isinstance(x, dict):
+              dt=x.get('dateText')
+              if isinstance(dt, dict) and isinstance(dt.get('simpleText'), str):
+                s=dt['simpleText']
+                if re.fullmatch(r'[A-Z][a-z]{2} \d{1,2}, \d{4}', s): return s
+              for v in x.values():
+                r=walk(v)
+                if r: return r
+            elif isinstance(x, list):
+              for v in x:
+                r=walk(v)
+                if r: return r
+            return None
+          with open('verification.txt','a',encoding='utf-8') as out:
+            out.write('\n===== DATES =====\n')
+            for vid in ids:
+              body=json.dumps({'context':{'client':{'clientName':'WEB','clientVersion':'2.20260820.01.00','hl':'en','gl':'US'}},'videoId':vid}).encode()
+              req=urllib.request.Request(url,data=body,headers={'content-type':'application/json','user-agent':'Mozilla/5.0'})
+              try:
+                with urllib.request.urlopen(req,timeout=20) as resp: data=json.load(resp)
+                out.write(f'{vid} | {walk(data)}\n')
+              except Exception as e:
+                out.write(f'{vid} | ERROR {e}\n')
       - uses: actions/upload-artifact@v4
         with:
-          name: pro-lab-raru-alias-results
-          path: alias-results.txt
+          name: pro-lab-raru-alias-verification
+          path: verification.txt
