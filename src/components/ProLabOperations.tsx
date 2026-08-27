@@ -11,8 +11,9 @@ import {
 } from '../data/proLab'
 import { roster } from '../data/roster'
 import { hrefFor } from '../router'
+import type { FighterManifestEntry } from '../types'
 
-const fighterById = new Map(roster.map((fighter) => [fighter.id, fighter]))
+const fighterById = new Map<string, FighterManifestEntry>(roster.map((fighter) => [fighter.id, fighter]))
 const worksheetByVod = new Map(proAegisPilotWorksheets.map((worksheet) => [worksheet.vodId, worksheet]))
 const submissionTemplateByVod = new Map(proAegisPilotSubmissionTemplates.map((submission) => [submission.vodId, submission]))
 const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) => fighterById.get(id)?.name ?? id).join(' / ')
