@@ -2,8 +2,6 @@ import { describe, expect, it } from 'vitest'
 import { isCatalogQuality } from '../lib/proLab'
 import { roster } from './roster'
 import { proVodYoutubeResolutions2026Batch5 } from './proLabVodLinkResolutions2026Batch5'
-import { proVodYoutubeResolutionsBulk2 } from './proLabVodLinkResolutionsBulk2'
-import { proVodYoutubeResolutionsBulk3 } from './proLabVodLinkResolutionsBulk3'
 import { proVodLinkResolutionQueue, proVodReviewQueue } from './proLabReviewQueueAll'
 import { proFighterResearchRegistry, proPlayerRepresentatives } from './proLabRosterAll'
 import { proPlayerRepresentatives2026Batch5 } from './proLabRoster2026Batch5'
@@ -14,11 +12,6 @@ describe('Pro Lab large acquisition batch 5', () => {
   const rosterIds = new Set<string>(roster.map((fighter) => fighter.id))
   const playerIds = new Set<string>(proPlayerRepresentatives.map((player) => player.id))
   const batchIds = new Set<string>(proVodCatalog2026Batch5.map((vod) => vod.id))
-  const resolvedIds = new Set<string>([
-    ...Object.keys(proVodYoutubeResolutions2026Batch5),
-    ...Object.keys(proVodYoutubeResolutionsBulk2),
-    ...Object.keys(proVodYoutubeResolutionsBulk3),
-  ])
 
   it('adds 61 source-backed current-season set records in one pass', () => {
     expect(proVodCatalog2026Batch5).toHaveLength(61)
@@ -33,19 +26,20 @@ describe('Pro Lab large acquisition batch 5', () => {
     expect(indexed).toHaveLength(51)
     expect(direct).toHaveLength(10)
 
-    for (const vod of indexed) {
-      expect(vod.analysisStatus).toBe('cataloged')
-      expect(vod.videoProvider).toBe('other')
-      expect(vod.videoUrl).toContain('smash-tube.com')
-      expect(vod.quality.visibleGameplay).toBe(false)
-      const isResolvedDownstream = resolvedIds.has(vod.id)
-      expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(!isResolvedDownstream)
-      if (isResolvedDownstream) {
-        const resolvedVod = proVodCatalog.find((entry) => entry.id === vod.id)
-        expect(resolvedVod?.linkKind, vod.id).toBe('direct-video')
-        expect(proVodReviewQueue.some((entry) => entry.videoUrl === resolvedVod?.videoUrl), vod.id).toBe(true)
+    for (const sourceVod of indexed) {
+      expect(sourceVod.analysisStatus).toBe('cataloged')
+      expect(sourceVod.videoProvider).toBe('other')
+      expect(sourceVod.videoUrl).toContain('smash-tube.com')
+      expect(sourceVod.quality.visibleGameplay).toBe(false)
+      const finalVod = proVodCatalog.find((entry) => entry.id === sourceVod.id)
+      expect(finalVod, sourceVod.id).toBeTruthy()
+      const isResolvedDownstream = finalVod?.linkKind === 'direct-video'
+      expect(proVodLinkResolutionQueue.some((entry) => entry.id === sourceVod.id), sourceVod.id).toBe(!isResolvedDownstream)
+      if (isResolvedDownstream && finalVod) {
+        expect(finalVod.videoProvider, sourceVod.id).toBe('youtube')
+        expect(proVodReviewQueue.some((entry) => entry.videoUrl === finalVod.videoUrl), sourceVod.id).toBe(true)
       } else {
-        expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(false)
+        expect(proVodReviewQueue.some((entry) => entry.vodId === sourceVod.id), sourceVod.id).toBe(false)
       }
     }
 
