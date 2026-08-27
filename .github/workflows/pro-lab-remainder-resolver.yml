@@ -21,6 +21,7 @@ jobs:
             .github/workflows/pro-lab-remainder-resolver.yml
             scripts/resolve-pro-lab-youtube-remainder.ts
             src/data
+            src/lib
             package.json
             package-lock.json
             tsconfig.json
