@@ -29,11 +29,14 @@ describe('Pro Lab tight source-anchor VOD recovery batch', () => {
     }
   })
 
-  it('preserves all 800 records while reducing source indexes from 102 to 96', () => {
+  it('keeps all 800 records valid after later verified recovery batches', () => {
+    const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
+    const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     expect(proVodCatalog).toHaveLength(800)
     expect(new Set(proVodCatalog.map((vod) => vod.id)).size).toBe(800)
-    expect(proVodCatalog.filter((vod) => vod.linkKind === 'source-index')).toHaveLength(96)
-    expect(proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')).toHaveLength(704)
+    expect(unresolved.length + resolved.length).toBe(800)
+    expect(unresolved.length).toBeLessThanOrEqual(96)
+    expect(resolved.length).toBeGreaterThanOrEqual(704)
   })
 
   it('keeps tactical analysis pending', () => {
