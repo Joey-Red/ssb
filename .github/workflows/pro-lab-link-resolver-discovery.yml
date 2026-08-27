@@ -15,14 +15,11 @@ jobs:
       - name: Inspect Smasharchives public API
         shell: bash
         run: |
-          set -euo pipefail
+          set -u
 
-          echo '===== DOCUMENTATION HTML ====='
-          curl -L -sS https://api.smasharchives.com/documentation/ -o /tmp/docs
-          head -c 20000 /tmp/docs
-          echo
-          echo '===== DOC URL HINTS ====='
-          grep -Eo 'https?[^"'"' ]+|url:[[:space:]]*[^,}]+' /tmp/docs | head -100 || true
+          echo '===== SWAGGER INIT ====='
+          curl -L -sS https://api.smasharchives.com/documentation/swagger-ui-init.js -o /tmp/swagger-init || true
+          head -c 60000 /tmp/swagger-init || true
           echo
 
           for url in \
@@ -34,6 +31,6 @@ jobs:
             echo "===== $url ====="
             status=$(curl -L -sS -o /tmp/response -w '%{http_code}' "$url" || true)
             echo "HTTP $status"
-            head -c 16000 /tmp/response || true
+            head -c 20000 /tmp/response || true
             echo
           done
