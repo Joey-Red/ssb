@@ -1,19 +1,24 @@
+import { applyProVodLinkResolution2026Batch5 } from './proLabVodLinkResolutions2026Batch5'
 import { proVodCatalog2026Batch1 } from './proLabVods2026Batch1'
 import { proVodCatalog2026Batch2 } from './proLabVods2026Batch2'
 import { proVodCatalog2026Batch3 } from './proLabVods2026Batch3'
 import { proVodCatalog2026Batch4 } from './proLabVods2026Batch4'
+import { proVodCatalog2026Batch5 } from './proLabVods2026Batch5'
 import { supplementalProVodCatalog } from './proLabVodsSupplemental'
 import { proVodCatalog as foundationalProVodCatalog } from './proLabVods'
 import type { ProVodRecord } from './proLabTypes'
 
-export const proVodCatalog = [
+const unresolvedCatalog = [
   ...foundationalProVodCatalog,
   ...supplementalProVodCatalog,
   ...proVodCatalog2026Batch1,
   ...proVodCatalog2026Batch2,
   ...proVodCatalog2026Batch3,
   ...proVodCatalog2026Batch4,
+  ...proVodCatalog2026Batch5,
 ] as readonly ProVodRecord[]
+
+export const proVodCatalog = unresolvedCatalog.map(applyProVodLinkResolution2026Batch5) as readonly ProVodRecord[]
 
 export const proVodById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
@@ -34,5 +39,6 @@ export {
   proVodCatalog2026Batch2,
   proVodCatalog2026Batch3,
   proVodCatalog2026Batch4,
+  proVodCatalog2026Batch5,
   supplementalProVodCatalog,
 }

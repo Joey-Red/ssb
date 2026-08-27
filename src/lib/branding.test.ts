@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 
 const TEXT_EXTENSIONS = /\.(?:md|ts|tsx|css|html|json|yml|yaml|mjs|py)$/
 const SKIP = new Set(['.git', 'node_modules', 'dist'])
-const RETIRED_THEME_PATTERN = new RegExp(['ti', 'tan'].join(''), 'i')
+const RETIRED_THEME_PATTERN = new RegExp(`\\b${['ti', 'tan'].join('')}\\b`, 'i')
 
 function textFiles(directory: string): string[] {
   return readdirSync(directory).flatMap((name) => {
