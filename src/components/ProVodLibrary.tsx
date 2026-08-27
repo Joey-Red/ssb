@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { proPlayerRepresentatives, proSetBreakdowns, proTemporalEvidence } from '../data/proLab'
 import type { ProPlayerRepresentative, ProTemporalEvidence, ProVodRecord } from '../data/proLabTypes'
 import { getProVodsForFighter } from '../data/proLabVodsAll'
@@ -39,6 +39,12 @@ export function ProVodLibrary({ fighterId }: { fighterId: string }) {
   const [opponentFighterId, setOpponentFighterId] = useState('all')
   const [year, setYear] = useState('all')
   const [sort, setSort] = useState<ProVodLibrarySortMode>('recommended')
+
+  useEffect(() => {
+    setPlayerId('all')
+    setOpponentFighterId('all')
+    setYear('all')
+  }, [fighterId])
 
   const vods = useMemo(() => getProVodsForFighter(fighterId), [fighterId])
   const options = useMemo(() => buildFighterVodFilterOptions(vods, fighterId), [fighterId, vods])
