@@ -374,9 +374,8 @@ for (const result of searched) {
     evidence.push({ vodId: record.id, youtubeId: candidate.id, player: result.group.playerTag, opponent: result.group.opponentTag, event: record.event, round: recordRound, sourceDate: record.date, publishedDate: candidate.publishedDate, distanceDays: dayDistance(record.date, candidate.publishedDate), title: candidate.title, channel: candidate.channel, method: 'event-pair-round-date-window-unique' })
   }
 
-  // Single remaining record + single remaining candidate is safe after event/pair/year/date-window checks.
+  // A single remaining record is safe only when exactly one event/pair/date-window candidate remains.
   const unresolvedRecords = result.group.records.filter((record) => !assigned.has(record.id))
-  const remainingCandidates = candidates.filter((candidate) => !used.has(candidate.id))
   if (unresolvedRecords.length === 1) {
     const record = unresolvedRecords[0]
     const usable = (usableByRecord.get(record.id) ?? []).filter((candidate) => !used.has(candidate.id))
@@ -387,8 +386,6 @@ for (const result of searched) {
       assigned.add(record.id)
       evidence.push({ vodId: record.id, youtubeId: candidate.id, player: result.group.playerTag, opponent: result.group.opponentTag, event: record.event, sourceDate: record.date, publishedDate: candidate.publishedDate, distanceDays: dayDistance(record.date, candidate.publishedDate), title: candidate.title, channel: candidate.channel, method: 'event-pair-date-window-unique' })
     }
-  } else if (unresolvedRecords.length === 1 && remainingCandidates.length === 1) {
-    // Kept for readability; handled by the usable-candidate branch above.
   }
 
   // Character text can resolve a residual duplicate/reupload collision only when unique.
