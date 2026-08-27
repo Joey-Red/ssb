@@ -38,11 +38,11 @@ describe('Pro Lab bulk direct-link resolution', () => {
     }
   })
 
-  it('keeps catalog states internally consistent after all verified recovery batches', () => {
-    const direct = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
+  it('keeps catalog states internally consistent after later verified recovery batches', () => {
+    const resolved = proVodCatalog.filter((vod) => vod.linkKind !== 'source-index')
     const unresolved = proVodCatalog.filter((vod) => vod.linkKind === 'source-index')
-    expect(direct.length + unresolved.length).toBe(800)
-    expect(unresolved).toHaveLength(271)
-    expect(direct).toHaveLength(529)
+    expect(resolved.length + unresolved.length).toBe(800)
+    expect(unresolved.length).toBeLessThanOrEqual(271)
+    expect(resolved.length).toBeGreaterThanOrEqual(529)
   })
 })

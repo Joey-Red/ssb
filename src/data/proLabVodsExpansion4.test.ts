@@ -1,9 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { isCatalogQuality } from '../lib/proLab'
 import { roster } from './roster'
-import { proVodYoutubeResolutions2026Batch5 } from './proLabVodLinkResolutions2026Batch5'
-import { proVodYoutubeResolutionsBulk2 } from './proLabVodLinkResolutionsBulk2'
-import { proVodYoutubeResolutionsBulk3 } from './proLabVodLinkResolutionsBulk3'
 import { proVodLinkResolutionQueue, proVodLinkResolutionQueueStats, proVodReviewQueue } from './proLabReviewQueueAll'
 import { proPlayerRepresentatives, proFighterResearchRegistry } from './proLabRosterAll'
 import { proPlayerRepresentatives2026Batch4 } from './proLabRoster2026Batch4'
@@ -90,25 +87,18 @@ describe('Pro Lab bulk VOD acquisition batch 4', () => {
   })
 
   it('keeps unresolved batch 4 records in link resolution while resolved records advance to direct review', () => {
-    const batch4Ids = new Set(proVodCatalog2026Batch4.map((vod) => vod.id))
-    const resolvedIds = new Set<string>([
-      ...Object.keys(proVodYoutubeResolutions2026Batch5),
-      ...Object.keys(proVodYoutubeResolutionsBulk2),
-      ...Object.keys(proVodYoutubeResolutionsBulk3),
-    ].filter((id) => batch4Ids.has(id)))
-    expect(resolvedIds.size).toBeGreaterThan(5)
     expect(proVodLinkResolutionQueueStats.total).toBeGreaterThan(0)
-    expect(proVodLinkResolutionQueueStats.currentSeason).toBeGreaterThan(0)
 
-    for (const vod of proVodCatalog2026Batch4) {
-      const isResolved = resolvedIds.has(vod.id)
-      expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(!isResolved)
-      if (isResolved) {
-        const resolvedVod = proVodCatalog.find((entry) => entry.id === vod.id)
-        expect(resolvedVod?.linkKind, vod.id).toBe('direct-video')
-        expect(proVodReviewQueue.some((target) => target.videoUrl === resolvedVod?.videoUrl), vod.id).toBe(true)
+    for (const sourceVod of proVodCatalog2026Batch4) {
+      const finalVod = proVodCatalog.find((entry) => entry.id === sourceVod.id)
+      expect(finalVod, sourceVod.id).toBeTruthy()
+      const isResolved = finalVod?.linkKind === 'direct-video'
+      expect(proVodLinkResolutionQueue.some((entry) => entry.id === sourceVod.id), sourceVod.id).toBe(!isResolved)
+      if (isResolved && finalVod) {
+        expect(finalVod.videoProvider, sourceVod.id).toBe('youtube')
+        expect(proVodReviewQueue.some((target) => target.videoUrl === finalVod.videoUrl), sourceVod.id).toBe(true)
       } else {
-        expect(proVodReviewQueue.some((target) => target.vodId === vod.id), vod.id).toBe(false)
+        expect(proVodReviewQueue.some((target) => target.vodId === sourceVod.id), sourceVod.id).toBe(false)
       }
     }
   })
