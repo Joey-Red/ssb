@@ -1,4 +1,4 @@
-name: Pro Lab remainder 79 recovery
+name: Pro Lab targeted remainder recovery
 
 on:
   push:
@@ -12,30 +12,28 @@ jobs:
   resolve:
     runs-on: ubuntu-latest
     steps:
-      - name: Sparse checkout resolver inputs
-        uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
         with:
-          sparse-checkout: |
-            .github/workflows/pro-lab-remainder79.yml
-            scripts/resolve-pro-lab-alias-retry.ts
-            scripts/dump-pro-lab-unresolved.ts
-            src/data
-            src/lib
-            package.json
-            package-lock.json
-            tsconfig.json
-            tsconfig.app.json
-            tsconfig.node.json
-            vite.config.ts
-          sparse-checkout-cone-mode: false
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci --no-audit --no-fund
-      - name: Dump unresolved metadata
-        run: ./node_modules/.bin/vite-node scripts/dump-pro-lab-unresolved.ts pro-lab-unresolved.json
+          python-version: '3.13'
+      - run: python -m pip install -q -U yt-dlp
+      - name: Resolve exact named-event titles
+        shell: bash
+        run: |
+          set -euo pipefail
+          queries=(
+            'Patchwork 2026 Winners Quarters Ploopi xcx Dany Wolf'
+            'Patchwork 2026 Losers Semis Light Fox Ploopi xcx Game Watch'
+            'Patchwork 2026 Losers Top 8 Lui$ Palutena Ploopi xcx Game Watch'
+            'Patchwork 2026 Losers Quarters Jahzz0 Ryu Ploopi xcx Game Watch'
+            'スノー Mario Pyra Zawg Duck Hunt Top 64 Battle of BC 8'
+            'チノスマ1on1 334 2回戦 あり デデデ あしも リュウ'
+          )
+          : > targeted-results.txt
+          for q in "${queries[@]}"; do
+            echo "===== $q =====" | tee -a targeted-results.txt
+            yt-dlp --flat-playlist --playlist-end 8 --print '%(id)s | %(title)s' "ytsearch8:$q" | tee -a targeted-results.txt
+          done
       - uses: actions/upload-artifact@v4
         with:
-          name: pro-lab-unresolved-metadata
-          path: pro-lab-unresolved.json
+          name: pro-lab-targeted-results
+          path: targeted-results.txt
