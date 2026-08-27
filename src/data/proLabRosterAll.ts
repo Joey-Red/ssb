@@ -2,6 +2,7 @@ import { roster } from './roster'
 import { proLabPilotFighterIds, proPlayerRepresentatives as foundationalRepresentatives } from './proLabRoster'
 import { proPlayerRepresentatives2026Batch2 } from './proLabRoster2026Batch2'
 import { proPlayerRepresentatives2026Batch3 } from './proLabRoster2026Batch3'
+import { proPlayerRepresentatives2026Batch4 } from './proLabRoster2026Batch4'
 import { proMetaGapRepresentatives } from './proLabRosterMetaGaps'
 import { supplementalProPlayerRepresentatives } from './proLabRosterSupplemental'
 import type { ProFighterResearchEntry, ProPlayerRepresentative } from './proLabTypes'
@@ -12,6 +13,7 @@ export const proPlayerRepresentatives = [
   ...proMetaGapRepresentatives,
   ...proPlayerRepresentatives2026Batch2,
   ...proPlayerRepresentatives2026Batch3,
+  ...proPlayerRepresentatives2026Batch4,
 ] as readonly ProPlayerRepresentative[]
 
 const representativesForFighter = (fighterId: string) =>
@@ -37,5 +39,6 @@ export {
   proMetaGapRepresentatives,
   proPlayerRepresentatives2026Batch2,
   proPlayerRepresentatives2026Batch3,
+  proPlayerRepresentatives2026Batch4,
   supplementalProPlayerRepresentatives,
 }

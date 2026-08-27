@@ -1,0 +1,23 @@
+import { buildIndexedTournamentVod } from './proLabVodIndex'
+
+const source = 'https://www.ssbwiki.com/Tournament:Comicpalooza_Fight_Club_2026'
+const event = 'Comicpalooza Fight Club 2026'
+const eventDate = '2026-05-24'
+const common = { event, eventTier: 'regional' as const, eventDate, tournamentSourceUrl: source, strongOpposition: true }
+
+export const proVodCatalog2026Comicpalooza = [
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-01', title: 'Comicpalooza 2026 — MuteAce vs. Maister', playerId: 'muteace', playerFighterIds: ['peach'], opponentTag: 'Maister', opponentFighterIds: ['mr-game-and-watch'], round: 'Top 32', searchPlayerTag: 'MuteAce', searchOpponentTag: 'Maister' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-02', title: 'Comicpalooza 2026 — MuteAce vs. Lima', playerId: 'muteace', playerFighterIds: ['peach'], opponentTag: 'Lima', opponentFighterIds: ['bayonetta'], round: 'Winners Semifinals', searchPlayerTag: 'MuteAce', searchOpponentTag: 'Lima' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-03', title: 'Comicpalooza 2026 — MuteAce vs. Sonix', playerId: 'muteace', playerFighterIds: ['peach'], opponentTag: 'Sonix', opponentFighterIds: ['sonic'], round: 'Grand Finals', searchPlayerTag: 'MuteAce', searchOpponentTag: 'Sonix' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-04', title: 'Comicpalooza 2026 — MuteAce vs. SCents', playerId: 'muteace', playerFighterIds: ['peach'], opponentTag: 'SCents', opponentFighterIds: ['villager'], round: 'Pools', searchPlayerTag: 'MuteAce', searchOpponentTag: 'SCents' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-05', title: 'Comicpalooza 2026 — Sonix vs. MuteAce', playerId: 'muteace', playerFighterIds: ['peach'], opponentTag: 'Sonix', opponentFighterIds: ['sonic'], round: 'Winners Finals', searchPlayerTag: 'MuteAce', searchOpponentTag: 'Sonix' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-06', title: 'Comicpalooza 2026 — MuteAce vs. Tea', playerId: 'muteace', playerFighterIds: ['peach'], opponentTag: 'Tea', opponentFighterIds: ['pac-man'], round: 'Top 32', searchPlayerTag: 'MuteAce', searchOpponentTag: 'Tea' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-07', title: 'Comicpalooza 2026 — Tea vs. Beastly', playerId: 'tea', playerFighterIds: ['pac-man'], opponentTag: 'Beastly', opponentFighterIds: ['diddy-kong'], round: 'Top 32', searchPlayerTag: 'Tea', searchOpponentTag: 'Beastly' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-08', title: 'Comicpalooza 2026 — Tea vs. Monte', playerId: 'tea', playerFighterIds: ['pac-man'], opponentTag: 'Monte', opponentFighterIds: ['mr-game-and-watch'], round: 'Top 8', searchPlayerTag: 'Tea', searchOpponentTag: 'Monte' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-09', title: 'Comicpalooza 2026 — Tea vs. Skitz', playerId: 'tea', playerFighterIds: ['kazuya'], opponentTag: 'Skitz', opponentFighterIds: ['wario'], round: 'Top 32 Winners Round 1', searchPlayerTag: 'Tea', searchOpponentTag: 'Skitz' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-10', title: 'Comicpalooza 2026 — Tea vs. Atomic', playerId: 'tea', playerFighterIds: ['pac-man'], opponentTag: 'Atomic', opponentFighterIds: ['rob'], round: 'Losers Quarterfinals', searchPlayerTag: 'Tea', searchOpponentTag: 'Atomic' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-11', title: 'Comicpalooza 2026 — Tea vs. Lima', playerId: 'tea', playerFighterIds: ['kazuya'], opponentTag: 'Lima', opponentFighterIds: ['bayonetta'], round: 'Losers Semifinals', searchPlayerTag: 'Tea', searchOpponentTag: 'Lima' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-12', title: 'Comicpalooza 2026 — Tea vs. Sonix', playerId: 'tea', playerFighterIds: ['pac-man'], opponentTag: 'Sonix', opponentFighterIds: ['sonic'], round: 'Losers Finals', searchPlayerTag: 'Tea', searchOpponentTag: 'Sonix' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-13', title: 'Comicpalooza 2026 — Jakarot vs. Asimo', playerId: 'jakarot', playerFighterIds: ['hero'], opponentTag: 'Asimo', opponentFighterIds: ['ryu'], round: 'Top 32 Losers Round 3', searchPlayerTag: 'Jakarot', searchOpponentTag: 'Asimo' }),
+  buildIndexedTournamentVod({ ...common, id: 'comicpalooza26-14', title: 'Comicpalooza 2026 — Lima vs. Jakarot', playerId: 'jakarot', playerFighterIds: ['hero'], opponentTag: 'Lima', opponentFighterIds: ['bayonetta'], round: 'Top 32 — exact subround not yet verified', searchPlayerTag: 'Jakarot', searchOpponentTag: 'Lima' }),
+] as const

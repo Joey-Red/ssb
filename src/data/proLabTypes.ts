@@ -29,6 +29,8 @@ export interface ProFighterResearchEntry {
 
 export type ProVodEventTier = 'supermajor' | 'major' | 'regional' | 'invitational' | 'weekly' | 'unknown'
 export type ProVodAnalysisStatus = 'cataloged' | 'review-queued' | 'annotated' | 'reviewed'
+export type ProVodLinkKind = 'direct-video' | 'source-index'
+export type ProVodDatePrecision = 'exact' | 'event-anchor'
 
 export interface ProVodQuality {
   tournamentEnvironment: boolean
@@ -50,10 +52,12 @@ export interface ProVodRecord {
   event: string
   eventTier: ProVodEventTier
   date: string
+  datePrecision?: ProVodDatePrecision
   round: string
   videoUrl: string
   videoProvider: 'youtube' | 'other'
   videoId?: string
+  linkKind?: ProVodLinkKind
   startSeconds?: number
   endSeconds?: number
   gameVersion: '13.0.1' | 'unknown'

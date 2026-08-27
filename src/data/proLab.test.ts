@@ -2,7 +2,12 @@ import { describe, expect, it } from 'vitest'
 import { buildSetBreakdown, extractProPatterns, isCatalogQuality, isTeachingEligibleMoment } from '../lib/proLab'
 import { roster } from './roster'
 import { nextProMetaResearchTargets2026, proMetaRepresentation2026 } from './proLabResearchPriorities'
-import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueueAll'
+import {
+  proVodLinkResolutionQueue,
+  proVodLinkResolutionQueueStats,
+  proVodReviewQueue,
+  proVodReviewQueueStats,
+} from './proLabReviewQueueAll'
 import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
 import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
@@ -95,21 +100,29 @@ describe('Pro Lab foundation', () => {
       expect(vod.videoUrl.startsWith('https://')).toBe(true)
       expect(vod.quality.tournamentEnvironment).toBe(true)
       expect(vod.quality.fullSet).toBe(true)
-      expect(vod.quality.visibleGameplay).toBe(true)
       expect(isCatalogQuality(vod.quality)).toBe(true)
-      expect(vod.analysisStatus).toBe('review-queued')
-      if (vod.videoProvider === 'youtube') expect(vod.videoId).toBeTruthy()
+
+      if (vod.linkKind === 'source-index') {
+        expect(vod.quality.visibleGameplay).toBe(false)
+        expect(vod.analysisStatus).toBe('cataloged')
+        expect(vod.videoProvider).toBe('other')
+        expect(vod.datePrecision).toBe('event-anchor')
+      } else {
+        expect(vod.quality.visibleGameplay).toBe(true)
+        expect(vod.analysisStatus).toBe('review-queued')
+        if (vod.videoProvider === 'youtube') expect(vod.videoId).toBeTruthy()
+      }
     }
   })
 
   it('keeps a meaningful current-season VOD queue without fabricating review state', () => {
     const currentSeason = proVodCatalog.filter((vod) => vod.date.startsWith('2026-'))
     expect(currentSeason.length).toBeGreaterThanOrEqual(27)
-    expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued')).toBe(true)
+    expect(currentSeason.every((vod) => vod.analysisStatus === 'review-queued' || vod.analysisStatus === 'cataloged')).toBe(true)
     expect(new Set(currentSeason.flatMap((vod) => [...vod.playerFighterIds, ...vod.opponentFighterIds])).size).toBeGreaterThanOrEqual(15)
   })
 
-  it('maintains source-backed footage coordinates as distinct review work, not tactical claims', () => {
+  it('separates source-index link resolution from direct footage review work', () => {
     expect(proVodReviewQueue.length).toBeGreaterThan(0)
     expect(proVodReviewQueue.length).toBeLessThanOrEqual(proVodCatalog.length)
     expect(proVodReviewQueueStats.pending).toBe(proVodReviewQueue.length)
@@ -123,7 +136,14 @@ describe('Pro Lab foundation', () => {
       expect(target.sourceUrls.length).toBeGreaterThanOrEqual(2)
       expect(target.fighterIds.every((fighterId) => rosterIds.has(fighterId))).toBe(true)
       expect(target.status).not.toBe('reviewed')
+      expect(proVodCatalog.find((vod) => vod.id === target.vodId)?.linkKind).not.toBe('source-index')
       if (target.setStartSeconds !== undefined) expect(target.setStartSeconds).toBeGreaterThanOrEqual(0)
+    }
+
+    expect(proVodLinkResolutionQueueStats.total).toBe(proVodLinkResolutionQueue.length)
+    for (const vod of proVodLinkResolutionQueue) {
+      expect(vod.linkKind).toBe('source-index')
+      expect(proVodReviewQueue.some((target) => target.vodId === vod.id)).toBe(false)
     }
   })
 
