@@ -78,13 +78,20 @@ describe('Pro Lab review workbench helpers', () => {
     expect(report.valid).toBe(true)
   })
 
-  it('round-trips draft JSON and refuses cross-VOD imports', () => {
+  it('round-trips draft JSON and refuses unsafe imports', () => {
     const draft = createProReviewWorkbenchDraft(vod)
     const raw = serializeProReviewWorkbenchDraft(draft)
+    const malformedMoment = JSON.stringify({ ...draft, moments: [{ vodId: vod.id }] })
+    const malformedFrameReference = JSON.stringify({
+      ...draft,
+      moments: [{ ...createBlankProReviewMoment(vod, 0), frameDataReferences: [{ fighterId: 'pyra', moveName: 'Back Air', metrics: 'startup' }] }],
+    })
 
     expect(parseProReviewWorkbenchDraft(raw, vod.id).draft).toEqual(draft)
     expect(parseProReviewWorkbenchDraft(raw, 'different-vod').draft).toBeNull()
     expect(parseProReviewWorkbenchDraft('{broken', vod.id).draft).toBeNull()
+    expect(parseProReviewWorkbenchDraft(malformedMoment, vod.id).draft).toBeNull()
+    expect(parseProReviewWorkbenchDraft(malformedFrameReference, vod.id).draft).toBeNull()
   })
 
   it('opens relative timestamps at the correct video coordinate', () => {
