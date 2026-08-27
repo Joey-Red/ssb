@@ -1,0 +1,28 @@
+name: Pro Lab link resolver discovery
+
+on:
+  push:
+    branches:
+      - pro-lab/direct-link-resolution-bulk-1
+
+permissions:
+  contents: read
+
+jobs:
+  discover-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect Smasharchives public API
+        shell: bash
+        run: |
+          set -euo pipefail
+          for url in \
+            https://api.smasharchives.com/openapi.json \
+            https://api.smasharchives.com/documentation/openapi.json \
+            https://api.smasharchives.com/v1/search?query=Sonix; do
+            echo "===== $url ====="
+            status=$(curl -L -sS -o /tmp/response -w '%{http_code}' "$url" || true)
+            echo "HTTP $status"
+            head -c 12000 /tmp/response || true
+            echo
+          done
