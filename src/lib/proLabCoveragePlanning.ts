@@ -82,8 +82,10 @@ const chooseNextAction = (
   matchupPatternGap: number,
   comparisonGap: number,
 ): ProCoverageNextAction => {
-  if (representativeGap > 0) return 'acquire-representatives'
+  // Long-term execution order: build the VOD corpus first, then broaden
+  // representative coverage, then spend review effort on direct gameplay.
   if (vodGap > 0) return 'acquire-vods'
+  if (representativeGap > 0) return 'acquire-representatives'
   if (reviewedSetGap > 0 || reviewedMomentGap > 0) return 'review-vods'
   if (lessonClaimGap > 0 || decisionExerciseGap > 0) return 'expand-teaching'
   if (matchupPatternGap > 0) return 'expand-matchups'
@@ -128,8 +130,8 @@ export function buildProCoverageWorkQueue(
       + (entry.representativeCount >= 2 ? comparisonGap * 35 : 0)
 
     const reasons: string[] = []
-    if (representativeGap > 0) reasons.push(`${representativeGap} representative${representativeGap === 1 ? '' : 's'} below the planning floor`)
     if (vodGap > 0) reasons.push(`${vodGap} VOD${vodGap === 1 ? '' : 's'} below the 12-set floor`)
+    if (representativeGap > 0) reasons.push(`${representativeGap} representative${representativeGap === 1 ? '' : 's'} below the planning floor`)
     if (currentVodGap > 0) reasons.push(`${currentVodGap} current-era VOD${currentVodGap === 1 ? '' : 's'} below target`)
     if (reviewedSetGap > 0) reasons.push(`${reviewedSetGap} reviewed set${reviewedSetGap === 1 ? '' : 's'} below sampling target`)
     if (reviewedMomentGap > 0) reasons.push(`${reviewedMomentGap} reviewed moment${reviewedMomentGap === 1 ? '' : 's'} below planning target`)
