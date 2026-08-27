@@ -12,25 +12,17 @@ jobs:
   discover-api:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Smasharchives public API
+      - name: Probe player lookup and VOD pages
         shell: bash
         run: |
           set -u
-
-          echo '===== SWAGGER INIT ====='
-          curl -L -sS https://api.smasharchives.com/documentation/swagger-ui-init.js -o /tmp/swagger-init || true
-          head -c 60000 /tmp/swagger-init || true
-          echo
-
-          for url in \
-            'https://api.smasharchives.com/character' \
-            'https://api.smasharchives.com/vod/character?character1=1' \
-            'https://api.smasharchives.com/vod/player?player1=Sonix' \
-            'https://api.smasharchives.com/player?name=Sonix' \
-            'https://api.smasharchives.com/search?query=Sonix'; do
-            echo "===== $url ====="
-            status=$(curl -L -sS -o /tmp/response -w '%{http_code}' "$url" || true)
-            echo "HTTP $status"
-            head -c 20000 /tmp/response || true
+          for name in Sonix Hurt Peabnut ShinyMark; do
+            echo "===== PLAYER SEARCH: $name ====="
+            curl -L -sS --get --data-urlencode "name=$name" https://api.smasharchives.com/player/search
             echo
           done
+          echo '===== SONIX VODS PAGE 1 ====='
+          sonix_id=$(curl -L -sS --get --data-urlencode 'name=Sonix' https://api.smasharchives.com/player/search | python3 -c 'import json,sys; x=json.load(sys.stdin); print(x[0]["id"] if x else "")')
+          echo "SONIX_ID=$sonix_id"
+          curl -L -sS --get --data-urlencode "playerId=$sonix_id" --data-urlencode 'page=1' https://api.smasharchives.com/vod/player | head -c 40000
+          echo
