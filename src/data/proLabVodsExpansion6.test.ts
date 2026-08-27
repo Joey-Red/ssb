@@ -48,13 +48,22 @@ describe('Pro Lab historical bulk acquisition batch 6', () => {
     }
   })
 
-  it('routes the whole historical batch to link resolution and none to tactical review', () => {
+  it('routes unresolved historical records to link resolution and resolved records to review', () => {
     const linkResolutionIds = new Set(proVodLinkResolutionQueue.map((vod) => vod.id))
     const reviewVodIds = new Set(proVodReviewQueue.map((target) => target.vodId).filter(Boolean))
+    const productionById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
 
-    for (const vod of proVodCatalogHistoricalBatch6) {
-      expect(linkResolutionIds.has(vod.id), vod.id).toBe(true)
-      expect(reviewVodIds.has(vod.id), vod.id).toBe(false)
+    for (const sourceVod of proVodCatalogHistoricalBatch6) {
+      const productionVod = productionById.get(sourceVod.id)
+      expect(productionVod, sourceVod.id).toBeDefined()
+      if (productionVod?.linkKind === 'source-index') {
+        expect(linkResolutionIds.has(sourceVod.id), sourceVod.id).toBe(true)
+        expect(reviewVodIds.has(sourceVod.id), sourceVod.id).toBe(false)
+      } else {
+        expect(productionVod?.linkKind, sourceVod.id).toBe('direct-video')
+        expect(linkResolutionIds.has(sourceVod.id), sourceVod.id).toBe(false)
+        expect(reviewVodIds.has(sourceVod.id), sourceVod.id).toBe(true)
+      }
     }
   })
 
