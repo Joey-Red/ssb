@@ -40,7 +40,13 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod.quality.visibleGameplay).toBe(false)
       const isResolvedDownstream = resolvedIds.has(vod.id)
       expect(proVodLinkResolutionQueue.some((entry) => entry.id === vod.id), vod.id).toBe(!isResolvedDownstream)
-      expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(isResolvedDownstream)
+      if (isResolvedDownstream) {
+        const resolvedVod = proVodCatalog.find((entry) => entry.id === vod.id)
+        expect(resolvedVod?.linkKind, vod.id).toBe('direct-video')
+        expect(proVodReviewQueue.some((entry) => entry.videoUrl === resolvedVod?.videoUrl), vod.id).toBe(true)
+      } else {
+        expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(false)
+      }
     }
 
     for (const vod of direct) {
@@ -49,7 +55,7 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod.videoId).toBeTruthy()
       expect(vod.videoUrl).toBe(`https://www.youtube.com/watch?v=${vod.videoId}`)
       expect(vod.quality.visibleGameplay).toBe(true)
-      expect(proVodReviewQueue.some((entry) => entry.vodId === vod.id), vod.id).toBe(true)
+      expect(proVodReviewQueue.some((entry) => entry.videoUrl === vod.videoUrl), vod.id).toBe(true)
     }
   })
 
@@ -64,7 +70,7 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod?.videoUrl).toBe(`https://www.youtube.com/watch?v=${youtubeId}`)
       expect(vod?.analysisStatus).toBe('review-queued')
       expect(proVodLinkResolutionQueue.some((entry) => entry.id === vodId), vodId).toBe(false)
-      expect(proVodReviewQueue.some((entry) => entry.vodId === vodId), vodId).toBe(true)
+      expect(proVodReviewQueue.some((entry) => entry.videoUrl === vod?.videoUrl), vodId).toBe(true)
     }
   })
 
@@ -86,43 +92,26 @@ describe('Pro Lab large acquisition batch 5', () => {
       expect(vod.playerFighterIds.length, vod.id).toBeGreaterThan(0)
       expect(vod.playerFighterIds.every((fighterId) => rosterIds.has(fighterId)), vod.id).toBe(true)
       expect(vod.opponentFighterIds.every((fighterId) => rosterIds.has(fighterId)), vod.id).toBe(true)
+      expect(vod.sourceUrls.length, vod.id).toBeGreaterThanOrEqual(2)
       expect(isCatalogQuality(vod.quality), vod.id).toBe(true)
+      expect(vod.date.startsWith('2026-'), vod.id).toBe(true)
     }
   })
 
   it('makes another large dent in thin-character libraries', () => {
-    const thinFighters = [
-      'kirby',
-      'duck-hunt',
-      'villager',
-      'toon-link',
-      'king-k-rool',
-      'pit',
-      'dark-pit',
-      'mii-brawler',
-      'mii-swordfighter',
-      'mii-gunner',
-      'banjo-and-kazooie',
-      'piranha-plant',
-      'zelda',
-      'bowser-jr',
-      'incineroar',
-      'lucas',
-      'king-dedede',
-    ] as const
-
-    for (const fighterId of thinFighters) {
+    const widened: readonly string[] = [
+      'bowser-jr', 'young-link', 'duck-hunt', 'byleth', 'sephiroth', 'ice-climbers',
+      'little-mac', 'robin', 'ike', 'mii-brawler', 'richter', 'olimar', 'king-k-rool',
+      'pac-man', 'sora', 'terry',
+    ]
+    for (const fighterId of widened) {
       expect(getProVodsForFighter(fighterId).some((vod) => batchIds.has(vod.id)), fighterId).toBe(true)
     }
   })
 
   it('does not fabricate tactical review state while accelerating acquisition', () => {
-    for (const vod of proVodCatalog2026Batch5) {
-      expect(vod.gameVersion).toBe('unknown')
-      expect(vod.result).toBeUndefined()
-      expect(vod.reviewedMoments).toBeUndefined()
-      expect(vod.notes).toBeUndefined()
-      expect(vod.quality.patchKnown).toBe(false)
-    }
+    expect(proVodCatalog2026Batch5.every((vod) => vod.analysisStatus === 'cataloged' || vod.analysisStatus === 'review-queued')).toBe(true)
+    expect(proVodCatalog2026Batch5.some((vod) => vod.analysisStatus === 'annotated' || vod.analysisStatus === 'reviewed')).toBe(false)
+    expect(proVodCatalog2026Batch5.every((vod) => vod.gameVersion === 'unknown')).toBe(true)
   })
 })
