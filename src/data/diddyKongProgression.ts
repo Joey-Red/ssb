@@ -1,4 +1,23 @@
-import type { ProgressionTechnique, TechniqueProgression, TechniqueTier, TechniqueVerdict } from '../types'
+export type TechniqueTier = 'beginner' | 'intermediate' | 'pro' | 'godlike'
+export type TechniqueVerdict = 'source-true' | 'conditional' | 'concept' | 'source-not-true'
+
+export interface ProgressionTechnique {
+  id: string
+  tier: TechniqueTier
+  label: string
+  route: readonly string[]
+  timestampSeconds: number
+  verdict: TechniqueVerdict
+  note?: string
+  caveats?: readonly string[]
+}
+
+export interface TechniqueProgression {
+  title: string
+  description: string
+  sourceId: string
+  techniques: readonly ProgressionTechnique[]
+}
 
 const sourceId = 'video-diddy-kong-bnb-frenzy-light'
 

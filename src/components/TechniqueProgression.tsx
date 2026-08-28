@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
+import type { TechniqueProgression as TechniqueProgressionData, TechniqueTier, TechniqueVerdict } from '../data/diddyKongProgression'
 import { sourceById } from '../data/sources'
-import type { TechniqueProgression as TechniqueProgressionData, TechniqueTier, TechniqueVerdict } from '../types'
 import { RouteLine } from './RouteLine'
 import './TechniqueProgression.css'
 

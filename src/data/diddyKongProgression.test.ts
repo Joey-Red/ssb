@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import type { FighterGuide } from '../types'
 import { allGuides } from './allGuides'
 import { diddyKongProgression } from './diddyKongProgression'
 import { roster } from './roster'
 import { sources } from './sources'
-import { validateGuides } from '../lib/validation'
+import { validateGuides, validateTechniqueProgression } from '../lib/validation'
 
 describe('Diddy Kong source-video progression', () => {
   it('indexes all four source tiers in chronological order', () => {
@@ -34,8 +33,9 @@ describe('Diddy Kong source-video progression', () => {
 
   it('ships as the ready Diddy guide without breaking static guide validation', () => {
     expect(roster.find((fighter) => fighter.id === 'diddy-kong')?.guideStatus).toBe('ready')
-    const diddyGuide = allGuides.find((guide) => guide.fighterId === 'diddy-kong') as FighterGuide | undefined
-    expect(diddyGuide?.progression).toBe(diddyKongProgression)
+    const diddyGuide = allGuides.find((guide) => guide.fighterId === 'diddy-kong')
+    expect(diddyGuide?.sourceIds).toContain(diddyKongProgression.sourceId)
+    expect(validateTechniqueProgression(diddyKongProgression, sources, diddyGuide?.sourceIds ?? [])).toEqual([])
     expect(validateGuides(allGuides, roster, sources)).toEqual([])
   })
 })

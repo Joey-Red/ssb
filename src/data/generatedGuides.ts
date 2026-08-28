@@ -182,16 +182,15 @@ function buildGuide(profile: ProfileTuple): FighterGuide {
     return {
       ...guide,
       archetype: 'Item control · banana confirms · DI-aware route trees',
-      memoryAid: 'Begin with throws, down tilt, and banana confirms. Add DI-aware aerial branches, then item re-catches, footstools, tech chases, platform resets, and Rocketbarrel cash-outs one layer at a time.',
+      memoryAid: 'Begin with down tilt, dash attack, landing neutral air, and banana confirms. Add DI-aware aerial branches, then item re-catches, footstools, tech chases, platform resets, and Rocketbarrel cash-outs one layer at a time.',
       quickGuide: [
         neutralNote,
-        'Beginner: drill down throw, down tilt, landing neutral air, and direct banana-trip confirms before adding extensions.',
+        'Beginner: drill down tilt, dash attack, landing neutral air, and direct banana-trip confirms before adding extensions.',
         'Intermediate: branch finishers around DI, target height, fast escape options, and techable down-air landings.',
         'Pro: add footstools, Z-drop down air, jab locks, item re-catches, tech chases, and platform-reset reactions.',
         'Godlike: combine banana control, ledge trumps, Popgun cancels, Monkey Flip, platform ladders, and Rocketbarrel finishers without assuming a training-mode string is universal.',
       ],
       sourceIds: [sourceId, diddyKongProgression.sourceId],
-      progression: diddyKongProgression,
     }
   }
 

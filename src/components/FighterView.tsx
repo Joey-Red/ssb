@@ -1,4 +1,5 @@
 import { guideByFighterId } from '../data/allGuides'
+import { diddyKongProgression } from '../data/diddyKongProgression'
 import { fighterBySlug, roster } from '../data/roster'
 import { sourceById } from '../data/sources'
 import { formatFrames } from '../lib/frame'
@@ -41,7 +42,7 @@ export function FighterView({ slug }: { slug: string }) {
       <div className="fighter-layout">
         <main className="fighter-main">
           <TrainingLadder steps={guide.trainingRoutine} />
-          {guide.progression && <TechniqueProgression progression={guide.progression} />}
+          {fighter.id === 'diddy-kong' && <TechniqueProgression progression={diddyKongProgression} />}
           <ComboExplorer combos={guide.combos} />
           {frameData ? (
             <FrameDataPanel data={frameData} />

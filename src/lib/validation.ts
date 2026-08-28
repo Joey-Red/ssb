@@ -1,4 +1,5 @@
 import type { FighterGuide, FighterManifestEntry, FrameDataSnapshot, MoveCategory, SourceRef } from '../types'
+import type { TechniqueProgression } from '../data/diddyKongProgression'
 
 const expectedPercentages = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200] as const
 const frameCategories = new Set<MoveCategory>(['ground', 'aerial', 'special', 'grab', 'defense', 'misc'])
@@ -70,25 +71,6 @@ export function validateGuides(guides: readonly FighterGuide[], roster: readonly
     }
 
     for (const sourceId of guide.sourceIds) if (!sourceIds.has(sourceId)) errors.push(`${guide.fighterId} references missing source ${sourceId}`)
-    if (guide.progression) {
-      if (!sourceIds.has(guide.progression.sourceId)) errors.push(`${guide.fighterId} progression references missing source ${guide.progression.sourceId}`)
-      if (!guide.sourceIds.includes(guide.progression.sourceId)) errors.push(`${guide.fighterId} progression source must also appear in guide sources`)
-
-      const techniqueIds = new Set<string>()
-      const progressionTiers = new Set(guide.progression.techniques.map((technique) => technique.tier))
-      for (const tier of ['beginner', 'intermediate', 'pro', 'godlike'] as const) {
-        if (!progressionTiers.has(tier)) errors.push(`${guide.fighterId} progression is missing ${tier} techniques`)
-      }
-
-      for (const technique of guide.progression.techniques) {
-        if (techniqueIds.has(technique.id)) errors.push(`${guide.fighterId} has duplicate progression technique ${technique.id}`)
-        techniqueIds.add(technique.id)
-        if (!/^[a-z0-9-]+$/.test(technique.id)) errors.push(`${guide.fighterId}/${technique.id} has an invalid progression id`)
-        if (technique.route.length < 2) errors.push(`${guide.fighterId}/${technique.id} must document at least two route actions`)
-        if (!Number.isInteger(technique.timestampSeconds) || technique.timestampSeconds < 0) errors.push(`${guide.fighterId}/${technique.id} has an invalid video timestamp`)
-        if (technique.verdict === 'source-true' && (!technique.caveats || technique.caveats.length === 0)) errors.push(`${guide.fighterId}/${technique.id} source-true route must retain a qualification`)
-      }
-    }
     for (const frame of guide.keyFrames) {
       if (!Number.isInteger(frame.startup) || frame.startup <= 0) errors.push(`${guide.fighterId}/${frame.move} has invalid startup`)
       if (!sourceIds.has(frame.sourceId)) errors.push(`${guide.fighterId}/${frame.move} references missing source ${frame.sourceId}`)
@@ -96,6 +78,28 @@ export function validateGuides(guides: readonly FighterGuide[], roster: readonly
   }
 
   for (const fighter of roster) if (!guideIds.has(fighter.id)) errors.push(`Roster fighter is missing a guide: ${fighter.id}`)
+  return errors
+}
+
+export function validateTechniqueProgression(progression: TechniqueProgression, sources: readonly SourceRef[], guideSourceIds: readonly string[]): string[] {
+  const errors: string[] = []
+  if (!sources.some((source) => source.id === progression.sourceId)) errors.push(`Progression references missing source ${progression.sourceId}`)
+  if (!guideSourceIds.includes(progression.sourceId)) errors.push('Progression source must also appear in Diddy guide sources')
+
+  const techniqueIds = new Set<string>()
+  const progressionTiers = new Set(progression.techniques.map((technique) => technique.tier))
+  for (const tier of ['beginner', 'intermediate', 'pro', 'godlike'] as const) {
+    if (!progressionTiers.has(tier)) errors.push(`Progression is missing ${tier} techniques`)
+  }
+
+  for (const technique of progression.techniques) {
+    if (techniqueIds.has(technique.id)) errors.push(`Duplicate progression technique ${technique.id}`)
+    techniqueIds.add(technique.id)
+    if (!/^[a-z0-9-]+$/.test(technique.id)) errors.push(`${technique.id} has an invalid progression id`)
+    if (technique.route.length < 2) errors.push(`${technique.id} must document at least two route actions`)
+    if (!Number.isInteger(technique.timestampSeconds) || technique.timestampSeconds < 0) errors.push(`${technique.id} has an invalid video timestamp`)
+    if (technique.verdict === 'source-true' && (!technique.caveats || technique.caveats.length === 0)) errors.push(`${technique.id} source-true route must retain a qualification`)
+  }
   return errors
 }
 
