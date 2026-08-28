@@ -36,17 +36,6 @@ jobs:
       - name: Quality gate
         run: npm run check
 
-      - name: Capture temporary M73 coverage diagnostic
-        if: always() && github.event_name == 'pull_request'
-        run: npx vitest run src/data/proLabCoverageDiagnostic.test.ts --reporter=json --outputFile=coverage-report.json || true
-
-      - name: Upload temporary M73 coverage diagnostic
-        if: always() && github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: m73-coverage-diagnostic
-          path: coverage-report.json
-
       - name: Configure Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
