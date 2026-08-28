@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
-import { proPlayerRepresentatives, proSetBreakdowns, proTemporalEvidence } from '../data/proLab'
+import { proPlayerRepresentatives, proSetBreakdowns, proTemporalEvidence, proVodCatalog } from '../data/proLab'
 import type { ProPlayerRepresentative, ProTemporalEvidence, ProVodRecord } from '../data/proLabTypes'
-import { getProVodsForFighter } from '../data/proLabVodsAll'
 import { roster } from '../data/roster'
 import {
   buildFighterVodFilterOptions,
@@ -29,6 +28,9 @@ const sides: readonly ProVodLibrarySideFilter[] = ['all', 'studied-player', 'opp
 const links: readonly ProVodLibraryLinkFilter[] = ['all', 'direct-video', 'source-index']
 const sorts: readonly ProVodLibrarySortMode[] = ['recommended', 'newest', 'oldest', 'quality']
 
+const includesFighter = (vod: ProVodRecord, fighterId: string) =>
+  vod.playerFighterIds.includes(fighterId) || vod.opponentFighterIds.includes(fighterId)
+
 export function ProVodLibrary({ fighterId }: { fighterId: string }) {
   const [search, setSearch] = useState('')
   const [tier, setTier] = useState<ProVodLibraryTierFilter>('all')
@@ -41,7 +43,7 @@ export function ProVodLibrary({ fighterId }: { fighterId: string }) {
   const [year, setYear] = useState('all')
   const [sort, setSort] = useState<ProVodLibrarySortMode>('recommended')
 
-  const vods = useMemo(() => getProVodsForFighter(fighterId), [fighterId])
+  const vods = useMemo(() => proVodCatalog.filter((vod) => includesFighter(vod, fighterId)), [fighterId])
   const options = useMemo(() => buildFighterVodFilterOptions(vods, fighterId), [fighterId, vods])
   const activePlayerId = playerId === 'all' || options.playerIds.includes(playerId) ? playerId : 'all'
   const activeOpponentFighterId = opponentFighterId === 'all' || options.opponentFighterIds.includes(opponentFighterId) ? opponentFighterId : 'all'
