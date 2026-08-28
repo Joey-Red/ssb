@@ -3,11 +3,11 @@ import { proCoverageGapRepresentatives, proPlayerRepresentatives } from './proLa
 import { getProVodsForFighter, proCoverageGapVodCatalog, proVodCatalog } from './proLabVodsAll'
 
 describe('roster-neutral Pro Lab coverage gaps', () => {
-  it('closes the discovered Link zero-VOD gap with provenance-backed legacy evidence', () => {
+  it('closes the discovered Link zero-VOD gap with provenance-backed representation', () => {
     const representative = proCoverageGapRepresentatives.find((entry) => entry.id === 't-link')
     expect(representative).toMatchObject({
       tag: 'T',
-      status: 'legacy',
+      status: 'active',
       characterRoles: [{ fighterId: 'link', role: 'main' }],
     })
     expect(representative?.sourceUrls.length).toBeGreaterThanOrEqual(2)
