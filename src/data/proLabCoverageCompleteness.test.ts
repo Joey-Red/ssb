@@ -1,16 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { roster } from './roster'
-import { getProVodsForFighter } from './proLabVodsAll'
+import { proZeroVodCoverageStats, proZeroVodFighterIds } from './proLabCoverageGapBacklog'
 
 describe('full-roster Pro Lab VOD completeness', () => {
   it('tracks the remaining zero-VOD backlog without hiding incomplete fighters', () => {
-    const uncoveredFighterIds = roster
-      .filter((fighter) => getProVodsForFighter(fighter.id).length === 0)
-      .map((fighter) => fighter.id)
-      .sort()
-
-    expect(uncoveredFighterIds).toHaveLength(1)
-    expect(new Set(uncoveredFighterIds).size).toBe(uncoveredFighterIds.length)
-    expect(uncoveredFighterIds).toEqual(['simon'])
+    expect(proZeroVodCoverageStats).toEqual({
+      coveredFighters: 88,
+      uncoveredFighters: 1,
+      totalFighters: 89,
+    })
+    expect(proZeroVodFighterIds).toEqual(['simon'])
   })
 })
