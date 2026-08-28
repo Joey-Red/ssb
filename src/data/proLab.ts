@@ -104,7 +104,7 @@ export const proMaintenanceReport = auditExpandedProLabCatalog(
   proLabReferenceDate,
 )
 
-export const proRosterCoverage = buildProRosterCoverage({
+const proPrimaryRosterCoverage = buildProRosterCoverage({
   fighterIds: roster.map((fighter) => fighter.id),
   research: proFighterResearchRegistry,
   players: proPlayerRepresentatives,
@@ -115,6 +115,37 @@ export const proRosterCoverage = buildProRosterCoverage({
   exercises: proDecisionExercises,
   matchupPatterns: proMatchupPatterns,
   comparisons: proPlayerComparisons,
+})
+
+const proTemporalByVodId = new Map(proTemporalEvidence.map((entry) => [entry.vodId, entry]))
+const vodFeaturesFighter = (fighterId: string) => (vod: (typeof proVodCatalog)[number]) =>
+  vod.playerFighterIds.includes(fighterId) || vod.opponentFighterIds.includes(fighterId)
+
+/**
+ * Coverage floors count every confirmed fighter appearance in a set, regardless
+ * of which side is designated as the catalog's primary player. Primary-side
+ * attribution is still retained by the source VOD for representative/style
+ * analysis; it is not used to pretend opponent-side footage does not exist.
+ */
+export const proRosterCoverage = proPrimaryRosterCoverage.map((entry) => {
+  const fighterVods = proVodCatalog.filter(vodFeaturesFighter(entry.fighterId))
+  const currentVodCount = fighterVods.filter((vod) => proTemporalByVodId.get(vod.id)?.era === 'current').length
+  const notes = entry.notes.filter((note) =>
+    note !== 'No qualifying competitive set is cataloged yet.' &&
+    note !== 'Cataloged evidence exists, but no set currently falls inside the current-evidence window.',
+  )
+  if (fighterVods.length === 0) notes.push('No qualifying competitive set featuring this fighter is cataloged yet.')
+  else if (currentVodCount === 0) notes.push('Cataloged fighter evidence exists, but no confirmed appearance currently falls inside the current-evidence window.')
+  const state = fighterVods.length > 0 && (entry.state === 'research-queued' || entry.state === 'representative-seeded')
+    ? 'cataloged' as const
+    : entry.state
+  return {
+    ...entry,
+    state,
+    vodCount: fighterVods.length,
+    currentVodCount,
+    notes,
+  }
 })
 
 export const proCoverageSummary = summarizeProCoverage(proRosterCoverage)
@@ -225,7 +256,7 @@ export const proLabReleaseStats = {
   matchupPatterns: proMatchupPatterns.length,
   playerComparisons: proPlayerComparisons.length,
   teachingReadyFighters: proRosterCoverage.filter((entry) => entry.state === 'teaching-ready').length,
-  catalogedFighters: roster.length - proMaintenanceReport.fightersWithoutCatalogedVods.length,
+  catalogedFighters: proRosterCoverage.filter((entry) => entry.vodCount > 0).length,
   phase2ValidationErrors: proEvidenceRegistry.errors.length + proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length,
   phase2ValidationWarnings: proEvidenceRegistry.warnings.length + proDecisionMomentValidation.warnings.length + proSetBreakdownValidation.warnings.length,
 } as const
