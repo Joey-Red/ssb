@@ -21,6 +21,16 @@ const referenceFrameSources = [
   { id: 'ufd-mythra', label: 'Ultimate Frame Data — Mythra', url: 'https://ultimateframedata.com/mythra', kind: 'frame-data', note: 'Startup, active frames, landing lag, OOS, and movement reference.' },
 ] as const satisfies readonly SourceRef[]
 
-export const sources = [...rosterWikiSources, ...referenceFrameSources] as const satisfies readonly SourceRef[]
+const techniqueSources = [
+  {
+    id: 'video-diddy-kong-bnb-frenzy-light',
+    label: 'Dr. Frenzy Light — Diddy Kong Bread and Butter combos (Beginner to Godlike)',
+    url: 'https://www.youtube.com/watch?v=kTSWrkMuYHA',
+    kind: 'reference',
+    note: 'Directly reviewed 11:16 source video. Tier labels, route demonstrations, timestamps, and caveat overlays are transcribed as source observations rather than universal matchup claims.',
+  },
+] as const satisfies readonly SourceRef[]
+
+export const sources = [...rosterWikiSources, ...referenceFrameSources, ...techniqueSources] as const satisfies readonly SourceRef[]
 
 export const sourceById = new Map<string, SourceRef>(sources.map((source) => [source.id, source]))

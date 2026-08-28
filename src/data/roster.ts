@@ -41,7 +41,7 @@ export const roster = [
   { id: 'squirtle', name: 'Squirtle', slug: 'squirtle', aliases: ['pt squirtle'], series: 'Pokémon', order: 38, guideStatus: 'ready', relation: { type: 'pokemon-trainer-form', group: 'pokemon-trainer' } },
   { id: 'ivysaur', name: 'Ivysaur', slug: 'ivysaur', aliases: ['ivy', 'pt ivysaur'], series: 'Pokémon', order: 39, guideStatus: 'planned', relation: { type: 'pokemon-trainer-form', group: 'pokemon-trainer' } },
   { id: 'charizard', name: 'Charizard', slug: 'charizard', aliases: ['zard', 'pt charizard'], series: 'Pokémon', order: 40, guideStatus: 'planned', relation: { type: 'pokemon-trainer-form', group: 'pokemon-trainer' } },
-  { id: 'diddy-kong', name: 'Diddy Kong', slug: 'diddy-kong', aliases: ['diddy'], series: 'Donkey Kong', order: 41, guideStatus: 'planned' },
+  { id: 'diddy-kong', name: 'Diddy Kong', slug: 'diddy-kong', aliases: ['diddy'], series: 'Donkey Kong', order: 41, guideStatus: 'ready' },
   { id: 'lucas', name: 'Lucas', slug: 'lucas', aliases: [], series: 'EarthBound', order: 42, guideStatus: 'planned' },
   { id: 'sonic', name: 'Sonic', slug: 'sonic', aliases: ['sonic the hedgehog'], series: 'Sonic', order: 43, guideStatus: 'planned' },
   { id: 'king-dedede', name: 'King Dedede', slug: 'king-dedede', aliases: ['dedede', 'ddd'], series: 'Kirby', order: 44, guideStatus: 'planned' },
