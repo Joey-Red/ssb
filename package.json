@@ -14,6 +14,7 @@
     "build": "npm run test:run && tsc -b && vite build",
     "check": "npm run lint && npm run build",
     "preview": "vite preview",
+    "prolab:ingest-review": "node scripts/prolab-ingest-review.mjs",
     "visual:discover:ufd": "python scripts/discover-ufd-visuals.py",
     "visual:discover:external": "python scripts/discover-external-visuals.py",
     "visual:reconcile": "python scripts/reconcile-external-visuals.py",

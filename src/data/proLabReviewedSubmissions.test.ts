@@ -1,3 +1,4 @@
+import { readdirSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import {
   proDecisionMoments,
@@ -17,6 +18,16 @@ describe('checked-in Pro Lab reviewed evidence', () => {
     expect(proEvidenceRegistry.rejectedSubmissions).toEqual([])
     expect(proEvidenceRegistry.sourceSubmissionCount).toBe(proReviewedSubmissions.length)
     expect(proEvidenceRegistry.acceptedSubmissions).toHaveLength(proReviewedSubmissions.length)
+  })
+
+  it('keeps the generated index synchronized with every per-VOD review JSON file', () => {
+    const reviewFiles = readdirSync(new URL('./proLabReviews/', import.meta.url))
+      .filter((fileName) => fileName.endsWith('.json'))
+      .sort()
+    const indexedFiles = proReviewedSubmissions
+      .map((submission) => `${submission.vodId}.json`)
+      .sort()
+    expect(reviewFiles).toEqual(indexedFiles)
   })
 
   it('derives all tactical production data from accepted submissions', () => {

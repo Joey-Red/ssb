@@ -1,13 +1,8 @@
-import type { ProReviewSubmission } from '../lib/proLabReviewIntake'
-
 /**
- * Checked-in production evidence enters Pro Lab here only after direct gameplay
- * review. The evidence registry validates every submission again at build time;
- * invalid records fail closed and are never promoted into lessons, exercises,
- * matchup patterns, player comparisons, or reviewed VOD status.
- *
- * The browser workbench exports this exact ProReviewSubmission shape. Keep this
- * list empty rather than inventing tactical observations when footage has not
- * actually been reviewed.
+ * Checked-in production evidence is stored as one JSON file per reviewed VOD
+ * under ./proLabReviews. The ingestion CLI regenerates that index atomically,
+ * while the production evidence registry validates every submission again at
+ * build time before anything can reach lessons, exercises, matchup patterns,
+ * comparisons, coverage, or reviewed VOD status.
  */
-export const proReviewedSubmissions: readonly ProReviewSubmission[] = []
+export { proReviewedSubmissions } from './proLabReviews/index'
