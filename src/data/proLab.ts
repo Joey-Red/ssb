@@ -3,6 +3,7 @@ import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
 import { buildAnnotationWorksheet } from '../lib/proLabAutomation'
 import { buildProCoverageDistributionAudit, buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
 import { compileProEvidenceRegistry } from '../lib/proLabEvidenceRegistry'
+import { applyIndexedCoverageDepth, selectUniqueIndexedCoverageSets } from '../lib/proLabIndexedCoverage'
 import {
   buildCharacterLessons,
   buildDecisionExercises,
@@ -19,6 +20,7 @@ import {
   validateSetBreakdowns,
 } from '../lib/proLabPhase2'
 import { roster } from './roster'
+import { proIndexedCoverageCatalog } from './proLabIndexedCoverageAll'
 import {
   nextProMetaResearchTargets2026,
   proMetaRepresentation2026,
@@ -152,6 +154,30 @@ export const proCoverageSummary = summarizeProCoverage(proRosterCoverage)
 export const proCoverageWorkQueue = buildProCoverageWorkQueue(proRosterCoverage, proDecisionMoments)
 export const proCoverageDistributionAudit = buildProCoverageDistributionAudit(proCoverageWorkQueue)
 
+/**
+ * Public source indexes can prove that more match footage exists before a direct
+ * watch URL has been resolved and reviewed. This projection exists only for
+ * acquisition prioritization: it never changes proRosterCoverage, evidence
+ * maturity, tactical extraction, teaching content, or the direct review queue.
+ */
+export const proIndexedCoverageSelection = selectUniqueIndexedCoverageSets(
+  proVodCatalog,
+  proPlayerRepresentatives,
+  proIndexedCoverageCatalog,
+)
+export const proRosterAcquisitionCoverage = applyIndexedCoverageDepth(
+  proRosterCoverage,
+  proIndexedCoverageSelection.accepted,
+  proLabReferenceDate,
+)
+export const proAcquisitionCoverageWorkQueue = buildProCoverageWorkQueue(
+  proRosterAcquisitionCoverage,
+  proDecisionMoments,
+)
+export const proAcquisitionCoverageDistributionAudit = buildProCoverageDistributionAudit(
+  proAcquisitionCoverageWorkQueue,
+)
+
 export const proRankedVodReviewPlan = buildProReviewPlan(
   proVodCatalog,
   proRosterCoverage,
@@ -242,6 +268,10 @@ export const proLabReleaseStats = {
   currentVodFloorMetFighters: proCoverageDistributionAudit.currentVodFloorMetCount,
   representativeFloorMetFighters: proCoverageDistributionAudit.representativeFloorMetCount,
   severeVodDeficitFighters: proCoverageDistributionAudit.severeVodDeficitCount,
+  indexedCoverageRecords: proIndexedCoverageCatalog.length,
+  acceptedIndexedCoverageRecords: proIndexedCoverageSelection.accepted.length,
+  duplicateIndexedCoverageRecords: proIndexedCoverageSelection.duplicateIds.length,
+  acquisitionSevereVodDeficitFighters: proAcquisitionCoverageDistributionAudit.severeVodDeficitCount,
   rosterReviewTargets: proRosterReviewBatch.length,
   rosterReviewPrimaryFighters: proRosterReviewBatchStats.primaryFighterCount,
   rosterReviewRepresentatives: proRosterReviewBatchStats.representativePlayerCount,
