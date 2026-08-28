@@ -9,19 +9,14 @@ describe('full-roster Pro Lab VOD completeness', () => {
       .map((fighter) => fighter.id)
       .sort()
 
-    expect(uncoveredFighterIds).toHaveLength(19)
+    expect(uncoveredFighterIds).toHaveLength(14)
     expect(new Set(uncoveredFighterIds).size).toBe(uncoveredFighterIds.length)
-    expect(uncoveredFighterIds).not.toContain('link')
     expect(uncoveredFighterIds).toEqual([
-      'banjo-and-kazooie',
       'chrom',
       'dark-pit',
-      'dr-mario',
       'ganondorf',
-      'jigglypuff',
       'king-dedede',
       'lucario',
-      'lucas',
       'lucina',
       'marth',
       'mewtwo',
@@ -29,7 +24,6 @@ describe('full-roster Pro Lab VOD completeness', () => {
       'mii-swordfighter',
       'pichu',
       'pit',
-      'rosalina-and-luma',
       'simon',
       'zelda',
     ])
