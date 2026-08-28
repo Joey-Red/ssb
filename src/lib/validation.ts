@@ -98,6 +98,7 @@ export function validateTechniqueProgression(progression: TechniqueProgression, 
     if (!/^[a-z0-9-]+$/.test(technique.id)) errors.push(`${technique.id} has an invalid progression id`)
     if (technique.route.length < 2) errors.push(`${technique.id} must document at least two route actions`)
     if (!Number.isInteger(technique.timestampSeconds) || technique.timestampSeconds < 0) errors.push(`${technique.id} has an invalid video timestamp`)
+    if (!Number.isInteger(technique.opponentStartPercent) || technique.opponentStartPercent < 0 || technique.opponentStartPercent > 999) errors.push(`${technique.id} has an invalid opponent starting percent`)
     if (technique.verdict === 'source-true' && (!technique.caveats || technique.caveats.length === 0)) errors.push(`${technique.id} source-true route must retain a qualification`)
   }
   return errors
