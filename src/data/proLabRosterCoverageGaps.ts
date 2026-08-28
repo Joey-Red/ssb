@@ -155,7 +155,8 @@ export const proCoverageGapRepresentatives = [
     sourceUrls: [
       'https://www.ssbwiki.com/Smasher:TRIGGER',
       'https://liquipedia.net/smash/TRIGGER',
+      'https://www.youtube.com/watch?v=hehKKzj6RvQ',
     ],
-    note: 'Current Japanese Simon specialist with documented 2026 offline results. A direct full-set VOD remains required before Simon leaves the zero-VOD backlog.',
+    note: 'Current Japanese Simon specialist with documented 2026 offline results. A direct East Geek Smash full-set VOD now closes Simon’s catalog coverage; tactical review remains pending.',
   },
 ] as const satisfies readonly ProPlayerRepresentative[]
