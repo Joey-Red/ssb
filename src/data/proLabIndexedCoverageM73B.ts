@@ -46,7 +46,7 @@ export const proIndexedCoverageM73B = [
   vod('nDRjHXsBFhU', 'Warhawk Weekly 4 Losers R3', 'Forgurble', 'Binch', ['rosalina-and-luma'], '2023-10-30'),
   vod('7Y3PffzY7rg', 'Warhawk Weekly 4 Winners R3', 'NV', 'Binch', ['rosalina-and-luma'], '2023-10-30'),
 
-  vod('bsy5zazz4k0', 'Sumapa 110 Losers Finals', 'Gorioka', 'TG', ['banjo-and-kazooie'], '2023-10-26'),
+  vod('bsy5zazz4k0', 'Sumapa 110 Losers Finals', 'Gorioka', 'TG', ['banjo-and-kazooie', 'mewtwo'], '2023-10-26'),
   vod('ywn-37xB_mQ', 'Sumapa 110 Losers Semis', 'Chicken', 'TG', ['banjo-and-kazooie'], '2023-10-26'),
   vod('iJrif5RAMkU', 'Sumapa 110 Top 8', 'TG', 'Kinaji', ['banjo-and-kazooie'], '2023-10-26'),
   vod('i_G6cCeqpqI', 'Sumapa 110', 'TG', 'Rizeasu', ['banjo-and-kazooie'], '2023-10-26'),
