@@ -3,7 +3,6 @@ import {
   proAegisPilotReviewBatch,
   proAegisPilotSubmissionTemplates,
   proAegisPilotWorksheets,
-  proCoverageSummary,
   proCoverageWorkQueue,
   proLabReleaseStats,
 } from '../data/proLab'
