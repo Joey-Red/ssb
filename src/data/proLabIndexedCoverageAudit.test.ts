@@ -11,6 +11,7 @@ import {
   proIndexedCoverageCatalog,
   proSideNeutralIndexedCoverageCatalog,
 } from './proLabIndexedCoverageAll'
+import { proIndexedCoverageM73D } from './proLabIndexedCoverageM73D'
 
 describe('Pro Lab source-indexed coverage depth', () => {
   it('keeps indexed acquisition evidence separate, unique, and source-backed', () => {
@@ -26,6 +27,8 @@ describe('Pro Lab source-indexed coverage depth', () => {
       proIndexedCoverageSelection.accepted.length + proIndexedCoverageSelection.duplicateIds.length,
     ).toBe(proIndexedCoverageCatalog.length)
     expect(new Set(proIndexedCoverageSelection.duplicateIds).size).toBe(proIndexedCoverageSelection.duplicateIds.length)
+    const acceptedIds = new Set(proIndexedCoverageSelection.accepted.map((entry) => entry.id))
+    expect(proIndexedCoverageM73D.every((entry) => acceptedIds.has(entry.id))).toBe(true)
 
     const directVodIds = new Set(proVodCatalog.map((vod) => vod.id))
     expect(proIndexedCoverageCatalog.every((entry) => !directVodIds.has(entry.id))).toBe(true)
@@ -48,6 +51,8 @@ describe('Pro Lab source-indexed coverage depth', () => {
     expect(proAcquisitionCoverageDistributionAudit.severeVodDeficitCount).toBeLessThan(
       proCoverageDistributionAudit.severeVodDeficitCount,
     )
-    expect(proAcquisitionCoverageDistributionAudit.severeVodDeficitCount).toBeLessThanOrEqual(40)
+    expect(proIndexedCoverageM73D).toHaveLength(30)
+    expect(proAcquisitionCoverageDistributionAudit.severeVodDeficitCount).toBe(0)
+    expect(proRosterAcquisitionCoverage.every((entry) => entry.vodCount >= 6)).toBe(true)
   })
 })
