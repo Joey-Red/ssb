@@ -75,7 +75,7 @@ describe('Pro Lab review ingestion CLI', () => {
     expect(output).toContain('review1 as unknown as ProReviewSubmission')
   })
 
-  it('writes canonical per-VOD JSON and regenerates the index atomically before the quality gate', () => {
+  it('writes canonical per-VOD JSON and regenerates the index before the quality gate', () => {
     const root = mkdtempSync(join(tmpdir(), 'prolab-ingest-'))
     try {
       const inputPath = join(root, 'submission.json')
@@ -94,6 +94,28 @@ describe('Pro Lab review ingestion CLI', () => {
       writeFileSync(inputPath, JSON.stringify(replacement, null, 2))
       ingestReviewSubmission({ inputPath, reviewDir, indexPath, replace: true, runQualityGate: false })
       expect(JSON.parse(readFileSync(result.targetPath, 'utf8')).reviewerNote).toBe('replacement marker')
+    } finally {
+      rmSync(root, { recursive: true, force: true })
+    }
+  })
+
+  it('rolls back the per-VOD file when any later transactional write fails', () => {
+    const root = mkdtempSync(join(tmpdir(), 'prolab-ingest-rollback-'))
+    try {
+      const inputPath = join(root, 'submission.json')
+      const reviewDir = join(root, 'reviews')
+      const impossibleIndexPath = join(reviewDir, 'missing-parent', 'index.ts')
+      const targetPath = join(reviewDir, 'vod-a.json')
+      writeFileSync(inputPath, JSON.stringify(submission(), null, 2))
+
+      expect(() => ingestReviewSubmission({
+        inputPath,
+        reviewDir,
+        indexPath: impossibleIndexPath,
+        runQualityGate: false,
+      })).toThrow(/rolled back/)
+      expect(existsSync(targetPath)).toBe(false)
+      expect(existsSync(impossibleIndexPath)).toBe(false)
     } finally {
       rmSync(root, { recursive: true, force: true })
     }
