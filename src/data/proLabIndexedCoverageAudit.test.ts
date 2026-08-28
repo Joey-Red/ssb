@@ -1,59 +1,53 @@
 import { describe, expect, it } from 'vitest'
-import { applyIndexedCoverageDepth, selectUniqueIndexedCoverageSets } from '../lib/proLabIndexedCoverage'
 import {
-  proLabReferenceDate,
-  proPlayerRepresentatives,
+  proAcquisitionCoverageDistributionAudit,
+  proCoverageDistributionAudit,
+  proIndexedCoverageSelection,
+  proRosterAcquisitionCoverage,
   proRosterCoverage,
   proVodCatalog,
 } from './proLab'
-import { proIndexedCoverageDepth } from './proLabIndexedCoverageDepth'
-import { proIndexedCoverageM73A } from './proLabIndexedCoverageM73A'
-import { proIndexedCoverageM73B } from './proLabIndexedCoverageM73B'
-import { proIndexedCoverageM73C } from './proLabIndexedCoverageM73C'
-
-const indexedCoverage = [
-  ...proIndexedCoverageDepth,
-  ...proIndexedCoverageM73A,
-  ...proIndexedCoverageM73B,
-  ...proIndexedCoverageM73C,
-]
-const sideNeutralCoverage = [
-  ...proIndexedCoverageM73A,
-  ...proIndexedCoverageM73B,
-  ...proIndexedCoverageM73C,
-]
+import {
+  proIndexedCoverageCatalog,
+  proSideNeutralIndexedCoverageCatalog,
+} from './proLabIndexedCoverageAll'
 
 describe('Pro Lab source-indexed coverage depth', () => {
-  it('keeps indexed planning evidence separate, unique, and measurable', () => {
-    const selection = selectUniqueIndexedCoverageSets(
-      proVodCatalog,
-      proPlayerRepresentatives,
-      indexedCoverage,
-    )
-    const projectedCoverage = applyIndexedCoverageDepth(
-      proRosterCoverage,
-      selection.accepted,
-      proLabReferenceDate,
-    )
-    const severe = projectedCoverage
-      .filter((entry) => entry.vodCount < 6)
-      .map((entry) => ({
-        fighterId: entry.fighterId,
-        vodCount: entry.vodCount,
-        currentVodCount: entry.currentVodCount,
-      }))
+  it('keeps indexed acquisition evidence separate, unique, and source-backed', () => {
+    expect(new Set(proIndexedCoverageCatalog.map((entry) => entry.id)).size).toBe(proIndexedCoverageCatalog.length)
+    expect(proIndexedCoverageCatalog.every((entry) => entry.evidenceStatus === 'source-index')).toBe(true)
+    expect(proIndexedCoverageCatalog.every((entry) => entry.sourceUrls.length >= 2)).toBe(true)
+    expect(proSideNeutralIndexedCoverageCatalog.every((entry) => entry.indexedFighterIds.length > 0)).toBe(true)
+    expect(proSideNeutralIndexedCoverageCatalog.every((entry) =>
+      entry.playerFighterIds.length === 0 && entry.opponentFighterIds.length === 0,
+    )).toBe(true)
 
-    console.log(`M73_INDEXED_COVERAGE=${JSON.stringify({
-      indexedTotal: indexedCoverage.length,
-      accepted: selection.accepted.length,
-      duplicates: selection.duplicateIds,
-      severe,
-    })}`)
+    expect(
+      proIndexedCoverageSelection.accepted.length + proIndexedCoverageSelection.duplicateIds.length,
+    ).toBe(proIndexedCoverageCatalog.length)
+    expect(new Set(proIndexedCoverageSelection.duplicateIds).size).toBe(proIndexedCoverageSelection.duplicateIds.length)
 
-    expect(new Set(indexedCoverage.map((entry) => entry.id)).size).toBe(indexedCoverage.length)
-    expect(indexedCoverage.every((entry) => entry.evidenceStatus === 'source-index')).toBe(true)
-    expect(indexedCoverage.every((entry) => entry.sourceUrls.length >= 2)).toBe(true)
-    expect(sideNeutralCoverage.every((entry) => entry.indexedFighterIds.length > 0)).toBe(true)
-    expect(sideNeutralCoverage.every((entry) => entry.playerFighterIds.length === 0 && entry.opponentFighterIds.length === 0)).toBe(true)
+    const directVodIds = new Set(proVodCatalog.map((vod) => vod.id))
+    expect(proIndexedCoverageCatalog.every((entry) => !directVodIds.has(entry.id))).toBe(true)
+  })
+
+  it('improves acquisition planning without promoting direct evidence maturity', () => {
+    const directByFighter = new Map(proRosterCoverage.map((entry) => [entry.fighterId, entry]))
+
+    for (const projected of proRosterAcquisitionCoverage) {
+      const direct = directByFighter.get(projected.fighterId)
+      expect(direct, projected.fighterId).toBeDefined()
+      if (!direct) continue
+
+      expect(projected.state, projected.fighterId).toBe(direct.state)
+      expect(projected.vodCount, projected.fighterId).toBeGreaterThanOrEqual(direct.vodCount)
+      expect(projected.currentVodCount, projected.fighterId).toBeGreaterThanOrEqual(direct.currentVodCount)
+    }
+
+    expect(proAcquisitionCoverageDistributionAudit.fighterCount).toBe(89)
+    expect(proAcquisitionCoverageDistributionAudit.severeVodDeficitCount).toBeLessThan(
+      proCoverageDistributionAudit.severeVodDeficitCount,
+    )
+    expect(proAcquisitionCoverageDistributionAudit.severeVodDeficitCount).toBeLessThanOrEqual(40)
   })
 })
