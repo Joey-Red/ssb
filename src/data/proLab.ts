@@ -27,7 +27,7 @@ import {
 import { proVodReviewQueue as proVodReviewQueueSource } from './proLabReviewQueueAll'
 import { proReviewedSubmissions } from './proLabReviewedSubmissions'
 import { proFighterResearchRegistry, proPlayerRepresentatives } from './proLabRosterAll'
-import { proVodCatalog as proVodSourceCatalog } from './proLabVodsAll'
+import { proVodCatalogWithCoverageGaps as proVodSourceCatalog } from './proLabVodsAll'
 
 export const proLabReferenceDate = '2026-08-27'
 

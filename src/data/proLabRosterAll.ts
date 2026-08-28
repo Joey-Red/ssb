@@ -4,6 +4,7 @@ import { proPlayerRepresentatives2026Batch2 } from './proLabRoster2026Batch2'
 import { proPlayerRepresentatives2026Batch3 } from './proLabRoster2026Batch3'
 import { proPlayerRepresentatives2026Batch4 } from './proLabRoster2026Batch4'
 import { proPlayerRepresentatives2026Batch5 } from './proLabRoster2026Batch5'
+import { proCoverageGapRepresentatives } from './proLabRosterCoverageGaps'
 import { proMetaGapRepresentatives } from './proLabRosterMetaGaps'
 import { supplementalProPlayerRepresentatives } from './proLabRosterSupplemental'
 import type { ProFighterResearchEntry, ProPlayerRepresentative } from './proLabTypes'
@@ -11,6 +12,7 @@ import type { ProFighterResearchEntry, ProPlayerRepresentative } from './proLabT
 export const proPlayerRepresentatives = [
   ...foundationalRepresentatives,
   ...supplementalProPlayerRepresentatives,
+  ...proCoverageGapRepresentatives,
   ...proMetaGapRepresentatives,
   ...proPlayerRepresentatives2026Batch2,
   ...proPlayerRepresentatives2026Batch3,
@@ -37,6 +39,7 @@ export const proFighterResearchRegistry: readonly ProFighterResearchEntry[] = ro
 })
 
 export {
+  proCoverageGapRepresentatives,
   proMetaGapRepresentatives,
   proPlayerRepresentatives2026Batch2,
   proPlayerRepresentatives2026Batch3,

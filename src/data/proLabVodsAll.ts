@@ -15,6 +15,7 @@ import { proVodCatalog2026Batch2 } from './proLabVods2026Batch2'
 import { proVodCatalog2026Batch3 } from './proLabVods2026Batch3'
 import { proVodCatalog2026Batch4 } from './proLabVods2026Batch4'
 import { proVodCatalog2026Batch5 } from './proLabVods2026Batch5'
+import { proCoverageGapVodCatalog } from './proLabVodsCoverageGaps'
 import {
   proVodFinal293Candidates,
   selectProVodAcquisitionBatch,
@@ -41,12 +42,17 @@ export const proVodCatalogFinal293 = selectProVodAcquisitionBatch(
   293,
 )
 
-const unresolvedCatalog = [
+const unresolvedAcquisitionCatalog = [
   ...proVodCatalogBeforeFinal293,
   ...proVodCatalogFinal293,
 ] as readonly ProVodRecord[]
 
-export const proVodCatalog = unresolvedCatalog.map((vod) =>
+/**
+ * Immutable 800-record acquisition/recovery baseline. Historical recovery tests
+ * intentionally target this catalog so later roster coverage work can grow the
+ * live corpus without rewriting what those completed batches accomplished.
+ */
+export const proVodCatalog = unresolvedAcquisitionCatalog.map((vod) =>
   applyProVodLinkResolutionBulk11(
     applyProVodLinkResolutionBulk10(
       applyProVodLinkResolutionBulk9(
@@ -70,21 +76,28 @@ export const proVodCatalog = unresolvedCatalog.map((vod) =>
   ),
 ) as readonly ProVodRecord[]
 
-export const proVodById = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
+/** Live Pro Lab corpus: completed 800-set baseline plus neutral coverage gaps. */
+export const proVodCatalogWithCoverageGaps = [
+  ...proVodCatalog,
+  ...proCoverageGapVodCatalog,
+] as readonly ProVodRecord[]
+
+export const proVodById = new Map(proVodCatalogWithCoverageGaps.map((vod) => [vod.id, vod]))
 
 export function vodIncludesFighter(vod: ProVodRecord, fighterId: string) {
   return vod.playerFighterIds.includes(fighterId) || vod.opponentFighterIds.includes(fighterId)
 }
 
 export function getProVodsForFighter(fighterId: string) {
-  return proVodCatalog.filter((vod) => vodIncludesFighter(vod, fighterId))
+  return proVodCatalogWithCoverageGaps.filter((vod) => vodIncludesFighter(vod, fighterId))
 }
 
 export function getProVodsForPlayer(playerId: string) {
-  return proVodCatalog.filter((vod) => vod.playerId === playerId)
+  return proVodCatalogWithCoverageGaps.filter((vod) => vod.playerId === playerId)
 }
 
 export {
+  proCoverageGapVodCatalog,
   proVodCatalog2026Batch1,
   proVodCatalog2026Batch2,
   proVodCatalog2026Batch3,
