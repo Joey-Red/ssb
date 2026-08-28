@@ -1,4 +1,5 @@
 import {
+  proCoverageDistributionAudit,
   proCoverageWorkQueue,
   proLabReleaseStats,
   proRosterReviewBatch,
@@ -7,6 +8,7 @@ import {
   proRosterReviewWorksheets,
 } from '../data/proLab'
 import { roster } from '../data/roster'
+import { defaultProCoverageGoals } from '../lib/proLabCoveragePlanning'
 import { hrefFor } from '../router'
 import type { FighterManifestEntry } from '../types'
 
@@ -15,6 +17,7 @@ const worksheetByVod = new Map(proRosterReviewWorksheets.map((worksheet) => [wor
 const submissionTemplateByVod = new Map(proRosterReviewSubmissionTemplates.map((submission) => [submission.vodId, submission]))
 const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) => fighterById.get(id)?.name ?? id).join(' / ')
 const actionLabel = (value: string) => value.replace(/-/g, ' ')
+const floorValue = (actual: number, floor: number) => `${actual}/${floor}`
 
 export function ProLabOperations() {
   return <section className="panel">
@@ -37,6 +40,43 @@ export function ProLabOperations() {
         <p>{proLabReleaseStats.checkedInReviewSubmissions} checked in · {proLabReleaseStats.acceptedReviewSubmissions} accepted · {proLabReleaseStats.rejectedReviewSubmissions} rejected · {proLabReleaseStats.reviewedReviewTargets} fully reviewed VODs</p>
         <span>Only validator-clean checked-in submissions can change VOD status or feed lessons, exercises, matchup patterns, comparisons, and coverage.</span>
       </article>
+    </div>
+
+    <div className="section-heading"><div><p className="eyebrow">M72 distribution audit</p><h2>Roster-wide evidence depth</h2></div><span className="section-meta">All {proCoverageDistributionAudit.fighterCount} fighters · objective coverage-gap order</span></div>
+    <div className="pro-lab__audit-strip pro-lab__audit-strip--coverage">
+      <span><strong>{proLabReleaseStats.vodLearningRecords}</strong>live VOD records</span>
+      <span><strong>{proCoverageDistributionAudit.zeroVodFighterCount}</strong>fighters with zero VODs</span>
+      <span><strong>{proCoverageDistributionAudit.vodFloorMetCount}/{proCoverageDistributionAudit.fighterCount}</strong>meet 12-VOD floor</span>
+      <span><strong>{proCoverageDistributionAudit.currentVodFloorMetCount}/{proCoverageDistributionAudit.fighterCount}</strong>meet 4-current floor</span>
+      <span><strong>{proCoverageDistributionAudit.representativeFloorMetCount}/{proCoverageDistributionAudit.fighterCount}</strong>meet 2-rep floor</span>
+      <span><strong>{proCoverageDistributionAudit.reviewedSetFloorMetCount}/{proCoverageDistributionAudit.fighterCount}</strong>meet 8-reviewed-set floor</span>
+      <span><strong>{proCoverageDistributionAudit.reviewedMomentFloorMetCount}/{proCoverageDistributionAudit.fighterCount}</strong>meet 16-moment floor</span>
+      <span><strong>{proCoverageDistributionAudit.severeVodDeficitCount}</strong>below half of VOD floor</span>
+    </div>
+    <p className="pro-lab__distribution-note">
+      Primary-side VOD depth: <strong>{proCoverageDistributionAudit.minimumVodCount}</strong> minimum · <strong>{proCoverageDistributionAudit.medianVodCount}</strong> median · <strong>{proCoverageDistributionAudit.maximumVodCount}</strong> maximum. Remaining planning gaps: <strong>{proCoverageDistributionAudit.totalVodGap}</strong> VOD appearances · <strong>{proCoverageDistributionAudit.totalCurrentVodGap}</strong> current-era appearances · <strong>{proCoverageDistributionAudit.totalRepresentativeGap}</strong> representative slots. These are planning floors, not permission to add weak evidence.
+    </p>
+    <div className="pro-lab__distribution-table-wrap" role="region" aria-label="Roster-wide Pro Lab coverage distribution" tabIndex={0}>
+      <table className="pro-lab__distribution-table">
+        <caption>All fighters ranked by the same roster-neutral evidence deficit score used by the acquisition and review queues.</caption>
+        <thead><tr><th scope="col">Rank</th><th scope="col">Fighter</th><th scope="col">VODs</th><th scope="col">Current</th><th scope="col">Reps</th><th scope="col">Reviewed sets</th><th scope="col">Moments</th><th scope="col">Planning deficits</th><th scope="col">Next action</th></tr></thead>
+        <tbody>
+          {proCoverageWorkQueue.map((item) => {
+            const fighter = fighterById.get(item.fighterId)
+            return <tr key={item.fighterId}>
+              <td>#{item.rank}</td>
+              <th scope="row">{fighter ? <a href={hrefFor(`/pro-lab/${fighter.slug}`)}>{fighter.name}</a> : item.fighterId}</th>
+              <td className={item.vodGap === 0 ? 'is-floor-met' : undefined}>{floorValue(item.vodCount, defaultProCoverageGoals.vodFloor)}</td>
+              <td className={item.currentVodGap === 0 ? 'is-floor-met' : undefined}>{floorValue(item.currentVodCount, defaultProCoverageGoals.currentVodFloor)}</td>
+              <td className={item.representativeGap === 0 ? 'is-floor-met' : undefined}>{floorValue(item.representativeCount, defaultProCoverageGoals.representativeFloor)}</td>
+              <td className={item.reviewedSetGap === 0 ? 'is-floor-met' : undefined}>{floorValue(item.reviewedSetCount, defaultProCoverageGoals.reviewedSetFloor)}</td>
+              <td className={item.reviewedMomentGap === 0 ? 'is-floor-met' : undefined}>{floorValue(item.reviewedMomentCount, defaultProCoverageGoals.reviewedMomentFloor)}</td>
+              <td><span className="pro-lab__distribution-gaps">V {item.vodGap} · C {item.currentVodGap} · R {item.representativeGap} · S {item.reviewedSetGap} · M {item.reviewedMomentGap}</span></td>
+              <td><span className="pro-lab__distribution-action" title={item.reasons.join(' · ')}>{actionLabel(item.nextAction)}</span></td>
+            </tr>
+          })}
+        </tbody>
+      </table>
     </div>
 
     <div className="section-heading"><div><p className="eyebrow">Completion queue</p><h2>Highest Pro Lab content gaps</h2></div><span className="section-meta">12-set / 2-representative floors plus evidence depth</span></div>
