@@ -6,10 +6,11 @@ import {
   validateSetBreakdowns,
 } from './proLabPhase2'
 import {
-  proAegisPilotReviewTargets,
   proCoverageSummary,
   proDecisionMomentValidation,
   proRankedVodReviewPlan,
+  proRosterReviewBatch,
+  proRosterReviewFighterPriority,
   proSetBreakdownValidation,
   proVodCatalog,
 } from '../data/proLab'
@@ -24,7 +25,7 @@ const makeVod = (overrides: Partial<ProVodRecord> = {}): ProVodRecord => ({
   id: 'vod-a',
   title: 'Player vs Opponent',
   playerId: 'player-a',
-  playerFighterIds: ['pyra', 'mythra'],
+  playerFighterIds: ['mario'],
   opponentTag: 'Opponent',
   opponentFighterIds: ['fox'],
   event: 'Test Major',
@@ -76,12 +77,12 @@ const validMoment: ProDecisionMoment = {
   vodId: 'vod-a',
   game: 1,
   timestampSeconds: 15,
-  fighterId: 'pyra',
+  fighterId: 'mario',
   opponentFighterId: 'fox',
   context: 'neutral',
   state: { position: 'center' },
   chosenOption: 'short-hop aerial',
-  observableOutcome: 'The opponent shields and Pyra lands nearby.',
+  observableOutcome: 'The opponent shields and Mario lands nearby.',
   evidenceClass: 'observed',
   confidence: 0.9,
   teachingTags: ['shield pressure'],
@@ -92,7 +93,7 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     const report = validateDecisionMoments(
       [validMoment],
       [makeVod()],
-      ['pyra', 'mythra', 'fox'],
+      ['mario', 'fox'],
     )
     expect(report.valid).toBe(true)
     expect(report.issues).toEqual([])
@@ -102,7 +103,7 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     const invalid: ProDecisionMoment = {
       ...validMoment,
       timestampSeconds: 500,
-      fighterId: 'mario',
+      fighterId: 'luigi',
       opponentFighterId: 'falco',
       confidence: 1.2,
       teachingTags: ['Spacing', ' spacing '],
@@ -110,7 +111,7 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     const report = validateDecisionMoments(
       [invalid, invalid],
       [makeVod()],
-      ['pyra', 'mythra', 'fox', 'mario', 'falco'],
+      ['mario', 'fox', 'luigi', 'falco'],
     )
     expect(report.valid).toBe(false)
     expect(report.errors.map((issue) => issue.code)).toEqual(
@@ -159,13 +160,13 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     )
   })
 
-  it('ranks direct footage deterministically and strongly boosts requested pilot fighters', () => {
-    const aegis = makeVod({ id: 'aegis-regional', eventTier: 'regional', date: '2026-07-01' })
+  it('ranks direct footage deterministically and supports optional caller focus without changing the default plan', () => {
+    const mario = makeVod({ id: 'mario-regional', eventTier: 'regional', date: '2026-07-01' })
     const unrelated = makeVod({
       id: 'fox-supermajor',
       eventTier: 'supermajor',
       playerFighterIds: ['fox'],
-      opponentFighterIds: ['mario'],
+      opponentFighterIds: ['luigi'],
       date: '2026-08-20',
     })
     const unresolved = makeVod({
@@ -176,22 +177,21 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
       analysisStatus: 'cataloged',
     })
     const coverage = [
-      makeCoverage('pyra'),
-      makeCoverage('mythra'),
-      makeCoverage('fox'),
       makeCoverage('mario'),
+      makeCoverage('fox'),
+      makeCoverage('luigi'),
     ]
 
-    const first = buildProReviewPlan([unrelated, unresolved, aegis], coverage, {
-      focusFighterIds: ['pyra', 'mythra'],
+    const first = buildProReviewPlan([unrelated, unrelated, mario], coverage, {
+      focusFighterIds: ['mario'],
     })
-    const second = buildProReviewPlan([aegis, unrelated, unresolved], coverage, {
-      focusFighterIds: ['pyra', 'mythra'],
+    const second = buildProReviewPlan([mario, unrelated, unresolved], coverage, {
+      focusFighterIds: ['mario'],
     })
 
     expect(first.map((entry) => entry.vodId)).toEqual(second.map((entry) => entry.vodId))
-    expect(first.map((entry) => entry.vodId)).toEqual(['aegis-regional', 'fox-supermajor'])
-    expect(first[0]?.reasons).toContain('focus fighter: pyra, mythra')
+    expect(first.map((entry) => entry.vodId)).toEqual(['mario-regional', 'fox-supermajor'])
+    expect(first[0]?.reasons).toContain('focus fighter: mario')
     expect(first.map((entry) => entry.rank)).toEqual([1, 2])
   })
 
@@ -223,15 +223,20 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     expect(proRankedVodReviewPlan.every((target) => target.videoUrl.startsWith('https://'))).toBe(true)
   })
 
-  it('creates an Aegis pilot queue without inventing tactical review completion', () => {
-    expect(proAegisPilotReviewTargets.length).toBeGreaterThan(0)
-    expect(proAegisPilotReviewTargets.length).toBeLessThanOrEqual(12)
-    expect(proAegisPilotReviewTargets.every((target) =>
-      target.fighterIds.includes('pyra') || target.fighterIds.includes('mythra'),
-    )).toBe(true)
-    expect(proAegisPilotReviewTargets.map((target) => target.rank)).toEqual(
-      proAegisPilotReviewTargets.map((_, index) => index + 1),
+  it('creates a roster-neutral production review batch from coverage priority', () => {
+    expect(proRosterReviewFighterPriority).toHaveLength(89)
+    expect(proRosterReviewBatch).toHaveLength(16)
+    expect(proRosterReviewBatch.map((target) => target.rank)).toEqual(
+      proRosterReviewBatch.map((_, index) => index + 1),
     )
+
+    const primaryFighters = new Set<string>()
+    for (const target of proRosterReviewBatch) {
+      const vod = proVodCatalog.find((entry) => entry.id === target.vodId)
+      expect(vod).toBeTruthy()
+      vod?.playerFighterIds.forEach((fighterId) => primaryFighters.add(fighterId))
+    }
+    expect(primaryFighters.size).toBeGreaterThan(8)
   })
 
   it('keeps the production evidence model structurally valid before annotations begin', () => {
