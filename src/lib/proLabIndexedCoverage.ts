@@ -12,13 +12,22 @@ const dateValue = (value: string) => {
   return Number.isFinite(timestamp) ? timestamp : null
 }
 
+type CoverageIndexedSet = ProIndexedCoverageSet & {
+  /**
+   * Character-index evidence can establish that a fighter appears in a set
+   * without safely establishing which player used it. When present, this is
+   * the authoritative coverage-only fighter list for the indexed record.
+   */
+  readonly indexedFighterIds?: readonly string[]
+}
+
 export const proCoverageSetIdentity = (playerTag: string, opponentTag: string, date: string) =>
   `${[normalizeTag(playerTag), normalizeTag(opponentTag)].sort().join('|')}|${date}`
 
-export function selectUniqueIndexedCoverageSets(
+export function selectUniqueIndexedCoverageSets<T extends CoverageIndexedSet>(
   vods: readonly ProVodRecord[],
   players: readonly ProPlayerRepresentative[],
-  indexedSets: readonly ProIndexedCoverageSet[],
+  indexedSets: readonly T[],
 ) {
   const playerTagById = new Map(players.map((player) => [player.id, player.tag]))
   const seen = new Set<string>()
@@ -28,7 +37,7 @@ export function selectUniqueIndexedCoverageSets(
     seen.add(proCoverageSetIdentity(playerTag, vod.opponentTag, vod.date))
   }
 
-  const accepted: ProIndexedCoverageSet[] = []
+  const accepted: T[] = []
   const duplicateIds: string[] = []
   for (const indexed of indexedSets) {
     const identity = proCoverageSetIdentity(indexed.playerTag, indexed.opponentTag, indexed.date)
@@ -52,18 +61,20 @@ export function indexedSetIsCurrent(set: ProIndexedCoverageSet, referenceDate: s
 /**
  * Indexed match-video entries deepen roster planning only. They never enter the
  * direct-footage review registry, tactical extraction, lessons, or comparison
- * pipeline. Fighter labels must be explicit in the public index title before an
- * entry is checked in.
+ * pipeline. Fighter labels must be explicit in the public index before an entry
+ * is checked in. Side-neutral character indexes use indexedFighterIds so the
+ * catalog never invents which competitor played that fighter.
  */
-export function applyIndexedCoverageDepth(
+export function applyIndexedCoverageDepth<T extends CoverageIndexedSet>(
   coverage: readonly ProFighterCoverage[],
-  indexedSets: readonly ProIndexedCoverageSet[],
+  indexedSets: readonly T[],
   referenceDate: string,
 ): readonly ProFighterCoverage[] {
   return coverage.map((entry) => {
-    const indexedForFighter = indexedSets.filter((set) =>
-      set.playerFighterIds.includes(entry.fighterId) || set.opponentFighterIds.includes(entry.fighterId),
-    )
+    const indexedForFighter = indexedSets.filter((set) => {
+      const fighterIds = set.indexedFighterIds ?? [...set.playerFighterIds, ...set.opponentFighterIds]
+      return fighterIds.includes(entry.fighterId)
+    })
     if (indexedForFighter.length === 0) return entry
     const currentIndexedCount = indexedForFighter.filter((set) => indexedSetIsCurrent(set, referenceDate)).length
     const notes = [...entry.notes]
