@@ -1,36 +1,44 @@
 import { describe, it } from 'vitest'
-import { proTemporalEvidence, proVodCatalog } from './proLab'
+import { proFighterResearchRegistry, proTemporalEvidence, proVodCatalog } from './proLab'
+import { proVodAcquisitionIdentity, proVodFinal293Candidates } from './proLabVodsFinal293'
 import { roster } from './roster'
 
 describe('temporary Pro Lab milestone coverage diagnostic', () => {
-  it('reports all confirmed fighter-side VOD coverage for M73 planning', () => {
+  it('reports vetted expansion inventory for M73-M76 planning', () => {
     const temporalByVod = new Map(proTemporalEvidence.map((entry) => [entry.vodId, entry]))
+    const liveIdentities = new Set(proVodCatalog.map(proVodAcquisitionIdentity))
     const rows = roster.map((fighter) => {
-      const vods = proVodCatalog.filter((vod) =>
+      const primary = proVodCatalog.filter((vod) => vod.playerFighterIds.includes(fighter.id))
+      const anySide = proVodCatalog.filter((vod) =>
         vod.playerFighterIds.includes(fighter.id) || vod.opponentFighterIds.includes(fighter.id),
       )
+      const research = proFighterResearchRegistry.find((entry) => entry.fighterId === fighter.id)
       return {
         fighterId: fighter.id,
-        vodCount: vods.length,
-        currentVodCount: vods.filter((vod) => temporalByVod.get(vod.id)?.era === 'current').length,
+        primaryVodCount: primary.length,
+        anySideVodCount: anySide.length,
+        currentAnySideVodCount: anySide.filter((vod) => temporalByVod.get(vod.id)?.era === 'current').length,
+        representativeIds: research?.representativeIds ?? [],
       }
     })
-    const severe = rows.filter((item) => item.vodCount < 6)
-    const belowVodFloor = rows.filter((item) => item.vodCount < 12)
-    const belowCurrentFloor = rows.filter((item) => item.currentVodCount < 4)
-    throw new Error(`PROLAB_M73_ALL_SIDES ${JSON.stringify({
-      summary: {
-        zeroVodFighterCount: rows.filter((item) => item.vodCount === 0).length,
-        severeVodDeficitCount: severe.length,
-        vodFloorMetCount: rows.length - belowVodFloor.length,
-        currentVodFloorMetCount: rows.length - belowCurrentFloor.length,
-        totalVodGap: rows.reduce((total, item) => total + Math.max(0, 12 - item.vodCount), 0),
-        totalCurrentVodGap: rows.reduce((total, item) => total + Math.max(0, 4 - item.currentVodCount), 0),
-        minimumVodCount: Math.min(...rows.map((item) => item.vodCount)),
-      },
-      severe,
-      belowVodFloor,
-      belowCurrentFloor,
+    const unusedCandidates = proVodFinal293Candidates
+      .filter((vod) => !liveIdentities.has(proVodAcquisitionIdentity(vod)))
+      .map((vod) => ({
+        id: vod.id,
+        playerId: vod.playerId,
+        fighterIds: vod.playerFighterIds,
+        opponentTag: vod.opponentTag,
+        event: vod.event,
+        date: vod.date,
+        videoUrl: vod.videoUrl,
+        sourceUrls: vod.sourceUrls,
+      }))
+    throw new Error(`PROLAB_EXPANSION_INVENTORY ${JSON.stringify({
+      repGaps: rows.filter((item) => item.representativeIds.length < 2),
+      severePrimary: rows.filter((item) => item.primaryVodCount < 6),
+      belowPrimaryFloor: rows.filter((item) => item.primaryVodCount < 12),
+      belowCurrentAllSideFloor: rows.filter((item) => item.currentAnySideVodCount < 4),
+      unusedCandidates,
     })}`)
   })
 })
