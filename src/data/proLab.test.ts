@@ -8,7 +8,7 @@ import {
   proVodReviewQueue,
   proVodReviewQueueStats,
 } from './proLabReviewQueueAll'
-import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
+import { proFighterResearchRegistry, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
 import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
 
@@ -158,9 +158,10 @@ describe('Pro Lab foundation', () => {
     expect(nextProMetaResearchTargets2026).toHaveLength(0)
   })
 
-  it('covers every pilot fighter with at least one competitive VOD', () => {
-    for (const fighterId of proLabPilotFighterIds) {
-      expect(getProVodsForFighter(fighterId).length, fighterId).toBeGreaterThan(0)
+  it('keeps competitive VOD coverage available for every fighter equally', () => {
+    expect(roster).toHaveLength(89)
+    for (const fighter of roster) {
+      expect(getProVodsForFighter(fighter.id).length, fighter.id).toBeGreaterThan(0)
     }
   })
 
