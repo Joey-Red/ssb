@@ -3,6 +3,7 @@ import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
 import { buildAnnotationWorksheet } from '../lib/proLabAutomation'
 import { buildProCoverageDistributionAudit, buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
 import { compileProEvidenceRegistry } from '../lib/proLabEvidenceRegistry'
+import { applyIndexedCoverageDepth, selectUniqueIndexedCoverageSets } from '../lib/proLabIndexedCoverage'
 import {
   buildCharacterLessons,
   buildDecisionExercises,
@@ -19,6 +20,7 @@ import {
   validateSetBreakdowns,
 } from '../lib/proLabPhase2'
 import { roster } from './roster'
+import { proIndexedCoverageCatalog } from './proLabIndexedCoverageAll'
 import {
   nextProMetaResearchTargets2026,
   proMetaRepresentation2026,
@@ -104,7 +106,7 @@ export const proMaintenanceReport = auditExpandedProLabCatalog(
   proLabReferenceDate,
 )
 
-export const proRosterCoverage = buildProRosterCoverage({
+const proPrimaryRosterCoverage = buildProRosterCoverage({
   fighterIds: roster.map((fighter) => fighter.id),
   research: proFighterResearchRegistry,
   players: proPlayerRepresentatives,
@@ -117,9 +119,64 @@ export const proRosterCoverage = buildProRosterCoverage({
   comparisons: proPlayerComparisons,
 })
 
+const proTemporalByVodId = new Map(proTemporalEvidence.map((entry) => [entry.vodId, entry]))
+const vodFeaturesFighter = (fighterId: string) => (vod: (typeof proVodCatalog)[number]) =>
+  vod.playerFighterIds.includes(fighterId) || vod.opponentFighterIds.includes(fighterId)
+
+/**
+ * Coverage floors count every confirmed fighter appearance in a set, regardless
+ * of which side is designated as the catalog's primary player. Primary-side
+ * attribution is still retained by the source VOD for representative/style
+ * analysis; it is not used to pretend opponent-side footage does not exist.
+ */
+export const proRosterCoverage = proPrimaryRosterCoverage.map((entry) => {
+  const fighterVods = proVodCatalog.filter(vodFeaturesFighter(entry.fighterId))
+  const currentVodCount = fighterVods.filter((vod) => proTemporalByVodId.get(vod.id)?.era === 'current').length
+  const notes = entry.notes.filter((note) =>
+    note !== 'No qualifying competitive set is cataloged yet.' &&
+    note !== 'Cataloged evidence exists, but no set currently falls inside the current-evidence window.',
+  )
+  if (fighterVods.length === 0) notes.push('No qualifying competitive set featuring this fighter is cataloged yet.')
+  else if (currentVodCount === 0) notes.push('Cataloged fighter evidence exists, but no confirmed appearance currently falls inside the current-evidence window.')
+  const state = fighterVods.length > 0 && (entry.state === 'research-queued' || entry.state === 'representative-seeded')
+    ? 'cataloged' as const
+    : entry.state
+  return {
+    ...entry,
+    state,
+    vodCount: fighterVods.length,
+    currentVodCount,
+    notes,
+  }
+})
+
 export const proCoverageSummary = summarizeProCoverage(proRosterCoverage)
 export const proCoverageWorkQueue = buildProCoverageWorkQueue(proRosterCoverage, proDecisionMoments)
 export const proCoverageDistributionAudit = buildProCoverageDistributionAudit(proCoverageWorkQueue)
+
+/**
+ * Public source indexes can prove that more match footage exists before a direct
+ * watch URL has been resolved and reviewed. This projection exists only for
+ * acquisition prioritization: it never changes proRosterCoverage, evidence
+ * maturity, tactical extraction, teaching content, or the direct review queue.
+ */
+export const proIndexedCoverageSelection = selectUniqueIndexedCoverageSets(
+  proVodCatalog,
+  proPlayerRepresentatives,
+  proIndexedCoverageCatalog,
+)
+export const proRosterAcquisitionCoverage = applyIndexedCoverageDepth(
+  proRosterCoverage,
+  proIndexedCoverageSelection.accepted,
+  proLabReferenceDate,
+)
+export const proAcquisitionCoverageWorkQueue = buildProCoverageWorkQueue(
+  proRosterAcquisitionCoverage,
+  proDecisionMoments,
+)
+export const proAcquisitionCoverageDistributionAudit = buildProCoverageDistributionAudit(
+  proAcquisitionCoverageWorkQueue,
+)
 
 export const proRankedVodReviewPlan = buildProReviewPlan(
   proVodCatalog,
@@ -211,6 +268,10 @@ export const proLabReleaseStats = {
   currentVodFloorMetFighters: proCoverageDistributionAudit.currentVodFloorMetCount,
   representativeFloorMetFighters: proCoverageDistributionAudit.representativeFloorMetCount,
   severeVodDeficitFighters: proCoverageDistributionAudit.severeVodDeficitCount,
+  indexedCoverageRecords: proIndexedCoverageCatalog.length,
+  acceptedIndexedCoverageRecords: proIndexedCoverageSelection.accepted.length,
+  duplicateIndexedCoverageRecords: proIndexedCoverageSelection.duplicateIds.length,
+  acquisitionSevereVodDeficitFighters: proAcquisitionCoverageDistributionAudit.severeVodDeficitCount,
   rosterReviewTargets: proRosterReviewBatch.length,
   rosterReviewPrimaryFighters: proRosterReviewBatchStats.primaryFighterCount,
   rosterReviewRepresentatives: proRosterReviewBatchStats.representativePlayerCount,
@@ -225,7 +286,7 @@ export const proLabReleaseStats = {
   matchupPatterns: proMatchupPatterns.length,
   playerComparisons: proPlayerComparisons.length,
   teachingReadyFighters: proRosterCoverage.filter((entry) => entry.state === 'teaching-ready').length,
-  catalogedFighters: roster.length - proMaintenanceReport.fightersWithoutCatalogedVods.length,
+  catalogedFighters: proRosterCoverage.filter((entry) => entry.vodCount > 0).length,
   phase2ValidationErrors: proEvidenceRegistry.errors.length + proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length,
   phase2ValidationWarnings: proEvidenceRegistry.warnings.length + proDecisionMomentValidation.warnings.length + proSetBreakdownValidation.warnings.length,
 } as const
