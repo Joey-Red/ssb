@@ -136,6 +136,18 @@ function restore(path, previous) {
   else writeFileSync(path, previous)
 }
 
+function rollbackReviewFiles(targetPath, previousTarget, indexPath, previousIndex) {
+  const rollbackErrors = []
+  for (const [path, previous] of [[targetPath, previousTarget], [indexPath, previousIndex]]) {
+    try {
+      restore(path, previous)
+    } catch (error) {
+      rollbackErrors.push(`${path}: ${error instanceof Error ? error.message : String(error)}`)
+    }
+  }
+  return rollbackErrors
+}
+
 export function ingestReviewSubmission({
   inputPath,
   reviewDir = defaultReviewDir,
@@ -159,24 +171,31 @@ export function ingestReviewSubmission({
   const previousTarget = targetExists ? readFileSync(targetPath) : null
   const previousIndex = existsSync(indexPath) ? readFileSync(indexPath) : null
 
-  writeFileSync(targetPath, `${JSON.stringify(submission, null, 2)}\n`, 'utf8')
-  const reviewFiles = readdirSync(reviewDir).filter((entry) => entry.endsWith('.json'))
-  writeFileSync(indexPath, renderReviewIndex(reviewFiles), 'utf8')
+  try {
+    writeFileSync(targetPath, `${JSON.stringify(submission, null, 2)}\n`, 'utf8')
+    const reviewFiles = readdirSync(reviewDir).filter((entry) => entry.endsWith('.json'))
+    writeFileSync(indexPath, renderReviewIndex(reviewFiles), 'utf8')
 
-  if (runQualityGate) {
-    const result = spawnSync('npm', ['run', 'check'], {
-      cwd: repoRoot,
-      stdio: 'inherit',
-      shell: process.platform === 'win32',
-    })
-    if (result.status !== 0) {
-      restore(targetPath, previousTarget)
-      restore(indexPath, previousIndex)
-      throw new Error('Production quality gate failed. Review import was rolled back.')
+    if (runQualityGate) {
+      const result = spawnSync('npm', ['run', 'check'], {
+        cwd: repoRoot,
+        stdio: 'inherit',
+        shell: process.platform === 'win32',
+      })
+      if (result.status !== 0) {
+        throw new Error('Production quality gate failed. Review import was rejected.')
+      }
     }
-  }
 
-  return { submission, targetPath, indexPath }
+    return { submission, targetPath, indexPath }
+  } catch (error) {
+    const rollbackErrors = rollbackReviewFiles(targetPath, previousTarget, indexPath, previousIndex)
+    const message = error instanceof Error ? error.message : String(error)
+    if (rollbackErrors.length > 0) {
+      throw new Error(`${message}\nRollback also failed:\n${rollbackErrors.join('\n')}`)
+    }
+    throw new Error(`${message}\nReview import was rolled back.`)
+  }
 }
 
 function main() {
