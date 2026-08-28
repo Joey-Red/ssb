@@ -16,6 +16,11 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
       'bassmage',
       'regalo',
       'dabuz',
+      'rickles',
+      'zaki',
+      'wadi',
+      'capitancito',
+      'trigger-simon',
     ]
 
     expect(proCoverageGapRepresentatives.map((entry) => entry.id)).toEqual(expectedRepresentativeIds)
@@ -26,9 +31,9 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
   })
 
   it('keeps gap-fill footage direct, source-backed, review-queued, and outside the frozen acquisition baseline', () => {
-    expect(proCoverageGapVodCatalog).toHaveLength(6)
+    expect(proCoverageGapVodCatalog).toHaveLength(19)
     expect(proVodCatalog).toHaveLength(800)
-    expect(proVodCatalogWithCoverageGaps).toHaveLength(806)
+    expect(proVodCatalogWithCoverageGaps).toHaveLength(819)
 
     expect(proCoverageGapVodCatalog.map((vod) => vod.id)).toEqual([
       'umebura-sp4-t-link-zackray',
@@ -37,6 +42,19 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
       'ufa2023-bassmage-mkleo',
       'ssc2022-regalo-dabuz-top12',
       'ssc2022-dabuz-light-lq',
+      'nyxl-tweek-light-wsf',
+      'seibugeki13-miya-earth',
+      'frostbite2020-rickles-charliedaking-pools',
+      'tamisuma174-hero-zaki-r4',
+      'tamisuma189-hero-elizabeth-qf',
+      'maesumatop13-protobanham-doramigi',
+      'gimvitational-tweek-mkleo-wf',
+      'glitch85-wadi-marss-top12',
+      'momocon2022-ddee-capitancito',
+      'dabuz-johnnumbers-miiswordfighter',
+      'eight-nietono-hero-wf',
+      'n2-zackray-shuton-lf',
+      'kagaribi11-hero-nano',
     ])
 
     for (const vod of proCoverageGapVodCatalog) {
@@ -52,7 +70,7 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
     }
   })
 
-  it('closes six neutral zero-VOD fighter gaps without promoting tactical evidence', () => {
+  it('closes every verified zero-VOD fighter gap while leaving Simon explicitly unresolved', () => {
     const closedFighterIds = [
       'link',
       'banjo-and-kazooie',
@@ -60,10 +78,28 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
       'jigglypuff',
       'lucas',
       'rosalina-and-luma',
+      'chrom',
+      'dark-pit',
+      'ganondorf',
+      'king-dedede',
+      'lucario',
+      'lucina',
+      'marth',
+      'mewtwo',
+      'mii-gunner',
+      'mii-swordfighter',
+      'pichu',
+      'pit',
+      'zelda',
     ]
 
     for (const fighterId of closedFighterIds) {
       expect(getProVodsForFighter(fighterId).length, fighterId).toBeGreaterThan(0)
     }
+
+    expect(getProVodsForFighter('simon')).toHaveLength(0)
+    expect(proCoverageGapRepresentatives.some((entry) =>
+      entry.id === 'trigger-simon' && entry.characterRoles.some((role) => role.fighterId === 'simon'),
+    )).toBe(true)
   })
 })

@@ -197,7 +197,7 @@ describe('Pro Lab review automation', () => {
   })
 
   it('ships a roster-neutral review pack while leaving tactical evidence evidence-gated', () => {
-    expect(proVodCatalog).toHaveLength(806)
+    expect(proVodCatalog).toHaveLength(819)
     expect(proRosterReviewBatch).toHaveLength(16)
     expect(proRosterReviewWorksheets).toHaveLength(proRosterReviewBatch.length)
 
