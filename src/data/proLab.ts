@@ -1,7 +1,7 @@
 import { extractProPatterns } from '../lib/proLab'
 import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
 import { buildAnnotationWorksheet } from '../lib/proLabAutomation'
-import { buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
+import { buildProCoverageDistributionAudit, buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
 import { compileProEvidenceRegistry } from '../lib/proLabEvidenceRegistry'
 import {
   buildCharacterLessons,
@@ -119,6 +119,7 @@ export const proRosterCoverage = buildProRosterCoverage({
 
 export const proCoverageSummary = summarizeProCoverage(proRosterCoverage)
 export const proCoverageWorkQueue = buildProCoverageWorkQueue(proRosterCoverage, proDecisionMoments)
+export const proCoverageDistributionAudit = buildProCoverageDistributionAudit(proCoverageWorkQueue)
 
 export const proRankedVodReviewPlan = buildProReviewPlan(
   proVodCatalog,
@@ -206,6 +207,10 @@ export const proLabReleaseStats = {
   evidenceRegistryWarnings: proEvidenceRegistry.warnings.length,
   rankedReviewTargets: proRankedVodReviewPlan.length,
   coverageWorkItems: proCoverageWorkQueue.length,
+  vodFloorMetFighters: proCoverageDistributionAudit.vodFloorMetCount,
+  currentVodFloorMetFighters: proCoverageDistributionAudit.currentVodFloorMetCount,
+  representativeFloorMetFighters: proCoverageDistributionAudit.representativeFloorMetCount,
+  severeVodDeficitFighters: proCoverageDistributionAudit.severeVodDeficitCount,
   rosterReviewTargets: proRosterReviewBatch.length,
   rosterReviewPrimaryFighters: proRosterReviewBatchStats.primaryFighterCount,
   rosterReviewRepresentatives: proRosterReviewBatchStats.representativePlayerCount,
