@@ -9,9 +9,19 @@ import {
 import { proIndexedCoverageDepth } from './proLabIndexedCoverageDepth'
 import { proIndexedCoverageM73A } from './proLabIndexedCoverageM73A'
 import { proIndexedCoverageM73B } from './proLabIndexedCoverageM73B'
+import { proIndexedCoverageM73C } from './proLabIndexedCoverageM73C'
 
-const indexedCoverage = [...proIndexedCoverageDepth, ...proIndexedCoverageM73A, ...proIndexedCoverageM73B]
-const sideNeutralCoverage = [...proIndexedCoverageM73A, ...proIndexedCoverageM73B]
+const indexedCoverage = [
+  ...proIndexedCoverageDepth,
+  ...proIndexedCoverageM73A,
+  ...proIndexedCoverageM73B,
+  ...proIndexedCoverageM73C,
+]
+const sideNeutralCoverage = [
+  ...proIndexedCoverageM73A,
+  ...proIndexedCoverageM73B,
+  ...proIndexedCoverageM73C,
+]
 
 describe('Pro Lab source-indexed coverage depth', () => {
   it('keeps indexed planning evidence separate, unique, and measurable', () => {
