@@ -27,6 +27,11 @@ export interface ProCoverageWorkItem {
   readonly score: number
   readonly state: ProFighterCoverage['state']
   readonly nextAction: ProCoverageNextAction
+  readonly representativeCount: number
+  readonly vodCount: number
+  readonly currentVodCount: number
+  readonly reviewedSetCount: number
+  readonly reviewedMomentCount: number
   readonly representativeGap: number
   readonly vodGap: number
   readonly currentVodGap: number
@@ -36,8 +41,30 @@ export interface ProCoverageWorkItem {
   readonly decisionExerciseGap: number
   readonly matchupPatternGap: number
   readonly comparisonGap: number
-  readonly reviewedSetCount: number
   readonly reasons: readonly string[]
+}
+
+export interface ProCoverageDistributionAudit {
+  readonly fighterCount: number
+  readonly zeroVodFighterCount: number
+  readonly totalPrimaryVodAppearances: number
+  readonly totalCurrentVodAppearances: number
+  readonly representativeFloorMetCount: number
+  readonly vodFloorMetCount: number
+  readonly currentVodFloorMetCount: number
+  readonly reviewedSetFloorMetCount: number
+  readonly reviewedMomentFloorMetCount: number
+  readonly teachingReadyCount: number
+  readonly severeVodDeficitCount: number
+  readonly totalRepresentativeGap: number
+  readonly totalVodGap: number
+  readonly totalCurrentVodGap: number
+  readonly totalReviewedSetGap: number
+  readonly totalReviewedMomentGap: number
+  readonly minimumVodCount: number
+  readonly medianVodCount: number
+  readonly maximumVodCount: number
+  readonly nextActionCounts: Readonly<Record<ProCoverageNextAction, number>>
 }
 
 export const defaultProCoverageGoals: ProCoverageGoals = {
@@ -159,6 +186,11 @@ export function buildProCoverageWorkQueue(
         matchupPatternGap,
         comparisonGap,
       ),
+      representativeCount: entry.representativeCount,
+      vodCount: entry.vodCount,
+      currentVodCount: entry.currentVodCount,
+      reviewedSetCount,
+      reviewedMomentCount: entry.reviewedMomentCount,
       representativeGap,
       vodGap,
       currentVodGap,
@@ -168,7 +200,6 @@ export function buildProCoverageWorkQueue(
       decisionExerciseGap,
       matchupPatternGap,
       comparisonGap,
-      reviewedSetCount,
       reasons,
     } satisfies ProCoverageWorkItem
   })
@@ -176,4 +207,58 @@ export function buildProCoverageWorkQueue(
   return rows
     .sort((a, b) => b.score - a.score || a.fighterId.localeCompare(b.fighterId))
     .map((row, index) => ({ ...row, rank: index + 1 }))
+}
+
+const actionCountSeed = (): Record<ProCoverageNextAction, number> => ({
+  'acquire-representatives': 0,
+  'acquire-vods': 0,
+  'review-vods': 0,
+  'expand-teaching': 0,
+  'expand-matchups': 0,
+  'compare-players': 0,
+  maintain: 0,
+})
+
+/**
+ * Produces the M72 roster distribution audit from the same work queue used to
+ * allocate future acquisition/review work. VOD totals here are fighter-side
+ * appearances, not the frozen historical acquisition baseline or raw catalog
+ * record count, so those concepts cannot be accidentally conflated.
+ */
+export function buildProCoverageDistributionAudit(
+  workItems: readonly ProCoverageWorkItem[],
+  goals: ProCoverageGoals = defaultProCoverageGoals,
+): ProCoverageDistributionAudit {
+  const vodCounts = workItems.map((item) => item.vodCount).sort((a, b) => a - b)
+  const middle = Math.floor(vodCounts.length / 2)
+  const medianVodCount = vodCounts.length === 0
+    ? 0
+    : vodCounts.length % 2 === 0
+      ? ((vodCounts[middle - 1] ?? 0) + (vodCounts[middle] ?? 0)) / 2
+      : (vodCounts[middle] ?? 0)
+  const nextActionCounts = actionCountSeed()
+  for (const item of workItems) nextActionCounts[item.nextAction] += 1
+
+  return {
+    fighterCount: workItems.length,
+    zeroVodFighterCount: workItems.filter((item) => item.vodCount === 0).length,
+    totalPrimaryVodAppearances: workItems.reduce((total, item) => total + item.vodCount, 0),
+    totalCurrentVodAppearances: workItems.reduce((total, item) => total + item.currentVodCount, 0),
+    representativeFloorMetCount: workItems.filter((item) => item.representativeGap === 0).length,
+    vodFloorMetCount: workItems.filter((item) => item.vodGap === 0).length,
+    currentVodFloorMetCount: workItems.filter((item) => item.currentVodGap === 0).length,
+    reviewedSetFloorMetCount: workItems.filter((item) => item.reviewedSetGap === 0).length,
+    reviewedMomentFloorMetCount: workItems.filter((item) => item.reviewedMomentGap === 0).length,
+    teachingReadyCount: workItems.filter((item) => item.state === 'teaching-ready').length,
+    severeVodDeficitCount: workItems.filter((item) => item.vodCount < Math.ceil(goals.vodFloor / 2)).length,
+    totalRepresentativeGap: workItems.reduce((total, item) => total + item.representativeGap, 0),
+    totalVodGap: workItems.reduce((total, item) => total + item.vodGap, 0),
+    totalCurrentVodGap: workItems.reduce((total, item) => total + item.currentVodGap, 0),
+    totalReviewedSetGap: workItems.reduce((total, item) => total + item.reviewedSetGap, 0),
+    totalReviewedMomentGap: workItems.reduce((total, item) => total + item.reviewedMomentGap, 0),
+    minimumVodCount: vodCounts[0] ?? 0,
+    medianVodCount,
+    maximumVodCount: vodCounts[vodCounts.length - 1] ?? 0,
+    nextActionCounts,
+  }
 }
