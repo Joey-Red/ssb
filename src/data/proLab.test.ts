@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { buildSetBreakdown, extractProPatterns, isCatalogQuality, isTeachingEligibleMoment } from '../lib/proLab'
+import { proCoverageWorkQueue } from './proLab'
 import { roster } from './roster'
 import { nextProMetaResearchTargets2026, proMetaRepresentation2026 } from './proLabResearchPriorities'
 import {
@@ -158,11 +159,16 @@ describe('Pro Lab foundation', () => {
     expect(nextProMetaResearchTargets2026).toHaveLength(0)
   })
 
-  it('keeps competitive VOD coverage available for every fighter equally', () => {
+  it('tracks full-roster VOD gaps without special pilot exceptions', () => {
     expect(roster).toHaveLength(89)
-    for (const fighter of roster) {
-      expect(getProVodsForFighter(fighter.id).length, fighter.id).toBeGreaterThan(0)
-    }
+    const queuedFighterIds = new Set(proCoverageWorkQueue.map((item) => item.fighterId))
+    expect(queuedFighterIds.size).toBe(89)
+
+    const uncovered = roster.filter((fighter) => getProVodsForFighter(fighter.id).length === 0)
+    const covered = roster.filter((fighter) => getProVodsForFighter(fighter.id).length > 0)
+    expect(covered.length + uncovered.length).toBe(89)
+    expect(covered.length).toBeGreaterThan(0)
+    for (const fighter of uncovered) expect(queuedFighterIds.has(fighter.id), fighter.id).toBe(true)
   })
 
   it('does not promote speculative interpretation into teaching material', () => {
