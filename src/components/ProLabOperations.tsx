@@ -5,9 +5,7 @@ import {
   proAegisPilotWorksheets,
   proCoverageSummary,
   proCoverageWorkQueue,
-  proDecisionMomentValidation,
   proLabReleaseStats,
-  proSetBreakdownValidation,
 } from '../data/proLab'
 import { roster } from '../data/roster'
 import { hrefFor } from '../router'
@@ -20,17 +18,15 @@ const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) =>
 const actionLabel = (value: string) => value.replace(/-/g, ' ')
 
 export function ProLabOperations() {
-  const validationErrors = proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length
-  const validationWarnings = proDecisionMomentValidation.warnings.length + proSetBreakdownValidation.warnings.length
   const samplingStatus = proAegisPilotProgress.status.replace(/-/g, ' ')
 
   return <section className="panel">
     <div className="section-heading"><div><p className="eyebrow">Phase 2 operations</p><h2>Evidence review pipeline</h2></div><span className="section-meta">No metadata-only record is counted as reviewed</span></div>
     <div className="pro-lab__audit-strip">
       <span><strong>{proLabReleaseStats.rankedReviewTargets}</strong>ranked VODs</span>
-      <span><strong>{proAegisPilotReviewBatch.length}</strong>Aegis pilot targets</span>
-      <span><strong>{validationErrors}</strong>validation errors</span>
-      <span><strong>{validationWarnings}</strong>validation warnings</span>
+      <span><strong>{proLabReleaseStats.acceptedReviewSubmissions}</strong>accepted reviews</span>
+      <span><strong>{proLabReleaseStats.phase2ValidationErrors}</strong>validation errors</span>
+      <span><strong>{proLabReleaseStats.phase2ValidationWarnings}</strong>validation warnings</span>
     </div>
 
     <div className="pro-lab__two-column">
@@ -40,9 +36,9 @@ export function ProLabOperations() {
         <span>{samplingStatus}. Sampling readiness is a diversity heuristic only; it does not bypass the teaching-ready evidence gate.</span>
       </article>
       <article className="pro-lab__pattern">
-        <strong>Roster pipeline</strong>
-        <p>{proCoverageSummary.teachingReady} teaching ready · {proCoverageSummary.evidenceBuilding} evidence building · {proCoverageSummary.cataloged} cataloged · {proCoverageSummary.representativeSeeded} representative seeded · {proCoverageSummary.researchQueued} research queued</p>
-        <span>Strict review intake is prepared for {proAegisPilotSubmissionTemplates.length} Aegis pilot sets; a template cannot validate until direct gameplay observations and an evidence-backed breakdown are added.</span>
+        <strong>Production evidence registry</strong>
+        <p>{proLabReleaseStats.checkedInReviewSubmissions} checked in · {proLabReleaseStats.acceptedReviewSubmissions} accepted · {proLabReleaseStats.rejectedReviewSubmissions} rejected · {proLabReleaseStats.reviewedReviewTargets} fully reviewed VODs</p>
+        <span>Only validator-clean checked-in submissions can change VOD status or feed lessons, exercises, matchup patterns, comparisons, and coverage.</span>
       </article>
     </div>
 
