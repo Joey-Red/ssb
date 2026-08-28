@@ -46,6 +46,6 @@ export const proIndexedCoverageM73C = [
 
   vod('jXKkieMSAAA', 'BDS Weekly 8 Winners Semis', 'Delectron', 'IvUsaur', ['piranha-plant'], '2023-10-30'),
   vod('ZhqAkjdBxAY', 'Warhawk Weekly 4 Winners R1', 'Forgurble', 'AngryDog', ['piranha-plant'], '2023-10-30'),
-  vod('kYpwBQL9ibY', 'Cream City Clash 108 Losers Quarters', 'TheDood22', 'Dark Sriracha', ['piranha-plant'], '2023-10-23'),
+  vod('kYpwBQL9ibY', 'Cream City Clash 108 Losers Quarters', 'TheDood22', 'Dark Sriracha', ['piranha-plant', 'marth'], '2023-10-23'),
   vod('9672YQRxqfM', 'Cream City Clash 108 Winners Quarters', 'Dark Sriracha', 'Sophist', ['piranha-plant'], '2023-10-23'),
 ] as const satisfies readonly ProCharacterIndexedCoverageSet[]
