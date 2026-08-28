@@ -15,6 +15,7 @@ import { proVodCatalog2026Batch2 } from './proLabVods2026Batch2'
 import { proVodCatalog2026Batch3 } from './proLabVods2026Batch3'
 import { proVodCatalog2026Batch4 } from './proLabVods2026Batch4'
 import { proVodCatalog2026Batch5 } from './proLabVods2026Batch5'
+import { proCoverageGapVodCatalog } from './proLabVodsCoverageGaps'
 import {
   proVodFinal293Candidates,
   selectProVodAcquisitionBatch,
@@ -44,6 +45,7 @@ export const proVodCatalogFinal293 = selectProVodAcquisitionBatch(
 const unresolvedCatalog = [
   ...proVodCatalogBeforeFinal293,
   ...proVodCatalogFinal293,
+  ...proCoverageGapVodCatalog,
 ] as readonly ProVodRecord[]
 
 export const proVodCatalog = unresolvedCatalog.map((vod) =>
@@ -85,6 +87,7 @@ export function getProVodsForPlayer(playerId: string) {
 }
 
 export {
+  proCoverageGapVodCatalog,
   proVodCatalog2026Batch1,
   proVodCatalog2026Batch2,
   proVodCatalog2026Batch3,
