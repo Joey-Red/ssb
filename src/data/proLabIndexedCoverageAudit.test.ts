@@ -7,13 +7,16 @@ import {
   proVodCatalog,
 } from './proLab'
 import { proIndexedCoverageDepth } from './proLabIndexedCoverageDepth'
+import { proIndexedCoverageM73A } from './proLabIndexedCoverageM73A'
+
+const indexedCoverage = [...proIndexedCoverageDepth, ...proIndexedCoverageM73A]
 
 describe('Pro Lab source-indexed coverage depth', () => {
   it('keeps indexed planning evidence separate, unique, and measurable', () => {
     const selection = selectUniqueIndexedCoverageSets(
       proVodCatalog,
       proPlayerRepresentatives,
-      proIndexedCoverageDepth,
+      indexedCoverage,
     )
     const projectedCoverage = applyIndexedCoverageDepth(
       proRosterCoverage,
@@ -29,14 +32,16 @@ describe('Pro Lab source-indexed coverage depth', () => {
       }))
 
     console.log(`M73_INDEXED_COVERAGE=${JSON.stringify({
-      indexedTotal: proIndexedCoverageDepth.length,
+      indexedTotal: indexedCoverage.length,
       accepted: selection.accepted.length,
       duplicates: selection.duplicateIds,
       severe,
     })}`)
 
-    expect(new Set(proIndexedCoverageDepth.map((entry) => entry.id)).size).toBe(proIndexedCoverageDepth.length)
-    expect(proIndexedCoverageDepth.every((entry) => entry.evidenceStatus === 'source-index')).toBe(true)
-    expect(proIndexedCoverageDepth.every((entry) => entry.sourceUrls.length >= 2)).toBe(true)
+    expect(new Set(indexedCoverage.map((entry) => entry.id)).size).toBe(indexedCoverage.length)
+    expect(indexedCoverage.every((entry) => entry.evidenceStatus === 'source-index')).toBe(true)
+    expect(indexedCoverage.every((entry) => entry.sourceUrls.length >= 2)).toBe(true)
+    expect(proIndexedCoverageM73A.every((entry) => entry.indexedFighterIds.length > 0)).toBe(true)
+    expect(proIndexedCoverageM73A.every((entry) => entry.playerFighterIds.length === 0 && entry.opponentFighterIds.length === 0)).toBe(true)
   })
 })
