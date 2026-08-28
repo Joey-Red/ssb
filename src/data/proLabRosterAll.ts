@@ -1,5 +1,5 @@
 import { roster } from './roster'
-import { proLabPilotFighterIds, proPlayerRepresentatives as foundationalRepresentatives } from './proLabRoster'
+import { proPlayerRepresentatives as foundationalRepresentatives } from './proLabRoster'
 import { proPlayerRepresentatives2026Batch2 } from './proLabRoster2026Batch2'
 import { proPlayerRepresentatives2026Batch3 } from './proLabRoster2026Batch3'
 import { proPlayerRepresentatives2026Batch4 } from './proLabRoster2026Batch4'
@@ -37,7 +37,6 @@ export const proFighterResearchRegistry: readonly ProFighterResearchEntry[] = ro
 })
 
 export {
-  proLabPilotFighterIds,
   proMetaGapRepresentatives,
   proPlayerRepresentatives2026Batch2,
   proPlayerRepresentatives2026Batch3,
