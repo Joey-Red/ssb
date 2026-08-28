@@ -160,7 +160,7 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     )
   })
 
-  it('ranks direct footage deterministically and supports optional caller focus without changing the default plan', () => {
+  it('keeps the default review plan unfocused while allowing explicit caller focus', () => {
     const mario = makeVod({ id: 'mario-regional', eventTier: 'regional', date: '2026-07-01' })
     const unrelated = makeVod({
       id: 'fox-supermajor',
@@ -182,17 +182,19 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
       makeCoverage('luigi'),
     ]
 
-    const first = buildProReviewPlan([unrelated, unrelated, mario], coverage, {
+    const defaultPlan = buildProReviewPlan([mario, unrelated, unresolved], coverage)
+    const focused = buildProReviewPlan([unrelated, unresolved, mario], coverage, {
       focusFighterIds: ['mario'],
     })
-    const second = buildProReviewPlan([mario, unrelated, unresolved], coverage, {
+    const focusedAgain = buildProReviewPlan([mario, unresolved, unrelated], coverage, {
       focusFighterIds: ['mario'],
     })
 
-    expect(first.map((entry) => entry.vodId)).toEqual(second.map((entry) => entry.vodId))
-    expect(first.map((entry) => entry.vodId)).toEqual(['mario-regional', 'fox-supermajor'])
-    expect(first[0]?.reasons).toContain('focus fighter: mario')
-    expect(first.map((entry) => entry.rank)).toEqual([1, 2])
+    expect(defaultPlan.map((entry) => entry.vodId)).toEqual(['fox-supermajor', 'mario-regional'])
+    expect(focused.map((entry) => entry.vodId)).toEqual(focusedAgain.map((entry) => entry.vodId))
+    expect(focused.map((entry) => entry.vodId)).toEqual(['mario-regional', 'fox-supermajor'])
+    expect(focused[0]?.reasons).toContain('focus fighter: mario')
+    expect(focused.map((entry) => entry.rank)).toEqual([1, 2])
   })
 
   it('summarizes coverage and chooses deterministic next fighter gaps', () => {
