@@ -8,45 +8,62 @@ import {
 } from './proLabVodsAll'
 
 describe('roster-neutral Pro Lab coverage gaps', () => {
-  it('closes the discovered Link zero-VOD gap with provenance-backed representation', () => {
-    const representative = proCoverageGapRepresentatives.find((entry) => entry.id === 't-link')
-    expect(representative).toMatchObject({
-      tag: 'T',
-      status: 'active',
-      characterRoles: [{ fighterId: 'link', role: 'main' }],
-    })
-    expect(representative?.sourceUrls.length).toBeGreaterThanOrEqual(2)
-    expect(proPlayerRepresentatives.some((entry) => entry.id === 't-link')).toBe(true)
+  it('adds provenance-backed representatives only for objectively discovered gaps', () => {
+    const expectedRepresentativeIds = [
+      't-link',
+      'toriguri',
+      'tsumusuto',
+      'bassmage',
+      'regalo',
+      'dabuz',
+    ]
 
-    const linkVods = getProVodsForFighter('link')
-    expect(linkVods.length).toBeGreaterThan(0)
-    expect(linkVods.some((vod) => vod.id === 'umebura-sp4-t-link-zackray')).toBe(true)
+    expect(proCoverageGapRepresentatives.map((entry) => entry.id)).toEqual(expectedRepresentativeIds)
+    for (const representative of proCoverageGapRepresentatives) {
+      expect(representative.sourceUrls.length).toBeGreaterThanOrEqual(2)
+      expect(proPlayerRepresentatives.some((entry) => entry.id === representative.id)).toBe(true)
+    }
   })
 
-  it('keeps coverage-gap footage direct, source-backed, and outside the frozen acquisition baseline', () => {
-    expect(proCoverageGapVodCatalog).toHaveLength(1)
+  it('keeps gap-fill footage direct, source-backed, review-queued, and outside the frozen acquisition baseline', () => {
+    expect(proCoverageGapVodCatalog).toHaveLength(6)
     expect(proVodCatalog).toHaveLength(800)
-    expect(proVodCatalogWithCoverageGaps).toHaveLength(801)
+    expect(proVodCatalogWithCoverageGaps).toHaveLength(806)
 
-    const vod = proCoverageGapVodCatalog[0]!
-    expect(vod).toMatchObject({
-      playerId: 't-link',
-      playerFighterIds: ['link'],
-      opponentTag: 'Zackray',
-      opponentFighterIds: ['joker'],
-      event: 'Umebura SP4',
-      eventTier: 'major',
-      date: '2019-08-17',
-      videoProvider: 'youtube',
-      videoId: 'KSfwiboZjaw',
-      linkKind: 'direct-video',
-      result: 'T 2-0 Zackray',
-      analysisStatus: 'review-queued',
-    })
-    expect(vod.sourceUrls.length).toBeGreaterThanOrEqual(3)
-    expect(vod.quality.visibleGameplay).toBe(true)
-    expect(vod.quality.score).toBeGreaterThanOrEqual(12)
-    expect(proVodCatalog.some((entry) => entry.id === vod.id)).toBe(false)
-    expect(proVodCatalogWithCoverageGaps.some((entry) => entry.id === vod.id)).toBe(true)
+    expect(proCoverageGapVodCatalog.map((vod) => vod.id)).toEqual([
+      'umebura-sp4-t-link-zackray',
+      'winner-period-toriguri-protobanham',
+      'maesumatop9-tsumusuto-shirayuki-wsf',
+      'ufa2023-bassmage-mkleo',
+      'ssc2022-regalo-dabuz-top12',
+      'ssc2022-dabuz-light-lq',
+    ])
+
+    for (const vod of proCoverageGapVodCatalog) {
+      expect(vod.linkKind).toBe('direct-video')
+      expect(vod.videoProvider).toBe('youtube')
+      expect(vod.videoId).toBeTruthy()
+      expect(vod.sourceUrls.length).toBeGreaterThanOrEqual(2)
+      expect(vod.quality.visibleGameplay).toBe(true)
+      expect(vod.quality.score).toBeGreaterThanOrEqual(12)
+      expect(vod.analysisStatus).toBe('review-queued')
+      expect(proVodCatalog.some((entry) => entry.id === vod.id)).toBe(false)
+      expect(proVodCatalogWithCoverageGaps.some((entry) => entry.id === vod.id)).toBe(true)
+    }
+  })
+
+  it('closes six neutral zero-VOD fighter gaps without promoting tactical evidence', () => {
+    const closedFighterIds = [
+      'link',
+      'banjo-and-kazooie',
+      'dr-mario',
+      'jigglypuff',
+      'lucas',
+      'rosalina-and-luma',
+    ]
+
+    for (const fighterId of closedFighterIds) {
+      expect(getProVodsForFighter(fighterId).length, fighterId).toBeGreaterThan(0)
+    }
   })
 })
