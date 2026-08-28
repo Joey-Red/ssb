@@ -11,12 +11,12 @@ export const proCoverageGapRepresentatives = [
     tag: 'T',
     country: 'Japan',
     region: 'Japan',
-    status: 'legacy',
+    status: 'active',
     characterRoles: [{ fighterId: 'link', role: 'main' }],
     sourceUrls: [
       'https://www.ssbwiki.com/Smasher:T',
       'https://smasharchives.com/vod/KSfwiboZjaw',
     ],
-    note: 'Historically elite Link specialist. Retained as legacy evidence so sparse modern Link coverage is not mislabeled as current-meta representation.',
+    note: 'Historically elite Link specialist with documented tournament participation through DELTA x Seibugeki Open in April 2026. The currently cataloged direct VOD is legacy-era evidence and is not treated as proof of current-meta tactics.',
   },
 ] as const satisfies readonly ProPlayerRepresentative[]
