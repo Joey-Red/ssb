@@ -9,6 +9,7 @@ import { FighterPicture } from './FighterPicture'
 import { FighterUtility } from './FighterUtility'
 import { FrameDataPanel } from './FrameDataPanel'
 import { MatchupLab } from './MatchupLab'
+import { TechniqueProgression } from './TechniqueProgression'
 import { TrainingLadder } from './TrainingLadder'
 import './FighterView.css'
 
@@ -40,6 +41,7 @@ export function FighterView({ slug }: { slug: string }) {
       <div className="fighter-layout">
         <main className="fighter-main">
           <TrainingLadder steps={guide.trainingRoutine} />
+          {guide.progression && <TechniqueProgression progression={guide.progression} />}
           <ComboExplorer combos={guide.combos} />
           {frameData ? (
             <FrameDataPanel data={frameData} />

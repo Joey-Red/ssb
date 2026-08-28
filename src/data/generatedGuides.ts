@@ -5,6 +5,7 @@ import { profilesC } from './profilesC'
 import { profilesD } from './profilesD'
 import { profilesE } from './profilesE'
 import type { ProfileTuple } from './profileTypes'
+import { diddyKongProgression } from './diddyKongProgression'
 
 const profiles: readonly ProfileTuple[] = [...profilesA, ...profilesB, ...profilesC, ...profilesD, ...profilesE]
 
@@ -149,7 +150,7 @@ function buildGuide(profile: ProfileTuple): FighterGuide {
     practiceCombo(fighterId, 'kill-practice', kill, 90, 170, sourceId, 'Drill the high-percent setup as a confirm/read exercise; do not assume the finisher is guaranteed on every target.'),
   ]
 
-  return {
+  const guide: FighterGuide = {
     fighterId,
     archetype,
     memoryAid: `Low %: ${formatRoute(starter)}. Mid %: ${formatRoute(mid)}. High %: ${formatRoute(kill)}; when strings stop working, close with ${formatRoute(closeout)}.`,
@@ -176,6 +177,25 @@ function buildGuide(profile: ProfileTuple): FighterGuide {
     keyFrames: [],
     sourceIds: [sourceId],
   }
+
+  if (fighterId === 'diddy-kong') {
+    return {
+      ...guide,
+      archetype: 'Item control · banana confirms · DI-aware route trees',
+      memoryAid: 'Begin with throws, down tilt, and banana confirms. Add DI-aware aerial branches, then item re-catches, footstools, tech chases, platform resets, and Rocketbarrel cash-outs one layer at a time.',
+      quickGuide: [
+        neutralNote,
+        'Beginner: drill down throw, down tilt, landing neutral air, and direct banana-trip confirms before adding extensions.',
+        'Intermediate: branch finishers around DI, target height, fast escape options, and techable down-air landings.',
+        'Pro: add footstools, Z-drop down air, jab locks, item re-catches, tech chases, and platform-reset reactions.',
+        'Godlike: combine banana control, ledge trumps, Popgun cancels, Monkey Flip, platform ladders, and Rocketbarrel finishers without assuming a training-mode string is universal.',
+      ],
+      sourceIds: [sourceId, diddyKongProgression.sourceId],
+      progression: diddyKongProgression,
+    }
+  }
+
+  return guide
 }
 
 export const generatedGuides = profiles.map(buildGuide) satisfies readonly FighterGuide[]

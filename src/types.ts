@@ -7,6 +7,27 @@ export type ComboKind =
   | 'character-dependent'
   | 'practice-route'
 
+export type TechniqueTier = 'beginner' | 'intermediate' | 'pro' | 'godlike'
+export type TechniqueVerdict = 'source-true' | 'conditional' | 'concept' | 'source-not-true'
+
+export interface ProgressionTechnique {
+  id: string
+  tier: TechniqueTier
+  label: string
+  route: readonly string[]
+  timestampSeconds: number
+  verdict: TechniqueVerdict
+  note?: string
+  caveats?: readonly string[]
+}
+
+export interface TechniqueProgression {
+  title: string
+  description: string
+  sourceId: string
+  techniques: readonly ProgressionTechnique[]
+}
+
 export type FighterRelation =
   | { type: 'pokemon-trainer-form'; group: 'pokemon-trainer' }
   | { type: 'aegis-form'; group: 'aegis' }
@@ -68,6 +89,7 @@ export interface FighterGuide {
   combos: readonly Combo[]
   keyFrames: readonly KeyFrame[]
   sourceIds: readonly string[]
+  progression?: TechniqueProgression
 }
 
 export type MoveCategory = 'ground' | 'aerial' | 'special' | 'grab' | 'defense' | 'misc'
