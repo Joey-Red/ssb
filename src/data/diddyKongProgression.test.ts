@@ -23,6 +23,7 @@ describe('Diddy Kong source-video progression', () => {
     )).toEqual({ beginner: 11, intermediate: 15, pro: 22, godlike: 17 })
     expect(diddyKongProgression.techniques).toHaveLength(65)
     expect(diddyKongProgression.techniques.every((technique) => technique.route.length >= 2)).toBe(true)
+    expect(diddyKongProgression.techniques.every((technique) => Number.isInteger(technique.opponentStartPercent))).toBe(true)
   })
 
   it('keeps every source-true overlay qualified instead of universalizing it', () => {

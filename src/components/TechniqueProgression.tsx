@@ -42,7 +42,7 @@ export function TechniqueProgression({ progression }: { progression: TechniquePr
       <div><p className="eyebrow">Video technique index</p><h2 id="progression-title">{progression.title}</h2></div>
       <span className="progression__count">{progression.techniques.length} route families</span>
     </div>
-    <p className="progression__description">{progression.description}</p>
+    <p className="progression__description">{progression.description} “Opponent start” is the target’s damage at the beginning of the demonstrated sequence, not a universal combo window.</p>
     <div className="progression__tabs" role="tablist" aria-label="Technique difficulty">
       {tiers.map((option) => {
         const count = progression.techniques.filter((technique) => technique.tier === option.value).length
@@ -51,7 +51,7 @@ export function TechniqueProgression({ progression }: { progression: TechniquePr
     </div>
     <div className="progression__list">
       {visible.map((technique) => <article className="progression-card" key={technique.id}>
-        <div className="progression-card__header"><div><span className={`progression-verdict progression-verdict--${technique.verdict}`}>{verdictLabels[technique.verdict]}</span><h3>{technique.label}</h3></div>{source && <a href={timestampUrl(source.url, technique.timestampSeconds)} target="_blank" rel="noreferrer">Watch {timestampLabel(technique.timestampSeconds)}</a>}</div>
+        <div className="progression-card__header"><div><span className={`progression-verdict progression-verdict--${technique.verdict}`}>{verdictLabels[technique.verdict]}</span><span className="progression-start">Opponent start: {technique.opponentStartPercent}%</span><h3>{technique.label}</h3></div>{source && <a href={timestampUrl(source.url, technique.timestampSeconds)} target="_blank" rel="noreferrer">Watch {timestampLabel(technique.timestampSeconds)}</a>}</div>
         <RouteLine route={technique.route} />
         {technique.note && <p>{technique.note}</p>}
         {technique.caveats && technique.caveats.length > 0 && <ul>{technique.caveats.map((caveat) => <li key={caveat}>{caveat}</li>)}</ul>}
