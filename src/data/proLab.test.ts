@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { buildSetBreakdown, extractProPatterns, isCatalogQuality, isTeachingEligibleMoment } from '../lib/proLab'
+import { proCoverageWorkQueue } from './proLab'
 import { roster } from './roster'
 import { nextProMetaResearchTargets2026, proMetaRepresentation2026 } from './proLabResearchPriorities'
 import {
@@ -8,7 +9,7 @@ import {
   proVodReviewQueue,
   proVodReviewQueueStats,
 } from './proLabReviewQueueAll'
-import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
+import { proFighterResearchRegistry, proPlayerRepresentatives } from './proLabRosterAll'
 import type { ProDecisionMoment } from './proLabTypes'
 import { getProVodsForFighter, proVodCatalog } from './proLabVodsAll'
 
@@ -158,10 +159,16 @@ describe('Pro Lab foundation', () => {
     expect(nextProMetaResearchTargets2026).toHaveLength(0)
   })
 
-  it('covers every pilot fighter with at least one competitive VOD', () => {
-    for (const fighterId of proLabPilotFighterIds) {
-      expect(getProVodsForFighter(fighterId).length, fighterId).toBeGreaterThan(0)
-    }
+  it('tracks full-roster VOD gaps without special pilot exceptions', () => {
+    expect(roster).toHaveLength(89)
+    const queuedFighterIds = new Set(proCoverageWorkQueue.map((item) => item.fighterId))
+    expect(queuedFighterIds.size).toBe(89)
+
+    const uncovered = roster.filter((fighter) => getProVodsForFighter(fighter.id).length === 0)
+    const covered = roster.filter((fighter) => getProVodsForFighter(fighter.id).length > 0)
+    expect(covered.length + uncovered.length).toBe(89)
+    expect(covered.length).toBeGreaterThan(0)
+    for (const fighter of uncovered) expect(queuedFighterIds.has(fighter.id), fighter.id).toBe(true)
   })
 
   it('does not promote speculative interpretation into teaching material', () => {

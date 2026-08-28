@@ -1,10 +1,6 @@
 import { extractProPatterns } from '../lib/proLab'
 import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
-import {
-  buildAnnotationWorksheet,
-  buildPrimaryFighterReviewBatch,
-  summarizeFighterEvidenceProgress,
-} from '../lib/proLabAutomation'
+import { buildAnnotationWorksheet } from '../lib/proLabAutomation'
 import { buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
 import { compileProEvidenceRegistry } from '../lib/proLabEvidenceRegistry'
 import {
@@ -30,7 +26,7 @@ import {
 } from './proLabResearchPriorities'
 import { proVodReviewQueue as proVodReviewQueueSource } from './proLabReviewQueueAll'
 import { proReviewedSubmissions } from './proLabReviewedSubmissions'
-import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
+import { proFighterResearchRegistry, proPlayerRepresentatives } from './proLabRosterAll'
 import { proVodCatalog as proVodSourceCatalog } from './proLabVodsAll'
 
 export const proLabReferenceDate = '2026-08-27'
@@ -129,40 +125,58 @@ export const proRankedVodReviewPlan = buildProReviewPlan(
   proRosterCoverage,
 )
 
-export const proAegisPilotReviewTargets = buildProReviewPlan(
-  proVodCatalog,
-  proRosterCoverage,
-  {
-    fighterFilter: ['pyra', 'mythra'],
-    focusFighterIds: ['pyra', 'mythra'],
-    limit: 12,
-  },
-)
-
-export const proAegisPilotReviewBatch = buildPrimaryFighterReviewBatch(
-  proAegisPilotReviewTargets,
-  proVodCatalog,
-  ['pyra', 'mythra'],
-  8,
-)
+/**
+ * Review allocation is intentionally roster-neutral. Fighters are ordered only
+ * by the evidence/coverage work queue, then each gets its highest-ranked
+ * primary-side VOD that has not already been selected. No character receives a
+ * hard-coded pilot boost or user-preference bonus.
+ */
+export const proRosterReviewFighterPriority = proCoverageWorkQueue.map((item) => item.fighterId)
 
 const proVodByIdForReview = new Map(proVodCatalog.map((vod) => [vod.id, vod]))
-export const proAegisPilotWorksheets = proAegisPilotReviewBatch.flatMap((target) => {
+const selectedRosterReviewVodIds = new Set<string>()
+const rosterReviewTargets = [] as (typeof proRankedVodReviewPlan)[number][]
+
+for (const fighterId of proRosterReviewFighterPriority) {
+  if (rosterReviewTargets.length >= 16) break
+  const target = proRankedVodReviewPlan.find((candidate) => {
+    if (selectedRosterReviewVodIds.has(candidate.vodId)) return false
+    const vod = proVodByIdForReview.get(candidate.vodId)
+    return vod?.playerFighterIds.includes(fighterId) ?? false
+  })
+  if (!target) continue
+  selectedRosterReviewVodIds.add(target.vodId)
+  rosterReviewTargets.push(target)
+}
+
+export const proRosterReviewBatch = rosterReviewTargets.map((target, index) => ({
+  ...target,
+  rank: index + 1,
+}))
+
+export const proRosterReviewWorksheets = proRosterReviewBatch.flatMap((target) => {
   const vod = proVodByIdForReview.get(target.vodId)
   return vod ? [buildAnnotationWorksheet(vod)] : []
 })
 
-export const proAegisPilotSubmissionTemplates = proAegisPilotReviewBatch.flatMap((target) => {
+export const proRosterReviewSubmissionTemplates = proRosterReviewBatch.flatMap((target) => {
   const vod = proVodByIdForReview.get(target.vodId)
   return vod ? [buildProReviewSubmissionTemplate(vod)] : []
 })
 
-export const proAegisPilotProgress = summarizeFighterEvidenceProgress(
-  ['pyra', 'mythra'],
-  proVodCatalog,
-  proDecisionMoments,
-  8,
-)
+const proRosterReviewVods = proRosterReviewBatch.flatMap((target) => {
+  const vod = proVodByIdForReview.get(target.vodId)
+  return vod ? [vod] : []
+})
+
+export const proRosterReviewBatchStats = {
+  targetCount: proRosterReviewBatch.length,
+  primaryFighterIds: [...new Set(proRosterReviewVods.flatMap((vod) => vod.playerFighterIds))].sort(),
+  primaryFighterCount: new Set(proRosterReviewVods.flatMap((vod) => vod.playerFighterIds)).size,
+  representativePlayerCount: new Set(proRosterReviewVods.map((vod) => vod.playerId)).size,
+  opponentFighterCount: new Set(proRosterReviewVods.flatMap((vod) => vod.opponentFighterIds)).size,
+  reviewedSetCount: proRosterReviewVods.filter((vod) => vod.analysisStatus === 'reviewed').length,
+} as const
 
 export const proDecisionMomentValidation = validateDecisionMoments(
   proDecisionMoments,
@@ -192,11 +206,12 @@ export const proLabReleaseStats = {
   evidenceRegistryWarnings: proEvidenceRegistry.warnings.length,
   rankedReviewTargets: proRankedVodReviewPlan.length,
   coverageWorkItems: proCoverageWorkQueue.length,
-  aegisPilotReviewTargets: proAegisPilotReviewTargets.length,
-  aegisPrimaryPilotTargets: proAegisPilotReviewBatch.length,
-  aegisPilotWorksheets: proAegisPilotWorksheets.length,
-  aegisPilotSubmissionTemplates: proAegisPilotSubmissionTemplates.length,
-  aegisPilotReviewedSets: proAegisPilotProgress.reviewedSetCount,
+  rosterReviewTargets: proRosterReviewBatch.length,
+  rosterReviewPrimaryFighters: proRosterReviewBatchStats.primaryFighterCount,
+  rosterReviewRepresentatives: proRosterReviewBatchStats.representativePlayerCount,
+  rosterReviewOpponentFighters: proRosterReviewBatchStats.opponentFighterCount,
+  rosterReviewWorksheets: proRosterReviewWorksheets.length,
+  rosterReviewSubmissionTemplates: proRosterReviewSubmissionTemplates.length,
   currentMetaResearchTargets: proMetaRepresentation2026.length,
   currentMetaTargetsNeedingRepresentative: nextProMetaResearchTargets2026.length,
   reviewedMoments: proDecisionMoments.filter((moment) => moment.evidenceClass !== 'speculative' && moment.confidence >= 0.65).length,
@@ -213,7 +228,6 @@ export const proLabReleaseStats = {
 export {
   nextProMetaResearchTargets2026,
   proFighterResearchRegistry,
-  proLabPilotFighterIds,
   proMetaRepresentation2026,
   proMetaResearchPriorities2026,
   proPlayerRepresentatives,

@@ -1,24 +1,22 @@
 import {
-  proAegisPilotProgress,
-  proAegisPilotReviewBatch,
-  proAegisPilotSubmissionTemplates,
-  proAegisPilotWorksheets,
   proCoverageWorkQueue,
   proLabReleaseStats,
+  proRosterReviewBatch,
+  proRosterReviewBatchStats,
+  proRosterReviewSubmissionTemplates,
+  proRosterReviewWorksheets,
 } from '../data/proLab'
 import { roster } from '../data/roster'
 import { hrefFor } from '../router'
 import type { FighterManifestEntry } from '../types'
 
 const fighterById = new Map<string, FighterManifestEntry>(roster.map((fighter) => [fighter.id, fighter]))
-const worksheetByVod = new Map(proAegisPilotWorksheets.map((worksheet) => [worksheet.vodId, worksheet]))
-const submissionTemplateByVod = new Map(proAegisPilotSubmissionTemplates.map((submission) => [submission.vodId, submission]))
+const worksheetByVod = new Map(proRosterReviewWorksheets.map((worksheet) => [worksheet.vodId, worksheet]))
+const submissionTemplateByVod = new Map(proRosterReviewSubmissionTemplates.map((submission) => [submission.vodId, submission]))
 const formatFighters = (fighterIds: readonly string[]) => fighterIds.map((id) => fighterById.get(id)?.name ?? id).join(' / ')
 const actionLabel = (value: string) => value.replace(/-/g, ' ')
 
 export function ProLabOperations() {
-  const samplingStatus = proAegisPilotProgress.status.replace(/-/g, ' ')
-
   return <section className="panel">
     <div className="section-heading"><div><p className="eyebrow">Phase 2 operations</p><h2>Evidence review pipeline</h2></div><span className="section-meta">No metadata-only record is counted as reviewed</span></div>
     <div className="pro-lab__audit-strip">
@@ -30,9 +28,9 @@ export function ProLabOperations() {
 
     <div className="pro-lab__two-column">
       <article className="pro-lab__pattern">
-        <strong>Pyra / Mythra pilot sampling</strong>
-        <p>{proAegisPilotProgress.reviewedSetCount}/{proAegisPilotProgress.samplingSetTarget} reviewed sets · {proAegisPilotProgress.representativePlayerCount} reviewed representatives · {proAegisPilotProgress.opponentFighterCount} opponent fighters · {proAegisPilotProgress.contextCount} decision contexts</p>
-        <span>{samplingStatus}. Sampling readiness is a diversity heuristic only; it does not bypass the teaching-ready evidence gate.</span>
+        <strong>Roster-neutral review allocation</strong>
+        <p>{proRosterReviewBatchStats.targetCount} queued sets · {proRosterReviewBatchStats.primaryFighterCount} primary-side fighters · {proRosterReviewBatchStats.representativePlayerCount} representatives · {proRosterReviewBatchStats.opponentFighterCount} opponent fighters</p>
+        <span>Targets come from the coverage-gap queue and global evidence ranking only. There is no hard-coded pilot fighter or user-preference boost.</span>
       </article>
       <article className="pro-lab__pattern">
         <strong>Production evidence registry</strong>
@@ -55,9 +53,9 @@ export function ProLabOperations() {
       })}
     </div>
 
-    <div className="section-heading"><div><p className="eyebrow">Pilot review pack</p><h2>Primary-side Aegis footage</h2></div><span className="section-meta">{proAegisPilotReviewBatch.length} deterministic targets</span></div>
+    <div className="section-heading"><div><p className="eyebrow">Balanced review pack</p><h2>Coverage-priority primary-side footage</h2></div><span className="section-meta">{proRosterReviewBatch.length} deterministic targets</span></div>
     <div className="pro-lab__card-grid">
-      {proAegisPilotReviewBatch.map((target) => {
+      {proRosterReviewBatch.map((target) => {
         const worksheet = worksheetByVod.get(target.vodId)
         const submissionTemplate = submissionTemplateByVod.get(target.vodId)
         const reviewUrl = worksheet?.startSeconds === undefined
