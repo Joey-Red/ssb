@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { proCoverageGapRepresentatives, proPlayerRepresentatives } from './proLabRosterAll'
-import { getProVodsForFighter, proCoverageGapVodCatalog, proVodCatalog } from './proLabVodsAll'
+import {
+  getProVodsForFighter,
+  proCoverageGapVodCatalog,
+  proVodCatalog,
+  proVodCatalogWithCoverageGaps,
+} from './proLabVodsAll'
 
 describe('roster-neutral Pro Lab coverage gaps', () => {
   it('closes the discovered Link zero-VOD gap with provenance-backed representation', () => {
@@ -18,8 +23,11 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
     expect(linkVods.some((vod) => vod.id === 'umebura-sp4-t-link-zackray')).toBe(true)
   })
 
-  it('keeps coverage-gap footage direct, source-backed, and review-queued', () => {
+  it('keeps coverage-gap footage direct, source-backed, and outside the frozen acquisition baseline', () => {
     expect(proCoverageGapVodCatalog).toHaveLength(1)
+    expect(proVodCatalog).toHaveLength(800)
+    expect(proVodCatalogWithCoverageGaps).toHaveLength(801)
+
     const vod = proCoverageGapVodCatalog[0]!
     expect(vod).toMatchObject({
       playerId: 't-link',
@@ -38,6 +46,7 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
     expect(vod.sourceUrls.length).toBeGreaterThanOrEqual(3)
     expect(vod.quality.visibleGameplay).toBe(true)
     expect(vod.quality.score).toBeGreaterThanOrEqual(12)
-    expect(proVodCatalog.some((entry) => entry.id === vod.id)).toBe(true)
+    expect(proVodCatalog.some((entry) => entry.id === vod.id)).toBe(false)
+    expect(proVodCatalogWithCoverageGaps.some((entry) => entry.id === vod.id)).toBe(true)
   })
 })
