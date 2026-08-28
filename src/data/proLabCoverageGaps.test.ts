@@ -5,6 +5,7 @@ import {
   proCoverageGapVodCatalog,
   proVodCatalog,
   proVodCatalogWithCoverageGaps,
+  proVodCoverageCompletion,
 } from './proLabVodsAll'
 
 describe('roster-neutral Pro Lab coverage gaps', () => {
@@ -32,8 +33,9 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
 
   it('keeps gap-fill footage direct, source-backed, review-queued, and outside the frozen acquisition baseline', () => {
     expect(proCoverageGapVodCatalog).toHaveLength(19)
+    expect(proVodCoverageCompletion).toHaveLength(1)
     expect(proVodCatalog).toHaveLength(800)
-    expect(proVodCatalogWithCoverageGaps).toHaveLength(819)
+    expect(proVodCatalogWithCoverageGaps).toHaveLength(820)
 
     expect(proCoverageGapVodCatalog.map((vod) => vod.id)).toEqual([
       'umebura-sp4-t-link-zackray',
@@ -57,7 +59,7 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
       'kagaribi11-hero-nano',
     ])
 
-    for (const vod of proCoverageGapVodCatalog) {
+    for (const vod of [...proCoverageGapVodCatalog, ...proVodCoverageCompletion]) {
       expect(vod.linkKind).toBe('direct-video')
       expect(vod.videoProvider).toBe('youtube')
       expect(vod.videoId).toBeTruthy()
@@ -70,7 +72,7 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
     }
   })
 
-  it('closes every verified zero-VOD fighter gap while leaving Simon explicitly unresolved', () => {
+  it('closes every zero-VOD fighter gap without promoting tactical evidence', () => {
     const closedFighterIds = [
       'link',
       'banjo-and-kazooie',
@@ -91,15 +93,19 @@ describe('roster-neutral Pro Lab coverage gaps', () => {
       'pichu',
       'pit',
       'zelda',
+      'simon',
     ]
 
     for (const fighterId of closedFighterIds) {
       expect(getProVodsForFighter(fighterId).length, fighterId).toBeGreaterThan(0)
     }
 
-    expect(getProVodsForFighter('simon')).toHaveLength(0)
-    expect(proCoverageGapRepresentatives.some((entry) =>
-      entry.id === 'trigger-simon' && entry.characterRoles.some((role) => role.fighterId === 'simon'),
-    )).toBe(true)
+    expect(proVodCoverageCompletion[0]).toMatchObject({
+      id: 'sumapa122-trigger-wabu-wqf',
+      playerId: 'trigger-simon',
+      playerFighterIds: ['simon'],
+      opponentFighterIds: ['wii-fit-trainer'],
+      analysisStatus: 'review-queued',
+    })
   })
 })
