@@ -35,7 +35,7 @@ const vod = (
  */
 export const proIndexedCoverageM73A = [
   vod('r_Rn7jyQ4Y4', 'Wolfpack Mashers 8 Losers Finals', 'D-Money', 'Kaden', ['sheik', 'incineroar'], '2023-10-30'),
-  vod('aCn5T2iLkq8', 'Warhawk Weekly 4 Winners Semis', 'Fatalis', 'gray', ['sheik'], '2023-10-30'),
+  vod('aCn5T2iLkq8', 'Warhawk Weekly 4 Winners Semis', 'Fatalis', 'gray', ['sheik', 'falco'], '2023-10-30'),
   vod('HkAYz53gGUA', 'Warhawk Weekly 4 Winners Quarters', 'Fatalis', 'Quag', ['sheik'], '2023-10-30'),
   vod('VFg55YyrfJQ', 'West Towne Brawl 70 Losers R4', 'Peels', 'Mario', ['sheik'], '2023-10-30'),
   vod('ShWef8JEFys', 'West Towne Brawl 70 Losers R3', 'Peels', 'Mazen', ['sheik'], '2023-10-30'),
