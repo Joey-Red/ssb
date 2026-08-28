@@ -217,11 +217,11 @@ describe('Pro Lab Phase 2 review infrastructure', () => {
     expect(summary.nextFighterIds).toEqual(['queued', 'seeded', 'cataloged'])
   })
 
-  it('builds a production review plan for the expanded 819-VOD live corpus', () => {
-    expect(proVodCatalog).toHaveLength(819)
-    expect(proRankedVodReviewPlan).toHaveLength(819)
+  it('builds a production review plan for the complete 820-VOD live corpus', () => {
+    expect(proVodCatalog).toHaveLength(820)
+    expect(proRankedVodReviewPlan).toHaveLength(820)
     expect(proRankedVodReviewPlan.every((target) => target.rank >= 1)).toBe(true)
-    expect(new Set(proRankedVodReviewPlan.map((target) => target.vodId)).size).toBe(819)
+    expect(new Set(proRankedVodReviewPlan.map((target) => target.vodId)).size).toBe(820)
     expect(proRankedVodReviewPlan.every((target) => target.videoUrl.startsWith('https://'))).toBe(true)
   })
 

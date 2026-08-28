@@ -3,9 +3,9 @@ import { proZeroVodCoverageStats, proZeroVodFighterIds } from './proLabCoverageG
 import { proCoverageWorkQueue } from './proLab'
 
 describe('derived Pro Lab zero-VOD backlog', () => {
-  it('keeps the sole unresolved fighter visible in the shared work queue', () => {
-    expect(proZeroVodFighterIds).toEqual(['simon'])
-    expect(proZeroVodCoverageStats.uncoveredFighters).toBe(1)
-    expect(proCoverageWorkQueue.some((item) => item.fighterId === 'simon')).toBe(true)
+  it('reaches zero without changing the shared all-roster work queue', () => {
+    expect(proZeroVodFighterIds).toEqual([])
+    expect(proZeroVodCoverageStats.uncoveredFighters).toBe(0)
+    expect(proCoverageWorkQueue).toHaveLength(89)
   })
 })

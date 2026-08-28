@@ -15,6 +15,7 @@ import { proVodCatalog2026Batch2 } from './proLabVods2026Batch2'
 import { proVodCatalog2026Batch3 } from './proLabVods2026Batch3'
 import { proVodCatalog2026Batch4 } from './proLabVods2026Batch4'
 import { proVodCatalog2026Batch5 } from './proLabVods2026Batch5'
+import { proVodCoverageCompletion } from './proLabVodsCoverageCompletion'
 import { proCoverageGapVodCatalog } from './proLabVodsCoverageGaps'
 import {
   proVodFinal293Candidates,
@@ -76,10 +77,14 @@ export const proVodCatalog = unresolvedAcquisitionCatalog.map((vod) =>
   ),
 ) as readonly ProVodRecord[]
 
-/** Live Pro Lab corpus: completed 800-set baseline plus neutral coverage gaps. */
+/**
+ * Live Pro Lab corpus: completed 800-set baseline plus neutral coverage-gap
+ * additions. Coverage completion does not imply tactical review completion.
+ */
 export const proVodCatalogWithCoverageGaps = [
   ...proVodCatalog,
   ...proCoverageGapVodCatalog,
+  ...proVodCoverageCompletion,
 ] as readonly ProVodRecord[]
 
 export const proVodById = new Map(proVodCatalogWithCoverageGaps.map((vod) => [vod.id, vod]))
@@ -98,6 +103,7 @@ export function getProVodsForPlayer(playerId: string) {
 
 export {
   proCoverageGapVodCatalog,
+  proVodCoverageCompletion,
   proVodCatalog2026Batch1,
   proVodCatalog2026Batch2,
   proVodCatalog2026Batch3,
