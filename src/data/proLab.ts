@@ -1,4 +1,4 @@
-import { buildSetBreakdown, extractProPatterns } from '../lib/proLab'
+import { extractProPatterns } from '../lib/proLab'
 import { auditExpandedProLabCatalog } from '../lib/proLabAudit'
 import {
   buildAnnotationWorksheet,
@@ -6,6 +6,7 @@ import {
   summarizeFighterEvidenceProgress,
 } from '../lib/proLabAutomation'
 import { buildProCoverageWorkQueue } from '../lib/proLabCoveragePlanning'
+import { compileProEvidenceRegistry } from '../lib/proLabEvidenceRegistry'
 import {
   buildCharacterLessons,
   buildDecisionExercises,
@@ -27,28 +28,47 @@ import {
   proMetaRepresentation2026,
   proMetaResearchPriorities2026,
 } from './proLabResearchPriorities'
-import { proVodReviewQueue, proVodReviewQueueStats } from './proLabReviewQueueAll'
+import { proVodReviewQueue as proVodReviewQueueSource } from './proLabReviewQueueAll'
+import { proReviewedSubmissions } from './proLabReviewedSubmissions'
 import { proFighterResearchRegistry, proLabPilotFighterIds, proPlayerRepresentatives } from './proLabRosterAll'
-import type { ProDecisionMoment } from './proLabTypes'
-import { proVodCatalog } from './proLabVodsAll'
-
-/**
- * Tactical annotations stay empty until the gameplay has actually been
- * inspected. VOD metadata alone is not enough to invent a player's decisions,
- * reasons, adaptation patterns, frame-data dependency, or matchup plan.
- *
- * Phase 2 consumes this array through evidence-gated builders and validators.
- * As reviewed annotations are added, lessons, exercises, matchup patterns,
- * player comparisons, frame-data references, and drill actions become
- * available automatically without weakening the evidence policy.
- */
-export const proDecisionMoments: readonly ProDecisionMoment[] = []
+import { proVodCatalog as proVodSourceCatalog } from './proLabVodsAll'
 
 export const proLabReferenceDate = '2026-08-27'
 
-export const proSetBreakdowns = proVodCatalog.map((vod) =>
-  buildSetBreakdown(vod.id, proDecisionMoments),
+/**
+ * Production tactical content is compiled exclusively from checked-in review
+ * submissions that pass the same strict intake gate used by the browser review
+ * workbench. Invalid submissions fail closed and cannot leak into teaching data.
+ */
+export const proEvidenceRegistry = compileProEvidenceRegistry(
+  proReviewedSubmissions,
+  proVodSourceCatalog,
+  roster.map((fighter) => fighter.id),
 )
+
+export const proVodCatalog = proEvidenceRegistry.vods
+export const proDecisionMoments = proEvidenceRegistry.moments
+export const proSetBreakdowns = proEvidenceRegistry.breakdowns
+
+const proVodStatusById = new Map(proVodCatalog.map((vod) => [vod.id, vod.analysisStatus]))
+export const proVodReviewQueue = proVodReviewQueueSource.map((target) => {
+  const status = target.vodId ? proVodStatusById.get(target.vodId) : undefined
+  return status === 'reviewed' ? { ...target, status: 'reviewed' as const } : target
+})
+
+export const proVodReviewQueueStats = {
+  totalTargets: proVodReviewQueue.length,
+  critical: proVodReviewQueue.filter((target) => target.priority === 'critical').length,
+  high: proVodReviewQueue.filter((target) => target.priority === 'high').length,
+  normal: proVodReviewQueue.filter((target) => target.priority === 'normal').length,
+  reviewed: proVodReviewQueue.filter((target) => target.status === 'reviewed').length,
+  pending: proVodReviewQueue.filter((target) => target.status !== 'reviewed').length,
+  identityCount: new Set(proVodReviewQueue.map((target) =>
+    target.vodId
+      ? `vod:${target.vodId}`
+      : `media:${target.videoUrl}|${target.setStartSeconds ?? 'full-set'}`,
+  )).size,
+} as const
 
 export const proPlayerIdByVod: Readonly<Record<string, string>> = Object.fromEntries(
   proVodCatalog.map((vod) => [vod.id, vod.playerId]),
@@ -164,6 +184,12 @@ export const proLabReleaseStats = {
   distinctVideos: new Set(proVodCatalog.map((vod) => vod.videoUrl)).size,
   reviewTargets: proVodReviewQueueStats.totalTargets,
   pendingReviewTargets: proVodReviewQueueStats.pending,
+  reviewedReviewTargets: proVodReviewQueueStats.reviewed,
+  checkedInReviewSubmissions: proEvidenceRegistry.sourceSubmissionCount,
+  acceptedReviewSubmissions: proEvidenceRegistry.acceptedSubmissions.length,
+  rejectedReviewSubmissions: proEvidenceRegistry.rejectedSubmissions.length,
+  evidenceRegistryErrors: proEvidenceRegistry.errors.length,
+  evidenceRegistryWarnings: proEvidenceRegistry.warnings.length,
   rankedReviewTargets: proRankedVodReviewPlan.length,
   coverageWorkItems: proCoverageWorkQueue.length,
   aegisPilotReviewTargets: proAegisPilotReviewTargets.length,
@@ -180,8 +206,8 @@ export const proLabReleaseStats = {
   playerComparisons: proPlayerComparisons.length,
   teachingReadyFighters: proRosterCoverage.filter((entry) => entry.state === 'teaching-ready').length,
   catalogedFighters: roster.length - proMaintenanceReport.fightersWithoutCatalogedVods.length,
-  phase2ValidationErrors: proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length,
-  phase2ValidationWarnings: proDecisionMomentValidation.warnings.length + proSetBreakdownValidation.warnings.length,
+  phase2ValidationErrors: proEvidenceRegistry.errors.length + proDecisionMomentValidation.errors.length + proSetBreakdownValidation.errors.length,
+  phase2ValidationWarnings: proEvidenceRegistry.warnings.length + proDecisionMomentValidation.warnings.length + proSetBreakdownValidation.warnings.length,
 } as const
 
 export {
@@ -191,7 +217,4 @@ export {
   proMetaRepresentation2026,
   proMetaResearchPriorities2026,
   proPlayerRepresentatives,
-  proVodCatalog,
-  proVodReviewQueue,
-  proVodReviewQueueStats,
 }
