@@ -59,11 +59,12 @@ export function indexedSetIsCurrent(set: ProIndexedCoverageSet, referenceDate: s
 }
 
 /**
- * Indexed match-video entries deepen roster planning only. They never enter the
- * direct-footage review registry, tactical extraction, lessons, or comparison
- * pipeline. Fighter labels must be explicit in the public index before an entry
- * is checked in. Side-neutral character indexes use indexedFighterIds so the
- * catalog never invents which competitor played that fighter.
+ * Indexed match-video entries deepen roster acquisition planning only. They do
+ * not change direct-evidence maturity and never enter the direct-footage review
+ * registry, tactical extraction, lessons, or comparison pipeline. Fighter labels
+ * must be explicit in the public index before an entry is checked in.
+ * Side-neutral character indexes use indexedFighterIds so the catalog never
+ * invents which competitor played that fighter.
  */
 export function applyIndexedCoverageDepth<T extends CoverageIndexedSet>(
   coverage: readonly ProFighterCoverage[],
@@ -78,10 +79,9 @@ export function applyIndexedCoverageDepth<T extends CoverageIndexedSet>(
     if (indexedForFighter.length === 0) return entry
     const currentIndexedCount = indexedForFighter.filter((set) => indexedSetIsCurrent(set, referenceDate)).length
     const notes = [...entry.notes]
-    notes.push(`${indexedForFighter.length} additional public match-video index entr${indexedForFighter.length === 1 ? 'y' : 'ies'} deepen coverage planning; direct watch links still require resolution before review.`)
+    notes.push(`${indexedForFighter.length} additional public match-video index entr${indexedForFighter.length === 1 ? 'y' : 'ies'} deepen acquisition planning; direct watch links still require resolution before review.`)
     return {
       ...entry,
-      state: entry.state === 'research-queued' || entry.state === 'representative-seeded' ? 'cataloged' : entry.state,
       vodCount: entry.vodCount + indexedForFighter.length,
       currentVodCount: entry.currentVodCount + currentIndexedCount,
       notes,
