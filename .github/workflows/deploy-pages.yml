@@ -36,6 +36,18 @@ jobs:
       - name: Quality gate
         run: npm run check
 
+      - name: Temporary Smash Tube acquisition probe
+        if: github.event_name == 'pull_request'
+        run: node scripts/prolab-smash-tube-probe.mjs
+
+      - name: Upload temporary Smash Tube probe
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v6
+        with:
+          name: smash-tube-probe
+          path: smash-tube-probe.json
+          if-no-files-found: error
+
       - name: Configure Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
