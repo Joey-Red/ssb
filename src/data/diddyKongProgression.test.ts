@@ -20,10 +20,25 @@ describe('Diddy Kong source-video progression', () => {
         tier,
         diddyKongProgression.techniques.filter((technique) => technique.tier === tier).length,
       ]),
-    )).toEqual({ beginner: 11, intermediate: 15, pro: 22, godlike: 17 })
-    expect(diddyKongProgression.techniques).toHaveLength(65)
+    )).toEqual({ beginner: 19, intermediate: 46, pro: 28, godlike: 20 })
+    expect(diddyKongProgression.techniques).toHaveLength(113)
     expect(diddyKongProgression.techniques.every((technique) => technique.route.length >= 2)).toBe(true)
     expect(diddyKongProgression.techniques.every((technique) => Number.isInteger(technique.opponentStartPercent))).toBe(true)
+  })
+
+  it('locks the frame-audited opening inputs and removes generic route placeholders', () => {
+    expect(diddyKongProgression.techniques.slice(0, 3).map((technique) => ({
+      timestampSeconds: technique.timestampSeconds,
+      opponentStartPercent: technique.opponentStartPercent,
+      route: technique.route,
+    }))).toEqual([
+      { timestampSeconds: 0, opponentStartPercent: 0, route: ['Up throw', 'Up air'] },
+      { timestampSeconds: 3, opponentStartPercent: 15, route: ['Up throw', 'Back air'] },
+      { timestampSeconds: 6, opponentStartPercent: 15, route: ['Up throw', 'Forward air'] },
+    ])
+
+    const forbiddenPlaceholders = new Set(['Starter', 'Aerial starter', 'Aerial chase', 'Aerial string', 'Finisher', 'Launcher', 'Setup hit'])
+    expect(diddyKongProgression.techniques.flatMap((technique) => technique.route).filter((step) => forbiddenPlaceholders.has(step))).toEqual([])
   })
 
   it('keeps every source-true overlay qualified instead of universalizing it', () => {
