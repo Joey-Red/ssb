@@ -3,6 +3,7 @@ import { proIndexedCoverageM73A } from './proLabIndexedCoverageM73A'
 import { proIndexedCoverageM73B } from './proLabIndexedCoverageM73B'
 import { proIndexedCoverageM73C } from './proLabIndexedCoverageM73C'
 import { proIndexedCoverageM73D } from './proLabIndexedCoverageM73D'
+import { proIndexedCoverageM74A } from './proLabIndexedCoverageM74A'
 
 /**
  * Source-indexed match-video evidence used only to prioritize acquisition work.
@@ -14,6 +15,7 @@ export const proIndexedCoverageCatalog = [
   ...proIndexedCoverageM73B,
   ...proIndexedCoverageM73C,
   ...proIndexedCoverageM73D,
+  ...proIndexedCoverageM74A,
 ] as const
 
 /** Character-index rows where the public source confirms the fighter, not its side. */
@@ -22,4 +24,5 @@ export const proSideNeutralIndexedCoverageCatalog = [
   ...proIndexedCoverageM73B,
   ...proIndexedCoverageM73C,
   ...proIndexedCoverageM73D,
+  ...proIndexedCoverageM74A,
 ] as const
